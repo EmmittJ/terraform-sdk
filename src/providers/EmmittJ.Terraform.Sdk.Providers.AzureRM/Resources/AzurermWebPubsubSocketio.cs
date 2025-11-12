@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebPubsubSocketioIdentityBlock : TerraformBlockBase
+public partial class AzurermWebPubsubSocketioIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermWebPubsubSocketioIdentityBlock : TerraformBlockBase
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebPubsubSocketioSkuBlock : TerraformBlockBase
+public partial class AzurermWebPubsubSocketioSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -54,7 +54,7 @@ public partial class AzurermWebPubsubSocketioSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWebPubsubSocketioTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWebPubsubSocketioTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -203,7 +203,7 @@ public partial class AzurermWebPubsubSocketio : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWebPubsubSocketioIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWebPubsubSocketioIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -213,14 +213,14 @@ public partial class AzurermWebPubsubSocketio : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermWebPubsubSocketioSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermWebPubsubSocketioSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWebPubsubSocketioTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWebPubsubSocketioTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The external_ip attribute.

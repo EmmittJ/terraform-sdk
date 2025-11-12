@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudAppMysqlAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudAppMysqlAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,6 +107,6 @@ public partial class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudAppMysqlAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudAppMysqlAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

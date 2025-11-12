@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for subnet in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlockBase
+public partial class AzurermDevTestVirtualNetworkSubnetBlock() : TerraformBlock("subnet")
 {
 
     /// <summary>
@@ -29,7 +29,7 @@ public partial class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevTestVirtualNetworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -122,14 +122,14 @@ public partial class AzurermDevTestVirtualNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
     [TerraformProperty("subnet")]
-    public partial TerraformList<TerraformBlock<AzurermDevTestVirtualNetworkSubnetBlock>>? Subnet { get; set; }
+    public TerraformList<AzurermDevTestVirtualNetworkSubnetBlock> Subnet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevTestVirtualNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevTestVirtualNetworkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique_identifier attribute.

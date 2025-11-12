@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataflowJobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataflowJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The update attribute.
@@ -182,7 +182,7 @@ public partial class GoogleDataflowJob : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataflowJobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataflowJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for codebase in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirebaseAppHostingBackendCodebaseBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingBackendCodebaseBlock() : TerraformBlock("codebase")
 {
     /// <summary>
     /// The resource name for the Developer Connect
@@ -34,7 +34,7 @@ public partial class GoogleFirebaseAppHostingBackendCodebaseBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseAppHostingBackendTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingBackendTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -174,14 +174,14 @@ public partial class GoogleFirebaseAppHostingBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Codebase block(s) allowed")]
     [TerraformProperty("codebase")]
-    public partial TerraformList<TerraformBlock<GoogleFirebaseAppHostingBackendCodebaseBlock>>? Codebase { get; set; }
+    public TerraformList<GoogleFirebaseAppHostingBackendCodebaseBlock> Codebase { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseAppHostingBackendTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseAppHostingBackendTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time at which the backend was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backend_metastores in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleDataprocMetastoreFederationBackendMetastoresBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreFederationBackendMetastoresBlock() : TerraformBlock("backend_metastores")
 {
     /// <summary>
     /// The type of the backend metastore. Possible values: [&amp;quot;METASTORE_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;DATAPROC_METASTORE&amp;quot;, &amp;quot;BIGQUERY&amp;quot;]
@@ -38,7 +38,7 @@ public partial class GoogleDataprocMetastoreFederationBackendMetastoresBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreFederationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -147,14 +147,14 @@ public partial class GoogleDataprocMetastoreFederation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendMetastores is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendMetastores block(s) required")]
     [TerraformProperty("backend_metastores")]
-    public partial TerraformSet<TerraformBlock<GoogleDataprocMetastoreFederationBackendMetastoresBlock>>? BackendMetastores { get; set; }
+    public required TerraformSet<GoogleDataprocMetastoreFederationBackendMetastoresBlock> BackendMetastores { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocMetastoreFederationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocMetastoreFederationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time when the metastore federation was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for analytical_storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbAccountAnalyticalStorageBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountAnalyticalStorageBlock() : TerraformBlock("analytical_storage")
 {
     /// <summary>
     /// The schema_type attribute.
@@ -22,7 +22,7 @@ public partial class AzurermCosmosdbAccountAnalyticalStorageBlock : TerraformBlo
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbAccountBackupBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountBackupBlock() : TerraformBlock("backup")
 {
     /// <summary>
     /// The interval_in_minutes attribute.
@@ -66,7 +66,7 @@ public partial class AzurermCosmosdbAccountBackupBlock : TerraformBlockBase
 /// Block type for capabilities in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCosmosdbAccountCapabilitiesBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountCapabilitiesBlock() : TerraformBlock("capabilities")
 {
     /// <summary>
     /// The name attribute.
@@ -82,7 +82,7 @@ public partial class AzurermCosmosdbAccountCapabilitiesBlock : TerraformBlockBas
 /// Block type for capacity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbAccountCapacityBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountCapacityBlock() : TerraformBlock("capacity")
 {
     /// <summary>
     /// The total_throughput_limit attribute.
@@ -98,7 +98,7 @@ public partial class AzurermCosmosdbAccountCapacityBlock : TerraformBlockBase
 /// Block type for consistency_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountConsistencyPolicyBlock() : TerraformBlock("consistency_policy")
 {
     /// <summary>
     /// The consistency_level attribute.
@@ -128,7 +128,7 @@ public partial class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlo
 /// Block type for cors_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountCorsRuleBlock() : TerraformBlock("cors_rule")
 {
     /// <summary>
     /// The allowed_headers attribute.
@@ -175,7 +175,7 @@ public partial class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlockBase
 /// Block type for geo_location in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountGeoLocationBlock() : TerraformBlock("geo_location")
 {
     /// <summary>
     /// The failover_priority attribute.
@@ -207,7 +207,7 @@ public partial class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -232,7 +232,7 @@ public partial class AzurermCosmosdbAccountIdentityBlock : TerraformBlockBase
 /// Block type for restore in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbAccountRestoreBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountRestoreBlock() : TerraformBlock("restore")
 {
     /// <summary>
     /// The restore_timestamp_in_utc attribute.
@@ -263,7 +263,7 @@ public partial class AzurermCosmosdbAccountRestoreBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -299,7 +299,7 @@ public partial class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlockBase
 /// Block type for virtual_network_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlockBase
+public partial class AzurermCosmosdbAccountVirtualNetworkRuleBlock() : TerraformBlock("virtual_network_rule")
 {
     /// <summary>
     /// The id attribute.
@@ -520,7 +520,7 @@ public partial class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnalyticalStorage block(s) allowed")]
     [TerraformProperty("analytical_storage")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbAccountAnalyticalStorageBlock>>? AnalyticalStorage { get; set; }
+    public TerraformList<AzurermCosmosdbAccountAnalyticalStorageBlock> AnalyticalStorage { get; set; } = new();
 
     /// <summary>
     /// Block for backup.
@@ -528,14 +528,14 @@ public partial class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbAccountBackupBlock>>? Backup { get; set; }
+    public TerraformList<AzurermCosmosdbAccountBackupBlock> Backup { get; set; } = new();
 
     /// <summary>
     /// Block for capabilities.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("capabilities")]
-    public partial TerraformSet<TerraformBlock<AzurermCosmosdbAccountCapabilitiesBlock>>? Capabilities { get; set; }
+    public TerraformSet<AzurermCosmosdbAccountCapabilitiesBlock> Capabilities { get; set; } = new();
 
     /// <summary>
     /// Block for capacity.
@@ -543,7 +543,7 @@ public partial class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Capacity block(s) allowed")]
     [TerraformProperty("capacity")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbAccountCapacityBlock>>? Capacity { get; set; }
+    public TerraformList<AzurermCosmosdbAccountCapacityBlock> Capacity { get; set; } = new();
 
     /// <summary>
     /// Block for consistency_policy.
@@ -553,7 +553,7 @@ public partial class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConsistencyPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConsistencyPolicy block(s) allowed")]
     [TerraformProperty("consistency_policy")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbAccountConsistencyPolicyBlock>>? ConsistencyPolicy { get; set; }
+    public required TerraformList<AzurermCosmosdbAccountConsistencyPolicyBlock> ConsistencyPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for cors_rule.
@@ -561,7 +561,7 @@ public partial class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsRule block(s) allowed")]
     [TerraformProperty("cors_rule")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbAccountCorsRuleBlock>>? CorsRule { get; set; }
+    public TerraformList<AzurermCosmosdbAccountCorsRuleBlock> CorsRule { get; set; } = new();
 
     /// <summary>
     /// Block for geo_location.
@@ -570,7 +570,7 @@ public partial class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeoLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GeoLocation block(s) required")]
     [TerraformProperty("geo_location")]
-    public partial TerraformSet<TerraformBlock<AzurermCosmosdbAccountGeoLocationBlock>>? GeoLocation { get; set; }
+    public required TerraformSet<AzurermCosmosdbAccountGeoLocationBlock> GeoLocation { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -578,7 +578,7 @@ public partial class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbAccountIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermCosmosdbAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for restore.
@@ -586,21 +586,21 @@ public partial class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restore block(s) allowed")]
     [TerraformProperty("restore")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbAccountRestoreBlock>>? Restore { get; set; }
+    public TerraformList<AzurermCosmosdbAccountRestoreBlock> Restore { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_network_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("virtual_network_rule")]
-    public partial TerraformSet<TerraformBlock<AzurermCosmosdbAccountVirtualNetworkRuleBlock>>? VirtualNetworkRule { get; set; }
+    public TerraformSet<AzurermCosmosdbAccountVirtualNetworkRuleBlock> VirtualNetworkRule { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

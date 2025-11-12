@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for egress_from in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlock() : TerraformBlock("egress_from")
 {
     /// <summary>
     /// Identities can be an individual user, service account, Google group,
@@ -41,7 +41,7 @@ public partial class GoogleAccessContextManagerServicePerimeterEgressPolicyEgres
 /// Block type for egress_to in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock() : TerraformBlock("egress_to")
 {
     /// <summary>
     /// A list of external resources that are allowed to be accessed. A request
@@ -78,7 +78,7 @@ public partial class GoogleAccessContextManagerServicePerimeterEgressPolicyEgres
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -134,7 +134,7 @@ public partial class GoogleAccessContextManagerServicePerimeterEgressPolicy : Te
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EgressFrom block(s) allowed")]
     [TerraformProperty("egress_from")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlock>>? EgressFrom { get; set; }
+    public TerraformList<GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlock> EgressFrom { get; set; } = new();
 
     /// <summary>
     /// Block for egress_to.
@@ -142,14 +142,14 @@ public partial class GoogleAccessContextManagerServicePerimeterEgressPolicy : Te
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EgressTo block(s) allowed")]
     [TerraformProperty("egress_to")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock>>? EgressTo { get; set; }
+    public TerraformList<GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock> EgressTo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.

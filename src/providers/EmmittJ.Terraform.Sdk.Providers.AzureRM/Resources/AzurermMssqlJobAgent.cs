@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlJobAgentIdentityBlock : TerraformBlockBase
+public partial class AzurermMssqlJobAgentIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -30,7 +30,7 @@ public partial class AzurermMssqlJobAgentIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlJobAgentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlJobAgentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,13 +123,13 @@ public partial class AzurermMssqlJobAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlJobAgentIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMssqlJobAgentIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlJobAgentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlJobAgentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

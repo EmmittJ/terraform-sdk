@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDirectoryServiceRegionTimeoutsBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceRegionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsDirectoryServiceRegionTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDirectoryServiceRegionVpcSettingsBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceRegionVpcSettingsBlock() : TerraformBlock("vpc_settings")
 {
     /// <summary>
     /// The subnet_ids attribute.
@@ -121,7 +121,7 @@ public partial class AwsDirectoryServiceRegion : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDirectoryServiceRegionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDirectoryServiceRegionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_settings.
@@ -131,6 +131,6 @@ public partial class AwsDirectoryServiceRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcSettings block(s) allowed")]
     [TerraformProperty("vpc_settings")]
-    public partial TerraformList<TerraformBlock<AwsDirectoryServiceRegionVpcSettingsBlock>>? VpcSettings { get; set; }
+    public required TerraformList<AwsDirectoryServiceRegionVpcSettingsBlock> VpcSettings { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbListenerRuleDataSourceActionBlock : TerraformBlockBase
+public partial class AwsLbListenerRuleDataSourceActionBlock() : TerraformBlock("action")
 {
 
 
@@ -16,7 +16,7 @@ public partial class AwsLbListenerRuleDataSourceActionBlock : TerraformBlockBase
 /// Block type for condition in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLbListenerRuleDataSourceConditionBlock : TerraformBlockBase
+public partial class AwsLbListenerRuleDataSourceConditionBlock() : TerraformBlock("condition")
 {
 }
 
@@ -24,7 +24,7 @@ public partial class AwsLbListenerRuleDataSourceConditionBlock : TerraformBlockB
 /// Block type for transform in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLbListenerRuleDataSourceTransformBlock : TerraformBlockBase
+public partial class AwsLbListenerRuleDataSourceTransformBlock() : TerraformBlock("transform")
 {
 
 }
@@ -71,21 +71,21 @@ public partial class AwsLbListenerRuleDataSource : TerraformDataSource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AwsLbListenerRuleDataSourceActionBlock>>? Action { get; set; }
+    public TerraformList<AwsLbListenerRuleDataSourceActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for condition.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("condition")]
-    public partial TerraformSet<TerraformBlock<AwsLbListenerRuleDataSourceConditionBlock>>? Condition { get; set; }
+    public TerraformSet<AwsLbListenerRuleDataSourceConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for transform.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("transform")]
-    public partial TerraformSet<TerraformBlock<AwsLbListenerRuleDataSourceTransformBlock>>? Transform { get; set; }
+    public TerraformSet<AwsLbListenerRuleDataSourceTransformBlock> Transform { get; set; } = new();
 
     /// <summary>
     /// The tags attribute.

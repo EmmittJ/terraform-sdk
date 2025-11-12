@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_capacity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamFleetComputeCapacityBlock : TerraformBlockBase
+public partial class AwsAppstreamFleetComputeCapacityBlock() : TerraformBlock("compute_capacity")
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ public partial class AwsAppstreamFleetComputeCapacityBlock : TerraformBlockBase
 /// Block type for domain_join_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamFleetDomainJoinInfoBlock : TerraformBlockBase
+public partial class AwsAppstreamFleetDomainJoinInfoBlock() : TerraformBlock("domain_join_info")
 {
     /// <summary>
     /// The directory_name attribute.
@@ -53,7 +53,7 @@ public partial class AwsAppstreamFleetDomainJoinInfoBlock : TerraformBlockBase
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamFleetVpcConfigBlock : TerraformBlockBase
+public partial class AwsAppstreamFleetVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -217,7 +217,7 @@ public partial class AwsAppstreamFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComputeCapacity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeCapacity block(s) allowed")]
     [TerraformProperty("compute_capacity")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamFleetComputeCapacityBlock>>? ComputeCapacity { get; set; }
+    public required TerraformList<AwsAppstreamFleetComputeCapacityBlock> ComputeCapacity { get; set; } = new();
 
     /// <summary>
     /// Block for domain_join_info.
@@ -225,7 +225,7 @@ public partial class AwsAppstreamFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainJoinInfo block(s) allowed")]
     [TerraformProperty("domain_join_info")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamFleetDomainJoinInfoBlock>>? DomainJoinInfo { get; set; }
+    public TerraformList<AwsAppstreamFleetDomainJoinInfoBlock> DomainJoinInfo { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -233,7 +233,7 @@ public partial class AwsAppstreamFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamFleetVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsAppstreamFleetVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

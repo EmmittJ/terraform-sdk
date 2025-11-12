@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for big_query_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock() : TerraformBlock("big_query_source")
 {
     /// <summary>
     /// Columns to construct entityId / row keys. Start by supporting 1 only.
@@ -30,7 +30,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBl
 /// Block type for feature_registry_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock() : TerraformBlock("feature_registry_source")
 {
     /// <summary>
     /// The project number of the parent project of the feature Groups.
@@ -45,7 +45,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistryS
 /// Block type for sync_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock() : TerraformBlock("sync_config")
 {
     /// <summary>
     /// If true, syncs the FeatureView in a continuous manner to Online Store.
@@ -68,7 +68,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -156,7 +156,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigQuerySource block(s) allowed")]
     [TerraformProperty("big_query_source")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock>>? BigQuerySource { get; set; }
+    public TerraformList<GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock> BigQuerySource { get; set; } = new();
 
     /// <summary>
     /// Block for feature_registry_source.
@@ -164,7 +164,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureRegistrySource block(s) allowed")]
     [TerraformProperty("feature_registry_source")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock>>? FeatureRegistrySource { get; set; }
+    public TerraformList<GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock> FeatureRegistrySource { get; set; } = new();
 
     /// <summary>
     /// Block for sync_config.
@@ -172,14 +172,14 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
     [TerraformProperty("sync_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock>>? SyncConfig { get; set; }
+    public TerraformList<GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock> SyncConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the featureOnlinestore was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

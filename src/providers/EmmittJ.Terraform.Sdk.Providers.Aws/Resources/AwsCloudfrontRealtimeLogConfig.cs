@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontRealtimeLogConfigEndpointBlock : TerraformBlockBase
+public partial class AwsCloudfrontRealtimeLogConfigEndpointBlock() : TerraformBlock("endpoint")
 {
     /// <summary>
     /// The stream_type attribute.
@@ -67,7 +67,7 @@ public partial class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
     [TerraformProperty("endpoint")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontRealtimeLogConfigEndpointBlock>>? Endpoint { get; set; }
+    public required TerraformList<AwsCloudfrontRealtimeLogConfigEndpointBlock> Endpoint { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

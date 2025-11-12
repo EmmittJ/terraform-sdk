@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventhubNamespaceIdentityBlock : TerraformBlockBase
+public partial class AzurermEventhubNamespaceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermEventhubNamespaceIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventhubNamespaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventhubNamespaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -181,14 +181,14 @@ public partial class AzurermEventhubNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermEventhubNamespaceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermEventhubNamespaceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventhubNamespaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventhubNamespaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_primary_connection_string attribute.

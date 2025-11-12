@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for aws_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerDeviceAwsLocationBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerDeviceAwsLocationBlock() : TerraformBlock("aws_location")
 {
     /// <summary>
     /// The subnet_arn attribute.
@@ -28,7 +28,7 @@ public partial class AwsNetworkmanagerDeviceAwsLocationBlock : TerraformBlockBas
 /// Block type for location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerDeviceLocationBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerDeviceLocationBlock() : TerraformBlock("location")
 {
     /// <summary>
     /// The address attribute.
@@ -57,7 +57,7 @@ public partial class AwsNetworkmanagerDeviceLocationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkmanagerDeviceTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerDeviceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,7 +169,7 @@ public partial class AwsNetworkmanagerDevice : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AwsLocation block(s) allowed")]
     [TerraformProperty("aws_location")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerDeviceAwsLocationBlock>>? AwsLocation { get; set; }
+    public TerraformList<AwsNetworkmanagerDeviceAwsLocationBlock> AwsLocation { get; set; } = new();
 
     /// <summary>
     /// Block for location.
@@ -177,14 +177,14 @@ public partial class AwsNetworkmanagerDevice : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
     [TerraformProperty("location")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerDeviceLocationBlock>>? Location { get; set; }
+    public TerraformList<AwsNetworkmanagerDeviceLocationBlock> Location { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkmanagerDeviceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkmanagerDeviceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

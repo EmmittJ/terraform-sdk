@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for posix_user in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEfsAccessPointPosixUserBlock : TerraformBlockBase
+public partial class AwsEfsAccessPointPosixUserBlock() : TerraformBlock("posix_user")
 {
     /// <summary>
     /// The gid attribute.
@@ -37,7 +37,7 @@ public partial class AwsEfsAccessPointPosixUserBlock : TerraformBlockBase
 /// Block type for root_directory in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEfsAccessPointRootDirectoryBlock : TerraformBlockBase
+public partial class AwsEfsAccessPointRootDirectoryBlock() : TerraformBlock("root_directory")
 {
     /// <summary>
     /// The path attribute.
@@ -100,7 +100,7 @@ public partial class AwsEfsAccessPoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixUser block(s) allowed")]
     [TerraformProperty("posix_user")]
-    public partial TerraformList<TerraformBlock<AwsEfsAccessPointPosixUserBlock>>? PosixUser { get; set; }
+    public TerraformList<AwsEfsAccessPointPosixUserBlock> PosixUser { get; set; } = new();
 
     /// <summary>
     /// Block for root_directory.
@@ -108,7 +108,7 @@ public partial class AwsEfsAccessPoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootDirectory block(s) allowed")]
     [TerraformProperty("root_directory")]
-    public partial TerraformList<TerraformBlock<AwsEfsAccessPointRootDirectoryBlock>>? RootDirectory { get; set; }
+    public TerraformList<AwsEfsAccessPointRootDirectoryBlock> RootDirectory { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

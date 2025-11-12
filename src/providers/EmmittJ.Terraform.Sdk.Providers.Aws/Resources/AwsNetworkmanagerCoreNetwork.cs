@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkmanagerCoreNetworkTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerCoreNetworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -102,7 +102,7 @@ public partial class AwsNetworkmanagerCoreNetwork : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkmanagerCoreNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkmanagerCoreNetworkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

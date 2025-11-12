@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_devops_repo in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlockBase
+public partial class AzurermSynapseWorkspaceAzureDevopsRepoBlock() : TerraformBlock("azure_devops_repo")
 {
     /// <summary>
     /// The account_name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBloc
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermSynapseWorkspaceCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The key_name attribute.
@@ -98,7 +98,7 @@ public partial class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformB
 /// Block type for github_repo in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlockBase
+public partial class AzurermSynapseWorkspaceGithubRepoBlock() : TerraformBlock("github_repo")
 {
     /// <summary>
     /// The account_name attribute.
@@ -152,7 +152,7 @@ public partial class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseWorkspaceIdentityBlock : TerraformBlockBase
+public partial class AzurermSynapseWorkspaceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -177,7 +177,7 @@ public partial class AzurermSynapseWorkspaceIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSynapseWorkspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -348,7 +348,7 @@ public partial class AzurermSynapseWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureDevopsRepo block(s) allowed")]
     [TerraformProperty("azure_devops_repo")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseWorkspaceAzureDevopsRepoBlock>>? AzureDevopsRepo { get; set; }
+    public TerraformList<AzurermSynapseWorkspaceAzureDevopsRepoBlock> AzureDevopsRepo { get; set; } = new();
 
     /// <summary>
     /// Block for customer_managed_key.
@@ -356,7 +356,7 @@ public partial class AzurermSynapseWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseWorkspaceCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermSynapseWorkspaceCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for github_repo.
@@ -364,7 +364,7 @@ public partial class AzurermSynapseWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubRepo block(s) allowed")]
     [TerraformProperty("github_repo")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseWorkspaceGithubRepoBlock>>? GithubRepo { get; set; }
+    public TerraformList<AzurermSynapseWorkspaceGithubRepoBlock> GithubRepo { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -372,14 +372,14 @@ public partial class AzurermSynapseWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseWorkspaceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermSynapseWorkspaceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSynapseWorkspaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSynapseWorkspaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The connectivity_endpoints attribute.

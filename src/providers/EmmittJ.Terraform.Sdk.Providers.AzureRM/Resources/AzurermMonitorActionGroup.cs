@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for arm_role_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupArmRoleReceiverBlock() : TerraformBlock("arm_role_receiver")
 {
     /// <summary>
     /// The name attribute.
@@ -37,7 +37,7 @@ public partial class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBl
 /// Block type for automation_runbook_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock() : TerraformBlock("automation_runbook_receiver")
 {
     /// <summary>
     /// The automation_account_id attribute.
@@ -100,7 +100,7 @@ public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : T
 /// Block type for azure_app_push_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupAzureAppPushReceiverBlock() : TerraformBlock("azure_app_push_receiver")
 {
     /// <summary>
     /// The email_address attribute.
@@ -124,7 +124,7 @@ public partial class AzurermMonitorActionGroupAzureAppPushReceiverBlock : Terraf
 /// Block type for azure_function_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupAzureFunctionReceiverBlock() : TerraformBlock("azure_function_receiver")
 {
     /// <summary>
     /// The function_app_resource_id attribute.
@@ -171,7 +171,7 @@ public partial class AzurermMonitorActionGroupAzureFunctionReceiverBlock : Terra
 /// Block type for email_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupEmailReceiverBlock() : TerraformBlock("email_receiver")
 {
     /// <summary>
     /// The email_address attribute.
@@ -202,7 +202,7 @@ public partial class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBloc
 /// Block type for event_hub_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupEventHubReceiverBlock() : TerraformBlock("event_hub_receiver")
 {
     /// <summary>
     /// The event_hub_name attribute.
@@ -255,7 +255,7 @@ public partial class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformB
 /// Block type for itsm_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupItsmReceiverBlock() : TerraformBlock("itsm_receiver")
 {
     /// <summary>
     /// The connection_id attribute.
@@ -303,7 +303,7 @@ public partial class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
 /// Block type for logic_app_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupLogicAppReceiverBlock() : TerraformBlock("logic_app_receiver")
 {
     /// <summary>
     /// The callback_url attribute.
@@ -342,7 +342,7 @@ public partial class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformB
 /// Block type for sms_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupSmsReceiverBlock() : TerraformBlock("sms_receiver")
 {
     /// <summary>
     /// The country_code attribute.
@@ -374,7 +374,7 @@ public partial class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -410,7 +410,7 @@ public partial class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlockBase
 /// Block type for voice_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupVoiceReceiverBlock() : TerraformBlock("voice_receiver")
 {
     /// <summary>
     /// The country_code attribute.
@@ -442,7 +442,7 @@ public partial class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBloc
 /// Block type for webhook_receiver in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlockBase
+public partial class AzurermMonitorActionGroupWebhookReceiverBlock() : TerraformBlock("webhook_receiver")
 {
     /// <summary>
     /// The name attribute.
@@ -535,83 +535,83 @@ public partial class AzurermMonitorActionGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("arm_role_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupArmRoleReceiverBlock>>? ArmRoleReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupArmRoleReceiverBlock> ArmRoleReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for automation_runbook_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("automation_runbook_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>>? AutomationRunbookReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupAutomationRunbookReceiverBlock> AutomationRunbookReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for azure_app_push_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("azure_app_push_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupAzureAppPushReceiverBlock>>? AzureAppPushReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupAzureAppPushReceiverBlock> AzureAppPushReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for azure_function_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("azure_function_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupAzureFunctionReceiverBlock>>? AzureFunctionReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupAzureFunctionReceiverBlock> AzureFunctionReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for email_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("email_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupEmailReceiverBlock>>? EmailReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupEmailReceiverBlock> EmailReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for event_hub_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_hub_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupEventHubReceiverBlock>>? EventHubReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupEventHubReceiverBlock> EventHubReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for itsm_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("itsm_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupItsmReceiverBlock>>? ItsmReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupItsmReceiverBlock> ItsmReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for logic_app_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("logic_app_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupLogicAppReceiverBlock>>? LogicAppReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupLogicAppReceiverBlock> LogicAppReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for sms_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sms_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupSmsReceiverBlock>>? SmsReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupSmsReceiverBlock> SmsReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorActionGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorActionGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for voice_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("voice_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupVoiceReceiverBlock>>? VoiceReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupVoiceReceiverBlock> VoiceReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for webhook_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("webhook_receiver")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupWebhookReceiverBlock>>? WebhookReceiver { get; set; }
+    public TerraformList<AzurermMonitorActionGroupWebhookReceiverBlock> WebhookReceiver { get; set; } = new();
 
 }

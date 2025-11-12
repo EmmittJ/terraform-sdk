@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataShareDatasetDataLakeGen2TimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataShareDatasetDataLakeGen2TimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,7 +98,7 @@ public partial class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataShareDatasetDataLakeGen2TimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataShareDatasetDataLakeGen2TimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The display_name attribute.

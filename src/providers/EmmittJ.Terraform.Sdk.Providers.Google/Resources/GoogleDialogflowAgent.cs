@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowAgentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowAgentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,7 +161,7 @@ public partial class GoogleDialogflowAgent : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowAgentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowAgentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The URI of the agent&#39;s avatar as returned from the API. Output only. To provide an image URL for the agent avatar,

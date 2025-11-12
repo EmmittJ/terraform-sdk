@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2LocalGatewayDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2LocalGatewayDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsEc2LocalGatewayDataSourceFilterBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2LocalGatewayDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2LocalGatewayDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -83,14 +83,14 @@ public partial class AwsEc2LocalGatewayDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2LocalGatewayDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2LocalGatewayDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2LocalGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2LocalGatewayDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The outpost_arn attribute.

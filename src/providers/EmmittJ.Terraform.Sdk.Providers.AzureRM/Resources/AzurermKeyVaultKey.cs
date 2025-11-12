@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rotation_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlockBase
+public partial class AzurermKeyVaultKeyRotationPolicyBlock() : TerraformBlock("rotation_policy")
 {
     /// <summary>
     /// The expire_after attribute.
@@ -28,7 +28,7 @@ public partial class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -150,14 +150,14 @@ public partial class AzurermKeyVaultKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationPolicy block(s) allowed")]
     [TerraformProperty("rotation_policy")]
-    public partial TerraformList<TerraformBlock<AzurermKeyVaultKeyRotationPolicyBlock>>? RotationPolicy { get; set; }
+    public TerraformList<AzurermKeyVaultKeyRotationPolicyBlock> RotationPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKeyVaultKeyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKeyVaultKeyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The e attribute.

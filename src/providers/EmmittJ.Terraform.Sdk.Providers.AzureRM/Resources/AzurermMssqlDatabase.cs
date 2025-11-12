@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlDatabaseIdentityBlock : TerraformBlockBase
+public partial class AzurermMssqlDatabaseIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -30,7 +30,7 @@ public partial class AzurermMssqlDatabaseIdentityBlock : TerraformBlockBase
 /// Block type for import in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlDatabaseImportBlock : TerraformBlockBase
+public partial class AzurermMssqlDatabaseImportBlock() : TerraformBlock("import")
 {
     /// <summary>
     /// The administrator_login attribute.
@@ -93,7 +93,7 @@ public partial class AzurermMssqlDatabaseImportBlock : TerraformBlockBase
 /// Block type for long_term_retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlockBase
+public partial class AzurermMssqlDatabaseLongTermRetentionPolicyBlock() : TerraformBlock("long_term_retention_policy")
 {
     /// <summary>
     /// The immutable_backups_enabled attribute.
@@ -136,7 +136,7 @@ public partial class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : Terrafor
 /// Block type for short_term_retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlockBase
+public partial class AzurermMssqlDatabaseShortTermRetentionPolicyBlock() : TerraformBlock("short_term_retention_policy")
 {
     /// <summary>
     /// The backup_interval_in_hours attribute.
@@ -159,7 +159,7 @@ public partial class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : Terrafo
 /// Block type for threat_detection_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlockBase
+public partial class AzurermMssqlDatabaseThreatDetectionPolicyBlock() : TerraformBlock("threat_detection_policy")
 {
     /// <summary>
     /// The disabled_alerts attribute.
@@ -216,7 +216,7 @@ public partial class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -483,7 +483,7 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMssqlDatabaseIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for import.
@@ -491,7 +491,7 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
     [TerraformProperty("import")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseImportBlock>>? Import { get; set; }
+    public TerraformList<AzurermMssqlDatabaseImportBlock> Import { get; set; } = new();
 
     /// <summary>
     /// Block for long_term_retention_policy.
@@ -499,7 +499,7 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
     [TerraformProperty("long_term_retention_policy")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; }
+    public TerraformList<AzurermMssqlDatabaseLongTermRetentionPolicyBlock> LongTermRetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for short_term_retention_policy.
@@ -507,7 +507,7 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShortTermRetentionPolicy block(s) allowed")]
     [TerraformProperty("short_term_retention_policy")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>>? ShortTermRetentionPolicy { get; set; }
+    public TerraformList<AzurermMssqlDatabaseShortTermRetentionPolicyBlock> ShortTermRetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for threat_detection_policy.
@@ -515,13 +515,13 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
     [TerraformProperty("threat_detection_policy")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseThreatDetectionPolicyBlock>>? ThreatDetectionPolicy { get; set; }
+    public TerraformList<AzurermMssqlDatabaseThreatDetectionPolicyBlock> ThreatDetectionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
 }

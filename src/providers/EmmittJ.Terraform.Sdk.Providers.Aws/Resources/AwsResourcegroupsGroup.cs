@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsResourcegroupsGroupConfigurationBlock : TerraformBlockBase
+public partial class AwsResourcegroupsGroupConfigurationBlock() : TerraformBlock("configuration")
 {
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsResourcegroupsGroupConfigurationBlock : TerraformBlockBa
 /// Block type for resource_query in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsResourcegroupsGroupResourceQueryBlock : TerraformBlockBase
+public partial class AwsResourcegroupsGroupResourceQueryBlock() : TerraformBlock("resource_query")
 {
     /// <summary>
     /// The query attribute.
@@ -45,7 +45,7 @@ public partial class AwsResourcegroupsGroupResourceQueryBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsResourcegroupsGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsResourcegroupsGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -121,7 +121,7 @@ public partial class AwsResourcegroupsGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("configuration")]
-    public partial TerraformSet<TerraformBlock<AwsResourcegroupsGroupConfigurationBlock>>? Configuration { get; set; }
+    public TerraformSet<AwsResourcegroupsGroupConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for resource_query.
@@ -129,14 +129,14 @@ public partial class AwsResourcegroupsGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceQuery block(s) allowed")]
     [TerraformProperty("resource_query")]
-    public partial TerraformList<TerraformBlock<AwsResourcegroupsGroupResourceQueryBlock>>? ResourceQuery { get; set; }
+    public TerraformList<AwsResourcegroupsGroupResourceQueryBlock> ResourceQuery { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsResourcegroupsGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsResourcegroupsGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

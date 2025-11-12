@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskconnectConnectorCapacityBlock : TerraformBlockBase
+public partial class AwsMskconnectConnectorCapacityBlock() : TerraformBlock("capacity")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsMskconnectConnectorCapacityBlock : TerraformBlockBase
 /// Block type for kafka_cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskconnectConnectorKafkaClusterBlock : TerraformBlockBase
+public partial class AwsMskconnectConnectorKafkaClusterBlock() : TerraformBlock("kafka_cluster")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsMskconnectConnectorKafkaClusterBlock : TerraformBlockBas
 /// Block type for kafka_cluster_client_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock : TerraformBlockBase
+public partial class AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock() : TerraformBlock("kafka_cluster_client_authentication")
 {
     /// <summary>
     /// The authentication_type attribute.
@@ -37,7 +37,7 @@ public partial class AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock
 /// Block type for kafka_cluster_encryption_in_transit in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock : TerraformBlockBase
+public partial class AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock() : TerraformBlock("kafka_cluster_encryption_in_transit")
 {
     /// <summary>
     /// The encryption_type attribute.
@@ -52,7 +52,7 @@ public partial class AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock 
 /// Block type for log_delivery in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskconnectConnectorLogDeliveryBlock : TerraformBlockBase
+public partial class AwsMskconnectConnectorLogDeliveryBlock() : TerraformBlock("log_delivery")
 {
 }
 
@@ -60,7 +60,7 @@ public partial class AwsMskconnectConnectorLogDeliveryBlock : TerraformBlockBase
 /// Block type for plugin in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMskconnectConnectorPluginBlock : TerraformBlockBase
+public partial class AwsMskconnectConnectorPluginBlock() : TerraformBlock("plugin")
 {
 }
 
@@ -68,7 +68,7 @@ public partial class AwsMskconnectConnectorPluginBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMskconnectConnectorTimeoutsBlock : TerraformBlockBase
+public partial class AwsMskconnectConnectorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -97,7 +97,7 @@ public partial class AwsMskconnectConnectorTimeoutsBlock : TerraformBlockBase
 /// Block type for worker_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlockBase
+public partial class AwsMskconnectConnectorWorkerConfigurationBlock() : TerraformBlock("worker_configuration")
 {
     /// <summary>
     /// The arn attribute.
@@ -202,7 +202,7 @@ public partial class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Capacity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Capacity block(s) allowed")]
     [TerraformProperty("capacity")]
-    public partial TerraformList<TerraformBlock<AwsMskconnectConnectorCapacityBlock>>? Capacity { get; set; }
+    public required TerraformList<AwsMskconnectConnectorCapacityBlock> Capacity { get; set; } = new();
 
     /// <summary>
     /// Block for kafka_cluster.
@@ -212,7 +212,7 @@ public partial class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaCluster block(s) allowed")]
     [TerraformProperty("kafka_cluster")]
-    public partial TerraformList<TerraformBlock<AwsMskconnectConnectorKafkaClusterBlock>>? KafkaCluster { get; set; }
+    public required TerraformList<AwsMskconnectConnectorKafkaClusterBlock> KafkaCluster { get; set; } = new();
 
     /// <summary>
     /// Block for kafka_cluster_client_authentication.
@@ -222,7 +222,7 @@ public partial class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaClusterClientAuthentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaClusterClientAuthentication block(s) allowed")]
     [TerraformProperty("kafka_cluster_client_authentication")]
-    public partial TerraformList<TerraformBlock<AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock>>? KafkaClusterClientAuthentication { get; set; }
+    public required TerraformList<AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock> KafkaClusterClientAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for kafka_cluster_encryption_in_transit.
@@ -232,7 +232,7 @@ public partial class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaClusterEncryptionInTransit block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaClusterEncryptionInTransit block(s) allowed")]
     [TerraformProperty("kafka_cluster_encryption_in_transit")]
-    public partial TerraformList<TerraformBlock<AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock>>? KafkaClusterEncryptionInTransit { get; set; }
+    public required TerraformList<AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock> KafkaClusterEncryptionInTransit { get; set; } = new();
 
     /// <summary>
     /// Block for log_delivery.
@@ -240,7 +240,7 @@ public partial class AwsMskconnectConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogDelivery block(s) allowed")]
     [TerraformProperty("log_delivery")]
-    public partial TerraformList<TerraformBlock<AwsMskconnectConnectorLogDeliveryBlock>>? LogDelivery { get; set; }
+    public TerraformList<AwsMskconnectConnectorLogDeliveryBlock> LogDelivery { get; set; } = new();
 
     /// <summary>
     /// Block for plugin.
@@ -249,14 +249,14 @@ public partial class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plugin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plugin block(s) required")]
     [TerraformProperty("plugin")]
-    public partial TerraformSet<TerraformBlock<AwsMskconnectConnectorPluginBlock>>? Plugin { get; set; }
+    public required TerraformSet<AwsMskconnectConnectorPluginBlock> Plugin { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMskconnectConnectorTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMskconnectConnectorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for worker_configuration.
@@ -264,7 +264,7 @@ public partial class AwsMskconnectConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfiguration block(s) allowed")]
     [TerraformProperty("worker_configuration")]
-    public partial TerraformList<TerraformBlock<AwsMskconnectConnectorWorkerConfigurationBlock>>? WorkerConfiguration { get; set; }
+    public TerraformList<AwsMskconnectConnectorWorkerConfigurationBlock> WorkerConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

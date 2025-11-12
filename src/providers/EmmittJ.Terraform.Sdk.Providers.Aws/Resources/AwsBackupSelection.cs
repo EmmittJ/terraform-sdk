@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for condition in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBackupSelectionConditionBlock : TerraformBlockBase
+public partial class AwsBackupSelectionConditionBlock() : TerraformBlock("condition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsBackupSelectionConditionBlock : TerraformBlockBase
 /// Block type for selection_tag in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBackupSelectionSelectionTagBlock : TerraformBlockBase
+public partial class AwsBackupSelectionSelectionTagBlock() : TerraformBlock("selection_tag")
 {
     /// <summary>
     /// The key attribute.
@@ -108,13 +108,13 @@ public partial class AwsBackupSelection : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("condition")]
-    public partial TerraformSet<TerraformBlock<AwsBackupSelectionConditionBlock>>? Condition { get; set; }
+    public TerraformSet<AwsBackupSelectionConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for selection_tag.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("selection_tag")]
-    public partial TerraformSet<TerraformBlock<AwsBackupSelectionSelectionTagBlock>>? SelectionTag { get; set; }
+    public TerraformSet<AwsBackupSelectionSelectionTagBlock> SelectionTag { get; set; } = new();
 
 }

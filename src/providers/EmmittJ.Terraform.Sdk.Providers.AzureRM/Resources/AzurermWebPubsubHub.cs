@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for event_handler in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebPubsubHubEventHandlerBlock : TerraformBlockBase
+public partial class AzurermWebPubsubHubEventHandlerBlock() : TerraformBlock("event_handler")
 {
     /// <summary>
     /// The system_events attribute.
@@ -36,7 +36,7 @@ public partial class AzurermWebPubsubHubEventHandlerBlock : TerraformBlockBase
 /// Block type for event_listener in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebPubsubHubEventListenerBlock : TerraformBlockBase
+public partial class AzurermWebPubsubHubEventListenerBlock() : TerraformBlock("event_listener")
 {
     /// <summary>
     /// The eventhub_name attribute.
@@ -74,7 +74,7 @@ public partial class AzurermWebPubsubHubEventListenerBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWebPubsubHubTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWebPubsubHubTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -150,20 +150,20 @@ public partial class AzurermWebPubsubHub : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_handler")]
-    public partial TerraformList<TerraformBlock<AzurermWebPubsubHubEventHandlerBlock>>? EventHandler { get; set; }
+    public TerraformList<AzurermWebPubsubHubEventHandlerBlock> EventHandler { get; set; } = new();
 
     /// <summary>
     /// Block for event_listener.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_listener")]
-    public partial TerraformList<TerraformBlock<AzurermWebPubsubHubEventListenerBlock>>? EventListener { get; set; }
+    public TerraformList<AzurermWebPubsubHubEventListenerBlock> EventListener { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWebPubsubHubTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWebPubsubHubTimeoutsBlock Timeouts { get; set; } = new();
 
 }

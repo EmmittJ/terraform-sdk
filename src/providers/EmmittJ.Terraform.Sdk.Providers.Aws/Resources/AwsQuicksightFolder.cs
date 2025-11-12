@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightFolderPermissionsBlock : TerraformBlockBase
+public partial class AwsQuicksightFolderPermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The actions attribute.
@@ -30,7 +30,7 @@ public partial class AwsQuicksightFolderPermissionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsQuicksightFolderTimeoutsBlock : TerraformBlockBase
+public partial class AwsQuicksightFolderTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -142,14 +142,14 @@ public partial class AwsQuicksightFolder : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     [TerraformProperty("permissions")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightFolderPermissionsBlock>>? Permissions { get; set; }
+    public TerraformSet<AwsQuicksightFolderPermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsQuicksightFolderTimeoutsBlock>? Timeouts { get; set; }
+    public AwsQuicksightFolderTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

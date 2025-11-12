@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data_masking_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatapolicyDataPolicyDataMaskingPolicyBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatapolicyDataPolicyDataMaskingPolicyBlock() : TerraformBlock("data_masking_policy")
 {
     /// <summary>
     /// The available masking rules. Learn more here: https://cloud.google.com/bigquery/docs/column-data-masking-intro#masking_options. Possible values: [&amp;quot;SHA256&amp;quot;, &amp;quot;ALWAYS_NULL&amp;quot;, &amp;quot;DEFAULT_MASKING_VALUE&amp;quot;, &amp;quot;LAST_FOUR_CHARACTERS&amp;quot;, &amp;quot;FIRST_FOUR_CHARACTERS&amp;quot;, &amp;quot;EMAIL_MASK&amp;quot;, &amp;quot;DATE_YEAR_MASK&amp;quot;]
@@ -28,7 +28,7 @@ public partial class GoogleBigqueryDatapolicyDataPolicyDataMaskingPolicyBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryDatapolicyDataPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatapolicyDataPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,14 +115,14 @@ public partial class GoogleBigqueryDatapolicyDataPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataMaskingPolicy block(s) allowed")]
     [TerraformProperty("data_masking_policy")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatapolicyDataPolicyDataMaskingPolicyBlock>>? DataMaskingPolicy { get; set; }
+    public TerraformList<GoogleBigqueryDatapolicyDataPolicyDataMaskingPolicyBlock> DataMaskingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryDatapolicyDataPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryDatapolicyDataPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Resource name of this data policy, in the format of projects/{project_number}/locations/{locationId}/dataPolicies/{dataPolicyId}.

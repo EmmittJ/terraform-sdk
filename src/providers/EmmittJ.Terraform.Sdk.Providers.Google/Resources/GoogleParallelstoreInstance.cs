@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleParallelstoreInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleParallelstoreInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -183,7 +183,7 @@ public partial class GoogleParallelstoreInstance : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleParallelstoreInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleParallelstoreInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. List of access_points.

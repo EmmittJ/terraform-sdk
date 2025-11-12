@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for delivery_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesConfigurationSetDeliveryOptionsBlock : TerraformBlockBase
+public partial class AwsSesConfigurationSetDeliveryOptionsBlock() : TerraformBlock("delivery_options")
 {
     /// <summary>
     /// The tls_policy attribute.
@@ -21,7 +21,7 @@ public partial class AwsSesConfigurationSetDeliveryOptionsBlock : TerraformBlock
 /// Block type for tracking_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesConfigurationSetTrackingOptionsBlock : TerraformBlockBase
+public partial class AwsSesConfigurationSetTrackingOptionsBlock() : TerraformBlock("tracking_options")
 {
     /// <summary>
     /// The custom_redirect_domain attribute.
@@ -84,7 +84,7 @@ public partial class AwsSesConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryOptions block(s) allowed")]
     [TerraformProperty("delivery_options")]
-    public partial TerraformList<TerraformBlock<AwsSesConfigurationSetDeliveryOptionsBlock>>? DeliveryOptions { get; set; }
+    public TerraformList<AwsSesConfigurationSetDeliveryOptionsBlock> DeliveryOptions { get; set; } = new();
 
     /// <summary>
     /// Block for tracking_options.
@@ -92,7 +92,7 @@ public partial class AwsSesConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrackingOptions block(s) allowed")]
     [TerraformProperty("tracking_options")]
-    public partial TerraformList<TerraformBlock<AwsSesConfigurationSetTrackingOptionsBlock>>? TrackingOptions { get; set; }
+    public TerraformList<AwsSesConfigurationSetTrackingOptionsBlock> TrackingOptions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

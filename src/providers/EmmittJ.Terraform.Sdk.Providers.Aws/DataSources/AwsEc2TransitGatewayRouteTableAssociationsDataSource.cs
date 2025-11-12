@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2TransitGatewayRouteTableAssociationsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2TransitGatewayRouteTableAssociationsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsEc2TransitGatewayRouteTableAssociationsDataSourceFilterB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2TransitGatewayRouteTableAssociationsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2TransitGatewayRouteTableAssociationsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -77,14 +77,14 @@ public partial class AwsEc2TransitGatewayRouteTableAssociationsDataSource : Terr
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2TransitGatewayRouteTableAssociationsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2TransitGatewayRouteTableAssociationsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2TransitGatewayRouteTableAssociationsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2TransitGatewayRouteTableAssociationsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ids attribute.

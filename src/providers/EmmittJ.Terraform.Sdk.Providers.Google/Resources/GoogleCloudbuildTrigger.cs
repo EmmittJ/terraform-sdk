@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for approval_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerApprovalConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerApprovalConfigBlock() : TerraformBlock("approval_config")
 {
     /// <summary>
     /// Whether or not approval is needed. If this is set on a build, it will become pending when run,
@@ -22,7 +22,7 @@ public partial class GoogleCloudbuildTriggerApprovalConfigBlock : TerraformBlock
 /// Block type for bitbucket_server_trigger_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock() : TerraformBlock("bitbucket_server_trigger_config")
 {
     /// <summary>
     /// The Bitbucket server config resource that this trigger config maps to.
@@ -55,7 +55,7 @@ public partial class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : 
 /// Block type for build in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerBuildBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerBuildBlock() : TerraformBlock("build")
 {
     /// <summary>
     /// A list of images to be pushed upon the successful completion of all build steps.
@@ -116,7 +116,7 @@ public partial class GoogleCloudbuildTriggerBuildBlock : TerraformBlockBase
 /// Block type for developer_connect_event_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock() : TerraformBlock("developer_connect_event_config")
 {
     /// <summary>
     /// The Developer Connect Git repository link, formatted as &#39;projects/*/locations/*/connections/*/gitRepositoryLink/*&#39;.
@@ -133,7 +133,7 @@ public partial class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : T
 /// Block type for git_file_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerGitFileSourceBlock() : TerraformBlock("git_file_source")
 {
     /// <summary>
     /// The full resource name of the bitbucket server config.
@@ -199,7 +199,7 @@ public partial class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlockB
 /// Block type for github in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerGithubBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerGithubBlock() : TerraformBlock("github")
 {
     /// <summary>
     /// The resource name of the github enterprise config that should be applied to this installation.
@@ -231,7 +231,7 @@ public partial class GoogleCloudbuildTriggerGithubBlock : TerraformBlockBase
 /// Block type for pubsub_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerPubsubConfigBlock() : TerraformBlock("pubsub_config")
 {
     /// <summary>
     /// Service account that will make the push request.
@@ -256,7 +256,7 @@ public partial class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlockBa
 /// Block type for repository_event_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerRepositoryEventConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerRepositoryEventConfigBlock() : TerraformBlock("repository_event_config")
 {
     /// <summary>
     /// The resource name of the Repo API resource.
@@ -271,7 +271,7 @@ public partial class GoogleCloudbuildTriggerRepositoryEventConfigBlock : Terrafo
 /// Block type for source_to_build in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerSourceToBuildBlock() : TerraformBlock("source_to_build")
 {
     /// <summary>
     /// The full resource name of the bitbucket server config.
@@ -327,7 +327,7 @@ public partial class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -356,7 +356,7 @@ public partial class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlockBase
 /// Block type for trigger_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerTriggerTemplateBlock() : TerraformBlock("trigger_template")
 {
     /// <summary>
     /// Name of the branch to build. Exactly one a of branch name, tag, or commit SHA must be provided.
@@ -420,7 +420,7 @@ public partial class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBloc
 /// Block type for webhook_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildTriggerWebhookConfigBlock() : TerraformBlock("webhook_config")
 {
     /// <summary>
     /// Resource name for the secret required as a URL parameter.
@@ -576,7 +576,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalConfig block(s) allowed")]
     [TerraformProperty("approval_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerApprovalConfigBlock>>? ApprovalConfig { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerApprovalConfigBlock> ApprovalConfig { get; set; } = new();
 
     /// <summary>
     /// Block for bitbucket_server_trigger_config.
@@ -584,7 +584,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketServerTriggerConfig block(s) allowed")]
     [TerraformProperty("bitbucket_server_trigger_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock>>? BitbucketServerTriggerConfig { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock> BitbucketServerTriggerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for build.
@@ -592,7 +592,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Build block(s) allowed")]
     [TerraformProperty("build")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerBuildBlock>>? Build { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerBuildBlock> Build { get; set; } = new();
 
     /// <summary>
     /// Block for developer_connect_event_config.
@@ -600,7 +600,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeveloperConnectEventConfig block(s) allowed")]
     [TerraformProperty("developer_connect_event_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock>>? DeveloperConnectEventConfig { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock> DeveloperConnectEventConfig { get; set; } = new();
 
     /// <summary>
     /// Block for git_file_source.
@@ -608,7 +608,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitFileSource block(s) allowed")]
     [TerraformProperty("git_file_source")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerGitFileSourceBlock>>? GitFileSource { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerGitFileSourceBlock> GitFileSource { get; set; } = new();
 
     /// <summary>
     /// Block for github.
@@ -616,7 +616,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Github block(s) allowed")]
     [TerraformProperty("github")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerGithubBlock>>? Github { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerGithubBlock> Github { get; set; } = new();
 
     /// <summary>
     /// Block for pubsub_config.
@@ -624,7 +624,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubConfig block(s) allowed")]
     [TerraformProperty("pubsub_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerPubsubConfigBlock>>? PubsubConfig { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerPubsubConfigBlock> PubsubConfig { get; set; } = new();
 
     /// <summary>
     /// Block for repository_event_config.
@@ -632,7 +632,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RepositoryEventConfig block(s) allowed")]
     [TerraformProperty("repository_event_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerRepositoryEventConfigBlock>>? RepositoryEventConfig { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerRepositoryEventConfigBlock> RepositoryEventConfig { get; set; } = new();
 
     /// <summary>
     /// Block for source_to_build.
@@ -640,14 +640,14 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceToBuild block(s) allowed")]
     [TerraformProperty("source_to_build")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerSourceToBuildBlock>>? SourceToBuild { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerSourceToBuildBlock> SourceToBuild { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudbuildTriggerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudbuildTriggerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trigger_template.
@@ -655,7 +655,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TriggerTemplate block(s) allowed")]
     [TerraformProperty("trigger_template")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerTriggerTemplateBlock>>? TriggerTemplate { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerTriggerTemplateBlock> TriggerTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for webhook_config.
@@ -663,7 +663,7 @@ public partial class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebhookConfig block(s) allowed")]
     [TerraformProperty("webhook_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildTriggerWebhookConfigBlock>>? WebhookConfig { get; set; }
+    public TerraformList<GoogleCloudbuildTriggerWebhookConfigBlock> WebhookConfig { get; set; } = new();
 
     /// <summary>
     /// Time when the trigger was created.

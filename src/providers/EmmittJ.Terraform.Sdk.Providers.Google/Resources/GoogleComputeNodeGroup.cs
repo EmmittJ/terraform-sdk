@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeNodeGroupAutoscalingPolicyBlock() : TerraformBlock("autoscaling_policy")
 {
     /// <summary>
     /// Maximum size of the node group. Set to a value less than or equal
@@ -42,7 +42,7 @@ public partial class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlo
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNodeGroupMaintenanceWindowBlock : TerraformBlockBase
+public partial class GoogleComputeNodeGroupMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// instances.start time of the window. This must be in UTC format that resolves to one of 00:00, 04:00, 08:00, 12:00, 16:00, or 20:00. For example, both 13:00-5 and 08:00 are valid.
@@ -58,7 +58,7 @@ public partial class GoogleComputeNodeGroupMaintenanceWindowBlock : TerraformBlo
 /// Block type for share_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNodeGroupShareSettingsBlock : TerraformBlockBase
+public partial class GoogleComputeNodeGroupShareSettingsBlock() : TerraformBlock("share_settings")
 {
     /// <summary>
     /// Node group sharing type. Possible values: [&amp;quot;ORGANIZATION&amp;quot;, &amp;quot;SPECIFIC_PROJECTS&amp;quot;, &amp;quot;LOCAL&amp;quot;]
@@ -74,7 +74,7 @@ public partial class GoogleComputeNodeGroupShareSettingsBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNodeGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNodeGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,7 +173,7 @@ public partial class GoogleComputeNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingPolicy block(s) allowed")]
     [TerraformProperty("autoscaling_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNodeGroupAutoscalingPolicyBlock>>? AutoscalingPolicy { get; set; }
+    public TerraformList<GoogleComputeNodeGroupAutoscalingPolicyBlock> AutoscalingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window.
@@ -181,7 +181,7 @@ public partial class GoogleComputeNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNodeGroupMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<GoogleComputeNodeGroupMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for share_settings.
@@ -189,14 +189,14 @@ public partial class GoogleComputeNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareSettings block(s) allowed")]
     [TerraformProperty("share_settings")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNodeGroupShareSettingsBlock>>? ShareSettings { get; set; }
+    public TerraformList<GoogleComputeNodeGroupShareSettingsBlock> ShareSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNodeGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNodeGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

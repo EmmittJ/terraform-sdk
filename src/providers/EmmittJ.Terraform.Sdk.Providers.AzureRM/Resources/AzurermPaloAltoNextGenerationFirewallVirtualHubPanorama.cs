@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for destination_nat in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationNatBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationNatBlock() : TerraformBlock("destination_nat")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDest
 /// Block type for dns_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDnsSettingsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDnsSettingsBlock() : TerraformBlock("dns_settings")
 {
 
     /// <summary>
@@ -53,7 +53,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDnsS
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfileBlock() : TerraformBlock("network_profile")
 {
     /// <summary>
     /// The egress_nat_ip_address_ids attribute.
@@ -104,7 +104,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetw
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -211,7 +211,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : T
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("destination_nat")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationNatBlock>>? DestinationNat { get; set; }
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationNatBlock> DestinationNat { get; set; } = new();
 
     /// <summary>
     /// Block for dns_settings.
@@ -219,7 +219,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : T
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
     [TerraformProperty("dns_settings")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDnsSettingsBlock>>? DnsSettings { get; set; }
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDnsSettingsBlock> DnsSettings { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -229,14 +229,14 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : T
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public required TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The panorama attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatasetAccessConditionBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetAccessConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// Description of the expression. This is a longer text which describes the expression,
@@ -46,7 +46,7 @@ public partial class GoogleBigqueryDatasetAccessConditionBlock : TerraformBlockB
 /// Block type for dataset in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatasetAccessDatasetBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetAccessDatasetBlock() : TerraformBlock("dataset")
 {
     /// <summary>
     /// Which resources in the dataset this entry applies to. Currently, only views are supported,
@@ -63,7 +63,7 @@ public partial class GoogleBigqueryDatasetAccessDatasetBlock : TerraformBlockBas
 /// Block type for routine in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetAccessRoutineBlock() : TerraformBlock("routine")
 {
     /// <summary>
     /// The ID of the dataset containing this table.
@@ -97,7 +97,7 @@ public partial class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryDatasetAccessTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetAccessTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,7 +119,7 @@ public partial class GoogleBigqueryDatasetAccessTimeoutsBlock : TerraformBlockBa
 /// Block type for view in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatasetAccessViewBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetAccessViewBlock() : TerraformBlock("view")
 {
     /// <summary>
     /// The ID of the dataset containing this table.
@@ -243,7 +243,7 @@ public partial class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleBigqueryDatasetAccessConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for dataset.
@@ -251,7 +251,7 @@ public partial class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
     [TerraformProperty("dataset")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessDatasetBlock>>? Dataset { get; set; }
+    public TerraformList<GoogleBigqueryDatasetAccessDatasetBlock> Dataset { get; set; } = new();
 
     /// <summary>
     /// Block for routine.
@@ -259,14 +259,14 @@ public partial class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routine block(s) allowed")]
     [TerraformProperty("routine")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessRoutineBlock>>? Routine { get; set; }
+    public TerraformList<GoogleBigqueryDatasetAccessRoutineBlock> Routine { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryDatasetAccessTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryDatasetAccessTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for view.
@@ -274,7 +274,7 @@ public partial class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 View block(s) allowed")]
     [TerraformProperty("view")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatasetAccessViewBlock>>? View { get; set; }
+    public TerraformList<GoogleBigqueryDatasetAccessViewBlock> View { get; set; } = new();
 
     /// <summary>
     /// If true, represents that that the iam_member in the config was translated to a different member type by the API, and is stored in state as a different member type

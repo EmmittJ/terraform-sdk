@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexAspectTypeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexAspectTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,7 +115,7 @@ public partial class GoogleDataplexAspectType : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexAspectTypeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexAspectTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the AspectType was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for alloydb in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock() : TerraformBlock("alloydb")
 {
     /// <summary>
     /// Required. The AlloyDB cluster ID that this connection profile is associated with.
@@ -22,7 +22,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock
 /// Block type for cloudsql in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock() : TerraformBlock("cloudsql")
 {
 
 
@@ -33,7 +33,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBloc
 /// Block type for mysql in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock() : TerraformBlock("mysql")
 {
     /// <summary>
     /// If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source.
@@ -78,7 +78,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock :
 /// Block type for oracle in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock() : TerraformBlock("oracle")
 {
     /// <summary>
     /// Required. Database service for the Oracle connection.
@@ -128,7 +128,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock 
 /// Block type for postgresql in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock() : TerraformBlock("postgresql")
 {
     /// <summary>
     /// If the connected database is an AlloyDB instance, use this field to provide the AlloyDB cluster ID.
@@ -181,7 +181,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -269,7 +269,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alloydb block(s) allowed")]
     [TerraformProperty("alloydb")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock>>? Alloydb { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock> Alloydb { get; set; } = new();
 
     /// <summary>
     /// Block for cloudsql.
@@ -277,7 +277,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cloudsql block(s) allowed")]
     [TerraformProperty("cloudsql")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock>>? Cloudsql { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock> Cloudsql { get; set; } = new();
 
     /// <summary>
     /// Block for mysql.
@@ -285,7 +285,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mysql block(s) allowed")]
     [TerraformProperty("mysql")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock>>? Mysql { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock> Mysql { get; set; } = new();
 
     /// <summary>
     /// Block for oracle.
@@ -293,7 +293,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oracle block(s) allowed")]
     [TerraformProperty("oracle")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileOracleBlock>>? Oracle { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceConnectionProfileOracleBlock> Oracle { get; set; } = new();
 
     /// <summary>
     /// Block for postgresql.
@@ -301,14 +301,14 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Postgresql block(s) allowed")]
     [TerraformProperty("postgresql")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock>>? Postgresql { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock> Postgresql { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.

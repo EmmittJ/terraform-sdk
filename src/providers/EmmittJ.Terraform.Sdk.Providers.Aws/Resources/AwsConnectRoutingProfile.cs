@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for media_concurrencies in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsConnectRoutingProfileMediaConcurrenciesBlock : TerraformBlockBase
+public partial class AwsConnectRoutingProfileMediaConcurrenciesBlock() : TerraformBlock("media_concurrencies")
 {
     /// <summary>
     /// The channel attribute.
@@ -30,7 +30,7 @@ public partial class AwsConnectRoutingProfileMediaConcurrenciesBlock : Terraform
 /// Block type for queue_configs in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlockBase
+public partial class AwsConnectRoutingProfileQueueConfigsBlock() : TerraformBlock("queue_configs")
 {
     /// <summary>
     /// The channel attribute.
@@ -145,14 +145,14 @@ public partial class AwsConnectRoutingProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MediaConcurrencies is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MediaConcurrencies block(s) required")]
     [TerraformProperty("media_concurrencies")]
-    public partial TerraformSet<TerraformBlock<AwsConnectRoutingProfileMediaConcurrenciesBlock>>? MediaConcurrencies { get; set; }
+    public required TerraformSet<AwsConnectRoutingProfileMediaConcurrenciesBlock> MediaConcurrencies { get; set; } = new();
 
     /// <summary>
     /// Block for queue_configs.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("queue_configs")]
-    public partial TerraformSet<TerraformBlock<AwsConnectRoutingProfileQueueConfigsBlock>>? QueueConfigs { get; set; }
+    public TerraformSet<AwsConnectRoutingProfileQueueConfigsBlock> QueueConfigs { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

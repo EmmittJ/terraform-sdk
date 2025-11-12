@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cookies_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock() : TerraformBlock("cookies_config")
 {
     /// <summary>
     /// The cookie_behavior attribute.
@@ -22,7 +22,7 @@ public partial class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock : Terraf
 /// Block type for headers_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontOriginRequestPolicyHeadersConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontOriginRequestPolicyHeadersConfigBlock() : TerraformBlock("headers_config")
 {
     /// <summary>
     /// The header_behavior attribute.
@@ -37,7 +37,7 @@ public partial class AwsCloudfrontOriginRequestPolicyHeadersConfigBlock : Terraf
 /// Block type for query_strings_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock() : TerraformBlock("query_strings_config")
 {
     /// <summary>
     /// The query_string_behavior attribute.
@@ -89,7 +89,7 @@ public partial class AwsCloudfrontOriginRequestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CookiesConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CookiesConfig block(s) allowed")]
     [TerraformProperty("cookies_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontOriginRequestPolicyCookiesConfigBlock>>? CookiesConfig { get; set; }
+    public required TerraformList<AwsCloudfrontOriginRequestPolicyCookiesConfigBlock> CookiesConfig { get; set; } = new();
 
     /// <summary>
     /// Block for headers_config.
@@ -99,7 +99,7 @@ public partial class AwsCloudfrontOriginRequestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HeadersConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeadersConfig block(s) allowed")]
     [TerraformProperty("headers_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontOriginRequestPolicyHeadersConfigBlock>>? HeadersConfig { get; set; }
+    public required TerraformList<AwsCloudfrontOriginRequestPolicyHeadersConfigBlock> HeadersConfig { get; set; } = new();
 
     /// <summary>
     /// Block for query_strings_config.
@@ -109,7 +109,7 @@ public partial class AwsCloudfrontOriginRequestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QueryStringsConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryStringsConfig block(s) allowed")]
     [TerraformProperty("query_strings_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock>>? QueryStringsConfig { get; set; }
+    public required TerraformList<AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock> QueryStringsConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

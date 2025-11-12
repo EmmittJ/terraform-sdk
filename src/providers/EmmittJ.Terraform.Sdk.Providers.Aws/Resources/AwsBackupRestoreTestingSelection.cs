@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for protected_resource_conditions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock : TerraformBlockBase
+public partial class AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock() : TerraformBlock("protected_resource_conditions")
 {
 }
 
@@ -84,6 +84,6 @@ public partial class AwsBackupRestoreTestingSelection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("protected_resource_conditions")]
-    public partial TerraformList<TerraformBlock<AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock>>? ProtectedResourceConditions { get; set; }
+    public TerraformList<AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock> ProtectedResourceConditions { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunServiceIamBindingConditionBlock : TerraformBlockBase
+public partial class GoogleCloudRunServiceIamBindingConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -94,7 +94,7 @@ public partial class GoogleCloudRunServiceIamBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunServiceIamBindingConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleCloudRunServiceIamBindingConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

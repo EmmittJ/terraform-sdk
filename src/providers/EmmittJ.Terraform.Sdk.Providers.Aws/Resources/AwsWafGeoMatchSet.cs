@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for geo_match_constraint in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafGeoMatchSetGeoMatchConstraintBlock : TerraformBlockBase
+public partial class AwsWafGeoMatchSetGeoMatchConstraintBlock() : TerraformBlock("geo_match_constraint")
 {
     /// <summary>
     /// The type attribute.
@@ -55,7 +55,7 @@ public partial class AwsWafGeoMatchSet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("geo_match_constraint")]
-    public partial TerraformSet<TerraformBlock<AwsWafGeoMatchSetGeoMatchConstraintBlock>>? GeoMatchConstraint { get; set; }
+    public TerraformSet<AwsWafGeoMatchSetGeoMatchConstraintBlock> GeoMatchConstraint { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for basic_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringServiceBasicServiceBlock : TerraformBlockBase
+public partial class GoogleMonitoringServiceBasicServiceBlock() : TerraformBlock("basic_service")
 {
     /// <summary>
     /// Labels that specify the resource that emits the monitoring data
@@ -30,7 +30,7 @@ public partial class GoogleMonitoringServiceBasicServiceBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMonitoringServiceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMonitoringServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -113,14 +113,14 @@ public partial class GoogleMonitoringService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicService block(s) allowed")]
     [TerraformProperty("basic_service")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringServiceBasicServiceBlock>>? BasicService { get; set; }
+    public TerraformList<GoogleMonitoringServiceBasicServiceBlock> BasicService { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMonitoringServiceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMonitoringServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The full resource name for this service. The syntax is:

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for create_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlockBase
+public partial class AzurermElasticSanVolumeCreateSourceBlock() : TerraformBlock("create_source")
 {
     /// <summary>
     /// The source_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlockBase
+public partial class AzurermElasticSanVolumeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -109,14 +109,14 @@ public partial class AzurermElasticSanVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateSource block(s) allowed")]
     [TerraformProperty("create_source")]
-    public partial TerraformList<TerraformBlock<AzurermElasticSanVolumeCreateSourceBlock>>? CreateSource { get; set; }
+    public TerraformList<AzurermElasticSanVolumeCreateSourceBlock> CreateSource { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermElasticSanVolumeTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermElasticSanVolumeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The target_iqn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock() : TerraformBlock("attributes")
 {
     /// <summary>
     /// The flow_logs_enabled attribute.
@@ -35,7 +35,7 @@ public partial class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,14 +119,14 @@ public partial class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
     [TerraformProperty("attributes")]
-    public partial TerraformList<TerraformBlock<AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock>>? Attributes { get; set; }
+    public TerraformList<AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock> Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

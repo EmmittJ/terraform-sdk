@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for account_takeover_risk_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock() : TerraformBlock("account_takeover_risk_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsCognitoRiskConfigurationAccountTakeoverRiskConfiguration
 /// Block type for compromised_credentials_risk_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock() : TerraformBlock("compromised_credentials_risk_configuration")
 {
     /// <summary>
     /// The event_filter attribute.
@@ -29,7 +29,7 @@ public partial class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfig
 /// Block type for risk_exception_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock() : TerraformBlock("risk_exception_configuration")
 {
     /// <summary>
     /// The blocked_ip_range_list attribute.
@@ -92,7 +92,7 @@ public partial class AwsCognitoRiskConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountTakeoverRiskConfiguration block(s) allowed")]
     [TerraformProperty("account_takeover_risk_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock>>? AccountTakeoverRiskConfiguration { get; set; }
+    public TerraformList<AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock> AccountTakeoverRiskConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for compromised_credentials_risk_configuration.
@@ -100,7 +100,7 @@ public partial class AwsCognitoRiskConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CompromisedCredentialsRiskConfiguration block(s) allowed")]
     [TerraformProperty("compromised_credentials_risk_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock>>? CompromisedCredentialsRiskConfiguration { get; set; }
+    public TerraformList<AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock> CompromisedCredentialsRiskConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for risk_exception_configuration.
@@ -108,6 +108,6 @@ public partial class AwsCognitoRiskConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RiskExceptionConfiguration block(s) allowed")]
     [TerraformProperty("risk_exception_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock>>? RiskExceptionConfiguration { get; set; }
+    public TerraformList<AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock> RiskExceptionConfiguration { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination_dataset in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock() : TerraformBlock("destination_dataset")
 {
     /// <summary>
     /// A user-friendly description of the dataset.
@@ -45,7 +45,7 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDat
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,14 +119,14 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription : TerraformRe
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationDataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationDataset block(s) allowed")]
     [TerraformProperty("destination_dataset")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>>? DestinationDataset { get; set; }
+    public required TerraformList<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock> DestinationDataset { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Commercial info metadata for this subscription. This is set if this is a commercial subscription i.e. if this subscription was created from subscribing to a commercial listing.

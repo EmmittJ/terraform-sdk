@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirebaserulesRulesetSourceBlock : TerraformBlockBase
+public partial class GoogleFirebaserulesRulesetSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// `Language` of the `Source` bundle. If unspecified, the language will default to `FIREBASE_RULES`. Possible values: LANGUAGE_UNSPECIFIED, FIREBASE_RULES, EVENT_FLOW_TRIGGERS
@@ -21,7 +21,7 @@ public partial class GoogleFirebaserulesRulesetSourceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaserulesRulesetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaserulesRulesetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -71,14 +71,14 @@ public partial class GoogleFirebaserulesRuleset : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<GoogleFirebaserulesRulesetSourceBlock>>? Source { get; set; }
+    public required TerraformList<GoogleFirebaserulesRulesetSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaserulesRulesetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaserulesRulesetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Time the `Ruleset` was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceVirtualNetworkSwiftConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceVirtualNetworkSwiftConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -75,6 +75,6 @@ public partial class AzurermAppServiceVirtualNetworkSwiftConnection : TerraformR
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceVirtualNetworkSwiftConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceVirtualNetworkSwiftConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

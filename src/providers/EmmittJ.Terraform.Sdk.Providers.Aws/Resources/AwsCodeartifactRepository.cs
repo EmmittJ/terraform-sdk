@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for external_connections in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlockBase
+public partial class AwsCodeartifactRepositoryExternalConnectionsBlock() : TerraformBlock("external_connections")
 {
     /// <summary>
     /// The external_connection_name attribute.
@@ -24,7 +24,7 @@ public partial class AwsCodeartifactRepositoryExternalConnectionsBlock : Terrafo
 /// Block type for upstream in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodeartifactRepositoryUpstreamBlock : TerraformBlockBase
+public partial class AwsCodeartifactRepositoryUpstreamBlock() : TerraformBlock("upstream")
 {
     /// <summary>
     /// The repository_name attribute.
@@ -110,14 +110,14 @@ public partial class AwsCodeartifactRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalConnections block(s) allowed")]
     [TerraformProperty("external_connections")]
-    public partial TerraformList<TerraformBlock<AwsCodeartifactRepositoryExternalConnectionsBlock>>? ExternalConnections { get; set; }
+    public TerraformList<AwsCodeartifactRepositoryExternalConnectionsBlock> ExternalConnections { get; set; } = new();
 
     /// <summary>
     /// Block for upstream.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("upstream")]
-    public partial TerraformList<TerraformBlock<AwsCodeartifactRepositoryUpstreamBlock>>? Upstream { get; set; }
+    public TerraformList<AwsCodeartifactRepositoryUpstreamBlock> Upstream { get; set; } = new();
 
     /// <summary>
     /// The administrator_account attribute.

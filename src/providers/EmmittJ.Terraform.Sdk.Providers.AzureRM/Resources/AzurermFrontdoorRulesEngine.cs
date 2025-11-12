@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlockBase
+public partial class AzurermFrontdoorRulesEngineRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFrontdoorRulesEngineTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFrontdoorRulesEngineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -116,14 +116,14 @@ public partial class AzurermFrontdoorRulesEngine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Rule block(s) allowed")]
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorRulesEngineRuleBlock>>? Rule { get; set; }
+    public TerraformList<AzurermFrontdoorRulesEngineRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFrontdoorRulesEngineTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFrontdoorRulesEngineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The location attribute.

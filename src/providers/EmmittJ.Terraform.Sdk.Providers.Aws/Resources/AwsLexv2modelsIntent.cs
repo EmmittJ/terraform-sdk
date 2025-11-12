@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for closing_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentClosingSettingBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentClosingSettingBlock() : TerraformBlock("closing_setting")
 {
     /// <summary>
     /// The active attribute.
@@ -21,7 +21,7 @@ public partial class AwsLexv2modelsIntentClosingSettingBlock : TerraformBlockBas
 /// Block type for confirmation_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentConfirmationSettingBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentConfirmationSettingBlock() : TerraformBlock("confirmation_setting")
 {
     /// <summary>
     /// The active attribute.
@@ -36,7 +36,7 @@ public partial class AwsLexv2modelsIntentConfirmationSettingBlock : TerraformBlo
 /// Block type for dialog_code_hook in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentDialogCodeHookBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentDialogCodeHookBlock() : TerraformBlock("dialog_code_hook")
 {
     /// <summary>
     /// The enabled attribute.
@@ -52,7 +52,7 @@ public partial class AwsLexv2modelsIntentDialogCodeHookBlock : TerraformBlockBas
 /// Block type for fulfillment_code_hook in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentFulfillmentCodeHookBlock() : TerraformBlock("fulfillment_code_hook")
 {
     /// <summary>
     /// The active attribute.
@@ -75,7 +75,7 @@ public partial class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlo
 /// Block type for initial_response_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentInitialResponseSettingBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentInitialResponseSettingBlock() : TerraformBlock("initial_response_setting")
 {
 }
 
@@ -83,7 +83,7 @@ public partial class AwsLexv2modelsIntentInitialResponseSettingBlock : Terraform
 /// Block type for input_context in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentInputContextBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentInputContextBlock() : TerraformBlock("input_context")
 {
     /// <summary>
     /// The name attribute.
@@ -99,7 +99,7 @@ public partial class AwsLexv2modelsIntentInputContextBlock : TerraformBlockBase
 /// Block type for kendra_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentKendraConfigurationBlock() : TerraformBlock("kendra_configuration")
 {
     /// <summary>
     /// The kendra_index attribute.
@@ -129,7 +129,7 @@ public partial class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlo
 /// Block type for output_context in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentOutputContextBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentOutputContextBlock() : TerraformBlock("output_context")
 {
     /// <summary>
     /// The name attribute.
@@ -161,7 +161,7 @@ public partial class AwsLexv2modelsIntentOutputContextBlock : TerraformBlockBase
 /// Block type for sample_utterance in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentSampleUtteranceBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentSampleUtteranceBlock() : TerraformBlock("sample_utterance")
 {
     /// <summary>
     /// The utterance attribute.
@@ -177,7 +177,7 @@ public partial class AwsLexv2modelsIntentSampleUtteranceBlock : TerraformBlockBa
 /// Block type for slot_priority in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentSlotPriorityBlock() : TerraformBlock("slot_priority")
 {
     /// <summary>
     /// The priority attribute.
@@ -201,7 +201,7 @@ public partial class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLexv2modelsIntentTimeoutsBlock : TerraformBlockBase
+public partial class AwsLexv2modelsIntentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -293,77 +293,77 @@ public partial class AwsLexv2modelsIntent : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("closing_setting")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentClosingSettingBlock>>? ClosingSetting { get; set; }
+    public TerraformList<AwsLexv2modelsIntentClosingSettingBlock> ClosingSetting { get; set; } = new();
 
     /// <summary>
     /// Block for confirmation_setting.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("confirmation_setting")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentConfirmationSettingBlock>>? ConfirmationSetting { get; set; }
+    public TerraformList<AwsLexv2modelsIntentConfirmationSettingBlock> ConfirmationSetting { get; set; } = new();
 
     /// <summary>
     /// Block for dialog_code_hook.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("dialog_code_hook")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentDialogCodeHookBlock>>? DialogCodeHook { get; set; }
+    public TerraformList<AwsLexv2modelsIntentDialogCodeHookBlock> DialogCodeHook { get; set; } = new();
 
     /// <summary>
     /// Block for fulfillment_code_hook.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("fulfillment_code_hook")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentFulfillmentCodeHookBlock>>? FulfillmentCodeHook { get; set; }
+    public TerraformList<AwsLexv2modelsIntentFulfillmentCodeHookBlock> FulfillmentCodeHook { get; set; } = new();
 
     /// <summary>
     /// Block for initial_response_setting.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("initial_response_setting")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentInitialResponseSettingBlock>>? InitialResponseSetting { get; set; }
+    public TerraformList<AwsLexv2modelsIntentInitialResponseSettingBlock> InitialResponseSetting { get; set; } = new();
 
     /// <summary>
     /// Block for input_context.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("input_context")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentInputContextBlock>>? InputContext { get; set; }
+    public TerraformList<AwsLexv2modelsIntentInputContextBlock> InputContext { get; set; } = new();
 
     /// <summary>
     /// Block for kendra_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kendra_configuration")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentKendraConfigurationBlock>>? KendraConfiguration { get; set; }
+    public TerraformList<AwsLexv2modelsIntentKendraConfigurationBlock> KendraConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for output_context.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("output_context")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentOutputContextBlock>>? OutputContext { get; set; }
+    public TerraformList<AwsLexv2modelsIntentOutputContextBlock> OutputContext { get; set; } = new();
 
     /// <summary>
     /// Block for sample_utterance.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sample_utterance")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentSampleUtteranceBlock>>? SampleUtterance { get; set; }
+    public TerraformList<AwsLexv2modelsIntentSampleUtteranceBlock> SampleUtterance { get; set; } = new();
 
     /// <summary>
     /// Block for slot_priority.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("slot_priority")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsIntentSlotPriorityBlock>>? SlotPriority { get; set; }
+    public TerraformList<AwsLexv2modelsIntentSlotPriorityBlock> SlotPriority { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLexv2modelsIntentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLexv2modelsIntentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation_date_time attribute.

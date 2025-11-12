@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for alternate_identifier in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIdentitystoreGroupDataSourceAlternateIdentifierBlock : TerraformBlockBase
+public partial class AwsIdentitystoreGroupDataSourceAlternateIdentifierBlock() : TerraformBlock("alternate_identifier")
 {
 }
 
@@ -55,7 +55,7 @@ public partial class AwsIdentitystoreGroupDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlternateIdentifier block(s) allowed")]
     [TerraformProperty("alternate_identifier")]
-    public partial TerraformList<TerraformBlock<AwsIdentitystoreGroupDataSourceAlternateIdentifierBlock>>? AlternateIdentifier { get; set; }
+    public TerraformList<AwsIdentitystoreGroupDataSourceAlternateIdentifierBlock> AlternateIdentifier { get; set; } = new();
 
     /// <summary>
     /// The description attribute.

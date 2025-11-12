@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for monthly_occurrence in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationScheduleMonthlyOccurrenceBlock : TerraformBlockBase
+public partial class AzurermAutomationScheduleMonthlyOccurrenceBlock() : TerraformBlock("monthly_occurrence")
 {
     /// <summary>
     /// The day attribute.
@@ -30,7 +30,7 @@ public partial class AzurermAutomationScheduleMonthlyOccurrenceBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAutomationScheduleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAutomationScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -166,13 +166,13 @@ public partial class AzurermAutomationSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonthlyOccurrence block(s) allowed")]
     [TerraformProperty("monthly_occurrence")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationScheduleMonthlyOccurrenceBlock>>? MonthlyOccurrence { get; set; }
+    public TerraformList<AzurermAutomationScheduleMonthlyOccurrenceBlock> MonthlyOccurrence { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAutomationScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAutomationScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

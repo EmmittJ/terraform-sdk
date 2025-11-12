@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for aws_v4_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock() : TerraformBlock("aws_v4_authentication")
 {
     /// <summary>
     /// The access key ID your origin uses to identify the key.
@@ -40,7 +40,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBloc
 /// Block type for flex_shielding in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock() : TerraformBlock("flex_shielding")
 {
     /// <summary>
     /// Whenever possible, content will be fetched from origin and cached in or
@@ -58,7 +58,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock : Te
 /// Block type for origin_override_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock() : TerraformBlock("origin_override_action")
 {
 }
 
@@ -66,7 +66,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlo
 /// Block type for origin_redirect in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock() : TerraformBlock("origin_redirect")
 {
     /// <summary>
     /// The set of redirect response codes that the CDN
@@ -84,7 +84,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock : T
 /// Block type for timeout in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock() : TerraformBlock("timeout")
 {
     /// <summary>
     /// The maximum duration to wait for a single origin connection to be established, including DNS lookup, TLS handshake and TCP/QUIC connection establishment.
@@ -142,7 +142,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -307,7 +307,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AwsV4Authentication block(s) allowed")]
     [TerraformProperty("aws_v4_authentication")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock>>? AwsV4Authentication { get; set; }
+    public TerraformList<GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock> AwsV4Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for flex_shielding.
@@ -315,7 +315,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexShielding block(s) allowed")]
     [TerraformProperty("flex_shielding")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock>>? FlexShielding { get; set; }
+    public TerraformList<GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock> FlexShielding { get; set; } = new();
 
     /// <summary>
     /// Block for origin_override_action.
@@ -323,7 +323,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginOverrideAction block(s) allowed")]
     [TerraformProperty("origin_override_action")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock>>? OriginOverrideAction { get; set; }
+    public TerraformList<GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock> OriginOverrideAction { get; set; } = new();
 
     /// <summary>
     /// Block for origin_redirect.
@@ -331,7 +331,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginRedirect block(s) allowed")]
     [TerraformProperty("origin_redirect")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock>>? OriginRedirect { get; set; }
+    public TerraformList<GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock> OriginRedirect { get; set; } = new();
 
     /// <summary>
     /// Block for timeout.
@@ -339,14 +339,14 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
     [TerraformProperty("timeout")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutBlock>>? Timeout { get; set; }
+    public TerraformList<GoogleNetworkServicesEdgeCacheOriginTimeoutBlock> Timeout { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

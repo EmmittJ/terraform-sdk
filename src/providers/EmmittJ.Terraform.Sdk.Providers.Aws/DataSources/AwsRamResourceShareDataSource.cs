@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRamResourceShareDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsRamResourceShareDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -83,7 +83,7 @@ public partial class AwsRamResourceShareDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsRamResourceShareDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsRamResourceShareDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

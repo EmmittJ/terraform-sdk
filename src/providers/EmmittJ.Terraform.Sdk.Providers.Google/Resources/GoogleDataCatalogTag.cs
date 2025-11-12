@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for fields in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleDataCatalogTagFieldsBlock : TerraformBlockBase
+public partial class GoogleDataCatalogTagFieldsBlock() : TerraformBlock("fields")
 {
     /// <summary>
     /// Holds the value for a tag field with boolean type.
@@ -59,7 +59,7 @@ public partial class GoogleDataCatalogTagFieldsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataCatalogTagTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataCatalogTagTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,14 +138,14 @@ public partial class GoogleDataCatalogTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fields block(s) required")]
     [TerraformProperty("fields")]
-    public partial TerraformSet<TerraformBlock<GoogleDataCatalogTagFieldsBlock>>? Fields { get; set; }
+    public required TerraformSet<GoogleDataCatalogTagFieldsBlock> Fields { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataCatalogTagTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataCatalogTagTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the tag in URL format. Example:

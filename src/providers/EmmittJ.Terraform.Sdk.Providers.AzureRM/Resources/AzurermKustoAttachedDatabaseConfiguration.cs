@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sharing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBlockBase
+public partial class AzurermKustoAttachedDatabaseConfigurationSharingBlock() : TerraformBlock("sharing")
 {
     /// <summary>
     /// The external_tables_to_exclude attribute.
@@ -56,7 +56,7 @@ public partial class AzurermKustoAttachedDatabaseConfigurationSharingBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,14 +173,14 @@ public partial class AzurermKustoAttachedDatabaseConfiguration : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]
     [TerraformProperty("sharing")]
-    public partial TerraformList<TerraformBlock<AzurermKustoAttachedDatabaseConfigurationSharingBlock>>? Sharing { get; set; }
+    public TerraformList<AzurermKustoAttachedDatabaseConfigurationSharingBlock> Sharing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The attached_database_names attribute.

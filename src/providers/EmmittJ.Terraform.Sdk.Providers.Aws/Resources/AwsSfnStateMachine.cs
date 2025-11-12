@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsSfnStateMachineEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The kms_data_key_reuse_period_seconds attribute.
@@ -35,7 +35,7 @@ public partial class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformB
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlockBase
+public partial class AwsSfnStateMachineLoggingConfigurationBlock() : TerraformBlock("logging_configuration")
 {
     /// <summary>
     /// The include_execution_data attribute.
@@ -64,7 +64,7 @@ public partial class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSfnStateMachineTimeoutsBlock : TerraformBlockBase
+public partial class AwsSfnStateMachineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,7 +93,7 @@ public partial class AwsSfnStateMachineTimeoutsBlock : TerraformBlockBase
 /// Block type for tracing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSfnStateMachineTracingConfigurationBlock : TerraformBlockBase
+public partial class AwsSfnStateMachineTracingConfigurationBlock() : TerraformBlock("tracing_configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -192,7 +192,7 @@ public partial class AwsSfnStateMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSfnStateMachineEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsSfnStateMachineEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for logging_configuration.
@@ -200,14 +200,14 @@ public partial class AwsSfnStateMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformProperty("logging_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSfnStateMachineLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
+    public TerraformList<AwsSfnStateMachineLoggingConfigurationBlock> LoggingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSfnStateMachineTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSfnStateMachineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tracing_configuration.
@@ -215,7 +215,7 @@ public partial class AwsSfnStateMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TracingConfiguration block(s) allowed")]
     [TerraformProperty("tracing_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSfnStateMachineTracingConfigurationBlock>>? TracingConfiguration { get; set; }
+    public TerraformList<AwsSfnStateMachineTracingConfigurationBlock> TracingConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

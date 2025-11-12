@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for replica in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSecretsmanagerSecretReplicaBlock : TerraformBlockBase
+public partial class AwsSecretsmanagerSecretReplicaBlock() : TerraformBlock("replica")
 {
     /// <summary>
     /// The kms_key_id attribute.
@@ -119,7 +119,7 @@ public partial class AwsSecretsmanagerSecret : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("replica")]
-    public partial TerraformSet<TerraformBlock<AwsSecretsmanagerSecretReplicaBlock>>? Replica { get; set; }
+    public TerraformSet<AwsSecretsmanagerSecretReplicaBlock> Replica { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connector_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppflowConnectorProfileConnectorProfileConfigBlock : TerraformBlockBase
+public partial class AwsAppflowConnectorProfileConnectorProfileConfigBlock() : TerraformBlock("connector_profile_config")
 {
 }
 
@@ -80,7 +80,7 @@ public partial class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectorProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectorProfileConfig block(s) allowed")]
     [TerraformProperty("connector_profile_config")]
-    public partial TerraformList<TerraformBlock<AwsAppflowConnectorProfileConnectorProfileConfigBlock>>? ConnectorProfileConfig { get; set; }
+    public required TerraformList<AwsAppflowConnectorProfileConnectorProfileConfigBlock> ConnectorProfileConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

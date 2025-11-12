@@ -238,13 +238,14 @@ public class TerraformValueResolverTests
     /// <summary>
     /// Test block for testing purposes.
     /// </summary>
-    private class TestBlock : TerraformBlock<object>
+    private class TestBlock : TerraformBlock
     {
-        public TestBlock() : base("", "") { }
+        public TestBlock() : base() { }
 
-        public TestBlock WithProperty(string key, object? value, int? priority = null)
+        public TestBlock WithProperty(string key, object? value)
         {
-            base.WithProperty(key, value, priority);
+            // TerraformBlock inherits from TerraformMap<object>, so we can use the indexer
+            this[key] = value;
             return this;
         }
     }

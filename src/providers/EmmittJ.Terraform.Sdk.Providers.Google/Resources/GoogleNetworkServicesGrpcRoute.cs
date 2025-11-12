@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesGrpcRouteRulesBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesGrpcRouteRulesBlock() : TerraformBlock("rules")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleNetworkServicesGrpcRouteRulesBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesGrpcRouteTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesGrpcRouteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,14 +124,14 @@ public partial class GoogleNetworkServicesGrpcRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesGrpcRouteRulesBlock>>? Rules { get; set; }
+    public required TerraformList<GoogleNetworkServicesGrpcRouteRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesGrpcRouteTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesGrpcRouteTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the GrpcRoute was created in UTC.

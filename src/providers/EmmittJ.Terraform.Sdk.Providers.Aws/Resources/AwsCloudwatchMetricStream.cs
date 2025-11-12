@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for exclude_filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudwatchMetricStreamExcludeFilterBlock : TerraformBlockBase
+public partial class AwsCloudwatchMetricStreamExcludeFilterBlock() : TerraformBlock("exclude_filter")
 {
     /// <summary>
     /// The metric_names attribute.
@@ -29,7 +29,7 @@ public partial class AwsCloudwatchMetricStreamExcludeFilterBlock : TerraformBloc
 /// Block type for include_filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudwatchMetricStreamIncludeFilterBlock : TerraformBlockBase
+public partial class AwsCloudwatchMetricStreamIncludeFilterBlock() : TerraformBlock("include_filter")
 {
     /// <summary>
     /// The metric_names attribute.
@@ -52,7 +52,7 @@ public partial class AwsCloudwatchMetricStreamIncludeFilterBlock : TerraformBloc
 /// Block type for statistics_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudwatchMetricStreamStatisticsConfigurationBlock : TerraformBlockBase
+public partial class AwsCloudwatchMetricStreamStatisticsConfigurationBlock() : TerraformBlock("statistics_configuration")
 {
     /// <summary>
     /// The additional_statistics attribute.
@@ -68,7 +68,7 @@ public partial class AwsCloudwatchMetricStreamStatisticsConfigurationBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCloudwatchMetricStreamTimeoutsBlock : TerraformBlockBase
+public partial class AwsCloudwatchMetricStreamTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -180,28 +180,28 @@ public partial class AwsCloudwatchMetricStream : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("exclude_filter")]
-    public partial TerraformSet<TerraformBlock<AwsCloudwatchMetricStreamExcludeFilterBlock>>? ExcludeFilter { get; set; }
+    public TerraformSet<AwsCloudwatchMetricStreamExcludeFilterBlock> ExcludeFilter { get; set; } = new();
 
     /// <summary>
     /// Block for include_filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("include_filter")]
-    public partial TerraformSet<TerraformBlock<AwsCloudwatchMetricStreamIncludeFilterBlock>>? IncludeFilter { get; set; }
+    public TerraformSet<AwsCloudwatchMetricStreamIncludeFilterBlock> IncludeFilter { get; set; } = new();
 
     /// <summary>
     /// Block for statistics_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("statistics_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsCloudwatchMetricStreamStatisticsConfigurationBlock>>? StatisticsConfiguration { get; set; }
+    public TerraformSet<AwsCloudwatchMetricStreamStatisticsConfigurationBlock> StatisticsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCloudwatchMetricStreamTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCloudwatchMetricStreamTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

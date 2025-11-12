@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for content_type_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock() : TerraformBlock("content_type_profile_config")
 {
     /// <summary>
     /// The forward_when_content_type_is_unknown attribute.
@@ -22,7 +22,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileCo
 /// Block type for query_arg_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock() : TerraformBlock("query_arg_profile_config")
 {
     /// <summary>
     /// The forward_when_query_arg_profile_is_unknown attribute.
@@ -66,7 +66,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentTypeProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContentTypeProfileConfig block(s) allowed")]
     [TerraformProperty("content_type_profile_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock>>? ContentTypeProfileConfig { get; set; }
+    public required TerraformList<AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock> ContentTypeProfileConfig { get; set; } = new();
 
     /// <summary>
     /// Block for query_arg_profile_config.
@@ -76,7 +76,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QueryArgProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryArgProfileConfig block(s) allowed")]
     [TerraformProperty("query_arg_profile_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock>>? QueryArgProfileConfig { get; set; }
+    public required TerraformList<AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock> QueryArgProfileConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

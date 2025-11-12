@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cloud_kms_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlockBase
+public partial class GoogleIntegrationsClientCloudKmsConfigBlock() : TerraformBlock("cloud_kms_config")
 {
     /// <summary>
     /// A Cloud KMS key is a named object containing one or more key versions, along
@@ -62,7 +62,7 @@ public partial class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIntegrationsClientTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIntegrationsClientTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,13 +133,13 @@ public partial class GoogleIntegrationsClient : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudKmsConfig block(s) allowed")]
     [TerraformProperty("cloud_kms_config")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationsClientCloudKmsConfigBlock>>? CloudKmsConfig { get; set; }
+    public TerraformList<GoogleIntegrationsClientCloudKmsConfigBlock> CloudKmsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIntegrationsClientTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIntegrationsClientTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for apns_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNotificationHubApnsCredentialBlock : TerraformBlockBase
+public partial class AzurermNotificationHubApnsCredentialBlock() : TerraformBlock("apns_credential")
 {
     /// <summary>
     /// The application_mode attribute.
@@ -54,7 +54,7 @@ public partial class AzurermNotificationHubApnsCredentialBlock : TerraformBlockB
 /// Block type for browser_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNotificationHubBrowserCredentialBlock : TerraformBlockBase
+public partial class AzurermNotificationHubBrowserCredentialBlock() : TerraformBlock("browser_credential")
 {
     /// <summary>
     /// The subject attribute.
@@ -86,7 +86,7 @@ public partial class AzurermNotificationHubBrowserCredentialBlock : TerraformBlo
 /// Block type for gcm_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNotificationHubGcmCredentialBlock : TerraformBlockBase
+public partial class AzurermNotificationHubGcmCredentialBlock() : TerraformBlock("gcm_credential")
 {
     /// <summary>
     /// The api_key attribute.
@@ -102,7 +102,7 @@ public partial class AzurermNotificationHubGcmCredentialBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNotificationHubTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNotificationHubTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -196,7 +196,7 @@ public partial class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApnsCredential block(s) allowed")]
     [TerraformProperty("apns_credential")]
-    public partial TerraformList<TerraformBlock<AzurermNotificationHubApnsCredentialBlock>>? ApnsCredential { get; set; }
+    public TerraformList<AzurermNotificationHubApnsCredentialBlock> ApnsCredential { get; set; } = new();
 
     /// <summary>
     /// Block for browser_credential.
@@ -204,7 +204,7 @@ public partial class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BrowserCredential block(s) allowed")]
     [TerraformProperty("browser_credential")]
-    public partial TerraformList<TerraformBlock<AzurermNotificationHubBrowserCredentialBlock>>? BrowserCredential { get; set; }
+    public TerraformList<AzurermNotificationHubBrowserCredentialBlock> BrowserCredential { get; set; } = new();
 
     /// <summary>
     /// Block for gcm_credential.
@@ -212,13 +212,13 @@ public partial class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcmCredential block(s) allowed")]
     [TerraformProperty("gcm_credential")]
-    public partial TerraformList<TerraformBlock<AzurermNotificationHubGcmCredentialBlock>>? GcmCredential { get; set; }
+    public TerraformList<AzurermNotificationHubGcmCredentialBlock> GcmCredential { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNotificationHubTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNotificationHubTimeoutsBlock Timeouts { get; set; } = new();
 
 }

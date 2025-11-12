@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schema_column in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock() : TerraformBlock("schema_column")
 {
     /// <summary>
     /// The name attribute.
@@ -43,7 +43,7 @@ public partial class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,13 +169,13 @@ public partial class AzurermDataFactoryDatasetSnowflake : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schema_column")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock>>? SchemaColumn { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock> SchemaColumn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryDatasetSnowflakeTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryDatasetSnowflakeTimeoutsBlock Timeouts { get; set; } = new();
 
 }

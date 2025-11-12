@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleWorkflowsWorkflowTimeoutsBlock : TerraformBlockBase
+public partial class GoogleWorkflowsWorkflowTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,7 +173,7 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleWorkflowsWorkflowTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleWorkflowsWorkflowTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the workflow was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

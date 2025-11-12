@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSignerSigningJobDestinationBlock : TerraformBlockBase
+public partial class AwsSignerSigningJobDestinationBlock() : TerraformBlock("destination")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsSignerSigningJobDestinationBlock : TerraformBlockBase
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSignerSigningJobSourceBlock : TerraformBlockBase
+public partial class AwsSignerSigningJobSourceBlock() : TerraformBlock("source")
 {
 }
 
@@ -65,7 +65,7 @@ public partial class AwsSignerSigningJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<AwsSignerSigningJobDestinationBlock>>? Destination { get; set; }
+    public required TerraformList<AwsSignerSigningJobDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -75,7 +75,7 @@ public partial class AwsSignerSigningJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AwsSignerSigningJobSourceBlock>>? Source { get; set; }
+    public required TerraformList<AwsSignerSigningJobSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// The completed_at attribute.

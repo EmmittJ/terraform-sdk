@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pipeline in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerTumblingWindowPipelineBlock() : TerraformBlock("pipeline")
 {
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : Terr
 /// Block type for retry in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerTumblingWindowRetryBlock() : TerraformBlock("retry")
 {
     /// <summary>
     /// The count attribute.
@@ -52,7 +52,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindowRetryBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -88,7 +88,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : Terr
 /// Block type for trigger_dependency in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock() : TerraformBlock("trigger_dependency")
 {
     /// <summary>
     /// The offset attribute.
@@ -227,7 +227,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Pipeline block(s) allowed")]
     [TerraformProperty("pipeline")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryTriggerTumblingWindowPipelineBlock>>? Pipeline { get; set; }
+    public required TerraformList<AzurermDataFactoryTriggerTumblingWindowPipelineBlock> Pipeline { get; set; } = new();
 
     /// <summary>
     /// Block for retry.
@@ -235,20 +235,20 @@ public partial class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Retry block(s) allowed")]
     [TerraformProperty("retry")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryTriggerTumblingWindowRetryBlock>>? Retry { get; set; }
+    public TerraformList<AzurermDataFactoryTriggerTumblingWindowRetryBlock> Retry { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trigger_dependency.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("trigger_dependency")]
-    public partial TerraformSet<TerraformBlock<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock>>? TriggerDependency { get; set; }
+    public TerraformSet<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock> TriggerDependency { get; set; } = new();
 
 }

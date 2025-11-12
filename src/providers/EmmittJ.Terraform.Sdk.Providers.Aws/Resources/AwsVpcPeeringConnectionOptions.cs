@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for accepter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpcPeeringConnectionOptionsAccepterBlock : TerraformBlockBase
+public partial class AwsVpcPeeringConnectionOptionsAccepterBlock() : TerraformBlock("accepter")
 {
     /// <summary>
     /// The allow_remote_vpc_dns_resolution attribute.
@@ -21,7 +21,7 @@ public partial class AwsVpcPeeringConnectionOptionsAccepterBlock : TerraformBloc
 /// Block type for requester in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpcPeeringConnectionOptionsRequesterBlock : TerraformBlockBase
+public partial class AwsVpcPeeringConnectionOptionsRequesterBlock() : TerraformBlock("requester")
 {
     /// <summary>
     /// The allow_remote_vpc_dns_resolution attribute.
@@ -70,7 +70,7 @@ public partial class AwsVpcPeeringConnectionOptions : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
     [TerraformProperty("accepter")]
-    public partial TerraformList<TerraformBlock<AwsVpcPeeringConnectionOptionsAccepterBlock>>? Accepter { get; set; }
+    public TerraformList<AwsVpcPeeringConnectionOptionsAccepterBlock> Accepter { get; set; } = new();
 
     /// <summary>
     /// Block for requester.
@@ -78,6 +78,6 @@ public partial class AwsVpcPeeringConnectionOptions : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
     [TerraformProperty("requester")]
-    public partial TerraformList<TerraformBlock<AwsVpcPeeringConnectionOptionsRequesterBlock>>? Requester { get; set; }
+    public TerraformList<AwsVpcPeeringConnectionOptionsRequesterBlock> Requester { get; set; } = new();
 
 }

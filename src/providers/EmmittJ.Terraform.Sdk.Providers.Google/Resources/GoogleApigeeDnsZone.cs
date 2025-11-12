@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for peering_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlockBase
+public partial class GoogleApigeeDnsZonePeeringConfigBlock() : TerraformBlock("peering_config")
 {
     /// <summary>
     /// The name of the producer VPC network.
@@ -30,7 +30,7 @@ public partial class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeDnsZoneTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeDnsZoneTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -106,14 +106,14 @@ public partial class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PeeringConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PeeringConfig block(s) allowed")]
     [TerraformProperty("peering_config")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeDnsZonePeeringConfigBlock>>? PeeringConfig { get; set; }
+    public required TerraformList<GoogleApigeeDnsZonePeeringConfigBlock> PeeringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeDnsZoneTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeDnsZoneTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Name of the Dns Zone in the following format:

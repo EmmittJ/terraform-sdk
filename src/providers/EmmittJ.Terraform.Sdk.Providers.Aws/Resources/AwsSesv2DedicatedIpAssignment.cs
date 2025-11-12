@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSesv2DedicatedIpAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsSesv2DedicatedIpAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,6 +68,6 @@ public partial class AwsSesv2DedicatedIpAssignment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSesv2DedicatedIpAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSesv2DedicatedIpAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for preserved_state in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputePerInstanceConfigPreservedStateBlock : TerraformBlockBase
+public partial class GoogleComputePerInstanceConfigPreservedStateBlock() : TerraformBlock("preserved_state")
 {
     /// <summary>
     /// Preserved metadata defined for this instance. This is a list of key-&amp;gt;value pairs.
@@ -21,7 +21,7 @@ public partial class GoogleComputePerInstanceConfigPreservedStateBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputePerInstanceConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputePerInstanceConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,13 +140,13 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreservedState block(s) allowed")]
     [TerraformProperty("preserved_state")]
-    public partial TerraformList<TerraformBlock<GoogleComputePerInstanceConfigPreservedStateBlock>>? PreservedState { get; set; }
+    public TerraformList<GoogleComputePerInstanceConfigPreservedStateBlock> PreservedState { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputePerInstanceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputePerInstanceConfigTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for log_tag_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlockBase
+public partial class AzurermNewRelicTagRuleLogTagFilterBlock() : TerraformBlock("log_tag_filter")
 {
     /// <summary>
     /// The action attribute.
@@ -38,7 +38,7 @@ public partial class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlockBas
 /// Block type for metric_tag_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlockBase
+public partial class AzurermNewRelicTagRuleMetricTagFilterBlock() : TerraformBlock("metric_tag_filter")
 {
     /// <summary>
     /// The action attribute.
@@ -70,7 +70,7 @@ public partial class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNewRelicTagRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -159,20 +159,20 @@ public partial class AzurermNewRelicTagRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log_tag_filter")]
-    public partial TerraformList<TerraformBlock<AzurermNewRelicTagRuleLogTagFilterBlock>>? LogTagFilter { get; set; }
+    public TerraformList<AzurermNewRelicTagRuleLogTagFilterBlock> LogTagFilter { get; set; } = new();
 
     /// <summary>
     /// Block for metric_tag_filter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("metric_tag_filter")]
-    public partial TerraformList<TerraformBlock<AzurermNewRelicTagRuleMetricTagFilterBlock>>? MetricTagFilter { get; set; }
+    public TerraformList<AzurermNewRelicTagRuleMetricTagFilterBlock> MetricTagFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNewRelicTagRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNewRelicTagRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

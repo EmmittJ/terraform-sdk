@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for package_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOpensearchPackagePackageSourceBlock : TerraformBlockBase
+public partial class AwsOpensearchPackagePackageSourceBlock() : TerraformBlock("package_source")
 {
     /// <summary>
     /// The s3_bucket_name attribute.
@@ -88,7 +88,7 @@ public partial class AwsOpensearchPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PackageSource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PackageSource block(s) allowed")]
     [TerraformProperty("package_source")]
-    public partial TerraformList<TerraformBlock<AwsOpensearchPackagePackageSourceBlock>>? PackageSource { get; set; }
+    public required TerraformList<AwsOpensearchPackagePackageSourceBlock> PackageSource { get; set; } = new();
 
     /// <summary>
     /// The available_package_version attribute.

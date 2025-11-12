@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource : Terrafo
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dns_addresses attribute.

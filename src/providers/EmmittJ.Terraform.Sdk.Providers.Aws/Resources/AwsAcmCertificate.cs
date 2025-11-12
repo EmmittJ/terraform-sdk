@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAcmCertificateOptionsBlock : TerraformBlockBase
+public partial class AwsAcmCertificateOptionsBlock() : TerraformBlock("options")
 {
     /// <summary>
     /// The certificate_transparency_logging_preference attribute.
@@ -28,7 +28,7 @@ public partial class AwsAcmCertificateOptionsBlock : TerraformBlockBase
 /// Block type for validation_option in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAcmCertificateValidationOptionBlock : TerraformBlockBase
+public partial class AwsAcmCertificateValidationOptionBlock() : TerraformBlock("validation_option")
 {
     /// <summary>
     /// The domain_name attribute.
@@ -155,14 +155,14 @@ public partial class AwsAcmCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     [TerraformProperty("options")]
-    public partial TerraformList<TerraformBlock<AwsAcmCertificateOptionsBlock>>? Options { get; set; }
+    public TerraformList<AwsAcmCertificateOptionsBlock> Options { get; set; } = new();
 
     /// <summary>
     /// Block for validation_option.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("validation_option")]
-    public partial TerraformSet<TerraformBlock<AwsAcmCertificateValidationOptionBlock>>? ValidationOption { get; set; }
+    public TerraformSet<AwsAcmCertificateValidationOptionBlock> ValidationOption { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPostgresqlServerIdentityBlock : TerraformBlockBase
+public partial class AzurermPostgresqlServerIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -24,7 +24,7 @@ public partial class AzurermPostgresqlServerIdentityBlock : TerraformBlockBase
 /// Block type for threat_detection_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPostgresqlServerThreatDetectionPolicyBlock : TerraformBlockBase
+public partial class AzurermPostgresqlServerThreatDetectionPolicyBlock() : TerraformBlock("threat_detection_policy")
 {
     /// <summary>
     /// The disabled_alerts attribute.
@@ -81,7 +81,7 @@ public partial class AzurermPostgresqlServerThreatDetectionPolicyBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPostgresqlServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPostgresqlServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -290,7 +290,7 @@ public partial class AzurermPostgresqlServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermPostgresqlServerIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermPostgresqlServerIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for threat_detection_policy.
@@ -298,14 +298,14 @@ public partial class AzurermPostgresqlServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
     [TerraformProperty("threat_detection_policy")]
-    public partial TerraformList<TerraformBlock<AzurermPostgresqlServerThreatDetectionPolicyBlock>>? ThreatDetectionPolicy { get; set; }
+    public TerraformList<AzurermPostgresqlServerThreatDetectionPolicyBlock> ThreatDetectionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPostgresqlServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPostgresqlServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

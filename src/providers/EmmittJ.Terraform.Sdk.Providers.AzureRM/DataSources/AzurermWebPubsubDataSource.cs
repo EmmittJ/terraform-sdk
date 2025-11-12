@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWebPubsubDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWebPubsubDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermWebPubsubDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWebPubsubDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWebPubsubDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The aad_auth_enabled attribute.

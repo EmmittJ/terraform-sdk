@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventPermissionConditionBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventPermissionConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The key attribute.
@@ -94,6 +94,6 @@ public partial class AwsCloudwatchEventPermission : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventPermissionConditionBlock>>? Condition { get; set; }
+    public TerraformList<AwsCloudwatchEventPermissionConditionBlock> Condition { get; set; } = new();
 
 }

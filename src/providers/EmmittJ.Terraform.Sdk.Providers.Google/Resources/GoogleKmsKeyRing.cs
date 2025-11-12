@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleKmsKeyRingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleKmsKeyRingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -69,6 +69,6 @@ public partial class GoogleKmsKeyRing : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleKmsKeyRingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleKmsKeyRingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

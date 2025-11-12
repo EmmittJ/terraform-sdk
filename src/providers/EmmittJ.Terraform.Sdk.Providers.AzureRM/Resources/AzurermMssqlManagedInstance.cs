@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_active_directory_administrator in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock() : TerraformBlock("azure_active_directory_administrator")
 {
     /// <summary>
     /// The azuread_authentication_only_enabled attribute.
@@ -52,7 +52,7 @@ public partial class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministrato
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlManagedInstanceIdentityBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedInstanceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -77,7 +77,7 @@ public partial class AzurermMssqlManagedInstanceIdentityBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -301,7 +301,7 @@ public partial class AzurermMssqlManagedInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectoryAdministrator block(s) allowed")]
     [TerraformProperty("azure_active_directory_administrator")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock>>? AzureActiveDirectoryAdministrator { get; set; }
+    public TerraformList<AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock> AzureActiveDirectoryAdministrator { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -309,14 +309,14 @@ public partial class AzurermMssqlManagedInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlManagedInstanceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMssqlManagedInstanceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlManagedInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlManagedInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dns_zone attribute.

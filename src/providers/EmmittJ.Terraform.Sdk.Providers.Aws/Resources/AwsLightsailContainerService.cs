@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for private_registry_access in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLightsailContainerServicePrivateRegistryAccessBlock : TerraformBlockBase
+public partial class AwsLightsailContainerServicePrivateRegistryAccessBlock() : TerraformBlock("private_registry_access")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsLightsailContainerServicePrivateRegistryAccessBlock : Te
 /// Block type for public_domain_names in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLightsailContainerServicePublicDomainNamesBlock : TerraformBlockBase
+public partial class AwsLightsailContainerServicePublicDomainNamesBlock() : TerraformBlock("public_domain_names")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsLightsailContainerServicePublicDomainNamesBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlockBase
+public partial class AwsLightsailContainerServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -122,7 +122,7 @@ public partial class AwsLightsailContainerService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateRegistryAccess block(s) allowed")]
     [TerraformProperty("private_registry_access")]
-    public partial TerraformList<TerraformBlock<AwsLightsailContainerServicePrivateRegistryAccessBlock>>? PrivateRegistryAccess { get; set; }
+    public TerraformList<AwsLightsailContainerServicePrivateRegistryAccessBlock> PrivateRegistryAccess { get; set; } = new();
 
     /// <summary>
     /// Block for public_domain_names.
@@ -130,14 +130,14 @@ public partial class AwsLightsailContainerService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicDomainNames block(s) allowed")]
     [TerraformProperty("public_domain_names")]
-    public partial TerraformList<TerraformBlock<AwsLightsailContainerServicePublicDomainNamesBlock>>? PublicDomainNames { get; set; }
+    public TerraformList<AwsLightsailContainerServicePublicDomainNamesBlock> PublicDomainNames { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLightsailContainerServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLightsailContainerServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

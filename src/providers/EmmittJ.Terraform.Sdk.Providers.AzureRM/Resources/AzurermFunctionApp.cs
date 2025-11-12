@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// The additional_login_params attribute.
@@ -78,7 +78,7 @@ public partial class AzurermFunctionAppAuthSettingsBlock : TerraformBlockBase
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermFunctionAppConnectionStringBlock : TerraformBlockBase
+public partial class AzurermFunctionAppConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name attribute.
@@ -110,7 +110,7 @@ public partial class AzurermFunctionAppConnectionStringBlock : TerraformBlockBas
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppIdentityBlock : TerraformBlockBase
+public partial class AzurermFunctionAppIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -135,7 +135,7 @@ public partial class AzurermFunctionAppIdentityBlock : TerraformBlockBase
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppSiteConfigBlock : TerraformBlockBase
+public partial class AzurermFunctionAppSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// The always_on attribute.
@@ -283,7 +283,7 @@ public partial class AzurermFunctionAppSiteConfigBlock : TerraformBlockBase
 /// Block type for source_control in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppSourceControlBlock : TerraformBlockBase
+public partial class AzurermFunctionAppSourceControlBlock() : TerraformBlock("source_control")
 {
     /// <summary>
     /// The branch attribute.
@@ -326,7 +326,7 @@ public partial class AzurermFunctionAppSourceControlBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFunctionAppTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -500,14 +500,14 @@ public partial class AzurermFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermFunctionAppAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermFunctionAppConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermFunctionAppConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -515,7 +515,7 @@ public partial class AzurermFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermFunctionAppIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -523,7 +523,7 @@ public partial class AzurermFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppSiteConfigBlock>>? SiteConfig { get; set; }
+    public TerraformList<AzurermFunctionAppSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for source_control.
@@ -531,14 +531,14 @@ public partial class AzurermFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControl block(s) allowed")]
     [TerraformProperty("source_control")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppSourceControlBlock>>? SourceControl { get; set; }
+    public TerraformList<AzurermFunctionAppSourceControlBlock> SourceControl { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFunctionAppTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFunctionAppTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_domain_verification_id attribute.

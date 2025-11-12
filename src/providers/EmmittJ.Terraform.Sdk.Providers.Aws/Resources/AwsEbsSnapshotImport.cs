@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for client_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEbsSnapshotImportClientDataBlock : TerraformBlockBase
+public partial class AwsEbsSnapshotImportClientDataBlock() : TerraformBlock("client_data")
 {
     /// <summary>
     /// The comment attribute.
@@ -42,7 +42,7 @@ public partial class AwsEbsSnapshotImportClientDataBlock : TerraformBlockBase
 /// Block type for disk_container in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlockBase
+public partial class AwsEbsSnapshotImportDiskContainerBlock() : TerraformBlock("disk_container")
 {
     /// <summary>
     /// The description attribute.
@@ -72,7 +72,7 @@ public partial class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEbsSnapshotImportTimeoutsBlock : TerraformBlockBase
+public partial class AwsEbsSnapshotImportTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -183,7 +183,7 @@ public partial class AwsEbsSnapshotImport : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientData block(s) allowed")]
     [TerraformProperty("client_data")]
-    public partial TerraformList<TerraformBlock<AwsEbsSnapshotImportClientDataBlock>>? ClientData { get; set; }
+    public TerraformList<AwsEbsSnapshotImportClientDataBlock> ClientData { get; set; } = new();
 
     /// <summary>
     /// Block for disk_container.
@@ -193,14 +193,14 @@ public partial class AwsEbsSnapshotImport : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DiskContainer block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskContainer block(s) allowed")]
     [TerraformProperty("disk_container")]
-    public partial TerraformList<TerraformBlock<AwsEbsSnapshotImportDiskContainerBlock>>? DiskContainer { get; set; }
+    public required TerraformList<AwsEbsSnapshotImportDiskContainerBlock> DiskContainer { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEbsSnapshotImportTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEbsSnapshotImportTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

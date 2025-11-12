@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmincidentsResponsePlanActionBlock : TerraformBlockBase
+public partial class AwsSsmincidentsResponsePlanActionBlock() : TerraformBlock("action")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsSsmincidentsResponsePlanActionBlock : TerraformBlockBase
 /// Block type for incident_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlockBase
+public partial class AwsSsmincidentsResponsePlanIncidentTemplateBlock() : TerraformBlock("incident_template")
 {
     /// <summary>
     /// The dedupe_string attribute.
@@ -59,7 +59,7 @@ public partial class AwsSsmincidentsResponsePlanIncidentTemplateBlock : Terrafor
 /// Block type for integration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmincidentsResponsePlanIntegrationBlock : TerraformBlockBase
+public partial class AwsSsmincidentsResponsePlanIntegrationBlock() : TerraformBlock("integration")
 {
 }
 
@@ -136,7 +136,7 @@ public partial class AwsSsmincidentsResponsePlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AwsSsmincidentsResponsePlanActionBlock>>? Action { get; set; }
+    public TerraformList<AwsSsmincidentsResponsePlanActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for incident_template.
@@ -146,7 +146,7 @@ public partial class AwsSsmincidentsResponsePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IncidentTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncidentTemplate block(s) allowed")]
     [TerraformProperty("incident_template")]
-    public partial TerraformList<TerraformBlock<AwsSsmincidentsResponsePlanIncidentTemplateBlock>>? IncidentTemplate { get; set; }
+    public required TerraformList<AwsSsmincidentsResponsePlanIncidentTemplateBlock> IncidentTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for integration.
@@ -154,7 +154,7 @@ public partial class AwsSsmincidentsResponsePlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Integration block(s) allowed")]
     [TerraformProperty("integration")]
-    public partial TerraformList<TerraformBlock<AwsSsmincidentsResponsePlanIntegrationBlock>>? Integration { get; set; }
+    public TerraformList<AwsSsmincidentsResponsePlanIntegrationBlock> Integration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53recoveryreadinessResourceSetResourcesBlock : TerraformBlockBase
+public partial class AwsRoute53recoveryreadinessResourceSetResourcesBlock() : TerraformBlock("resources")
 {
 
     /// <summary>
@@ -29,7 +29,7 @@ public partial class AwsRoute53recoveryreadinessResourceSetResourcesBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53recoveryreadinessResourceSetTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53recoveryreadinessResourceSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -94,14 +94,14 @@ public partial class AwsRoute53recoveryreadinessResourceSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resources is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Resources block(s) required")]
     [TerraformProperty("resources")]
-    public partial TerraformList<TerraformBlock<AwsRoute53recoveryreadinessResourceSetResourcesBlock>>? Resources { get; set; }
+    public required TerraformList<AwsRoute53recoveryreadinessResourceSetResourcesBlock> Resources { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53recoveryreadinessResourceSetTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53recoveryreadinessResourceSetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

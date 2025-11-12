@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlockBase
+public partial class AzurermFrontdoorFirewallPolicyCustomRuleBlock() : TerraformBlock("custom_rule")
 {
     /// <summary>
     /// The action attribute.
@@ -66,7 +66,7 @@ public partial class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBl
 /// Block type for managed_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlockBase
+public partial class AzurermFrontdoorFirewallPolicyManagedRuleBlock() : TerraformBlock("managed_rule")
 {
     /// <summary>
     /// The type attribute.
@@ -90,7 +90,7 @@ public partial class AzurermFrontdoorFirewallPolicyManagedRuleBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFrontdoorFirewallPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -203,7 +203,7 @@ public partial class AzurermFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]
     [TerraformProperty("custom_rule")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorFirewallPolicyCustomRuleBlock>>? CustomRule { get; set; }
+    public TerraformList<AzurermFrontdoorFirewallPolicyCustomRuleBlock> CustomRule { get; set; } = new();
 
     /// <summary>
     /// Block for managed_rule.
@@ -211,14 +211,14 @@ public partial class AzurermFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ManagedRule block(s) allowed")]
     [TerraformProperty("managed_rule")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorFirewallPolicyManagedRuleBlock>>? ManagedRule { get; set; }
+    public TerraformList<AzurermFrontdoorFirewallPolicyManagedRuleBlock> ManagedRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFrontdoorFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFrontdoorFirewallPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The frontend_endpoint_ids attribute.

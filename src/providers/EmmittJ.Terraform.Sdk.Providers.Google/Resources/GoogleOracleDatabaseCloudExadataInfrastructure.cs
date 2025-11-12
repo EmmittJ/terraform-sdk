@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock() : TerraformBlock("properties")
 {
 
 
@@ -66,7 +66,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -171,14 +171,14 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public partial TerraformList<TerraformBlock<GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock>>? Properties { get; set; }
+    public TerraformList<GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock> Properties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The date and time that the Exadata Infrastructure was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for subset_view in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigtableAuthorizedViewSubsetViewBlock : TerraformBlockBase
+public partial class GoogleBigtableAuthorizedViewSubsetViewBlock() : TerraformBlock("subset_view")
 {
     /// <summary>
     /// Base64-encoded row prefixes to be included in the authorized view. To provide access to all rows, include the empty string as a prefix (&amp;quot;&amp;quot;).
@@ -21,7 +21,7 @@ public partial class GoogleBigtableAuthorizedViewSubsetViewBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigtableAuthorizedViewTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigtableAuthorizedViewTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,13 +101,13 @@ public partial class GoogleBigtableAuthorizedView : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubsetView block(s) allowed")]
     [TerraformProperty("subset_view")]
-    public partial TerraformList<TerraformBlock<GoogleBigtableAuthorizedViewSubsetViewBlock>>? SubsetView { get; set; }
+    public TerraformList<GoogleBigtableAuthorizedViewSubsetViewBlock> SubsetView { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigtableAuthorizedViewTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigtableAuthorizedViewTimeoutsBlock Timeouts { get; set; } = new();
 
 }

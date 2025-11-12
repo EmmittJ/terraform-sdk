@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexEntryGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexEntryGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,7 +98,7 @@ public partial class GoogleDataplexEntryGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexEntryGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexEntryGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the EntryGroup was created.

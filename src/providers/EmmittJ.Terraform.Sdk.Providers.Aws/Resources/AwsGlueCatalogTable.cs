@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for open_table_format_input in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogTableOpenTableFormatInputBlock : TerraformBlockBase
+public partial class AwsGlueCatalogTableOpenTableFormatInputBlock() : TerraformBlock("open_table_format_input")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsGlueCatalogTableOpenTableFormatInputBlock : TerraformBlo
 /// Block type for partition_index in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlockBase
+public partial class AwsGlueCatalogTablePartitionIndexBlock() : TerraformBlock("partition_index")
 {
     /// <summary>
     /// The index_name attribute.
@@ -39,7 +39,7 @@ public partial class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlockBase
 /// Block type for partition_keys in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlockBase
+public partial class AwsGlueCatalogTablePartitionKeysBlock() : TerraformBlock("partition_keys")
 {
     /// <summary>
     /// The comment attribute.
@@ -76,7 +76,7 @@ public partial class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlockBase
 /// Block type for storage_descriptor in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlockBase
+public partial class AwsGlueCatalogTableStorageDescriptorBlock() : TerraformBlock("storage_descriptor")
 {
     /// <summary>
     /// The additional_locations attribute.
@@ -147,7 +147,7 @@ public partial class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlockB
 /// Block type for target_table in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogTableTargetTableBlock : TerraformBlockBase
+public partial class AwsGlueCatalogTableTargetTableBlock() : TerraformBlock("target_table")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -284,7 +284,7 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenTableFormatInput block(s) allowed")]
     [TerraformProperty("open_table_format_input")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogTableOpenTableFormatInputBlock>>? OpenTableFormatInput { get; set; }
+    public TerraformList<AwsGlueCatalogTableOpenTableFormatInputBlock> OpenTableFormatInput { get; set; } = new();
 
     /// <summary>
     /// Block for partition_index.
@@ -292,14 +292,14 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 PartitionIndex block(s) allowed")]
     [TerraformProperty("partition_index")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogTablePartitionIndexBlock>>? PartitionIndex { get; set; }
+    public TerraformList<AwsGlueCatalogTablePartitionIndexBlock> PartitionIndex { get; set; } = new();
 
     /// <summary>
     /// Block for partition_keys.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("partition_keys")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogTablePartitionKeysBlock>>? PartitionKeys { get; set; }
+    public TerraformList<AwsGlueCatalogTablePartitionKeysBlock> PartitionKeys { get; set; } = new();
 
     /// <summary>
     /// Block for storage_descriptor.
@@ -307,7 +307,7 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageDescriptor block(s) allowed")]
     [TerraformProperty("storage_descriptor")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogTableStorageDescriptorBlock>>? StorageDescriptor { get; set; }
+    public TerraformList<AwsGlueCatalogTableStorageDescriptorBlock> StorageDescriptor { get; set; } = new();
 
     /// <summary>
     /// Block for target_table.
@@ -315,7 +315,7 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTable block(s) allowed")]
     [TerraformProperty("target_table")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogTableTargetTableBlock>>? TargetTable { get; set; }
+    public TerraformList<AwsGlueCatalogTableTargetTableBlock> TargetTable { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

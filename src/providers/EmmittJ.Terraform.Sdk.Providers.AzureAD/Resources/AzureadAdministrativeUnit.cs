@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadAdministrativeUnitTimeoutsBlock : TerraformBlockBase
+public partial class AzureadAdministrativeUnitTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,7 +95,7 @@ public partial class AzureadAdministrativeUnit : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadAdministrativeUnitTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadAdministrativeUnitTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object ID of the administrative unit

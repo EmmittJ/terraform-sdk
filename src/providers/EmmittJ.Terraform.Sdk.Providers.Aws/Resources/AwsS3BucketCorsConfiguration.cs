@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketCorsConfigurationCorsRuleBlock() : TerraformBlock("cors_rule")
 {
     /// <summary>
     /// The allowed_headers attribute.
@@ -101,6 +101,6 @@ public partial class AwsS3BucketCorsConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CorsRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CorsRule block(s) allowed")]
     [TerraformProperty("cors_rule")]
-    public partial TerraformSet<TerraformBlock<AwsS3BucketCorsConfigurationCorsRuleBlock>>? CorsRule { get; set; }
+    public required TerraformSet<AwsS3BucketCorsConfigurationCorsRuleBlock> CorsRule { get; set; } = new();
 
 }

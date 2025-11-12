@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlockBase
+public partial class AzurermNetworkWatcherFlowLogRetentionPolicyBlock() : TerraformBlock("retention_policy")
 {
     /// <summary>
     /// The days attribute.
@@ -30,7 +30,7 @@ public partial class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkWatcherFlowLogTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkWatcherFlowLogTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -66,7 +66,7 @@ public partial class AzurermNetworkWatcherFlowLogTimeoutsBlock : TerraformBlockB
 /// Block type for traffic_analytics in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlockBase
+public partial class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock() : TerraformBlock("traffic_analytics")
 {
     /// <summary>
     /// The enabled attribute.
@@ -210,14 +210,14 @@ public partial class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RetentionPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
     [TerraformProperty("retention_policy")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkWatcherFlowLogRetentionPolicyBlock>>? RetentionPolicy { get; set; }
+    public required TerraformList<AzurermNetworkWatcherFlowLogRetentionPolicyBlock> RetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkWatcherFlowLogTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkWatcherFlowLogTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_analytics.
@@ -225,6 +225,6 @@ public partial class AzurermNetworkWatcherFlowLog : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficAnalytics block(s) allowed")]
     [TerraformProperty("traffic_analytics")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock>>? TrafficAnalytics { get; set; }
+    public TerraformList<AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock> TrafficAnalytics { get; set; } = new();
 
 }

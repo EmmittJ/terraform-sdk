@@ -49,7 +49,15 @@ var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
             {
                 ["Environment"] = "Development",
                 ["ManagedBy"] = "Aspire"
-            }
+            },
+            Template =
+            [
+                new()
+                {
+                    MinReplicas = 1,
+                    MaxReplicas = 1
+                }
+            ]
         };
 
         // Note: For a complete implementation, you would need to configure:
@@ -227,9 +235,9 @@ db.PublishAsTerraform((stack, resource) =>
     };
     stack.Add(dbNameOutput);
 
-    var timeoutes = new TerraformOutput("postgres_timeouts")
+    var timeouts = new TerraformOutput("postgres_timeouts")
     {
-        Value = database.Timeouts?.Value?.Read
+        Value = database.Timeouts.Read ?? "default"
     };
 });
 

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for record in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermPrivateDnsTxtRecordRecordBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsTxtRecordRecordBlock() : TerraformBlock("record")
 {
     /// <summary>
     /// The value attribute.
@@ -22,7 +22,7 @@ public partial class AzurermPrivateDnsTxtRecordRecordBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPrivateDnsTxtRecordTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsTxtRecordTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,14 +117,14 @@ public partial class AzurermPrivateDnsTxtRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Record is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Record block(s) required")]
     [TerraformProperty("record")]
-    public partial TerraformSet<TerraformBlock<AzurermPrivateDnsTxtRecordRecordBlock>>? Record { get; set; }
+    public required TerraformSet<AzurermPrivateDnsTxtRecordRecordBlock> Record { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPrivateDnsTxtRecordTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPrivateDnsTxtRecordTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

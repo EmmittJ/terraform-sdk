@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,7 +82,7 @@ public partial class AzurermSynapseIntegrationRuntimeSelfHosted : TerraformResou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The authorization_key_primary attribute.

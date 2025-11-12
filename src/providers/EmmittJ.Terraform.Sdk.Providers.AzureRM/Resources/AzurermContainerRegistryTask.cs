@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for agent_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskAgentSettingBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskAgentSettingBlock() : TerraformBlock("agent_setting")
 {
     /// <summary>
     /// The cpu attribute.
@@ -22,7 +22,7 @@ public partial class AzurermContainerRegistryTaskAgentSettingBlock : TerraformBl
 /// Block type for base_image_trigger in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskBaseImageTriggerBlock() : TerraformBlock("base_image_trigger")
 {
     /// <summary>
     /// The enabled attribute.
@@ -67,7 +67,7 @@ public partial class AzurermContainerRegistryTaskBaseImageTriggerBlock : Terrafo
 /// Block type for docker_step in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskDockerStepBlock() : TerraformBlock("docker_step")
 {
     /// <summary>
     /// The arguments attribute.
@@ -141,7 +141,7 @@ public partial class AzurermContainerRegistryTaskDockerStepBlock : TerraformBloc
 /// Block type for encoded_step in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskEncodedStepBlock() : TerraformBlock("encoded_step")
 {
     /// <summary>
     /// The context_access_token attribute.
@@ -192,7 +192,7 @@ public partial class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlo
 /// Block type for file_step in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskFileStepBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskFileStepBlock() : TerraformBlock("file_step")
 {
     /// <summary>
     /// The context_access_token attribute.
@@ -243,7 +243,7 @@ public partial class AzurermContainerRegistryTaskFileStepBlock : TerraformBlockB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskIdentityBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -268,7 +268,7 @@ public partial class AzurermContainerRegistryTaskIdentityBlock : TerraformBlockB
 /// Block type for platform in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskPlatformBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskPlatformBlock() : TerraformBlock("platform")
 {
     /// <summary>
     /// The architecture attribute.
@@ -298,7 +298,7 @@ public partial class AzurermContainerRegistryTaskPlatformBlock : TerraformBlockB
 /// Block type for registry_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskRegistryCredentialBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskRegistryCredentialBlock() : TerraformBlock("registry_credential")
 {
 }
 
@@ -306,7 +306,7 @@ public partial class AzurermContainerRegistryTaskRegistryCredentialBlock : Terra
 /// Block type for source_trigger in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskSourceTriggerBlock() : TerraformBlock("source_trigger")
 {
     /// <summary>
     /// The branch attribute.
@@ -360,7 +360,7 @@ public partial class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -396,7 +396,7 @@ public partial class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlockB
 /// Block type for timer_trigger in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTaskTimerTriggerBlock() : TerraformBlock("timer_trigger")
 {
     /// <summary>
     /// The enabled attribute.
@@ -504,7 +504,7 @@ public partial class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AgentSetting block(s) allowed")]
     [TerraformProperty("agent_setting")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskAgentSettingBlock>>? AgentSetting { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskAgentSettingBlock> AgentSetting { get; set; } = new();
 
     /// <summary>
     /// Block for base_image_trigger.
@@ -512,7 +512,7 @@ public partial class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BaseImageTrigger block(s) allowed")]
     [TerraformProperty("base_image_trigger")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskBaseImageTriggerBlock>>? BaseImageTrigger { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskBaseImageTriggerBlock> BaseImageTrigger { get; set; } = new();
 
     /// <summary>
     /// Block for docker_step.
@@ -520,7 +520,7 @@ public partial class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerStep block(s) allowed")]
     [TerraformProperty("docker_step")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskDockerStepBlock>>? DockerStep { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskDockerStepBlock> DockerStep { get; set; } = new();
 
     /// <summary>
     /// Block for encoded_step.
@@ -528,7 +528,7 @@ public partial class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncodedStep block(s) allowed")]
     [TerraformProperty("encoded_step")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskEncodedStepBlock>>? EncodedStep { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskEncodedStepBlock> EncodedStep { get; set; } = new();
 
     /// <summary>
     /// Block for file_step.
@@ -536,7 +536,7 @@ public partial class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileStep block(s) allowed")]
     [TerraformProperty("file_step")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskFileStepBlock>>? FileStep { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskFileStepBlock> FileStep { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -544,7 +544,7 @@ public partial class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for platform.
@@ -552,7 +552,7 @@ public partial class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
     [TerraformProperty("platform")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskPlatformBlock>>? Platform { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskPlatformBlock> Platform { get; set; } = new();
 
     /// <summary>
     /// Block for registry_credential.
@@ -560,27 +560,27 @@ public partial class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistryCredential block(s) allowed")]
     [TerraformProperty("registry_credential")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskRegistryCredentialBlock>>? RegistryCredential { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskRegistryCredentialBlock> RegistryCredential { get; set; } = new();
 
     /// <summary>
     /// Block for source_trigger.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("source_trigger")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskSourceTriggerBlock>>? SourceTrigger { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskSourceTriggerBlock> SourceTrigger { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerRegistryTaskTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerRegistryTaskTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for timer_trigger.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("timer_trigger")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTaskTimerTriggerBlock>>? TimerTrigger { get; set; }
+    public TerraformList<AzurermContainerRegistryTaskTimerTriggerBlock> TimerTrigger { get; set; } = new();
 
 }

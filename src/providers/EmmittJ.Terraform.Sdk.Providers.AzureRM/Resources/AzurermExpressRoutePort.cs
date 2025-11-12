@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermExpressRoutePortIdentityBlock : TerraformBlockBase
+public partial class AzurermExpressRoutePortIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermExpressRoutePortIdentityBlock : TerraformBlockBase
 /// Block type for link1 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermExpressRoutePortLink1Block : TerraformBlockBase
+public partial class AzurermExpressRoutePortLink1Block() : TerraformBlock("link1")
 {
     /// <summary>
     /// The admin_enabled attribute.
@@ -80,7 +80,7 @@ public partial class AzurermExpressRoutePortLink1Block : TerraformBlockBase
 /// Block type for link2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermExpressRoutePortLink2Block : TerraformBlockBase
+public partial class AzurermExpressRoutePortLink2Block() : TerraformBlock("link2")
 {
     /// <summary>
     /// The admin_enabled attribute.
@@ -129,7 +129,7 @@ public partial class AzurermExpressRoutePortLink2Block : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermExpressRoutePortTimeoutsBlock : TerraformBlockBase
+public partial class AzurermExpressRoutePortTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -246,7 +246,7 @@ public partial class AzurermExpressRoutePort : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermExpressRoutePortIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermExpressRoutePortIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for link1.
@@ -254,7 +254,7 @@ public partial class AzurermExpressRoutePort : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Link1 block(s) allowed")]
     [TerraformProperty("link1")]
-    public partial TerraformList<TerraformBlock<AzurermExpressRoutePortLink1Block>>? Link1 { get; set; }
+    public TerraformList<AzurermExpressRoutePortLink1Block> Link1 { get; set; } = new();
 
     /// <summary>
     /// Block for link2.
@@ -262,14 +262,14 @@ public partial class AzurermExpressRoutePort : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Link2 block(s) allowed")]
     [TerraformProperty("link2")]
-    public partial TerraformList<TerraformBlock<AzurermExpressRoutePortLink2Block>>? Link2 { get; set; }
+    public TerraformList<AzurermExpressRoutePortLink2Block> Link2 { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermExpressRoutePortTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermExpressRoutePortTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ethertype attribute.

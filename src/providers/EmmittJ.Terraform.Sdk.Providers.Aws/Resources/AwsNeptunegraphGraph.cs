@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlockBase
+public partial class AwsNeptunegraphGraphTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -35,7 +35,7 @@ public partial class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlockBase
 /// Block type for vector_search_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNeptunegraphGraphVectorSearchConfigurationBlock : TerraformBlockBase
+public partial class AwsNeptunegraphGraphVectorSearchConfigurationBlock() : TerraformBlock("vector_search_configuration")
 {
     /// <summary>
     /// Specifies the number of dimensions for vector embeddings.  Value must be between 1 and 65,535.
@@ -133,14 +133,14 @@ public partial class AwsNeptunegraphGraph : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNeptunegraphGraphTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNeptunegraphGraphTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vector_search_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vector_search_configuration")]
-    public partial TerraformList<TerraformBlock<AwsNeptunegraphGraphVectorSearchConfigurationBlock>>? VectorSearchConfiguration { get; set; }
+    public TerraformList<AwsNeptunegraphGraphVectorSearchConfigurationBlock> VectorSearchConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

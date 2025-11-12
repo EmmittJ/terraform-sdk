@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for notification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorAutoscaleSettingNotificationBlock : TerraformBlockBase
+public partial class AzurermMonitorAutoscaleSettingNotificationBlock() : TerraformBlock("notification")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermMonitorAutoscaleSettingNotificationBlock : Terraform
 /// Block type for predictive in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorAutoscaleSettingPredictiveBlock : TerraformBlockBase
+public partial class AzurermMonitorAutoscaleSettingPredictiveBlock() : TerraformBlock("predictive")
 {
     /// <summary>
     /// The look_ahead_time attribute.
@@ -37,7 +37,7 @@ public partial class AzurermMonitorAutoscaleSettingPredictiveBlock : TerraformBl
 /// Block type for profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorAutoscaleSettingProfileBlock : TerraformBlockBase
+public partial class AzurermMonitorAutoscaleSettingProfileBlock() : TerraformBlock("profile")
 {
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermMonitorAutoscaleSettingProfileBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorAutoscaleSettingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorAutoscaleSettingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -154,7 +154,7 @@ public partial class AzurermMonitorAutoscaleSetting : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notification block(s) allowed")]
     [TerraformProperty("notification")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorAutoscaleSettingNotificationBlock>>? Notification { get; set; }
+    public TerraformList<AzurermMonitorAutoscaleSettingNotificationBlock> Notification { get; set; } = new();
 
     /// <summary>
     /// Block for predictive.
@@ -162,7 +162,7 @@ public partial class AzurermMonitorAutoscaleSetting : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Predictive block(s) allowed")]
     [TerraformProperty("predictive")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorAutoscaleSettingPredictiveBlock>>? Predictive { get; set; }
+    public TerraformList<AzurermMonitorAutoscaleSettingPredictiveBlock> Predictive { get; set; } = new();
 
     /// <summary>
     /// Block for profile.
@@ -172,13 +172,13 @@ public partial class AzurermMonitorAutoscaleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Profile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Profile block(s) allowed")]
     [TerraformProperty("profile")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorAutoscaleSettingProfileBlock>>? Profile { get; set; }
+    public required TerraformList<AzurermMonitorAutoscaleSettingProfileBlock> Profile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorAutoscaleSettingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorAutoscaleSettingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

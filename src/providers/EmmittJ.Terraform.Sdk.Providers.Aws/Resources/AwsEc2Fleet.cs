@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for fleet_instance_set in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2FleetFleetInstanceSetBlock : TerraformBlockBase
+public partial class AwsEc2FleetFleetInstanceSetBlock() : TerraformBlock("fleet_instance_set")
 {
     /// <summary>
     /// The instance_ids attribute.
@@ -42,7 +42,7 @@ public partial class AwsEc2FleetFleetInstanceSetBlock : TerraformBlockBase
 /// Block type for launch_template_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2FleetLaunchTemplateConfigBlock : TerraformBlockBase
+public partial class AwsEc2FleetLaunchTemplateConfigBlock() : TerraformBlock("launch_template_config")
 {
 }
 
@@ -50,7 +50,7 @@ public partial class AwsEc2FleetLaunchTemplateConfigBlock : TerraformBlockBase
 /// Block type for on_demand_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2FleetOnDemandOptionsBlock : TerraformBlockBase
+public partial class AwsEc2FleetOnDemandOptionsBlock() : TerraformBlock("on_demand_options")
 {
     /// <summary>
     /// The allocation_strategy attribute.
@@ -93,7 +93,7 @@ public partial class AwsEc2FleetOnDemandOptionsBlock : TerraformBlockBase
 /// Block type for spot_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2FleetSpotOptionsBlock : TerraformBlockBase
+public partial class AwsEc2FleetSpotOptionsBlock() : TerraformBlock("spot_options")
 {
     /// <summary>
     /// The allocation_strategy attribute.
@@ -150,7 +150,7 @@ public partial class AwsEc2FleetSpotOptionsBlock : TerraformBlockBase
 /// Block type for target_capacity_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlockBase
+public partial class AwsEc2FleetTargetCapacitySpecificationBlock() : TerraformBlock("target_capacity_specification")
 {
     /// <summary>
     /// The default_target_capacity_type attribute.
@@ -195,7 +195,7 @@ public partial class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2FleetTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2FleetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -340,7 +340,7 @@ public partial class AwsEc2Fleet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("fleet_instance_set")]
-    public partial TerraformList<TerraformBlock<AwsEc2FleetFleetInstanceSetBlock>>? FleetInstanceSet { get; set; }
+    public TerraformList<AwsEc2FleetFleetInstanceSetBlock> FleetInstanceSet { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template_config.
@@ -350,7 +350,7 @@ public partial class AwsEc2Fleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LaunchTemplateConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 LaunchTemplateConfig block(s) allowed")]
     [TerraformProperty("launch_template_config")]
-    public partial TerraformList<TerraformBlock<AwsEc2FleetLaunchTemplateConfigBlock>>? LaunchTemplateConfig { get; set; }
+    public required TerraformList<AwsEc2FleetLaunchTemplateConfigBlock> LaunchTemplateConfig { get; set; } = new();
 
     /// <summary>
     /// Block for on_demand_options.
@@ -358,7 +358,7 @@ public partial class AwsEc2Fleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDemandOptions block(s) allowed")]
     [TerraformProperty("on_demand_options")]
-    public partial TerraformList<TerraformBlock<AwsEc2FleetOnDemandOptionsBlock>>? OnDemandOptions { get; set; }
+    public TerraformList<AwsEc2FleetOnDemandOptionsBlock> OnDemandOptions { get; set; } = new();
 
     /// <summary>
     /// Block for spot_options.
@@ -366,7 +366,7 @@ public partial class AwsEc2Fleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpotOptions block(s) allowed")]
     [TerraformProperty("spot_options")]
-    public partial TerraformList<TerraformBlock<AwsEc2FleetSpotOptionsBlock>>? SpotOptions { get; set; }
+    public TerraformList<AwsEc2FleetSpotOptionsBlock> SpotOptions { get; set; } = new();
 
     /// <summary>
     /// Block for target_capacity_specification.
@@ -376,14 +376,14 @@ public partial class AwsEc2Fleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetCapacitySpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetCapacitySpecification block(s) allowed")]
     [TerraformProperty("target_capacity_specification")]
-    public partial TerraformList<TerraformBlock<AwsEc2FleetTargetCapacitySpecificationBlock>>? TargetCapacitySpecification { get; set; }
+    public required TerraformList<AwsEc2FleetTargetCapacitySpecificationBlock> TargetCapacitySpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2FleetTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2FleetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

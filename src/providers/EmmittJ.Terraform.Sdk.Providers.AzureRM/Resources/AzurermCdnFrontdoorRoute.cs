@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cache in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorRouteCacheBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorRouteCacheBlock() : TerraformBlock("cache")
 {
     /// <summary>
     /// The compression_enabled attribute.
@@ -42,7 +42,7 @@ public partial class AzurermCdnFrontdoorRouteCacheBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorRouteTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorRouteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -194,13 +194,13 @@ public partial class AzurermCdnFrontdoorRoute : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cache block(s) allowed")]
     [TerraformProperty("cache")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorRouteCacheBlock>>? Cache { get; set; }
+    public TerraformList<AzurermCdnFrontdoorRouteCacheBlock> Cache { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorRouteTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorRouteTimeoutsBlock Timeouts { get; set; } = new();
 
 }

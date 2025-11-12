@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,6 +76,6 @@ public partial class GoogleComputeDiskResourcePolicyAttachment : TerraformResour
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

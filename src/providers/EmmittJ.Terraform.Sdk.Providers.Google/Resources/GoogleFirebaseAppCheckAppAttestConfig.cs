@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseAppCheckAppAttestConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppCheckAppAttestConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -78,7 +78,7 @@ public partial class GoogleFirebaseAppCheckAppAttestConfig : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseAppCheckAppAttestConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseAppCheckAppAttestConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The relative resource name of the App Attest configuration object

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for copy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryJobCopyBlock : TerraformBlockBase
+public partial class GoogleBigqueryJobCopyBlock() : TerraformBlock("copy")
 {
     /// <summary>
     /// Specifies whether the job is allowed to create new tables. The following values are supported:
@@ -36,7 +36,7 @@ public partial class GoogleBigqueryJobCopyBlock : TerraformBlockBase
 /// Block type for extract in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryJobExtractBlock : TerraformBlockBase
+public partial class GoogleBigqueryJobExtractBlock() : TerraformBlock("extract")
 {
     /// <summary>
     /// The compression type to use for exported files. Possible values include GZIP, DEFLATE, SNAPPY, and NONE.
@@ -91,7 +91,7 @@ public partial class GoogleBigqueryJobExtractBlock : TerraformBlockBase
 /// Block type for load in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
+public partial class GoogleBigqueryJobLoadBlock() : TerraformBlock("load")
 {
     /// <summary>
     /// Accept rows that are missing trailing optional columns. The missing values are treated as nulls.
@@ -272,7 +272,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
 /// Block type for query in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
+public partial class GoogleBigqueryJobQueryBlock() : TerraformBlock("query")
 {
     /// <summary>
     /// If true and query uses legacy SQL dialect, allows the query to produce arbitrarily large result tables at a slight cost in performance.
@@ -389,7 +389,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryJobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -477,7 +477,7 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Copy block(s) allowed")]
     [TerraformProperty("copy")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryJobCopyBlock>>? Copy { get; set; }
+    public TerraformList<GoogleBigqueryJobCopyBlock> Copy { get; set; } = new();
 
     /// <summary>
     /// Block for extract.
@@ -485,7 +485,7 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extract block(s) allowed")]
     [TerraformProperty("extract")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryJobExtractBlock>>? Extract { get; set; }
+    public TerraformList<GoogleBigqueryJobExtractBlock> Extract { get; set; } = new();
 
     /// <summary>
     /// Block for load.
@@ -493,7 +493,7 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Load block(s) allowed")]
     [TerraformProperty("load")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryJobLoadBlock>>? Load { get; set; }
+    public TerraformList<GoogleBigqueryJobLoadBlock> Load { get; set; } = new();
 
     /// <summary>
     /// Block for query.
@@ -501,14 +501,14 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Query block(s) allowed")]
     [TerraformProperty("query")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryJobQueryBlock>>? Query { get; set; }
+    public TerraformList<GoogleBigqueryJobQueryBlock> Query { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryJobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

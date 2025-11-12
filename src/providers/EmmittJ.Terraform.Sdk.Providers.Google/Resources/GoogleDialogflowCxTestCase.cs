@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for test_case_conversation_turns in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock() : TerraformBlock("test_case_conversation_turns")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock : 
 /// Block type for test_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxTestCaseTestConfigBlock() : TerraformBlock("test_config")
 {
     /// <summary>
     /// Flow name to start the test case with.
@@ -47,7 +47,7 @@ public partial class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxTestCaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,7 +125,7 @@ public partial class GoogleDialogflowCxTestCase : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("test_case_conversation_turns")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock>>? TestCaseConversationTurns { get; set; }
+    public TerraformList<GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock> TestCaseConversationTurns { get; set; } = new();
 
     /// <summary>
     /// Block for test_config.
@@ -133,14 +133,14 @@ public partial class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TestConfig block(s) allowed")]
     [TerraformProperty("test_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestConfigBlock>>? TestConfig { get; set; }
+    public TerraformList<GoogleDialogflowCxTestCaseTestConfigBlock> TestConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxTestCaseTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxTestCaseTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// When the test was created. A timestamp in RFC3339 text format.

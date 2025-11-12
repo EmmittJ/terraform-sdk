@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kerberos_authentication_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : TerraformBlockBase
+public partial class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock() : TerraformBlock("kerberos_authentication_settings")
 {
     /// <summary>
     /// The key_cache_secret_iam_arn attribute.
@@ -38,7 +38,7 @@ public partial class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDmsReplicationInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AwsDmsReplicationInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -221,14 +221,14 @@ public partial class AwsDmsReplicationInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KerberosAuthenticationSettings block(s) allowed")]
     [TerraformProperty("kerberos_authentication_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock>>? KerberosAuthenticationSettings { get; set; }
+    public TerraformList<AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock> KerberosAuthenticationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDmsReplicationInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDmsReplicationInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The replication_instance_arn attribute.

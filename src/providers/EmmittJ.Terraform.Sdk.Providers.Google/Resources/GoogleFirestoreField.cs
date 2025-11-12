@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for index_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirestoreFieldIndexConfigBlock : TerraformBlockBase
+public partial class GoogleFirestoreFieldIndexConfigBlock() : TerraformBlock("index_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleFirestoreFieldIndexConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirestoreFieldTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirestoreFieldTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -43,7 +43,7 @@ public partial class GoogleFirestoreFieldTimeoutsBlock : TerraformBlockBase
 /// Block type for ttl_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirestoreFieldTtlConfigBlock : TerraformBlockBase
+public partial class GoogleFirestoreFieldTtlConfigBlock() : TerraformBlock("ttl_config")
 {
 
 }
@@ -101,14 +101,14 @@ public partial class GoogleFirestoreField : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexConfig block(s) allowed")]
     [TerraformProperty("index_config")]
-    public partial TerraformList<TerraformBlock<GoogleFirestoreFieldIndexConfigBlock>>? IndexConfig { get; set; }
+    public TerraformList<GoogleFirestoreFieldIndexConfigBlock> IndexConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirestoreFieldTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirestoreFieldTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for ttl_config.
@@ -116,7 +116,7 @@ public partial class GoogleFirestoreField : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TtlConfig block(s) allowed")]
     [TerraformProperty("ttl_config")]
-    public partial TerraformList<TerraformBlock<GoogleFirestoreFieldTtlConfigBlock>>? TtlConfig { get; set; }
+    public TerraformList<GoogleFirestoreFieldTtlConfigBlock> TtlConfig { get; set; } = new();
 
     /// <summary>
     /// The name of this field. Format:

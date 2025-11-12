@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildWorkerPoolNetworkConfigBlock() : TerraformBlock("network_config")
 {
     /// <summary>
     /// Required. Immutable. The network definition that the workers are peered to. If this section is left empty, the workers will be peered to `WorkerPool.project_id` on the service producer network. Must be in the format `projects/{project}/global/networks/{network}`, where `{project}` is a project number, such as `12345`, and `{network}` is the name of a VPC network in the project. See [Understanding network configuration options](https://cloud.google.com/cloud-build/docs/custom-workers/set-up-custom-worker-pool-environment#understanding_the_network_configuration_options)
@@ -29,7 +29,7 @@ public partial class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlo
 /// Block type for private_service_connect in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : TerraformBlockBase
+public partial class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock() : TerraformBlock("private_service_connect")
 {
     /// <summary>
     /// Required. Immutable. The network attachment that the worker network interface is connected to. Must be in the format `projects/{project}/regions/{region}/networkAttachments/{networkAttachment}`. The region of network attachment must be the same as the worker pool. See [Network Attachments](https://cloud.google.com/vpc/docs/about-network-attachments)
@@ -52,7 +52,7 @@ public partial class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudbuildWorkerPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -81,7 +81,7 @@ public partial class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlockBas
 /// Block type for worker_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildWorkerPoolWorkerConfigBlock() : TerraformBlock("worker_config")
 {
     /// <summary>
     /// Size of the disk attached to the worker, in GB. See [Worker pool config file](https://cloud.google.com/cloud-build/docs/custom-workers/worker-pool-config-file). Specify a value of up to 1000. If `0` is specified, Cloud Build will use a standard disk size.
@@ -176,7 +176,7 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public TerraformList<GoogleCloudbuildWorkerPoolNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for private_service_connect.
@@ -184,14 +184,14 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnect block(s) allowed")]
     [TerraformProperty("private_service_connect")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock>>? PrivateServiceConnect { get; set; }
+    public TerraformList<GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock> PrivateServiceConnect { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudbuildWorkerPoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudbuildWorkerPoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for worker_config.
@@ -199,7 +199,7 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfig block(s) allowed")]
     [TerraformProperty("worker_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolWorkerConfigBlock>>? WorkerConfig { get; set; }
+    public TerraformList<GoogleCloudbuildWorkerPoolWorkerConfigBlock> WorkerConfig { get; set; } = new();
 
     /// <summary>
     /// Output only. Time at which the request to create the `WorkerPool` was received.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for flexible_time_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlockBase
+public partial class AwsSchedulerScheduleFlexibleTimeWindowBlock() : TerraformBlock("flexible_time_window")
 {
     /// <summary>
     /// The maximum_window_in_minutes attribute.
@@ -29,7 +29,7 @@ public partial class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBloc
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSchedulerScheduleTargetBlock : TerraformBlockBase
+public partial class AwsSchedulerScheduleTargetBlock() : TerraformBlock("target")
 {
     /// <summary>
     /// The arn attribute.
@@ -166,7 +166,7 @@ public partial class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FlexibleTimeWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleTimeWindow block(s) allowed")]
     [TerraformProperty("flexible_time_window")]
-    public partial TerraformList<TerraformBlock<AwsSchedulerScheduleFlexibleTimeWindowBlock>>? FlexibleTimeWindow { get; set; }
+    public required TerraformList<AwsSchedulerScheduleFlexibleTimeWindowBlock> FlexibleTimeWindow { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -176,7 +176,7 @@ public partial class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<AwsSchedulerScheduleTargetBlock>>? Target { get; set; }
+    public required TerraformList<AwsSchedulerScheduleTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

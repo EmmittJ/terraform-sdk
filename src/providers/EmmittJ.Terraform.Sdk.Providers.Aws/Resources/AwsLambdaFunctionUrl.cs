@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionUrlCorsBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionUrlCorsBlock() : TerraformBlock("cors")
 {
     /// <summary>
     /// The allow_credentials attribute.
@@ -56,7 +56,7 @@ public partial class AwsLambdaFunctionUrlCorsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLambdaFunctionUrlTimeoutsBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionUrlTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,14 +127,14 @@ public partial class AwsLambdaFunctionUrl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     [TerraformProperty("cors")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionUrlCorsBlock>>? Cors { get; set; }
+    public TerraformList<AwsLambdaFunctionUrlCorsBlock> Cors { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLambdaFunctionUrlTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLambdaFunctionUrlTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The function_arn attribute.

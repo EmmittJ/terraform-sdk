@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeEnvironmentKeyvaluemapsEntriesTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeEnvironmentKeyvaluemapsEntriesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -70,6 +70,6 @@ public partial class GoogleApigeeEnvironmentKeyvaluemapsEntries : TerraformResou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeEnvironmentKeyvaluemapsEntriesTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeEnvironmentKeyvaluemapsEntriesTimeoutsBlock Timeouts { get; set; } = new();
 
 }

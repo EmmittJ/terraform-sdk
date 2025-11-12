@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for audio_export_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock() : TerraformBlock("audio_export_settings")
 {
     /// <summary>
     /// Filename pattern for exported audio.
@@ -45,7 +45,7 @@ public partial class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock 
 /// Block type for insights_export_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock() : TerraformBlock("insights_export_settings")
 {
     /// <summary>
     /// If enabled, we will automatically exports conversations to Insights and Insights runs its analyzers.
@@ -61,7 +61,7 @@ public partial class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxSecuritySettingsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -190,7 +190,7 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioExportSettings block(s) allowed")]
     [TerraformProperty("audio_export_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock>>? AudioExportSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock> AudioExportSettings { get; set; } = new();
 
     /// <summary>
     /// Block for insights_export_settings.
@@ -198,14 +198,14 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InsightsExportSettings block(s) allowed")]
     [TerraformProperty("insights_export_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock>>? InsightsExportSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock> InsightsExportSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxSecuritySettingsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxSecuritySettingsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the settings.

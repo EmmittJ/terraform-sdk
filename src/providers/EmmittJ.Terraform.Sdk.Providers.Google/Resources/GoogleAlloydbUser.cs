@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAlloydbUserTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAlloydbUserTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,7 +91,7 @@ public partial class GoogleAlloydbUser : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAlloydbUserTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAlloydbUserTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Name of the resource in the form of projects/{project}/locations/{location}/clusters/{cluster}/users/{user}.

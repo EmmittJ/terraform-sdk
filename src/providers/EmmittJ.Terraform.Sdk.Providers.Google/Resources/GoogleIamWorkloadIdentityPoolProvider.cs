@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for aws in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkloadIdentityPoolProviderAwsBlock : TerraformBlockBase
+public partial class GoogleIamWorkloadIdentityPoolProviderAwsBlock() : TerraformBlock("aws")
 {
     /// <summary>
     /// The AWS account ID.
@@ -22,7 +22,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderAwsBlock : TerraformBl
 /// Block type for oidc in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformBlockBase
+public partial class GoogleIamWorkloadIdentityPoolProviderOidcBlock() : TerraformBlock("oidc")
 {
     /// <summary>
     /// Acceptable values for the &#39;aud&#39; field (audience) in the OIDC token. Token exchange
@@ -85,7 +85,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformB
 /// Block type for saml in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkloadIdentityPoolProviderSamlBlock : TerraformBlockBase
+public partial class GoogleIamWorkloadIdentityPoolProviderSamlBlock() : TerraformBlock("saml")
 {
     /// <summary>
     /// SAML Identity provider configuration metadata xml doc.
@@ -101,7 +101,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderSamlBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -130,7 +130,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock : Terraf
 /// Block type for x509 in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkloadIdentityPoolProviderX509Block : TerraformBlockBase
+public partial class GoogleIamWorkloadIdentityPoolProviderX509Block() : TerraformBlock("x509")
 {
 }
 
@@ -297,7 +297,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Aws block(s) allowed")]
     [TerraformProperty("aws")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderAwsBlock>>? Aws { get; set; }
+    public TerraformList<GoogleIamWorkloadIdentityPoolProviderAwsBlock> Aws { get; set; } = new();
 
     /// <summary>
     /// Block for oidc.
@@ -305,7 +305,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
     [TerraformProperty("oidc")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderOidcBlock>>? Oidc { get; set; }
+    public TerraformList<GoogleIamWorkloadIdentityPoolProviderOidcBlock> Oidc { get; set; } = new();
 
     /// <summary>
     /// Block for saml.
@@ -313,14 +313,14 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Saml block(s) allowed")]
     [TerraformProperty("saml")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderSamlBlock>>? Saml { get; set; }
+    public TerraformList<GoogleIamWorkloadIdentityPoolProviderSamlBlock> Saml { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for x509.
@@ -328,7 +328,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 X509 block(s) allowed")]
     [TerraformProperty("x509")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderX509Block>>? X509 { get; set; }
+    public TerraformList<GoogleIamWorkloadIdentityPoolProviderX509Block> X509 { get; set; } = new();
 
     /// <summary>
     /// The resource name of the provider as

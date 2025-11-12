@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for ingestion_data_source_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubTopicIngestionDataSourceSettingsBlock : TerraformBlockBase
+public partial class GooglePubsubTopicIngestionDataSourceSettingsBlock() : TerraformBlock("ingestion_data_source_settings")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GooglePubsubTopicIngestionDataSourceSettingsBlock : Terrafo
 /// Block type for message_storage_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlockBase
+public partial class GooglePubsubTopicMessageStoragePolicyBlock() : TerraformBlock("message_storage_policy")
 {
     /// <summary>
     /// A list of IDs of GCP regions where messages that are published to
@@ -45,7 +45,7 @@ public partial class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlock
 /// Block type for message_transforms in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubTopicMessageTransformsBlock : TerraformBlockBase
+public partial class GooglePubsubTopicMessageTransformsBlock() : TerraformBlock("message_transforms")
 {
     /// <summary>
     /// Controls whether or not to use this transform. If not set or &#39;false&#39;,
@@ -61,7 +61,7 @@ public partial class GooglePubsubTopicMessageTransformsBlock : TerraformBlockBas
 /// Block type for schema_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubTopicSchemaSettingsBlock : TerraformBlockBase
+public partial class GooglePubsubTopicSchemaSettingsBlock() : TerraformBlock("schema_settings")
 {
     /// <summary>
     /// The encoding of messages validated against schema. Default value: &amp;quot;ENCODING_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;ENCODING_UNSPECIFIED&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;BINARY&amp;quot;]
@@ -87,7 +87,7 @@ public partial class GooglePubsubTopicSchemaSettingsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePubsubTopicTimeoutsBlock : TerraformBlockBase
+public partial class GooglePubsubTopicTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -200,7 +200,7 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngestionDataSourceSettings block(s) allowed")]
     [TerraformProperty("ingestion_data_source_settings")]
-    public partial TerraformList<TerraformBlock<GooglePubsubTopicIngestionDataSourceSettingsBlock>>? IngestionDataSourceSettings { get; set; }
+    public TerraformList<GooglePubsubTopicIngestionDataSourceSettingsBlock> IngestionDataSourceSettings { get; set; } = new();
 
     /// <summary>
     /// Block for message_storage_policy.
@@ -208,14 +208,14 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageStoragePolicy block(s) allowed")]
     [TerraformProperty("message_storage_policy")]
-    public partial TerraformList<TerraformBlock<GooglePubsubTopicMessageStoragePolicyBlock>>? MessageStoragePolicy { get; set; }
+    public TerraformList<GooglePubsubTopicMessageStoragePolicyBlock> MessageStoragePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for message_transforms.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("message_transforms")]
-    public partial TerraformList<TerraformBlock<GooglePubsubTopicMessageTransformsBlock>>? MessageTransforms { get; set; }
+    public TerraformList<GooglePubsubTopicMessageTransformsBlock> MessageTransforms { get; set; } = new();
 
     /// <summary>
     /// Block for schema_settings.
@@ -223,14 +223,14 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaSettings block(s) allowed")]
     [TerraformProperty("schema_settings")]
-    public partial TerraformList<TerraformBlock<GooglePubsubTopicSchemaSettingsBlock>>? SchemaSettings { get; set; }
+    public TerraformList<GooglePubsubTopicSchemaSettingsBlock> SchemaSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePubsubTopicTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePubsubTopicTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

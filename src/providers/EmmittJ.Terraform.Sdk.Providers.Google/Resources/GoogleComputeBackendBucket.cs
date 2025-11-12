@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cdn_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeBackendBucketCdnPolicyBlock() : TerraformBlock("cdn_policy")
 {
     /// <summary>
     /// Specifies the cache setting for all responses from this backend.
@@ -82,7 +82,7 @@ public partial class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlockBa
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendBucketParamsBlock : TerraformBlockBase
+public partial class GoogleComputeBackendBucketParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// Resource manager tags to be bound to the backend bucket. Tag keys and values have the
@@ -99,7 +99,7 @@ public partial class GoogleComputeBackendBucketParamsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeBackendBucketTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeBackendBucketTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -222,7 +222,7 @@ public partial class GoogleComputeBackendBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnPolicy block(s) allowed")]
     [TerraformProperty("cdn_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendBucketCdnPolicyBlock>>? CdnPolicy { get; set; }
+    public TerraformList<GoogleComputeBackendBucketCdnPolicyBlock> CdnPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for params.
@@ -230,14 +230,14 @@ public partial class GoogleComputeBackendBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendBucketParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeBackendBucketParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeBackendBucketTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeBackendBucketTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

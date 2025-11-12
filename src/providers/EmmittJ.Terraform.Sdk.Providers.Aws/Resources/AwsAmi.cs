@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ebs_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAmiEbsBlockDeviceBlock : TerraformBlockBase
+public partial class AwsAmiEbsBlockDeviceBlock() : TerraformBlock("ebs_block_device")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -78,7 +78,7 @@ public partial class AwsAmiEbsBlockDeviceBlock : TerraformBlockBase
 /// Block type for ephemeral_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAmiEphemeralBlockDeviceBlock : TerraformBlockBase
+public partial class AwsAmiEphemeralBlockDeviceBlock() : TerraformBlock("ephemeral_block_device")
 {
     /// <summary>
     /// The device_name attribute.
@@ -102,7 +102,7 @@ public partial class AwsAmiEphemeralBlockDeviceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAmiTimeoutsBlock : TerraformBlockBase
+public partial class AwsAmiTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -275,21 +275,21 @@ public partial class AwsAmi : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsAmiEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
+    public TerraformSet<AwsAmiEbsBlockDeviceBlock> EbsBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for ephemeral_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ephemeral_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsAmiEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
+    public TerraformSet<AwsAmiEphemeralBlockDeviceBlock> EphemeralBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAmiTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAmiTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

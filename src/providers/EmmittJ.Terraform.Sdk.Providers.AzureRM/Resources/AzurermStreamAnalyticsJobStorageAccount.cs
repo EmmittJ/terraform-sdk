@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,6 +90,6 @@ public partial class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock Timeouts { get; set; } = new();
 
 }

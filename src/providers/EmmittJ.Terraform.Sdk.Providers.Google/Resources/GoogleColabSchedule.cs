@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for create_notebook_execution_job_request in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabScheduleCreateNotebookExecutionJobRequestBlock : TerraformBlockBase
+public partial class GoogleColabScheduleCreateNotebookExecutionJobRequestBlock() : TerraformBlock("create_notebook_execution_job_request")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleColabScheduleCreateNotebookExecutionJobRequestBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleColabScheduleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleColabScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,14 +138,14 @@ public partial class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CreateNotebookExecutionJobRequest block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateNotebookExecutionJobRequest block(s) allowed")]
     [TerraformProperty("create_notebook_execution_job_request")]
-    public partial TerraformList<TerraformBlock<GoogleColabScheduleCreateNotebookExecutionJobRequestBlock>>? CreateNotebookExecutionJobRequest { get; set; }
+    public required TerraformList<GoogleColabScheduleCreateNotebookExecutionJobRequestBlock> CreateNotebookExecutionJobRequest { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleColabScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleColabScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the Schedule

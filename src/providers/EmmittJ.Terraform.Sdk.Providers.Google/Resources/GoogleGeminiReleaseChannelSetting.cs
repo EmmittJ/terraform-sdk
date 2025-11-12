@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGeminiReleaseChannelSettingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGeminiReleaseChannelSettingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,7 +95,7 @@ public partial class GoogleGeminiReleaseChannelSetting : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGeminiReleaseChannelSettingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGeminiReleaseChannelSettingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time stamp.

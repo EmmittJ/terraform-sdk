@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for process_interval in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlockBase
+public partial class GoogleChronicleRetrohuntProcessIntervalBlock() : TerraformBlock("process_interval")
 {
     /// <summary>
     /// Exclusive end of the interval.
@@ -30,7 +30,7 @@ public partial class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleChronicleRetrohuntTimeoutsBlock : TerraformBlockBase
+public partial class GoogleChronicleRetrohuntTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,14 +111,14 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProcessInterval block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProcessInterval block(s) allowed")]
     [TerraformProperty("process_interval")]
-    public partial TerraformList<TerraformBlock<GoogleChronicleRetrohuntProcessIntervalBlock>>? ProcessInterval { get; set; }
+    public required TerraformList<GoogleChronicleRetrohuntProcessIntervalBlock> ProcessInterval { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleChronicleRetrohuntTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleChronicleRetrohuntTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Represents a time interval, encoded as a Timestamp start (inclusive) and a

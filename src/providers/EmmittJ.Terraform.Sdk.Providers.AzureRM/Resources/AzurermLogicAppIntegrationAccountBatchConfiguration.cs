@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for release_criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock() : TerraformBlock("release_criteria")
 {
     /// <summary>
     /// The batch_size attribute.
@@ -28,7 +28,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseC
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,13 +124,13 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration : Terra
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReleaseCriteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReleaseCriteria block(s) allowed")]
     [TerraformProperty("release_criteria")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock>>? ReleaseCriteria { get; set; }
+    public required TerraformList<AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock> ReleaseCriteria { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

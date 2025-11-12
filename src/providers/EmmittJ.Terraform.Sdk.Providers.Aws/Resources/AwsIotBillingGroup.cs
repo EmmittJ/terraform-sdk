@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotBillingGroupPropertiesBlock : TerraformBlockBase
+public partial class AwsIotBillingGroupPropertiesBlock() : TerraformBlock("properties")
 {
     /// <summary>
     /// The description attribute.
@@ -53,7 +53,7 @@ public partial class AwsIotBillingGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("properties")]
-    public partial TerraformList<TerraformBlock<AwsIotBillingGroupPropertiesBlock>>? Properties { get; set; }
+    public TerraformList<AwsIotBillingGroupPropertiesBlock> Properties { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authorization in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBlockBase
+public partial class AzurermManagedApplicationDefinitionAuthorizationBlock() : TerraformBlock("authorization")
 {
     /// <summary>
     /// The role_definition_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermManagedApplicationDefinitionAuthorizationBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagedApplicationDefinitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,13 +165,13 @@ public partial class AzurermManagedApplicationDefinition : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("authorization")]
-    public partial TerraformSet<TerraformBlock<AzurermManagedApplicationDefinitionAuthorizationBlock>>? Authorization { get; set; }
+    public TerraformSet<AzurermManagedApplicationDefinitionAuthorizationBlock> Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagedApplicationDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagedApplicationDefinitionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

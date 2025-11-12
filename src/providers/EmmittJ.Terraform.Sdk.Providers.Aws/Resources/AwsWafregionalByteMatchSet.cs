@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for byte_match_tuples in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafregionalByteMatchSetByteMatchTuplesBlock : TerraformBlockBase
+public partial class AwsWafregionalByteMatchSetByteMatchTuplesBlock() : TerraformBlock("byte_match_tuples")
 {
     /// <summary>
     /// The positional_constraint attribute.
@@ -69,6 +69,6 @@ public partial class AwsWafregionalByteMatchSet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("byte_match_tuples")]
-    public partial TerraformSet<TerraformBlock<AwsWafregionalByteMatchSetByteMatchTuplesBlock>>? ByteMatchTuples { get; set; }
+    public TerraformSet<AwsWafregionalByteMatchSetByteMatchTuplesBlock> ByteMatchTuples { get; set; } = new();
 
 }

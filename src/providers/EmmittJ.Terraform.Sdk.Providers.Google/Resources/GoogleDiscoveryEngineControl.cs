@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for boost_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineControlBoostActionBlock() : TerraformBlock("boost_action")
 {
     /// <summary>
     /// The data store to boost.
@@ -37,7 +37,7 @@ public partial class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlo
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineControlConditionsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineControlConditionsBlock() : TerraformBlock("conditions")
 {
     /// <summary>
     /// The regular expression that the query must match for this condition to be met.
@@ -52,7 +52,7 @@ public partial class GoogleDiscoveryEngineControlConditionsBlock : TerraformBloc
 /// Block type for filter_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineControlFilterActionBlock() : TerraformBlock("filter_action")
 {
     /// <summary>
     /// The data store to filter.
@@ -76,7 +76,7 @@ public partial class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBl
 /// Block type for promote_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineControlPromoteActionBlock() : TerraformBlock("promote_action")
 {
     /// <summary>
     /// The data store to promote.
@@ -92,7 +92,7 @@ public partial class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformB
 /// Block type for redirect_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineControlRedirectActionBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineControlRedirectActionBlock() : TerraformBlock("redirect_action")
 {
     /// <summary>
     /// The URI to redirect to.
@@ -108,7 +108,7 @@ public partial class GoogleDiscoveryEngineControlRedirectActionBlock : Terraform
 /// Block type for synonyms_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineControlSynonymsActionBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineControlSynonymsActionBlock() : TerraformBlock("synonyms_action")
 {
     /// <summary>
     /// The synonyms to apply to the search results.
@@ -123,7 +123,7 @@ public partial class GoogleDiscoveryEngineControlSynonymsActionBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineControlTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -234,14 +234,14 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BoostAction block(s) allowed")]
     [TerraformProperty("boost_action")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlBoostActionBlock>>? BoostAction { get; set; }
+    public TerraformList<GoogleDiscoveryEngineControlBoostActionBlock> BoostAction { get; set; } = new();
 
     /// <summary>
     /// Block for conditions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("conditions")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlConditionsBlock>>? Conditions { get; set; }
+    public TerraformList<GoogleDiscoveryEngineControlConditionsBlock> Conditions { get; set; } = new();
 
     /// <summary>
     /// Block for filter_action.
@@ -249,7 +249,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAction block(s) allowed")]
     [TerraformProperty("filter_action")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlFilterActionBlock>>? FilterAction { get; set; }
+    public TerraformList<GoogleDiscoveryEngineControlFilterActionBlock> FilterAction { get; set; } = new();
 
     /// <summary>
     /// Block for promote_action.
@@ -257,7 +257,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PromoteAction block(s) allowed")]
     [TerraformProperty("promote_action")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlPromoteActionBlock>>? PromoteAction { get; set; }
+    public TerraformList<GoogleDiscoveryEngineControlPromoteActionBlock> PromoteAction { get; set; } = new();
 
     /// <summary>
     /// Block for redirect_action.
@@ -265,7 +265,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAction block(s) allowed")]
     [TerraformProperty("redirect_action")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlRedirectActionBlock>>? RedirectAction { get; set; }
+    public TerraformList<GoogleDiscoveryEngineControlRedirectActionBlock> RedirectAction { get; set; } = new();
 
     /// <summary>
     /// Block for synonyms_action.
@@ -273,14 +273,14 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SynonymsAction block(s) allowed")]
     [TerraformProperty("synonyms_action")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlSynonymsActionBlock>>? SynonymsAction { get; set; }
+    public TerraformList<GoogleDiscoveryEngineControlSynonymsActionBlock> SynonymsAction { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineControlTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineControlTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique full resource name of the control. Values are of the format

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsWorkspacesWorkspaceTimeoutsBlock : TerraformBlockBase
+public partial class AwsWorkspacesWorkspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsWorkspacesWorkspaceTimeoutsBlock : TerraformBlockBase
 /// Block type for workspace_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlockBase
+public partial class AwsWorkspacesWorkspaceWorkspacePropertiesBlock() : TerraformBlock("workspace_properties")
 {
     /// <summary>
     /// The compute_type_name attribute.
@@ -162,7 +162,7 @@ public partial class AwsWorkspacesWorkspace : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsWorkspacesWorkspaceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsWorkspacesWorkspaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workspace_properties.
@@ -170,7 +170,7 @@ public partial class AwsWorkspacesWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkspaceProperties block(s) allowed")]
     [TerraformProperty("workspace_properties")]
-    public partial TerraformList<TerraformBlock<AwsWorkspacesWorkspaceWorkspacePropertiesBlock>>? WorkspaceProperties { get; set; }
+    public TerraformList<AwsWorkspacesWorkspaceWorkspacePropertiesBlock> WorkspaceProperties { get; set; } = new();
 
     /// <summary>
     /// The computer_name attribute.

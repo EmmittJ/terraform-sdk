@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSnapshotCreateVolumePermissionTimeoutsBlock : TerraformBlockBase
+public partial class AwsSnapshotCreateVolumePermissionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,6 +68,6 @@ public partial class AwsSnapshotCreateVolumePermission : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSnapshotCreateVolumePermissionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSnapshotCreateVolumePermissionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

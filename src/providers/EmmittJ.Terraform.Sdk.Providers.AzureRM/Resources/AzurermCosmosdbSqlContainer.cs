@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock() : TerraformBlock("autoscale_settings")
 {
     /// <summary>
     /// The max_throughput attribute.
@@ -21,7 +21,7 @@ public partial class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : Terrafo
 /// Block type for conflict_resolution_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : TerraformBlockBase
+public partial class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock() : TerraformBlock("conflict_resolution_policy")
 {
     /// <summary>
     /// The conflict_resolution_path attribute.
@@ -51,7 +51,7 @@ public partial class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : 
 /// Block type for indexing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbSqlContainerIndexingPolicyBlock : TerraformBlockBase
+public partial class AzurermCosmosdbSqlContainerIndexingPolicyBlock() : TerraformBlock("indexing_policy")
 {
     /// <summary>
     /// The indexing_mode attribute.
@@ -66,7 +66,7 @@ public partial class AzurermCosmosdbSqlContainerIndexingPolicyBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbSqlContainerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbSqlContainerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -102,7 +102,7 @@ public partial class AzurermCosmosdbSqlContainerTimeoutsBlock : TerraformBlockBa
 /// Block type for unique_key in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCosmosdbSqlContainerUniqueKeyBlock : TerraformBlockBase
+public partial class AzurermCosmosdbSqlContainerUniqueKeyBlock() : TerraformBlock("unique_key")
 {
     /// <summary>
     /// The paths attribute.
@@ -212,7 +212,7 @@ public partial class AzurermCosmosdbSqlContainer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public TerraformList<AzurermCosmosdbSqlContainerAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for conflict_resolution_policy.
@@ -220,7 +220,7 @@ public partial class AzurermCosmosdbSqlContainer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConflictResolutionPolicy block(s) allowed")]
     [TerraformProperty("conflict_resolution_policy")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock>>? ConflictResolutionPolicy { get; set; }
+    public TerraformList<AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock> ConflictResolutionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for indexing_policy.
@@ -228,20 +228,20 @@ public partial class AzurermCosmosdbSqlContainer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexingPolicy block(s) allowed")]
     [TerraformProperty("indexing_policy")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbSqlContainerIndexingPolicyBlock>>? IndexingPolicy { get; set; }
+    public TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlock> IndexingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbSqlContainerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbSqlContainerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for unique_key.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("unique_key")]
-    public partial TerraformSet<TerraformBlock<AzurermCosmosdbSqlContainerUniqueKeyBlock>>? UniqueKey { get; set; }
+    public TerraformSet<AzurermCosmosdbSqlContainerUniqueKeyBlock> UniqueKey { get; set; } = new();
 
 }

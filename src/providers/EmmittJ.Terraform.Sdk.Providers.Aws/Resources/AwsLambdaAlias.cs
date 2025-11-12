@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for routing_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaAliasRoutingConfigBlock : TerraformBlockBase
+public partial class AwsLambdaAliasRoutingConfigBlock() : TerraformBlock("routing_config")
 {
     /// <summary>
     /// The additional_version_weights attribute.
@@ -78,7 +78,7 @@ public partial class AwsLambdaAlias : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingConfig block(s) allowed")]
     [TerraformProperty("routing_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaAliasRoutingConfigBlock>>? RoutingConfig { get; set; }
+    public TerraformList<AwsLambdaAliasRoutingConfigBlock> RoutingConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

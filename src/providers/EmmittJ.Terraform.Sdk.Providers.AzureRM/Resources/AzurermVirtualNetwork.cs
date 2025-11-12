@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ddos_protection_plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkDdosProtectionPlanBlock() : TerraformBlock("ddos_protection_plan")
 {
     /// <summary>
     /// The enable attribute.
@@ -30,7 +30,7 @@ public partial class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlo
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkEncryptionBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkEncryptionBlock() : TerraformBlock("encryption")
 {
     /// <summary>
     /// The enforcement attribute.
@@ -46,7 +46,7 @@ public partial class AzurermVirtualNetworkEncryptionBlock : TerraformBlockBase
 /// Block type for ip_address_pool in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkIpAddressPoolBlock() : TerraformBlock("ip_address_pool")
 {
 
     /// <summary>
@@ -71,7 +71,7 @@ public partial class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualNetworkTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -206,7 +206,7 @@ public partial class AzurermVirtualNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionPlan block(s) allowed")]
     [TerraformProperty("ddos_protection_plan")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkDdosProtectionPlanBlock>>? DdosProtectionPlan { get; set; }
+    public TerraformList<AzurermVirtualNetworkDdosProtectionPlanBlock> DdosProtectionPlan { get; set; } = new();
 
     /// <summary>
     /// Block for encryption.
@@ -214,7 +214,7 @@ public partial class AzurermVirtualNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<AzurermVirtualNetworkEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for ip_address_pool.
@@ -222,14 +222,14 @@ public partial class AzurermVirtualNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 IpAddressPool block(s) allowed")]
     [TerraformProperty("ip_address_pool")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkIpAddressPoolBlock>>? IpAddressPool { get; set; }
+    public TerraformList<AzurermVirtualNetworkIpAddressPoolBlock> IpAddressPool { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualNetworkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The guid attribute.

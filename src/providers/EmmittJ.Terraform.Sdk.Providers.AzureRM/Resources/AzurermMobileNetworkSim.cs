@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for static_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSimStaticIpConfigurationBlock() : TerraformBlock("static_ip_configuration")
 {
     /// <summary>
     /// The attached_data_network_id attribute.
@@ -37,7 +37,7 @@ public partial class AzurermMobileNetworkSimStaticIpConfigurationBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSimTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -152,14 +152,14 @@ public partial class AzurermMobileNetworkSim : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("static_ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkSimStaticIpConfigurationBlock>>? StaticIpConfiguration { get; set; }
+    public TerraformList<AzurermMobileNetworkSimStaticIpConfigurationBlock> StaticIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMobileNetworkSimTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMobileNetworkSimTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The sim_state attribute.

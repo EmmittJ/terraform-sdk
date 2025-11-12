@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ebs_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlockBase
+public partial class AwsLaunchConfigurationEbsBlockDeviceBlock() : TerraformBlock("ebs_block_device")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -78,7 +78,7 @@ public partial class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlockB
 /// Block type for ephemeral_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLaunchConfigurationEphemeralBlockDeviceBlock : TerraformBlockBase
+public partial class AwsLaunchConfigurationEphemeralBlockDeviceBlock() : TerraformBlock("ephemeral_block_device")
 {
     /// <summary>
     /// The device_name attribute.
@@ -108,7 +108,7 @@ public partial class AwsLaunchConfigurationEphemeralBlockDeviceBlock : Terraform
 /// Block type for metadata_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchConfigurationMetadataOptionsBlock : TerraformBlockBase
+public partial class AwsLaunchConfigurationMetadataOptionsBlock() : TerraformBlock("metadata_options")
 {
     /// <summary>
     /// The http_endpoint attribute.
@@ -137,7 +137,7 @@ public partial class AwsLaunchConfigurationMetadataOptionsBlock : TerraformBlock
 /// Block type for root_block_device in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchConfigurationRootBlockDeviceBlock : TerraformBlockBase
+public partial class AwsLaunchConfigurationRootBlockDeviceBlock() : TerraformBlock("root_block_device")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -312,14 +312,14 @@ public partial class AwsLaunchConfiguration : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsLaunchConfigurationEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
+    public TerraformSet<AwsLaunchConfigurationEbsBlockDeviceBlock> EbsBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for ephemeral_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ephemeral_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsLaunchConfigurationEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
+    public TerraformSet<AwsLaunchConfigurationEphemeralBlockDeviceBlock> EphemeralBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for metadata_options.
@@ -327,7 +327,7 @@ public partial class AwsLaunchConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataOptions block(s) allowed")]
     [TerraformProperty("metadata_options")]
-    public partial TerraformList<TerraformBlock<AwsLaunchConfigurationMetadataOptionsBlock>>? MetadataOptions { get; set; }
+    public TerraformList<AwsLaunchConfigurationMetadataOptionsBlock> MetadataOptions { get; set; } = new();
 
     /// <summary>
     /// Block for root_block_device.
@@ -335,7 +335,7 @@ public partial class AwsLaunchConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootBlockDevice block(s) allowed")]
     [TerraformProperty("root_block_device")]
-    public partial TerraformList<TerraformBlock<AwsLaunchConfigurationRootBlockDeviceBlock>>? RootBlockDevice { get; set; }
+    public TerraformList<AwsLaunchConfigurationRootBlockDeviceBlock> RootBlockDevice { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

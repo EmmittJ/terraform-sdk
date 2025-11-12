@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attribute in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLbSslNegotiationPolicyAttributeBlock : TerraformBlockBase
+public partial class AwsLbSslNegotiationPolicyAttributeBlock() : TerraformBlock("attribute")
 {
     /// <summary>
     /// The name attribute.
@@ -85,6 +85,6 @@ public partial class AwsLbSslNegotiationPolicy : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("attribute")]
-    public partial TerraformSet<TerraformBlock<AwsLbSslNegotiationPolicyAttributeBlock>>? Attribute { get; set; }
+    public TerraformSet<AwsLbSslNegotiationPolicyAttributeBlock> Attribute { get; set; } = new();
 
 }

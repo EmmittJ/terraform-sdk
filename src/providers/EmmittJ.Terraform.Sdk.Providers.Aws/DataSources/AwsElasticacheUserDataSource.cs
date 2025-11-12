@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authentication_mode in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticacheUserDataSourceAuthenticationModeBlock : TerraformBlockBase
+public partial class AwsElasticacheUserDataSourceAuthenticationModeBlock() : TerraformBlock("authentication_mode")
 {
     /// <summary>
     /// The password_count attribute.
@@ -95,6 +95,6 @@ public partial class AwsElasticacheUserDataSource : TerraformDataSource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("authentication_mode")]
-    public partial TerraformList<TerraformBlock<AwsElasticacheUserDataSourceAuthenticationModeBlock>>? AuthenticationMode { get; set; }
+    public TerraformList<AwsElasticacheUserDataSourceAuthenticationModeBlock> AuthenticationMode { get; set; } = new();
 
 }

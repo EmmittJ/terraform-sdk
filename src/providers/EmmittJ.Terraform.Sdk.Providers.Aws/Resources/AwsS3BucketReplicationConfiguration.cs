@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketReplicationConfigurationRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketReplicationConfigurationRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The id attribute.
@@ -95,6 +95,6 @@ public partial class AwsS3BucketReplicationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1000, ErrorMessage = "Maximum 1000 Rule block(s) allowed")]
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketReplicationConfigurationRuleBlock>>? Rule { get; set; }
+    public required TerraformList<AwsS3BucketReplicationConfigurationRuleBlock> Rule { get; set; } = new();
 
 }

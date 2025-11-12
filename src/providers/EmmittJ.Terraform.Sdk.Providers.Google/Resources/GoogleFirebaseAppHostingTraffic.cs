@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rollout_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock() : TerraformBlock("rollout_policy")
 {
     /// <summary>
     /// Specifies a branch that triggers a new build to be started with this
@@ -30,7 +30,7 @@ public partial class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : Terrafo
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirebaseAppHostingTrafficTargetBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingTrafficTargetBlock() : TerraformBlock("target")
 {
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleFirebaseAppHostingTrafficTargetBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingTrafficTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -109,7 +109,7 @@ public partial class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RolloutPolicy block(s) allowed")]
     [TerraformProperty("rollout_policy")]
-    public partial TerraformList<TerraformBlock<GoogleFirebaseAppHostingTrafficRolloutPolicyBlock>>? RolloutPolicy { get; set; }
+    public TerraformList<GoogleFirebaseAppHostingTrafficRolloutPolicyBlock> RolloutPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -117,14 +117,14 @@ public partial class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<GoogleFirebaseAppHostingTrafficTargetBlock>>? Target { get; set; }
+    public TerraformList<GoogleFirebaseAppHostingTrafficTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseAppHostingTrafficTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseAppHostingTrafficTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time at which the backend was created.

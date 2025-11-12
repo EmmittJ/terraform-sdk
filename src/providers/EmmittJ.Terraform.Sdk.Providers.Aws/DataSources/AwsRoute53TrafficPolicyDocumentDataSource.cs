@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformBlockBase
+public partial class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock() : TerraformBlock("endpoint")
 {
     /// <summary>
     /// The id attribute.
@@ -43,7 +43,7 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : Te
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock : TerraformBlockBase
+public partial class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The id attribute.
@@ -111,14 +111,14 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource : TerraformDataSo
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("endpoint")]
-    public partial TerraformSet<TerraformBlock<AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock>>? Endpoint { get; set; }
+    public TerraformSet<AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock> Endpoint { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock>>? Rule { get; set; }
+    public TerraformSet<AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// The json attribute.

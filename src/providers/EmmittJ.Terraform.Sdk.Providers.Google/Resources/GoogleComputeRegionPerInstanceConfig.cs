@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for preserved_state in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionPerInstanceConfigPreservedStateBlock : TerraformBlockBase
+public partial class GoogleComputeRegionPerInstanceConfigPreservedStateBlock() : TerraformBlock("preserved_state")
 {
     /// <summary>
     /// Preserved metadata defined for this instance. This is a list of key-&amp;gt;value pairs.
@@ -21,7 +21,7 @@ public partial class GoogleComputeRegionPerInstanceConfigPreservedStateBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionPerInstanceConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,13 +140,13 @@ public partial class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreservedState block(s) allowed")]
     [TerraformProperty("preserved_state")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionPerInstanceConfigPreservedStateBlock>>? PreservedState { get; set; }
+    public TerraformList<GoogleComputeRegionPerInstanceConfigPreservedStateBlock> PreservedState { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRegionPerInstanceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRegionPerInstanceConfigTimeoutsBlock Timeouts { get; set; } = new();
 
 }

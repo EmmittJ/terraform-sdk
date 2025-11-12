@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeStoragePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeStoragePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -153,7 +153,7 @@ public partial class GoogleComputeStoragePool : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeStoragePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeStoragePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

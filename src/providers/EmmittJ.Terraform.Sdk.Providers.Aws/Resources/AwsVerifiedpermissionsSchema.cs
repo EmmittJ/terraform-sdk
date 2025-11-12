@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedpermissionsSchemaDefinitionBlock : TerraformBlockBase
+public partial class AwsVerifiedpermissionsSchemaDefinitionBlock() : TerraformBlock("definition")
 {
     /// <summary>
     /// The value attribute.
@@ -47,7 +47,7 @@ public partial class AwsVerifiedpermissionsSchema : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedpermissionsSchemaDefinitionBlock>>? Definition { get; set; }
+    public TerraformList<AwsVerifiedpermissionsSchemaDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

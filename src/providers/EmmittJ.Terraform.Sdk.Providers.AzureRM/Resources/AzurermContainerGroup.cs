@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for container in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerGroupContainerBlock : TerraformBlockBase
+public partial class AzurermContainerGroupContainerBlock() : TerraformBlock("container")
 {
     /// <summary>
     /// The commands attribute.
@@ -81,7 +81,7 @@ public partial class AzurermContainerGroupContainerBlock : TerraformBlockBase
 /// Block type for diagnostics in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerGroupDiagnosticsBlock : TerraformBlockBase
+public partial class AzurermContainerGroupDiagnosticsBlock() : TerraformBlock("diagnostics")
 {
 }
 
@@ -89,7 +89,7 @@ public partial class AzurermContainerGroupDiagnosticsBlock : TerraformBlockBase
 /// Block type for dns_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerGroupDnsConfigBlock : TerraformBlockBase
+public partial class AzurermContainerGroupDnsConfigBlock() : TerraformBlock("dns_config")
 {
     /// <summary>
     /// The nameservers attribute.
@@ -119,7 +119,7 @@ public partial class AzurermContainerGroupDnsConfigBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerGroupIdentityBlock : TerraformBlockBase
+public partial class AzurermContainerGroupIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -144,7 +144,7 @@ public partial class AzurermContainerGroupIdentityBlock : TerraformBlockBase
 /// Block type for image_registry_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlockBase
+public partial class AzurermContainerGroupImageRegistryCredentialBlock() : TerraformBlock("image_registry_credential")
 {
     /// <summary>
     /// The password attribute.
@@ -181,7 +181,7 @@ public partial class AzurermContainerGroupImageRegistryCredentialBlock : Terrafo
 /// Block type for init_container in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerGroupInitContainerBlock : TerraformBlockBase
+public partial class AzurermContainerGroupInitContainerBlock() : TerraformBlock("init_container")
 {
     /// <summary>
     /// The commands attribute.
@@ -226,7 +226,7 @@ public partial class AzurermContainerGroupInitContainerBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -406,7 +406,7 @@ public partial class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Container block(s) required")]
     [TerraformProperty("container")]
-    public partial TerraformList<TerraformBlock<AzurermContainerGroupContainerBlock>>? Container { get; set; }
+    public required TerraformList<AzurermContainerGroupContainerBlock> Container { get; set; } = new();
 
     /// <summary>
     /// Block for diagnostics.
@@ -414,7 +414,7 @@ public partial class AzurermContainerGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Diagnostics block(s) allowed")]
     [TerraformProperty("diagnostics")]
-    public partial TerraformList<TerraformBlock<AzurermContainerGroupDiagnosticsBlock>>? Diagnostics { get; set; }
+    public TerraformList<AzurermContainerGroupDiagnosticsBlock> Diagnostics { get; set; } = new();
 
     /// <summary>
     /// Block for dns_config.
@@ -422,7 +422,7 @@ public partial class AzurermContainerGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     [TerraformProperty("dns_config")]
-    public partial TerraformList<TerraformBlock<AzurermContainerGroupDnsConfigBlock>>? DnsConfig { get; set; }
+    public TerraformList<AzurermContainerGroupDnsConfigBlock> DnsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -430,28 +430,28 @@ public partial class AzurermContainerGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermContainerGroupIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermContainerGroupIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for image_registry_credential.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("image_registry_credential")]
-    public partial TerraformList<TerraformBlock<AzurermContainerGroupImageRegistryCredentialBlock>>? ImageRegistryCredential { get; set; }
+    public TerraformList<AzurermContainerGroupImageRegistryCredentialBlock> ImageRegistryCredential { get; set; } = new();
 
     /// <summary>
     /// Block for init_container.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("init_container")]
-    public partial TerraformList<TerraformBlock<AzurermContainerGroupInitContainerBlock>>? InitContainer { get; set; }
+    public TerraformList<AzurermContainerGroupInitContainerBlock> InitContainer { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

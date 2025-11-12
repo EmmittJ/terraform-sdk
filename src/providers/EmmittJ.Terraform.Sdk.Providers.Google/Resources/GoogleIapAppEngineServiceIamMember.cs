@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIapAppEngineServiceIamMemberConditionBlock : TerraformBlockBase
+public partial class GoogleIapAppEngineServiceIamMemberConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -95,7 +95,7 @@ public partial class GoogleIapAppEngineServiceIamMember : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleIapAppEngineServiceIamMemberConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleIapAppEngineServiceIamMemberConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

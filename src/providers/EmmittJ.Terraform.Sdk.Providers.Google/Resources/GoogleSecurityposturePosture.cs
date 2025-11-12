@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for policy_sets in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecurityposturePosturePolicySetsBlock : TerraformBlockBase
+public partial class GoogleSecurityposturePosturePolicySetsBlock() : TerraformBlock("policy_sets")
 {
     /// <summary>
     /// Description of the policy set.
@@ -29,7 +29,7 @@ public partial class GoogleSecurityposturePosturePolicySetsBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecurityposturePostureTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecurityposturePostureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -118,14 +118,14 @@ public partial class GoogleSecurityposturePosture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySets is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicySets block(s) required")]
     [TerraformProperty("policy_sets")]
-    public partial TerraformList<TerraformBlock<GoogleSecurityposturePosturePolicySetsBlock>>? PolicySets { get; set; }
+    public required TerraformList<GoogleSecurityposturePosturePolicySetsBlock> PolicySets { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecurityposturePostureTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecurityposturePostureTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the Posture was created in UTC.

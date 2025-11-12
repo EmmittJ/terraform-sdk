@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bitbucket_cloud_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock() : TerraformBlock("bitbucket_cloud_config")
 {
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook events, formatted as &#39;projects/*/secrets/*/versions/*&#39;.
@@ -30,7 +30,7 @@ public partial class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : Ter
 /// Block type for bitbucket_data_center_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock() : TerraformBlock("bitbucket_data_center_config")
 {
     /// <summary>
     /// The URI of the Bitbucket Data Center host this connection is for.
@@ -62,7 +62,7 @@ public partial class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock 
 /// Block type for github_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildv2ConnectionGithubConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildv2ConnectionGithubConfigBlock() : TerraformBlock("github_config")
 {
     /// <summary>
     /// GitHub App installation id.
@@ -77,7 +77,7 @@ public partial class GoogleCloudbuildv2ConnectionGithubConfigBlock : TerraformBl
 /// Block type for github_enterprise_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock() : TerraformBlock("github_enterprise_config")
 {
     /// <summary>
     /// Id of the GitHub App created from the manifest.
@@ -135,7 +135,7 @@ public partial class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : T
 /// Block type for gitlab_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlockBase
+public partial class GoogleCloudbuildv2ConnectionGitlabConfigBlock() : TerraformBlock("gitlab_config")
 {
     /// <summary>
     /// The URI of the GitLab Enterprise host this connection is for. If not specified, the default value is https://gitlab.com.
@@ -166,7 +166,7 @@ public partial class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudbuildv2ConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudbuildv2ConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -254,7 +254,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketCloudConfig block(s) allowed")]
     [TerraformProperty("bitbucket_cloud_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock>>? BitbucketCloudConfig { get; set; }
+    public TerraformList<GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock> BitbucketCloudConfig { get; set; } = new();
 
     /// <summary>
     /// Block for bitbucket_data_center_config.
@@ -262,7 +262,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketDataCenterConfig block(s) allowed")]
     [TerraformProperty("bitbucket_data_center_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock>>? BitbucketDataCenterConfig { get; set; }
+    public TerraformList<GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock> BitbucketDataCenterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for github_config.
@@ -270,7 +270,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubConfig block(s) allowed")]
     [TerraformProperty("github_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGithubConfigBlock>>? GithubConfig { get; set; }
+    public TerraformList<GoogleCloudbuildv2ConnectionGithubConfigBlock> GithubConfig { get; set; } = new();
 
     /// <summary>
     /// Block for github_enterprise_config.
@@ -278,7 +278,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubEnterpriseConfig block(s) allowed")]
     [TerraformProperty("github_enterprise_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock>>? GithubEnterpriseConfig { get; set; }
+    public TerraformList<GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock> GithubEnterpriseConfig { get; set; } = new();
 
     /// <summary>
     /// Block for gitlab_config.
@@ -286,14 +286,14 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabConfig block(s) allowed")]
     [TerraformProperty("gitlab_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGitlabConfigBlock>>? GitlabConfig { get; set; }
+    public TerraformList<GoogleCloudbuildv2ConnectionGitlabConfigBlock> GitlabConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudbuildv2ConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudbuildv2ConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Server assigned timestamp for when the connection was created.

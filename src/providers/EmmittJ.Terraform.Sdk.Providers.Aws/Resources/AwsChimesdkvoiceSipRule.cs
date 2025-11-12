@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_applications in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlockBase
+public partial class AwsChimesdkvoiceSipRuleTargetApplicationsBlock() : TerraformBlock("target_applications")
 {
     /// <summary>
     /// The aws_region attribute.
@@ -97,6 +97,6 @@ public partial class AwsChimesdkvoiceSipRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetApplications block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(25, ErrorMessage = "Maximum 25 TargetApplications block(s) allowed")]
     [TerraformProperty("target_applications")]
-    public partial TerraformSet<TerraformBlock<AwsChimesdkvoiceSipRuleTargetApplicationsBlock>>? TargetApplications { get; set; }
+    public required TerraformSet<AwsChimesdkvoiceSipRuleTargetApplicationsBlock> TargetApplications { get; set; } = new();
 
 }

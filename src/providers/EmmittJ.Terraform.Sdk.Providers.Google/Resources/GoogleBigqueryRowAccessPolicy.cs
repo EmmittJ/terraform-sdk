@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryRowAccessPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryRowAccessPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -130,7 +130,7 @@ public partial class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryRowAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryRowAccessPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when this row access policy was created, in milliseconds since

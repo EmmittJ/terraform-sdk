@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for initial_replica_set in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : TerraformBlockBase
+public partial class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock() : TerraformBlock("initial_replica_set")
 {
 
 
@@ -27,7 +27,7 @@ public partial class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock :
 /// Block type for notifications in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBlockBase
+public partial class AzurermActiveDirectoryDomainServiceNotificationsBlock() : TerraformBlock("notifications")
 {
     /// <summary>
     /// The additional_recipients attribute.
@@ -56,7 +56,7 @@ public partial class AzurermActiveDirectoryDomainServiceNotificationsBlock : Ter
 /// Block type for secure_ldap in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlockBase
+public partial class AzurermActiveDirectoryDomainServiceSecureLdapBlock() : TerraformBlock("secure_ldap")
 {
 
 
@@ -98,7 +98,7 @@ public partial class AzurermActiveDirectoryDomainServiceSecureLdapBlock : Terraf
 /// Block type for security in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlockBase
+public partial class AzurermActiveDirectoryDomainServiceSecurityBlock() : TerraformBlock("security")
 {
     /// <summary>
     /// The kerberos_armoring_enabled attribute.
@@ -155,7 +155,7 @@ public partial class AzurermActiveDirectoryDomainServiceSecurityBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermActiveDirectoryDomainServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -273,7 +273,7 @@ public partial class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InitialReplicaSet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialReplicaSet block(s) allowed")]
     [TerraformProperty("initial_replica_set")]
-    public partial TerraformList<TerraformBlock<AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock>>? InitialReplicaSet { get; set; }
+    public required TerraformList<AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock> InitialReplicaSet { get; set; } = new();
 
     /// <summary>
     /// Block for notifications.
@@ -281,7 +281,7 @@ public partial class AzurermActiveDirectoryDomainService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notifications block(s) allowed")]
     [TerraformProperty("notifications")]
-    public partial TerraformList<TerraformBlock<AzurermActiveDirectoryDomainServiceNotificationsBlock>>? Notifications { get; set; }
+    public TerraformList<AzurermActiveDirectoryDomainServiceNotificationsBlock> Notifications { get; set; } = new();
 
     /// <summary>
     /// Block for secure_ldap.
@@ -289,7 +289,7 @@ public partial class AzurermActiveDirectoryDomainService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecureLdap block(s) allowed")]
     [TerraformProperty("secure_ldap")]
-    public partial TerraformList<TerraformBlock<AzurermActiveDirectoryDomainServiceSecureLdapBlock>>? SecureLdap { get; set; }
+    public TerraformList<AzurermActiveDirectoryDomainServiceSecureLdapBlock> SecureLdap { get; set; } = new();
 
     /// <summary>
     /// Block for security.
@@ -297,14 +297,14 @@ public partial class AzurermActiveDirectoryDomainService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
     [TerraformProperty("security")]
-    public partial TerraformList<TerraformBlock<AzurermActiveDirectoryDomainServiceSecurityBlock>>? Security { get; set; }
+    public TerraformList<AzurermActiveDirectoryDomainServiceSecurityBlock> Security { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermActiveDirectoryDomainServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermActiveDirectoryDomainServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The deployment_id attribute.

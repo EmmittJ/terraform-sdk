@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for backup_datasource_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock() : TerraformBlock("backup_datasource_parameters")
 {
     /// <summary>
     /// The cluster_scoped_resources_enabled attribute.
@@ -63,7 +63,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesClusterBackupD
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -159,13 +159,13 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster : Terr
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupDatasourceParameters block(s) allowed")]
     [TerraformProperty("backup_datasource_parameters")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock>>? BackupDatasourceParameters { get; set; }
+    public TerraformList<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock> BackupDatasourceParameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_event_selector in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock : TerraformBlockBase
+public partial class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock() : TerraformBlock("advanced_event_selector")
 {
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCloudtrailEventDataStoreTimeoutsBlock : TerraformBlockBase
+public partial class AwsCloudtrailEventDataStoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -145,14 +145,14 @@ public partial class AwsCloudtrailEventDataStore : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("advanced_event_selector")]
-    public partial TerraformList<TerraformBlock<AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock>>? AdvancedEventSelector { get; set; }
+    public TerraformList<AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock> AdvancedEventSelector { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCloudtrailEventDataStoreTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCloudtrailEventDataStoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

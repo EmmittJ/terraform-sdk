@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBlockBase
+public partial class AwsKeyspacesTableCapacitySpecificationBlock() : TerraformBlock("capacity_specification")
 {
     /// <summary>
     /// The read_capacity_units attribute.
@@ -35,7 +35,7 @@ public partial class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBloc
 /// Block type for client_side_timestamps in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKeyspacesTableClientSideTimestampsBlock : TerraformBlockBase
+public partial class AwsKeyspacesTableClientSideTimestampsBlock() : TerraformBlock("client_side_timestamps")
 {
     /// <summary>
     /// The status attribute.
@@ -51,7 +51,7 @@ public partial class AwsKeyspacesTableClientSideTimestampsBlock : TerraformBlock
 /// Block type for comment in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKeyspacesTableCommentBlock : TerraformBlockBase
+public partial class AwsKeyspacesTableCommentBlock() : TerraformBlock("comment")
 {
     /// <summary>
     /// The message attribute.
@@ -66,7 +66,7 @@ public partial class AwsKeyspacesTableCommentBlock : TerraformBlockBase
 /// Block type for encryption_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBlockBase
+public partial class AwsKeyspacesTableEncryptionSpecificationBlock() : TerraformBlock("encryption_specification")
 {
     /// <summary>
     /// The kms_key_identifier attribute.
@@ -88,7 +88,7 @@ public partial class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBl
 /// Block type for point_in_time_recovery in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKeyspacesTablePointInTimeRecoveryBlock : TerraformBlockBase
+public partial class AwsKeyspacesTablePointInTimeRecoveryBlock() : TerraformBlock("point_in_time_recovery")
 {
     /// <summary>
     /// The status attribute.
@@ -103,7 +103,7 @@ public partial class AwsKeyspacesTablePointInTimeRecoveryBlock : TerraformBlockB
 /// Block type for schema_definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKeyspacesTableSchemaDefinitionBlock : TerraformBlockBase
+public partial class AwsKeyspacesTableSchemaDefinitionBlock() : TerraformBlock("schema_definition")
 {
 }
 
@@ -111,7 +111,7 @@ public partial class AwsKeyspacesTableSchemaDefinitionBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKeyspacesTableTimeoutsBlock : TerraformBlockBase
+public partial class AwsKeyspacesTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,7 +140,7 @@ public partial class AwsKeyspacesTableTimeoutsBlock : TerraformBlockBase
 /// Block type for ttl in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKeyspacesTableTtlBlock : TerraformBlockBase
+public partial class AwsKeyspacesTableTtlBlock() : TerraformBlock("ttl")
 {
     /// <summary>
     /// The status attribute.
@@ -219,7 +219,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacitySpecification block(s) allowed")]
     [TerraformProperty("capacity_specification")]
-    public partial TerraformList<TerraformBlock<AwsKeyspacesTableCapacitySpecificationBlock>>? CapacitySpecification { get; set; }
+    public TerraformList<AwsKeyspacesTableCapacitySpecificationBlock> CapacitySpecification { get; set; } = new();
 
     /// <summary>
     /// Block for client_side_timestamps.
@@ -227,7 +227,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientSideTimestamps block(s) allowed")]
     [TerraformProperty("client_side_timestamps")]
-    public partial TerraformList<TerraformBlock<AwsKeyspacesTableClientSideTimestampsBlock>>? ClientSideTimestamps { get; set; }
+    public TerraformList<AwsKeyspacesTableClientSideTimestampsBlock> ClientSideTimestamps { get; set; } = new();
 
     /// <summary>
     /// Block for comment.
@@ -235,7 +235,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Comment block(s) allowed")]
     [TerraformProperty("comment")]
-    public partial TerraformList<TerraformBlock<AwsKeyspacesTableCommentBlock>>? Comment { get; set; }
+    public TerraformList<AwsKeyspacesTableCommentBlock> Comment { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_specification.
@@ -243,7 +243,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpecification block(s) allowed")]
     [TerraformProperty("encryption_specification")]
-    public partial TerraformList<TerraformBlock<AwsKeyspacesTableEncryptionSpecificationBlock>>? EncryptionSpecification { get; set; }
+    public TerraformList<AwsKeyspacesTableEncryptionSpecificationBlock> EncryptionSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for point_in_time_recovery.
@@ -251,7 +251,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRecovery block(s) allowed")]
     [TerraformProperty("point_in_time_recovery")]
-    public partial TerraformList<TerraformBlock<AwsKeyspacesTablePointInTimeRecoveryBlock>>? PointInTimeRecovery { get; set; }
+    public TerraformList<AwsKeyspacesTablePointInTimeRecoveryBlock> PointInTimeRecovery { get; set; } = new();
 
     /// <summary>
     /// Block for schema_definition.
@@ -261,14 +261,14 @@ public partial class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SchemaDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaDefinition block(s) allowed")]
     [TerraformProperty("schema_definition")]
-    public partial TerraformList<TerraformBlock<AwsKeyspacesTableSchemaDefinitionBlock>>? SchemaDefinition { get; set; }
+    public required TerraformList<AwsKeyspacesTableSchemaDefinitionBlock> SchemaDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKeyspacesTableTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKeyspacesTableTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for ttl.
@@ -276,7 +276,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ttl block(s) allowed")]
     [TerraformProperty("ttl")]
-    public partial TerraformList<TerraformBlock<AwsKeyspacesTableTtlBlock>>? Ttl { get; set; }
+    public TerraformList<AwsKeyspacesTableTtlBlock> Ttl { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

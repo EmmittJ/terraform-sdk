@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for targeting_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlockBase
+public partial class AzurermAppConfigurationFeatureTargetingFilterBlock() : TerraformBlock("targeting_filter")
 {
     /// <summary>
     /// The default_rollout_percentage attribute.
@@ -29,7 +29,7 @@ public partial class AzurermAppConfigurationFeatureTargetingFilterBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppConfigurationFeatureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -65,7 +65,7 @@ public partial class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBloc
 /// Block type for timewindow_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBlockBase
+public partial class AzurermAppConfigurationFeatureTimewindowFilterBlock() : TerraformBlock("timewindow_filter")
 {
     /// <summary>
     /// The end attribute.
@@ -176,20 +176,20 @@ public partial class AzurermAppConfigurationFeature : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("targeting_filter")]
-    public partial TerraformList<TerraformBlock<AzurermAppConfigurationFeatureTargetingFilterBlock>>? TargetingFilter { get; set; }
+    public TerraformList<AzurermAppConfigurationFeatureTargetingFilterBlock> TargetingFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppConfigurationFeatureTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppConfigurationFeatureTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for timewindow_filter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("timewindow_filter")]
-    public partial TerraformList<TerraformBlock<AzurermAppConfigurationFeatureTimewindowFilterBlock>>? TimewindowFilter { get; set; }
+    public TerraformList<AzurermAppConfigurationFeatureTimewindowFilterBlock> TimewindowFilter { get; set; } = new();
 
 }

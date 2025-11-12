@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for hubs in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleBeyondcorpSecurityGatewayHubsBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpSecurityGatewayHubsBlock() : TerraformBlock("hubs")
 {
     /// <summary>
     /// The region attribute.
@@ -22,7 +22,7 @@ public partial class GoogleBeyondcorpSecurityGatewayHubsBlock : TerraformBlockBa
 /// Block type for proxy_protocol_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock() : TerraformBlock("proxy_protocol_config")
 {
     /// <summary>
     /// The configuration for the proxy.
@@ -62,7 +62,7 @@ public partial class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : T
 /// Block type for service_discovery in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock() : TerraformBlock("service_discovery")
 {
 }
 
@@ -70,7 +70,7 @@ public partial class GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpSecurityGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -151,7 +151,7 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("hubs")]
-    public partial TerraformSet<TerraformBlock<GoogleBeyondcorpSecurityGatewayHubsBlock>>? Hubs { get; set; }
+    public TerraformSet<GoogleBeyondcorpSecurityGatewayHubsBlock> Hubs { get; set; } = new();
 
     /// <summary>
     /// Block for proxy_protocol_config.
@@ -159,7 +159,7 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyProtocolConfig block(s) allowed")]
     [TerraformProperty("proxy_protocol_config")]
-    public partial TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock>>? ProxyProtocolConfig { get; set; }
+    public TerraformList<GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock> ProxyProtocolConfig { get; set; } = new();
 
     /// <summary>
     /// Block for service_discovery.
@@ -167,14 +167,14 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDiscovery block(s) allowed")]
     [TerraformProperty("service_discovery")]
-    public partial TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock>>? ServiceDiscovery { get; set; }
+    public TerraformList<GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock> ServiceDiscovery { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBeyondcorpSecurityGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBeyondcorpSecurityGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Timestamp when the resource was created.

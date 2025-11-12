@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for common_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineSearchEngineCommonConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineSearchEngineCommonConfigBlock() : TerraformBlock("common_config")
 {
     /// <summary>
     /// The name of the company, business or entity that is associated with the engine. Setting this may help improve LLM related features.cd
@@ -21,7 +21,7 @@ public partial class GoogleDiscoveryEngineSearchEngineCommonConfigBlock : Terraf
 /// Block type for search_engine_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock() : TerraformBlock("search_engine_config")
 {
     /// <summary>
     /// The add-on that this search engine enables. Possible values: [&amp;quot;SEARCH_ADD_ON_LLM&amp;quot;]
@@ -43,7 +43,7 @@ public partial class GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineSearchEngineTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineSearchEngineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,7 +173,7 @@ public partial class GoogleDiscoveryEngineSearchEngine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
     [TerraformProperty("common_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineSearchEngineCommonConfigBlock>>? CommonConfig { get; set; }
+    public TerraformList<GoogleDiscoveryEngineSearchEngineCommonConfigBlock> CommonConfig { get; set; } = new();
 
     /// <summary>
     /// Block for search_engine_config.
@@ -183,14 +183,14 @@ public partial class GoogleDiscoveryEngineSearchEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SearchEngineConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SearchEngineConfig block(s) allowed")]
     [TerraformProperty("search_engine_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock>>? SearchEngineConfig { get; set; }
+    public required TerraformList<GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock> SearchEngineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineSearchEngineTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineSearchEngineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp the Engine was created at.

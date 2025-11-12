@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for endpoint_matchers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock() : TerraformBlock("endpoint_matchers")
 {
     /// <summary>
     /// Required. Hostname of the application.
@@ -30,7 +30,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -59,7 +59,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : T
 /// Block type for upstreams in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock() : TerraformBlock("upstreams")
 {
 }
 
@@ -125,21 +125,21 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication : TerraformResou
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("endpoint_matchers")]
-    public partial TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock>>? EndpointMatchers { get; set; }
+    public TerraformList<GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock> EndpointMatchers { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upstreams.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("upstreams")]
-    public partial TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock>>? Upstreams { get; set; }
+    public TerraformList<GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock> Upstreams { get; set; } = new();
 
     /// <summary>
     /// Output only. Timestamp when the resource was created.

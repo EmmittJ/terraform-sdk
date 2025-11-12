@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiEndpointEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleVertexAiEndpointEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;. The key needs to be in the same region as where the compute resource is created.
@@ -22,7 +22,7 @@ public partial class GoogleVertexAiEndpointEncryptionSpecBlock : TerraformBlockB
 /// Block type for predict_request_response_logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock() : TerraformBlock("predict_request_response_logging_config")
 {
     /// <summary>
     /// If logging is enabled or not.
@@ -44,7 +44,7 @@ public partial class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBl
 /// Block type for private_service_connect_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock() : TerraformBlock("private_service_connect_config")
 {
     /// <summary>
     /// Required. If true, expose the IndexEndpoint via private service connect.
@@ -67,7 +67,7 @@ public partial class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiEndpointTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -197,7 +197,7 @@ public partial class GoogleVertexAiEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleVertexAiEndpointEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for predict_request_response_logging_config.
@@ -205,7 +205,7 @@ public partial class GoogleVertexAiEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredictRequestResponseLoggingConfig block(s) allowed")]
     [TerraformProperty("predict_request_response_logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock>>? PredictRequestResponseLoggingConfig { get; set; }
+    public TerraformList<GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock> PredictRequestResponseLoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for private_service_connect_config.
@@ -213,14 +213,14 @@ public partial class GoogleVertexAiEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnectConfig block(s) allowed")]
     [TerraformProperty("private_service_connect_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointPrivateServiceConnectConfigBlock>>? PrivateServiceConnectConfig { get; set; }
+    public TerraformList<GoogleVertexAiEndpointPrivateServiceConnectConfigBlock> PrivateServiceConnectConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Timestamp when this Endpoint was created.

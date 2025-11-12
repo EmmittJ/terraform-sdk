@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesTlsRouteRulesBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesTlsRouteRulesBlock() : TerraformBlock("rules")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleNetworkServicesTlsRouteRulesBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesTlsRouteTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesTlsRouteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -102,14 +102,14 @@ public partial class GoogleNetworkServicesTlsRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesTlsRouteRulesBlock>>? Rules { get; set; }
+    public required TerraformList<GoogleNetworkServicesTlsRouteRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesTlsRouteTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesTlsRouteTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the TlsRoute was created in UTC.

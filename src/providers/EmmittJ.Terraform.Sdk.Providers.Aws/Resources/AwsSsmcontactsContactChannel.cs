@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for delivery_address in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmcontactsContactChannelDeliveryAddressBlock : TerraformBlockBase
+public partial class AwsSsmcontactsContactChannelDeliveryAddressBlock() : TerraformBlock("delivery_address")
 {
     /// <summary>
     /// The simple_address attribute.
@@ -74,7 +74,7 @@ public partial class AwsSsmcontactsContactChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DeliveryAddress block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryAddress block(s) allowed")]
     [TerraformProperty("delivery_address")]
-    public partial TerraformList<TerraformBlock<AwsSsmcontactsContactChannelDeliveryAddressBlock>>? DeliveryAddress { get; set; }
+    public required TerraformList<AwsSsmcontactsContactChannelDeliveryAddressBlock> DeliveryAddress { get; set; } = new();
 
     /// <summary>
     /// The activation_status attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock() : TerraformBlock("endpoint_configuration")
 {
     /// <summary>
     /// The attachment_arn attribute.
@@ -42,7 +42,7 @@ public partial class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock
 /// Block type for port_override in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorEndpointGroupPortOverrideBlock() : TerraformBlock("port_override")
 {
     /// <summary>
     /// The endpoint_port attribute.
@@ -66,7 +66,7 @@ public partial class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGlobalacceleratorEndpointGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorEndpointGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -170,7 +170,7 @@ public partial class AwsGlobalacceleratorEndpointGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("endpoint_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock>>? EndpointConfiguration { get; set; }
+    public TerraformSet<AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock> EndpointConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for port_override.
@@ -178,14 +178,14 @@ public partial class AwsGlobalacceleratorEndpointGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PortOverride block(s) allowed")]
     [TerraformProperty("port_override")]
-    public partial TerraformSet<TerraformBlock<AwsGlobalacceleratorEndpointGroupPortOverrideBlock>>? PortOverride { get; set; }
+    public TerraformSet<AwsGlobalacceleratorEndpointGroupPortOverrideBlock> PortOverride { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGlobalacceleratorEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGlobalacceleratorEndpointGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

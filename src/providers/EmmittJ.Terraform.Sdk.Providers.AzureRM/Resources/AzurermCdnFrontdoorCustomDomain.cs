@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorCustomDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -42,7 +42,7 @@ public partial class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlo
 /// Block type for tls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorCustomDomainTlsBlock() : TerraformBlock("tls")
 {
     /// <summary>
     /// The cdn_frontdoor_secret_id attribute.
@@ -121,7 +121,7 @@ public partial class AzurermCdnFrontdoorCustomDomain : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tls.
@@ -131,7 +131,7 @@ public partial class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tls block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
     [TerraformProperty("tls")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorCustomDomainTlsBlock>>? Tls { get; set; }
+    public required TerraformList<AzurermCdnFrontdoorCustomDomainTlsBlock> Tls { get; set; } = new();
 
     /// <summary>
     /// The expiration_date attribute.

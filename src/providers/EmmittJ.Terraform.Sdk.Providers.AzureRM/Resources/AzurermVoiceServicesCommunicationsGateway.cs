@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for service_location in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : TerraformBlockBase
+public partial class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock() : TerraformBlock("service_location")
 {
     /// <summary>
     /// The allowed_media_source_address_prefixes attribute.
@@ -51,7 +51,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -205,13 +205,13 @@ public partial class AzurermVoiceServicesCommunicationsGateway : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceLocation block(s) required")]
     [TerraformProperty("service_location")]
-    public partial TerraformSet<TerraformBlock<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock>>? ServiceLocation { get; set; }
+    public required TerraformSet<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock> ServiceLocation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
 }

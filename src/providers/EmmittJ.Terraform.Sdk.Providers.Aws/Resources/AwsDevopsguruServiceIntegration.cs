@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kms_server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : TerraformBlockBase
+public partial class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock() : TerraformBlock("kms_server_side_encryption")
 {
     /// <summary>
     /// The kms_key_id attribute.
@@ -35,7 +35,7 @@ public partial class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock
 /// Block type for logs_anomaly_detection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : TerraformBlockBase
+public partial class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock() : TerraformBlock("logs_anomaly_detection")
 {
     /// <summary>
     /// The opt_in_status attribute.
@@ -50,7 +50,7 @@ public partial class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : 
 /// Block type for ops_center in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevopsguruServiceIntegrationOpsCenterBlock : TerraformBlockBase
+public partial class AwsDevopsguruServiceIntegrationOpsCenterBlock() : TerraformBlock("ops_center")
 {
     /// <summary>
     /// The opt_in_status attribute.
@@ -82,21 +82,21 @@ public partial class AwsDevopsguruServiceIntegration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kms_server_side_encryption")]
-    public partial TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock>>? KmsServerSideEncryption { get; set; }
+    public TerraformList<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock> KmsServerSideEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for logs_anomaly_detection.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("logs_anomaly_detection")]
-    public partial TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock>>? LogsAnomalyDetection { get; set; }
+    public TerraformList<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock> LogsAnomalyDetection { get; set; } = new();
 
     /// <summary>
     /// Block for ops_center.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ops_center")]
-    public partial TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationOpsCenterBlock>>? OpsCenter { get; set; }
+    public TerraformList<AwsDevopsguruServiceIntegrationOpsCenterBlock> OpsCenter { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

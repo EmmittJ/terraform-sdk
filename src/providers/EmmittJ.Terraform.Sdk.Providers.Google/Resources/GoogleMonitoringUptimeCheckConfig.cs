@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for content_matchers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringUptimeCheckConfigContentMatchersBlock : TerraformBlockBase
+public partial class GoogleMonitoringUptimeCheckConfigContentMatchersBlock() : TerraformBlock("content_matchers")
 {
     /// <summary>
     /// String or regex content to match (max 1024 bytes)
@@ -29,7 +29,7 @@ public partial class GoogleMonitoringUptimeCheckConfigContentMatchersBlock : Ter
 /// Block type for http_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlockBase
+public partial class GoogleMonitoringUptimeCheckConfigHttpCheckBlock() : TerraformBlock("http_check")
 {
     /// <summary>
     /// The request body associated with the HTTP POST request. If &#39;content_type&#39; is &#39;URL_ENCODED&#39;, the body passed in must be URL-encoded. Users can provide a &#39;Content-Length&#39; header via the &#39;headers&#39; field or the API will do so. If the &#39;request_method&#39; is &#39;GET&#39; and &#39;body&#39; is not empty, the API will return an error. The maximum byte size is 1 megabyte. Note - As with all bytes fields JSON representations are base64 encoded. e.g. &#39;foo=bar&#39; in URL-encoded form is &#39;foo%3Dbar&#39; and in base64 encoding is &#39;Zm9vJTI1M0RiYXI=&#39;.
@@ -107,7 +107,7 @@ public partial class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : Terraform
 /// Block type for monitored_resource in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock : TerraformBlockBase
+public partial class GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock() : TerraformBlock("monitored_resource")
 {
     /// <summary>
     /// Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels &#39;project_id&#39;, &#39;instance_id&#39;, and &#39;zone&#39;.
@@ -131,7 +131,7 @@ public partial class GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock : T
 /// Block type for resource_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringUptimeCheckConfigResourceGroupBlock : TerraformBlockBase
+public partial class GoogleMonitoringUptimeCheckConfigResourceGroupBlock() : TerraformBlock("resource_group")
 {
     /// <summary>
     /// The group of resources being monitored. Should be the &#39;name&#39; of a group
@@ -153,7 +153,7 @@ public partial class GoogleMonitoringUptimeCheckConfigResourceGroupBlock : Terra
 /// Block type for synthetic_monitor in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringUptimeCheckConfigSyntheticMonitorBlock : TerraformBlockBase
+public partial class GoogleMonitoringUptimeCheckConfigSyntheticMonitorBlock() : TerraformBlock("synthetic_monitor")
 {
 }
 
@@ -161,7 +161,7 @@ public partial class GoogleMonitoringUptimeCheckConfigSyntheticMonitorBlock : Te
 /// Block type for tcp_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringUptimeCheckConfigTcpCheckBlock : TerraformBlockBase
+public partial class GoogleMonitoringUptimeCheckConfigTcpCheckBlock() : TerraformBlock("tcp_check")
 {
     /// <summary>
     /// The port to the page to run the check against. Will be combined with host (specified within the &#39;monitored_resource&#39;) to construct the full URL.
@@ -177,7 +177,7 @@ public partial class GoogleMonitoringUptimeCheckConfigTcpCheckBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMonitoringUptimeCheckConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMonitoringUptimeCheckConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -282,7 +282,7 @@ public partial class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("content_matchers")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringUptimeCheckConfigContentMatchersBlock>>? ContentMatchers { get; set; }
+    public TerraformList<GoogleMonitoringUptimeCheckConfigContentMatchersBlock> ContentMatchers { get; set; } = new();
 
     /// <summary>
     /// Block for http_check.
@@ -290,7 +290,7 @@ public partial class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpCheck block(s) allowed")]
     [TerraformProperty("http_check")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringUptimeCheckConfigHttpCheckBlock>>? HttpCheck { get; set; }
+    public TerraformList<GoogleMonitoringUptimeCheckConfigHttpCheckBlock> HttpCheck { get; set; } = new();
 
     /// <summary>
     /// Block for monitored_resource.
@@ -298,7 +298,7 @@ public partial class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoredResource block(s) allowed")]
     [TerraformProperty("monitored_resource")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock>>? MonitoredResource { get; set; }
+    public TerraformList<GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock> MonitoredResource { get; set; } = new();
 
     /// <summary>
     /// Block for resource_group.
@@ -306,7 +306,7 @@ public partial class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceGroup block(s) allowed")]
     [TerraformProperty("resource_group")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringUptimeCheckConfigResourceGroupBlock>>? ResourceGroup { get; set; }
+    public TerraformList<GoogleMonitoringUptimeCheckConfigResourceGroupBlock> ResourceGroup { get; set; } = new();
 
     /// <summary>
     /// Block for synthetic_monitor.
@@ -314,7 +314,7 @@ public partial class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyntheticMonitor block(s) allowed")]
     [TerraformProperty("synthetic_monitor")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringUptimeCheckConfigSyntheticMonitorBlock>>? SyntheticMonitor { get; set; }
+    public TerraformList<GoogleMonitoringUptimeCheckConfigSyntheticMonitorBlock> SyntheticMonitor { get; set; } = new();
 
     /// <summary>
     /// Block for tcp_check.
@@ -322,14 +322,14 @@ public partial class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TcpCheck block(s) allowed")]
     [TerraformProperty("tcp_check")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringUptimeCheckConfigTcpCheckBlock>>? TcpCheck { get; set; }
+    public TerraformList<GoogleMonitoringUptimeCheckConfigTcpCheckBlock> TcpCheck { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMonitoringUptimeCheckConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMonitoringUptimeCheckConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A unique resource name for this UptimeCheckConfig. The format is &#39;projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID]&#39;.

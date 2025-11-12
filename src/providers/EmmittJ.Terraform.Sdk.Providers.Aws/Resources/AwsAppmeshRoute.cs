@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppmeshRouteSpecBlock : TerraformBlockBase
+public partial class AwsAppmeshRouteSpecBlock() : TerraformBlock("spec")
 {
     /// <summary>
     /// The priority attribute.
@@ -94,7 +94,7 @@ public partial class AwsAppmeshRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<AwsAppmeshRouteSpecBlock>>? Spec { get; set; }
+    public required TerraformList<AwsAppmeshRouteSpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

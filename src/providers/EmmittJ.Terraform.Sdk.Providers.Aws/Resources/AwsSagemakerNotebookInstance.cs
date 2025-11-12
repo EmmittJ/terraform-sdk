@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for instance_metadata_service_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock : TerraformBlockBase
+public partial class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock() : TerraformBlock("instance_metadata_service_configuration")
 {
     /// <summary>
     /// The minimum_instance_metadata_service_version attribute.
@@ -155,7 +155,7 @@ public partial class AwsSagemakerNotebookInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMetadataServiceConfiguration block(s) allowed")]
     [TerraformProperty("instance_metadata_service_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock>>? InstanceMetadataServiceConfiguration { get; set; }
+    public TerraformList<AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock> InstanceMetadataServiceConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

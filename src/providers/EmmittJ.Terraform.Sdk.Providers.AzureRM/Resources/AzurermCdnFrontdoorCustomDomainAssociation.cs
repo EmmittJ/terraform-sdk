@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -75,6 +75,6 @@ public partial class AzurermCdnFrontdoorCustomDomainAssociation : TerraformResou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

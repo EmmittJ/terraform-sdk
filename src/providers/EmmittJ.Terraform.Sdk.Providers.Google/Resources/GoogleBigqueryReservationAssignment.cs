@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryReservationAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryReservationAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,7 +83,7 @@ public partial class GoogleBigqueryReservationAssignment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryReservationAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryReservationAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The resource name of the assignment.

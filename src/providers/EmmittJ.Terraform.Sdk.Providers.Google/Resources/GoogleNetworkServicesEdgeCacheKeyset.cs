@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for public_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock() : TerraformBlock("public_key")
 {
     /// <summary>
     /// The ID of the public key. The ID must be 1-63 characters long, and comply with RFC1035.
@@ -39,7 +39,7 @@ public partial class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,7 +68,7 @@ public partial class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock : Terrafo
 /// Block type for validation_shared_keys in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock() : TerraformBlock("validation_shared_keys")
 {
     /// <summary>
     /// The name of the secret version in Secret Manager.
@@ -143,14 +143,14 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 PublicKey block(s) allowed")]
     [TerraformProperty("public_key")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock>>? PublicKey { get; set; }
+    public TerraformList<GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock> PublicKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for validation_shared_keys.
@@ -158,7 +158,7 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 ValidationSharedKeys block(s) allowed")]
     [TerraformProperty("validation_shared_keys")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock>>? ValidationSharedKeys { get; set; }
+    public TerraformList<GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock> ValidationSharedKeys { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cloudformation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevopsguruResourceCollectionCloudformationBlock : TerraformBlockBase
+public partial class AwsDevopsguruResourceCollectionCloudformationBlock() : TerraformBlock("cloudformation")
 {
     /// <summary>
     /// The stack_names attribute.
@@ -22,7 +22,7 @@ public partial class AwsDevopsguruResourceCollectionCloudformationBlock : Terraf
 /// Block type for tags in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlockBase
+public partial class AwsDevopsguruResourceCollectionTagsBlock() : TerraformBlock("tags")
 {
     /// <summary>
     /// The app_boundary_key attribute.
@@ -71,14 +71,14 @@ public partial class AwsDevopsguruResourceCollection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cloudformation")]
-    public partial TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionCloudformationBlock>>? Cloudformation { get; set; }
+    public TerraformList<AwsDevopsguruResourceCollectionCloudformationBlock> Cloudformation { get; set; } = new();
 
     /// <summary>
     /// Block for tags.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tags")]
-    public partial TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionTagsBlock>>? Tags { get; set; }
+    public TerraformList<AwsDevopsguruResourceCollectionTagsBlock> Tags { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

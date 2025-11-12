@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2PublicIpv4PoolsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2PublicIpv4PoolsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AwsEc2PublicIpv4PoolsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2PublicIpv4PoolsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2PublicIpv4PoolsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The pool_ids attribute.

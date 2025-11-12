@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53KeySigningKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,7 +83,7 @@ public partial class AwsRoute53KeySigningKey : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53KeySigningKeyTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53KeySigningKeyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The digest_algorithm_mnemonic attribute.

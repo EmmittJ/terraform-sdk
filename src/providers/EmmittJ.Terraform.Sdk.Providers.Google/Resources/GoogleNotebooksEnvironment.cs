@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for container_image in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksEnvironmentContainerImageBlock : TerraformBlockBase
+public partial class GoogleNotebooksEnvironmentContainerImageBlock() : TerraformBlock("container_image")
 {
     /// <summary>
     /// The path to the container image repository.
@@ -30,7 +30,7 @@ public partial class GoogleNotebooksEnvironmentContainerImageBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNotebooksEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNotebooksEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -59,7 +59,7 @@ public partial class GoogleNotebooksEnvironmentTimeoutsBlock : TerraformBlockBas
 /// Block type for vm_image in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksEnvironmentVmImageBlock : TerraformBlockBase
+public partial class GoogleNotebooksEnvironmentVmImageBlock() : TerraformBlock("vm_image")
 {
     /// <summary>
     /// Use this VM image family to find the image; the newest image in this family will be used.
@@ -155,14 +155,14 @@ public partial class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerImage block(s) allowed")]
     [TerraformProperty("container_image")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksEnvironmentContainerImageBlock>>? ContainerImage { get; set; }
+    public TerraformList<GoogleNotebooksEnvironmentContainerImageBlock> ContainerImage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNotebooksEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNotebooksEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vm_image.
@@ -170,7 +170,7 @@ public partial class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VmImage block(s) allowed")]
     [TerraformProperty("vm_image")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksEnvironmentVmImageBlock>>? VmImage { get; set; }
+    public TerraformList<GoogleNotebooksEnvironmentVmImageBlock> VmImage { get; set; } = new();
 
     /// <summary>
     /// Instance creation time

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformBlockBase
+public partial class AzurermKubernetesFleetUpdateStrategyStageBlock() : TerraformBlock("stage")
 {
     /// <summary>
     /// The after_stage_wait_in_seconds attribute.
@@ -29,7 +29,7 @@ public partial class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,13 +101,13 @@ public partial class AzurermKubernetesFleetUpdateStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stage block(s) required")]
     [TerraformProperty("stage")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesFleetUpdateStrategyStageBlock>>? Stage { get; set; }
+    public required TerraformList<AzurermKubernetesFleetUpdateStrategyStageBlock> Stage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKubernetesFleetUpdateStrategyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKubernetesFleetUpdateStrategyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

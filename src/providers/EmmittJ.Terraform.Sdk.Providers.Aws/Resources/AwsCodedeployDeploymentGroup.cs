@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for alarm_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupAlarmConfigurationBlock() : TerraformBlock("alarm_configuration")
 {
     /// <summary>
     /// The alarms attribute.
@@ -35,7 +35,7 @@ public partial class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : Terra
 /// Block type for auto_rollback_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock() : TerraformBlock("auto_rollback_configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -57,7 +57,7 @@ public partial class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock 
 /// Block type for blue_green_deployment_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock() : TerraformBlock("blue_green_deployment_config")
 {
 }
 
@@ -65,7 +65,7 @@ public partial class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock 
 /// Block type for deployment_style in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupDeploymentStyleBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupDeploymentStyleBlock() : TerraformBlock("deployment_style")
 {
     /// <summary>
     /// The deployment_option attribute.
@@ -87,7 +87,7 @@ public partial class AwsCodedeployDeploymentGroupDeploymentStyleBlock : Terrafor
 /// Block type for ec2_tag_filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupEc2TagFilterBlock() : TerraformBlock("ec2_tag_filter")
 {
     /// <summary>
     /// The key attribute.
@@ -116,7 +116,7 @@ public partial class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBl
 /// Block type for ec2_tag_set in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupEc2TagSetBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupEc2TagSetBlock() : TerraformBlock("ec2_tag_set")
 {
 }
 
@@ -124,7 +124,7 @@ public partial class AwsCodedeployDeploymentGroupEc2TagSetBlock : TerraformBlock
 /// Block type for ecs_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupEcsServiceBlock() : TerraformBlock("ecs_service")
 {
     /// <summary>
     /// The cluster_name attribute.
@@ -148,7 +148,7 @@ public partial class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBloc
 /// Block type for load_balancer_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupLoadBalancerInfoBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupLoadBalancerInfoBlock() : TerraformBlock("load_balancer_info")
 {
 }
 
@@ -156,7 +156,7 @@ public partial class AwsCodedeployDeploymentGroupLoadBalancerInfoBlock : Terrafo
 /// Block type for on_premises_instance_tag_filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock() : TerraformBlock("on_premises_instance_tag_filter")
 {
     /// <summary>
     /// The key attribute.
@@ -185,7 +185,7 @@ public partial class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBloc
 /// Block type for trigger_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentGroupTriggerConfigurationBlock() : TerraformBlock("trigger_configuration")
 {
     /// <summary>
     /// The trigger_events attribute.
@@ -309,7 +309,7 @@ public partial class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlarmConfiguration block(s) allowed")]
     [TerraformProperty("alarm_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupAlarmConfigurationBlock>>? AlarmConfiguration { get; set; }
+    public TerraformList<AwsCodedeployDeploymentGroupAlarmConfigurationBlock> AlarmConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for auto_rollback_configuration.
@@ -317,7 +317,7 @@ public partial class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoRollbackConfiguration block(s) allowed")]
     [TerraformProperty("auto_rollback_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock>>? AutoRollbackConfiguration { get; set; }
+    public TerraformList<AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock> AutoRollbackConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for blue_green_deployment_config.
@@ -325,7 +325,7 @@ public partial class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlueGreenDeploymentConfig block(s) allowed")]
     [TerraformProperty("blue_green_deployment_config")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock>>? BlueGreenDeploymentConfig { get; set; }
+    public TerraformList<AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock> BlueGreenDeploymentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for deployment_style.
@@ -333,21 +333,21 @@ public partial class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentStyle block(s) allowed")]
     [TerraformProperty("deployment_style")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupDeploymentStyleBlock>>? DeploymentStyle { get; set; }
+    public TerraformList<AwsCodedeployDeploymentGroupDeploymentStyleBlock> DeploymentStyle { get; set; } = new();
 
     /// <summary>
     /// Block for ec2_tag_filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ec2_tag_filter")]
-    public partial TerraformSet<TerraformBlock<AwsCodedeployDeploymentGroupEc2TagFilterBlock>>? Ec2TagFilter { get; set; }
+    public TerraformSet<AwsCodedeployDeploymentGroupEc2TagFilterBlock> Ec2TagFilter { get; set; } = new();
 
     /// <summary>
     /// Block for ec2_tag_set.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ec2_tag_set")]
-    public partial TerraformSet<TerraformBlock<AwsCodedeployDeploymentGroupEc2TagSetBlock>>? Ec2TagSet { get; set; }
+    public TerraformSet<AwsCodedeployDeploymentGroupEc2TagSetBlock> Ec2TagSet { get; set; } = new();
 
     /// <summary>
     /// Block for ecs_service.
@@ -355,7 +355,7 @@ public partial class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EcsService block(s) allowed")]
     [TerraformProperty("ecs_service")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupEcsServiceBlock>>? EcsService { get; set; }
+    public TerraformList<AwsCodedeployDeploymentGroupEcsServiceBlock> EcsService { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancer_info.
@@ -363,21 +363,21 @@ public partial class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerInfo block(s) allowed")]
     [TerraformProperty("load_balancer_info")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupLoadBalancerInfoBlock>>? LoadBalancerInfo { get; set; }
+    public TerraformList<AwsCodedeployDeploymentGroupLoadBalancerInfoBlock> LoadBalancerInfo { get; set; } = new();
 
     /// <summary>
     /// Block for on_premises_instance_tag_filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("on_premises_instance_tag_filter")]
-    public partial TerraformSet<TerraformBlock<AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock>>? OnPremisesInstanceTagFilter { get; set; }
+    public TerraformSet<AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock> OnPremisesInstanceTagFilter { get; set; } = new();
 
     /// <summary>
     /// Block for trigger_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("trigger_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsCodedeployDeploymentGroupTriggerConfigurationBlock>>? TriggerConfiguration { get; set; }
+    public TerraformSet<AwsCodedeployDeploymentGroupTriggerConfigurationBlock> TriggerConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

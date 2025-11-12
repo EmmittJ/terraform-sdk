@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dashboard_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2AccountVdmAttributesDashboardAttributesBlock : TerraformBlockBase
+public partial class AwsSesv2AccountVdmAttributesDashboardAttributesBlock() : TerraformBlock("dashboard_attributes")
 {
     /// <summary>
     /// The engagement_metrics attribute.
@@ -21,7 +21,7 @@ public partial class AwsSesv2AccountVdmAttributesDashboardAttributesBlock : Terr
 /// Block type for guardian_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2AccountVdmAttributesGuardianAttributesBlock : TerraformBlockBase
+public partial class AwsSesv2AccountVdmAttributesGuardianAttributesBlock() : TerraformBlock("guardian_attributes")
 {
     /// <summary>
     /// The optimized_shared_delivery attribute.
@@ -70,7 +70,7 @@ public partial class AwsSesv2AccountVdmAttributes : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DashboardAttributes block(s) allowed")]
     [TerraformProperty("dashboard_attributes")]
-    public partial TerraformList<TerraformBlock<AwsSesv2AccountVdmAttributesDashboardAttributesBlock>>? DashboardAttributes { get; set; }
+    public TerraformList<AwsSesv2AccountVdmAttributesDashboardAttributesBlock> DashboardAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for guardian_attributes.
@@ -78,6 +78,6 @@ public partial class AwsSesv2AccountVdmAttributes : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GuardianAttributes block(s) allowed")]
     [TerraformProperty("guardian_attributes")]
-    public partial TerraformList<TerraformBlock<AwsSesv2AccountVdmAttributesGuardianAttributesBlock>>? GuardianAttributes { get; set; }
+    public TerraformList<AwsSesv2AccountVdmAttributesGuardianAttributesBlock> GuardianAttributes { get; set; } = new();
 
 }

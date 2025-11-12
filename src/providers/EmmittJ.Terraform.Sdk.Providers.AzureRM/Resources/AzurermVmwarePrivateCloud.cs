@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for management_cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVmwarePrivateCloudManagementClusterBlock : TerraformBlockBase
+public partial class AzurermVmwarePrivateCloudManagementClusterBlock() : TerraformBlock("management_cluster")
 {
 
 
@@ -24,7 +24,7 @@ public partial class AzurermVmwarePrivateCloudManagementClusterBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVmwarePrivateCloudTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVmwarePrivateCloudTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,14 +149,14 @@ public partial class AzurermVmwarePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagementCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementCluster block(s) allowed")]
     [TerraformProperty("management_cluster")]
-    public partial TerraformList<TerraformBlock<AzurermVmwarePrivateCloudManagementClusterBlock>>? ManagementCluster { get; set; }
+    public required TerraformList<AzurermVmwarePrivateCloudManagementClusterBlock> ManagementCluster { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVmwarePrivateCloudTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVmwarePrivateCloudTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The circuit attribute.

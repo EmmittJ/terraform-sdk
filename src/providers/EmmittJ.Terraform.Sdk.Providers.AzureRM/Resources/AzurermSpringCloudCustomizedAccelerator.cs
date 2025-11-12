@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for git_repository in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : TerraformBlockBase
+public partial class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock() : TerraformBlock("git_repository")
 {
     /// <summary>
     /// The branch attribute.
@@ -64,7 +64,7 @@ public partial class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -172,13 +172,13 @@ public partial class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
     [TerraformProperty("git_repository")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>>? GitRepository { get; set; }
+    public required TerraformList<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock> GitRepository { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock Timeouts { get; set; } = new();
 
 }

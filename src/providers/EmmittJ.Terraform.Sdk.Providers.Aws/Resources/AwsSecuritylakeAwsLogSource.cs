@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlockBase
+public partial class AwsSecuritylakeAwsLogSourceSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The accounts attribute.
@@ -61,7 +61,7 @@ public partial class AwsSecuritylakeAwsLogSource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AwsSecuritylakeAwsLogSourceSourceBlock>>? Source { get; set; }
+    public TerraformList<AwsSecuritylakeAwsLogSourceSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

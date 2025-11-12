@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bucket_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLoggingMetricBucketOptionsBlock : TerraformBlockBase
+public partial class GoogleLoggingMetricBucketOptionsBlock() : TerraformBlock("bucket_options")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleLoggingMetricBucketOptionsBlock : TerraformBlockBase
 /// Block type for metric_descriptor in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlockBase
+public partial class GoogleLoggingMetricMetricDescriptorBlock() : TerraformBlock("metric_descriptor")
 {
     /// <summary>
     /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case
@@ -60,7 +60,7 @@ public partial class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleLoggingMetricTimeoutsBlock : TerraformBlockBase
+public partial class GoogleLoggingMetricTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -182,7 +182,7 @@ public partial class GoogleLoggingMetric : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BucketOptions block(s) allowed")]
     [TerraformProperty("bucket_options")]
-    public partial TerraformList<TerraformBlock<GoogleLoggingMetricBucketOptionsBlock>>? BucketOptions { get; set; }
+    public TerraformList<GoogleLoggingMetricBucketOptionsBlock> BucketOptions { get; set; } = new();
 
     /// <summary>
     /// Block for metric_descriptor.
@@ -190,13 +190,13 @@ public partial class GoogleLoggingMetric : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricDescriptor block(s) allowed")]
     [TerraformProperty("metric_descriptor")]
-    public partial TerraformList<TerraformBlock<GoogleLoggingMetricMetricDescriptorBlock>>? MetricDescriptor { get; set; }
+    public TerraformList<GoogleLoggingMetricMetricDescriptorBlock> MetricDescriptor { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleLoggingMetricTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleLoggingMetricTimeoutsBlock Timeouts { get; set; } = new();
 
 }

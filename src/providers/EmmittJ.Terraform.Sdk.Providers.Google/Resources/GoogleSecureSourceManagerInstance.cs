@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for private_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecureSourceManagerInstancePrivateConfigBlock : TerraformBlockBase
+public partial class GoogleSecureSourceManagerInstancePrivateConfigBlock() : TerraformBlock("private_config")
 {
     /// <summary>
     /// CA pool resource, resource must in the format of &#39;projects/{project}/locations/{location}/caPools/{ca_pool}&#39;.
@@ -31,7 +31,7 @@ public partial class GoogleSecureSourceManagerInstancePrivateConfigBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecureSourceManagerInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecureSourceManagerInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -60,7 +60,7 @@ public partial class GoogleSecureSourceManagerInstanceTimeoutsBlock : TerraformB
 /// Block type for workforce_identity_federation_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock : TerraformBlockBase
+public partial class GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock() : TerraformBlock("workforce_identity_federation_config")
 {
     /// <summary>
     /// &#39;Whether Workforce Identity Federation is enabled.&#39;
@@ -150,14 +150,14 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateConfig block(s) allowed")]
     [TerraformProperty("private_config")]
-    public partial TerraformList<TerraformBlock<GoogleSecureSourceManagerInstancePrivateConfigBlock>>? PrivateConfig { get; set; }
+    public TerraformList<GoogleSecureSourceManagerInstancePrivateConfigBlock> PrivateConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecureSourceManagerInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecureSourceManagerInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workforce_identity_federation_config.
@@ -165,7 +165,7 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkforceIdentityFederationConfig block(s) allowed")]
     [TerraformProperty("workforce_identity_federation_config")]
-    public partial TerraformList<TerraformBlock<GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock>>? WorkforceIdentityFederationConfig { get; set; }
+    public TerraformList<GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock> WorkforceIdentityFederationConfig { get; set; } = new();
 
     /// <summary>
     /// Time the Instance was created in UTC.

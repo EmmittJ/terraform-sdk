@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for protection_policy in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock() : TerraformBlock("protection_policy")
 {
     /// <summary>
     /// The policy_type attribute.
@@ -22,7 +22,7 @@ public partial class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : Terraf
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyVmWorkloadSettingsBlock() : TerraformBlock("settings")
 {
     /// <summary>
     /// The compression_enabled attribute.
@@ -45,7 +45,7 @@ public partial class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyVmWorkloadTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,7 +133,7 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProtectionPolicy block(s) required")]
     [TerraformProperty("protection_policy")]
-    public partial TerraformSet<TerraformBlock<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>>? ProtectionPolicy { get; set; }
+    public required TerraformSet<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock> ProtectionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for settings.
@@ -143,13 +143,13 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Settings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     [TerraformProperty("settings")]
-    public partial TerraformList<TerraformBlock<AzurermBackupPolicyVmWorkloadSettingsBlock>>? Settings { get; set; }
+    public required TerraformList<AzurermBackupPolicyVmWorkloadSettingsBlock> Settings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBackupPolicyVmWorkloadTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBackupPolicyVmWorkloadTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketLifecycleConfigurationRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The id attribute.
@@ -38,7 +38,7 @@ public partial class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsS3BucketLifecycleConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsS3BucketLifecycleConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -99,14 +99,14 @@ public partial class AwsS3BucketLifecycleConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketLifecycleConfigurationRuleBlock>>? Rule { get; set; }
+    public TerraformList<AwsS3BucketLifecycleConfigurationRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsS3BucketLifecycleConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsS3BucketLifecycleConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

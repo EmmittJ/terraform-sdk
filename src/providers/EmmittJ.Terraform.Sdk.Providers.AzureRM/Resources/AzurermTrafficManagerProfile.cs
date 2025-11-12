@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for dns_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlockBase
+public partial class AzurermTrafficManagerProfileDnsConfigBlock() : TerraformBlock("dns_config")
 {
     /// <summary>
     /// The relative_name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
 /// Block type for monitor_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlockBase
+public partial class AzurermTrafficManagerProfileMonitorConfigBlock() : TerraformBlock("monitor_config")
 {
     /// <summary>
     /// The expected_status_code_ranges attribute.
@@ -89,7 +89,7 @@ public partial class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlockBase
+public partial class AzurermTrafficManagerProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -198,7 +198,7 @@ public partial class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DnsConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     [TerraformProperty("dns_config")]
-    public partial TerraformList<TerraformBlock<AzurermTrafficManagerProfileDnsConfigBlock>>? DnsConfig { get; set; }
+    public required TerraformList<AzurermTrafficManagerProfileDnsConfigBlock> DnsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for monitor_config.
@@ -208,14 +208,14 @@ public partial class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitorConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorConfig block(s) allowed")]
     [TerraformProperty("monitor_config")]
-    public partial TerraformList<TerraformBlock<AzurermTrafficManagerProfileMonitorConfigBlock>>? MonitorConfig { get; set; }
+    public required TerraformList<AzurermTrafficManagerProfileMonitorConfigBlock> MonitorConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermTrafficManagerProfileTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermTrafficManagerProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

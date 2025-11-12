@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entities in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineDataConnectorEntitiesBlock() : TerraformBlock("entities")
 {
 
     /// <summary>
@@ -46,7 +46,7 @@ public partial class GoogleDiscoveryEngineDataConnectorEntitiesBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineDataConnectorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -228,14 +228,14 @@ public partial class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("entities")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineDataConnectorEntitiesBlock>>? Entities { get; set; }
+    public TerraformList<GoogleDiscoveryEngineDataConnectorEntitiesBlock> Entities { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineDataConnectorTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineDataConnectorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// State of the action connector. This reflects whether the action connector

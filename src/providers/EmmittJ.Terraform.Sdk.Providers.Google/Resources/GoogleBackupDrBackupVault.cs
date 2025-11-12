@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBackupDrBackupVaultTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBackupDrBackupVaultTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,7 +175,7 @@ public partial class GoogleBackupDrBackupVault : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBackupDrBackupVaultTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBackupDrBackupVaultTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The number of backups in this backup vault.

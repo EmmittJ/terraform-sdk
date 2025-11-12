@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for off_peak_window_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOpensearchDomainDataSourceOffPeakWindowOptionsBlock : TerraformBlockBase
+public partial class AwsOpensearchDomainDataSourceOffPeakWindowOptionsBlock() : TerraformBlock("off_peak_window_options")
 {
 
 
@@ -57,7 +57,7 @@ public partial class AwsOpensearchDomainDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OffPeakWindowOptions block(s) allowed")]
     [TerraformProperty("off_peak_window_options")]
-    public partial TerraformList<TerraformBlock<AwsOpensearchDomainDataSourceOffPeakWindowOptionsBlock>>? OffPeakWindowOptions { get; set; }
+    public TerraformList<AwsOpensearchDomainDataSourceOffPeakWindowOptionsBlock> OffPeakWindowOptions { get; set; } = new();
 
     /// <summary>
     /// The access_policies attribute.

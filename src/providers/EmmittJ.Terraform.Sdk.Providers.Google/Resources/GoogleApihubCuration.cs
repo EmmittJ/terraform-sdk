@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApihubCurationEndpointBlock : TerraformBlockBase
+public partial class GoogleApihubCurationEndpointBlock() : TerraformBlock("endpoint")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApihubCurationEndpointBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApihubCurationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApihubCurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,14 +111,14 @@ public partial class GoogleApihubCuration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
     [TerraformProperty("endpoint")]
-    public partial TerraformList<TerraformBlock<GoogleApihubCurationEndpointBlock>>? Endpoint { get; set; }
+    public required TerraformList<GoogleApihubCurationEndpointBlock> Endpoint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApihubCurationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApihubCurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time at which the curation was created.

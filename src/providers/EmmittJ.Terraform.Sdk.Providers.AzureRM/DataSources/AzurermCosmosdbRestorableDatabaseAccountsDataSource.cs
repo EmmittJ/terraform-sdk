@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermCosmosdbRestorableDatabaseAccountsDataSource : Terra
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The accounts attribute.

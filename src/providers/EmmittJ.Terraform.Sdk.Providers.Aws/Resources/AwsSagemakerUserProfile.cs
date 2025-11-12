@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for user_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlockBase
+public partial class AwsSagemakerUserProfileUserSettingsBlock() : TerraformBlock("user_settings")
 {
     /// <summary>
     /// The auto_mount_home_efs attribute.
@@ -120,7 +120,7 @@ public partial class AwsSagemakerUserProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserSettings block(s) allowed")]
     [TerraformProperty("user_settings")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerUserProfileUserSettingsBlock>>? UserSettings { get; set; }
+    public TerraformList<AwsSagemakerUserProfileUserSettingsBlock> UserSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

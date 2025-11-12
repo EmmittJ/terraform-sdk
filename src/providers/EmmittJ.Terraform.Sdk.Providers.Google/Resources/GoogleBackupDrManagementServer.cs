@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for networks in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBackupDrManagementServerNetworksBlock : TerraformBlockBase
+public partial class GoogleBackupDrManagementServerNetworksBlock() : TerraformBlock("networks")
 {
     /// <summary>
     /// Network with format &#39;projects/{{project_id}}/global/networks/{{network_id}}&#39;
@@ -29,7 +29,7 @@ public partial class GoogleBackupDrManagementServerNetworksBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBackupDrManagementServerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBackupDrManagementServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,14 +98,14 @@ public partial class GoogleBackupDrManagementServer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("networks")]
-    public partial TerraformList<TerraformBlock<GoogleBackupDrManagementServerNetworksBlock>>? Networks { get; set; }
+    public TerraformList<GoogleBackupDrManagementServerNetworksBlock> Networks { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBackupDrManagementServerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBackupDrManagementServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The management console URI

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkConnectivityHubTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityHubTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -104,7 +104,7 @@ public partial class GoogleNetworkConnectivityHub : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkConnectivityHubTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkConnectivityHubTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time the hub was created.

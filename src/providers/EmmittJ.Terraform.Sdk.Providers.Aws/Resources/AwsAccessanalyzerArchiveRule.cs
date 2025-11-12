@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlockBase
+public partial class AwsAccessanalyzerArchiveRuleFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The contains attribute.
@@ -93,6 +93,6 @@ public partial class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsAccessanalyzerArchiveRuleFilterBlock>>? Filter { get; set; }
+    public required TerraformSet<AwsAccessanalyzerArchiveRuleFilterBlock> Filter { get; set; } = new();
 
 }

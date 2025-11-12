@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeBackendBucketSignedUrlKeyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeBackendBucketSignedUrlKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -77,6 +77,6 @@ public partial class GoogleComputeBackendBucketSignedUrlKey : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeBackendBucketSignedUrlKeyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeBackendBucketSignedUrlKeyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

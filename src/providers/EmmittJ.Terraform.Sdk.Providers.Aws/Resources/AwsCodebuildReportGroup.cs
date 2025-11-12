@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for export_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildReportGroupExportConfigBlock : TerraformBlockBase
+public partial class AwsCodebuildReportGroupExportConfigBlock() : TerraformBlock("export_config")
 {
     /// <summary>
     /// The type attribute.
@@ -87,7 +87,7 @@ public partial class AwsCodebuildReportGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportConfig block(s) allowed")]
     [TerraformProperty("export_config")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildReportGroupExportConfigBlock>>? ExportConfig { get; set; }
+    public required TerraformList<AwsCodebuildReportGroupExportConfigBlock> ExportConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

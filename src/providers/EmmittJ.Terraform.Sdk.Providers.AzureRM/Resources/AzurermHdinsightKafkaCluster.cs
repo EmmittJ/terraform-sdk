@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for component_version in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterComponentVersionBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterComponentVersionBlock() : TerraformBlock("component_version")
 {
     /// <summary>
     /// The kafka attribute.
@@ -22,7 +22,7 @@ public partial class AzurermHdinsightKafkaClusterComponentVersionBlock : Terrafo
 /// Block type for compute_isolation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterComputeIsolationBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterComputeIsolationBlock() : TerraformBlock("compute_isolation")
 {
     /// <summary>
     /// The compute_isolation_enabled attribute.
@@ -44,7 +44,7 @@ public partial class AzurermHdinsightKafkaClusterComputeIsolationBlock : Terrafo
 /// Block type for disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterDiskEncryptionBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterDiskEncryptionBlock() : TerraformBlock("disk_encryption")
 {
     /// <summary>
     /// The encryption_algorithm attribute.
@@ -80,7 +80,7 @@ public partial class AzurermHdinsightKafkaClusterDiskEncryptionBlock : Terraform
 /// Block type for extension in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterExtensionBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterExtensionBlock() : TerraformBlock("extension")
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -104,7 +104,7 @@ public partial class AzurermHdinsightKafkaClusterExtensionBlock : TerraformBlock
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterGatewayBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterGatewayBlock() : TerraformBlock("gateway")
 {
     /// <summary>
     /// The password attribute.
@@ -128,7 +128,7 @@ public partial class AzurermHdinsightKafkaClusterGatewayBlock : TerraformBlockBa
 /// Block type for metastores in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterMetastoresBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterMetastoresBlock() : TerraformBlock("metastores")
 {
 }
 
@@ -136,7 +136,7 @@ public partial class AzurermHdinsightKafkaClusterMetastoresBlock : TerraformBloc
 /// Block type for monitor in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterMonitorBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterMonitorBlock() : TerraformBlock("monitor")
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -160,7 +160,7 @@ public partial class AzurermHdinsightKafkaClusterMonitorBlock : TerraformBlockBa
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterNetworkBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterNetworkBlock() : TerraformBlock("network")
 {
     /// <summary>
     /// The connection_direction attribute.
@@ -182,7 +182,7 @@ public partial class AzurermHdinsightKafkaClusterNetworkBlock : TerraformBlockBa
 /// Block type for private_link_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock() : TerraformBlock("private_link_configuration")
 {
     /// <summary>
     /// The group_id attribute.
@@ -206,7 +206,7 @@ public partial class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock :
 /// Block type for rest_proxy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterRestProxyBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterRestProxyBlock() : TerraformBlock("rest_proxy")
 {
     /// <summary>
     /// The security_group_id attribute.
@@ -230,7 +230,7 @@ public partial class AzurermHdinsightKafkaClusterRestProxyBlock : TerraformBlock
 /// Block type for roles in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterRolesBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterRolesBlock() : TerraformBlock("roles")
 {
 }
 
@@ -238,7 +238,7 @@ public partial class AzurermHdinsightKafkaClusterRolesBlock : TerraformBlockBase
 /// Block type for security_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterSecurityProfileBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterSecurityProfileBlock() : TerraformBlock("security_profile")
 {
     /// <summary>
     /// The aadds_resource_id attribute.
@@ -301,7 +301,7 @@ public partial class AzurermHdinsightKafkaClusterSecurityProfileBlock : Terrafor
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterStorageAccountBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The is_default attribute.
@@ -340,7 +340,7 @@ public partial class AzurermHdinsightKafkaClusterStorageAccountBlock : Terraform
 /// Block type for storage_account_gen2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterStorageAccountGen2Block : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterStorageAccountGen2Block() : TerraformBlock("storage_account_gen2")
 {
     /// <summary>
     /// The filesystem_id attribute.
@@ -380,7 +380,7 @@ public partial class AzurermHdinsightKafkaClusterStorageAccountGen2Block : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHdinsightKafkaClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHdinsightKafkaClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -498,7 +498,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
     [TerraformProperty("component_version")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterComponentVersionBlock>>? ComponentVersion { get; set; }
+    public required TerraformList<AzurermHdinsightKafkaClusterComponentVersionBlock> ComponentVersion { get; set; } = new();
 
     /// <summary>
     /// Block for compute_isolation.
@@ -506,14 +506,14 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
     [TerraformProperty("compute_isolation")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterComputeIsolationBlock>>? ComputeIsolation { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterComputeIsolationBlock> ComputeIsolation { get; set; } = new();
 
     /// <summary>
     /// Block for disk_encryption.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("disk_encryption")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterDiskEncryptionBlock>>? DiskEncryption { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterDiskEncryptionBlock> DiskEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for extension.
@@ -521,7 +521,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
     [TerraformProperty("extension")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterExtensionBlock>>? Extension { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterExtensionBlock> Extension { get; set; } = new();
 
     /// <summary>
     /// Block for gateway.
@@ -531,7 +531,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     [TerraformProperty("gateway")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterGatewayBlock>>? Gateway { get; set; }
+    public required TerraformList<AzurermHdinsightKafkaClusterGatewayBlock> Gateway { get; set; } = new();
 
     /// <summary>
     /// Block for metastores.
@@ -539,7 +539,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
     [TerraformProperty("metastores")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterMetastoresBlock>>? Metastores { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterMetastoresBlock> Metastores { get; set; } = new();
 
     /// <summary>
     /// Block for monitor.
@@ -547,7 +547,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
     [TerraformProperty("monitor")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterMonitorBlock>>? Monitor { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterMonitorBlock> Monitor { get; set; } = new();
 
     /// <summary>
     /// Block for network.
@@ -555,7 +555,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformProperty("network")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterNetworkBlock>>? Network { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterNetworkBlock> Network { get; set; } = new();
 
     /// <summary>
     /// Block for private_link_configuration.
@@ -563,7 +563,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
     [TerraformProperty("private_link_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock> PrivateLinkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for rest_proxy.
@@ -571,7 +571,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestProxy block(s) allowed")]
     [TerraformProperty("rest_proxy")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterRestProxyBlock>>? RestProxy { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterRestProxyBlock> RestProxy { get; set; } = new();
 
     /// <summary>
     /// Block for roles.
@@ -581,7 +581,7 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
     [TerraformProperty("roles")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterRolesBlock>>? Roles { get; set; }
+    public required TerraformList<AzurermHdinsightKafkaClusterRolesBlock> Roles { get; set; } = new();
 
     /// <summary>
     /// Block for security_profile.
@@ -589,14 +589,14 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
     [TerraformProperty("security_profile")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterSecurityProfileBlock>>? SecurityProfile { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterSecurityProfileBlock> SecurityProfile { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account_gen2.
@@ -604,14 +604,14 @@ public partial class AzurermHdinsightKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
     [TerraformProperty("storage_account_gen2")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightKafkaClusterStorageAccountGen2Block>>? StorageAccountGen2 { get; set; }
+    public TerraformList<AzurermHdinsightKafkaClusterStorageAccountGen2Block> StorageAccountGen2 { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHdinsightKafkaClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHdinsightKafkaClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The https_endpoint attribute.

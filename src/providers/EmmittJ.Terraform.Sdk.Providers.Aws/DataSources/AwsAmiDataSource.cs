@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAmiDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsAmiDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsAmiDataSourceFilterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAmiDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsAmiDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -125,14 +125,14 @@ public partial class AwsAmiDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsAmiDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsAmiDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAmiDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAmiDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The architecture attribute.

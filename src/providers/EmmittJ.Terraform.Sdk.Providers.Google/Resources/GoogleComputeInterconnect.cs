@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for macsec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInterconnectMacsecBlock : TerraformBlockBase
+public partial class GoogleComputeInterconnectMacsecBlock() : TerraformBlock("macsec")
 {
     /// <summary>
     /// If set to true, the Interconnect connection is configured with a should-secure
@@ -25,7 +25,7 @@ public partial class GoogleComputeInterconnectMacsecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeInterconnectTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeInterconnectTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -207,14 +207,14 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Macsec block(s) allowed")]
     [TerraformProperty("macsec")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInterconnectMacsecBlock>>? Macsec { get; set; }
+    public TerraformList<GoogleComputeInterconnectMacsecBlock> Macsec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeInterconnectTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeInterconnectTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// interconnects.list of features available for this Interconnect connection. Can take the value:

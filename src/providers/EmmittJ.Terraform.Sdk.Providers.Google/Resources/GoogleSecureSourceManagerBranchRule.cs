@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecureSourceManagerBranchRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,7 +140,7 @@ public partial class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecureSourceManagerBranchRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecureSourceManagerBranchRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the BranchRule was created in UTC.

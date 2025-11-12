@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketAnalyticsConfigurationFilterBlock : TerraformBlockBase
+public partial class AwsS3BucketAnalyticsConfigurationFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The prefix attribute.
@@ -28,7 +28,7 @@ public partial class AwsS3BucketAnalyticsConfigurationFilterBlock : TerraformBlo
 /// Block type for storage_class_analysis in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock : TerraformBlockBase
+public partial class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock() : TerraformBlock("storage_class_analysis")
 {
 }
 
@@ -78,7 +78,7 @@ public partial class AwsS3BucketAnalyticsConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketAnalyticsConfigurationFilterBlock>>? Filter { get; set; }
+    public TerraformList<AwsS3BucketAnalyticsConfigurationFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for storage_class_analysis.
@@ -86,6 +86,6 @@ public partial class AwsS3BucketAnalyticsConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageClassAnalysis block(s) allowed")]
     [TerraformProperty("storage_class_analysis")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock>>? StorageClassAnalysis { get; set; }
+    public TerraformList<AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock> StorageClassAnalysis { get; set; } = new();
 
 }

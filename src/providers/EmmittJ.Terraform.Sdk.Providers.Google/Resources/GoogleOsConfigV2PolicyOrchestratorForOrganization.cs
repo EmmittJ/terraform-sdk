@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for orchestrated_resource in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResourceBlock : TerraformBlockBase
+public partial class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResourceBlock() : TerraformBlock("orchestrated_resource")
 {
     /// <summary>
     /// Optional. ID of the resource to be used while generating set of affected resources.
@@ -34,7 +34,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrat
 /// Block type for orchestration_scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrationScopeBlock : TerraformBlockBase
+public partial class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrationScopeBlock() : TerraformBlock("orchestration_scope")
 {
 }
 
@@ -42,7 +42,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrat
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOsConfigV2PolicyOrchestratorForOrganizationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOsConfigV2PolicyOrchestratorForOrganizationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,7 +161,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization : Terrafo
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OrchestratedResource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestratedResource block(s) allowed")]
     [TerraformProperty("orchestrated_resource")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResourceBlock>>? OrchestratedResource { get; set; }
+    public required TerraformList<GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResourceBlock> OrchestratedResource { get; set; } = new();
 
     /// <summary>
     /// Block for orchestration_scope.
@@ -169,14 +169,14 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization : Terrafo
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestrationScope block(s) allowed")]
     [TerraformProperty("orchestration_scope")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrationScopeBlock>>? OrchestrationScope { get; set; }
+    public TerraformList<GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrationScopeBlock> OrchestrationScope { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForOrganizationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOsConfigV2PolicyOrchestratorForOrganizationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Timestamp when the policy orchestrator resource was created.

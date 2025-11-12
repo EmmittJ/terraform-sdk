@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entities in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxEntityTypeEntitiesBlock() : TerraformBlock("entities")
 {
     /// <summary>
     /// A collection of value synonyms. For example, if the entity type is vegetable, and value is scallions, a synonym could be green onions.
@@ -31,7 +31,7 @@ public partial class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlockB
 /// Block type for excluded_phrases in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock() : TerraformBlock("excluded_phrases")
 {
     /// <summary>
     /// The word or phrase to be excluded.
@@ -46,7 +46,7 @@ public partial class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxEntityTypeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxEntityTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -156,21 +156,21 @@ public partial class GoogleDialogflowCxEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entities is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entities block(s) required")]
     [TerraformProperty("entities")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxEntityTypeEntitiesBlock>>? Entities { get; set; }
+    public required TerraformList<GoogleDialogflowCxEntityTypeEntitiesBlock> Entities { get; set; } = new();
 
     /// <summary>
     /// Block for excluded_phrases.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("excluded_phrases")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxEntityTypeExcludedPhrasesBlock>>? ExcludedPhrases { get; set; }
+    public TerraformList<GoogleDialogflowCxEntityTypeExcludedPhrasesBlock> ExcludedPhrases { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxEntityTypeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxEntityTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the entity type.

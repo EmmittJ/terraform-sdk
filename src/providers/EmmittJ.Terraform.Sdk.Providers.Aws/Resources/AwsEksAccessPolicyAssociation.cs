@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBlockBase
+public partial class AwsEksAccessPolicyAssociationAccessScopeBlock() : TerraformBlock("access_scope")
 {
     /// <summary>
     /// The namespaces attribute.
@@ -29,7 +29,7 @@ public partial class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsEksAccessPolicyAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -103,14 +103,14 @@ public partial class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessScope block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessScope block(s) allowed")]
     [TerraformProperty("access_scope")]
-    public partial TerraformList<TerraformBlock<AwsEksAccessPolicyAssociationAccessScopeBlock>>? AccessScope { get; set; }
+    public required TerraformList<AwsEksAccessPolicyAssociationAccessScopeBlock> AccessScope { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEksAccessPolicyAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEksAccessPolicyAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The associated_at attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for notification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlockBase
+public partial class AzurermContainerConnectedRegistryNotificationBlock() : TerraformBlock("notification")
 {
     /// <summary>
     /// The action attribute.
@@ -44,7 +44,7 @@ public partial class AzurermContainerConnectedRegistryNotificationBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerConnectedRegistryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -177,13 +177,13 @@ public partial class AzurermContainerConnectedRegistry : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("notification")]
-    public partial TerraformList<TerraformBlock<AzurermContainerConnectedRegistryNotificationBlock>>? Notification { get; set; }
+    public TerraformList<AzurermContainerConnectedRegistryNotificationBlock> Notification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerConnectedRegistryTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerConnectedRegistryTimeoutsBlock Timeouts { get; set; } = new();
 
 }

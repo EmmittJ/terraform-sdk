@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for configmanagement in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubFeatureMembershipConfigmanagementBlock : TerraformBlockBase
+public partial class GoogleGkeHubFeatureMembershipConfigmanagementBlock() : TerraformBlock("configmanagement")
 {
     /// <summary>
     /// Set this field to MANAGEMENT_AUTOMATIC to enable Config Sync auto-upgrades, and set this field to MANAGEMENT_MANUAL or MANAGEMENT_UNSPECIFIED to disable Config Sync auto-upgrades.
@@ -28,7 +28,7 @@ public partial class GoogleGkeHubFeatureMembershipConfigmanagementBlock : Terraf
 /// Block type for mesh in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubFeatureMembershipMeshBlock : TerraformBlockBase
+public partial class GoogleGkeHubFeatureMembershipMeshBlock() : TerraformBlock("mesh")
 {
     /// <summary>
     /// **DEPRECATED** Whether to automatically manage Service Mesh control planes. Possible values: CONTROL_PLANE_MANAGEMENT_UNSPECIFIED, AUTOMATIC, MANUAL
@@ -51,7 +51,7 @@ public partial class GoogleGkeHubFeatureMembershipMeshBlock : TerraformBlockBase
 /// Block type for policycontroller in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubFeatureMembershipPolicycontrollerBlock : TerraformBlockBase
+public partial class GoogleGkeHubFeatureMembershipPolicycontrollerBlock() : TerraformBlock("policycontroller")
 {
     /// <summary>
     /// Optional. Version of Policy Controller to install. Defaults to the latest version.
@@ -66,7 +66,7 @@ public partial class GoogleGkeHubFeatureMembershipPolicycontrollerBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeHubFeatureMembershipTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -152,7 +152,7 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configmanagement block(s) allowed")]
     [TerraformProperty("configmanagement")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipConfigmanagementBlock>>? Configmanagement { get; set; }
+    public TerraformList<GoogleGkeHubFeatureMembershipConfigmanagementBlock> Configmanagement { get; set; } = new();
 
     /// <summary>
     /// Block for mesh.
@@ -160,7 +160,7 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mesh block(s) allowed")]
     [TerraformProperty("mesh")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipMeshBlock>>? Mesh { get; set; }
+    public TerraformList<GoogleGkeHubFeatureMembershipMeshBlock> Mesh { get; set; } = new();
 
     /// <summary>
     /// Block for policycontroller.
@@ -168,13 +168,13 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Policycontroller block(s) allowed")]
     [TerraformProperty("policycontroller")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipPolicycontrollerBlock>>? Policycontroller { get; set; }
+    public TerraformList<GoogleGkeHubFeatureMembershipPolicycontrollerBlock> Policycontroller { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeHubFeatureMembershipTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeHubFeatureMembershipTimeoutsBlock Timeouts { get; set; } = new();
 
 }

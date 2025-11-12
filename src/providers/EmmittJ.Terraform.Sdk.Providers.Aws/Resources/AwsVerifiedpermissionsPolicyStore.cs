@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for validation_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock : TerraformBlockBase
+public partial class AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock() : TerraformBlock("validation_settings")
 {
     /// <summary>
     /// The mode attribute.
@@ -60,7 +60,7 @@ public partial class AwsVerifiedpermissionsPolicyStore : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("validation_settings")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock>>? ValidationSettings { get; set; }
+    public TerraformList<AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock> ValidationSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

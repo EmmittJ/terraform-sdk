@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermArcResourceBridgeApplianceIdentityBlock : TerraformBlockBase
+public partial class AzurermArcResourceBridgeApplianceIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -24,7 +24,7 @@ public partial class AzurermArcResourceBridgeApplianceIdentityBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermArcResourceBridgeApplianceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermArcResourceBridgeApplianceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -135,13 +135,13 @@ public partial class AzurermArcResourceBridgeAppliance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermArcResourceBridgeApplianceIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermArcResourceBridgeApplianceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermArcResourceBridgeApplianceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermArcResourceBridgeApplianceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

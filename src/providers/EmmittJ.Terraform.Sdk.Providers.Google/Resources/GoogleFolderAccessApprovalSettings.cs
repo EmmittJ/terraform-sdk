@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for enrolled_services in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : TerraformBlockBase
+public partial class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock() : TerraformBlock("enrolled_services")
 {
     /// <summary>
     /// The product for which Access Approval will be enrolled. Allowed values are listed (case-sensitive):
@@ -52,7 +52,7 @@ public partial class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFolderAccessApprovalSettingsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFolderAccessApprovalSettingsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,14 +127,14 @@ public partial class GoogleFolderAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrolledServices is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnrolledServices block(s) required")]
     [TerraformProperty("enrolled_services")]
-    public partial TerraformSet<TerraformBlock<GoogleFolderAccessApprovalSettingsEnrolledServicesBlock>>? EnrolledServices { get; set; }
+    public required TerraformSet<GoogleFolderAccessApprovalSettingsEnrolledServicesBlock> EnrolledServices { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFolderAccessApprovalSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFolderAccessApprovalSettingsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// If the field is true, that indicates that an ancestor of this Folder has set active_key_version.

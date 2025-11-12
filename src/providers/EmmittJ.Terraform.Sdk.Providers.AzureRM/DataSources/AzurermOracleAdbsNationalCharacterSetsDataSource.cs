@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -46,7 +46,7 @@ public partial class AzurermOracleAdbsNationalCharacterSetsDataSource : Terrafor
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The character_sets attribute.

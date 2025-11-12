@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlockBase
+public partial class AwsCodestarconnectionsHostTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlockBas
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlockBase
+public partial class AwsCodestarconnectionsHostVpcConfigurationBlock() : TerraformBlock("vpc_configuration")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -123,7 +123,7 @@ public partial class AwsCodestarconnectionsHost : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCodestarconnectionsHostTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCodestarconnectionsHostTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_configuration.
@@ -131,7 +131,7 @@ public partial class AwsCodestarconnectionsHost : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     [TerraformProperty("vpc_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCodestarconnectionsHostVpcConfigurationBlock>>? VpcConfiguration { get; set; }
+    public TerraformList<AwsCodestarconnectionsHostVpcConfigurationBlock> VpcConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

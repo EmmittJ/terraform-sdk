@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstantSnapshotIamMemberConditionBlock : TerraformBlockBase
+public partial class GoogleComputeInstantSnapshotIamMemberConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -94,7 +94,7 @@ public partial class GoogleComputeInstantSnapshotIamMember : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstantSnapshotIamMemberConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleComputeInstantSnapshotIamMemberConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFunctionAppActiveSlotTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppActiveSlotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -74,7 +74,7 @@ public partial class AzurermFunctionAppActiveSlot : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFunctionAppActiveSlotTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFunctionAppActiveSlotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of the last successful swap with `Production`

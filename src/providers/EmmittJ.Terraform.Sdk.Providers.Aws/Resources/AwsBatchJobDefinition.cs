@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for eks_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchJobDefinitionEksPropertiesBlock : TerraformBlockBase
+public partial class AwsBatchJobDefinitionEksPropertiesBlock() : TerraformBlock("eks_properties")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsBatchJobDefinitionEksPropertiesBlock : TerraformBlockBas
 /// Block type for retry_strategy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchJobDefinitionRetryStrategyBlock : TerraformBlockBase
+public partial class AwsBatchJobDefinitionRetryStrategyBlock() : TerraformBlock("retry_strategy")
 {
     /// <summary>
     /// The attempts attribute.
@@ -29,7 +29,7 @@ public partial class AwsBatchJobDefinitionRetryStrategyBlock : TerraformBlockBas
 /// Block type for timeout in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchJobDefinitionTimeoutBlock : TerraformBlockBase
+public partial class AwsBatchJobDefinitionTimeoutBlock() : TerraformBlock("timeout")
 {
     /// <summary>
     /// The attempt_duration_seconds attribute.
@@ -156,7 +156,7 @@ public partial class AwsBatchJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EksProperties block(s) allowed")]
     [TerraformProperty("eks_properties")]
-    public partial TerraformList<TerraformBlock<AwsBatchJobDefinitionEksPropertiesBlock>>? EksProperties { get; set; }
+    public TerraformList<AwsBatchJobDefinitionEksPropertiesBlock> EksProperties { get; set; } = new();
 
     /// <summary>
     /// Block for retry_strategy.
@@ -164,7 +164,7 @@ public partial class AwsBatchJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryStrategy block(s) allowed")]
     [TerraformProperty("retry_strategy")]
-    public partial TerraformList<TerraformBlock<AwsBatchJobDefinitionRetryStrategyBlock>>? RetryStrategy { get; set; }
+    public TerraformList<AwsBatchJobDefinitionRetryStrategyBlock> RetryStrategy { get; set; } = new();
 
     /// <summary>
     /// Block for timeout.
@@ -172,7 +172,7 @@ public partial class AwsBatchJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
     [TerraformProperty("timeout")]
-    public partial TerraformList<TerraformBlock<AwsBatchJobDefinitionTimeoutBlock>>? Timeout { get; set; }
+    public TerraformList<AwsBatchJobDefinitionTimeoutBlock> Timeout { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

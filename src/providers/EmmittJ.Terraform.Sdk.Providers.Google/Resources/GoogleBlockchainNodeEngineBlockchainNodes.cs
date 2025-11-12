@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for ethereum_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : TerraformBlockBase
+public partial class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock() : TerraformBlock("ethereum_details")
 {
 
     /// <summary>
@@ -57,7 +57,7 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,14 +146,14 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EthereumDetails block(s) allowed")]
     [TerraformProperty("ethereum_details")]
-    public partial TerraformList<TerraformBlock<GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock>>? EthereumDetails { get; set; }
+    public TerraformList<GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock> EthereumDetails { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The connection information through which to interact with a blockchain node.

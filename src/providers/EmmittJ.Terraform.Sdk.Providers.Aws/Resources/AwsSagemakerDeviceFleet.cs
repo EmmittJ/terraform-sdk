@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for output_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDeviceFleetOutputConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerDeviceFleetOutputConfigBlock() : TerraformBlock("output_config")
 {
     /// <summary>
     /// The kms_key_id attribute.
@@ -101,7 +101,7 @@ public partial class AwsSagemakerDeviceFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputConfig block(s) allowed")]
     [TerraformProperty("output_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDeviceFleetOutputConfigBlock>>? OutputConfig { get; set; }
+    public required TerraformList<AwsSagemakerDeviceFleetOutputConfigBlock> OutputConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

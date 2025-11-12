@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFabricCapacitySkuBlock : TerraformBlockBase
+public partial class AzurermFabricCapacitySkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermFabricCapacitySkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFabricCapacityTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFabricCapacityTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,13 +125,13 @@ public partial class AzurermFabricCapacity : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermFabricCapacitySkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermFabricCapacitySkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFabricCapacityTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFabricCapacityTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputePublicDelegatedPrefixTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputePublicDelegatedPrefixTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -118,7 +118,7 @@ public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputePublicDelegatedPrefixTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputePublicDelegatedPrefixTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// List of sub public delegated fixes for BYO IP functionality.

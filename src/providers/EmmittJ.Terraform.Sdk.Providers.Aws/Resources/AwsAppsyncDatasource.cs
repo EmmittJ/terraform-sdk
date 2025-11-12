@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dynamodb_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncDatasourceDynamodbConfigBlock() : TerraformBlock("dynamodb_config")
 {
     /// <summary>
     /// The region attribute.
@@ -43,7 +43,7 @@ public partial class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlockBas
 /// Block type for elasticsearch_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncDatasourceElasticsearchConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncDatasourceElasticsearchConfigBlock() : TerraformBlock("elasticsearch_config")
 {
     /// <summary>
     /// The endpoint attribute.
@@ -66,7 +66,7 @@ public partial class AwsAppsyncDatasourceElasticsearchConfigBlock : TerraformBlo
 /// Block type for event_bridge_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncDatasourceEventBridgeConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncDatasourceEventBridgeConfigBlock() : TerraformBlock("event_bridge_config")
 {
     /// <summary>
     /// The event_bus_arn attribute.
@@ -82,7 +82,7 @@ public partial class AwsAppsyncDatasourceEventBridgeConfigBlock : TerraformBlock
 /// Block type for http_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncDatasourceHttpConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncDatasourceHttpConfigBlock() : TerraformBlock("http_config")
 {
     /// <summary>
     /// The endpoint attribute.
@@ -98,7 +98,7 @@ public partial class AwsAppsyncDatasourceHttpConfigBlock : TerraformBlockBase
 /// Block type for lambda_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncDatasourceLambdaConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncDatasourceLambdaConfigBlock() : TerraformBlock("lambda_config")
 {
     /// <summary>
     /// The function_arn attribute.
@@ -114,7 +114,7 @@ public partial class AwsAppsyncDatasourceLambdaConfigBlock : TerraformBlockBase
 /// Block type for opensearchservice_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncDatasourceOpensearchserviceConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncDatasourceOpensearchserviceConfigBlock() : TerraformBlock("opensearchservice_config")
 {
     /// <summary>
     /// The endpoint attribute.
@@ -137,7 +137,7 @@ public partial class AwsAppsyncDatasourceOpensearchserviceConfigBlock : Terrafor
 /// Block type for relational_database_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncDatasourceRelationalDatabaseConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncDatasourceRelationalDatabaseConfigBlock() : TerraformBlock("relational_database_config")
 {
     /// <summary>
     /// The source_type attribute.
@@ -216,7 +216,7 @@ public partial class AwsAppsyncDatasource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamodbConfig block(s) allowed")]
     [TerraformProperty("dynamodb_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncDatasourceDynamodbConfigBlock>>? DynamodbConfig { get; set; }
+    public TerraformList<AwsAppsyncDatasourceDynamodbConfigBlock> DynamodbConfig { get; set; } = new();
 
     /// <summary>
     /// Block for elasticsearch_config.
@@ -224,7 +224,7 @@ public partial class AwsAppsyncDatasource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchConfig block(s) allowed")]
     [TerraformProperty("elasticsearch_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncDatasourceElasticsearchConfigBlock>>? ElasticsearchConfig { get; set; }
+    public TerraformList<AwsAppsyncDatasourceElasticsearchConfigBlock> ElasticsearchConfig { get; set; } = new();
 
     /// <summary>
     /// Block for event_bridge_config.
@@ -232,7 +232,7 @@ public partial class AwsAppsyncDatasource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventBridgeConfig block(s) allowed")]
     [TerraformProperty("event_bridge_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncDatasourceEventBridgeConfigBlock>>? EventBridgeConfig { get; set; }
+    public TerraformList<AwsAppsyncDatasourceEventBridgeConfigBlock> EventBridgeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for http_config.
@@ -240,7 +240,7 @@ public partial class AwsAppsyncDatasource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpConfig block(s) allowed")]
     [TerraformProperty("http_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncDatasourceHttpConfigBlock>>? HttpConfig { get; set; }
+    public TerraformList<AwsAppsyncDatasourceHttpConfigBlock> HttpConfig { get; set; } = new();
 
     /// <summary>
     /// Block for lambda_config.
@@ -248,7 +248,7 @@ public partial class AwsAppsyncDatasource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LambdaConfig block(s) allowed")]
     [TerraformProperty("lambda_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncDatasourceLambdaConfigBlock>>? LambdaConfig { get; set; }
+    public TerraformList<AwsAppsyncDatasourceLambdaConfigBlock> LambdaConfig { get; set; } = new();
 
     /// <summary>
     /// Block for opensearchservice_config.
@@ -256,7 +256,7 @@ public partial class AwsAppsyncDatasource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchserviceConfig block(s) allowed")]
     [TerraformProperty("opensearchservice_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncDatasourceOpensearchserviceConfigBlock>>? OpensearchserviceConfig { get; set; }
+    public TerraformList<AwsAppsyncDatasourceOpensearchserviceConfigBlock> OpensearchserviceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for relational_database_config.
@@ -264,7 +264,7 @@ public partial class AwsAppsyncDatasource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RelationalDatabaseConfig block(s) allowed")]
     [TerraformProperty("relational_database_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncDatasourceRelationalDatabaseConfigBlock>>? RelationalDatabaseConfig { get; set; }
+    public TerraformList<AwsAppsyncDatasourceRelationalDatabaseConfigBlock> RelationalDatabaseConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

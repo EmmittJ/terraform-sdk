@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cdn_managed_https in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlockBase
+public partial class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock() : TerraformBlock("cdn_managed_https")
 {
     /// <summary>
     /// The certificate_type attribute.
@@ -37,7 +37,7 @@ public partial class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnEndpointCustomDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -73,7 +73,7 @@ public partial class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBloc
 /// Block type for user_managed_https in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBlockBase
+public partial class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock() : TerraformBlock("user_managed_https")
 {
     /// <summary>
     /// The key_vault_secret_id attribute.
@@ -139,14 +139,14 @@ public partial class AzurermCdnEndpointCustomDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnManagedHttps block(s) allowed")]
     [TerraformProperty("cdn_managed_https")]
-    public partial TerraformList<TerraformBlock<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>>? CdnManagedHttps { get; set; }
+    public TerraformList<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock> CdnManagedHttps { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnEndpointCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnEndpointCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_managed_https.
@@ -154,6 +154,6 @@ public partial class AzurermCdnEndpointCustomDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserManagedHttps block(s) allowed")]
     [TerraformProperty("user_managed_https")]
-    public partial TerraformList<TerraformBlock<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>>? UserManagedHttps { get; set; }
+    public TerraformList<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock> UserManagedHttps { get; set; } = new();
 
 }

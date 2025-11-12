@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadApplicationRegistrationTimeoutsBlock : TerraformBlockBase
+public partial class AzureadApplicationRegistrationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,7 +165,7 @@ public partial class AzureadApplicationRegistration : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadApplicationRegistrationTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadApplicationRegistrationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Client ID (also called Application ID)

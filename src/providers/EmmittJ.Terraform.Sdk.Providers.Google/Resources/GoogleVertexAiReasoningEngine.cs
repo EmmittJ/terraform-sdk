@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiReasoningEngineEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleVertexAiReasoningEngineEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource.
@@ -24,7 +24,7 @@ public partial class GoogleVertexAiReasoningEngineEncryptionSpecBlock : Terrafor
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlockBase
+public partial class GoogleVertexAiReasoningEngineSpecBlock() : TerraformBlock("spec")
 {
     /// <summary>
     /// Optional. The OSS agent framework used to develop the agent.
@@ -56,7 +56,7 @@ public partial class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiReasoningEngineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,7 +133,7 @@ public partial class GoogleVertexAiReasoningEngine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiReasoningEngineEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleVertexAiReasoningEngineEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for spec.
@@ -141,14 +141,14 @@ public partial class GoogleVertexAiReasoningEngine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiReasoningEngineSpecBlock>>? Spec { get; set; }
+    public TerraformList<GoogleVertexAiReasoningEngineSpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiReasoningEngineTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiReasoningEngineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,

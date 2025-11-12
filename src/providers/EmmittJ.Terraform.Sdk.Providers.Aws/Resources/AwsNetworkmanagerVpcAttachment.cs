@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerVpcAttachmentOptionsBlock() : TerraformBlock("options")
 {
     /// <summary>
     /// The appliance_mode_support attribute.
@@ -42,7 +42,7 @@ public partial class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkmanagerVpcAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerVpcAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,14 +128,14 @@ public partial class AwsNetworkmanagerVpcAttachment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     [TerraformProperty("options")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerVpcAttachmentOptionsBlock>>? Options { get; set; }
+    public TerraformList<AwsNetworkmanagerVpcAttachmentOptionsBlock> Options { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkmanagerVpcAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkmanagerVpcAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

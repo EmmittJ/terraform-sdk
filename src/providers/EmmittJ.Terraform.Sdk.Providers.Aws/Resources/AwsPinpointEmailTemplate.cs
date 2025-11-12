@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for email_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlockBase
+public partial class AwsPinpointEmailTemplateEmailTemplateBlock() : TerraformBlock("email_template")
 {
     /// <summary>
     /// The default_substitutions attribute.
@@ -88,7 +88,7 @@ public partial class AwsPinpointEmailTemplate : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("email_template")]
-    public partial TerraformList<TerraformBlock<AwsPinpointEmailTemplateEmailTemplateBlock>>? EmailTemplate { get; set; }
+    public TerraformList<AwsPinpointEmailTemplateEmailTemplateBlock> EmailTemplate { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for route in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualHubRouteTableRouteBlock : TerraformBlockBase
+public partial class AzurermVirtualHubRouteTableRouteBlock() : TerraformBlock("route")
 {
     /// <summary>
     /// The destinations attribute.
@@ -53,7 +53,7 @@ public partial class AzurermVirtualHubRouteTableRouteBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualHubRouteTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,13 +129,13 @@ public partial class AzurermVirtualHubRouteTable : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("route")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualHubRouteTableRouteBlock>>? Route { get; set; }
+    public TerraformSet<AzurermVirtualHubRouteTableRouteBlock> Route { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualHubRouteTableTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualHubRouteTableTimeoutsBlock Timeouts { get; set; } = new();
 
 }

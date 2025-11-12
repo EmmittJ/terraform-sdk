@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSubscriptionPolicyAssignmentIdentityBlock : TerraformBlockBase
+public partial class AzurermSubscriptionPolicyAssignmentIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermSubscriptionPolicyAssignmentIdentityBlock : Terrafor
 /// Block type for non_compliance_message in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSubscriptionPolicyAssignmentNonComplianceMessageBlock : TerraformBlockBase
+public partial class AzurermSubscriptionPolicyAssignmentNonComplianceMessageBlock() : TerraformBlock("non_compliance_message")
 {
     /// <summary>
     /// The content attribute.
@@ -54,7 +54,7 @@ public partial class AzurermSubscriptionPolicyAssignmentNonComplianceMessageBloc
 /// Block type for overrides in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSubscriptionPolicyAssignmentOverridesBlock : TerraformBlockBase
+public partial class AzurermSubscriptionPolicyAssignmentOverridesBlock() : TerraformBlock("overrides")
 {
     /// <summary>
     /// The value attribute.
@@ -70,7 +70,7 @@ public partial class AzurermSubscriptionPolicyAssignmentOverridesBlock : Terrafo
 /// Block type for resource_selectors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSubscriptionPolicyAssignmentResourceSelectorsBlock : TerraformBlockBase
+public partial class AzurermSubscriptionPolicyAssignmentResourceSelectorsBlock() : TerraformBlock("resource_selectors")
 {
     /// <summary>
     /// The name attribute.
@@ -85,7 +85,7 @@ public partial class AzurermSubscriptionPolicyAssignmentResourceSelectorsBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSubscriptionPolicyAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSubscriptionPolicyAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -213,34 +213,34 @@ public partial class AzurermSubscriptionPolicyAssignment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermSubscriptionPolicyAssignmentIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermSubscriptionPolicyAssignmentIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for non_compliance_message.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("non_compliance_message")]
-    public partial TerraformList<TerraformBlock<AzurermSubscriptionPolicyAssignmentNonComplianceMessageBlock>>? NonComplianceMessage { get; set; }
+    public TerraformList<AzurermSubscriptionPolicyAssignmentNonComplianceMessageBlock> NonComplianceMessage { get; set; } = new();
 
     /// <summary>
     /// Block for overrides.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("overrides")]
-    public partial TerraformList<TerraformBlock<AzurermSubscriptionPolicyAssignmentOverridesBlock>>? Overrides { get; set; }
+    public TerraformList<AzurermSubscriptionPolicyAssignmentOverridesBlock> Overrides { get; set; } = new();
 
     /// <summary>
     /// Block for resource_selectors.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resource_selectors")]
-    public partial TerraformList<TerraformBlock<AzurermSubscriptionPolicyAssignmentResourceSelectorsBlock>>? ResourceSelectors { get; set; }
+    public TerraformList<AzurermSubscriptionPolicyAssignmentResourceSelectorsBlock> ResourceSelectors { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSubscriptionPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSubscriptionPolicyAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

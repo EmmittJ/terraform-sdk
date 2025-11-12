@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : TerraformBlockBase
+public partial class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock() : TerraformBlock("rule_config")
 {
     /// <summary>
     /// The inverted attribute.
@@ -118,7 +118,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RuleConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuleConfig block(s) allowed")]
     [TerraformProperty("rule_config")]
-    public partial TerraformList<TerraformBlock<AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock>>? RuleConfig { get; set; }
+    public required TerraformList<AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock> RuleConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

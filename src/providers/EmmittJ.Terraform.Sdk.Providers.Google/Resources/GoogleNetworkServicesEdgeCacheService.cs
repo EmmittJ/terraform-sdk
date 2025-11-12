@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// Specifies whether to enable logging for traffic served by this service.
@@ -30,7 +30,7 @@ public partial class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : Terra
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheServiceRoutingBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheServiceRoutingBlock() : TerraformBlock("routing")
 {
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleNetworkServicesEdgeCacheServiceRoutingBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,7 +173,7 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<GoogleNetworkServicesEdgeCacheServiceLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for routing.
@@ -183,14 +183,14 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Routing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformProperty("routing")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceRoutingBlock>>? Routing { get; set; }
+    public required TerraformList<GoogleNetworkServicesEdgeCacheServiceRoutingBlock> Routing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

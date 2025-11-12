@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCertificateAuthorityConfigBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateAuthorityConfigBlock() : TerraformBlock("config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GooglePrivatecaCertificateAuthorityConfigBlock : TerraformB
 /// Block type for key_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCertificateAuthorityKeySpecBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateAuthorityKeySpecBlock() : TerraformBlock("key_spec")
 {
     /// <summary>
     /// The algorithm to use for creating a managed Cloud KMS key for a for a simplified
@@ -38,7 +38,7 @@ public partial class GooglePrivatecaCertificateAuthorityKeySpecBlock : Terraform
 /// Block type for subordinate_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCertificateAuthoritySubordinateConfigBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateAuthoritySubordinateConfigBlock() : TerraformBlock("subordinate_config")
 {
     /// <summary>
     /// This can refer to a CertificateAuthority that was used to create a
@@ -56,7 +56,7 @@ public partial class GooglePrivatecaCertificateAuthoritySubordinateConfigBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePrivatecaCertificateAuthorityTimeoutsBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateAuthorityTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -85,7 +85,7 @@ public partial class GooglePrivatecaCertificateAuthorityTimeoutsBlock : Terrafor
 /// Block type for user_defined_access_urls in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock() : TerraformBlock("user_defined_access_urls")
 {
     /// <summary>
     /// A list of URLs where this CertificateAuthority&#39;s CA certificate is published that is specified by users.
@@ -247,7 +247,7 @@ public partial class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateAuthorityConfigBlock>>? Config { get; set; }
+    public required TerraformList<GooglePrivatecaCertificateAuthorityConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for key_spec.
@@ -257,7 +257,7 @@ public partial class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeySpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeySpec block(s) allowed")]
     [TerraformProperty("key_spec")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateAuthorityKeySpecBlock>>? KeySpec { get; set; }
+    public required TerraformList<GooglePrivatecaCertificateAuthorityKeySpecBlock> KeySpec { get; set; } = new();
 
     /// <summary>
     /// Block for subordinate_config.
@@ -265,14 +265,14 @@ public partial class GooglePrivatecaCertificateAuthority : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubordinateConfig block(s) allowed")]
     [TerraformProperty("subordinate_config")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateAuthoritySubordinateConfigBlock>>? SubordinateConfig { get; set; }
+    public TerraformList<GooglePrivatecaCertificateAuthoritySubordinateConfigBlock> SubordinateConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePrivatecaCertificateAuthorityTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePrivatecaCertificateAuthorityTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_defined_access_urls.
@@ -280,7 +280,7 @@ public partial class GooglePrivatecaCertificateAuthority : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserDefinedAccessUrls block(s) allowed")]
     [TerraformProperty("user_defined_access_urls")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock>>? UserDefinedAccessUrls { get; set; }
+    public TerraformList<GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock> UserDefinedAccessUrls { get; set; } = new();
 
     /// <summary>
     /// URLs for accessing content published by this CA, such as the CA certificate and CRLs.

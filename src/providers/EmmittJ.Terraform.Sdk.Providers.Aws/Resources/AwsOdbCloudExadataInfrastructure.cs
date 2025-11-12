@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformBlockBase
+public partial class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// The custom_action_timeout_in_mins attribute.
@@ -81,7 +81,7 @@ public partial class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOdbCloudExadataInfrastructureTimeoutsBlock : TerraformBlockBase
+public partial class AwsOdbCloudExadataInfrastructureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -200,14 +200,14 @@ public partial class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOdbCloudExadataInfrastructureTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOdbCloudExadataInfrastructureTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The number of storage servers requested for the Exadata infrastructure

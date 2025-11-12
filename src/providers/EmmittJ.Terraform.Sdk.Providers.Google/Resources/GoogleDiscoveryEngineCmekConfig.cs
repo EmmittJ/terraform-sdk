@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for single_region_keys in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock() : TerraformBlock("single_region_keys")
 {
     /// <summary>
     /// Single-regional kms key resource name which will be used to encrypt
@@ -24,7 +24,7 @@ public partial class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineCmekConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,14 +110,14 @@ public partial class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("single_region_keys")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock>>? SingleRegionKeys { get; set; }
+    public TerraformList<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock> SingleRegionKeys { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineCmekConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineCmekConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default CmekConfig for the Customer.

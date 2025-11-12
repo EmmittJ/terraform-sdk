@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for add_on in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLightsailInstanceAddOnBlock : TerraformBlockBase
+public partial class AwsLightsailInstanceAddOnBlock() : TerraformBlock("add_on")
 {
     /// <summary>
     /// The snapshot_time attribute.
@@ -131,7 +131,7 @@ public partial class AwsLightsailInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddOn block(s) allowed")]
     [TerraformProperty("add_on")]
-    public partial TerraformList<TerraformBlock<AwsLightsailInstanceAddOnBlock>>? AddOn { get; set; }
+    public TerraformList<AwsLightsailInstanceAddOnBlock> AddOn { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

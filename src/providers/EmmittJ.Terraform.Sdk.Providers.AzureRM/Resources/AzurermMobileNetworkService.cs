@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pcc_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkServicePccRuleBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkServicePccRuleBlock() : TerraformBlock("pcc_rule")
 {
     /// <summary>
     /// The name attribute.
@@ -37,7 +37,7 @@ public partial class AzurermMobileNetworkServicePccRuleBlock : TerraformBlockBas
 /// Block type for service_qos_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkServiceServiceQosPolicyBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkServiceServiceQosPolicyBlock() : TerraformBlock("service_qos_policy")
 {
     /// <summary>
     /// The allocation_and_retention_priority_level attribute.
@@ -73,7 +73,7 @@ public partial class AzurermMobileNetworkServiceServiceQosPolicyBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -168,7 +168,7 @@ public partial class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PccRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PccRule block(s) required")]
     [TerraformProperty("pcc_rule")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkServicePccRuleBlock>>? PccRule { get; set; }
+    public required TerraformList<AzurermMobileNetworkServicePccRuleBlock> PccRule { get; set; } = new();
 
     /// <summary>
     /// Block for service_qos_policy.
@@ -176,13 +176,13 @@ public partial class AzurermMobileNetworkService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceQosPolicy block(s) allowed")]
     [TerraformProperty("service_qos_policy")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkServiceServiceQosPolicyBlock>>? ServiceQosPolicy { get; set; }
+    public TerraformList<AzurermMobileNetworkServiceServiceQosPolicyBlock> ServiceQosPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMobileNetworkServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMobileNetworkServiceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

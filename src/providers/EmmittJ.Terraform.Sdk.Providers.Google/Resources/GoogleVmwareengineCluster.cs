@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlockBase
+public partial class GoogleVmwareengineClusterAutoscalingSettingsBlock() : TerraformBlock("autoscaling_settings")
 {
     /// <summary>
     /// The minimum duration between consecutive autoscale operations.
@@ -41,7 +41,7 @@ public partial class GoogleVmwareengineClusterAutoscalingSettingsBlock : Terrafo
 /// Block type for node_type_configs in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlockBase
+public partial class GoogleVmwareengineClusterNodeTypeConfigsBlock() : TerraformBlock("node_type_configs")
 {
     /// <summary>
     /// Customized number of cores available to each node of the type.
@@ -75,7 +75,7 @@ public partial class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVmwareengineClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -141,21 +141,21 @@ public partial class GoogleVmwareengineCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingSettings block(s) allowed")]
     [TerraformProperty("autoscaling_settings")]
-    public partial TerraformList<TerraformBlock<GoogleVmwareengineClusterAutoscalingSettingsBlock>>? AutoscalingSettings { get; set; }
+    public TerraformList<GoogleVmwareengineClusterAutoscalingSettingsBlock> AutoscalingSettings { get; set; } = new();
 
     /// <summary>
     /// Block for node_type_configs.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("node_type_configs")]
-    public partial TerraformSet<TerraformBlock<GoogleVmwareengineClusterNodeTypeConfigsBlock>>? NodeTypeConfigs { get; set; }
+    public TerraformSet<GoogleVmwareengineClusterNodeTypeConfigsBlock> NodeTypeConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVmwareengineClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVmwareengineClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation time of this resource.

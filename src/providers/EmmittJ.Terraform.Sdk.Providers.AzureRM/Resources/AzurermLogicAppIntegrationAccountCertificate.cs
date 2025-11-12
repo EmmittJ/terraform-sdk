@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock() : TerraformBlock("key_vault_key")
 {
     /// <summary>
     /// The key_name attribute.
@@ -37,7 +37,7 @@ public partial class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -130,13 +130,13 @@ public partial class AzurermLogicAppIntegrationAccountCertificate : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultKey block(s) allowed")]
     [TerraformProperty("key_vault_key")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock>>? KeyVaultKey { get; set; }
+    public TerraformList<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock> KeyVaultKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock Timeouts { get; set; } = new();
 
 }

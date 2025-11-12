@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,7 +132,7 @@ public partial class GoogleNetworkConnectivityRegionalEndpoint : TerraformResour
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time when the RegionalEndpoint was created.

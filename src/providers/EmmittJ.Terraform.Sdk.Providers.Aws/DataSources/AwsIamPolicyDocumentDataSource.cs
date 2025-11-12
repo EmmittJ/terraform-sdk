@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for statement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlockBase
+public partial class AwsIamPolicyDocumentDataSourceStatementBlock() : TerraformBlock("statement")
 {
     /// <summary>
     /// The actions attribute.
@@ -117,7 +117,7 @@ public partial class AwsIamPolicyDocumentDataSource : TerraformDataSource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("statement")]
-    public partial TerraformList<TerraformBlock<AwsIamPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; }
+    public TerraformList<AwsIamPolicyDocumentDataSourceStatementBlock> Statement { get; set; } = new();
 
     /// <summary>
     /// The json attribute.

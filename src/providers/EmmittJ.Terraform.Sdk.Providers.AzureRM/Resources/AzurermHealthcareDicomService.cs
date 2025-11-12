@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareDicomServiceCorsBlock : TerraformBlockBase
+public partial class AzurermHealthcareDicomServiceCorsBlock() : TerraformBlock("cors")
 {
     /// <summary>
     /// The allow_credentials attribute.
@@ -49,7 +49,7 @@ public partial class AzurermHealthcareDicomServiceCorsBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlockBase
+public partial class AzurermHealthcareDicomServiceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -74,7 +74,7 @@ public partial class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareDicomServiceStorageBlock : TerraformBlockBase
+public partial class AzurermHealthcareDicomServiceStorageBlock() : TerraformBlock("storage")
 {
     /// <summary>
     /// The file_system_name attribute.
@@ -98,7 +98,7 @@ public partial class AzurermHealthcareDicomServiceStorageBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHealthcareDicomServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -205,7 +205,7 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     [TerraformProperty("cors")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareDicomServiceCorsBlock>>? Cors { get; set; }
+    public TerraformList<AzurermHealthcareDicomServiceCorsBlock> Cors { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -213,7 +213,7 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareDicomServiceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermHealthcareDicomServiceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for storage.
@@ -221,14 +221,14 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     [TerraformProperty("storage")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareDicomServiceStorageBlock>>? Storage { get; set; }
+    public TerraformList<AzurermHealthcareDicomServiceStorageBlock> Storage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHealthcareDicomServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHealthcareDicomServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The authentication attribute.

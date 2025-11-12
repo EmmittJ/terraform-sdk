@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHealthcareServiceDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHealthcareServiceDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -62,7 +62,7 @@ public partial class AzurermHealthcareServiceDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHealthcareServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHealthcareServiceDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The access_policy_object_ids attribute.

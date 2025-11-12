@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGuarddutyInviteAccepterTimeoutsBlock : TerraformBlockBase
+public partial class AwsGuarddutyInviteAccepterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -61,6 +61,6 @@ public partial class AwsGuarddutyInviteAccepter : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGuarddutyInviteAccepterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGuarddutyInviteAccepterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

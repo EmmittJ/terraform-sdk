@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIvschatLoggingConfigurationDestinationConfigurationBlock : TerraformBlockBase
+public partial class AwsIvschatLoggingConfigurationDestinationConfigurationBlock() : TerraformBlock("destination_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsIvschatLoggingConfigurationDestinationConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsIvschatLoggingConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsIvschatLoggingConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,14 +90,14 @@ public partial class AwsIvschatLoggingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfiguration block(s) allowed")]
     [TerraformProperty("destination_configuration")]
-    public partial TerraformList<TerraformBlock<AwsIvschatLoggingConfigurationDestinationConfigurationBlock>>? DestinationConfiguration { get; set; }
+    public TerraformList<AwsIvschatLoggingConfigurationDestinationConfigurationBlock> DestinationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsIvschatLoggingConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsIvschatLoggingConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

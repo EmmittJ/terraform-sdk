@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for artifact_store in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodepipelineArtifactStoreBlock : TerraformBlockBase
+public partial class AwsCodepipelineArtifactStoreBlock() : TerraformBlock("artifact_store")
 {
     /// <summary>
     /// The location attribute.
@@ -37,7 +37,7 @@ public partial class AwsCodepipelineArtifactStoreBlock : TerraformBlockBase
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodepipelineStageBlock : TerraformBlockBase
+public partial class AwsCodepipelineStageBlock() : TerraformBlock("stage")
 {
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AwsCodepipelineStageBlock : TerraformBlockBase
 /// Block type for trigger in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodepipelineTriggerBlock : TerraformBlockBase
+public partial class AwsCodepipelineTriggerBlock() : TerraformBlock("trigger")
 {
     /// <summary>
     /// The provider_type attribute.
@@ -69,7 +69,7 @@ public partial class AwsCodepipelineTriggerBlock : TerraformBlockBase
 /// Block type for variable in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodepipelineVariableBlock : TerraformBlockBase
+public partial class AwsCodepipelineVariableBlock() : TerraformBlock("variable")
 {
     /// <summary>
     /// The default_value attribute.
@@ -170,7 +170,7 @@ public partial class AwsCodepipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactStore is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ArtifactStore block(s) required")]
     [TerraformProperty("artifact_store")]
-    public partial TerraformSet<TerraformBlock<AwsCodepipelineArtifactStoreBlock>>? ArtifactStore { get; set; }
+    public required TerraformSet<AwsCodepipelineArtifactStoreBlock> ArtifactStore { get; set; } = new();
 
     /// <summary>
     /// Block for stage.
@@ -178,7 +178,7 @@ public partial class AwsCodepipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Stage block(s) required")]
     [TerraformProperty("stage")]
-    public partial TerraformList<TerraformBlock<AwsCodepipelineStageBlock>>? Stage { get; set; }
+    public TerraformList<AwsCodepipelineStageBlock> Stage { get; set; } = new();
 
     /// <summary>
     /// Block for trigger.
@@ -186,14 +186,14 @@ public partial class AwsCodepipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Trigger block(s) allowed")]
     [TerraformProperty("trigger")]
-    public partial TerraformList<TerraformBlock<AwsCodepipelineTriggerBlock>>? Trigger { get; set; }
+    public TerraformList<AwsCodepipelineTriggerBlock> Trigger { get; set; } = new();
 
     /// <summary>
     /// Block for variable.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("variable")]
-    public partial TerraformList<TerraformBlock<AwsCodepipelineVariableBlock>>? Variable { get; set; }
+    public TerraformList<AwsCodepipelineVariableBlock> Variable { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

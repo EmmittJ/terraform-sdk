@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for assessment in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineAssessmentBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineAssessmentBlock() : TerraformBlock("assessment")
 {
     /// <summary>
     /// The enabled attribute.
@@ -28,7 +28,7 @@ public partial class AzurermMssqlVirtualMachineAssessmentBlock : TerraformBlockB
 /// Block type for auto_backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineAutoBackupBlock() : TerraformBlock("auto_backup")
 {
     /// <summary>
     /// The encryption_enabled attribute.
@@ -82,7 +82,7 @@ public partial class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlockB
 /// Block type for auto_patching in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineAutoPatchingBlock() : TerraformBlock("auto_patching")
 {
     /// <summary>
     /// The day_of_week attribute.
@@ -114,7 +114,7 @@ public partial class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBloc
 /// Block type for key_vault_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineKeyVaultCredentialBlock() : TerraformBlock("key_vault_credential")
 {
     /// <summary>
     /// The key_vault_url attribute.
@@ -154,7 +154,7 @@ public partial class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : Terrafo
 /// Block type for sql_instance in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineSqlInstanceBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineSqlInstanceBlock() : TerraformBlock("sql_instance")
 {
     /// <summary>
     /// The adhoc_workloads_optimization_enabled attribute.
@@ -211,7 +211,7 @@ public partial class AzurermMssqlVirtualMachineSqlInstanceBlock : TerraformBlock
 /// Block type for storage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineStorageConfigurationBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineStorageConfigurationBlock() : TerraformBlock("storage_configuration")
 {
     /// <summary>
     /// The disk_type attribute.
@@ -242,7 +242,7 @@ public partial class AzurermMssqlVirtualMachineStorageConfigurationBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlVirtualMachineTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -278,7 +278,7 @@ public partial class AzurermMssqlVirtualMachineTimeoutsBlock : TerraformBlockBas
 /// Block type for wsfc_domain_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock() : TerraformBlock("wsfc_domain_credential")
 {
     /// <summary>
     /// The cluster_bootstrap_account_password attribute.
@@ -393,7 +393,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Assessment block(s) allowed")]
     [TerraformProperty("assessment")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAssessmentBlock>>? Assessment { get; set; }
+    public TerraformList<AzurermMssqlVirtualMachineAssessmentBlock> Assessment { get; set; } = new();
 
     /// <summary>
     /// Block for auto_backup.
@@ -401,7 +401,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoBackup block(s) allowed")]
     [TerraformProperty("auto_backup")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAutoBackupBlock>>? AutoBackup { get; set; }
+    public TerraformList<AzurermMssqlVirtualMachineAutoBackupBlock> AutoBackup { get; set; } = new();
 
     /// <summary>
     /// Block for auto_patching.
@@ -409,7 +409,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoPatching block(s) allowed")]
     [TerraformProperty("auto_patching")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAutoPatchingBlock>>? AutoPatching { get; set; }
+    public TerraformList<AzurermMssqlVirtualMachineAutoPatchingBlock> AutoPatching { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_credential.
@@ -417,7 +417,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultCredential block(s) allowed")]
     [TerraformProperty("key_vault_credential")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineKeyVaultCredentialBlock>>? KeyVaultCredential { get; set; }
+    public TerraformList<AzurermMssqlVirtualMachineKeyVaultCredentialBlock> KeyVaultCredential { get; set; } = new();
 
     /// <summary>
     /// Block for sql_instance.
@@ -425,7 +425,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SqlInstance block(s) allowed")]
     [TerraformProperty("sql_instance")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineSqlInstanceBlock>>? SqlInstance { get; set; }
+    public TerraformList<AzurermMssqlVirtualMachineSqlInstanceBlock> SqlInstance { get; set; } = new();
 
     /// <summary>
     /// Block for storage_configuration.
@@ -433,14 +433,14 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfiguration block(s) allowed")]
     [TerraformProperty("storage_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineStorageConfigurationBlock>>? StorageConfiguration { get; set; }
+    public TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlock> StorageConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlVirtualMachineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for wsfc_domain_credential.
@@ -448,6 +448,6 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WsfcDomainCredential block(s) allowed")]
     [TerraformProperty("wsfc_domain_credential")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineWsfcDomainCredentialBlock>>? WsfcDomainCredential { get; set; }
+    public TerraformList<AzurermMssqlVirtualMachineWsfcDomainCredentialBlock> WsfcDomainCredential { get; set; } = new();
 
 }

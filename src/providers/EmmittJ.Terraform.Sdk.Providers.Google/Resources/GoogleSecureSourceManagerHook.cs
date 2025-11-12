@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for push_option in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecureSourceManagerHookPushOptionBlock : TerraformBlockBase
+public partial class GoogleSecureSourceManagerHookPushOptionBlock() : TerraformBlock("push_option")
 {
     /// <summary>
     /// Trigger hook for matching branches only.
@@ -24,7 +24,7 @@ public partial class GoogleSecureSourceManagerHookPushOptionBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecureSourceManagerHookTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecureSourceManagerHookTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,14 +133,14 @@ public partial class GoogleSecureSourceManagerHook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PushOption block(s) allowed")]
     [TerraformProperty("push_option")]
-    public partial TerraformList<TerraformBlock<GoogleSecureSourceManagerHookPushOptionBlock>>? PushOption { get; set; }
+    public TerraformList<GoogleSecureSourceManagerHookPushOptionBlock> PushOption { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecureSourceManagerHookTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecureSourceManagerHookTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create timestamp.

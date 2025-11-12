@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSecurityCenterAutomationActionBlock : TerraformBlockBase
+public partial class AzurermSecurityCenterAutomationActionBlock() : TerraformBlock("action")
 {
     /// <summary>
     /// The connection_string attribute.
@@ -43,7 +43,7 @@ public partial class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSecurityCenterAutomationSourceBlock : TerraformBlockBase
+public partial class AzurermSecurityCenterAutomationSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The event_source attribute.
@@ -59,7 +59,7 @@ public partial class AzurermSecurityCenterAutomationSourceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSecurityCenterAutomationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -168,7 +168,7 @@ public partial class AzurermSecurityCenterAutomation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AzurermSecurityCenterAutomationActionBlock>>? Action { get; set; }
+    public required TerraformList<AzurermSecurityCenterAutomationActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -177,13 +177,13 @@ public partial class AzurermSecurityCenterAutomation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermSecurityCenterAutomationSourceBlock>>? Source { get; set; }
+    public required TerraformList<AzurermSecurityCenterAutomationSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSecurityCenterAutomationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSecurityCenterAutomationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

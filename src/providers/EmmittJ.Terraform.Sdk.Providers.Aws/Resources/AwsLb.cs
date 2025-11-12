@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbAccessLogsBlock : TerraformBlockBase
+public partial class AwsLbAccessLogsBlock() : TerraformBlock("access_logs")
 {
     /// <summary>
     /// The bucket attribute.
@@ -36,7 +36,7 @@ public partial class AwsLbAccessLogsBlock : TerraformBlockBase
 /// Block type for connection_logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbConnectionLogsBlock : TerraformBlockBase
+public partial class AwsLbConnectionLogsBlock() : TerraformBlock("connection_logs")
 {
     /// <summary>
     /// The bucket attribute.
@@ -66,7 +66,7 @@ public partial class AwsLbConnectionLogsBlock : TerraformBlockBase
 /// Block type for ipam_pools in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbIpamPoolsBlock : TerraformBlockBase
+public partial class AwsLbIpamPoolsBlock() : TerraformBlock("ipam_pools")
 {
     /// <summary>
     /// The ipv4_ipam_pool_id attribute.
@@ -82,7 +82,7 @@ public partial class AwsLbIpamPoolsBlock : TerraformBlockBase
 /// Block type for minimum_load_balancer_capacity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbMinimumLoadBalancerCapacityBlock : TerraformBlockBase
+public partial class AwsLbMinimumLoadBalancerCapacityBlock() : TerraformBlock("minimum_load_balancer_capacity")
 {
     /// <summary>
     /// The capacity_units attribute.
@@ -98,7 +98,7 @@ public partial class AwsLbMinimumLoadBalancerCapacityBlock : TerraformBlockBase
 /// Block type for subnet_mapping in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLbSubnetMappingBlock : TerraformBlockBase
+public partial class AwsLbSubnetMappingBlock() : TerraformBlock("subnet_mapping")
 {
     /// <summary>
     /// The allocation_id attribute.
@@ -136,7 +136,7 @@ public partial class AwsLbSubnetMappingBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLbTimeoutsBlock : TerraformBlockBase
+public partial class AwsLbTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -373,7 +373,7 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
     [TerraformProperty("access_logs")]
-    public partial TerraformList<TerraformBlock<AwsLbAccessLogsBlock>>? AccessLogs { get; set; }
+    public TerraformList<AwsLbAccessLogsBlock> AccessLogs { get; set; } = new();
 
     /// <summary>
     /// Block for connection_logs.
@@ -381,7 +381,7 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionLogs block(s) allowed")]
     [TerraformProperty("connection_logs")]
-    public partial TerraformList<TerraformBlock<AwsLbConnectionLogsBlock>>? ConnectionLogs { get; set; }
+    public TerraformList<AwsLbConnectionLogsBlock> ConnectionLogs { get; set; } = new();
 
     /// <summary>
     /// Block for ipam_pools.
@@ -389,7 +389,7 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpamPools block(s) allowed")]
     [TerraformProperty("ipam_pools")]
-    public partial TerraformList<TerraformBlock<AwsLbIpamPoolsBlock>>? IpamPools { get; set; }
+    public TerraformList<AwsLbIpamPoolsBlock> IpamPools { get; set; } = new();
 
     /// <summary>
     /// Block for minimum_load_balancer_capacity.
@@ -397,21 +397,21 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumLoadBalancerCapacity block(s) allowed")]
     [TerraformProperty("minimum_load_balancer_capacity")]
-    public partial TerraformList<TerraformBlock<AwsLbMinimumLoadBalancerCapacityBlock>>? MinimumLoadBalancerCapacity { get; set; }
+    public TerraformList<AwsLbMinimumLoadBalancerCapacityBlock> MinimumLoadBalancerCapacity { get; set; } = new();
 
     /// <summary>
     /// Block for subnet_mapping.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("subnet_mapping")]
-    public partial TerraformSet<TerraformBlock<AwsLbSubnetMappingBlock>>? SubnetMapping { get; set; }
+    public TerraformSet<AwsLbSubnetMappingBlock> SubnetMapping { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLbTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLbTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

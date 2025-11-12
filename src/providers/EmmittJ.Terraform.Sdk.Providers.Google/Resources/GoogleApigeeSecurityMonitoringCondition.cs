@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for include_all_resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock() : TerraformBlock("include_all_resources")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,14 +95,14 @@ public partial class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeAllResources block(s) allowed")]
     [TerraformProperty("include_all_resources")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock>>? IncludeAllResources { get; set; }
+    public TerraformList<GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock> IncludeAllResources { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeSecurityMonitoringConditionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeSecurityMonitoringConditionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp at which this profile was created.

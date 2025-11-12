@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_site_search_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock() : TerraformBlock("advanced_site_search_config")
 {
     /// <summary>
     /// If set true, automatic refresh is disabled for the DataStore.
@@ -28,7 +28,7 @@ public partial class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock
 /// Block type for document_processing_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock() : TerraformBlock("document_processing_config")
 {
 
 }
@@ -37,7 +37,7 @@ public partial class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineDataStoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,7 +175,7 @@ public partial class GoogleDiscoveryEngineDataStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSiteSearchConfig block(s) allowed")]
     [TerraformProperty("advanced_site_search_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock>>? AdvancedSiteSearchConfig { get; set; }
+    public TerraformList<GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock> AdvancedSiteSearchConfig { get; set; } = new();
 
     /// <summary>
     /// Block for document_processing_config.
@@ -183,14 +183,14 @@ public partial class GoogleDiscoveryEngineDataStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DocumentProcessingConfig block(s) allowed")]
     [TerraformProperty("document_processing_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock>>? DocumentProcessingConfig { get; set; }
+    public TerraformList<GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock> DocumentProcessingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineDataStoreTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineDataStoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp when the DataStore was created.

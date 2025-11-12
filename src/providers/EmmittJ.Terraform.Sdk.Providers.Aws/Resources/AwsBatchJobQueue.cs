@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_environment_order in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlockBase
+public partial class AwsBatchJobQueueComputeEnvironmentOrderBlock() : TerraformBlock("compute_environment_order")
 {
     /// <summary>
     /// The compute_environment attribute.
@@ -30,7 +30,7 @@ public partial class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlo
 /// Block type for job_state_time_limit_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlockBase
+public partial class AwsBatchJobQueueJobStateTimeLimitActionBlock() : TerraformBlock("job_state_time_limit_action")
 {
     /// <summary>
     /// The action attribute.
@@ -70,7 +70,7 @@ public partial class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBatchJobQueueTimeoutsBlock : TerraformBlockBase
+public partial class AwsBatchJobQueueTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -154,21 +154,21 @@ public partial class AwsBatchJobQueue : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("compute_environment_order")]
-    public partial TerraformList<TerraformBlock<AwsBatchJobQueueComputeEnvironmentOrderBlock>>? ComputeEnvironmentOrder { get; set; }
+    public TerraformList<AwsBatchJobQueueComputeEnvironmentOrderBlock> ComputeEnvironmentOrder { get; set; } = new();
 
     /// <summary>
     /// Block for job_state_time_limit_action.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("job_state_time_limit_action")]
-    public partial TerraformList<TerraformBlock<AwsBatchJobQueueJobStateTimeLimitActionBlock>>? JobStateTimeLimitAction { get; set; }
+    public TerraformList<AwsBatchJobQueueJobStateTimeLimitActionBlock> JobStateTimeLimitAction { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBatchJobQueueTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBatchJobQueueTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

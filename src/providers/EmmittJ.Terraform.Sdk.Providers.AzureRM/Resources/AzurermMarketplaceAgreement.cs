@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMarketplaceAgreementTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMarketplaceAgreementTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,7 +76,7 @@ public partial class AzurermMarketplaceAgreement : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMarketplaceAgreementTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMarketplaceAgreementTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The license_text_link attribute.

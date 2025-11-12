@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_filter_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubDpsIpFilterRuleBlock : TerraformBlockBase
+public partial class AzurermIothubDpsIpFilterRuleBlock() : TerraformBlock("ip_filter_rule")
 {
     /// <summary>
     /// The action attribute.
@@ -45,7 +45,7 @@ public partial class AzurermIothubDpsIpFilterRuleBlock : TerraformBlockBase
 /// Block type for linked_hub in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubDpsLinkedHubBlock : TerraformBlockBase
+public partial class AzurermIothubDpsLinkedHubBlock() : TerraformBlock("linked_hub")
 {
     /// <summary>
     /// The allocation_weight attribute.
@@ -84,7 +84,7 @@ public partial class AzurermIothubDpsLinkedHubBlock : TerraformBlockBase
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubDpsSkuBlock : TerraformBlockBase
+public partial class AzurermIothubDpsSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -108,7 +108,7 @@ public partial class AzurermIothubDpsSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIothubDpsTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIothubDpsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -214,14 +214,14 @@ public partial class AzurermIothubDps : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ip_filter_rule")]
-    public partial TerraformList<TerraformBlock<AzurermIothubDpsIpFilterRuleBlock>>? IpFilterRule { get; set; }
+    public TerraformList<AzurermIothubDpsIpFilterRuleBlock> IpFilterRule { get; set; } = new();
 
     /// <summary>
     /// Block for linked_hub.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("linked_hub")]
-    public partial TerraformList<TerraformBlock<AzurermIothubDpsLinkedHubBlock>>? LinkedHub { get; set; }
+    public TerraformList<AzurermIothubDpsLinkedHubBlock> LinkedHub { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -231,14 +231,14 @@ public partial class AzurermIothubDps : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermIothubDpsSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermIothubDpsSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIothubDpsTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIothubDpsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The device_provisioning_host_name attribute.

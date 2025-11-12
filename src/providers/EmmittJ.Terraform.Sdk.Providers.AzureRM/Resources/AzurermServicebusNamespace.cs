@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermServicebusNamespaceCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The identity_id attribute.
@@ -37,7 +37,7 @@ public partial class AzurermServicebusNamespaceCustomerManagedKeyBlock : Terrafo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServicebusNamespaceIdentityBlock : TerraformBlockBase
+public partial class AzurermServicebusNamespaceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -62,7 +62,7 @@ public partial class AzurermServicebusNamespaceIdentityBlock : TerraformBlockBas
 /// Block type for network_rule_set in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlockBase
+public partial class AzurermServicebusNamespaceNetworkRuleSetBlock() : TerraformBlock("network_rule_set")
 {
     /// <summary>
     /// The default_action attribute.
@@ -98,7 +98,7 @@ public partial class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermServicebusNamespaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -227,7 +227,7 @@ public partial class AzurermServicebusNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermServicebusNamespaceCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermServicebusNamespaceCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -235,7 +235,7 @@ public partial class AzurermServicebusNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermServicebusNamespaceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermServicebusNamespaceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_rule_set.
@@ -243,14 +243,14 @@ public partial class AzurermServicebusNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRuleSet block(s) allowed")]
     [TerraformProperty("network_rule_set")]
-    public partial TerraformList<TerraformBlock<AzurermServicebusNamespaceNetworkRuleSetBlock>>? NetworkRuleSet { get; set; }
+    public TerraformList<AzurermServicebusNamespaceNetworkRuleSetBlock> NetworkRuleSet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermServicebusNamespaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermServicebusNamespaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_primary_connection_string attribute.

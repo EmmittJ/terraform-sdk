@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action_incident in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlockBase
+public partial class AzurermSentinelAutomationRuleActionIncidentBlock() : TerraformBlock("action_incident")
 {
     /// <summary>
     /// The classification attribute.
@@ -64,7 +64,7 @@ public partial class AzurermSentinelAutomationRuleActionIncidentBlock : Terrafor
 /// Block type for action_incident_task in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlockBase
+public partial class AzurermSentinelAutomationRuleActionIncidentTaskBlock() : TerraformBlock("action_incident_task")
 {
     /// <summary>
     /// The description attribute.
@@ -95,7 +95,7 @@ public partial class AzurermSentinelAutomationRuleActionIncidentTaskBlock : Terr
 /// Block type for action_playbook in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlockBase
+public partial class AzurermSentinelAutomationRuleActionPlaybookBlock() : TerraformBlock("action_playbook")
 {
     /// <summary>
     /// The logic_app_id attribute.
@@ -126,7 +126,7 @@ public partial class AzurermSentinelAutomationRuleActionPlaybookBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSentinelAutomationRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -246,27 +246,27 @@ public partial class AzurermSentinelAutomationRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("action_incident")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelAutomationRuleActionIncidentBlock>>? ActionIncident { get; set; }
+    public TerraformList<AzurermSentinelAutomationRuleActionIncidentBlock> ActionIncident { get; set; } = new();
 
     /// <summary>
     /// Block for action_incident_task.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("action_incident_task")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelAutomationRuleActionIncidentTaskBlock>>? ActionIncidentTask { get; set; }
+    public TerraformList<AzurermSentinelAutomationRuleActionIncidentTaskBlock> ActionIncidentTask { get; set; } = new();
 
     /// <summary>
     /// Block for action_playbook.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("action_playbook")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelAutomationRuleActionPlaybookBlock>>? ActionPlaybook { get; set; }
+    public TerraformList<AzurermSentinelAutomationRuleActionPlaybookBlock> ActionPlaybook { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSentinelAutomationRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSentinelAutomationRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for topic in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesv2ContactListTopicBlock : TerraformBlockBase
+public partial class AwsSesv2ContactListTopicBlock() : TerraformBlock("topic")
 {
     /// <summary>
     /// The default_subscription_status attribute.
@@ -98,7 +98,7 @@ public partial class AwsSesv2ContactList : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("topic")]
-    public partial TerraformSet<TerraformBlock<AwsSesv2ContactListTopicBlock>>? Topic { get; set; }
+    public TerraformSet<AwsSesv2ContactListTopicBlock> Topic { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

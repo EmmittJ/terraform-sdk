@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebPubsubIdentityBlock : TerraformBlockBase
+public partial class AzurermWebPubsubIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermWebPubsubIdentityBlock : TerraformBlockBase
 /// Block type for live_trace in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebPubsubLiveTraceBlock : TerraformBlockBase
+public partial class AzurermWebPubsubLiveTraceBlock() : TerraformBlock("live_trace")
 {
     /// <summary>
     /// The connectivity_logs_enabled attribute.
@@ -67,7 +67,7 @@ public partial class AzurermWebPubsubLiveTraceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWebPubsubTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWebPubsubTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -196,7 +196,7 @@ public partial class AzurermWebPubsub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWebPubsubIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWebPubsubIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for live_trace.
@@ -204,14 +204,14 @@ public partial class AzurermWebPubsub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LiveTrace block(s) allowed")]
     [TerraformProperty("live_trace")]
-    public partial TerraformList<TerraformBlock<AzurermWebPubsubLiveTraceBlock>>? LiveTrace { get; set; }
+    public TerraformList<AzurermWebPubsubLiveTraceBlock> LiveTrace { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWebPubsubTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWebPubsubTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The external_ip attribute.

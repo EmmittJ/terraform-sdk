@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for details in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock : TerraformBlockBase
+public partial class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock() : TerraformBlock("details")
 {
     /// <summary>
     /// The version number that indicates which Google Cloud services
@@ -24,7 +24,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -116,14 +116,14 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Details block(s) allowed")]
     [TerraformProperty("details")]
-    public partial TerraformList<TerraformBlock<GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock>>? Details { get; set; }
+    public TerraformList<GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock> Details { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time when the principal access boundary policy was created.

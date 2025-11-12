@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for error_report_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock : TerraformBlockBase
+public partial class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock() : TerraformBlock("error_report_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlo
 /// Block type for last_run_summary in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBlockBase
+public partial class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock() : TerraformBlock("last_run_summary")
 {
 
 
@@ -26,7 +26,7 @@ public partial class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : Terra
 /// Block type for notification_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock : TerraformBlockBase
+public partial class AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock() : TerraformBlock("notification_configuration")
 {
 }
 
@@ -34,7 +34,7 @@ public partial class AwsTimestreamqueryScheduledQueryNotificationConfigurationBl
 /// Block type for recently_failed_runs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : TerraformBlockBase
+public partial class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock() : TerraformBlock("recently_failed_runs")
 {
 
 
@@ -46,7 +46,7 @@ public partial class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : T
 /// Block type for schedule_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock : TerraformBlockBase
+public partial class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock() : TerraformBlock("schedule_configuration")
 {
     /// <summary>
     /// The schedule_expression attribute.
@@ -62,7 +62,7 @@ public partial class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock 
 /// Block type for target_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamqueryScheduledQueryTargetConfigurationBlock : TerraformBlockBase
+public partial class AwsTimestreamqueryScheduledQueryTargetConfigurationBlock() : TerraformBlock("target_configuration")
 {
 }
 
@@ -70,7 +70,7 @@ public partial class AwsTimestreamqueryScheduledQueryTargetConfigurationBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsTimestreamqueryScheduledQueryTimeoutsBlock : TerraformBlockBase
+public partial class AwsTimestreamqueryScheduledQueryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -154,49 +154,49 @@ public partial class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("error_report_configuration")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock>>? ErrorReportConfiguration { get; set; }
+    public TerraformList<AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock> ErrorReportConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for last_run_summary.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("last_run_summary")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryLastRunSummaryBlock>>? LastRunSummary { get; set; }
+    public TerraformList<AwsTimestreamqueryScheduledQueryLastRunSummaryBlock> LastRunSummary { get; set; } = new();
 
     /// <summary>
     /// Block for notification_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("notification_configuration")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock>>? NotificationConfiguration { get; set; }
+    public TerraformList<AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock> NotificationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for recently_failed_runs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("recently_failed_runs")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock>>? RecentlyFailedRuns { get; set; }
+    public TerraformList<AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock> RecentlyFailedRuns { get; set; } = new();
 
     /// <summary>
     /// Block for schedule_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schedule_configuration")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock>>? ScheduleConfiguration { get; set; }
+    public TerraformList<AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock> ScheduleConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for target_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("target_configuration")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryTargetConfigurationBlock>>? TargetConfiguration { get; set; }
+    public TerraformList<AwsTimestreamqueryScheduledQueryTargetConfigurationBlock> TargetConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsTimestreamqueryScheduledQueryTimeoutsBlock>? Timeouts { get; set; }
+    public AwsTimestreamqueryScheduledQueryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermPrivateEndpointConnectionDataSource : TerraformDataS
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The location attribute.

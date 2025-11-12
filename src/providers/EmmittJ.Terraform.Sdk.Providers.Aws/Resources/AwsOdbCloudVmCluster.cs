@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_collection_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlockBase
+public partial class AwsOdbCloudVmClusterDataCollectionOptionsBlock() : TerraformBlock("data_collection_options")
 {
     /// <summary>
     /// The is_diagnostics_events_enabled attribute.
@@ -38,7 +38,7 @@ public partial class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOdbCloudVmClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsOdbCloudVmClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -219,14 +219,14 @@ public partial class AwsOdbCloudVmCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_collection_options")]
-    public partial TerraformList<TerraformBlock<AwsOdbCloudVmClusterDataCollectionOptionsBlock>>? DataCollectionOptions { get; set; }
+    public TerraformList<AwsOdbCloudVmClusterDataCollectionOptionsBlock> DataCollectionOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOdbCloudVmClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOdbCloudVmClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

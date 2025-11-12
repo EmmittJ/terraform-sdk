@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for inline_redaction_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock : TerraformBlockBase
+public partial class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock() : TerraformBlock("inline_redaction_configuration")
 {
     /// <summary>
     /// The global_confidence_level attribute.
@@ -88,7 +88,7 @@ public partial class AwsWorkspaceswebDataProtectionSettings : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("inline_redaction_configuration")]
-    public partial TerraformList<TerraformBlock<AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock>>? InlineRedactionConfiguration { get; set; }
+    public TerraformList<AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock> InlineRedactionConfiguration { get; set; } = new();
 
     /// <summary>
     /// The associated_portal_arns attribute.

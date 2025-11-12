@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for error_blob_managed_identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock() : TerraformBlock("error_blob_managed_identity")
 {
     /// <summary>
     /// The client_id attribute.
@@ -28,7 +28,7 @@ public partial class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBloc
 /// Block type for output_blob_managed_identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock() : TerraformBlock("output_blob_managed_identity")
 {
     /// <summary>
     /// The client_id attribute.
@@ -50,7 +50,7 @@ public partial class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlo
 /// Block type for parameter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineRunCommandParameterBlock() : TerraformBlock("parameter")
 {
     /// <summary>
     /// The name attribute.
@@ -74,7 +74,7 @@ public partial class AzurermVirtualMachineRunCommandParameterBlock : TerraformBl
 /// Block type for protected_parameter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineRunCommandProtectedParameterBlock() : TerraformBlock("protected_parameter")
 {
     /// <summary>
     /// The name attribute.
@@ -98,7 +98,7 @@ public partial class AzurermVirtualMachineRunCommandProtectedParameterBlock : Te
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineRunCommandSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The command_id attribute.
@@ -127,7 +127,7 @@ public partial class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineRunCommandTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -241,7 +241,7 @@ public partial class AzurermVirtualMachineRunCommand : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorBlobManagedIdentity block(s) allowed")]
     [TerraformProperty("error_blob_managed_identity")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock>>? ErrorBlobManagedIdentity { get; set; }
+    public TerraformList<AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock> ErrorBlobManagedIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for output_blob_managed_identity.
@@ -249,21 +249,21 @@ public partial class AzurermVirtualMachineRunCommand : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputBlobManagedIdentity block(s) allowed")]
     [TerraformProperty("output_blob_managed_identity")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock>>? OutputBlobManagedIdentity { get; set; }
+    public TerraformList<AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock> OutputBlobManagedIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for parameter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("parameter")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandParameterBlock>>? Parameter { get; set; }
+    public TerraformList<AzurermVirtualMachineRunCommandParameterBlock> Parameter { get; set; } = new();
 
     /// <summary>
     /// Block for protected_parameter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("protected_parameter")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandProtectedParameterBlock>>? ProtectedParameter { get; set; }
+    public TerraformList<AzurermVirtualMachineRunCommandProtectedParameterBlock> ProtectedParameter { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -273,14 +273,14 @@ public partial class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandSourceBlock>>? Source { get; set; }
+    public required TerraformList<AzurermVirtualMachineRunCommandSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualMachineRunCommandTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualMachineRunCommandTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The instance_view attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for partition_index in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlockBase
+public partial class AwsGluePartitionIndexPartitionIndexBlock() : TerraformBlock("partition_index")
 {
     /// <summary>
     /// The index_name attribute.
@@ -29,7 +29,7 @@ public partial class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGluePartitionIndexTimeoutsBlock : TerraformBlockBase
+public partial class AwsGluePartitionIndexTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -102,13 +102,13 @@ public partial class AwsGluePartitionIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartitionIndex block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionIndex block(s) allowed")]
     [TerraformProperty("partition_index")]
-    public partial TerraformList<TerraformBlock<AwsGluePartitionIndexPartitionIndexBlock>>? PartitionIndex { get; set; }
+    public required TerraformList<AwsGluePartitionIndexPartitionIndexBlock> PartitionIndex { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGluePartitionIndexTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGluePartitionIndexTimeoutsBlock Timeouts { get; set; } = new();
 
 }

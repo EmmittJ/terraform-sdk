@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigquery_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlockBase
+public partial class GooglePubsubSubscriptionBigqueryConfigBlock() : TerraformBlock("bigquery_config")
 {
     /// <summary>
     /// When true and use_topic_schema or use_table_schema is true, any fields that are a part of the topic schema or message schema that
@@ -64,7 +64,7 @@ public partial class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBloc
 /// Block type for cloud_storage_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlockBase
+public partial class GooglePubsubSubscriptionCloudStorageConfigBlock() : TerraformBlock("cloud_storage_config")
 {
     /// <summary>
     /// User-provided name for the Cloud Storage bucket. The bucket must be created by the user. The bucket name must be without any prefix like &amp;quot;gs://&amp;quot;.
@@ -135,7 +135,7 @@ public partial class GooglePubsubSubscriptionCloudStorageConfigBlock : Terraform
 /// Block type for dead_letter_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlockBase
+public partial class GooglePubsubSubscriptionDeadLetterPolicyBlock() : TerraformBlock("dead_letter_policy")
 {
     /// <summary>
     /// The name of the topic to which dead letter messages should be published.
@@ -178,7 +178,7 @@ public partial class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBl
 /// Block type for expiration_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBlockBase
+public partial class GooglePubsubSubscriptionExpirationPolicyBlock() : TerraformBlock("expiration_policy")
 {
     /// <summary>
     /// Specifies the &amp;quot;time-to-live&amp;quot; duration for an associated resource. The
@@ -198,7 +198,7 @@ public partial class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBl
 /// Block type for message_transforms in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubSubscriptionMessageTransformsBlock : TerraformBlockBase
+public partial class GooglePubsubSubscriptionMessageTransformsBlock() : TerraformBlock("message_transforms")
 {
     /// <summary>
     /// Controls whether or not to use this transform. If not set or &#39;false&#39;,
@@ -214,7 +214,7 @@ public partial class GooglePubsubSubscriptionMessageTransformsBlock : TerraformB
 /// Block type for push_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubSubscriptionPushConfigBlock : TerraformBlockBase
+public partial class GooglePubsubSubscriptionPushConfigBlock() : TerraformBlock("push_config")
 {
     /// <summary>
     /// Endpoint configuration attributes.
@@ -261,7 +261,7 @@ public partial class GooglePubsubSubscriptionPushConfigBlock : TerraformBlockBas
 /// Block type for retry_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlockBase
+public partial class GooglePubsubSubscriptionRetryPolicyBlock() : TerraformBlock("retry_policy")
 {
     /// <summary>
     /// The maximum delay between consecutive deliveries of a given message. Value should be between 0 and 600 seconds. Defaults to 600 seconds.
@@ -285,7 +285,7 @@ public partial class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlockBase
+public partial class GooglePubsubSubscriptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -466,7 +466,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryConfig block(s) allowed")]
     [TerraformProperty("bigquery_config")]
-    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionBigqueryConfigBlock>>? BigqueryConfig { get; set; }
+    public TerraformList<GooglePubsubSubscriptionBigqueryConfigBlock> BigqueryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cloud_storage_config.
@@ -474,7 +474,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudStorageConfig block(s) allowed")]
     [TerraformProperty("cloud_storage_config")]
-    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionCloudStorageConfigBlock>>? CloudStorageConfig { get; set; }
+    public TerraformList<GooglePubsubSubscriptionCloudStorageConfigBlock> CloudStorageConfig { get; set; } = new();
 
     /// <summary>
     /// Block for dead_letter_policy.
@@ -482,7 +482,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterPolicy block(s) allowed")]
     [TerraformProperty("dead_letter_policy")]
-    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionDeadLetterPolicyBlock>>? DeadLetterPolicy { get; set; }
+    public TerraformList<GooglePubsubSubscriptionDeadLetterPolicyBlock> DeadLetterPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for expiration_policy.
@@ -490,14 +490,14 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpirationPolicy block(s) allowed")]
     [TerraformProperty("expiration_policy")]
-    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionExpirationPolicyBlock>>? ExpirationPolicy { get; set; }
+    public TerraformList<GooglePubsubSubscriptionExpirationPolicyBlock> ExpirationPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for message_transforms.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("message_transforms")]
-    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionMessageTransformsBlock>>? MessageTransforms { get; set; }
+    public TerraformList<GooglePubsubSubscriptionMessageTransformsBlock> MessageTransforms { get; set; } = new();
 
     /// <summary>
     /// Block for push_config.
@@ -505,7 +505,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PushConfig block(s) allowed")]
     [TerraformProperty("push_config")]
-    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionPushConfigBlock>>? PushConfig { get; set; }
+    public TerraformList<GooglePubsubSubscriptionPushConfigBlock> PushConfig { get; set; } = new();
 
     /// <summary>
     /// Block for retry_policy.
@@ -513,14 +513,14 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     [TerraformProperty("retry_policy")]
-    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionRetryPolicyBlock>>? RetryPolicy { get; set; }
+    public TerraformList<GooglePubsubSubscriptionRetryPolicyBlock> RetryPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePubsubSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePubsubSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

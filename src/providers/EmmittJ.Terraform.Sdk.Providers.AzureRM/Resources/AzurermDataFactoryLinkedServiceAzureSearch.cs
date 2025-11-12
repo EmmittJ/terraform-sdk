@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureSearchTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureSearchTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,7 +126,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSearch : TerraformResou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedServiceAzureSearchTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedServiceAzureSearchTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The encrypted_credential attribute.

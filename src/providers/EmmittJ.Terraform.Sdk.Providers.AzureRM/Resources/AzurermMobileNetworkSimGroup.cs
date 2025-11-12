@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkSimGroupIdentityBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSimGroupIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -30,7 +30,7 @@ public partial class AzurermMobileNetworkSimGroupIdentityBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSimGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,13 +123,13 @@ public partial class AzurermMobileNetworkSimGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkSimGroupIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMobileNetworkSimGroupIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMobileNetworkSimGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMobileNetworkSimGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

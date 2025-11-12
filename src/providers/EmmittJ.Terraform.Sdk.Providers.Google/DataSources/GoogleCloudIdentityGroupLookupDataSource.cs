@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for group_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : TerraformBlockBase
+public partial class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock() : TerraformBlock("group_key")
 {
     /// <summary>
     /// The ID of the entity. For Google-managed entities, the id should be the email address of an existing group or user.
@@ -53,7 +53,7 @@ public partial class GoogleCloudIdentityGroupLookupDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
     [TerraformProperty("group_key")]
-    public partial TerraformList<TerraformBlock<GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock>>? GroupKey { get; set; }
+    public required TerraformList<GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock> GroupKey { get; set; } = new();
 
     /// <summary>
     /// The [resource name](https://cloud.google.com/apis/design/resource_names) of the looked-up Group.

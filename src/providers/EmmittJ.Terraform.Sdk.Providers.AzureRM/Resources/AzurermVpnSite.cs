@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for link in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnSiteLinkBlock : TerraformBlockBase
+public partial class AzurermVpnSiteLinkBlock() : TerraformBlock("link")
 {
     /// <summary>
     /// The fqdn attribute.
@@ -51,7 +51,7 @@ public partial class AzurermVpnSiteLinkBlock : TerraformBlockBase
 /// Block type for o365_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnSiteO365PolicyBlock : TerraformBlockBase
+public partial class AzurermVpnSiteO365PolicyBlock() : TerraformBlock("o365_policy")
 {
 }
 
@@ -59,7 +59,7 @@ public partial class AzurermVpnSiteO365PolicyBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVpnSiteTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVpnSiteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,7 +173,7 @@ public partial class AzurermVpnSite : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("link")]
-    public partial TerraformList<TerraformBlock<AzurermVpnSiteLinkBlock>>? Link { get; set; }
+    public TerraformList<AzurermVpnSiteLinkBlock> Link { get; set; } = new();
 
     /// <summary>
     /// Block for o365_policy.
@@ -181,13 +181,13 @@ public partial class AzurermVpnSite : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 O365Policy block(s) allowed")]
     [TerraformProperty("o365_policy")]
-    public partial TerraformList<TerraformBlock<AzurermVpnSiteO365PolicyBlock>>? O365Policy { get; set; }
+    public TerraformList<AzurermVpnSiteO365PolicyBlock> O365Policy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVpnSiteTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVpnSiteTimeoutsBlock Timeouts { get; set; } = new();
 
 }

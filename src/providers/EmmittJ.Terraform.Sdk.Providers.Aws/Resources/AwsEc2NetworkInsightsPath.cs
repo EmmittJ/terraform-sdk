@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter_at_destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : TerraformBlockBase
+public partial class AwsEc2NetworkInsightsPathFilterAtDestinationBlock() : TerraformBlock("filter_at_destination")
 {
     /// <summary>
     /// The destination_address attribute.
@@ -28,7 +28,7 @@ public partial class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : Terrafo
 /// Block type for filter_at_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlockBase
+public partial class AwsEc2NetworkInsightsPathFilterAtSourceBlock() : TerraformBlock("filter_at_source")
 {
     /// <summary>
     /// The destination_address attribute.
@@ -134,7 +134,7 @@ public partial class AwsEc2NetworkInsightsPath : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtDestination block(s) allowed")]
     [TerraformProperty("filter_at_destination")]
-    public partial TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtDestinationBlock>>? FilterAtDestination { get; set; }
+    public TerraformList<AwsEc2NetworkInsightsPathFilterAtDestinationBlock> FilterAtDestination { get; set; } = new();
 
     /// <summary>
     /// Block for filter_at_source.
@@ -142,7 +142,7 @@ public partial class AwsEc2NetworkInsightsPath : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtSource block(s) allowed")]
     [TerraformProperty("filter_at_source")]
-    public partial TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtSourceBlock>>? FilterAtSource { get; set; }
+    public TerraformList<AwsEc2NetworkInsightsPathFilterAtSourceBlock> FilterAtSource { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

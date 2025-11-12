@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for human_loop_activation_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock() : TerraformBlock("human_loop_activation_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock : 
 /// Block type for human_loop_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerFlowDefinitionHumanLoopConfigBlock() : TerraformBlock("human_loop_config")
 {
     /// <summary>
     /// The human_task_ui_arn attribute.
@@ -83,7 +83,7 @@ public partial class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformB
 /// Block type for human_loop_request_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : TerraformBlockBase
+public partial class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock() : TerraformBlock("human_loop_request_source")
 {
     /// <summary>
     /// The aws_managed_human_loop_request_source attribute.
@@ -99,7 +99,7 @@ public partial class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : Ter
 /// Block type for output_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerFlowDefinitionOutputConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerFlowDefinitionOutputConfigBlock() : TerraformBlock("output_config")
 {
     /// <summary>
     /// The kms_key_id attribute.
@@ -178,7 +178,7 @@ public partial class AwsSagemakerFlowDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopActivationConfig block(s) allowed")]
     [TerraformProperty("human_loop_activation_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock>>? HumanLoopActivationConfig { get; set; }
+    public TerraformList<AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock> HumanLoopActivationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for human_loop_config.
@@ -188,7 +188,7 @@ public partial class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HumanLoopConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopConfig block(s) allowed")]
     [TerraformProperty("human_loop_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopConfigBlock>>? HumanLoopConfig { get; set; }
+    public required TerraformList<AwsSagemakerFlowDefinitionHumanLoopConfigBlock> HumanLoopConfig { get; set; } = new();
 
     /// <summary>
     /// Block for human_loop_request_source.
@@ -196,7 +196,7 @@ public partial class AwsSagemakerFlowDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopRequestSource block(s) allowed")]
     [TerraformProperty("human_loop_request_source")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock>>? HumanLoopRequestSource { get; set; }
+    public TerraformList<AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock> HumanLoopRequestSource { get; set; } = new();
 
     /// <summary>
     /// Block for output_config.
@@ -206,7 +206,7 @@ public partial class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputConfig block(s) allowed")]
     [TerraformProperty("output_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerFlowDefinitionOutputConfigBlock>>? OutputConfig { get; set; }
+    public required TerraformList<AwsSagemakerFlowDefinitionOutputConfigBlock> OutputConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

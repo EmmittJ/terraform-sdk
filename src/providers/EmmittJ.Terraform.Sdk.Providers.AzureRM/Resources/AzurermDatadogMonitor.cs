@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for datadog_organization in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlockBase
+public partial class AzurermDatadogMonitorDatadogOrganizationBlock() : TerraformBlock("datadog_organization")
 {
     /// <summary>
     /// The api_key attribute.
@@ -60,7 +60,7 @@ public partial class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBl
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDatadogMonitorIdentityBlock : TerraformBlockBase
+public partial class AzurermDatadogMonitorIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -78,7 +78,7 @@ public partial class AzurermDatadogMonitorIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDatadogMonitorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDatadogMonitorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -114,7 +114,7 @@ public partial class AzurermDatadogMonitorTimeoutsBlock : TerraformBlockBase
 /// Block type for user in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDatadogMonitorUserBlock : TerraformBlockBase
+public partial class AzurermDatadogMonitorUserBlock() : TerraformBlock("user")
 {
     /// <summary>
     /// The email attribute.
@@ -212,7 +212,7 @@ public partial class AzurermDatadogMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DatadogOrganization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DatadogOrganization block(s) allowed")]
     [TerraformProperty("datadog_organization")]
-    public partial TerraformList<TerraformBlock<AzurermDatadogMonitorDatadogOrganizationBlock>>? DatadogOrganization { get; set; }
+    public required TerraformList<AzurermDatadogMonitorDatadogOrganizationBlock> DatadogOrganization { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -220,14 +220,14 @@ public partial class AzurermDatadogMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDatadogMonitorIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermDatadogMonitorIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDatadogMonitorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDatadogMonitorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user.
@@ -237,7 +237,7 @@ public partial class AzurermDatadogMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
     [TerraformProperty("user")]
-    public partial TerraformList<TerraformBlock<AzurermDatadogMonitorUserBlock>>? User { get; set; }
+    public required TerraformList<AzurermDatadogMonitorUserBlock> User { get; set; } = new();
 
     /// <summary>
     /// The marketplace_subscription_status attribute.

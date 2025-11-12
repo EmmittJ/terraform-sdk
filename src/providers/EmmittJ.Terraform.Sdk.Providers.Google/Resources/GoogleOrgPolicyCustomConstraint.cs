@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOrgPolicyCustomConstraintTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOrgPolicyCustomConstraintTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -114,7 +114,7 @@ public partial class GoogleOrgPolicyCustomConstraint : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOrgPolicyCustomConstraintTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOrgPolicyCustomConstraintTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp representing when the constraint was last updated.

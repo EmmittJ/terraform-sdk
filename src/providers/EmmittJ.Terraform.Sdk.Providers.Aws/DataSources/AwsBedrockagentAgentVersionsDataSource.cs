@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for agent_version_summaries in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : TerraformBlockBase
+public partial class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock() : TerraformBlock("agent_version_summaries")
 {
 
 
@@ -45,6 +45,6 @@ public partial class AwsBedrockagentAgentVersionsDataSource : TerraformDataSourc
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("agent_version_summaries")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock>>? AgentVersionSummaries { get; set; }
+    public TerraformList<AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock> AgentVersionSummaries { get; set; } = new();
 
 }

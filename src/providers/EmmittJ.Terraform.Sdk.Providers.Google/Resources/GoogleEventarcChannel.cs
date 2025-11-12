@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEventarcChannelTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEventarcChannelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -99,7 +99,7 @@ public partial class GoogleEventarcChannel : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEventarcChannelTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEventarcChannelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The activation token for the channel. The token must be used by the provider to register the channel for publishing.

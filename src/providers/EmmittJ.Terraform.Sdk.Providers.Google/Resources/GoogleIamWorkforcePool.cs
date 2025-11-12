@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access_restrictions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkforcePoolAccessRestrictionsBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolAccessRestrictionsBlock() : TerraformBlock("access_restrictions")
 {
     /// <summary>
     /// Disable programmatic sign-in by disabling token issue via the Security Token API endpoint.
@@ -22,7 +22,7 @@ public partial class GoogleIamWorkforcePoolAccessRestrictionsBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,14 +129,14 @@ public partial class GoogleIamWorkforcePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessRestrictions block(s) allowed")]
     [TerraformProperty("access_restrictions")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkforcePoolAccessRestrictionsBlock>>? AccessRestrictions { get; set; }
+    public TerraformList<GoogleIamWorkforcePoolAccessRestrictionsBlock> AccessRestrictions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamWorkforcePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamWorkforcePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The resource name of the pool.

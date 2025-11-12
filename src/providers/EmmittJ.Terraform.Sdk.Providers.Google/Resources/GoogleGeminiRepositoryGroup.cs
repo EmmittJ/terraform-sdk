@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for repositories in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlockBase
+public partial class GoogleGeminiRepositoryGroupRepositoriesBlock() : TerraformBlock("repositories")
 {
     /// <summary>
     /// Required. The Git branch pattern used for indexing in RE2 syntax.
@@ -32,7 +32,7 @@ public partial class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGeminiRepositoryGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -122,14 +122,14 @@ public partial class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repositories is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Repositories block(s) required")]
     [TerraformProperty("repositories")]
-    public partial TerraformList<TerraformBlock<GoogleGeminiRepositoryGroupRepositoriesBlock>>? Repositories { get; set; }
+    public required TerraformList<GoogleGeminiRepositoryGroupRepositoriesBlock> Repositories { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGeminiRepositoryGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGeminiRepositoryGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Create time stamp.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for input_parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsConfigOrganizationConformancePackInputParameterBlock : TerraformBlockBase
+public partial class AwsConfigOrganizationConformancePackInputParameterBlock() : TerraformBlock("input_parameter")
 {
     /// <summary>
     /// The parameter_name attribute.
@@ -30,7 +30,7 @@ public partial class AwsConfigOrganizationConformancePackInputParameterBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsConfigOrganizationConformancePackTimeoutsBlock : TerraformBlockBase
+public partial class AwsConfigOrganizationConformancePackTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,14 +128,14 @@ public partial class AwsConfigOrganizationConformancePack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(60, ErrorMessage = "Maximum 60 InputParameter block(s) allowed")]
     [TerraformProperty("input_parameter")]
-    public partial TerraformSet<TerraformBlock<AwsConfigOrganizationConformancePackInputParameterBlock>>? InputParameter { get; set; }
+    public TerraformSet<AwsConfigOrganizationConformancePackInputParameterBlock> InputParameter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsConfigOrganizationConformancePackTimeoutsBlock>? Timeouts { get; set; }
+    public AwsConfigOrganizationConformancePackTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

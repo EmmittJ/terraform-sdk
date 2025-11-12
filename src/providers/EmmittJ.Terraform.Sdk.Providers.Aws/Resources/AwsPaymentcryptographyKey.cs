@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for key_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlockBase
+public partial class AwsPaymentcryptographyKeyKeyAttributesBlock() : TerraformBlock("key_attributes")
 {
     /// <summary>
     /// The key_algorithm attribute.
@@ -38,7 +38,7 @@ public partial class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsPaymentcryptographyKeyTimeoutsBlock : TerraformBlockBase
+public partial class AwsPaymentcryptographyKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -120,14 +120,14 @@ public partial class AwsPaymentcryptographyKey : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("key_attributes")]
-    public partial TerraformList<TerraformBlock<AwsPaymentcryptographyKeyKeyAttributesBlock>>? KeyAttributes { get; set; }
+    public TerraformList<AwsPaymentcryptographyKeyKeyAttributesBlock> KeyAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsPaymentcryptographyKeyTimeoutsBlock>? Timeouts { get; set; }
+    public AwsPaymentcryptographyKeyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

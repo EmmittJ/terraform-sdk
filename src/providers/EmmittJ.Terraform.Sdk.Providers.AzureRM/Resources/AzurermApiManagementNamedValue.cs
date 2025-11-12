@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementNamedValueTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementNamedValueTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -42,7 +42,7 @@ public partial class AzurermApiManagementNamedValueTimeoutsBlock : TerraformBloc
 /// Block type for value_from_key_vault in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementNamedValueValueFromKeyVaultBlock : TerraformBlockBase
+public partial class AzurermApiManagementNamedValueValueFromKeyVaultBlock() : TerraformBlock("value_from_key_vault")
 {
     /// <summary>
     /// The identity_client_id attribute.
@@ -136,7 +136,7 @@ public partial class AzurermApiManagementNamedValue : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementNamedValueTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementNamedValueTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for value_from_key_vault.
@@ -144,6 +144,6 @@ public partial class AzurermApiManagementNamedValue : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValueFromKeyVault block(s) allowed")]
     [TerraformProperty("value_from_key_vault")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementNamedValueValueFromKeyVaultBlock>>? ValueFromKeyVault { get; set; }
+    public TerraformList<AzurermApiManagementNamedValueValueFromKeyVaultBlock> ValueFromKeyVault { get; set; } = new();
 
 }

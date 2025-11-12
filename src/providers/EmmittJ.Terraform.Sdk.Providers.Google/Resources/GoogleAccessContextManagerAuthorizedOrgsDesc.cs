@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,7 +120,7 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformRes
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the AuthorizedOrgsDesc was created in UTC.

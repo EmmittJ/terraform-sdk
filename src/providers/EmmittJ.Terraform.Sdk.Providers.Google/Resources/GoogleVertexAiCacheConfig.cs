@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiCacheConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiCacheConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -67,7 +67,7 @@ public partial class GoogleVertexAiCacheConfig : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiCacheConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiCacheConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Identifier. name of the cache config. Format: - &#39;projects/{project}/cacheConfig&#39;.

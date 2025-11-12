@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEssentialContactsContactTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEssentialContactsContactTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -84,7 +84,7 @@ public partial class GoogleEssentialContactsContact : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEssentialContactsContactTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEssentialContactsContactTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The identifier for the contact. Format: {resourceType}/{resource_id}/contacts/{contact_id}

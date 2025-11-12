@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for collector_ilb in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputePacketMirroringCollectorIlbBlock : TerraformBlockBase
+public partial class GoogleComputePacketMirroringCollectorIlbBlock() : TerraformBlock("collector_ilb")
 {
     /// <summary>
     /// The URL of the forwarding rule.
@@ -22,7 +22,7 @@ public partial class GoogleComputePacketMirroringCollectorIlbBlock : TerraformBl
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputePacketMirroringFilterBlock : TerraformBlockBase
+public partial class GoogleComputePacketMirroringFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// IP CIDR ranges that apply as a filter on the source (ingress) or
@@ -52,7 +52,7 @@ public partial class GoogleComputePacketMirroringFilterBlock : TerraformBlockBas
 /// Block type for mirrored_resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputePacketMirroringMirroredResourcesBlock : TerraformBlockBase
+public partial class GoogleComputePacketMirroringMirroredResourcesBlock() : TerraformBlock("mirrored_resources")
 {
     /// <summary>
     /// All instances with these tags will be mirrored.
@@ -67,7 +67,7 @@ public partial class GoogleComputePacketMirroringMirroredResourcesBlock : Terraf
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputePacketMirroringNetworkBlock : TerraformBlockBase
+public partial class GoogleComputePacketMirroringNetworkBlock() : TerraformBlock("network")
 {
     /// <summary>
     /// The full self_link URL of the network where this rule is active.
@@ -83,7 +83,7 @@ public partial class GoogleComputePacketMirroringNetworkBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputePacketMirroringTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputePacketMirroringTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -172,7 +172,7 @@ public partial class GoogleComputePacketMirroring : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CollectorIlb block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CollectorIlb block(s) allowed")]
     [TerraformProperty("collector_ilb")]
-    public partial TerraformList<TerraformBlock<GoogleComputePacketMirroringCollectorIlbBlock>>? CollectorIlb { get; set; }
+    public required TerraformList<GoogleComputePacketMirroringCollectorIlbBlock> CollectorIlb { get; set; } = new();
 
     /// <summary>
     /// Block for filter.
@@ -180,7 +180,7 @@ public partial class GoogleComputePacketMirroring : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<GoogleComputePacketMirroringFilterBlock>>? Filter { get; set; }
+    public TerraformList<GoogleComputePacketMirroringFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for mirrored_resources.
@@ -190,7 +190,7 @@ public partial class GoogleComputePacketMirroring : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MirroredResources block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MirroredResources block(s) allowed")]
     [TerraformProperty("mirrored_resources")]
-    public partial TerraformList<TerraformBlock<GoogleComputePacketMirroringMirroredResourcesBlock>>? MirroredResources { get; set; }
+    public required TerraformList<GoogleComputePacketMirroringMirroredResourcesBlock> MirroredResources { get; set; } = new();
 
     /// <summary>
     /// Block for network.
@@ -200,13 +200,13 @@ public partial class GoogleComputePacketMirroring : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Network block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformProperty("network")]
-    public partial TerraformList<TerraformBlock<GoogleComputePacketMirroringNetworkBlock>>? Network { get; set; }
+    public required TerraformList<GoogleComputePacketMirroringNetworkBlock> Network { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputePacketMirroringTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputePacketMirroringTimeoutsBlock Timeouts { get; set; } = new();
 
 }

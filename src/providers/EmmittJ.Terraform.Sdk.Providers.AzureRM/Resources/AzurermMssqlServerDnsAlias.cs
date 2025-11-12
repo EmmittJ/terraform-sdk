@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlServerDnsAliasTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlServerDnsAliasTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,7 +68,7 @@ public partial class AzurermMssqlServerDnsAlias : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlServerDnsAliasTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlServerDnsAliasTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dns_record attribute.

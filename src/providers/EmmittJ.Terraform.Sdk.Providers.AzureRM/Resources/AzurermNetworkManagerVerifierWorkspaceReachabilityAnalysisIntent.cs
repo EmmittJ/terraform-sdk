@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_traffic in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock() : TerraformBlock("ip_traffic")
 {
     /// <summary>
     /// The destination_ips attribute.
@@ -54,7 +54,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -143,13 +143,13 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpTraffic block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpTraffic block(s) allowed")]
     [TerraformProperty("ip_traffic")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>>? IpTraffic { get; set; }
+    public required TerraformList<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock> IpTraffic { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeFirewallPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeFirewallPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -77,7 +77,7 @@ public partial class GoogleComputeFirewallPolicy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeFirewallPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

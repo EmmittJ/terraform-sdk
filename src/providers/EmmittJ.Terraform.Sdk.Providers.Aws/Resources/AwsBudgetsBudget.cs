@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_adjust_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetAutoAdjustDataBlock() : TerraformBlock("auto_adjust_data")
 {
     /// <summary>
     /// The auto_adjust_type attribute.
@@ -23,7 +23,7 @@ public partial class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlockBase
 /// Block type for cost_filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBudgetsBudgetCostFilterBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetCostFilterBlock() : TerraformBlock("cost_filter")
 {
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AwsBudgetsBudgetCostFilterBlock : TerraformBlockBase
 /// Block type for cost_types in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBudgetsBudgetCostTypesBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetCostTypesBlock() : TerraformBlock("cost_types")
 {
     /// <summary>
     /// The include_credit attribute.
@@ -132,7 +132,7 @@ public partial class AwsBudgetsBudgetCostTypesBlock : TerraformBlockBase
 /// Block type for notification in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBudgetsBudgetNotificationBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetNotificationBlock() : TerraformBlock("notification")
 {
     /// <summary>
     /// The comparison_operator attribute.
@@ -186,7 +186,7 @@ public partial class AwsBudgetsBudgetNotificationBlock : TerraformBlockBase
 /// Block type for planned_limit in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetPlannedLimitBlock() : TerraformBlock("planned_limit")
 {
     /// <summary>
     /// The amount attribute.
@@ -323,14 +323,14 @@ public partial class AwsBudgetsBudget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoAdjustData block(s) allowed")]
     [TerraformProperty("auto_adjust_data")]
-    public partial TerraformList<TerraformBlock<AwsBudgetsBudgetAutoAdjustDataBlock>>? AutoAdjustData { get; set; }
+    public TerraformList<AwsBudgetsBudgetAutoAdjustDataBlock> AutoAdjustData { get; set; } = new();
 
     /// <summary>
     /// Block for cost_filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cost_filter")]
-    public partial TerraformSet<TerraformBlock<AwsBudgetsBudgetCostFilterBlock>>? CostFilter { get; set; }
+    public TerraformSet<AwsBudgetsBudgetCostFilterBlock> CostFilter { get; set; } = new();
 
     /// <summary>
     /// Block for cost_types.
@@ -338,21 +338,21 @@ public partial class AwsBudgetsBudget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CostTypes block(s) allowed")]
     [TerraformProperty("cost_types")]
-    public partial TerraformList<TerraformBlock<AwsBudgetsBudgetCostTypesBlock>>? CostTypes { get; set; }
+    public TerraformList<AwsBudgetsBudgetCostTypesBlock> CostTypes { get; set; } = new();
 
     /// <summary>
     /// Block for notification.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("notification")]
-    public partial TerraformSet<TerraformBlock<AwsBudgetsBudgetNotificationBlock>>? Notification { get; set; }
+    public TerraformSet<AwsBudgetsBudgetNotificationBlock> Notification { get; set; } = new();
 
     /// <summary>
     /// Block for planned_limit.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("planned_limit")]
-    public partial TerraformSet<TerraformBlock<AwsBudgetsBudgetPlannedLimitBlock>>? PlannedLimit { get; set; }
+    public TerraformSet<AwsBudgetsBudgetPlannedLimitBlock> PlannedLimit { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

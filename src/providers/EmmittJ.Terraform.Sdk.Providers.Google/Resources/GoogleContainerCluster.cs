@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for addons_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterAddonsConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterAddonsConfigBlock() : TerraformBlock("addons_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleContainerClusterAddonsConfigBlock : TerraformBlockBas
 /// Block type for anonymous_authentication_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterAnonymousAuthenticationConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterAnonymousAuthenticationConfigBlock() : TerraformBlock("anonymous_authentication_config")
 {
     /// <summary>
     /// Setting this to LIMITED will restrict authentication of anonymous users to health check endpoints only.
@@ -33,7 +33,7 @@ public partial class GoogleContainerClusterAnonymousAuthenticationConfigBlock : 
 /// Block type for authenticator_groups_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterAuthenticatorGroupsConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterAuthenticatorGroupsConfigBlock() : TerraformBlock("authenticator_groups_config")
 {
     /// <summary>
     /// The name of the RBAC security group for use with Google security groups in Kubernetes RBAC. Group name must be in format gke-security-groups@yourdomain.com.
@@ -49,7 +49,7 @@ public partial class GoogleContainerClusterAuthenticatorGroupsConfigBlock : Terr
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterBinaryAuthorizationBlock : TerraformBlockBase
+public partial class GoogleContainerClusterBinaryAuthorizationBlock() : TerraformBlock("binary_authorization")
 {
     /// <summary>
     /// Enable Binary Authorization for this cluster.
@@ -72,7 +72,7 @@ public partial class GoogleContainerClusterBinaryAuthorizationBlock : TerraformB
 /// Block type for cluster_autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlockBase
+public partial class GoogleContainerClusterClusterAutoscalingBlock() : TerraformBlock("cluster_autoscaling")
 {
     /// <summary>
     /// The list of Google Compute Engine zones in which the NodePool&#39;s nodes can be created by NAP.
@@ -108,7 +108,7 @@ public partial class GoogleContainerClusterClusterAutoscalingBlock : TerraformBl
 /// Block type for confidential_nodes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterConfidentialNodesBlock : TerraformBlockBase
+public partial class GoogleContainerClusterConfidentialNodesBlock() : TerraformBlock("confidential_nodes")
 {
     /// <summary>
     /// Defines the type of technology used by the confidential node.
@@ -131,7 +131,7 @@ public partial class GoogleContainerClusterConfidentialNodesBlock : TerraformBlo
 /// Block type for control_plane_endpoints_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterControlPlaneEndpointsConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterControlPlaneEndpointsConfigBlock() : TerraformBlock("control_plane_endpoints_config")
 {
 }
 
@@ -139,7 +139,7 @@ public partial class GoogleContainerClusterControlPlaneEndpointsConfigBlock : Te
 /// Block type for cost_management_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterCostManagementConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterCostManagementConfigBlock() : TerraformBlock("cost_management_config")
 {
     /// <summary>
     /// Whether to enable GKE cost allocation. When you enable GKE cost allocation, the cluster name and namespace of your GKE workloads appear in the labels field of the billing export to BigQuery. Defaults to false.
@@ -155,7 +155,7 @@ public partial class GoogleContainerClusterCostManagementConfigBlock : Terraform
 /// Block type for database_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterDatabaseEncryptionBlock : TerraformBlockBase
+public partial class GoogleContainerClusterDatabaseEncryptionBlock() : TerraformBlock("database_encryption")
 {
     /// <summary>
     /// The key to use to encrypt/decrypt secrets.
@@ -178,7 +178,7 @@ public partial class GoogleContainerClusterDatabaseEncryptionBlock : TerraformBl
 /// Block type for default_snat_status in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterDefaultSnatStatusBlock : TerraformBlockBase
+public partial class GoogleContainerClusterDefaultSnatStatusBlock() : TerraformBlock("default_snat_status")
 {
     /// <summary>
     /// When disabled is set to false, default IP masquerade rules will be applied to the nodes to prevent sNAT on cluster internal traffic.
@@ -194,7 +194,7 @@ public partial class GoogleContainerClusterDefaultSnatStatusBlock : TerraformBlo
 /// Block type for dns_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterDnsConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterDnsConfigBlock() : TerraformBlock("dns_config")
 {
     /// <summary>
     /// Enable additive VPC scope DNS in a GKE cluster.
@@ -230,7 +230,7 @@ public partial class GoogleContainerClusterDnsConfigBlock : TerraformBlockBase
 /// Block type for enable_k8s_beta_apis in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterEnableK8sBetaApisBlock : TerraformBlockBase
+public partial class GoogleContainerClusterEnableK8sBetaApisBlock() : TerraformBlock("enable_k8s_beta_apis")
 {
     /// <summary>
     /// Enabled Kubernetes Beta APIs.
@@ -247,7 +247,7 @@ public partial class GoogleContainerClusterEnableK8sBetaApisBlock : TerraformBlo
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class GoogleContainerClusterEnterpriseConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterEnterpriseConfigBlock() : TerraformBlock("enterprise_config")
 {
 
     /// <summary>
@@ -264,7 +264,7 @@ public partial class GoogleContainerClusterEnterpriseConfigBlock : TerraformBloc
 /// Block type for fleet in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterFleetBlock : TerraformBlockBase
+public partial class GoogleContainerClusterFleetBlock() : TerraformBlock("fleet")
 {
 
 
@@ -290,7 +290,7 @@ public partial class GoogleContainerClusterFleetBlock : TerraformBlockBase
 /// Block type for gateway_api_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterGatewayApiConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterGatewayApiConfigBlock() : TerraformBlock("gateway_api_config")
 {
     /// <summary>
     /// The Gateway API release channel to use for Gateway API.
@@ -306,7 +306,7 @@ public partial class GoogleContainerClusterGatewayApiConfigBlock : TerraformBloc
 /// Block type for gke_auto_upgrade_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterGkeAutoUpgradeConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterGkeAutoUpgradeConfigBlock() : TerraformBlock("gke_auto_upgrade_config")
 {
     /// <summary>
     /// The selected auto-upgrade patch type. Accepted values are:
@@ -323,7 +323,7 @@ public partial class GoogleContainerClusterGkeAutoUpgradeConfigBlock : Terraform
 /// Block type for identity_service_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterIdentityServiceConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterIdentityServiceConfigBlock() : TerraformBlock("identity_service_config")
 {
     /// <summary>
     /// Whether to enable the Identity Service component.
@@ -338,7 +338,7 @@ public partial class GoogleContainerClusterIdentityServiceConfigBlock : Terrafor
 /// Block type for ip_allocation_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlockBase
+public partial class GoogleContainerClusterIpAllocationPolicyBlock() : TerraformBlock("ip_allocation_policy")
 {
     /// <summary>
     /// The IP address range for the cluster pod IPs. Set to blank to have a range chosen with the default size. Set to /netmask (e.g. /14) to have a range chosen with a specific netmask. Set to a CIDR notation (e.g. 10.96.0.0/14) from the RFC-1918 private networks (e.g. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) to pick a specific range to use.
@@ -381,7 +381,7 @@ public partial class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBl
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// GKE components exposing logs. Valid values include SYSTEM_COMPONENTS, APISERVER, CONTROLLER_MANAGER, KCP_CONNECTION, KCP_SSHD, KCP_HPA, SCHEDULER, and WORKLOADS.
@@ -397,7 +397,7 @@ public partial class GoogleContainerClusterLoggingConfigBlock : TerraformBlockBa
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterMaintenancePolicyBlock : TerraformBlockBase
+public partial class GoogleContainerClusterMaintenancePolicyBlock() : TerraformBlock("maintenance_policy")
 {
 }
 
@@ -405,7 +405,7 @@ public partial class GoogleContainerClusterMaintenancePolicyBlock : TerraformBlo
 /// Block type for master_auth in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterMasterAuthBlock : TerraformBlockBase
+public partial class GoogleContainerClusterMasterAuthBlock() : TerraformBlock("master_auth")
 {
 
 
@@ -416,7 +416,7 @@ public partial class GoogleContainerClusterMasterAuthBlock : TerraformBlockBase
 /// Block type for master_authorized_networks_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterMasterAuthorizedNetworksConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterMasterAuthorizedNetworksConfigBlock() : TerraformBlock("master_authorized_networks_config")
 {
     /// <summary>
     /// Whether Kubernetes master is accessible via Google Compute Engine Public IPs.
@@ -438,7 +438,7 @@ public partial class GoogleContainerClusterMasterAuthorizedNetworksConfigBlock :
 /// Block type for mesh_certificates in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterMeshCertificatesBlock : TerraformBlockBase
+public partial class GoogleContainerClusterMeshCertificatesBlock() : TerraformBlock("mesh_certificates")
 {
     /// <summary>
     /// When enabled the GKE Workload Identity Certificates controller and node agent will be deployed in the cluster.
@@ -454,7 +454,7 @@ public partial class GoogleContainerClusterMeshCertificatesBlock : TerraformBloc
 /// Block type for monitoring_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterMonitoringConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterMonitoringConfigBlock() : TerraformBlock("monitoring_config")
 {
     /// <summary>
     /// GKE components exposing metrics. Valid values include SYSTEM_COMPONENTS, APISERVER, SCHEDULER, CONTROLLER_MANAGER, STORAGE, HPA, POD, DAEMONSET, DEPLOYMENT, STATEFULSET, KUBELET, CADVISOR, DCGM and JOBSET.
@@ -469,7 +469,7 @@ public partial class GoogleContainerClusterMonitoringConfigBlock : TerraformBloc
 /// Block type for network_performance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterNetworkPerformanceConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterNetworkPerformanceConfigBlock() : TerraformBlock("network_performance_config")
 {
     /// <summary>
     /// Specifies the total network bandwidth tier for NodePools in the cluster.
@@ -485,7 +485,7 @@ public partial class GoogleContainerClusterNetworkPerformanceConfigBlock : Terra
 /// Block type for network_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterNetworkPolicyBlock : TerraformBlockBase
+public partial class GoogleContainerClusterNetworkPolicyBlock() : TerraformBlock("network_policy")
 {
     /// <summary>
     /// Whether network policy is enabled on the cluster.
@@ -508,7 +508,7 @@ public partial class GoogleContainerClusterNetworkPolicyBlock : TerraformBlockBa
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterNodeConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterNodeConfigBlock() : TerraformBlock("node_config")
 {
     /// <summary>
     /// The Customer Managed Encryption Key used to encrypt the boot disk attached to each node in the node pool.
@@ -678,7 +678,7 @@ public partial class GoogleContainerClusterNodeConfigBlock : TerraformBlockBase
 /// Block type for node_pool in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterNodePoolBlock : TerraformBlockBase
+public partial class GoogleContainerClusterNodePoolBlock() : TerraformBlock("node_pool")
 {
     /// <summary>
     /// The initial number of nodes for the pool. In regional or multi-zonal clusters, this is the number of nodes per zone. Changing this will force recreation of the resource.
@@ -737,7 +737,7 @@ public partial class GoogleContainerClusterNodePoolBlock : TerraformBlockBase
 /// Block type for node_pool_auto_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterNodePoolAutoConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterNodePoolAutoConfigBlock() : TerraformBlock("node_pool_auto_config")
 {
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored (both PUT &amp;amp; PATCH) when empty.
@@ -752,7 +752,7 @@ public partial class GoogleContainerClusterNodePoolAutoConfigBlock : TerraformBl
 /// Block type for node_pool_defaults in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterNodePoolDefaultsBlock : TerraformBlockBase
+public partial class GoogleContainerClusterNodePoolDefaultsBlock() : TerraformBlock("node_pool_defaults")
 {
 }
 
@@ -760,7 +760,7 @@ public partial class GoogleContainerClusterNodePoolDefaultsBlock : TerraformBloc
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterNotificationConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterNotificationConfigBlock() : TerraformBlock("notification_config")
 {
 }
 
@@ -768,7 +768,7 @@ public partial class GoogleContainerClusterNotificationConfigBlock : TerraformBl
 /// Block type for pod_autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterPodAutoscalingBlock : TerraformBlockBase
+public partial class GoogleContainerClusterPodAutoscalingBlock() : TerraformBlock("pod_autoscaling")
 {
     /// <summary>
     /// 
@@ -789,7 +789,7 @@ public partial class GoogleContainerClusterPodAutoscalingBlock : TerraformBlockB
 /// Block type for private_cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterPrivateClusterConfigBlock() : TerraformBlock("private_cluster_config")
 {
     /// <summary>
     /// When true, the cluster&#39;s private endpoint is used as the cluster endpoint and access through the public endpoint is disabled. When false, either endpoint can be used.
@@ -828,7 +828,7 @@ public partial class GoogleContainerClusterPrivateClusterConfigBlock : Terraform
 /// Block type for rbac_binding_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterRbacBindingConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterRbacBindingConfigBlock() : TerraformBlock("rbac_binding_config")
 {
     /// <summary>
     /// Setting this to true will allow any ClusterRoleBinding and RoleBinding with subjects system:authenticated.
@@ -850,7 +850,7 @@ public partial class GoogleContainerClusterRbacBindingConfigBlock : TerraformBlo
 /// Block type for release_channel in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterReleaseChannelBlock : TerraformBlockBase
+public partial class GoogleContainerClusterReleaseChannelBlock() : TerraformBlock("release_channel")
 {
     /// <summary>
     /// The selected release channel. Accepted values are:
@@ -871,7 +871,7 @@ public partial class GoogleContainerClusterReleaseChannelBlock : TerraformBlockB
 /// Block type for resource_usage_export_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterResourceUsageExportConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterResourceUsageExportConfigBlock() : TerraformBlock("resource_usage_export_config")
 {
     /// <summary>
     /// Whether to enable network egress metering for this cluster. If enabled, a daemonset will be created in the cluster to meter network egress traffic.
@@ -893,7 +893,7 @@ public partial class GoogleContainerClusterResourceUsageExportConfigBlock : Terr
 /// Block type for secret_manager_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterSecretManagerConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterSecretManagerConfigBlock() : TerraformBlock("secret_manager_config")
 {
     /// <summary>
     /// Enable the Secret manager csi component.
@@ -909,7 +909,7 @@ public partial class GoogleContainerClusterSecretManagerConfigBlock : TerraformB
 /// Block type for security_posture_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterSecurityPostureConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterSecurityPostureConfigBlock() : TerraformBlock("security_posture_config")
 {
     /// <summary>
     /// Sets the mode of the Kubernetes security posture API&#39;s off-cluster features. Available options include DISABLED, BASIC, and ENTERPRISE.
@@ -931,7 +931,7 @@ public partial class GoogleContainerClusterSecurityPostureConfigBlock : Terrafor
 /// Block type for service_external_ips_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterServiceExternalIpsConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterServiceExternalIpsConfigBlock() : TerraformBlock("service_external_ips_config")
 {
     /// <summary>
     /// When enabled, services with external ips specified will be allowed.
@@ -947,7 +947,7 @@ public partial class GoogleContainerClusterServiceExternalIpsConfigBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -983,7 +983,7 @@ public partial class GoogleContainerClusterTimeoutsBlock : TerraformBlockBase
 /// Block type for user_managed_keys_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterUserManagedKeysConfigBlock() : TerraformBlock("user_managed_keys_config")
 {
     /// <summary>
     /// The Certificate Authority Service caPool to use for the aggreation CA in this cluster.
@@ -1047,7 +1047,7 @@ public partial class GoogleContainerClusterUserManagedKeysConfigBlock : Terrafor
 /// Block type for vertical_pod_autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterVerticalPodAutoscalingBlock : TerraformBlockBase
+public partial class GoogleContainerClusterVerticalPodAutoscalingBlock() : TerraformBlock("vertical_pod_autoscaling")
 {
     /// <summary>
     /// Enables vertical pod autoscaling.
@@ -1063,7 +1063,7 @@ public partial class GoogleContainerClusterVerticalPodAutoscalingBlock : Terrafo
 /// Block type for workload_identity_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerClusterWorkloadIdentityConfigBlock : TerraformBlockBase
+public partial class GoogleContainerClusterWorkloadIdentityConfigBlock() : TerraformBlock("workload_identity_config")
 {
     /// <summary>
     /// The workload pool to attach all Kubernetes service accounts to.
@@ -1332,7 +1332,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddonsConfig block(s) allowed")]
     [TerraformProperty("addons_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterAddonsConfigBlock>>? AddonsConfig { get; set; }
+    public TerraformList<GoogleContainerClusterAddonsConfigBlock> AddonsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for anonymous_authentication_config.
@@ -1340,7 +1340,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnonymousAuthenticationConfig block(s) allowed")]
     [TerraformProperty("anonymous_authentication_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterAnonymousAuthenticationConfigBlock>>? AnonymousAuthenticationConfig { get; set; }
+    public TerraformList<GoogleContainerClusterAnonymousAuthenticationConfigBlock> AnonymousAuthenticationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for authenticator_groups_config.
@@ -1348,7 +1348,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticatorGroupsConfig block(s) allowed")]
     [TerraformProperty("authenticator_groups_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterAuthenticatorGroupsConfigBlock>>? AuthenticatorGroupsConfig { get; set; }
+    public TerraformList<GoogleContainerClusterAuthenticatorGroupsConfigBlock> AuthenticatorGroupsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for binary_authorization.
@@ -1356,7 +1356,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public TerraformList<GoogleContainerClusterBinaryAuthorizationBlock> BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for cluster_autoscaling.
@@ -1364,7 +1364,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterAutoscaling block(s) allowed")]
     [TerraformProperty("cluster_autoscaling")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterClusterAutoscalingBlock>>? ClusterAutoscaling { get; set; }
+    public TerraformList<GoogleContainerClusterClusterAutoscalingBlock> ClusterAutoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for confidential_nodes.
@@ -1372,7 +1372,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfidentialNodes block(s) allowed")]
     [TerraformProperty("confidential_nodes")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterConfidentialNodesBlock>>? ConfidentialNodes { get; set; }
+    public TerraformList<GoogleContainerClusterConfidentialNodesBlock> ConfidentialNodes { get; set; } = new();
 
     /// <summary>
     /// Block for control_plane_endpoints_config.
@@ -1380,7 +1380,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneEndpointsConfig block(s) allowed")]
     [TerraformProperty("control_plane_endpoints_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterControlPlaneEndpointsConfigBlock>>? ControlPlaneEndpointsConfig { get; set; }
+    public TerraformList<GoogleContainerClusterControlPlaneEndpointsConfigBlock> ControlPlaneEndpointsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cost_management_config.
@@ -1388,7 +1388,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CostManagementConfig block(s) allowed")]
     [TerraformProperty("cost_management_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterCostManagementConfigBlock>>? CostManagementConfig { get; set; }
+    public TerraformList<GoogleContainerClusterCostManagementConfigBlock> CostManagementConfig { get; set; } = new();
 
     /// <summary>
     /// Block for database_encryption.
@@ -1396,7 +1396,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DatabaseEncryption block(s) allowed")]
     [TerraformProperty("database_encryption")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterDatabaseEncryptionBlock>>? DatabaseEncryption { get; set; }
+    public TerraformList<GoogleContainerClusterDatabaseEncryptionBlock> DatabaseEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for default_snat_status.
@@ -1404,7 +1404,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultSnatStatus block(s) allowed")]
     [TerraformProperty("default_snat_status")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterDefaultSnatStatusBlock>>? DefaultSnatStatus { get; set; }
+    public TerraformList<GoogleContainerClusterDefaultSnatStatusBlock> DefaultSnatStatus { get; set; } = new();
 
     /// <summary>
     /// Block for dns_config.
@@ -1412,7 +1412,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     [TerraformProperty("dns_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterDnsConfigBlock>>? DnsConfig { get; set; }
+    public TerraformList<GoogleContainerClusterDnsConfigBlock> DnsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for enable_k8s_beta_apis.
@@ -1420,7 +1420,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnableK8sBetaApis block(s) allowed")]
     [TerraformProperty("enable_k8s_beta_apis")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterEnableK8sBetaApisBlock>>? EnableK8sBetaApis { get; set; }
+    public TerraformList<GoogleContainerClusterEnableK8sBetaApisBlock> EnableK8sBetaApis { get; set; } = new();
 
     /// <summary>
     /// Block for enterprise_config.
@@ -1429,7 +1429,7 @@ public partial class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnterpriseConfig block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("enterprise_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterEnterpriseConfigBlock>>? EnterpriseConfig { get; set; }
+    public TerraformList<GoogleContainerClusterEnterpriseConfigBlock> EnterpriseConfig { get; set; } = new();
 
     /// <summary>
     /// Block for fleet.
@@ -1437,7 +1437,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformProperty("fleet")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterFleetBlock>>? Fleet { get; set; }
+    public TerraformList<GoogleContainerClusterFleetBlock> Fleet { get; set; } = new();
 
     /// <summary>
     /// Block for gateway_api_config.
@@ -1445,7 +1445,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GatewayApiConfig block(s) allowed")]
     [TerraformProperty("gateway_api_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterGatewayApiConfigBlock>>? GatewayApiConfig { get; set; }
+    public TerraformList<GoogleContainerClusterGatewayApiConfigBlock> GatewayApiConfig { get; set; } = new();
 
     /// <summary>
     /// Block for gke_auto_upgrade_config.
@@ -1453,7 +1453,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GkeAutoUpgradeConfig block(s) allowed")]
     [TerraformProperty("gke_auto_upgrade_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterGkeAutoUpgradeConfigBlock>>? GkeAutoUpgradeConfig { get; set; }
+    public TerraformList<GoogleContainerClusterGkeAutoUpgradeConfigBlock> GkeAutoUpgradeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for identity_service_config.
@@ -1461,7 +1461,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityServiceConfig block(s) allowed")]
     [TerraformProperty("identity_service_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterIdentityServiceConfigBlock>>? IdentityServiceConfig { get; set; }
+    public TerraformList<GoogleContainerClusterIdentityServiceConfigBlock> IdentityServiceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for ip_allocation_policy.
@@ -1469,7 +1469,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpAllocationPolicy block(s) allowed")]
     [TerraformProperty("ip_allocation_policy")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterIpAllocationPolicyBlock>>? IpAllocationPolicy { get; set; }
+    public TerraformList<GoogleContainerClusterIpAllocationPolicyBlock> IpAllocationPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
@@ -1477,7 +1477,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<GoogleContainerClusterLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -1485,7 +1485,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public TerraformList<GoogleContainerClusterMaintenancePolicyBlock> MaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for master_auth.
@@ -1493,7 +1493,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MasterAuth block(s) allowed")]
     [TerraformProperty("master_auth")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterMasterAuthBlock>>? MasterAuth { get; set; }
+    public TerraformList<GoogleContainerClusterMasterAuthBlock> MasterAuth { get; set; } = new();
 
     /// <summary>
     /// Block for master_authorized_networks_config.
@@ -1501,7 +1501,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MasterAuthorizedNetworksConfig block(s) allowed")]
     [TerraformProperty("master_authorized_networks_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterMasterAuthorizedNetworksConfigBlock>>? MasterAuthorizedNetworksConfig { get; set; }
+    public TerraformList<GoogleContainerClusterMasterAuthorizedNetworksConfigBlock> MasterAuthorizedNetworksConfig { get; set; } = new();
 
     /// <summary>
     /// Block for mesh_certificates.
@@ -1509,7 +1509,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MeshCertificates block(s) allowed")]
     [TerraformProperty("mesh_certificates")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterMeshCertificatesBlock>>? MeshCertificates { get; set; }
+    public TerraformList<GoogleContainerClusterMeshCertificatesBlock> MeshCertificates { get; set; } = new();
 
     /// <summary>
     /// Block for monitoring_config.
@@ -1517,7 +1517,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfig block(s) allowed")]
     [TerraformProperty("monitoring_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterMonitoringConfigBlock>>? MonitoringConfig { get; set; }
+    public TerraformList<GoogleContainerClusterMonitoringConfigBlock> MonitoringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for network_performance_config.
@@ -1525,7 +1525,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkPerformanceConfig block(s) allowed")]
     [TerraformProperty("network_performance_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterNetworkPerformanceConfigBlock>>? NetworkPerformanceConfig { get; set; }
+    public TerraformList<GoogleContainerClusterNetworkPerformanceConfigBlock> NetworkPerformanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for network_policy.
@@ -1533,7 +1533,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkPolicy block(s) allowed")]
     [TerraformProperty("network_policy")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterNetworkPolicyBlock>>? NetworkPolicy { get; set; }
+    public TerraformList<GoogleContainerClusterNetworkPolicyBlock> NetworkPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for node_config.
@@ -1541,14 +1541,14 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterNodeConfigBlock>>? NodeConfig { get; set; }
+    public TerraformList<GoogleContainerClusterNodeConfigBlock> NodeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_pool.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("node_pool")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterNodePoolBlock>>? NodePool { get; set; }
+    public TerraformList<GoogleContainerClusterNodePoolBlock> NodePool { get; set; } = new();
 
     /// <summary>
     /// Block for node_pool_auto_config.
@@ -1556,7 +1556,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolAutoConfig block(s) allowed")]
     [TerraformProperty("node_pool_auto_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterNodePoolAutoConfigBlock>>? NodePoolAutoConfig { get; set; }
+    public TerraformList<GoogleContainerClusterNodePoolAutoConfigBlock> NodePoolAutoConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_pool_defaults.
@@ -1564,7 +1564,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolDefaults block(s) allowed")]
     [TerraformProperty("node_pool_defaults")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterNodePoolDefaultsBlock>>? NodePoolDefaults { get; set; }
+    public TerraformList<GoogleContainerClusterNodePoolDefaultsBlock> NodePoolDefaults { get; set; } = new();
 
     /// <summary>
     /// Block for notification_config.
@@ -1572,7 +1572,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformProperty("notification_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterNotificationConfigBlock>>? NotificationConfig { get; set; }
+    public TerraformList<GoogleContainerClusterNotificationConfigBlock> NotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for pod_autoscaling.
@@ -1580,7 +1580,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PodAutoscaling block(s) allowed")]
     [TerraformProperty("pod_autoscaling")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterPodAutoscalingBlock>>? PodAutoscaling { get; set; }
+    public TerraformList<GoogleContainerClusterPodAutoscalingBlock> PodAutoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for private_cluster_config.
@@ -1588,7 +1588,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateClusterConfig block(s) allowed")]
     [TerraformProperty("private_cluster_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterPrivateClusterConfigBlock>>? PrivateClusterConfig { get; set; }
+    public TerraformList<GoogleContainerClusterPrivateClusterConfigBlock> PrivateClusterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for rbac_binding_config.
@@ -1596,7 +1596,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RbacBindingConfig block(s) allowed")]
     [TerraformProperty("rbac_binding_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterRbacBindingConfigBlock>>? RbacBindingConfig { get; set; }
+    public TerraformList<GoogleContainerClusterRbacBindingConfigBlock> RbacBindingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for release_channel.
@@ -1604,7 +1604,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReleaseChannel block(s) allowed")]
     [TerraformProperty("release_channel")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterReleaseChannelBlock>>? ReleaseChannel { get; set; }
+    public TerraformList<GoogleContainerClusterReleaseChannelBlock> ReleaseChannel { get; set; } = new();
 
     /// <summary>
     /// Block for resource_usage_export_config.
@@ -1612,7 +1612,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceUsageExportConfig block(s) allowed")]
     [TerraformProperty("resource_usage_export_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterResourceUsageExportConfigBlock>>? ResourceUsageExportConfig { get; set; }
+    public TerraformList<GoogleContainerClusterResourceUsageExportConfigBlock> ResourceUsageExportConfig { get; set; } = new();
 
     /// <summary>
     /// Block for secret_manager_config.
@@ -1620,7 +1620,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretManagerConfig block(s) allowed")]
     [TerraformProperty("secret_manager_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterSecretManagerConfigBlock>>? SecretManagerConfig { get; set; }
+    public TerraformList<GoogleContainerClusterSecretManagerConfigBlock> SecretManagerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for security_posture_config.
@@ -1628,7 +1628,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPostureConfig block(s) allowed")]
     [TerraformProperty("security_posture_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterSecurityPostureConfigBlock>>? SecurityPostureConfig { get; set; }
+    public TerraformList<GoogleContainerClusterSecurityPostureConfigBlock> SecurityPostureConfig { get; set; } = new();
 
     /// <summary>
     /// Block for service_external_ips_config.
@@ -1636,14 +1636,14 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceExternalIpsConfig block(s) allowed")]
     [TerraformProperty("service_external_ips_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterServiceExternalIpsConfigBlock>>? ServiceExternalIpsConfig { get; set; }
+    public TerraformList<GoogleContainerClusterServiceExternalIpsConfigBlock> ServiceExternalIpsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_managed_keys_config.
@@ -1651,7 +1651,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserManagedKeysConfig block(s) allowed")]
     [TerraformProperty("user_managed_keys_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterUserManagedKeysConfigBlock>>? UserManagedKeysConfig { get; set; }
+    public TerraformList<GoogleContainerClusterUserManagedKeysConfigBlock> UserManagedKeysConfig { get; set; } = new();
 
     /// <summary>
     /// Block for vertical_pod_autoscaling.
@@ -1659,7 +1659,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VerticalPodAutoscaling block(s) allowed")]
     [TerraformProperty("vertical_pod_autoscaling")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterVerticalPodAutoscalingBlock>>? VerticalPodAutoscaling { get; set; }
+    public TerraformList<GoogleContainerClusterVerticalPodAutoscalingBlock> VerticalPodAutoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for workload_identity_config.
@@ -1667,7 +1667,7 @@ public partial class GoogleContainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadIdentityConfig block(s) allowed")]
     [TerraformProperty("workload_identity_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerClusterWorkloadIdentityConfigBlock>>? WorkloadIdentityConfig { get; set; }
+    public TerraformList<GoogleContainerClusterWorkloadIdentityConfigBlock> WorkloadIdentityConfig { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketCorsRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketCorsRuleBlock() : TerraformBlock("cors_rule")
 {
     /// <summary>
     /// The allowed_headers attribute.
@@ -53,7 +53,7 @@ public partial class AwsS3BucketCorsRuleBlock : TerraformBlockBase
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketGrantBlock : TerraformBlockBase
+public partial class AwsS3BucketGrantBlock() : TerraformBlock("grant")
 {
     /// <summary>
     /// The id attribute.
@@ -92,7 +92,7 @@ public partial class AwsS3BucketGrantBlock : TerraformBlockBase
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketLifecycleRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketLifecycleRuleBlock() : TerraformBlock("lifecycle_rule")
 {
     /// <summary>
     /// The abort_incomplete_multipart_upload_days attribute.
@@ -137,7 +137,7 @@ public partial class AwsS3BucketLifecycleRuleBlock : TerraformBlockBase
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketLoggingBlock : TerraformBlockBase
+public partial class AwsS3BucketLoggingBlock() : TerraformBlock("logging")
 {
     /// <summary>
     /// The target_bucket attribute.
@@ -161,7 +161,7 @@ public partial class AwsS3BucketLoggingBlock : TerraformBlockBase
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketObjectLockConfigurationBlock : TerraformBlockBase
+public partial class AwsS3BucketObjectLockConfigurationBlock() : TerraformBlock("object_lock_configuration")
 {
     /// <summary>
     /// The object_lock_enabled attribute.
@@ -178,7 +178,7 @@ public partial class AwsS3BucketObjectLockConfigurationBlock : TerraformBlockBas
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketReplicationConfigurationBlock : TerraformBlockBase
+public partial class AwsS3BucketReplicationConfigurationBlock() : TerraformBlock("replication_configuration")
 {
     /// <summary>
     /// The role attribute.
@@ -195,7 +195,7 @@ public partial class AwsS3BucketReplicationConfigurationBlock : TerraformBlockBa
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketServerSideEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsS3BucketServerSideEncryptionConfigurationBlock() : TerraformBlock("server_side_encryption_configuration")
 {
 }
 
@@ -203,7 +203,7 @@ public partial class AwsS3BucketServerSideEncryptionConfigurationBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsS3BucketTimeoutsBlock : TerraformBlockBase
+public partial class AwsS3BucketTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -240,7 +240,7 @@ public partial class AwsS3BucketTimeoutsBlock : TerraformBlockBase
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketVersioningBlock : TerraformBlockBase
+public partial class AwsS3BucketVersioningBlock() : TerraformBlock("versioning")
 {
     /// <summary>
     /// The enabled attribute.
@@ -263,7 +263,7 @@ public partial class AwsS3BucketVersioningBlock : TerraformBlockBase
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsS3BucketWebsiteBlock : TerraformBlockBase
+public partial class AwsS3BucketWebsiteBlock() : TerraformBlock("website")
 {
     /// <summary>
     /// The error_document attribute.
@@ -399,7 +399,7 @@ public partial class AwsS3Bucket : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("cors_rule")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketCorsRuleBlock>>? CorsRule { get; set; }
+    public TerraformList<AwsS3BucketCorsRuleBlock> CorsRule { get; set; } = new();
 
     /// <summary>
     /// Block for grant.
@@ -407,7 +407,7 @@ public partial class AwsS3Bucket : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("grant")]
-    public partial TerraformSet<TerraformBlock<AwsS3BucketGrantBlock>>? Grant { get; set; }
+    public TerraformSet<AwsS3BucketGrantBlock> Grant { get; set; } = new();
 
     /// <summary>
     /// Block for lifecycle_rule.
@@ -415,7 +415,7 @@ public partial class AwsS3Bucket : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("lifecycle_rule")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketLifecycleRuleBlock>>? LifecycleRule { get; set; }
+    public TerraformList<AwsS3BucketLifecycleRuleBlock> LifecycleRule { get; set; } = new();
 
     /// <summary>
     /// Block for logging.
@@ -424,7 +424,7 @@ public partial class AwsS3Bucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("logging")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketLoggingBlock>>? Logging { get; set; }
+    public TerraformList<AwsS3BucketLoggingBlock> Logging { get; set; } = new();
 
     /// <summary>
     /// Block for object_lock_configuration.
@@ -433,7 +433,7 @@ public partial class AwsS3Bucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObjectLockConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("object_lock_configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketObjectLockConfigurationBlock>>? ObjectLockConfiguration { get; set; }
+    public TerraformList<AwsS3BucketObjectLockConfigurationBlock> ObjectLockConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for replication_configuration.
@@ -442,7 +442,7 @@ public partial class AwsS3Bucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("replication_configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketReplicationConfigurationBlock>>? ReplicationConfiguration { get; set; }
+    public TerraformList<AwsS3BucketReplicationConfigurationBlock> ReplicationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for server_side_encryption_configuration.
@@ -451,14 +451,14 @@ public partial class AwsS3Bucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryptionConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("server_side_encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketServerSideEncryptionConfigurationBlock>>? ServerSideEncryptionConfiguration { get; set; }
+    public TerraformList<AwsS3BucketServerSideEncryptionConfigurationBlock> ServerSideEncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsS3BucketTimeoutsBlock>? Timeouts { get; set; }
+    public AwsS3BucketTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for versioning.
@@ -467,7 +467,7 @@ public partial class AwsS3Bucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Versioning block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("versioning")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketVersioningBlock>>? Versioning { get; set; }
+    public TerraformList<AwsS3BucketVersioningBlock> Versioning { get; set; } = new();
 
     /// <summary>
     /// Block for website.
@@ -476,7 +476,7 @@ public partial class AwsS3Bucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Website block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("website")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteBlock>>? Website { get; set; }
+    public TerraformList<AwsS3BucketWebsiteBlock> Website { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

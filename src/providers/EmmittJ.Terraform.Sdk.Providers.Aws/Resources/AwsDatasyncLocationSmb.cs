@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for mount_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncLocationSmbMountOptionsBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationSmbMountOptionsBlock() : TerraformBlock("mount_options")
 {
     /// <summary>
     /// The version attribute.
@@ -108,7 +108,7 @@ public partial class AwsDatasyncLocationSmb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MountOptions block(s) allowed")]
     [TerraformProperty("mount_options")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncLocationSmbMountOptionsBlock>>? MountOptions { get; set; }
+    public TerraformList<AwsDatasyncLocationSmbMountOptionsBlock> MountOptions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

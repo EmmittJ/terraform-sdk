@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for environment_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocSessionTemplateEnvironmentConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocSessionTemplateEnvironmentConfigBlock() : TerraformBlock("environment_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDataprocSessionTemplateEnvironmentConfigBlock : Terra
 /// Block type for jupyter_session in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocSessionTemplateJupyterSessionBlock : TerraformBlockBase
+public partial class GoogleDataprocSessionTemplateJupyterSessionBlock() : TerraformBlock("jupyter_session")
 {
     /// <summary>
     /// Display name, shown in the Jupyter kernelspec card.
@@ -36,7 +36,7 @@ public partial class GoogleDataprocSessionTemplateJupyterSessionBlock : Terrafor
 /// Block type for runtime_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocSessionTemplateRuntimeConfigBlock() : TerraformBlock("runtime_config")
 {
     /// <summary>
     /// Optional custom container image for the job runtime environment. If not specified, a default container image will be used.
@@ -66,7 +66,7 @@ public partial class GoogleDataprocSessionTemplateRuntimeConfigBlock : Terraform
 /// Block type for spark_connect_session in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocSessionTemplateSparkConnectSessionBlock : TerraformBlockBase
+public partial class GoogleDataprocSessionTemplateSparkConnectSessionBlock() : TerraformBlock("spark_connect_session")
 {
 }
 
@@ -74,7 +74,7 @@ public partial class GoogleDataprocSessionTemplateSparkConnectSessionBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocSessionTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -156,7 +156,7 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnvironmentConfig block(s) allowed")]
     [TerraformProperty("environment_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocSessionTemplateEnvironmentConfigBlock>>? EnvironmentConfig { get; set; }
+    public TerraformList<GoogleDataprocSessionTemplateEnvironmentConfigBlock> EnvironmentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for jupyter_session.
@@ -164,7 +164,7 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JupyterSession block(s) allowed")]
     [TerraformProperty("jupyter_session")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocSessionTemplateJupyterSessionBlock>>? JupyterSession { get; set; }
+    public TerraformList<GoogleDataprocSessionTemplateJupyterSessionBlock> JupyterSession { get; set; } = new();
 
     /// <summary>
     /// Block for runtime_config.
@@ -172,7 +172,7 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfig block(s) allowed")]
     [TerraformProperty("runtime_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocSessionTemplateRuntimeConfigBlock>>? RuntimeConfig { get; set; }
+    public TerraformList<GoogleDataprocSessionTemplateRuntimeConfigBlock> RuntimeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spark_connect_session.
@@ -180,14 +180,14 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConnectSession block(s) allowed")]
     [TerraformProperty("spark_connect_session")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocSessionTemplateSparkConnectSessionBlock>>? SparkConnectSession { get; set; }
+    public TerraformList<GoogleDataprocSessionTemplateSparkConnectSessionBlock> SparkConnectSession { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocSessionTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocSessionTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the session template was created.

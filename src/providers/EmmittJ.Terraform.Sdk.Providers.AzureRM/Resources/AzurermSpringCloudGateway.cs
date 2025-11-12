@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for api_metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayApiMetadataBlock() : TerraformBlock("api_metadata")
 {
     /// <summary>
     /// The description attribute.
@@ -49,7 +49,7 @@ public partial class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlockB
 /// Block type for client_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudGatewayClientAuthorizationBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayClientAuthorizationBlock() : TerraformBlock("client_authorization")
 {
     /// <summary>
     /// The certificate_ids attribute.
@@ -71,7 +71,7 @@ public partial class AzurermSpringCloudGatewayClientAuthorizationBlock : Terrafo
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudGatewayCorsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayCorsBlock() : TerraformBlock("cors")
 {
     /// <summary>
     /// The allowed_headers attribute.
@@ -128,7 +128,7 @@ public partial class AzurermSpringCloudGatewayCorsBlock : TerraformBlockBase
 /// Block type for local_response_cache_per_instance in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock() : TerraformBlock("local_response_cache_per_instance")
 {
     /// <summary>
     /// The size attribute.
@@ -150,7 +150,7 @@ public partial class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock
 /// Block type for local_response_cache_per_route in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock() : TerraformBlock("local_response_cache_per_route")
 {
     /// <summary>
     /// The size attribute.
@@ -172,7 +172,7 @@ public partial class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : 
 /// Block type for quota in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudGatewayQuotaBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayQuotaBlock() : TerraformBlock("quota")
 {
     /// <summary>
     /// The cpu attribute.
@@ -194,7 +194,7 @@ public partial class AzurermSpringCloudGatewayQuotaBlock : TerraformBlockBase
 /// Block type for sso in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudGatewaySsoBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewaySsoBlock() : TerraformBlock("sso")
 {
     /// <summary>
     /// The client_id attribute.
@@ -230,7 +230,7 @@ public partial class AzurermSpringCloudGatewaySsoBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -350,7 +350,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiMetadata block(s) allowed")]
     [TerraformProperty("api_metadata")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayApiMetadataBlock>>? ApiMetadata { get; set; }
+    public TerraformList<AzurermSpringCloudGatewayApiMetadataBlock> ApiMetadata { get; set; } = new();
 
     /// <summary>
     /// Block for client_authorization.
@@ -358,7 +358,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthorization block(s) allowed")]
     [TerraformProperty("client_authorization")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayClientAuthorizationBlock>>? ClientAuthorization { get; set; }
+    public TerraformList<AzurermSpringCloudGatewayClientAuthorizationBlock> ClientAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for cors.
@@ -366,7 +366,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     [TerraformProperty("cors")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayCorsBlock>>? Cors { get; set; }
+    public TerraformList<AzurermSpringCloudGatewayCorsBlock> Cors { get; set; } = new();
 
     /// <summary>
     /// Block for local_response_cache_per_instance.
@@ -374,7 +374,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerInstance block(s) allowed")]
     [TerraformProperty("local_response_cache_per_instance")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>>? LocalResponseCachePerInstance { get; set; }
+    public TerraformList<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock> LocalResponseCachePerInstance { get; set; } = new();
 
     /// <summary>
     /// Block for local_response_cache_per_route.
@@ -382,7 +382,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerRoute block(s) allowed")]
     [TerraformProperty("local_response_cache_per_route")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>>? LocalResponseCachePerRoute { get; set; }
+    public TerraformList<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock> LocalResponseCachePerRoute { get; set; } = new();
 
     /// <summary>
     /// Block for quota.
@@ -390,7 +390,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
     [TerraformProperty("quota")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayQuotaBlock>>? Quota { get; set; }
+    public TerraformList<AzurermSpringCloudGatewayQuotaBlock> Quota { get; set; } = new();
 
     /// <summary>
     /// Block for sso.
@@ -398,14 +398,14 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
     [TerraformProperty("sso")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewaySsoBlock>>? Sso { get; set; }
+    public TerraformList<AzurermSpringCloudGatewaySsoBlock> Sso { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The url attribute.

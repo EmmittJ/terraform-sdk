@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for control_sets in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAuditmanagerFrameworkControlSetsBlock : TerraformBlockBase
+public partial class AwsAuditmanagerFrameworkControlSetsBlock() : TerraformBlock("control_sets")
 {
 
     /// <summary>
@@ -69,7 +69,7 @@ public partial class AwsAuditmanagerFramework : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("control_sets")]
-    public partial TerraformSet<TerraformBlock<AwsAuditmanagerFrameworkControlSetsBlock>>? ControlSets { get; set; }
+    public TerraformSet<AwsAuditmanagerFrameworkControlSetsBlock> ControlSets { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

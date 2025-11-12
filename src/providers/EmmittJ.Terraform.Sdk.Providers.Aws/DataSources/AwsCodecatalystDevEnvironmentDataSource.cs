@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for repositories in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : TerraformBlockBase
+public partial class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock() : TerraformBlock("repositories")
 {
 
 
@@ -87,7 +87,7 @@ public partial class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
     [TerraformProperty("repositories")]
-    public partial TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock>>? Repositories { get; set; }
+    public TerraformList<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock> Repositories { get; set; } = new();
 
     /// <summary>
     /// The ides attribute.

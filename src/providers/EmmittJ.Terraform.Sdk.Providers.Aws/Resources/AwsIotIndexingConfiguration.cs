@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for thing_group_indexing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock : TerraformBlockBase
+public partial class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock() : TerraformBlock("thing_group_indexing_configuration")
 {
     /// <summary>
     /// The thing_group_indexing_mode attribute.
@@ -22,7 +22,7 @@ public partial class AwsIotIndexingConfigurationThingGroupIndexingConfigurationB
 /// Block type for thing_indexing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : TerraformBlockBase
+public partial class AwsIotIndexingConfigurationThingIndexingConfigurationBlock() : TerraformBlock("thing_indexing_configuration")
 {
     /// <summary>
     /// The device_defender_indexing_mode attribute.
@@ -85,7 +85,7 @@ public partial class AwsIotIndexingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThingGroupIndexingConfiguration block(s) allowed")]
     [TerraformProperty("thing_group_indexing_configuration")]
-    public partial TerraformList<TerraformBlock<AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock>>? ThingGroupIndexingConfiguration { get; set; }
+    public TerraformList<AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock> ThingGroupIndexingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for thing_indexing_configuration.
@@ -93,6 +93,6 @@ public partial class AwsIotIndexingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThingIndexingConfiguration block(s) allowed")]
     [TerraformProperty("thing_indexing_configuration")]
-    public partial TerraformList<TerraformBlock<AwsIotIndexingConfigurationThingIndexingConfigurationBlock>>? ThingIndexingConfiguration { get; set; }
+    public TerraformList<AwsIotIndexingConfigurationThingIndexingConfigurationBlock> ThingIndexingConfiguration { get; set; } = new();
 
 }

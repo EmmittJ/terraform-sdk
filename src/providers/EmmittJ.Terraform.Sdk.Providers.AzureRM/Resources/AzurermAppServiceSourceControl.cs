@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for github_action_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceSourceControlGithubActionConfigurationBlock : TerraformBlockBase
+public partial class AzurermAppServiceSourceControlGithubActionConfigurationBlock() : TerraformBlock("github_action_configuration")
 {
     /// <summary>
     /// Should the service generate the GitHub Action Workflow file. Defaults to `true`
@@ -22,7 +22,7 @@ public partial class AzurermAppServiceSourceControlGithubActionConfigurationBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceSourceControlTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceSourceControlTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,14 +120,14 @@ public partial class AzurermAppServiceSourceControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubActionConfiguration block(s) allowed")]
     [TerraformProperty("github_action_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceSourceControlGithubActionConfigurationBlock>>? GithubActionConfiguration { get; set; }
+    public TerraformList<AzurermAppServiceSourceControlGithubActionConfigurationBlock> GithubActionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceSourceControlTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceSourceControlTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The SCM Type in use. This value is decoded by the service from the repository information supplied.

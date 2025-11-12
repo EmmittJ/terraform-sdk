@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesLogCriteriaBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesLogCriteriaBlock() : TerraformBlock("criteria")
 {
     /// <summary>
     /// The metric_name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermMonitorScheduledQueryRulesLogCriteriaBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -139,13 +139,13 @@ public partial class AzurermMonitorScheduledQueryRulesLog : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
     [TerraformProperty("criteria")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesLogCriteriaBlock>>? Criteria { get; set; }
+    public required TerraformList<AzurermMonitorScheduledQueryRulesLogCriteriaBlock> Criteria { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorScheduledQueryRulesLogTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorScheduledQueryRulesLogTimeoutsBlock Timeouts { get; set; } = new();
 
 }

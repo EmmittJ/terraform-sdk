@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backup_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappVolumeBackupConfigBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeBackupConfigBlock() : TerraformBlock("backup_config")
 {
     /// <summary>
     /// Specify a single backup policy ID for scheduled backups. Format: &#39;projects/{{projectId}}/locations/{{location}}/backupPolicies/{{backupPolicyName}}&#39;
@@ -36,7 +36,7 @@ public partial class GoogleNetappVolumeBackupConfigBlock : TerraformBlockBase
 /// Block type for block_devices in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappVolumeBlockDevicesBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeBlockDevicesBlock() : TerraformBlock("block_devices")
 {
     /// <summary>
     /// A list of host groups that identify hosts that can mount the block volume.
@@ -78,7 +78,7 @@ public partial class GoogleNetappVolumeBlockDevicesBlock : TerraformBlockBase
 /// Block type for export_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappVolumeExportPolicyBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeExportPolicyBlock() : TerraformBlock("export_policy")
 {
 }
 
@@ -86,7 +86,7 @@ public partial class GoogleNetappVolumeExportPolicyBlock : TerraformBlockBase
 /// Block type for hybrid_replication_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeHybridReplicationParametersBlock() : TerraformBlock("hybrid_replication_parameters")
 {
     /// <summary>
     /// Optional. Name of source cluster location associated with the Hybrid replication. This is a free-form field for the display purpose only.
@@ -172,7 +172,7 @@ public partial class GoogleNetappVolumeHybridReplicationParametersBlock : Terraf
 /// Block type for restore_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappVolumeRestoreParametersBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeRestoreParametersBlock() : TerraformBlock("restore_parameters")
 {
     /// <summary>
     /// Full name of the backup to use for creating this volume.
@@ -198,7 +198,7 @@ public partial class GoogleNetappVolumeRestoreParametersBlock : TerraformBlockBa
 /// Block type for snapshot_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappVolumeSnapshotPolicyBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeSnapshotPolicyBlock() : TerraformBlock("snapshot_policy")
 {
     /// <summary>
     /// Enables automated snapshot creation according to defined schedule. Default is false.
@@ -214,7 +214,7 @@ public partial class GoogleNetappVolumeSnapshotPolicyBlock : TerraformBlockBase
 /// Block type for tiering_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappVolumeTieringPolicyBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeTieringPolicyBlock() : TerraformBlock("tiering_policy")
 {
     /// <summary>
     /// Optional. Time in days to mark the volume&#39;s data block as cold and make it eligible for tiering, can be range from 2-183.
@@ -245,7 +245,7 @@ public partial class GoogleNetappVolumeTieringPolicyBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetappVolumeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -440,14 +440,14 @@ public partial class GoogleNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupConfig block(s) allowed")]
     [TerraformProperty("backup_config")]
-    public partial TerraformList<TerraformBlock<GoogleNetappVolumeBackupConfigBlock>>? BackupConfig { get; set; }
+    public TerraformList<GoogleNetappVolumeBackupConfigBlock> BackupConfig { get; set; } = new();
 
     /// <summary>
     /// Block for block_devices.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("block_devices")]
-    public partial TerraformList<TerraformBlock<GoogleNetappVolumeBlockDevicesBlock>>? BlockDevices { get; set; }
+    public TerraformList<GoogleNetappVolumeBlockDevicesBlock> BlockDevices { get; set; } = new();
 
     /// <summary>
     /// Block for export_policy.
@@ -455,7 +455,7 @@ public partial class GoogleNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportPolicy block(s) allowed")]
     [TerraformProperty("export_policy")]
-    public partial TerraformList<TerraformBlock<GoogleNetappVolumeExportPolicyBlock>>? ExportPolicy { get; set; }
+    public TerraformList<GoogleNetappVolumeExportPolicyBlock> ExportPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for hybrid_replication_parameters.
@@ -463,7 +463,7 @@ public partial class GoogleNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HybridReplicationParameters block(s) allowed")]
     [TerraformProperty("hybrid_replication_parameters")]
-    public partial TerraformList<TerraformBlock<GoogleNetappVolumeHybridReplicationParametersBlock>>? HybridReplicationParameters { get; set; }
+    public TerraformList<GoogleNetappVolumeHybridReplicationParametersBlock> HybridReplicationParameters { get; set; } = new();
 
     /// <summary>
     /// Block for restore_parameters.
@@ -471,7 +471,7 @@ public partial class GoogleNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreParameters block(s) allowed")]
     [TerraformProperty("restore_parameters")]
-    public partial TerraformList<TerraformBlock<GoogleNetappVolumeRestoreParametersBlock>>? RestoreParameters { get; set; }
+    public TerraformList<GoogleNetappVolumeRestoreParametersBlock> RestoreParameters { get; set; } = new();
 
     /// <summary>
     /// Block for snapshot_policy.
@@ -479,7 +479,7 @@ public partial class GoogleNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotPolicy block(s) allowed")]
     [TerraformProperty("snapshot_policy")]
-    public partial TerraformList<TerraformBlock<GoogleNetappVolumeSnapshotPolicyBlock>>? SnapshotPolicy { get; set; }
+    public TerraformList<GoogleNetappVolumeSnapshotPolicyBlock> SnapshotPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for tiering_policy.
@@ -487,14 +487,14 @@ public partial class GoogleNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
     [TerraformProperty("tiering_policy")]
-    public partial TerraformList<TerraformBlock<GoogleNetappVolumeTieringPolicyBlock>>? TieringPolicy { get; set; }
+    public TerraformList<GoogleNetappVolumeTieringPolicyBlock> TieringPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetappVolumeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetappVolumeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Reports the resource name of the Active Directory policy being used. Inherited from storage pool.

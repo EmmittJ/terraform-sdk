@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNetworkAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -104,7 +104,7 @@ public partial class GoogleComputeNetworkAttachment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNetworkAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNetworkAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// An array of connections for all the producers connected to this network attachment.

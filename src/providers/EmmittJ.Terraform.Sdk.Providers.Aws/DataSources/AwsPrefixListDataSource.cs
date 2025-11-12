@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsPrefixListDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsPrefixListDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsPrefixListDataSourceFilterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsPrefixListDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsPrefixListDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -83,14 +83,14 @@ public partial class AwsPrefixListDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsPrefixListDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsPrefixListDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsPrefixListDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsPrefixListDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cidr_blocks attribute.

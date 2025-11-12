@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiIndexEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;. The key needs to be in the same region as where the compute resource is created.
@@ -22,7 +22,7 @@ public partial class GoogleVertexAiIndexEncryptionSpecBlock : TerraformBlockBase
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiIndexMetadataBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexMetadataBlock() : TerraformBlock("metadata")
 {
     /// <summary>
     /// Allows inserting, updating  or deleting the contents of the Matching Engine Index.
@@ -50,7 +50,7 @@ public partial class GoogleVertexAiIndexMetadataBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiIndexTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,7 +146,7 @@ public partial class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleVertexAiIndexEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for metadata.
@@ -156,14 +156,14 @@ public partial class GoogleVertexAiIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Metadata block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexMetadataBlock>>? Metadata { get; set; }
+    public required TerraformList<GoogleVertexAiIndexMetadataBlock> Metadata { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiIndexTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiIndexTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

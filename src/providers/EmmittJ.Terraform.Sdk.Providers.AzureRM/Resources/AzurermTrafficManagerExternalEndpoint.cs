@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_header in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermTrafficManagerExternalEndpointCustomHeaderBlock : TerraformBlockBase
+public partial class AzurermTrafficManagerExternalEndpointCustomHeaderBlock() : TerraformBlock("custom_header")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermTrafficManagerExternalEndpointCustomHeaderBlock : Te
 /// Block type for subnet in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermTrafficManagerExternalEndpointSubnetBlock : TerraformBlockBase
+public partial class AzurermTrafficManagerExternalEndpointSubnetBlock() : TerraformBlock("subnet")
 {
     /// <summary>
     /// The first attribute.
@@ -60,7 +60,7 @@ public partial class AzurermTrafficManagerExternalEndpointSubnetBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermTrafficManagerExternalEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AzurermTrafficManagerExternalEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -179,20 +179,20 @@ public partial class AzurermTrafficManagerExternalEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_header")]
-    public partial TerraformList<TerraformBlock<AzurermTrafficManagerExternalEndpointCustomHeaderBlock>>? CustomHeader { get; set; }
+    public TerraformList<AzurermTrafficManagerExternalEndpointCustomHeaderBlock> CustomHeader { get; set; } = new();
 
     /// <summary>
     /// Block for subnet.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("subnet")]
-    public partial TerraformList<TerraformBlock<AzurermTrafficManagerExternalEndpointSubnetBlock>>? Subnet { get; set; }
+    public TerraformList<AzurermTrafficManagerExternalEndpointSubnetBlock> Subnet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermTrafficManagerExternalEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermTrafficManagerExternalEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for registration_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlockBase
+public partial class AwsIotCaCertificateRegistrationConfigBlock() : TerraformBlock("registration_config")
 {
     /// <summary>
     /// The role_arn attribute.
@@ -113,7 +113,7 @@ public partial class AwsIotCaCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistrationConfig block(s) allowed")]
     [TerraformProperty("registration_config")]
-    public partial TerraformList<TerraformBlock<AwsIotCaCertificateRegistrationConfigBlock>>? RegistrationConfig { get; set; }
+    public TerraformList<AwsIotCaCertificateRegistrationConfigBlock> RegistrationConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

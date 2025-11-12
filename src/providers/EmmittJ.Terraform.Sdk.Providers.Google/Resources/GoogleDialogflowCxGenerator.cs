@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for llm_model_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxGeneratorLlmModelSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGeneratorLlmModelSettingsBlock() : TerraformBlock("llm_model_settings")
 {
     /// <summary>
     /// The selected LLM model.
@@ -28,7 +28,7 @@ public partial class GoogleDialogflowCxGeneratorLlmModelSettingsBlock : Terrafor
 /// Block type for model_parameter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGeneratorModelParameterBlock() : TerraformBlock("model_parameter")
 {
     /// <summary>
     /// The maximum number of tokens to generate.
@@ -68,7 +68,7 @@ public partial class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformB
 /// Block type for placeholders in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxGeneratorPlaceholdersBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGeneratorPlaceholdersBlock() : TerraformBlock("placeholders")
 {
     /// <summary>
     /// Unique ID used to map custom placeholder to parameters in fulfillment.
@@ -90,7 +90,7 @@ public partial class GoogleDialogflowCxGeneratorPlaceholdersBlock : TerraformBlo
 /// Block type for prompt_text in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxGeneratorPromptTextBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGeneratorPromptTextBlock() : TerraformBlock("prompt_text")
 {
     /// <summary>
     /// Text input which can be used for prompt or banned phrases.
@@ -105,7 +105,7 @@ public partial class GoogleDialogflowCxGeneratorPromptTextBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGeneratorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -178,7 +178,7 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     [TerraformProperty("llm_model_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorLlmModelSettingsBlock>>? LlmModelSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxGeneratorLlmModelSettingsBlock> LlmModelSettings { get; set; } = new();
 
     /// <summary>
     /// Block for model_parameter.
@@ -186,14 +186,14 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelParameter block(s) allowed")]
     [TerraformProperty("model_parameter")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorModelParameterBlock>>? ModelParameter { get; set; }
+    public TerraformList<GoogleDialogflowCxGeneratorModelParameterBlock> ModelParameter { get; set; } = new();
 
     /// <summary>
     /// Block for placeholders.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("placeholders")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorPlaceholdersBlock>>? Placeholders { get; set; }
+    public TerraformList<GoogleDialogflowCxGeneratorPlaceholdersBlock> Placeholders { get; set; } = new();
 
     /// <summary>
     /// Block for prompt_text.
@@ -203,14 +203,14 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PromptText block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PromptText block(s) allowed")]
     [TerraformProperty("prompt_text")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorPromptTextBlock>>? PromptText { get; set; }
+    public required TerraformList<GoogleDialogflowCxGeneratorPromptTextBlock> PromptText { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxGeneratorTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxGeneratorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the Generator.

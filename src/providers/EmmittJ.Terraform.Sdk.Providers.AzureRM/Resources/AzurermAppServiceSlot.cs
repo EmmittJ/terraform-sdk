@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermAppServiceSlotAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// The additional_login_params attribute.
@@ -78,7 +78,7 @@ public partial class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlockBase
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermAppServiceSlotConnectionStringBlock : TerraformBlockBase
+public partial class AzurermAppServiceSlotConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name attribute.
@@ -110,7 +110,7 @@ public partial class AzurermAppServiceSlotConnectionStringBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceSlotIdentityBlock : TerraformBlockBase
+public partial class AzurermAppServiceSlotIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -135,7 +135,7 @@ public partial class AzurermAppServiceSlotIdentityBlock : TerraformBlockBase
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceSlotLogsBlock : TerraformBlockBase
+public partial class AzurermAppServiceSlotLogsBlock() : TerraformBlock("logs")
 {
     /// <summary>
     /// The detailed_error_messages_enabled attribute.
@@ -157,7 +157,7 @@ public partial class AzurermAppServiceSlotLogsBlock : TerraformBlockBase
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceSlotSiteConfigBlock : TerraformBlockBase
+public partial class AzurermAppServiceSlotSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// The acr_use_managed_identity_credentials attribute.
@@ -375,7 +375,7 @@ public partial class AzurermAppServiceSlotSiteConfigBlock : TerraformBlockBase
 /// Block type for storage_account in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermAppServiceSlotStorageAccountBlock : TerraformBlockBase
+public partial class AzurermAppServiceSlotStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The access_key attribute.
@@ -430,7 +430,7 @@ public partial class AzurermAppServiceSlotStorageAccountBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceSlotTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceSlotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -568,14 +568,14 @@ public partial class AzurermAppServiceSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceSlotAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermAppServiceSlotAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermAppServiceSlotConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermAppServiceSlotConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -583,7 +583,7 @@ public partial class AzurermAppServiceSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceSlotIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermAppServiceSlotIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for logs.
@@ -591,7 +591,7 @@ public partial class AzurermAppServiceSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformProperty("logs")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceSlotLogsBlock>>? Logs { get; set; }
+    public TerraformList<AzurermAppServiceSlotLogsBlock> Logs { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -599,21 +599,21 @@ public partial class AzurermAppServiceSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceSlotSiteConfigBlock>>? SiteConfig { get; set; }
+    public TerraformList<AzurermAppServiceSlotSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformSet<TerraformBlock<AzurermAppServiceSlotStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformSet<AzurermAppServiceSlotStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceSlotTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceSlotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_site_hostname attribute.

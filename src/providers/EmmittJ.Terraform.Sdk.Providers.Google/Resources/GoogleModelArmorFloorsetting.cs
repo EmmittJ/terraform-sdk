@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for ai_platform_floor_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : TerraformBlockBase
+public partial class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock() : TerraformBlock("ai_platform_floor_setting")
 {
     /// <summary>
     /// If true, log Model Armor filter results to Cloud Logging.
@@ -37,7 +37,7 @@ public partial class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : T
 /// Block type for filter_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleModelArmorFloorsettingFilterConfigBlock : TerraformBlockBase
+public partial class GoogleModelArmorFloorsettingFilterConfigBlock() : TerraformBlock("filter_config")
 {
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleModelArmorFloorsettingFilterConfigBlock : TerraformBl
 /// Block type for floor_setting_metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleModelArmorFloorsettingFloorSettingMetadataBlock : TerraformBlockBase
+public partial class GoogleModelArmorFloorsettingFloorSettingMetadataBlock() : TerraformBlock("floor_setting_metadata")
 {
 }
 
@@ -53,7 +53,7 @@ public partial class GoogleModelArmorFloorsettingFloorSettingMetadataBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleModelArmorFloorsettingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleModelArmorFloorsettingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -135,7 +135,7 @@ public partial class GoogleModelArmorFloorsetting : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AiPlatformFloorSetting block(s) allowed")]
     [TerraformProperty("ai_platform_floor_setting")]
-    public partial TerraformList<TerraformBlock<GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock>>? AiPlatformFloorSetting { get; set; }
+    public TerraformList<GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock> AiPlatformFloorSetting { get; set; } = new();
 
     /// <summary>
     /// Block for filter_config.
@@ -145,7 +145,7 @@ public partial class GoogleModelArmorFloorsetting : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FilterConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterConfig block(s) allowed")]
     [TerraformProperty("filter_config")]
-    public partial TerraformList<TerraformBlock<GoogleModelArmorFloorsettingFilterConfigBlock>>? FilterConfig { get; set; }
+    public required TerraformList<GoogleModelArmorFloorsettingFilterConfigBlock> FilterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for floor_setting_metadata.
@@ -153,14 +153,14 @@ public partial class GoogleModelArmorFloorsetting : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FloorSettingMetadata block(s) allowed")]
     [TerraformProperty("floor_setting_metadata")]
-    public partial TerraformList<TerraformBlock<GoogleModelArmorFloorsettingFloorSettingMetadataBlock>>? FloorSettingMetadata { get; set; }
+    public TerraformList<GoogleModelArmorFloorsettingFloorSettingMetadataBlock> FloorSettingMetadata { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleModelArmorFloorsettingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleModelArmorFloorsettingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// [Output only] Create timestamp

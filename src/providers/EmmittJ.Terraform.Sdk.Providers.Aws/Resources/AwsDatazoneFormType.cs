@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for model in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatazoneFormTypeModelBlock : TerraformBlockBase
+public partial class AwsDatazoneFormTypeModelBlock() : TerraformBlock("model")
 {
     /// <summary>
     /// The smithy attribute.
@@ -22,7 +22,7 @@ public partial class AwsDatazoneFormTypeModelBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDatazoneFormTypeTimeoutsBlock : TerraformBlockBase
+public partial class AwsDatazoneFormTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -92,14 +92,14 @@ public partial class AwsDatazoneFormType : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("model")]
-    public partial TerraformList<TerraformBlock<AwsDatazoneFormTypeModelBlock>>? Model { get; set; }
+    public TerraformList<AwsDatazoneFormTypeModelBlock> Model { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDatazoneFormTypeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDatazoneFormTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock() : TerraformBlock("logging_filter")
 {
     /// <summary>
     /// The default_behavior attribute.
@@ -22,7 +22,7 @@ public partial class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock : Terr
 /// Block type for redacted_fields in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock() : TerraformBlock("redacted_fields")
 {
 }
 
@@ -72,7 +72,7 @@ public partial class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingFilter block(s) allowed")]
     [TerraformProperty("logging_filter")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock>>? LoggingFilter { get; set; }
+    public TerraformList<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock> LoggingFilter { get; set; } = new();
 
     /// <summary>
     /// Block for redacted_fields.
@@ -80,6 +80,6 @@ public partial class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 RedactedFields block(s) allowed")]
     [TerraformProperty("redacted_fields")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock>>? RedactedFields { get; set; }
+    public TerraformList<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock> RedactedFields { get; set; } = new();
 
 }

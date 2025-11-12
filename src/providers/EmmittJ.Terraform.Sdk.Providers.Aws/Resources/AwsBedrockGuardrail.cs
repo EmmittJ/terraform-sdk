@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for content_policy_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockGuardrailContentPolicyConfigBlock : TerraformBlockBase
+public partial class AwsBedrockGuardrailContentPolicyConfigBlock() : TerraformBlock("content_policy_config")
 {
     /// <summary>
     /// The tier_config attribute.
@@ -21,7 +21,7 @@ public partial class AwsBedrockGuardrailContentPolicyConfigBlock : TerraformBloc
 /// Block type for contextual_grounding_policy_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockGuardrailContextualGroundingPolicyConfigBlock : TerraformBlockBase
+public partial class AwsBedrockGuardrailContextualGroundingPolicyConfigBlock() : TerraformBlock("contextual_grounding_policy_config")
 {
 }
 
@@ -29,7 +29,7 @@ public partial class AwsBedrockGuardrailContextualGroundingPolicyConfigBlock : T
 /// Block type for cross_region_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockGuardrailCrossRegionConfigBlock : TerraformBlockBase
+public partial class AwsBedrockGuardrailCrossRegionConfigBlock() : TerraformBlock("cross_region_config")
 {
     /// <summary>
     /// The guardrail_profile_identifier attribute.
@@ -45,7 +45,7 @@ public partial class AwsBedrockGuardrailCrossRegionConfigBlock : TerraformBlockB
 /// Block type for sensitive_information_policy_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock : TerraformBlockBase
+public partial class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock() : TerraformBlock("sensitive_information_policy_config")
 {
 }
 
@@ -53,7 +53,7 @@ public partial class AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockGuardrailTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockGuardrailTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -82,7 +82,7 @@ public partial class AwsBedrockGuardrailTimeoutsBlock : TerraformBlockBase
 /// Block type for topic_policy_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockGuardrailTopicPolicyConfigBlock : TerraformBlockBase
+public partial class AwsBedrockGuardrailTopicPolicyConfigBlock() : TerraformBlock("topic_policy_config")
 {
     /// <summary>
     /// The tier_config attribute.
@@ -97,7 +97,7 @@ public partial class AwsBedrockGuardrailTopicPolicyConfigBlock : TerraformBlockB
 /// Block type for word_policy_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockGuardrailWordPolicyConfigBlock : TerraformBlockBase
+public partial class AwsBedrockGuardrailWordPolicyConfigBlock() : TerraformBlock("word_policy_config")
 {
 }
 
@@ -167,49 +167,49 @@ public partial class AwsBedrockGuardrail : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("content_policy_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailContentPolicyConfigBlock>>? ContentPolicyConfig { get; set; }
+    public TerraformList<AwsBedrockGuardrailContentPolicyConfigBlock> ContentPolicyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for contextual_grounding_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("contextual_grounding_policy_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailContextualGroundingPolicyConfigBlock>>? ContextualGroundingPolicyConfig { get; set; }
+    public TerraformList<AwsBedrockGuardrailContextualGroundingPolicyConfigBlock> ContextualGroundingPolicyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cross_region_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cross_region_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailCrossRegionConfigBlock>>? CrossRegionConfig { get; set; }
+    public TerraformList<AwsBedrockGuardrailCrossRegionConfigBlock> CrossRegionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for sensitive_information_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sensitive_information_policy_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock>>? SensitiveInformationPolicyConfig { get; set; }
+    public TerraformList<AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock> SensitiveInformationPolicyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockGuardrailTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockGuardrailTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for topic_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topic_policy_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailTopicPolicyConfigBlock>>? TopicPolicyConfig { get; set; }
+    public TerraformList<AwsBedrockGuardrailTopicPolicyConfigBlock> TopicPolicyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for word_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("word_policy_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailWordPolicyConfigBlock>>? WordPolicyConfig { get; set; }
+    public TerraformList<AwsBedrockGuardrailWordPolicyConfigBlock> WordPolicyConfig { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for delivery_destination_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock : TerraformBlockBase
+public partial class AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock() : TerraformBlock("delivery_destination_configuration")
 {
     /// <summary>
     /// The destination_resource_arn attribute.
@@ -61,7 +61,7 @@ public partial class AwsCloudwatchLogDeliveryDestination : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("delivery_destination_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock>>? DeliveryDestinationConfiguration { get; set; }
+    public TerraformList<AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock> DeliveryDestinationConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

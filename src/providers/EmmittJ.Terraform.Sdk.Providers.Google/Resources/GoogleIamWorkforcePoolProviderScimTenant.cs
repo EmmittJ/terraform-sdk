@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,7 +98,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant : TerraformResourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Represents the base URI as defined in [RFC 7644, Section

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ip_set_descriptor in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafregionalIpsetIpSetDescriptorBlock : TerraformBlockBase
+public partial class AwsWafregionalIpsetIpSetDescriptorBlock() : TerraformBlock("ip_set_descriptor")
 {
     /// <summary>
     /// The type attribute.
@@ -62,7 +62,7 @@ public partial class AwsWafregionalIpset : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ip_set_descriptor")]
-    public partial TerraformSet<TerraformBlock<AwsWafregionalIpsetIpSetDescriptorBlock>>? IpSetDescriptor { get; set; }
+    public TerraformSet<AwsWafregionalIpsetIpSetDescriptorBlock> IpSetDescriptor { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

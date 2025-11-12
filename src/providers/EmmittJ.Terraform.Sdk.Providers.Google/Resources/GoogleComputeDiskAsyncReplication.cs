@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for secondary_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBlockBase
+public partial class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock() : TerraformBlock("secondary_disk")
 {
     /// <summary>
     /// Secondary disk for asynchronous replication.
@@ -23,7 +23,7 @@ public partial class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeDiskAsyncReplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -74,13 +74,13 @@ public partial class GoogleComputeDiskAsyncReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecondaryDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryDisk block(s) allowed")]
     [TerraformProperty("secondary_disk")]
-    public partial TerraformList<TerraformBlock<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock>>? SecondaryDisk { get; set; }
+    public required TerraformList<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock> SecondaryDisk { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeDiskAsyncReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeDiskAsyncReplicationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

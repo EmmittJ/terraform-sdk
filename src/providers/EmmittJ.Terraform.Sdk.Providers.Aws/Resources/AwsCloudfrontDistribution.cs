@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for custom_error_response in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudfrontDistributionCustomErrorResponseBlock : TerraformBlockBase
+public partial class AwsCloudfrontDistributionCustomErrorResponseBlock() : TerraformBlock("custom_error_response")
 {
     /// <summary>
     /// The error_caching_min_ttl attribute.
@@ -43,7 +43,7 @@ public partial class AwsCloudfrontDistributionCustomErrorResponseBlock : Terrafo
 /// Block type for default_cache_behavior in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlockBase
+public partial class AwsCloudfrontDistributionDefaultCacheBehaviorBlock() : TerraformBlock("default_cache_behavior")
 {
     /// <summary>
     /// The allowed_methods attribute.
@@ -167,7 +167,7 @@ public partial class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : Terraf
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontDistributionLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// The bucket attribute.
@@ -197,7 +197,7 @@ public partial class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBloc
 /// Block type for ordered_cache_behavior in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlockBase
+public partial class AwsCloudfrontDistributionOrderedCacheBehaviorBlock() : TerraformBlock("ordered_cache_behavior")
 {
     /// <summary>
     /// The allowed_methods attribute.
@@ -329,7 +329,7 @@ public partial class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : Terraf
 /// Block type for origin in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudfrontDistributionOriginBlock : TerraformBlockBase
+public partial class AwsCloudfrontDistributionOriginBlock() : TerraformBlock("origin")
 {
     /// <summary>
     /// The connection_attempts attribute.
@@ -388,7 +388,7 @@ public partial class AwsCloudfrontDistributionOriginBlock : TerraformBlockBase
 /// Block type for origin_group in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudfrontDistributionOriginGroupBlock : TerraformBlockBase
+public partial class AwsCloudfrontDistributionOriginGroupBlock() : TerraformBlock("origin_group")
 {
     /// <summary>
     /// The origin_id attribute.
@@ -404,7 +404,7 @@ public partial class AwsCloudfrontDistributionOriginGroupBlock : TerraformBlockB
 /// Block type for restrictions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontDistributionRestrictionsBlock : TerraformBlockBase
+public partial class AwsCloudfrontDistributionRestrictionsBlock() : TerraformBlock("restrictions")
 {
 }
 
@@ -412,7 +412,7 @@ public partial class AwsCloudfrontDistributionRestrictionsBlock : TerraformBlock
 /// Block type for viewer_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontDistributionViewerCertificateBlock : TerraformBlockBase
+public partial class AwsCloudfrontDistributionViewerCertificateBlock() : TerraformBlock("viewer_certificate")
 {
     /// <summary>
     /// The acm_certificate_arn attribute.
@@ -579,7 +579,7 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("custom_error_response")]
-    public partial TerraformSet<TerraformBlock<AwsCloudfrontDistributionCustomErrorResponseBlock>>? CustomErrorResponse { get; set; }
+    public TerraformSet<AwsCloudfrontDistributionCustomErrorResponseBlock> CustomErrorResponse { get; set; } = new();
 
     /// <summary>
     /// Block for default_cache_behavior.
@@ -589,7 +589,7 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultCacheBehavior block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultCacheBehavior block(s) allowed")]
     [TerraformProperty("default_cache_behavior")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionDefaultCacheBehaviorBlock>>? DefaultCacheBehavior { get; set; }
+    public required TerraformList<AwsCloudfrontDistributionDefaultCacheBehaviorBlock> DefaultCacheBehavior { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
@@ -597,14 +597,14 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<AwsCloudfrontDistributionLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for ordered_cache_behavior.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ordered_cache_behavior")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionOrderedCacheBehaviorBlock>>? OrderedCacheBehavior { get; set; }
+    public TerraformList<AwsCloudfrontDistributionOrderedCacheBehaviorBlock> OrderedCacheBehavior { get; set; } = new();
 
     /// <summary>
     /// Block for origin.
@@ -613,14 +613,14 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Origin block(s) required")]
     [TerraformProperty("origin")]
-    public partial TerraformSet<TerraformBlock<AwsCloudfrontDistributionOriginBlock>>? Origin { get; set; }
+    public required TerraformSet<AwsCloudfrontDistributionOriginBlock> Origin { get; set; } = new();
 
     /// <summary>
     /// Block for origin_group.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("origin_group")]
-    public partial TerraformSet<TerraformBlock<AwsCloudfrontDistributionOriginGroupBlock>>? OriginGroup { get; set; }
+    public TerraformSet<AwsCloudfrontDistributionOriginGroupBlock> OriginGroup { get; set; } = new();
 
     /// <summary>
     /// Block for restrictions.
@@ -630,7 +630,7 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Restrictions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restrictions block(s) allowed")]
     [TerraformProperty("restrictions")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionRestrictionsBlock>>? Restrictions { get; set; }
+    public required TerraformList<AwsCloudfrontDistributionRestrictionsBlock> Restrictions { get; set; } = new();
 
     /// <summary>
     /// Block for viewer_certificate.
@@ -640,7 +640,7 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ViewerCertificate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ViewerCertificate block(s) allowed")]
     [TerraformProperty("viewer_certificate")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionViewerCertificateBlock>>? ViewerCertificate { get; set; }
+    public required TerraformList<AwsCloudfrontDistributionViewerCertificateBlock> ViewerCertificate { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

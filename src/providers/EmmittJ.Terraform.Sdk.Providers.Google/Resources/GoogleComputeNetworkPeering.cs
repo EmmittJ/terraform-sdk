@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNetworkPeeringTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkPeeringTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -118,7 +118,7 @@ public partial class GoogleComputeNetworkPeering : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNetworkPeeringTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNetworkPeeringTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// State for the peering, either ACTIVE or INACTIVE. The peering is ACTIVE when there&#39;s a matching configuration in the peer network.

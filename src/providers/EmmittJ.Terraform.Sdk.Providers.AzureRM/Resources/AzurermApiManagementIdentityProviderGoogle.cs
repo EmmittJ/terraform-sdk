@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementIdentityProviderGoogleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementIdentityProviderGoogleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,6 +91,6 @@ public partial class AzurermApiManagementIdentityProviderGoogle : TerraformResou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementIdentityProviderGoogleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementIdentityProviderGoogleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

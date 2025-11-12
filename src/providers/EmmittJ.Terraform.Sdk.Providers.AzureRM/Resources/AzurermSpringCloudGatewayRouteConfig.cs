@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for open_api in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayRouteConfigOpenApiBlock() : TerraformBlock("open_api")
 {
     /// <summary>
     /// The uri attribute.
@@ -21,7 +21,7 @@ public partial class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : Terrafor
 /// Block type for route in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayRouteConfigRouteBlock() : TerraformBlock("route")
 {
     /// <summary>
     /// The classification_tags attribute.
@@ -93,7 +93,7 @@ public partial class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -200,20 +200,20 @@ public partial class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApi block(s) allowed")]
     [TerraformProperty("open_api")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>>? OpenApi { get; set; }
+    public TerraformList<AzurermSpringCloudGatewayRouteConfigOpenApiBlock> OpenApi { get; set; } = new();
 
     /// <summary>
     /// Block for route.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("route")]
-    public partial TerraformSet<TerraformBlock<AzurermSpringCloudGatewayRouteConfigRouteBlock>>? Route { get; set; }
+    public TerraformSet<AzurermSpringCloudGatewayRouteConfigRouteBlock> Route { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudGatewayRouteConfigTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudGatewayRouteConfigTimeoutsBlock Timeouts { get; set; } = new();
 
 }

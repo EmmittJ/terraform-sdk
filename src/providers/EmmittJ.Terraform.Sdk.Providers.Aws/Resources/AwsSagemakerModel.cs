@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for container in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerModelContainerBlock : TerraformBlockBase
+public partial class AwsSagemakerModelContainerBlock() : TerraformBlock("container")
 {
     /// <summary>
     /// The container_hostname attribute.
@@ -63,7 +63,7 @@ public partial class AwsSagemakerModelContainerBlock : TerraformBlockBase
 /// Block type for inference_execution_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerModelInferenceExecutionConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerModelInferenceExecutionConfigBlock() : TerraformBlock("inference_execution_config")
 {
     /// <summary>
     /// The mode attribute.
@@ -79,7 +79,7 @@ public partial class AwsSagemakerModelInferenceExecutionConfigBlock : TerraformB
 /// Block type for primary_container in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerModelPrimaryContainerBlock : TerraformBlockBase
+public partial class AwsSagemakerModelPrimaryContainerBlock() : TerraformBlock("primary_container")
 {
     /// <summary>
     /// The container_hostname attribute.
@@ -136,7 +136,7 @@ public partial class AwsSagemakerModelPrimaryContainerBlock : TerraformBlockBase
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerModelVpcConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerModelVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -221,7 +221,7 @@ public partial class AwsSagemakerModel : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("container")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerModelContainerBlock>>? Container { get; set; }
+    public TerraformList<AwsSagemakerModelContainerBlock> Container { get; set; } = new();
 
     /// <summary>
     /// Block for inference_execution_config.
@@ -229,7 +229,7 @@ public partial class AwsSagemakerModel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InferenceExecutionConfig block(s) allowed")]
     [TerraformProperty("inference_execution_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerModelInferenceExecutionConfigBlock>>? InferenceExecutionConfig { get; set; }
+    public TerraformList<AwsSagemakerModelInferenceExecutionConfigBlock> InferenceExecutionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for primary_container.
@@ -237,7 +237,7 @@ public partial class AwsSagemakerModel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrimaryContainer block(s) allowed")]
     [TerraformProperty("primary_container")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerModelPrimaryContainerBlock>>? PrimaryContainer { get; set; }
+    public TerraformList<AwsSagemakerModelPrimaryContainerBlock> PrimaryContainer { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -245,7 +245,7 @@ public partial class AwsSagemakerModel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerModelVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsSagemakerModelVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

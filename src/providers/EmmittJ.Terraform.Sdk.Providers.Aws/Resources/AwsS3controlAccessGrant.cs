@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_grants_location_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock : TerraformBlockBase
+public partial class AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock() : TerraformBlock("access_grants_location_configuration")
 {
     /// <summary>
     /// The s3_sub_prefix attribute.
@@ -21,7 +21,7 @@ public partial class AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlo
 /// Block type for grantee in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3controlAccessGrantGranteeBlock : TerraformBlockBase
+public partial class AwsS3controlAccessGrantGranteeBlock() : TerraformBlock("grantee")
 {
     /// <summary>
     /// The grantee_identifier attribute.
@@ -99,14 +99,14 @@ public partial class AwsS3controlAccessGrant : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("access_grants_location_configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock>>? AccessGrantsLocationConfiguration { get; set; }
+    public TerraformList<AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock> AccessGrantsLocationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for grantee.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("grantee")]
-    public partial TerraformList<TerraformBlock<AwsS3controlAccessGrantGranteeBlock>>? Grantee { get; set; }
+    public TerraformList<AwsS3controlAccessGrantGranteeBlock> Grantee { get; set; } = new();
 
     /// <summary>
     /// The access_grant_arn attribute.

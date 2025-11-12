@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for agent_orchestration_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock : TerraformBlockBase
+public partial class AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock() : TerraformBlock("agent_orchestration_config")
 {
     /// <summary>
     /// The profiling_enabled attribute.
@@ -61,7 +61,7 @@ public partial class AwsCodeguruprofilerProfilingGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("agent_orchestration_config")]
-    public partial TerraformList<TerraformBlock<AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock>>? AgentOrchestrationConfig { get; set; }
+    public TerraformList<AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock> AgentOrchestrationConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

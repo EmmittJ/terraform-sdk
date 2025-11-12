@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock() : TerraformBlock("retention_rule")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,13 +120,13 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorage : TerraformRes
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("retention_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock>>? RetentionRule { get; set; }
+    public TerraformList<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock> RetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock Timeouts { get; set; } = new();
 
 }

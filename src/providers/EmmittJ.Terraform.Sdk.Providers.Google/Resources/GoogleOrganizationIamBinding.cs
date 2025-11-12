@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOrganizationIamBindingConditionBlock : TerraformBlockBase
+public partial class GoogleOrganizationIamBindingConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -80,7 +80,7 @@ public partial class GoogleOrganizationIamBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleOrganizationIamBindingConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleOrganizationIamBindingConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

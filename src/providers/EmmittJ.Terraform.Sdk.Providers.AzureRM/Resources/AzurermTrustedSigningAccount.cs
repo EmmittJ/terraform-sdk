@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermTrustedSigningAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermTrustedSigningAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,7 +98,7 @@ public partial class AzurermTrustedSigningAccount : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermTrustedSigningAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermTrustedSigningAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The account_uri attribute.

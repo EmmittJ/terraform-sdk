@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferServerEndpointDetailsBlock : TerraformBlockBase
+public partial class AwsTransferServerEndpointDetailsBlock() : TerraformBlock("endpoint_details")
 {
     /// <summary>
     /// The address_allocation_ids attribute.
@@ -49,7 +49,7 @@ public partial class AwsTransferServerEndpointDetailsBlock : TerraformBlockBase
 /// Block type for protocol_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferServerProtocolDetailsBlock : TerraformBlockBase
+public partial class AwsTransferServerProtocolDetailsBlock() : TerraformBlock("protocol_details")
 {
     /// <summary>
     /// The as2_transports attribute.
@@ -85,7 +85,7 @@ public partial class AwsTransferServerProtocolDetailsBlock : TerraformBlockBase
 /// Block type for s3_storage_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferServerS3StorageOptionsBlock : TerraformBlockBase
+public partial class AwsTransferServerS3StorageOptionsBlock() : TerraformBlock("s3_storage_options")
 {
     /// <summary>
     /// The directory_listing_optimization attribute.
@@ -100,7 +100,7 @@ public partial class AwsTransferServerS3StorageOptionsBlock : TerraformBlockBase
 /// Block type for workflow_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferServerWorkflowDetailsBlock : TerraformBlockBase
+public partial class AwsTransferServerWorkflowDetailsBlock() : TerraformBlock("workflow_details")
 {
 }
 
@@ -267,7 +267,7 @@ public partial class AwsTransferServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointDetails block(s) allowed")]
     [TerraformProperty("endpoint_details")]
-    public partial TerraformList<TerraformBlock<AwsTransferServerEndpointDetailsBlock>>? EndpointDetails { get; set; }
+    public TerraformList<AwsTransferServerEndpointDetailsBlock> EndpointDetails { get; set; } = new();
 
     /// <summary>
     /// Block for protocol_details.
@@ -275,7 +275,7 @@ public partial class AwsTransferServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtocolDetails block(s) allowed")]
     [TerraformProperty("protocol_details")]
-    public partial TerraformList<TerraformBlock<AwsTransferServerProtocolDetailsBlock>>? ProtocolDetails { get; set; }
+    public TerraformList<AwsTransferServerProtocolDetailsBlock> ProtocolDetails { get; set; } = new();
 
     /// <summary>
     /// Block for s3_storage_options.
@@ -283,7 +283,7 @@ public partial class AwsTransferServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3StorageOptions block(s) allowed")]
     [TerraformProperty("s3_storage_options")]
-    public partial TerraformList<TerraformBlock<AwsTransferServerS3StorageOptionsBlock>>? S3StorageOptions { get; set; }
+    public TerraformList<AwsTransferServerS3StorageOptionsBlock> S3StorageOptions { get; set; } = new();
 
     /// <summary>
     /// Block for workflow_details.
@@ -291,7 +291,7 @@ public partial class AwsTransferServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkflowDetails block(s) allowed")]
     [TerraformProperty("workflow_details")]
-    public partial TerraformList<TerraformBlock<AwsTransferServerWorkflowDetailsBlock>>? WorkflowDetails { get; set; }
+    public TerraformList<AwsTransferServerWorkflowDetailsBlock> WorkflowDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

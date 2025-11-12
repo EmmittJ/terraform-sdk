@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbPostgresqlRoleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbPostgresqlRoleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,6 +76,6 @@ public partial class AzurermCosmosdbPostgresqlRole : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbPostgresqlRoleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbPostgresqlRoleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

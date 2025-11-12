@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAdvisorSuppressionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAdvisorSuppressionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,7 +83,7 @@ public partial class AzurermAdvisorSuppression : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAdvisorSuppressionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAdvisorSuppressionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The suppression_id attribute.

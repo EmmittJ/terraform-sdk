@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cool_access in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappVolumeCoolAccessBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeCoolAccessBlock() : TerraformBlock("cool_access")
 {
     /// <summary>
     /// The coolness_period_in_days attribute.
@@ -38,7 +38,7 @@ public partial class AzurermNetappVolumeCoolAccessBlock : TerraformBlockBase
 /// Block type for data_protection_backup_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeDataProtectionBackupPolicyBlock() : TerraformBlock("data_protection_backup_policy")
 {
     /// <summary>
     /// The ID of the backup policy to associate with this volume.
@@ -69,7 +69,7 @@ public partial class AzurermNetappVolumeDataProtectionBackupPolicyBlock : Terraf
 /// Block type for data_protection_replication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeDataProtectionReplicationBlock() : TerraformBlock("data_protection_replication")
 {
     /// <summary>
     /// The endpoint_type attribute.
@@ -108,7 +108,7 @@ public partial class AzurermNetappVolumeDataProtectionReplicationBlock : Terrafo
 /// Block type for data_protection_snapshot_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock() : TerraformBlock("data_protection_snapshot_policy")
 {
     /// <summary>
     /// The snapshot_policy_id attribute.
@@ -124,7 +124,7 @@ public partial class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : Terr
 /// Block type for export_policy_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeExportPolicyRuleBlock() : TerraformBlock("export_policy_rule")
 {
     /// <summary>
     /// The allowed_clients attribute.
@@ -226,7 +226,7 @@ public partial class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetappVolumeTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -479,7 +479,7 @@ public partial class AzurermNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoolAccess block(s) allowed")]
     [TerraformProperty("cool_access")]
-    public partial TerraformList<TerraformBlock<AzurermNetappVolumeCoolAccessBlock>>? CoolAccess { get; set; }
+    public TerraformList<AzurermNetappVolumeCoolAccessBlock> CoolAccess { get; set; } = new();
 
     /// <summary>
     /// Block for data_protection_backup_policy.
@@ -487,7 +487,7 @@ public partial class AzurermNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionBackupPolicy block(s) allowed")]
     [TerraformProperty("data_protection_backup_policy")]
-    public partial TerraformList<TerraformBlock<AzurermNetappVolumeDataProtectionBackupPolicyBlock>>? DataProtectionBackupPolicy { get; set; }
+    public TerraformList<AzurermNetappVolumeDataProtectionBackupPolicyBlock> DataProtectionBackupPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for data_protection_replication.
@@ -495,7 +495,7 @@ public partial class AzurermNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionReplication block(s) allowed")]
     [TerraformProperty("data_protection_replication")]
-    public partial TerraformList<TerraformBlock<AzurermNetappVolumeDataProtectionReplicationBlock>>? DataProtectionReplication { get; set; }
+    public TerraformList<AzurermNetappVolumeDataProtectionReplicationBlock> DataProtectionReplication { get; set; } = new();
 
     /// <summary>
     /// Block for data_protection_snapshot_policy.
@@ -503,7 +503,7 @@ public partial class AzurermNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionSnapshotPolicy block(s) allowed")]
     [TerraformProperty("data_protection_snapshot_policy")]
-    public partial TerraformList<TerraformBlock<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock>>? DataProtectionSnapshotPolicy { get; set; }
+    public TerraformList<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock> DataProtectionSnapshotPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for export_policy_rule.
@@ -511,14 +511,14 @@ public partial class AzurermNetappVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ExportPolicyRule block(s) allowed")]
     [TerraformProperty("export_policy_rule")]
-    public partial TerraformList<TerraformBlock<AzurermNetappVolumeExportPolicyRuleBlock>>? ExportPolicyRule { get; set; }
+    public TerraformList<AzurermNetappVolumeExportPolicyRuleBlock> ExportPolicyRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetappVolumeTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetappVolumeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The mount_ip_addresses attribute.

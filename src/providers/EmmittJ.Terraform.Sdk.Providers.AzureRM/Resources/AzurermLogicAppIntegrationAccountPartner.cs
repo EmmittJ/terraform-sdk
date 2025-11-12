@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for business_identity in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock() : TerraformBlock("business_identity")
 {
     /// <summary>
     /// The qualifier attribute.
@@ -30,7 +30,7 @@ public partial class AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,13 +117,13 @@ public partial class AzurermLogicAppIntegrationAccountPartner : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BusinessIdentity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BusinessIdentity block(s) required")]
     [TerraformProperty("business_identity")]
-    public partial TerraformSet<TerraformBlock<AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock>>? BusinessIdentity { get; set; }
+    public required TerraformSet<AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock> BusinessIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

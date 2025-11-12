@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for feature in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermResourceProviderRegistrationFeatureBlock : TerraformBlockBase
+public partial class AzurermResourceProviderRegistrationFeatureBlock() : TerraformBlock("feature")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermResourceProviderRegistrationFeatureBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermResourceProviderRegistrationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermResourceProviderRegistrationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,13 +91,13 @@ public partial class AzurermResourceProviderRegistration : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("feature")]
-    public partial TerraformSet<TerraformBlock<AzurermResourceProviderRegistrationFeatureBlock>>? Feature { get; set; }
+    public TerraformSet<AzurermResourceProviderRegistrationFeatureBlock> Feature { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermResourceProviderRegistrationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermResourceProviderRegistrationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

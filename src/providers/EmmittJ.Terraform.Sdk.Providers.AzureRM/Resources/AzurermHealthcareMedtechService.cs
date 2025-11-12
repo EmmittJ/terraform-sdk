@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlockBase
+public partial class AzurermHealthcareMedtechServiceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHealthcareMedtechServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,13 +149,13 @@ public partial class AzurermHealthcareMedtechService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareMedtechServiceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermHealthcareMedtechServiceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHealthcareMedtechServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHealthcareMedtechServiceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

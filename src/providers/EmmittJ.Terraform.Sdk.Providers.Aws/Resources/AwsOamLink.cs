@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for link_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOamLinkLinkConfigurationBlock : TerraformBlockBase
+public partial class AwsOamLinkLinkConfigurationBlock() : TerraformBlock("link_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsOamLinkLinkConfigurationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOamLinkTimeoutsBlock : TerraformBlockBase
+public partial class AwsOamLinkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,14 +107,14 @@ public partial class AwsOamLink : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkConfiguration block(s) allowed")]
     [TerraformProperty("link_configuration")]
-    public partial TerraformList<TerraformBlock<AwsOamLinkLinkConfigurationBlock>>? LinkConfiguration { get; set; }
+    public TerraformList<AwsOamLinkLinkConfigurationBlock> LinkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOamLinkTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOamLinkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

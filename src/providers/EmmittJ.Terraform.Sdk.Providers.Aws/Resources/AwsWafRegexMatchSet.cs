@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for regex_match_tuple in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafRegexMatchSetRegexMatchTupleBlock : TerraformBlockBase
+public partial class AwsWafRegexMatchSetRegexMatchTupleBlock() : TerraformBlock("regex_match_tuple")
 {
     /// <summary>
     /// The regex_pattern_set_id attribute.
@@ -55,7 +55,7 @@ public partial class AwsWafRegexMatchSet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("regex_match_tuple")]
-    public partial TerraformSet<TerraformBlock<AwsWafRegexMatchSetRegexMatchTupleBlock>>? RegexMatchTuple { get; set; }
+    public TerraformSet<AwsWafRegexMatchSetRegexMatchTupleBlock> RegexMatchTuple { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStackHciNetworkInterfaceIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermStackHciNetworkInterfaceIpConfigurationBlock() : TerraformBlock("ip_configuration")
 {
 
 
@@ -31,7 +31,7 @@ public partial class AzurermStackHciNetworkInterfaceIpConfigurationBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStackHciNetworkInterfaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStackHciNetworkInterfaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -141,13 +141,13 @@ public partial class AzurermStackHciNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
     [TerraformProperty("ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermStackHciNetworkInterfaceIpConfigurationBlock>>? IpConfiguration { get; set; }
+    public required TerraformList<AzurermStackHciNetworkInterfaceIpConfigurationBlock> IpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStackHciNetworkInterfaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStackHciNetworkInterfaceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

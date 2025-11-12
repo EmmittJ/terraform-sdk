@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for lambda_function in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlockBase
+public partial class AwsS3BucketNotificationLambdaFunctionBlock() : TerraformBlock("lambda_function")
 {
     /// <summary>
     /// The events attribute.
@@ -50,7 +50,7 @@ public partial class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
 /// Block type for queue in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketNotificationQueueBlock : TerraformBlockBase
+public partial class AwsS3BucketNotificationQueueBlock() : TerraformBlock("queue")
 {
     /// <summary>
     /// The events attribute.
@@ -95,7 +95,7 @@ public partial class AwsS3BucketNotificationQueueBlock : TerraformBlockBase
 /// Block type for topic in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketNotificationTopicBlock : TerraformBlockBase
+public partial class AwsS3BucketNotificationTopicBlock() : TerraformBlock("topic")
 {
     /// <summary>
     /// The events attribute.
@@ -179,20 +179,20 @@ public partial class AwsS3BucketNotification : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("lambda_function")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketNotificationLambdaFunctionBlock>>? LambdaFunction { get; set; }
+    public TerraformList<AwsS3BucketNotificationLambdaFunctionBlock> LambdaFunction { get; set; } = new();
 
     /// <summary>
     /// Block for queue.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("queue")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketNotificationQueueBlock>>? Queue { get; set; }
+    public TerraformList<AwsS3BucketNotificationQueueBlock> Queue { get; set; } = new();
 
     /// <summary>
     /// Block for topic.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topic")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketNotificationTopicBlock>>? Topic { get; set; }
+    public TerraformList<AwsS3BucketNotificationTopicBlock> Topic { get; set; } = new();
 
 }

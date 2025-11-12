@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for application_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock() : TerraformBlock("application_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlo
 /// Block type for cloudwatch_logging_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : TerraformBlockBase
+public partial class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock() : TerraformBlock("cloudwatch_logging_options")
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ public partial class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : TerraformBlockBase
+public partial class AwsKinesisanalyticsv2ApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -152,7 +152,7 @@ public partial class AwsKinesisanalyticsv2Application : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationConfiguration block(s) allowed")]
     [TerraformProperty("application_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>>? ApplicationConfiguration { get; set; }
+    public TerraformList<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock> ApplicationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for cloudwatch_logging_options.
@@ -160,14 +160,14 @@ public partial class AwsKinesisanalyticsv2Application : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudwatchLoggingOptions block(s) allowed")]
     [TerraformProperty("cloudwatch_logging_options")]
-    public partial TerraformList<TerraformBlock<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>>? CloudwatchLoggingOptions { get; set; }
+    public TerraformList<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock> CloudwatchLoggingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKinesisanalyticsv2ApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKinesisanalyticsv2ApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

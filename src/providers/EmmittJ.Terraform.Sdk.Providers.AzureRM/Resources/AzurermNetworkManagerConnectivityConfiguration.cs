@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for applies_to_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock() : TerraformBlock("applies_to_group")
 {
     /// <summary>
     /// The global_mesh_enabled attribute.
@@ -44,7 +44,7 @@ public partial class AzurermNetworkManagerConnectivityConfigurationAppliesToGrou
 /// Block type for hub in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerConnectivityConfigurationHubBlock() : TerraformBlock("hub")
 {
     /// <summary>
     /// The resource_id attribute.
@@ -68,7 +68,7 @@ public partial class AzurermNetworkManagerConnectivityConfigurationHubBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,7 +169,7 @@ public partial class AzurermNetworkManagerConnectivityConfiguration : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppliesToGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AppliesToGroup block(s) required")]
     [TerraformProperty("applies_to_group")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock>>? AppliesToGroup { get; set; }
+    public required TerraformList<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock> AppliesToGroup { get; set; } = new();
 
     /// <summary>
     /// Block for hub.
@@ -177,13 +177,13 @@ public partial class AzurermNetworkManagerConnectivityConfiguration : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hub block(s) allowed")]
     [TerraformProperty("hub")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkManagerConnectivityConfigurationHubBlock>>? Hub { get; set; }
+    public TerraformList<AzurermNetworkManagerConnectivityConfigurationHubBlock> Hub { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

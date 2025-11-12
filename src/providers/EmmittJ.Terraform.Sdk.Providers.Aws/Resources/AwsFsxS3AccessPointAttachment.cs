@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for openzfs_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock() : TerraformBlock("openzfs_configuration")
 {
     /// <summary>
     /// The volume_id attribute.
@@ -22,7 +22,7 @@ public partial class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock : Te
 /// Block type for s3_access_point in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxS3AccessPointAttachmentS3AccessPointBlock : TerraformBlockBase
+public partial class AwsFsxS3AccessPointAttachmentS3AccessPointBlock() : TerraformBlock("s3_access_point")
 {
     /// <summary>
     /// The policy attribute.
@@ -37,7 +37,7 @@ public partial class AwsFsxS3AccessPointAttachmentS3AccessPointBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxS3AccessPointAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxS3AccessPointAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -92,21 +92,21 @@ public partial class AwsFsxS3AccessPointAttachment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("openzfs_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock>>? OpenzfsConfiguration { get; set; }
+    public TerraformList<AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock> OpenzfsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for s3_access_point.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("s3_access_point")]
-    public partial TerraformList<TerraformBlock<AwsFsxS3AccessPointAttachmentS3AccessPointBlock>>? S3AccessPoint { get; set; }
+    public TerraformList<AwsFsxS3AccessPointAttachmentS3AccessPointBlock> S3AccessPoint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxS3AccessPointAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxS3AccessPointAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The s3_access_point_alias attribute.

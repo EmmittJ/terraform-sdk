@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineSitemapTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineSitemapTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,7 +76,7 @@ public partial class GoogleDiscoveryEngineSitemap : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineSitemapTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineSitemapTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp when the sitemap was created.

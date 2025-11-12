@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for feature_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineApplicationFeatureSettingsBlock : TerraformBlockBase
+public partial class GoogleAppEngineApplicationFeatureSettingsBlock() : TerraformBlock("feature_settings")
 {
     /// <summary>
     /// The split_health_checks attribute.
@@ -22,7 +22,7 @@ public partial class GoogleAppEngineApplicationFeatureSettingsBlock : TerraformB
 /// Block type for iap in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineApplicationIapBlock : TerraformBlockBase
+public partial class GoogleAppEngineApplicationIapBlock() : TerraformBlock("iap")
 {
     /// <summary>
     /// Adapted for use with the app
@@ -54,7 +54,7 @@ public partial class GoogleAppEngineApplicationIapBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAppEngineApplicationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAppEngineApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,7 +138,7 @@ public partial class GoogleAppEngineApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureSettings block(s) allowed")]
     [TerraformProperty("feature_settings")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineApplicationFeatureSettingsBlock>>? FeatureSettings { get; set; }
+    public TerraformList<GoogleAppEngineApplicationFeatureSettingsBlock> FeatureSettings { get; set; } = new();
 
     /// <summary>
     /// Block for iap.
@@ -146,14 +146,14 @@ public partial class GoogleAppEngineApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Iap block(s) allowed")]
     [TerraformProperty("iap")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineApplicationIapBlock>>? Iap { get; set; }
+    public TerraformList<GoogleAppEngineApplicationIapBlock> Iap { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAppEngineApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAppEngineApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Identifier of the app.

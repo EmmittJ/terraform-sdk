@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelAlertRuleFusionSourceBlock : TerraformBlockBase
+public partial class AzurermSentinelAlertRuleFusionSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The enabled attribute.
@@ -29,7 +29,7 @@ public partial class AzurermSentinelAlertRuleFusionSourceBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSentinelAlertRuleFusionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSentinelAlertRuleFusionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -113,13 +113,13 @@ public partial class AzurermSentinelAlertRuleFusion : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelAlertRuleFusionSourceBlock>>? Source { get; set; }
+    public TerraformList<AzurermSentinelAlertRuleFusionSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSentinelAlertRuleFusionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSentinelAlertRuleFusionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

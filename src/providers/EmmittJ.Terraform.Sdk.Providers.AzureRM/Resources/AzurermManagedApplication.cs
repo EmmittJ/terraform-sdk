@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedApplicationPlanBlock : TerraformBlockBase
+public partial class AzurermManagedApplicationPlanBlock() : TerraformBlock("plan")
 {
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermManagedApplicationPlanBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagedApplicationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagedApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,14 +169,14 @@ public partial class AzurermManagedApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformList<TerraformBlock<AzurermManagedApplicationPlanBlock>>? Plan { get; set; }
+    public TerraformList<AzurermManagedApplicationPlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagedApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagedApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The outputs attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity_reservation_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceCapacityReservationSpecificationBlock : TerraformBlockBase
+public partial class AwsInstanceCapacityReservationSpecificationBlock() : TerraformBlock("capacity_reservation_specification")
 {
     /// <summary>
     /// The capacity_reservation_preference attribute.
@@ -21,7 +21,7 @@ public partial class AwsInstanceCapacityReservationSpecificationBlock : Terrafor
 /// Block type for cpu_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceCpuOptionsBlock : TerraformBlockBase
+public partial class AwsInstanceCpuOptionsBlock() : TerraformBlock("cpu_options")
 {
     /// <summary>
     /// The amd_sev_snp attribute.
@@ -50,7 +50,7 @@ public partial class AwsInstanceCpuOptionsBlock : TerraformBlockBase
 /// Block type for credit_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceCreditSpecificationBlock : TerraformBlockBase
+public partial class AwsInstanceCreditSpecificationBlock() : TerraformBlock("credit_specification")
 {
     /// <summary>
     /// The cpu_credits attribute.
@@ -65,7 +65,7 @@ public partial class AwsInstanceCreditSpecificationBlock : TerraformBlockBase
 /// Block type for ebs_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsInstanceEbsBlockDeviceBlock : TerraformBlockBase
+public partial class AwsInstanceEbsBlockDeviceBlock() : TerraformBlock("ebs_block_device")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -152,7 +152,7 @@ public partial class AwsInstanceEbsBlockDeviceBlock : TerraformBlockBase
 /// Block type for enclave_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceEnclaveOptionsBlock : TerraformBlockBase
+public partial class AwsInstanceEnclaveOptionsBlock() : TerraformBlock("enclave_options")
 {
     /// <summary>
     /// The enabled attribute.
@@ -167,7 +167,7 @@ public partial class AwsInstanceEnclaveOptionsBlock : TerraformBlockBase
 /// Block type for ephemeral_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsInstanceEphemeralBlockDeviceBlock : TerraformBlockBase
+public partial class AwsInstanceEphemeralBlockDeviceBlock() : TerraformBlock("ephemeral_block_device")
 {
     /// <summary>
     /// The device_name attribute.
@@ -197,7 +197,7 @@ public partial class AwsInstanceEphemeralBlockDeviceBlock : TerraformBlockBase
 /// Block type for instance_market_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceInstanceMarketOptionsBlock : TerraformBlockBase
+public partial class AwsInstanceInstanceMarketOptionsBlock() : TerraformBlock("instance_market_options")
 {
     /// <summary>
     /// The market_type attribute.
@@ -212,7 +212,7 @@ public partial class AwsInstanceInstanceMarketOptionsBlock : TerraformBlockBase
 /// Block type for launch_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceLaunchTemplateBlock : TerraformBlockBase
+public partial class AwsInstanceLaunchTemplateBlock() : TerraformBlock("launch_template")
 {
     /// <summary>
     /// The id attribute.
@@ -241,7 +241,7 @@ public partial class AwsInstanceLaunchTemplateBlock : TerraformBlockBase
 /// Block type for maintenance_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceMaintenanceOptionsBlock : TerraformBlockBase
+public partial class AwsInstanceMaintenanceOptionsBlock() : TerraformBlock("maintenance_options")
 {
     /// <summary>
     /// The auto_recovery attribute.
@@ -256,7 +256,7 @@ public partial class AwsInstanceMaintenanceOptionsBlock : TerraformBlockBase
 /// Block type for metadata_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceMetadataOptionsBlock : TerraformBlockBase
+public partial class AwsInstanceMetadataOptionsBlock() : TerraformBlock("metadata_options")
 {
     /// <summary>
     /// The http_endpoint attribute.
@@ -300,7 +300,7 @@ public partial class AwsInstanceMetadataOptionsBlock : TerraformBlockBase
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsInstanceNetworkInterfaceBlock : TerraformBlockBase
+public partial class AwsInstanceNetworkInterfaceBlock() : TerraformBlock("network_interface")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -338,7 +338,7 @@ public partial class AwsInstanceNetworkInterfaceBlock : TerraformBlockBase
 /// Block type for primary_network_interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstancePrimaryNetworkInterfaceBlock : TerraformBlockBase
+public partial class AwsInstancePrimaryNetworkInterfaceBlock() : TerraformBlock("primary_network_interface")
 {
 
     /// <summary>
@@ -355,7 +355,7 @@ public partial class AwsInstancePrimaryNetworkInterfaceBlock : TerraformBlockBas
 /// Block type for private_dns_name_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstancePrivateDnsNameOptionsBlock : TerraformBlockBase
+public partial class AwsInstancePrivateDnsNameOptionsBlock() : TerraformBlock("private_dns_name_options")
 {
     /// <summary>
     /// The enable_resource_name_dns_a_record attribute.
@@ -384,7 +384,7 @@ public partial class AwsInstancePrivateDnsNameOptionsBlock : TerraformBlockBase
 /// Block type for root_block_device in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInstanceRootBlockDeviceBlock : TerraformBlockBase
+public partial class AwsInstanceRootBlockDeviceBlock() : TerraformBlock("root_block_device")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -457,7 +457,7 @@ public partial class AwsInstanceRootBlockDeviceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AwsInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -764,7 +764,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityReservationSpecification block(s) allowed")]
     [TerraformProperty("capacity_reservation_specification")]
-    public partial TerraformList<TerraformBlock<AwsInstanceCapacityReservationSpecificationBlock>>? CapacityReservationSpecification { get; set; }
+    public TerraformList<AwsInstanceCapacityReservationSpecificationBlock> CapacityReservationSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for cpu_options.
@@ -772,7 +772,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CpuOptions block(s) allowed")]
     [TerraformProperty("cpu_options")]
-    public partial TerraformList<TerraformBlock<AwsInstanceCpuOptionsBlock>>? CpuOptions { get; set; }
+    public TerraformList<AwsInstanceCpuOptionsBlock> CpuOptions { get; set; } = new();
 
     /// <summary>
     /// Block for credit_specification.
@@ -780,14 +780,14 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreditSpecification block(s) allowed")]
     [TerraformProperty("credit_specification")]
-    public partial TerraformList<TerraformBlock<AwsInstanceCreditSpecificationBlock>>? CreditSpecification { get; set; }
+    public TerraformList<AwsInstanceCreditSpecificationBlock> CreditSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for ebs_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsInstanceEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
+    public TerraformSet<AwsInstanceEbsBlockDeviceBlock> EbsBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for enclave_options.
@@ -795,14 +795,14 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnclaveOptions block(s) allowed")]
     [TerraformProperty("enclave_options")]
-    public partial TerraformList<TerraformBlock<AwsInstanceEnclaveOptionsBlock>>? EnclaveOptions { get; set; }
+    public TerraformList<AwsInstanceEnclaveOptionsBlock> EnclaveOptions { get; set; } = new();
 
     /// <summary>
     /// Block for ephemeral_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ephemeral_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsInstanceEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
+    public TerraformSet<AwsInstanceEphemeralBlockDeviceBlock> EphemeralBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for instance_market_options.
@@ -810,7 +810,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMarketOptions block(s) allowed")]
     [TerraformProperty("instance_market_options")]
-    public partial TerraformList<TerraformBlock<AwsInstanceInstanceMarketOptionsBlock>>? InstanceMarketOptions { get; set; }
+    public TerraformList<AwsInstanceInstanceMarketOptionsBlock> InstanceMarketOptions { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template.
@@ -818,7 +818,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
     [TerraformProperty("launch_template")]
-    public partial TerraformList<TerraformBlock<AwsInstanceLaunchTemplateBlock>>? LaunchTemplate { get; set; }
+    public TerraformList<AwsInstanceLaunchTemplateBlock> LaunchTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_options.
@@ -826,7 +826,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceOptions block(s) allowed")]
     [TerraformProperty("maintenance_options")]
-    public partial TerraformList<TerraformBlock<AwsInstanceMaintenanceOptionsBlock>>? MaintenanceOptions { get; set; }
+    public TerraformList<AwsInstanceMaintenanceOptionsBlock> MaintenanceOptions { get; set; } = new();
 
     /// <summary>
     /// Block for metadata_options.
@@ -834,7 +834,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataOptions block(s) allowed")]
     [TerraformProperty("metadata_options")]
-    public partial TerraformList<TerraformBlock<AwsInstanceMetadataOptionsBlock>>? MetadataOptions { get; set; }
+    public TerraformList<AwsInstanceMetadataOptionsBlock> MetadataOptions { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
@@ -842,7 +842,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("network_interface")]
-    public partial TerraformSet<TerraformBlock<AwsInstanceNetworkInterfaceBlock>>? NetworkInterface { get; set; }
+    public TerraformSet<AwsInstanceNetworkInterfaceBlock> NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for primary_network_interface.
@@ -850,7 +850,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrimaryNetworkInterface block(s) allowed")]
     [TerraformProperty("primary_network_interface")]
-    public partial TerraformList<TerraformBlock<AwsInstancePrimaryNetworkInterfaceBlock>>? PrimaryNetworkInterface { get; set; }
+    public TerraformList<AwsInstancePrimaryNetworkInterfaceBlock> PrimaryNetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for private_dns_name_options.
@@ -858,7 +858,7 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateDnsNameOptions block(s) allowed")]
     [TerraformProperty("private_dns_name_options")]
-    public partial TerraformList<TerraformBlock<AwsInstancePrivateDnsNameOptionsBlock>>? PrivateDnsNameOptions { get; set; }
+    public TerraformList<AwsInstancePrivateDnsNameOptionsBlock> PrivateDnsNameOptions { get; set; } = new();
 
     /// <summary>
     /// Block for root_block_device.
@@ -866,14 +866,14 @@ public partial class AwsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootBlockDevice block(s) allowed")]
     [TerraformProperty("root_block_device")]
-    public partial TerraformList<TerraformBlock<AwsInstanceRootBlockDeviceBlock>>? RootBlockDevice { get; set; }
+    public TerraformList<AwsInstanceRootBlockDeviceBlock> RootBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

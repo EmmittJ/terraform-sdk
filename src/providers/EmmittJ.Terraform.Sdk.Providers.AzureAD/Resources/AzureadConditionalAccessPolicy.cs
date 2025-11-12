@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlockBase
+public partial class AzureadConditionalAccessPolicyConditionsBlock() : TerraformBlock("conditions")
 {
     /// <summary>
     /// The client_app_types attribute.
@@ -50,7 +50,7 @@ public partial class AzureadConditionalAccessPolicyConditionsBlock : TerraformBl
 /// Block type for grant_controls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlockBase
+public partial class AzureadConditionalAccessPolicyGrantControlsBlock() : TerraformBlock("grant_controls")
 {
     /// <summary>
     /// The authentication_strength_policy_id attribute.
@@ -94,7 +94,7 @@ public partial class AzureadConditionalAccessPolicyGrantControlsBlock : Terrafor
 /// Block type for session_controls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlockBase
+public partial class AzureadConditionalAccessPolicySessionControlsBlock() : TerraformBlock("session_controls")
 {
     /// <summary>
     /// The application_enforced_restrictions_enabled attribute.
@@ -158,7 +158,7 @@ public partial class AzureadConditionalAccessPolicySessionControlsBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzureadConditionalAccessPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -231,7 +231,7 @@ public partial class AzureadConditionalAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Conditions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
     [TerraformProperty("conditions")]
-    public partial TerraformList<TerraformBlock<AzureadConditionalAccessPolicyConditionsBlock>>? Conditions { get; set; }
+    public required TerraformList<AzureadConditionalAccessPolicyConditionsBlock> Conditions { get; set; } = new();
 
     /// <summary>
     /// Block for grant_controls.
@@ -239,7 +239,7 @@ public partial class AzureadConditionalAccessPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrantControls block(s) allowed")]
     [TerraformProperty("grant_controls")]
-    public partial TerraformList<TerraformBlock<AzureadConditionalAccessPolicyGrantControlsBlock>>? GrantControls { get; set; }
+    public TerraformList<AzureadConditionalAccessPolicyGrantControlsBlock> GrantControls { get; set; } = new();
 
     /// <summary>
     /// Block for session_controls.
@@ -247,14 +247,14 @@ public partial class AzureadConditionalAccessPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SessionControls block(s) allowed")]
     [TerraformProperty("session_controls")]
-    public partial TerraformList<TerraformBlock<AzureadConditionalAccessPolicySessionControlsBlock>>? SessionControls { get; set; }
+    public TerraformList<AzureadConditionalAccessPolicySessionControlsBlock> SessionControls { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadConditionalAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadConditionalAccessPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object ID of the policy

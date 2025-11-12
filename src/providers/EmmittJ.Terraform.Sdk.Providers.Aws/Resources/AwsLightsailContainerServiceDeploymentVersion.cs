@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for container in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLightsailContainerServiceDeploymentVersionContainerBlock : TerraformBlockBase
+public partial class AwsLightsailContainerServiceDeploymentVersionContainerBlock() : TerraformBlock("container")
 {
     /// <summary>
     /// The command attribute.
@@ -51,7 +51,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersionContainerBlock
 /// Block type for public_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : TerraformBlockBase
+public partial class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock() : TerraformBlock("public_endpoint")
 {
     /// <summary>
     /// The container_name attribute.
@@ -75,7 +75,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersionPublicEndpoint
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock : TerraformBlockBase
+public partial class AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,7 +126,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersion : TerraformRe
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Container block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(53, ErrorMessage = "Maximum 53 Container block(s) allowed")]
     [TerraformProperty("container")]
-    public partial TerraformSet<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionContainerBlock>>? Container { get; set; }
+    public required TerraformSet<AwsLightsailContainerServiceDeploymentVersionContainerBlock> Container { get; set; } = new();
 
     /// <summary>
     /// Block for public_endpoint.
@@ -134,14 +134,14 @@ public partial class AwsLightsailContainerServiceDeploymentVersion : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicEndpoint block(s) allowed")]
     [TerraformProperty("public_endpoint")]
-    public partial TerraformList<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock>>? PublicEndpoint { get; set; }
+    public TerraformList<AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock> PublicEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.

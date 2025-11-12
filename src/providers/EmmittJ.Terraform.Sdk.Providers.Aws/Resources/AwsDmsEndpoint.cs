@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for elasticsearch_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointElasticsearchSettingsBlock() : TerraformBlock("elasticsearch_settings")
 {
     /// <summary>
     /// The endpoint_uri attribute.
@@ -51,7 +51,7 @@ public partial class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlockBa
 /// Block type for kafka_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointKafkaSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointKafkaSettingsBlock() : TerraformBlock("kafka_settings")
 {
     /// <summary>
     /// The broker attribute.
@@ -193,7 +193,7 @@ public partial class AwsDmsEndpointKafkaSettingsBlock : TerraformBlockBase
 /// Block type for kinesis_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointKinesisSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointKinesisSettingsBlock() : TerraformBlock("kinesis_settings")
 {
     /// <summary>
     /// The include_control_details attribute.
@@ -271,7 +271,7 @@ public partial class AwsDmsEndpointKinesisSettingsBlock : TerraformBlockBase
 /// Block type for mongodb_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointMongodbSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointMongodbSettingsBlock() : TerraformBlock("mongodb_settings")
 {
     /// <summary>
     /// The auth_mechanism attribute.
@@ -321,7 +321,7 @@ public partial class AwsDmsEndpointMongodbSettingsBlock : TerraformBlockBase
 /// Block type for mysql_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointMysqlSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointMysqlSettingsBlock() : TerraformBlock("mysql_settings")
 {
     /// <summary>
     /// The after_connect_script attribute.
@@ -399,7 +399,7 @@ public partial class AwsDmsEndpointMysqlSettingsBlock : TerraformBlockBase
 /// Block type for oracle_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointOracleSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointOracleSettingsBlock() : TerraformBlock("oracle_settings")
 {
     /// <summary>
     /// The authentication_method attribute.
@@ -414,7 +414,7 @@ public partial class AwsDmsEndpointOracleSettingsBlock : TerraformBlockBase
 /// Block type for postgres_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointPostgresSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointPostgresSettingsBlock() : TerraformBlock("postgres_settings")
 {
     /// <summary>
     /// The after_connect_script attribute.
@@ -548,7 +548,7 @@ public partial class AwsDmsEndpointPostgresSettingsBlock : TerraformBlockBase
 /// Block type for redis_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointRedisSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointRedisSettingsBlock() : TerraformBlock("redis_settings")
 {
     /// <summary>
     /// The auth_password attribute.
@@ -608,7 +608,7 @@ public partial class AwsDmsEndpointRedisSettingsBlock : TerraformBlockBase
 /// Block type for redshift_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsEndpointRedshiftSettingsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointRedshiftSettingsBlock() : TerraformBlock("redshift_settings")
 {
     /// <summary>
     /// The bucket_folder attribute.
@@ -651,7 +651,7 @@ public partial class AwsDmsEndpointRedshiftSettingsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDmsEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AwsDmsEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -828,7 +828,7 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchSettings block(s) allowed")]
     [TerraformProperty("elasticsearch_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointElasticsearchSettingsBlock>>? ElasticsearchSettings { get; set; }
+    public TerraformList<AwsDmsEndpointElasticsearchSettingsBlock> ElasticsearchSettings { get; set; } = new();
 
     /// <summary>
     /// Block for kafka_settings.
@@ -836,7 +836,7 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaSettings block(s) allowed")]
     [TerraformProperty("kafka_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointKafkaSettingsBlock>>? KafkaSettings { get; set; }
+    public TerraformList<AwsDmsEndpointKafkaSettingsBlock> KafkaSettings { get; set; } = new();
 
     /// <summary>
     /// Block for kinesis_settings.
@@ -844,7 +844,7 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisSettings block(s) allowed")]
     [TerraformProperty("kinesis_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointKinesisSettingsBlock>>? KinesisSettings { get; set; }
+    public TerraformList<AwsDmsEndpointKinesisSettingsBlock> KinesisSettings { get; set; } = new();
 
     /// <summary>
     /// Block for mongodb_settings.
@@ -852,7 +852,7 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MongodbSettings block(s) allowed")]
     [TerraformProperty("mongodb_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointMongodbSettingsBlock>>? MongodbSettings { get; set; }
+    public TerraformList<AwsDmsEndpointMongodbSettingsBlock> MongodbSettings { get; set; } = new();
 
     /// <summary>
     /// Block for mysql_settings.
@@ -860,7 +860,7 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MysqlSettings block(s) allowed")]
     [TerraformProperty("mysql_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointMysqlSettingsBlock>>? MysqlSettings { get; set; }
+    public TerraformList<AwsDmsEndpointMysqlSettingsBlock> MysqlSettings { get; set; } = new();
 
     /// <summary>
     /// Block for oracle_settings.
@@ -868,7 +868,7 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OracleSettings block(s) allowed")]
     [TerraformProperty("oracle_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointOracleSettingsBlock>>? OracleSettings { get; set; }
+    public TerraformList<AwsDmsEndpointOracleSettingsBlock> OracleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for postgres_settings.
@@ -876,7 +876,7 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostgresSettings block(s) allowed")]
     [TerraformProperty("postgres_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointPostgresSettingsBlock>>? PostgresSettings { get; set; }
+    public TerraformList<AwsDmsEndpointPostgresSettingsBlock> PostgresSettings { get; set; } = new();
 
     /// <summary>
     /// Block for redis_settings.
@@ -884,7 +884,7 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedisSettings block(s) allowed")]
     [TerraformProperty("redis_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointRedisSettingsBlock>>? RedisSettings { get; set; }
+    public TerraformList<AwsDmsEndpointRedisSettingsBlock> RedisSettings { get; set; } = new();
 
     /// <summary>
     /// Block for redshift_settings.
@@ -892,14 +892,14 @@ public partial class AwsDmsEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftSettings block(s) allowed")]
     [TerraformProperty("redshift_settings")]
-    public partial TerraformList<TerraformBlock<AwsDmsEndpointRedshiftSettingsBlock>>? RedshiftSettings { get; set; }
+    public TerraformList<AwsDmsEndpointRedshiftSettingsBlock> RedshiftSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDmsEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDmsEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint_arn attribute.

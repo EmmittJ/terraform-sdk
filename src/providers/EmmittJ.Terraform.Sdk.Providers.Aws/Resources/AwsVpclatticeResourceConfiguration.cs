@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resource_configuration_definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpclatticeResourceConfigurationResourceConfigurationDefinitionBlock : TerraformBlockBase
+public partial class AwsVpclatticeResourceConfigurationResourceConfigurationDefinitionBlock() : TerraformBlock("resource_configuration_definition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsVpclatticeResourceConfigurationResourceConfigurationDefi
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpclatticeResourceConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpclatticeResourceConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -117,14 +117,14 @@ public partial class AwsVpclatticeResourceConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resource_configuration_definition")]
-    public partial TerraformList<TerraformBlock<AwsVpclatticeResourceConfigurationResourceConfigurationDefinitionBlock>>? ResourceConfigurationDefinition { get; set; }
+    public TerraformList<AwsVpclatticeResourceConfigurationResourceConfigurationDefinitionBlock> ResourceConfigurationDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpclatticeResourceConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpclatticeResourceConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

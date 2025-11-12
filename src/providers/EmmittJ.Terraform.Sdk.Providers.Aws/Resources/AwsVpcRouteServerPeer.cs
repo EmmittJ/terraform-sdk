@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for bgp_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpcRouteServerPeerBgpOptionsBlock : TerraformBlockBase
+public partial class AwsVpcRouteServerPeerBgpOptionsBlock() : TerraformBlock("bgp_options")
 {
     /// <summary>
     /// The peer_asn attribute.
@@ -29,7 +29,7 @@ public partial class AwsVpcRouteServerPeerBgpOptionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpcRouteServerPeerTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpcRouteServerPeerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -91,14 +91,14 @@ public partial class AwsVpcRouteServerPeer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("bgp_options")]
-    public partial TerraformList<TerraformBlock<AwsVpcRouteServerPeerBgpOptionsBlock>>? BgpOptions { get; set; }
+    public TerraformList<AwsVpcRouteServerPeerBgpOptionsBlock> BgpOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpcRouteServerPeerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpcRouteServerPeerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

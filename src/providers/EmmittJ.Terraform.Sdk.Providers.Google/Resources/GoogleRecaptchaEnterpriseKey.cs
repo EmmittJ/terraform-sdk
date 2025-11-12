@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for android_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : TerraformBlockBase
+public partial class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock() : TerraformBlock("android_settings")
 {
     /// <summary>
     /// If set to true, it means allowed_package_names will not be enforced.
@@ -28,7 +28,7 @@ public partial class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : Terrafor
 /// Block type for ios_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : TerraformBlockBase
+public partial class GoogleRecaptchaEnterpriseKeyIosSettingsBlock() : TerraformBlock("ios_settings")
 {
     /// <summary>
     /// If set to true, it means allowed_bundle_ids will not be enforced.
@@ -50,7 +50,7 @@ public partial class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : TerraformBlo
 /// Block type for testing_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlockBase
+public partial class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock() : TerraformBlock("testing_options")
 {
     /// <summary>
     /// For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable challenge if UNSOLVABLE_CHALLENGE. Possible values: TESTING_CHALLENGE_UNSPECIFIED, NOCAPTCHA, UNSOLVABLE_CHALLENGE
@@ -72,7 +72,7 @@ public partial class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleRecaptchaEnterpriseKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,7 +101,7 @@ public partial class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlockB
 /// Block type for waf_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlockBase
+public partial class GoogleRecaptchaEnterpriseKeyWafSettingsBlock() : TerraformBlock("waf_settings")
 {
     /// <summary>
     /// Supported WAF features. For more information, see https://cloud.google.com/recaptcha-enterprise/docs/usecase#comparison_of_features. Possible values: CHALLENGE_PAGE, SESSION_TOKEN, ACTION_TOKEN, EXPRESS
@@ -125,7 +125,7 @@ public partial class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlo
 /// Block type for web_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlockBase
+public partial class GoogleRecaptchaEnterpriseKeyWebSettingsBlock() : TerraformBlock("web_settings")
 {
     /// <summary>
     /// If set to true, it means allowed_domains will not be enforced.
@@ -213,7 +213,7 @@ public partial class GoogleRecaptchaEnterpriseKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AndroidSettings block(s) allowed")]
     [TerraformProperty("android_settings")]
-    public partial TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock>>? AndroidSettings { get; set; }
+    public TerraformList<GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock> AndroidSettings { get; set; } = new();
 
     /// <summary>
     /// Block for ios_settings.
@@ -221,7 +221,7 @@ public partial class GoogleRecaptchaEnterpriseKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IosSettings block(s) allowed")]
     [TerraformProperty("ios_settings")]
-    public partial TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyIosSettingsBlock>>? IosSettings { get; set; }
+    public TerraformList<GoogleRecaptchaEnterpriseKeyIosSettingsBlock> IosSettings { get; set; } = new();
 
     /// <summary>
     /// Block for testing_options.
@@ -229,14 +229,14 @@ public partial class GoogleRecaptchaEnterpriseKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TestingOptions block(s) allowed")]
     [TerraformProperty("testing_options")]
-    public partial TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyTestingOptionsBlock>>? TestingOptions { get; set; }
+    public TerraformList<GoogleRecaptchaEnterpriseKeyTestingOptionsBlock> TestingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleRecaptchaEnterpriseKeyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleRecaptchaEnterpriseKeyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for waf_settings.
@@ -244,7 +244,7 @@ public partial class GoogleRecaptchaEnterpriseKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WafSettings block(s) allowed")]
     [TerraformProperty("waf_settings")]
-    public partial TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyWafSettingsBlock>>? WafSettings { get; set; }
+    public TerraformList<GoogleRecaptchaEnterpriseKeyWafSettingsBlock> WafSettings { get; set; } = new();
 
     /// <summary>
     /// Block for web_settings.
@@ -252,7 +252,7 @@ public partial class GoogleRecaptchaEnterpriseKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebSettings block(s) allowed")]
     [TerraformProperty("web_settings")]
-    public partial TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyWebSettingsBlock>>? WebSettings { get; set; }
+    public TerraformList<GoogleRecaptchaEnterpriseKeyWebSettingsBlock> WebSettings { get; set; } = new();
 
     /// <summary>
     /// The timestamp corresponding to the creation of this Key.

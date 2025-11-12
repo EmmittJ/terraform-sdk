@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for api_server_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlockBase
+public partial class AzurermRedhatOpenshiftClusterApiServerProfileBlock() : TerraformBlock("api_server_profile")
 {
 
 
@@ -24,7 +24,7 @@ public partial class AzurermRedhatOpenshiftClusterApiServerProfileBlock : Terraf
 /// Block type for cluster_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlockBase
+public partial class AzurermRedhatOpenshiftClusterClusterProfileBlock() : TerraformBlock("cluster_profile")
 {
     /// <summary>
     /// The domain attribute.
@@ -70,7 +70,7 @@ public partial class AzurermRedhatOpenshiftClusterClusterProfileBlock : Terrafor
 /// Block type for ingress_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlockBase
+public partial class AzurermRedhatOpenshiftClusterIngressProfileBlock() : TerraformBlock("ingress_profile")
 {
 
 
@@ -88,7 +88,7 @@ public partial class AzurermRedhatOpenshiftClusterIngressProfileBlock : Terrafor
 /// Block type for main_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlockBase
+public partial class AzurermRedhatOpenshiftClusterMainProfileBlock() : TerraformBlock("main_profile")
 {
     /// <summary>
     /// The disk_encryption_set_id attribute.
@@ -126,7 +126,7 @@ public partial class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBl
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermRedhatOpenshiftClusterNetworkProfileBlock() : TerraformBlock("network_profile")
 {
     /// <summary>
     /// The outbound_type attribute.
@@ -164,7 +164,7 @@ public partial class AzurermRedhatOpenshiftClusterNetworkProfileBlock : Terrafor
 /// Block type for service_principal in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlockBase
+public partial class AzurermRedhatOpenshiftClusterServicePrincipalBlock() : TerraformBlock("service_principal")
 {
     /// <summary>
     /// The client_id attribute.
@@ -188,7 +188,7 @@ public partial class AzurermRedhatOpenshiftClusterServicePrincipalBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRedhatOpenshiftClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -224,7 +224,7 @@ public partial class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
 /// Block type for worker_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlockBase
+public partial class AzurermRedhatOpenshiftClusterWorkerProfileBlock() : TerraformBlock("worker_profile")
 {
     /// <summary>
     /// The disk_encryption_set_id attribute.
@@ -330,7 +330,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApiServerProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiServerProfile block(s) allowed")]
     [TerraformProperty("api_server_profile")]
-    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterApiServerProfileBlock>>? ApiServerProfile { get; set; }
+    public required TerraformList<AzurermRedhatOpenshiftClusterApiServerProfileBlock> ApiServerProfile { get; set; } = new();
 
     /// <summary>
     /// Block for cluster_profile.
@@ -340,7 +340,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClusterProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterProfile block(s) allowed")]
     [TerraformProperty("cluster_profile")]
-    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterClusterProfileBlock>>? ClusterProfile { get; set; }
+    public required TerraformList<AzurermRedhatOpenshiftClusterClusterProfileBlock> ClusterProfile { get; set; } = new();
 
     /// <summary>
     /// Block for ingress_profile.
@@ -350,7 +350,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IngressProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressProfile block(s) allowed")]
     [TerraformProperty("ingress_profile")]
-    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterIngressProfileBlock>>? IngressProfile { get; set; }
+    public required TerraformList<AzurermRedhatOpenshiftClusterIngressProfileBlock> IngressProfile { get; set; } = new();
 
     /// <summary>
     /// Block for main_profile.
@@ -360,7 +360,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MainProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MainProfile block(s) allowed")]
     [TerraformProperty("main_profile")]
-    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterMainProfileBlock>>? MainProfile { get; set; }
+    public required TerraformList<AzurermRedhatOpenshiftClusterMainProfileBlock> MainProfile { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -370,7 +370,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public required TerraformList<AzurermRedhatOpenshiftClusterNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for service_principal.
@@ -380,14 +380,14 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServicePrincipal block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
     [TerraformProperty("service_principal")]
-    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterServicePrincipalBlock>>? ServicePrincipal { get; set; }
+    public required TerraformList<AzurermRedhatOpenshiftClusterServicePrincipalBlock> ServicePrincipal { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRedhatOpenshiftClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRedhatOpenshiftClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for worker_profile.
@@ -397,7 +397,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WorkerProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerProfile block(s) allowed")]
     [TerraformProperty("worker_profile")]
-    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterWorkerProfileBlock>>? WorkerProfile { get; set; }
+    public required TerraformList<AzurermRedhatOpenshiftClusterWorkerProfileBlock> WorkerProfile { get; set; } = new();
 
     /// <summary>
     /// The console_url attribute.

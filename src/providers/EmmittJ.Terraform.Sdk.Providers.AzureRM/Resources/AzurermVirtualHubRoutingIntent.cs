@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlockBase
+public partial class AzurermVirtualHubRoutingIntentRoutingPolicyBlock() : TerraformBlock("routing_policy")
 {
     /// <summary>
     /// The destinations attribute.
@@ -38,7 +38,7 @@ public partial class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualHubRoutingIntentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,13 +110,13 @@ public partial class AzurermVirtualHubRoutingIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingPolicy block(s) required")]
     [TerraformProperty("routing_policy")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualHubRoutingIntentRoutingPolicyBlock>>? RoutingPolicy { get; set; }
+    public required TerraformList<AzurermVirtualHubRoutingIntentRoutingPolicyBlock> RoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualHubRoutingIntentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualHubRoutingIntentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

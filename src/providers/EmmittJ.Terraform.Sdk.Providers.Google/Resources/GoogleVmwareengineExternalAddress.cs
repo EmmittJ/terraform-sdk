@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVmwareengineExternalAddressTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVmwareengineExternalAddressTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -85,7 +85,7 @@ public partial class GoogleVmwareengineExternalAddress : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVmwareengineExternalAddressTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVmwareengineExternalAddressTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation time of this resource.

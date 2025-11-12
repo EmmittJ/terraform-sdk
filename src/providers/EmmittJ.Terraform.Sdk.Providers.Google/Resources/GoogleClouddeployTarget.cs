@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for anthos_cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployTargetAnthosClusterBlock : TerraformBlockBase
+public partial class GoogleClouddeployTargetAnthosClusterBlock() : TerraformBlock("anthos_cluster")
 {
     /// <summary>
     /// Membership of the GKE Hub-registered cluster to which to apply the Skaffold configuration. Format is `projects/{project}/locations/{location}/memberships/{membership_name}`.
@@ -21,7 +21,7 @@ public partial class GoogleClouddeployTargetAnthosClusterBlock : TerraformBlockB
 /// Block type for associated_entities in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleClouddeployTargetAssociatedEntitiesBlock : TerraformBlockBase
+public partial class GoogleClouddeployTargetAssociatedEntitiesBlock() : TerraformBlock("associated_entities")
 {
     /// <summary>
     /// The name for the key in the map for which this object is mapped to in the API
@@ -37,7 +37,7 @@ public partial class GoogleClouddeployTargetAssociatedEntitiesBlock : TerraformB
 /// Block type for custom_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployTargetCustomTargetBlock : TerraformBlockBase
+public partial class GoogleClouddeployTargetCustomTargetBlock() : TerraformBlock("custom_target")
 {
     /// <summary>
     /// Required. The name of the CustomTargetType. Format must be `projects/{project}/locations/{location}/customTargetTypes/{custom_target_type}`.
@@ -53,7 +53,7 @@ public partial class GoogleClouddeployTargetCustomTargetBlock : TerraformBlockBa
 /// Block type for execution_configs in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlockBase
+public partial class GoogleClouddeployTargetExecutionConfigsBlock() : TerraformBlock("execution_configs")
 {
     /// <summary>
     /// Optional. Cloud Storage location in which to store execution outputs. This can either be a bucket (&amp;quot;gs://my-bucket&amp;quot;) or a path within a bucket (&amp;quot;gs://my-bucket/my-dir&amp;quot;). If unspecified, a default bucket located in the same region will be used.
@@ -104,7 +104,7 @@ public partial class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlo
 /// Block type for gke in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployTargetGkeBlock : TerraformBlockBase
+public partial class GoogleClouddeployTargetGkeBlock() : TerraformBlock("gke")
 {
     /// <summary>
     /// Information specifying a GKE Cluster. Format is `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}.
@@ -140,7 +140,7 @@ public partial class GoogleClouddeployTargetGkeBlock : TerraformBlockBase
 /// Block type for multi_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployTargetMultiTargetBlock : TerraformBlockBase
+public partial class GoogleClouddeployTargetMultiTargetBlock() : TerraformBlock("multi_target")
 {
     /// <summary>
     /// Required. The target_ids of this multiTarget.
@@ -156,7 +156,7 @@ public partial class GoogleClouddeployTargetMultiTargetBlock : TerraformBlockBas
 /// Block type for run in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployTargetRunBlock : TerraformBlockBase
+public partial class GoogleClouddeployTargetRunBlock() : TerraformBlock("run")
 {
     /// <summary>
     /// Required. The location where the Cloud Run Service should be located. Format is `projects/{project}/locations/{location}`.
@@ -172,7 +172,7 @@ public partial class GoogleClouddeployTargetRunBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleClouddeployTargetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleClouddeployTargetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -284,14 +284,14 @@ public partial class GoogleClouddeployTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnthosCluster block(s) allowed")]
     [TerraformProperty("anthos_cluster")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployTargetAnthosClusterBlock>>? AnthosCluster { get; set; }
+    public TerraformList<GoogleClouddeployTargetAnthosClusterBlock> AnthosCluster { get; set; } = new();
 
     /// <summary>
     /// Block for associated_entities.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("associated_entities")]
-    public partial TerraformSet<TerraformBlock<GoogleClouddeployTargetAssociatedEntitiesBlock>>? AssociatedEntities { get; set; }
+    public TerraformSet<GoogleClouddeployTargetAssociatedEntitiesBlock> AssociatedEntities { get; set; } = new();
 
     /// <summary>
     /// Block for custom_target.
@@ -299,14 +299,14 @@ public partial class GoogleClouddeployTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomTarget block(s) allowed")]
     [TerraformProperty("custom_target")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployTargetCustomTargetBlock>>? CustomTarget { get; set; }
+    public TerraformList<GoogleClouddeployTargetCustomTargetBlock> CustomTarget { get; set; } = new();
 
     /// <summary>
     /// Block for execution_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("execution_configs")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployTargetExecutionConfigsBlock>>? ExecutionConfigs { get; set; }
+    public TerraformList<GoogleClouddeployTargetExecutionConfigsBlock> ExecutionConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for gke.
@@ -314,7 +314,7 @@ public partial class GoogleClouddeployTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gke block(s) allowed")]
     [TerraformProperty("gke")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployTargetGkeBlock>>? Gke { get; set; }
+    public TerraformList<GoogleClouddeployTargetGkeBlock> Gke { get; set; } = new();
 
     /// <summary>
     /// Block for multi_target.
@@ -322,7 +322,7 @@ public partial class GoogleClouddeployTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiTarget block(s) allowed")]
     [TerraformProperty("multi_target")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployTargetMultiTargetBlock>>? MultiTarget { get; set; }
+    public TerraformList<GoogleClouddeployTargetMultiTargetBlock> MultiTarget { get; set; } = new();
 
     /// <summary>
     /// Block for run.
@@ -330,14 +330,14 @@ public partial class GoogleClouddeployTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Run block(s) allowed")]
     [TerraformProperty("run")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployTargetRunBlock>>? Run { get; set; }
+    public TerraformList<GoogleClouddeployTargetRunBlock> Run { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleClouddeployTargetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleClouddeployTargetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Time at which the `Target` was created.

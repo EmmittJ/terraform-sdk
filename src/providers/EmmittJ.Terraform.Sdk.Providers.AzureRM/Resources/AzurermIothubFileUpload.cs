@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIothubFileUploadTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIothubFileUploadTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,6 +132,6 @@ public partial class AzurermIothubFileUpload : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIothubFileUploadTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIothubFileUploadTimeoutsBlock Timeouts { get; set; } = new();
 
 }

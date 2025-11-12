@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for secret in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsKmsSecretDataSourceSecretBlock : TerraformBlockBase
+public partial class AwsKmsSecretDataSourceSecretBlock() : TerraformBlock("secret")
 {
     /// <summary>
     /// The context attribute.
@@ -71,6 +71,6 @@ public partial class AwsKmsSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Secret block(s) required")]
     [TerraformProperty("secret")]
-    public partial TerraformSet<TerraformBlock<AwsKmsSecretDataSourceSecretBlock>>? Secret { get; set; }
+    public required TerraformSet<AwsKmsSecretDataSourceSecretBlock> Secret { get; set; } = new();
 
 }

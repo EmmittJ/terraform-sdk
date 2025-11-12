@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for managed_cluster_update in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock : TerraformBlockBase
+public partial class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock() : TerraformBlock("managed_cluster_update")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock : 
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlockBase
+public partial class AzurermKubernetesFleetUpdateRunStageBlock() : TerraformBlock("stage")
 {
     /// <summary>
     /// The after_stage_wait_in_seconds attribute.
@@ -37,7 +37,7 @@ public partial class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKubernetesFleetUpdateRunTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,20 +117,20 @@ public partial class AzurermKubernetesFleetUpdateRun : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagedClusterUpdate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedClusterUpdate block(s) allowed")]
     [TerraformProperty("managed_cluster_update")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock>>? ManagedClusterUpdate { get; set; }
+    public required TerraformList<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock> ManagedClusterUpdate { get; set; } = new();
 
     /// <summary>
     /// Block for stage.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("stage")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesFleetUpdateRunStageBlock>>? Stage { get; set; }
+    public TerraformList<AzurermKubernetesFleetUpdateRunStageBlock> Stage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKubernetesFleetUpdateRunTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKubernetesFleetUpdateRunTimeoutsBlock Timeouts { get; set; } = new();
 
 }

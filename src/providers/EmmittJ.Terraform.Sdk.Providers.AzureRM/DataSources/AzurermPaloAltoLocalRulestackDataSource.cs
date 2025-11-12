@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSour
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The anti_spyware_profile attribute.

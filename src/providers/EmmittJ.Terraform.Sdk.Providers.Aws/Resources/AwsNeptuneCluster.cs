@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for serverless_v2_scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNeptuneClusterServerlessV2ScalingConfigurationBlock : TerraformBlockBase
+public partial class AwsNeptuneClusterServerlessV2ScalingConfigurationBlock() : TerraformBlock("serverless_v2_scaling_configuration")
 {
     /// <summary>
     /// The max_capacity attribute.
@@ -28,7 +28,7 @@ public partial class AwsNeptuneClusterServerlessV2ScalingConfigurationBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNeptuneClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsNeptuneClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -293,14 +293,14 @@ public partial class AwsNeptuneCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerlessV2ScalingConfiguration block(s) allowed")]
     [TerraformProperty("serverless_v2_scaling_configuration")]
-    public partial TerraformList<TerraformBlock<AwsNeptuneClusterServerlessV2ScalingConfigurationBlock>>? ServerlessV2ScalingConfiguration { get; set; }
+    public TerraformList<AwsNeptuneClusterServerlessV2ScalingConfigurationBlock> ServerlessV2ScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNeptuneClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNeptuneClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

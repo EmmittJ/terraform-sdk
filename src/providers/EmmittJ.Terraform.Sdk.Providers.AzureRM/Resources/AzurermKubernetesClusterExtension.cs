@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterExtensionPlanBlock() : TerraformBlock("plan")
 {
     /// <summary>
     /// The name attribute.
@@ -52,7 +52,7 @@ public partial class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKubernetesClusterExtensionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterExtensionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,14 +173,14 @@ public partial class AzurermKubernetesClusterExtension : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterExtensionPlanBlock>>? Plan { get; set; }
+    public TerraformList<AzurermKubernetesClusterExtensionPlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKubernetesClusterExtensionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKubernetesClusterExtensionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The aks_assigned_identity attribute.

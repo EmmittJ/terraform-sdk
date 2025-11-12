@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventgridTopicDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventgridTopicDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermEventgridTopicDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventgridTopicDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventgridTopicDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

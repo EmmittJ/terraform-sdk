@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schema_column in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock() : TerraformBlock("schema_column")
 {
     /// <summary>
     /// The description attribute.
@@ -36,7 +36,7 @@ public partial class AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryDatasetPostgresqlTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetPostgresqlTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -155,13 +155,13 @@ public partial class AzurermDataFactoryDatasetPostgresql : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schema_column")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock>>? SchemaColumn { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock> SchemaColumn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryDatasetPostgresqlTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryDatasetPostgresqlTimeoutsBlock Timeouts { get; set; } = new();
 
 }

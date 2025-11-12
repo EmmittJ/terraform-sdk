@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for gcs_fileset_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlockBase
+public partial class GoogleDataCatalogEntryGcsFilesetSpecBlock() : TerraformBlock("gcs_fileset_spec")
 {
     /// <summary>
     /// Patterns to identify a set of files in Google Cloud Storage.
@@ -34,7 +34,7 @@ public partial class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataCatalogEntryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -164,14 +164,14 @@ public partial class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsFilesetSpec block(s) allowed")]
     [TerraformProperty("gcs_fileset_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataCatalogEntryGcsFilesetSpecBlock>>? GcsFilesetSpec { get; set; }
+    public TerraformList<GoogleDataCatalogEntryGcsFilesetSpecBlock> GcsFilesetSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataCatalogEntryTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataCatalogEntryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Specification for a group of BigQuery tables with name pattern [prefix]YYYYMMDD.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for stream_mode_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisStreamStreamModeDetailsBlock : TerraformBlockBase
+public partial class AwsKinesisStreamStreamModeDetailsBlock() : TerraformBlock("stream_mode_details")
 {
     /// <summary>
     /// The stream_mode attribute.
@@ -22,7 +22,7 @@ public partial class AwsKinesisStreamStreamModeDetailsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKinesisStreamTimeoutsBlock : TerraformBlockBase
+public partial class AwsKinesisStreamTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,13 +148,13 @@ public partial class AwsKinesisStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamModeDetails block(s) allowed")]
     [TerraformProperty("stream_mode_details")]
-    public partial TerraformList<TerraformBlock<AwsKinesisStreamStreamModeDetailsBlock>>? StreamModeDetails { get; set; }
+    public TerraformList<AwsKinesisStreamStreamModeDetailsBlock> StreamModeDetails { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKinesisStreamTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKinesisStreamTimeoutsBlock Timeouts { get; set; } = new();
 
 }

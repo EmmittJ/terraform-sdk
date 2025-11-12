@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsResourceexplorer2ViewFiltersBlock : TerraformBlockBase
+public partial class AwsResourceexplorer2ViewFiltersBlock() : TerraformBlock("filters")
 {
     /// <summary>
     /// The filter_string attribute.
@@ -22,7 +22,7 @@ public partial class AwsResourceexplorer2ViewFiltersBlock : TerraformBlockBase
 /// Block type for included_property in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsResourceexplorer2ViewIncludedPropertyBlock : TerraformBlockBase
+public partial class AwsResourceexplorer2ViewIncludedPropertyBlock() : TerraformBlock("included_property")
 {
     /// <summary>
     /// The name attribute.
@@ -84,14 +84,14 @@ public partial class AwsResourceexplorer2View : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filters")]
-    public partial TerraformList<TerraformBlock<AwsResourceexplorer2ViewFiltersBlock>>? Filters { get; set; }
+    public TerraformList<AwsResourceexplorer2ViewFiltersBlock> Filters { get; set; } = new();
 
     /// <summary>
     /// Block for included_property.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("included_property")]
-    public partial TerraformList<TerraformBlock<AwsResourceexplorer2ViewIncludedPropertyBlock>>? IncludedProperty { get; set; }
+    public TerraformList<AwsResourceexplorer2ViewIncludedPropertyBlock> IncludedProperty { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

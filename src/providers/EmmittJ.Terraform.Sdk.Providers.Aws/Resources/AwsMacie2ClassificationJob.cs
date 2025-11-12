@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_job_definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMacie2ClassificationJobS3JobDefinitionBlock : TerraformBlockBase
+public partial class AwsMacie2ClassificationJobS3JobDefinitionBlock() : TerraformBlock("s3_job_definition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsMacie2ClassificationJobS3JobDefinitionBlock : TerraformB
 /// Block type for schedule_frequency in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlockBase
+public partial class AwsMacie2ClassificationJobScheduleFrequencyBlock() : TerraformBlock("schedule_frequency")
 {
     /// <summary>
     /// The daily_schedule attribute.
@@ -43,7 +43,7 @@ public partial class AwsMacie2ClassificationJobScheduleFrequencyBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlockBase
+public partial class AwsMacie2ClassificationJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -164,7 +164,7 @@ public partial class AwsMacie2ClassificationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3JobDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3JobDefinition block(s) allowed")]
     [TerraformProperty("s3_job_definition")]
-    public partial TerraformList<TerraformBlock<AwsMacie2ClassificationJobS3JobDefinitionBlock>>? S3JobDefinition { get; set; }
+    public required TerraformList<AwsMacie2ClassificationJobS3JobDefinitionBlock> S3JobDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for schedule_frequency.
@@ -172,14 +172,14 @@ public partial class AwsMacie2ClassificationJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleFrequency block(s) allowed")]
     [TerraformProperty("schedule_frequency")]
-    public partial TerraformList<TerraformBlock<AwsMacie2ClassificationJobScheduleFrequencyBlock>>? ScheduleFrequency { get; set; }
+    public TerraformList<AwsMacie2ClassificationJobScheduleFrequencyBlock> ScheduleFrequency { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMacie2ClassificationJobTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMacie2ClassificationJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.

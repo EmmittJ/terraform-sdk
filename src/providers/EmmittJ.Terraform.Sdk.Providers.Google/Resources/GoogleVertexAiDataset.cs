@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiDatasetEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleVertexAiDatasetEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource.
@@ -22,7 +22,7 @@ public partial class GoogleVertexAiDatasetEncryptionSpecBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiDatasetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiDatasetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,14 +111,14 @@ public partial class GoogleVertexAiDataset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiDatasetEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleVertexAiDatasetEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiDatasetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiDatasetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the dataset was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

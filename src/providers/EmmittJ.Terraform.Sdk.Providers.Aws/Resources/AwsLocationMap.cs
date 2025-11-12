@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLocationMapConfigurationBlock : TerraformBlockBase
+public partial class AwsLocationMapConfigurationBlock() : TerraformBlock("configuration")
 {
     /// <summary>
     /// The style attribute.
@@ -79,7 +79,7 @@ public partial class AwsLocationMap : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsLocationMapConfigurationBlock>>? Configuration { get; set; }
+    public required TerraformList<AwsLocationMapConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// The create_time attribute.

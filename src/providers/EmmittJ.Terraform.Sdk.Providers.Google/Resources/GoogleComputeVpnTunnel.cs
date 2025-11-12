@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cipher_suite in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeVpnTunnelCipherSuiteBlock : TerraformBlockBase
+public partial class GoogleComputeVpnTunnelCipherSuiteBlock() : TerraformBlock("cipher_suite")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleComputeVpnTunnelCipherSuiteBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeVpnTunnelTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeVpnTunnelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -222,14 +222,14 @@ public partial class GoogleComputeVpnTunnel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CipherSuite block(s) allowed")]
     [TerraformProperty("cipher_suite")]
-    public partial TerraformList<TerraformBlock<GoogleComputeVpnTunnelCipherSuiteBlock>>? CipherSuite { get; set; }
+    public TerraformList<GoogleComputeVpnTunnelCipherSuiteBlock> CipherSuite { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeVpnTunnelTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeVpnTunnelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

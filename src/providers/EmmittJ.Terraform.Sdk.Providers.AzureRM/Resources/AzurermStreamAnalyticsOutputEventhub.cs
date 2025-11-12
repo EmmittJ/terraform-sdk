@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for serialization in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStreamAnalyticsOutputEventhubSerializationBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsOutputEventhubSerializationBlock() : TerraformBlock("serialization")
 {
     /// <summary>
     /// The encoding attribute.
@@ -43,7 +43,7 @@ public partial class AzurermStreamAnalyticsOutputEventhubSerializationBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStreamAnalyticsOutputEventhubTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsOutputEventhubTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,13 +175,13 @@ public partial class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
     [TerraformProperty("serialization")]
-    public partial TerraformList<TerraformBlock<AzurermStreamAnalyticsOutputEventhubSerializationBlock>>? Serialization { get; set; }
+    public required TerraformList<AzurermStreamAnalyticsOutputEventhubSerializationBlock> Serialization { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStreamAnalyticsOutputEventhubTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStreamAnalyticsOutputEventhubTimeoutsBlock Timeouts { get; set; } = new();
 
 }

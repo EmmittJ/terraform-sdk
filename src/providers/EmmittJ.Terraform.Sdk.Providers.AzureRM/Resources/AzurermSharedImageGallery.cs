@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sharing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSharedImageGallerySharingBlock : TerraformBlockBase
+public partial class AzurermSharedImageGallerySharingBlock() : TerraformBlock("sharing")
 {
     /// <summary>
     /// The permission attribute.
@@ -22,7 +22,7 @@ public partial class AzurermSharedImageGallerySharingBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSharedImageGalleryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,14 +115,14 @@ public partial class AzurermSharedImageGallery : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]
     [TerraformProperty("sharing")]
-    public partial TerraformList<TerraformBlock<AzurermSharedImageGallerySharingBlock>>? Sharing { get; set; }
+    public TerraformList<AzurermSharedImageGallerySharingBlock> Sharing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSharedImageGalleryTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSharedImageGalleryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique_name attribute.

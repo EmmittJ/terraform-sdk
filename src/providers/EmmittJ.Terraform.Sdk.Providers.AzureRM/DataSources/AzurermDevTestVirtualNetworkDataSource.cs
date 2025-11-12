@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -62,7 +62,7 @@ public partial class AzurermDevTestVirtualNetworkDataSource : TerraformDataSourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allowed_subnets attribute.

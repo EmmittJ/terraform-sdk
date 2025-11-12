@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_limits in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlockBase
+public partial class AwsEmrManagedScalingPolicyComputeLimitsBlock() : TerraformBlock("compute_limits")
 {
     /// <summary>
     /// The maximum_capacity_units attribute.
@@ -87,6 +87,6 @@ public partial class AwsEmrManagedScalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeLimits is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComputeLimits block(s) required")]
     [TerraformProperty("compute_limits")]
-    public partial TerraformSet<TerraformBlock<AwsEmrManagedScalingPolicyComputeLimitsBlock>>? ComputeLimits { get; set; }
+    public required TerraformSet<AwsEmrManagedScalingPolicyComputeLimitsBlock> ComputeLimits { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermChaosStudioExperimentIdentityBlock : TerraformBlockBase
+public partial class AzurermChaosStudioExperimentIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermChaosStudioExperimentIdentityBlock : TerraformBlockB
 /// Block type for selectors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermChaosStudioExperimentSelectorsBlock : TerraformBlockBase
+public partial class AzurermChaosStudioExperimentSelectorsBlock() : TerraformBlock("selectors")
 {
     /// <summary>
     /// The chaos_studio_target_ids attribute.
@@ -55,7 +55,7 @@ public partial class AzurermChaosStudioExperimentSelectorsBlock : TerraformBlock
 /// Block type for steps in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermChaosStudioExperimentStepsBlock : TerraformBlockBase
+public partial class AzurermChaosStudioExperimentStepsBlock() : TerraformBlock("steps")
 {
     /// <summary>
     /// The name attribute.
@@ -71,7 +71,7 @@ public partial class AzurermChaosStudioExperimentStepsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermChaosStudioExperimentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermChaosStudioExperimentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -150,7 +150,7 @@ public partial class AzurermChaosStudioExperiment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermChaosStudioExperimentIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermChaosStudioExperimentIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for selectors.
@@ -159,7 +159,7 @@ public partial class AzurermChaosStudioExperiment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selectors is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selectors block(s) required")]
     [TerraformProperty("selectors")]
-    public partial TerraformList<TerraformBlock<AzurermChaosStudioExperimentSelectorsBlock>>? Selectors { get; set; }
+    public required TerraformList<AzurermChaosStudioExperimentSelectorsBlock> Selectors { get; set; } = new();
 
     /// <summary>
     /// Block for steps.
@@ -168,13 +168,13 @@ public partial class AzurermChaosStudioExperiment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Steps is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Steps block(s) required")]
     [TerraformProperty("steps")]
-    public partial TerraformList<TerraformBlock<AzurermChaosStudioExperimentStepsBlock>>? Steps { get; set; }
+    public required TerraformList<AzurermChaosStudioExperimentStepsBlock> Steps { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermChaosStudioExperimentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermChaosStudioExperimentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

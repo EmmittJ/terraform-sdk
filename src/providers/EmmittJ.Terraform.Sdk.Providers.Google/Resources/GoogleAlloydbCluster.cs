@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_backup_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterAutomatedBackupPolicyBlock() : TerraformBlock("automated_backup_policy")
 {
     /// <summary>
     /// The length of the time window during which a backup can be taken. If a backup does not succeed within this time window, it will be canceled and considered failed.
@@ -46,7 +46,7 @@ public partial class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformB
 /// Block type for continuous_backup_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterContinuousBackupConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterContinuousBackupConfigBlock() : TerraformBlock("continuous_backup_config")
 {
     /// <summary>
     /// Whether continuous backup recovery is enabled. If not set, defaults to true.
@@ -70,7 +70,7 @@ public partial class GoogleAlloydbClusterContinuousBackupConfigBlock : Terraform
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterEncryptionConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterEncryptionConfigBlock() : TerraformBlock("encryption_config")
 {
     /// <summary>
     /// The fully-qualified resource name of the KMS key. Each Cloud KMS key is regionalized and has the following format: projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME].
@@ -85,7 +85,7 @@ public partial class GoogleAlloydbClusterEncryptionConfigBlock : TerraformBlockB
 /// Block type for initial_user in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterInitialUserBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterInitialUserBlock() : TerraformBlock("initial_user")
 {
     /// <summary>
     /// The initial password for the user.
@@ -108,7 +108,7 @@ public partial class GoogleAlloydbClusterInitialUserBlock : TerraformBlockBase
 /// Block type for maintenance_update_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterMaintenanceUpdatePolicyBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterMaintenanceUpdatePolicyBlock() : TerraformBlock("maintenance_update_policy")
 {
 }
 
@@ -116,7 +116,7 @@ public partial class GoogleAlloydbClusterMaintenanceUpdatePolicyBlock : Terrafor
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterNetworkConfigBlock() : TerraformBlock("network_config")
 {
     /// <summary>
     /// The name of the allocated IP range for the private IP AlloyDB cluster. For example: &amp;quot;google-managed-services-default&amp;quot;.
@@ -140,7 +140,7 @@ public partial class GoogleAlloydbClusterNetworkConfigBlock : TerraformBlockBase
 /// Block type for psc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterPscConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterPscConfigBlock() : TerraformBlock("psc_config")
 {
     /// <summary>
     /// Create an instance that allows connections from Private Service Connect endpoints to the instance.
@@ -156,7 +156,7 @@ public partial class GoogleAlloydbClusterPscConfigBlock : TerraformBlockBase
 /// Block type for restore_backup_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterRestoreBackupSourceBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterRestoreBackupSourceBlock() : TerraformBlock("restore_backup_source")
 {
     /// <summary>
     /// The name of the backup that this cluster is restored from.
@@ -172,7 +172,7 @@ public partial class GoogleAlloydbClusterRestoreBackupSourceBlock : TerraformBlo
 /// Block type for restore_continuous_backup_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock() : TerraformBlock("restore_continuous_backup_source")
 {
     /// <summary>
     /// The name of the source cluster that this cluster is restored from.
@@ -196,7 +196,7 @@ public partial class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : Te
 /// Block type for secondary_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbClusterSecondaryConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterSecondaryConfigBlock() : TerraformBlock("secondary_config")
 {
     /// <summary>
     /// Name of the primary cluster must be in the format
@@ -213,7 +213,7 @@ public partial class GoogleAlloydbClusterSecondaryConfigBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAlloydbClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAlloydbClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -371,7 +371,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupPolicy block(s) allowed")]
     [TerraformProperty("automated_backup_policy")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterAutomatedBackupPolicyBlock>>? AutomatedBackupPolicy { get; set; }
+    public TerraformList<GoogleAlloydbClusterAutomatedBackupPolicyBlock> AutomatedBackupPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for continuous_backup_config.
@@ -379,7 +379,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContinuousBackupConfig block(s) allowed")]
     [TerraformProperty("continuous_backup_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterContinuousBackupConfigBlock>>? ContinuousBackupConfig { get; set; }
+    public TerraformList<GoogleAlloydbClusterContinuousBackupConfigBlock> ContinuousBackupConfig { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_config.
@@ -387,7 +387,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public TerraformList<GoogleAlloydbClusterEncryptionConfigBlock> EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for initial_user.
@@ -395,7 +395,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialUser block(s) allowed")]
     [TerraformProperty("initial_user")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterInitialUserBlock>>? InitialUser { get; set; }
+    public TerraformList<GoogleAlloydbClusterInitialUserBlock> InitialUser { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_update_policy.
@@ -403,7 +403,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceUpdatePolicy block(s) allowed")]
     [TerraformProperty("maintenance_update_policy")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterMaintenanceUpdatePolicyBlock>>? MaintenanceUpdatePolicy { get; set; }
+    public TerraformList<GoogleAlloydbClusterMaintenanceUpdatePolicyBlock> MaintenanceUpdatePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -411,7 +411,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public TerraformList<GoogleAlloydbClusterNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for psc_config.
@@ -419,7 +419,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
     [TerraformProperty("psc_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterPscConfigBlock>>? PscConfig { get; set; }
+    public TerraformList<GoogleAlloydbClusterPscConfigBlock> PscConfig { get; set; } = new();
 
     /// <summary>
     /// Block for restore_backup_source.
@@ -427,7 +427,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreBackupSource block(s) allowed")]
     [TerraformProperty("restore_backup_source")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterRestoreBackupSourceBlock>>? RestoreBackupSource { get; set; }
+    public TerraformList<GoogleAlloydbClusterRestoreBackupSourceBlock> RestoreBackupSource { get; set; } = new();
 
     /// <summary>
     /// Block for restore_continuous_backup_source.
@@ -435,7 +435,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreContinuousBackupSource block(s) allowed")]
     [TerraformProperty("restore_continuous_backup_source")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterRestoreContinuousBackupSourceBlock>>? RestoreContinuousBackupSource { get; set; }
+    public TerraformList<GoogleAlloydbClusterRestoreContinuousBackupSourceBlock> RestoreContinuousBackupSource { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_config.
@@ -443,14 +443,14 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryConfig block(s) allowed")]
     [TerraformProperty("secondary_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterSecondaryConfigBlock>>? SecondaryConfig { get; set; }
+    public TerraformList<GoogleAlloydbClusterSecondaryConfigBlock> SecondaryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAlloydbClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAlloydbClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Cluster created from backup.

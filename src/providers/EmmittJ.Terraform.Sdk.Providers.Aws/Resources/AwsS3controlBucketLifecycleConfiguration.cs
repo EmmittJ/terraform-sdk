@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsS3controlBucketLifecycleConfigurationRuleBlock : TerraformBlockBase
+public partial class AwsS3controlBucketLifecycleConfigurationRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The id attribute.
@@ -64,6 +64,6 @@ public partial class AwsS3controlBucketLifecycleConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsS3controlBucketLifecycleConfigurationRuleBlock>>? Rule { get; set; }
+    public required TerraformSet<AwsS3controlBucketLifecycleConfigurationRuleBlock> Rule { get; set; } = new();
 
 }

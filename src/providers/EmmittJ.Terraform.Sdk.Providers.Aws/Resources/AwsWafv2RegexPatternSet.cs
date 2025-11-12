@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for regular_expression in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafv2RegexPatternSetRegularExpressionBlock : TerraformBlockBase
+public partial class AwsWafv2RegexPatternSetRegularExpressionBlock() : TerraformBlock("regular_expression")
 {
     /// <summary>
     /// The regex_string attribute.
@@ -89,7 +89,7 @@ public partial class AwsWafv2RegexPatternSet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("regular_expression")]
-    public partial TerraformSet<TerraformBlock<AwsWafv2RegexPatternSetRegularExpressionBlock>>? RegularExpression { get; set; }
+    public TerraformSet<AwsWafv2RegexPatternSetRegularExpressionBlock> RegularExpression { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

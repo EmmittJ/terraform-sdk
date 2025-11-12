@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for saml_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlockBase
+public partial class AwsOpensearchDomainSamlOptionsSamlOptionsBlock() : TerraformBlock("saml_options")
 {
     /// <summary>
     /// The enabled attribute.
@@ -56,7 +56,7 @@ public partial class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOpensearchDomainSamlOptionsTimeoutsBlock : TerraformBlockBase
+public partial class AwsOpensearchDomainSamlOptionsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -112,13 +112,13 @@ public partial class AwsOpensearchDomainSamlOptions : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlOptions block(s) allowed")]
     [TerraformProperty("saml_options")]
-    public partial TerraformList<TerraformBlock<AwsOpensearchDomainSamlOptionsSamlOptionsBlock>>? SamlOptions { get; set; }
+    public TerraformList<AwsOpensearchDomainSamlOptionsSamlOptionsBlock> SamlOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOpensearchDomainSamlOptionsTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOpensearchDomainSamlOptionsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

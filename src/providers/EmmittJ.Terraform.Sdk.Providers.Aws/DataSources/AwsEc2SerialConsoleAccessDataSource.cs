@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2SerialConsoleAccessDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2SerialConsoleAccessDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -45,7 +45,7 @@ public partial class AwsEc2SerialConsoleAccessDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2SerialConsoleAccessDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2SerialConsoleAccessDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The enabled attribute.

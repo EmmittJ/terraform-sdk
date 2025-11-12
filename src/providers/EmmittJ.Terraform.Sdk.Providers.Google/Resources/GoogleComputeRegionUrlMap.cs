@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for default_route_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionUrlMapDefaultRouteActionBlock : TerraformBlockBase
+public partial class GoogleComputeRegionUrlMapDefaultRouteActionBlock() : TerraformBlock("default_route_action")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleComputeRegionUrlMapDefaultRouteActionBlock : Terrafor
 /// Block type for default_url_redirect in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlockBase
+public partial class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock() : TerraformBlock("default_url_redirect")
 {
     /// <summary>
     /// The host that will be used in the redirect response instead of the one that was
@@ -92,7 +92,7 @@ public partial class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : Terrafor
 /// Block type for header_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionUrlMapHeaderActionBlock : TerraformBlockBase
+public partial class GoogleComputeRegionUrlMapHeaderActionBlock() : TerraformBlock("header_action")
 {
     /// <summary>
     /// A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.
@@ -114,7 +114,7 @@ public partial class GoogleComputeRegionUrlMapHeaderActionBlock : TerraformBlock
 /// Block type for host_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeRegionUrlMapHostRuleBlock : TerraformBlockBase
+public partial class GoogleComputeRegionUrlMapHostRuleBlock() : TerraformBlock("host_rule")
 {
     /// <summary>
     /// An optional description of this HostRule. Provide this property
@@ -150,7 +150,7 @@ public partial class GoogleComputeRegionUrlMapHostRuleBlock : TerraformBlockBase
 /// Block type for path_matcher in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionUrlMapPathMatcherBlock : TerraformBlockBase
+public partial class GoogleComputeRegionUrlMapPathMatcherBlock() : TerraformBlock("path_matcher")
 {
     /// <summary>
     /// A reference to a RegionBackendService resource. This will be used if
@@ -182,7 +182,7 @@ public partial class GoogleComputeRegionUrlMapPathMatcherBlock : TerraformBlockB
 /// Block type for test in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionUrlMapTestBlock : TerraformBlockBase
+public partial class GoogleComputeRegionUrlMapTestBlock() : TerraformBlock("test")
 {
     /// <summary>
     /// Description of this test case.
@@ -221,7 +221,7 @@ public partial class GoogleComputeRegionUrlMapTestBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRegionUrlMapTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionUrlMapTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -319,7 +319,7 @@ public partial class GoogleComputeRegionUrlMap : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRouteAction block(s) allowed")]
     [TerraformProperty("default_route_action")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionUrlMapDefaultRouteActionBlock>>? DefaultRouteAction { get; set; }
+    public TerraformList<GoogleComputeRegionUrlMapDefaultRouteActionBlock> DefaultRouteAction { get; set; } = new();
 
     /// <summary>
     /// Block for default_url_redirect.
@@ -327,7 +327,7 @@ public partial class GoogleComputeRegionUrlMap : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultUrlRedirect block(s) allowed")]
     [TerraformProperty("default_url_redirect")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionUrlMapDefaultUrlRedirectBlock>>? DefaultUrlRedirect { get; set; }
+    public TerraformList<GoogleComputeRegionUrlMapDefaultUrlRedirectBlock> DefaultUrlRedirect { get; set; } = new();
 
     /// <summary>
     /// Block for header_action.
@@ -335,35 +335,35 @@ public partial class GoogleComputeRegionUrlMap : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeaderAction block(s) allowed")]
     [TerraformProperty("header_action")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionUrlMapHeaderActionBlock>>? HeaderAction { get; set; }
+    public TerraformList<GoogleComputeRegionUrlMapHeaderActionBlock> HeaderAction { get; set; } = new();
 
     /// <summary>
     /// Block for host_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("host_rule")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeRegionUrlMapHostRuleBlock>>? HostRule { get; set; }
+    public TerraformSet<GoogleComputeRegionUrlMapHostRuleBlock> HostRule { get; set; } = new();
 
     /// <summary>
     /// Block for path_matcher.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("path_matcher")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionUrlMapPathMatcherBlock>>? PathMatcher { get; set; }
+    public TerraformList<GoogleComputeRegionUrlMapPathMatcherBlock> PathMatcher { get; set; } = new();
 
     /// <summary>
     /// Block for test.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("test")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionUrlMapTestBlock>>? Test { get; set; }
+    public TerraformList<GoogleComputeRegionUrlMapTestBlock> Test { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRegionUrlMapTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRegionUrlMapTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

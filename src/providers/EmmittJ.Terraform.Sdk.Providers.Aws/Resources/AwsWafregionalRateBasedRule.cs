@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for predicate in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafregionalRateBasedRulePredicateBlock : TerraformBlockBase
+public partial class AwsWafregionalRateBasedRulePredicateBlock() : TerraformBlock("predicate")
 {
     /// <summary>
     /// The data_id attribute.
@@ -108,7 +108,7 @@ public partial class AwsWafregionalRateBasedRule : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("predicate")]
-    public partial TerraformSet<TerraformBlock<AwsWafregionalRateBasedRulePredicateBlock>>? Predicate { get; set; }
+    public TerraformSet<AwsWafregionalRateBasedRulePredicateBlock> Predicate { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

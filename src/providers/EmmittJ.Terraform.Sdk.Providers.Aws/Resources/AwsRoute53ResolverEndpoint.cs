@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ip_address in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlockBase
+public partial class AwsRoute53ResolverEndpointIpAddressBlock() : TerraformBlock("ip_address")
 {
     /// <summary>
     /// The ip attribute.
@@ -37,7 +37,7 @@ public partial class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53ResolverEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,14 +144,14 @@ public partial class AwsRoute53ResolverEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 IpAddress block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 IpAddress block(s) allowed")]
     [TerraformProperty("ip_address")]
-    public partial TerraformSet<TerraformBlock<AwsRoute53ResolverEndpointIpAddressBlock>>? IpAddress { get; set; }
+    public TerraformSet<AwsRoute53ResolverEndpointIpAddressBlock> IpAddress { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53ResolverEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53ResolverEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleActiveDirectoryDomainTrustTimeoutsBlock : TerraformBlockBase
+public partial class GoogleActiveDirectoryDomainTrustTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,6 +115,6 @@ public partial class GoogleActiveDirectoryDomainTrust : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleActiveDirectoryDomainTrustTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleActiveDirectoryDomainTrustTimeoutsBlock Timeouts { get; set; } = new();
 
 }

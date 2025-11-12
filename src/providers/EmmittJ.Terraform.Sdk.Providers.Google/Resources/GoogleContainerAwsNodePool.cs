@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsNodePoolAutoscalingBlock : TerraformBlockBase
+public partial class GoogleContainerAwsNodePoolAutoscalingBlock() : TerraformBlock("autoscaling")
 {
     /// <summary>
     /// Maximum number of nodes in the NodePool. Must be &amp;gt;= min_node_count.
@@ -30,7 +30,7 @@ public partial class GoogleContainerAwsNodePoolAutoscalingBlock : TerraformBlock
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsNodePoolConfigBlock : TerraformBlockBase
+public partial class GoogleContainerAwsNodePoolConfigBlock() : TerraformBlock("config")
 {
     /// <summary>
     /// The name of the AWS IAM role assigned to nodes in the pool.
@@ -74,7 +74,7 @@ public partial class GoogleContainerAwsNodePoolConfigBlock : TerraformBlockBase
 /// Block type for kubelet_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsNodePoolKubeletConfigBlock : TerraformBlockBase
+public partial class GoogleContainerAwsNodePoolKubeletConfigBlock() : TerraformBlock("kubelet_config")
 {
     /// <summary>
     /// Whether or not to enable CPU CFS quota. Defaults to true.
@@ -110,7 +110,7 @@ public partial class GoogleContainerAwsNodePoolKubeletConfigBlock : TerraformBlo
 /// Block type for management in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsNodePoolManagementBlock : TerraformBlockBase
+public partial class GoogleContainerAwsNodePoolManagementBlock() : TerraformBlock("management")
 {
     /// <summary>
     /// Optional. Whether or not the nodes will be automatically repaired.
@@ -125,7 +125,7 @@ public partial class GoogleContainerAwsNodePoolManagementBlock : TerraformBlockB
 /// Block type for max_pods_constraint in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsNodePoolMaxPodsConstraintBlock : TerraformBlockBase
+public partial class GoogleContainerAwsNodePoolMaxPodsConstraintBlock() : TerraformBlock("max_pods_constraint")
 {
     /// <summary>
     /// The maximum number of pods to schedule on a single node.
@@ -141,7 +141,7 @@ public partial class GoogleContainerAwsNodePoolMaxPodsConstraintBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerAwsNodePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerAwsNodePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -170,7 +170,7 @@ public partial class GoogleContainerAwsNodePoolTimeoutsBlock : TerraformBlockBas
 /// Block type for update_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsNodePoolUpdateSettingsBlock : TerraformBlockBase
+public partial class GoogleContainerAwsNodePoolUpdateSettingsBlock() : TerraformBlock("update_settings")
 {
 }
 
@@ -256,7 +256,7 @@ public partial class GoogleContainerAwsNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Autoscaling block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscaling block(s) allowed")]
     [TerraformProperty("autoscaling")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsNodePoolAutoscalingBlock>>? Autoscaling { get; set; }
+    public required TerraformList<GoogleContainerAwsNodePoolAutoscalingBlock> Autoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for config.
@@ -266,7 +266,7 @@ public partial class GoogleContainerAwsNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsNodePoolConfigBlock>>? Config { get; set; }
+    public required TerraformList<GoogleContainerAwsNodePoolConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for kubelet_config.
@@ -274,7 +274,7 @@ public partial class GoogleContainerAwsNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletConfig block(s) allowed")]
     [TerraformProperty("kubelet_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsNodePoolKubeletConfigBlock>>? KubeletConfig { get; set; }
+    public TerraformList<GoogleContainerAwsNodePoolKubeletConfigBlock> KubeletConfig { get; set; } = new();
 
     /// <summary>
     /// Block for management.
@@ -282,7 +282,7 @@ public partial class GoogleContainerAwsNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Management block(s) allowed")]
     [TerraformProperty("management")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsNodePoolManagementBlock>>? Management { get; set; }
+    public TerraformList<GoogleContainerAwsNodePoolManagementBlock> Management { get; set; } = new();
 
     /// <summary>
     /// Block for max_pods_constraint.
@@ -292,14 +292,14 @@ public partial class GoogleContainerAwsNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaxPodsConstraint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxPodsConstraint block(s) allowed")]
     [TerraformProperty("max_pods_constraint")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsNodePoolMaxPodsConstraintBlock>>? MaxPodsConstraint { get; set; }
+    public required TerraformList<GoogleContainerAwsNodePoolMaxPodsConstraintBlock> MaxPodsConstraint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerAwsNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerAwsNodePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for update_settings.
@@ -307,7 +307,7 @@ public partial class GoogleContainerAwsNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdateSettings block(s) allowed")]
     [TerraformProperty("update_settings")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsNodePoolUpdateSettingsBlock>>? UpdateSettings { get; set; }
+    public TerraformList<GoogleContainerAwsNodePoolUpdateSettingsBlock> UpdateSettings { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this node pool was created.

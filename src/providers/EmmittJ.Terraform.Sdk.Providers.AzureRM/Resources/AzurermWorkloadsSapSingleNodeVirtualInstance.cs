@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock : TerraformBlockBase
+public partial class AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -30,7 +30,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock :
 /// Block type for single_server_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock : TerraformBlockBase
+public partial class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock() : TerraformBlock("single_server_configuration")
 {
     /// <summary>
     /// The app_resource_group_name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerCon
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -200,7 +200,7 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for single_server_configuration.
@@ -210,13 +210,13 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformRes
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SingleServerConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleServerConfiguration block(s) allowed")]
     [TerraformProperty("single_server_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock>>? SingleServerConfiguration { get; set; }
+    public required TerraformList<AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock> SingleServerConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

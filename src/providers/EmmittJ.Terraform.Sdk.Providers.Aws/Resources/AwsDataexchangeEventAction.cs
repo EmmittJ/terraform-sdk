@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDataexchangeEventActionActionBlock : TerraformBlockBase
+public partial class AwsDataexchangeEventActionActionBlock() : TerraformBlock("action")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsDataexchangeEventActionActionBlock : TerraformBlockBase
 /// Block type for event in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDataexchangeEventActionEventBlock : TerraformBlockBase
+public partial class AwsDataexchangeEventActionEventBlock() : TerraformBlock("event")
 {
 }
 
@@ -39,14 +39,14 @@ public partial class AwsDataexchangeEventAction : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AwsDataexchangeEventActionActionBlock>>? Action { get; set; }
+    public TerraformList<AwsDataexchangeEventActionActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for event.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event")]
-    public partial TerraformList<TerraformBlock<AwsDataexchangeEventActionEventBlock>>? Event { get; set; }
+    public TerraformList<AwsDataexchangeEventActionEventBlock> Event { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

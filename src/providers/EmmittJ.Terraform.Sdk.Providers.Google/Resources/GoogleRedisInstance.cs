@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlockBase
+public partial class GoogleRedisInstanceMaintenancePolicyBlock() : TerraformBlock("maintenance_policy")
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ public partial class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlockB
 /// Block type for persistence_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisInstancePersistenceConfigBlock : TerraformBlockBase
+public partial class GoogleRedisInstancePersistenceConfigBlock() : TerraformBlock("persistence_config")
 {
     /// <summary>
     /// Optional. Controls whether Persistence features are enabled. If not provided, the existing value will be used.
@@ -68,7 +68,7 @@ public partial class GoogleRedisInstancePersistenceConfigBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleRedisInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleRedisInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -316,7 +316,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public partial TerraformList<TerraformBlock<GoogleRedisInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public TerraformList<GoogleRedisInstanceMaintenancePolicyBlock> MaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for persistence_config.
@@ -324,14 +324,14 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
     [TerraformProperty("persistence_config")]
-    public partial TerraformList<TerraformBlock<GoogleRedisInstancePersistenceConfigBlock>>? PersistenceConfig { get; set; }
+    public TerraformList<GoogleRedisInstancePersistenceConfigBlock> PersistenceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleRedisInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleRedisInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// AUTH String set on the instance. This field will only be populated if auth_enabled is true.

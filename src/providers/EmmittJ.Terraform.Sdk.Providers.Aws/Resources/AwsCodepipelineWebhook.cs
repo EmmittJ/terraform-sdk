@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authentication_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodepipelineWebhookAuthenticationConfigurationBlock : TerraformBlockBase
+public partial class AwsCodepipelineWebhookAuthenticationConfigurationBlock() : TerraformBlock("authentication_configuration")
 {
     /// <summary>
     /// The allowed_ip_range attribute.
@@ -28,7 +28,7 @@ public partial class AwsCodepipelineWebhookAuthenticationConfigurationBlock : Te
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodepipelineWebhookFilterBlock : TerraformBlockBase
+public partial class AwsCodepipelineWebhookFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The json_path attribute.
@@ -124,7 +124,7 @@ public partial class AwsCodepipelineWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationConfiguration block(s) allowed")]
     [TerraformProperty("authentication_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCodepipelineWebhookAuthenticationConfigurationBlock>>? AuthenticationConfiguration { get; set; }
+    public TerraformList<AwsCodepipelineWebhookAuthenticationConfigurationBlock> AuthenticationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for filter.
@@ -134,7 +134,7 @@ public partial class AwsCodepipelineWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsCodepipelineWebhookFilterBlock>>? Filter { get; set; }
+    public required TerraformSet<AwsCodepipelineWebhookFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

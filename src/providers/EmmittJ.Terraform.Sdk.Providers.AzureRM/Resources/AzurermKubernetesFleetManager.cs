@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermKubernetesFleetManagerHubProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesFleetManagerHubProfileBlock() : TerraformBlock("hub_profile")
 {
     /// <summary>
     /// The dns_prefix attribute.
@@ -25,7 +25,7 @@ public partial class AzurermKubernetesFleetManagerHubProfileBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKubernetesFleetManagerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -112,13 +112,13 @@ public partial class AzurermKubernetesFleetManager : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HubProfile block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("hub_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesFleetManagerHubProfileBlock>>? HubProfile { get; set; }
+    public TerraformList<AzurermKubernetesFleetManagerHubProfileBlock> HubProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKubernetesFleetManagerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKubernetesFleetManagerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

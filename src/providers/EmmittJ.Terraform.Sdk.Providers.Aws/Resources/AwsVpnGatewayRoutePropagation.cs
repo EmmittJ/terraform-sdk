@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpnGatewayRoutePropagationTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpnGatewayRoutePropagationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,6 +68,6 @@ public partial class AwsVpnGatewayRoutePropagation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpnGatewayRoutePropagationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpnGatewayRoutePropagationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

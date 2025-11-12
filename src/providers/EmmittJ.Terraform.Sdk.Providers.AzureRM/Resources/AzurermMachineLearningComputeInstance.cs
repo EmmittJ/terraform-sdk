@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for assign_to_user in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningComputeInstanceAssignToUserBlock : TerraformBlockBase
+public partial class AzurermMachineLearningComputeInstanceAssignToUserBlock() : TerraformBlock("assign_to_user")
 {
     /// <summary>
     /// The object_id attribute.
@@ -28,7 +28,7 @@ public partial class AzurermMachineLearningComputeInstanceAssignToUserBlock : Te
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningComputeInstanceIdentityBlock : TerraformBlockBase
+public partial class AzurermMachineLearningComputeInstanceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -53,7 +53,7 @@ public partial class AzurermMachineLearningComputeInstanceIdentityBlock : Terraf
 /// Block type for ssh in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningComputeInstanceSshBlock : TerraformBlockBase
+public partial class AzurermMachineLearningComputeInstanceSshBlock() : TerraformBlock("ssh")
 {
 
     /// <summary>
@@ -71,7 +71,7 @@ public partial class AzurermMachineLearningComputeInstanceSshBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMachineLearningComputeInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMachineLearningComputeInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -185,7 +185,7 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssignToUser block(s) allowed")]
     [TerraformProperty("assign_to_user")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceAssignToUserBlock>>? AssignToUser { get; set; }
+    public TerraformList<AzurermMachineLearningComputeInstanceAssignToUserBlock> AssignToUser { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -193,7 +193,7 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMachineLearningComputeInstanceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for ssh.
@@ -201,13 +201,13 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssh block(s) allowed")]
     [TerraformProperty("ssh")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceSshBlock>>? Ssh { get; set; }
+    public TerraformList<AzurermMachineLearningComputeInstanceSshBlock> Ssh { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMachineLearningComputeInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMachineLearningComputeInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

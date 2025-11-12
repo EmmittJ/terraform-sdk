@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auto_pause in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseSparkPoolAutoPauseBlock : TerraformBlockBase
+public partial class AzurermSynapseSparkPoolAutoPauseBlock() : TerraformBlock("auto_pause")
 {
     /// <summary>
     /// The delay_in_minutes attribute.
@@ -22,7 +22,7 @@ public partial class AzurermSynapseSparkPoolAutoPauseBlock : TerraformBlockBase
 /// Block type for auto_scale in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlockBase
+public partial class AzurermSynapseSparkPoolAutoScaleBlock() : TerraformBlock("auto_scale")
 {
     /// <summary>
     /// The max_node_count attribute.
@@ -46,7 +46,7 @@ public partial class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlockBase
 /// Block type for library_requirement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlockBase
+public partial class AzurermSynapseSparkPoolLibraryRequirementBlock() : TerraformBlock("library_requirement")
 {
     /// <summary>
     /// The content attribute.
@@ -70,7 +70,7 @@ public partial class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformB
 /// Block type for spark_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlockBase
+public partial class AzurermSynapseSparkPoolSparkConfigBlock() : TerraformBlock("spark_config")
 {
     /// <summary>
     /// The content attribute.
@@ -94,7 +94,7 @@ public partial class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSynapseSparkPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -259,7 +259,7 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoPause block(s) allowed")]
     [TerraformProperty("auto_pause")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseSparkPoolAutoPauseBlock>>? AutoPause { get; set; }
+    public TerraformList<AzurermSynapseSparkPoolAutoPauseBlock> AutoPause { get; set; } = new();
 
     /// <summary>
     /// Block for auto_scale.
@@ -267,7 +267,7 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScale block(s) allowed")]
     [TerraformProperty("auto_scale")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseSparkPoolAutoScaleBlock>>? AutoScale { get; set; }
+    public TerraformList<AzurermSynapseSparkPoolAutoScaleBlock> AutoScale { get; set; } = new();
 
     /// <summary>
     /// Block for library_requirement.
@@ -275,7 +275,7 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LibraryRequirement block(s) allowed")]
     [TerraformProperty("library_requirement")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseSparkPoolLibraryRequirementBlock>>? LibraryRequirement { get; set; }
+    public TerraformList<AzurermSynapseSparkPoolLibraryRequirementBlock> LibraryRequirement { get; set; } = new();
 
     /// <summary>
     /// Block for spark_config.
@@ -283,13 +283,13 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConfig block(s) allowed")]
     [TerraformProperty("spark_config")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseSparkPoolSparkConfigBlock>>? SparkConfig { get; set; }
+    public TerraformList<AzurermSynapseSparkPoolSparkConfigBlock> SparkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSynapseSparkPoolTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSynapseSparkPoolTimeoutsBlock Timeouts { get; set; } = new();
 
 }

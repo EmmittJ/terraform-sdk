@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for actions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorRuleActionsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorRuleActionsBlock() : TerraformBlock("actions")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermCdnFrontdoorRuleActionsBlock : TerraformBlockBase
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorRuleConditionsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorRuleConditionsBlock() : TerraformBlock("conditions")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AzurermCdnFrontdoorRuleConditionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,7 +110,7 @@ public partial class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Actions block(s) allowed")]
     [TerraformProperty("actions")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorRuleActionsBlock>>? Actions { get; set; }
+    public required TerraformList<AzurermCdnFrontdoorRuleActionsBlock> Actions { get; set; } = new();
 
     /// <summary>
     /// Block for conditions.
@@ -118,14 +118,14 @@ public partial class AzurermCdnFrontdoorRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
     [TerraformProperty("conditions")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorRuleConditionsBlock>>? Conditions { get; set; }
+    public TerraformList<AzurermCdnFrontdoorRuleConditionsBlock> Conditions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cdn_frontdoor_rule_set_name attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for filter_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleModelArmorTemplateFilterConfigBlock : TerraformBlockBase
+public partial class GoogleModelArmorTemplateFilterConfigBlock() : TerraformBlock("filter_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleModelArmorTemplateFilterConfigBlock : TerraformBlockB
 /// Block type for template_metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlockBase
+public partial class GoogleModelArmorTemplateTemplateMetadataBlock() : TerraformBlock("template_metadata")
 {
     /// <summary>
     /// Indicates the custom error code set by the user to be returned to the end
@@ -84,7 +84,7 @@ public partial class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleModelArmorTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleModelArmorTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,7 +169,7 @@ public partial class GoogleModelArmorTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FilterConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterConfig block(s) allowed")]
     [TerraformProperty("filter_config")]
-    public partial TerraformList<TerraformBlock<GoogleModelArmorTemplateFilterConfigBlock>>? FilterConfig { get; set; }
+    public required TerraformList<GoogleModelArmorTemplateFilterConfigBlock> FilterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for template_metadata.
@@ -177,14 +177,14 @@ public partial class GoogleModelArmorTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TemplateMetadata block(s) allowed")]
     [TerraformProperty("template_metadata")]
-    public partial TerraformList<TerraformBlock<GoogleModelArmorTemplateTemplateMetadataBlock>>? TemplateMetadata { get; set; }
+    public TerraformList<GoogleModelArmorTemplateTemplateMetadataBlock> TemplateMetadata { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleModelArmorTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleModelArmorTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time stamp

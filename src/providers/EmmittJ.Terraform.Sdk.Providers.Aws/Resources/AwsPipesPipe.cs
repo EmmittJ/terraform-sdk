@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for enrichment_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPipesPipeEnrichmentParametersBlock : TerraformBlockBase
+public partial class AwsPipesPipeEnrichmentParametersBlock() : TerraformBlock("enrichment_parameters")
 {
     /// <summary>
     /// The input_template attribute.
@@ -21,7 +21,7 @@ public partial class AwsPipesPipeEnrichmentParametersBlock : TerraformBlockBase
 /// Block type for log_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPipesPipeLogConfigurationBlock : TerraformBlockBase
+public partial class AwsPipesPipeLogConfigurationBlock() : TerraformBlock("log_configuration")
 {
     /// <summary>
     /// The include_execution_data attribute.
@@ -44,7 +44,7 @@ public partial class AwsPipesPipeLogConfigurationBlock : TerraformBlockBase
 /// Block type for source_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPipesPipeSourceParametersBlock : TerraformBlockBase
+public partial class AwsPipesPipeSourceParametersBlock() : TerraformBlock("source_parameters")
 {
 }
 
@@ -52,7 +52,7 @@ public partial class AwsPipesPipeSourceParametersBlock : TerraformBlockBase
 /// Block type for target_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPipesPipeTargetParametersBlock : TerraformBlockBase
+public partial class AwsPipesPipeTargetParametersBlock() : TerraformBlock("target_parameters")
 {
     /// <summary>
     /// The input_template attribute.
@@ -67,7 +67,7 @@ public partial class AwsPipesPipeTargetParametersBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsPipesPipeTimeoutsBlock : TerraformBlockBase
+public partial class AwsPipesPipeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -202,7 +202,7 @@ public partial class AwsPipesPipe : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnrichmentParameters block(s) allowed")]
     [TerraformProperty("enrichment_parameters")]
-    public partial TerraformList<TerraformBlock<AwsPipesPipeEnrichmentParametersBlock>>? EnrichmentParameters { get; set; }
+    public TerraformList<AwsPipesPipeEnrichmentParametersBlock> EnrichmentParameters { get; set; } = new();
 
     /// <summary>
     /// Block for log_configuration.
@@ -210,7 +210,7 @@ public partial class AwsPipesPipe : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
     [TerraformProperty("log_configuration")]
-    public partial TerraformList<TerraformBlock<AwsPipesPipeLogConfigurationBlock>>? LogConfiguration { get; set; }
+    public TerraformList<AwsPipesPipeLogConfigurationBlock> LogConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for source_parameters.
@@ -218,7 +218,7 @@ public partial class AwsPipesPipe : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceParameters block(s) allowed")]
     [TerraformProperty("source_parameters")]
-    public partial TerraformList<TerraformBlock<AwsPipesPipeSourceParametersBlock>>? SourceParameters { get; set; }
+    public TerraformList<AwsPipesPipeSourceParametersBlock> SourceParameters { get; set; } = new();
 
     /// <summary>
     /// Block for target_parameters.
@@ -226,14 +226,14 @@ public partial class AwsPipesPipe : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetParameters block(s) allowed")]
     [TerraformProperty("target_parameters")]
-    public partial TerraformList<TerraformBlock<AwsPipesPipeTargetParametersBlock>>? TargetParameters { get; set; }
+    public TerraformList<AwsPipesPipeTargetParametersBlock> TargetParameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsPipesPipeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsPipesPipeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

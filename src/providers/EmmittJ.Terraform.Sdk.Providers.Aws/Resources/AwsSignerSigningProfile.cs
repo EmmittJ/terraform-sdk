@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for signature_validity_period in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSignerSigningProfileSignatureValidityPeriodBlock : TerraformBlockBase
+public partial class AwsSignerSigningProfileSignatureValidityPeriodBlock() : TerraformBlock("signature_validity_period")
 {
     /// <summary>
     /// The type attribute.
@@ -30,7 +30,7 @@ public partial class AwsSignerSigningProfileSignatureValidityPeriodBlock : Terra
 /// Block type for signing_material in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSignerSigningProfileSigningMaterialBlock : TerraformBlockBase
+public partial class AwsSignerSigningProfileSigningMaterialBlock() : TerraformBlock("signing_material")
 {
     /// <summary>
     /// The certificate_arn attribute.
@@ -115,7 +115,7 @@ public partial class AwsSignerSigningProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignatureValidityPeriod block(s) allowed")]
     [TerraformProperty("signature_validity_period")]
-    public partial TerraformList<TerraformBlock<AwsSignerSigningProfileSignatureValidityPeriodBlock>>? SignatureValidityPeriod { get; set; }
+    public TerraformList<AwsSignerSigningProfileSignatureValidityPeriodBlock> SignatureValidityPeriod { get; set; } = new();
 
     /// <summary>
     /// Block for signing_material.
@@ -123,7 +123,7 @@ public partial class AwsSignerSigningProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SigningMaterial block(s) allowed")]
     [TerraformProperty("signing_material")]
-    public partial TerraformList<TerraformBlock<AwsSignerSigningProfileSigningMaterialBlock>>? SigningMaterial { get; set; }
+    public TerraformList<AwsSignerSigningProfileSigningMaterialBlock> SigningMaterial { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

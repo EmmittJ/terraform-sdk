@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for acl_entries in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaAclAclEntriesBlock() : TerraformBlock("acl_entries")
 {
     /// <summary>
     /// The host. Must be set to &amp;quot;*&amp;quot; for Managed Service for Apache Kafka.
@@ -47,7 +47,7 @@ public partial class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaAclTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,14 +131,14 @@ public partial class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclEntries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AclEntries block(s) required")]
     [TerraformProperty("acl_entries")]
-    public partial TerraformSet<TerraformBlock<GoogleManagedKafkaAclAclEntriesBlock>>? AclEntries { get; set; }
+    public required TerraformSet<GoogleManagedKafkaAclAclEntriesBlock> AclEntries { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleManagedKafkaAclTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleManagedKafkaAclTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// &#39;etag&#39; is used for concurrency control. An &#39;etag&#39; is returned in the

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_cells_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock : TerraformBlockBase
+public partial class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock() : TerraformBlock("data_cells_filter")
 {
     /// <summary>
     /// The database_name attribute.
@@ -46,7 +46,7 @@ public partial class AwsLakeformationPermissionsDataSourceDataCellsFilterBlock :
 /// Block type for data_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationPermissionsDataSourceDataLocationBlock : TerraformBlockBase
+public partial class AwsLakeformationPermissionsDataSourceDataLocationBlock() : TerraformBlock("data_location")
 {
     /// <summary>
     /// The arn attribute.
@@ -69,7 +69,7 @@ public partial class AwsLakeformationPermissionsDataSourceDataLocationBlock : Te
 /// Block type for database in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationPermissionsDataSourceDatabaseBlock : TerraformBlockBase
+public partial class AwsLakeformationPermissionsDataSourceDatabaseBlock() : TerraformBlock("database")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -92,7 +92,7 @@ public partial class AwsLakeformationPermissionsDataSourceDatabaseBlock : Terraf
 /// Block type for lf_tag in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationPermissionsDataSourceLfTagBlock : TerraformBlockBase
+public partial class AwsLakeformationPermissionsDataSourceLfTagBlock() : TerraformBlock("lf_tag")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -123,7 +123,7 @@ public partial class AwsLakeformationPermissionsDataSourceLfTagBlock : Terraform
 /// Block type for lf_tag_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationPermissionsDataSourceLfTagPolicyBlock : TerraformBlockBase
+public partial class AwsLakeformationPermissionsDataSourceLfTagPolicyBlock() : TerraformBlock("lf_tag_policy")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -146,7 +146,7 @@ public partial class AwsLakeformationPermissionsDataSourceLfTagPolicyBlock : Ter
 /// Block type for table in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationPermissionsDataSourceTableBlock : TerraformBlockBase
+public partial class AwsLakeformationPermissionsDataSourceTableBlock() : TerraformBlock("table")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -183,7 +183,7 @@ public partial class AwsLakeformationPermissionsDataSourceTableBlock : Terraform
 /// Block type for table_with_columns in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationPermissionsDataSourceTableWithColumnsBlock : TerraformBlockBase
+public partial class AwsLakeformationPermissionsDataSourceTableWithColumnsBlock() : TerraformBlock("table_with_columns")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -283,7 +283,7 @@ public partial class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCellsFilter block(s) allowed")]
     [TerraformProperty("data_cells_filter")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDataCellsFilterBlock>>? DataCellsFilter { get; set; }
+    public TerraformList<AwsLakeformationPermissionsDataSourceDataCellsFilterBlock> DataCellsFilter { get; set; } = new();
 
     /// <summary>
     /// Block for data_location.
@@ -291,7 +291,7 @@ public partial class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataLocation block(s) allowed")]
     [TerraformProperty("data_location")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDataLocationBlock>>? DataLocation { get; set; }
+    public TerraformList<AwsLakeformationPermissionsDataSourceDataLocationBlock> DataLocation { get; set; } = new();
 
     /// <summary>
     /// Block for database.
@@ -299,7 +299,7 @@ public partial class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Database block(s) allowed")]
     [TerraformProperty("database")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceDatabaseBlock>>? Database { get; set; }
+    public TerraformList<AwsLakeformationPermissionsDataSourceDatabaseBlock> Database { get; set; } = new();
 
     /// <summary>
     /// Block for lf_tag.
@@ -307,7 +307,7 @@ public partial class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LfTag block(s) allowed")]
     [TerraformProperty("lf_tag")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceLfTagBlock>>? LfTag { get; set; }
+    public TerraformList<AwsLakeformationPermissionsDataSourceLfTagBlock> LfTag { get; set; } = new();
 
     /// <summary>
     /// Block for lf_tag_policy.
@@ -315,7 +315,7 @@ public partial class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LfTagPolicy block(s) allowed")]
     [TerraformProperty("lf_tag_policy")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceLfTagPolicyBlock>>? LfTagPolicy { get; set; }
+    public TerraformList<AwsLakeformationPermissionsDataSourceLfTagPolicyBlock> LfTagPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for table.
@@ -323,7 +323,7 @@ public partial class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Table block(s) allowed")]
     [TerraformProperty("table")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceTableBlock>>? Table { get; set; }
+    public TerraformList<AwsLakeformationPermissionsDataSourceTableBlock> Table { get; set; } = new();
 
     /// <summary>
     /// Block for table_with_columns.
@@ -331,7 +331,7 @@ public partial class AwsLakeformationPermissionsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableWithColumns block(s) allowed")]
     [TerraformProperty("table_with_columns")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationPermissionsDataSourceTableWithColumnsBlock>>? TableWithColumns { get; set; }
+    public TerraformList<AwsLakeformationPermissionsDataSourceTableWithColumnsBlock> TableWithColumns { get; set; } = new();
 
     /// <summary>
     /// The permissions attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMigrationCenterGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMigrationCenterGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -99,7 +99,7 @@ public partial class GoogleMigrationCenterGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMigrationCenterGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMigrationCenterGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp when the group was created.

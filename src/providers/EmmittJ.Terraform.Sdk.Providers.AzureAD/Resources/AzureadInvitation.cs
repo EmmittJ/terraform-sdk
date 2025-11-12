@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for message in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadInvitationMessageBlock : TerraformBlockBase
+public partial class AzureadInvitationMessageBlock() : TerraformBlock("message")
 {
     /// <summary>
     /// Email addresses of additional recipients the invitation message should be sent to
@@ -35,7 +35,7 @@ public partial class AzureadInvitationMessageBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadInvitationTimeoutsBlock : TerraformBlockBase
+public partial class AzureadInvitationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -113,14 +113,14 @@ public partial class AzureadInvitation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Message block(s) allowed")]
     [TerraformProperty("message")]
-    public partial TerraformList<TerraformBlock<AzureadInvitationMessageBlock>>? Message { get; set; }
+    public TerraformList<AzureadInvitationMessageBlock> Message { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadInvitationTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadInvitationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The URL the user can use to redeem their invitation

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDynamodbTableDataSourceServerSideEncryptionBlock : TerraformBlockBase
+public partial class AwsDynamodbTableDataSourceServerSideEncryptionBlock() : TerraformBlock("server_side_encryption")
 {
 
 
@@ -57,7 +57,7 @@ public partial class AwsDynamodbTableDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     [TerraformProperty("server_side_encryption")]
-    public partial TerraformList<TerraformBlock<AwsDynamodbTableDataSourceServerSideEncryptionBlock>>? ServerSideEncryption { get; set; }
+    public TerraformList<AwsDynamodbTableDataSourceServerSideEncryptionBlock> ServerSideEncryption { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

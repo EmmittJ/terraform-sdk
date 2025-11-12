@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for database in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationResourceLfTagsDatabaseBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagsDatabaseBlock() : TerraformBlock("database")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -29,7 +29,7 @@ public partial class AwsLakeformationResourceLfTagsDatabaseBlock : TerraformBloc
 /// Block type for lf_tag in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagsLfTagBlock() : TerraformBlock("lf_tag")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -60,7 +60,7 @@ public partial class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlockBa
 /// Block type for table in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationResourceLfTagsTableBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagsTableBlock() : TerraformBlock("table")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -97,7 +97,7 @@ public partial class AwsLakeformationResourceLfTagsTableBlock : TerraformBlockBa
 /// Block type for table_with_columns in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagsTableWithColumnsBlock() : TerraformBlock("table_with_columns")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -149,7 +149,7 @@ public partial class AwsLakeformationResourceLfTagsTableWithColumnsBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLakeformationResourceLfTagsTimeoutsBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -204,7 +204,7 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Database block(s) allowed")]
     [TerraformProperty("database")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsDatabaseBlock>>? Database { get; set; }
+    public TerraformList<AwsLakeformationResourceLfTagsDatabaseBlock> Database { get; set; } = new();
 
     /// <summary>
     /// Block for lf_tag.
@@ -213,7 +213,7 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LfTag is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LfTag block(s) required")]
     [TerraformProperty("lf_tag")]
-    public partial TerraformSet<TerraformBlock<AwsLakeformationResourceLfTagsLfTagBlock>>? LfTag { get; set; }
+    public required TerraformSet<AwsLakeformationResourceLfTagsLfTagBlock> LfTag { get; set; } = new();
 
     /// <summary>
     /// Block for table.
@@ -221,7 +221,7 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Table block(s) allowed")]
     [TerraformProperty("table")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsTableBlock>>? Table { get; set; }
+    public TerraformList<AwsLakeformationResourceLfTagsTableBlock> Table { get; set; } = new();
 
     /// <summary>
     /// Block for table_with_columns.
@@ -229,13 +229,13 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableWithColumns block(s) allowed")]
     [TerraformProperty("table_with_columns")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsTableWithColumnsBlock>>? TableWithColumns { get; set; }
+    public TerraformList<AwsLakeformationResourceLfTagsTableWithColumnsBlock> TableWithColumns { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLakeformationResourceLfTagsTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLakeformationResourceLfTagsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

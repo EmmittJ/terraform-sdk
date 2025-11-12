@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for appsync_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetAppsyncTargetBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetAppsyncTargetBlock() : TerraformBlock("appsync_target")
 {
     /// <summary>
     /// The graphql_operation attribute.
@@ -21,7 +21,7 @@ public partial class AwsCloudwatchEventTargetAppsyncTargetBlock : TerraformBlock
 /// Block type for batch_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetBatchTargetBlock() : TerraformBlock("batch_target")
 {
     /// <summary>
     /// The array_size attribute.
@@ -59,7 +59,7 @@ public partial class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlockBa
 /// Block type for dead_letter_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetDeadLetterConfigBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetDeadLetterConfigBlock() : TerraformBlock("dead_letter_config")
 {
     /// <summary>
     /// The arn attribute.
@@ -74,7 +74,7 @@ public partial class AwsCloudwatchEventTargetDeadLetterConfigBlock : TerraformBl
 /// Block type for ecs_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetEcsTargetBlock() : TerraformBlock("ecs_target")
 {
     /// <summary>
     /// The enable_ecs_managed_tags attribute.
@@ -146,7 +146,7 @@ public partial class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlockBase
 /// Block type for http_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetHttpTargetBlock() : TerraformBlock("http_target")
 {
     /// <summary>
     /// The header_parameters attribute.
@@ -175,7 +175,7 @@ public partial class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlockBas
 /// Block type for input_transformer in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetInputTransformerBlock() : TerraformBlock("input_transformer")
 {
     /// <summary>
     /// The input_paths attribute.
@@ -198,7 +198,7 @@ public partial class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBl
 /// Block type for kinesis_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetKinesisTargetBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetKinesisTargetBlock() : TerraformBlock("kinesis_target")
 {
     /// <summary>
     /// The partition_key_path attribute.
@@ -213,7 +213,7 @@ public partial class AwsCloudwatchEventTargetKinesisTargetBlock : TerraformBlock
 /// Block type for redshift_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetRedshiftTargetBlock() : TerraformBlock("redshift_target")
 {
     /// <summary>
     /// The database attribute.
@@ -264,7 +264,7 @@ public partial class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBloc
 /// Block type for retry_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetRetryPolicyBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetRetryPolicyBlock() : TerraformBlock("retry_policy")
 {
     /// <summary>
     /// The maximum_event_age_in_seconds attribute.
@@ -286,7 +286,7 @@ public partial class AwsCloudwatchEventTargetRetryPolicyBlock : TerraformBlockBa
 /// Block type for run_command_targets in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetRunCommandTargetsBlock() : TerraformBlock("run_command_targets")
 {
     /// <summary>
     /// The key attribute.
@@ -310,7 +310,7 @@ public partial class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformB
 /// Block type for sagemaker_pipeline_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetSagemakerPipelineTargetBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetSagemakerPipelineTargetBlock() : TerraformBlock("sagemaker_pipeline_target")
 {
 }
 
@@ -318,7 +318,7 @@ public partial class AwsCloudwatchEventTargetSagemakerPipelineTargetBlock : Terr
 /// Block type for sqs_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventTargetSqsTargetBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventTargetSqsTargetBlock() : TerraformBlock("sqs_target")
 {
     /// <summary>
     /// The message_group_id attribute.
@@ -417,7 +417,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppsyncTarget block(s) allowed")]
     [TerraformProperty("appsync_target")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetAppsyncTargetBlock>>? AppsyncTarget { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetAppsyncTargetBlock> AppsyncTarget { get; set; } = new();
 
     /// <summary>
     /// Block for batch_target.
@@ -425,7 +425,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BatchTarget block(s) allowed")]
     [TerraformProperty("batch_target")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetBatchTargetBlock>>? BatchTarget { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetBatchTargetBlock> BatchTarget { get; set; } = new();
 
     /// <summary>
     /// Block for dead_letter_config.
@@ -433,7 +433,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
     [TerraformProperty("dead_letter_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetDeadLetterConfigBlock>>? DeadLetterConfig { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetDeadLetterConfigBlock> DeadLetterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for ecs_target.
@@ -441,7 +441,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EcsTarget block(s) allowed")]
     [TerraformProperty("ecs_target")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetEcsTargetBlock>>? EcsTarget { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetEcsTargetBlock> EcsTarget { get; set; } = new();
 
     /// <summary>
     /// Block for http_target.
@@ -449,7 +449,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
     [TerraformProperty("http_target")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetHttpTargetBlock>>? HttpTarget { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetHttpTargetBlock> HttpTarget { get; set; } = new();
 
     /// <summary>
     /// Block for input_transformer.
@@ -457,7 +457,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputTransformer block(s) allowed")]
     [TerraformProperty("input_transformer")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetInputTransformerBlock>>? InputTransformer { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetInputTransformerBlock> InputTransformer { get; set; } = new();
 
     /// <summary>
     /// Block for kinesis_target.
@@ -465,7 +465,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisTarget block(s) allowed")]
     [TerraformProperty("kinesis_target")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetKinesisTargetBlock>>? KinesisTarget { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetKinesisTargetBlock> KinesisTarget { get; set; } = new();
 
     /// <summary>
     /// Block for redshift_target.
@@ -473,7 +473,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftTarget block(s) allowed")]
     [TerraformProperty("redshift_target")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetRedshiftTargetBlock>>? RedshiftTarget { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetRedshiftTargetBlock> RedshiftTarget { get; set; } = new();
 
     /// <summary>
     /// Block for retry_policy.
@@ -481,7 +481,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     [TerraformProperty("retry_policy")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetRetryPolicyBlock>>? RetryPolicy { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetRetryPolicyBlock> RetryPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for run_command_targets.
@@ -489,7 +489,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 RunCommandTargets block(s) allowed")]
     [TerraformProperty("run_command_targets")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetRunCommandTargetsBlock>>? RunCommandTargets { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetRunCommandTargetsBlock> RunCommandTargets { get; set; } = new();
 
     /// <summary>
     /// Block for sagemaker_pipeline_target.
@@ -497,7 +497,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SagemakerPipelineTarget block(s) allowed")]
     [TerraformProperty("sagemaker_pipeline_target")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetSagemakerPipelineTargetBlock>>? SagemakerPipelineTarget { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetSagemakerPipelineTargetBlock> SagemakerPipelineTarget { get; set; } = new();
 
     /// <summary>
     /// Block for sqs_target.
@@ -505,6 +505,6 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SqsTarget block(s) allowed")]
     [TerraformProperty("sqs_target")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetSqsTargetBlock>>? SqsTarget { get; set; }
+    public TerraformList<AwsCloudwatchEventTargetSqsTargetBlock> SqsTarget { get; set; } = new();
 
 }

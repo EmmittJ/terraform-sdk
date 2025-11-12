@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for provisioning_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsServicecatalogProvisionedProductProvisioningParametersBlock : TerraformBlockBase
+public partial class AwsServicecatalogProvisionedProductProvisioningParametersBlock() : TerraformBlock("provisioning_parameters")
 {
     /// <summary>
     /// The key attribute.
@@ -36,7 +36,7 @@ public partial class AwsServicecatalogProvisionedProductProvisioningParametersBl
 /// Block type for stack_set_provisioning_preferences in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesBlock : TerraformBlockBase
+public partial class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesBlock() : TerraformBlock("stack_set_provisioning_preferences")
 {
     /// <summary>
     /// The accounts attribute.
@@ -86,7 +86,7 @@ public partial class AwsServicecatalogProvisionedProductStackSetProvisioningPref
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsServicecatalogProvisionedProductTimeoutsBlock : TerraformBlockBase
+public partial class AwsServicecatalogProvisionedProductTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -239,7 +239,7 @@ public partial class AwsServicecatalogProvisionedProduct : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("provisioning_parameters")]
-    public partial TerraformList<TerraformBlock<AwsServicecatalogProvisionedProductProvisioningParametersBlock>>? ProvisioningParameters { get; set; }
+    public TerraformList<AwsServicecatalogProvisionedProductProvisioningParametersBlock> ProvisioningParameters { get; set; } = new();
 
     /// <summary>
     /// Block for stack_set_provisioning_preferences.
@@ -247,14 +247,14 @@ public partial class AwsServicecatalogProvisionedProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StackSetProvisioningPreferences block(s) allowed")]
     [TerraformProperty("stack_set_provisioning_preferences")]
-    public partial TerraformList<TerraformBlock<AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesBlock>>? StackSetProvisioningPreferences { get; set; }
+    public TerraformList<AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesBlock> StackSetProvisioningPreferences { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsServicecatalogProvisionedProductTimeoutsBlock>? Timeouts { get; set; }
+    public AwsServicecatalogProvisionedProductTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

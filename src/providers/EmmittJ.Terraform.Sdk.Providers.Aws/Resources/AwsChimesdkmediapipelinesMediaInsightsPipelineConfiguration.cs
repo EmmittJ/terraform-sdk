@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for elements in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElementsBlock : TerraformBlockBase
+public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElementsBlock() : TerraformBlock("elements")
 {
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
 /// Block type for real_time_alert_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTimeAlertConfigurationBlock : TerraformBlockBase
+public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTimeAlertConfigurationBlock() : TerraformBlock("real_time_alert_configuration")
 {
     /// <summary>
     /// The disabled attribute.
@@ -37,7 +37,7 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -116,7 +116,7 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Elements is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Elements block(s) required")]
     [TerraformProperty("elements")]
-    public partial TerraformList<TerraformBlock<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElementsBlock>>? Elements { get; set; }
+    public required TerraformList<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElementsBlock> Elements { get; set; } = new();
 
     /// <summary>
     /// Block for real_time_alert_configuration.
@@ -124,14 +124,14 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RealTimeAlertConfiguration block(s) allowed")]
     [TerraformProperty("real_time_alert_configuration")]
-    public partial TerraformList<TerraformBlock<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTimeAlertConfigurationBlock>>? RealTimeAlertConfiguration { get; set; }
+    public TerraformList<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTimeAlertConfigurationBlock> RealTimeAlertConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

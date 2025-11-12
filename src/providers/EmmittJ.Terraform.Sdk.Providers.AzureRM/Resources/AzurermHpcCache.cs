@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for default_access_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHpcCacheDefaultAccessPolicyBlock : TerraformBlockBase
+public partial class AzurermHpcCacheDefaultAccessPolicyBlock() : TerraformBlock("default_access_policy")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermHpcCacheDefaultAccessPolicyBlock : TerraformBlockBas
 /// Block type for directory_active_directory in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlockBase
+public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock() : TerraformBlock("directory_active_directory")
 {
     /// <summary>
     /// The cache_netbios_name attribute.
@@ -77,7 +77,7 @@ public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlo
 /// Block type for directory_flat_file in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlockBase
+public partial class AzurermHpcCacheDirectoryFlatFileBlock() : TerraformBlock("directory_flat_file")
 {
     /// <summary>
     /// The group_file_uri attribute.
@@ -101,7 +101,7 @@ public partial class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlockBase
 /// Block type for directory_ldap in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHpcCacheDirectoryLdapBlock : TerraformBlockBase
+public partial class AzurermHpcCacheDirectoryLdapBlock() : TerraformBlock("directory_ldap")
 {
     /// <summary>
     /// The base_dn attribute.
@@ -146,7 +146,7 @@ public partial class AzurermHpcCacheDirectoryLdapBlock : TerraformBlockBase
 /// Block type for dns in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHpcCacheDnsBlock : TerraformBlockBase
+public partial class AzurermHpcCacheDnsBlock() : TerraformBlock("dns")
 {
     /// <summary>
     /// The search_domain attribute.
@@ -169,7 +169,7 @@ public partial class AzurermHpcCacheDnsBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHpcCacheIdentityBlock : TerraformBlockBase
+public partial class AzurermHpcCacheIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -194,7 +194,7 @@ public partial class AzurermHpcCacheIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHpcCacheTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHpcCacheTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -333,7 +333,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAccessPolicy block(s) allowed")]
     [TerraformProperty("default_access_policy")]
-    public partial TerraformList<TerraformBlock<AzurermHpcCacheDefaultAccessPolicyBlock>>? DefaultAccessPolicy { get; set; }
+    public TerraformList<AzurermHpcCacheDefaultAccessPolicyBlock> DefaultAccessPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for directory_active_directory.
@@ -341,7 +341,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryActiveDirectory block(s) allowed")]
     [TerraformProperty("directory_active_directory")]
-    public partial TerraformList<TerraformBlock<AzurermHpcCacheDirectoryActiveDirectoryBlock>>? DirectoryActiveDirectory { get; set; }
+    public TerraformList<AzurermHpcCacheDirectoryActiveDirectoryBlock> DirectoryActiveDirectory { get; set; } = new();
 
     /// <summary>
     /// Block for directory_flat_file.
@@ -349,7 +349,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryFlatFile block(s) allowed")]
     [TerraformProperty("directory_flat_file")]
-    public partial TerraformList<TerraformBlock<AzurermHpcCacheDirectoryFlatFileBlock>>? DirectoryFlatFile { get; set; }
+    public TerraformList<AzurermHpcCacheDirectoryFlatFileBlock> DirectoryFlatFile { get; set; } = new();
 
     /// <summary>
     /// Block for directory_ldap.
@@ -357,7 +357,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryLdap block(s) allowed")]
     [TerraformProperty("directory_ldap")]
-    public partial TerraformList<TerraformBlock<AzurermHpcCacheDirectoryLdapBlock>>? DirectoryLdap { get; set; }
+    public TerraformList<AzurermHpcCacheDirectoryLdapBlock> DirectoryLdap { get; set; } = new();
 
     /// <summary>
     /// Block for dns.
@@ -365,7 +365,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]
     [TerraformProperty("dns")]
-    public partial TerraformList<TerraformBlock<AzurermHpcCacheDnsBlock>>? Dns { get; set; }
+    public TerraformList<AzurermHpcCacheDnsBlock> Dns { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -373,14 +373,14 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermHpcCacheIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermHpcCacheIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHpcCacheTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHpcCacheTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The mount_addresses attribute.

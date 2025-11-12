@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkManagerAdminRuleDestinationBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerAdminRuleDestinationBlock() : TerraformBlock("destination")
 {
     /// <summary>
     /// The address_prefix attribute.
@@ -30,7 +30,7 @@ public partial class AzurermNetworkManagerAdminRuleDestinationBlock : TerraformB
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkManagerAdminRuleSourceBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerAdminRuleSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The address_prefix attribute.
@@ -54,7 +54,7 @@ public partial class AzurermNetworkManagerAdminRuleSourceBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkManagerAdminRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerAdminRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -176,20 +176,20 @@ public partial class AzurermNetworkManagerAdminRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkManagerAdminRuleDestinationBlock>>? Destination { get; set; }
+    public TerraformList<AzurermNetworkManagerAdminRuleDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkManagerAdminRuleSourceBlock>>? Source { get; set; }
+    public TerraformList<AzurermNetworkManagerAdminRuleSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkManagerAdminRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkManagerAdminRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

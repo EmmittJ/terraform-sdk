@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for device_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessTrustProviderDeviceOptionsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessTrustProviderDeviceOptionsBlock() : TerraformBlock("device_options")
 {
     /// <summary>
     /// The tenant_id attribute.
@@ -21,7 +21,7 @@ public partial class AwsVerifiedaccessTrustProviderDeviceOptionsBlock : Terrafor
 /// Block type for native_application_oidc_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock() : TerraformBlock("native_application_oidc_options")
 {
     /// <summary>
     /// The authorization_endpoint attribute.
@@ -86,7 +86,7 @@ public partial class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsB
 /// Block type for oidc_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessTrustProviderOidcOptionsBlock() : TerraformBlock("oidc_options")
 {
     /// <summary>
     /// The authorization_endpoint attribute.
@@ -144,7 +144,7 @@ public partial class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformB
 /// Block type for sse_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessTrustProviderSseSpecificationBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessTrustProviderSseSpecificationBlock() : TerraformBlock("sse_specification")
 {
     /// <summary>
     /// The customer_managed_key_enabled attribute.
@@ -166,7 +166,7 @@ public partial class AwsVerifiedaccessTrustProviderSseSpecificationBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessTrustProviderTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -272,7 +272,7 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeviceOptions block(s) allowed")]
     [TerraformProperty("device_options")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderDeviceOptionsBlock>>? DeviceOptions { get; set; }
+    public TerraformList<AwsVerifiedaccessTrustProviderDeviceOptionsBlock> DeviceOptions { get; set; } = new();
 
     /// <summary>
     /// Block for native_application_oidc_options.
@@ -280,7 +280,7 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NativeApplicationOidcOptions block(s) allowed")]
     [TerraformProperty("native_application_oidc_options")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock>>? NativeApplicationOidcOptions { get; set; }
+    public TerraformList<AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock> NativeApplicationOidcOptions { get; set; } = new();
 
     /// <summary>
     /// Block for oidc_options.
@@ -288,7 +288,7 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcOptions block(s) allowed")]
     [TerraformProperty("oidc_options")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderOidcOptionsBlock>>? OidcOptions { get; set; }
+    public TerraformList<AwsVerifiedaccessTrustProviderOidcOptionsBlock> OidcOptions { get; set; } = new();
 
     /// <summary>
     /// Block for sse_specification.
@@ -296,13 +296,13 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseSpecification block(s) allowed")]
     [TerraformProperty("sse_specification")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderSseSpecificationBlock>>? SseSpecification { get; set; }
+    public TerraformList<AwsVerifiedaccessTrustProviderSseSpecificationBlock> SseSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVerifiedaccessTrustProviderTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVerifiedaccessTrustProviderTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for boolean_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFolderOrganizationPolicyBooleanPolicyBlock : TerraformBlockBase
+public partial class GoogleFolderOrganizationPolicyBooleanPolicyBlock() : TerraformBlock("boolean_policy")
 {
     /// <summary>
     /// If true, then the Policy is enforced. If false, then any configuration is acceptable.
@@ -22,7 +22,7 @@ public partial class GoogleFolderOrganizationPolicyBooleanPolicyBlock : Terrafor
 /// Block type for list_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFolderOrganizationPolicyListPolicyBlock : TerraformBlockBase
+public partial class GoogleFolderOrganizationPolicyListPolicyBlock() : TerraformBlock("list_policy")
 {
     /// <summary>
     /// If set to true, the values from the effective Policy of the parent resource are inherited, meaning the values set in this Policy are added to the values inherited up the hierarchy.
@@ -44,7 +44,7 @@ public partial class GoogleFolderOrganizationPolicyListPolicyBlock : TerraformBl
 /// Block type for restore_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFolderOrganizationPolicyRestorePolicyBlock : TerraformBlockBase
+public partial class GoogleFolderOrganizationPolicyRestorePolicyBlock() : TerraformBlock("restore_policy")
 {
     /// <summary>
     /// May only be set to true. If set, then the default Policy is restored.
@@ -60,7 +60,7 @@ public partial class GoogleFolderOrganizationPolicyRestorePolicyBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFolderOrganizationPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFolderOrganizationPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,7 +138,7 @@ public partial class GoogleFolderOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BooleanPolicy block(s) allowed")]
     [TerraformProperty("boolean_policy")]
-    public partial TerraformList<TerraformBlock<GoogleFolderOrganizationPolicyBooleanPolicyBlock>>? BooleanPolicy { get; set; }
+    public TerraformList<GoogleFolderOrganizationPolicyBooleanPolicyBlock> BooleanPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for list_policy.
@@ -146,7 +146,7 @@ public partial class GoogleFolderOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ListPolicy block(s) allowed")]
     [TerraformProperty("list_policy")]
-    public partial TerraformList<TerraformBlock<GoogleFolderOrganizationPolicyListPolicyBlock>>? ListPolicy { get; set; }
+    public TerraformList<GoogleFolderOrganizationPolicyListPolicyBlock> ListPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for restore_policy.
@@ -154,14 +154,14 @@ public partial class GoogleFolderOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
     [TerraformProperty("restore_policy")]
-    public partial TerraformList<TerraformBlock<GoogleFolderOrganizationPolicyRestorePolicyBlock>>? RestorePolicy { get; set; }
+    public TerraformList<GoogleFolderOrganizationPolicyRestorePolicyBlock> RestorePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFolderOrganizationPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFolderOrganizationPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.

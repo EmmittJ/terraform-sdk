@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock : TerraformBlockBase
+public partial class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock() : TerraformBlock("details")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -87,14 +87,14 @@ public partial class AwsS3controlMultiRegionAccessPointPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Details block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Details block(s) allowed")]
     [TerraformProperty("details")]
-    public partial TerraformList<TerraformBlock<AwsS3controlMultiRegionAccessPointPolicyDetailsBlock>>? Details { get; set; }
+    public required TerraformList<AwsS3controlMultiRegionAccessPointPolicyDetailsBlock> Details { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The established attribute.

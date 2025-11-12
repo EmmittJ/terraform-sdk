@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncLocationS3S3ConfigBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationS3S3ConfigBlock() : TerraformBlock("s3_config")
 {
     /// <summary>
     /// The bucket_access_role_arn attribute.
@@ -94,7 +94,7 @@ public partial class AwsDatasyncLocationS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Config block(s) allowed")]
     [TerraformProperty("s3_config")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncLocationS3S3ConfigBlock>>? S3Config { get; set; }
+    public required TerraformList<AwsDatasyncLocationS3S3ConfigBlock> S3Config { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

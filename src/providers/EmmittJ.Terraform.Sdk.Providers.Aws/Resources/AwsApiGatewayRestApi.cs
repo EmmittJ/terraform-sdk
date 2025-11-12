@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayRestApiEndpointConfigurationBlock : TerraformBlockBase
+public partial class AwsApiGatewayRestApiEndpointConfigurationBlock() : TerraformBlock("endpoint_configuration")
 {
     /// <summary>
     /// The ip_address_type attribute.
@@ -154,7 +154,7 @@ public partial class AwsApiGatewayRestApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfiguration block(s) allowed")]
     [TerraformProperty("endpoint_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayRestApiEndpointConfigurationBlock>>? EndpointConfiguration { get; set; }
+    public TerraformList<AwsApiGatewayRestApiEndpointConfigurationBlock> EndpointConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

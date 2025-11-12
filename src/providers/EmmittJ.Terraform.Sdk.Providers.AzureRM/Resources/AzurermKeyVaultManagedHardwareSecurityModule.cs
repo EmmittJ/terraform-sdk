@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for network_acls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock() : TerraformBlock("network_acls")
 {
     /// <summary>
     /// The bypass attribute.
@@ -30,7 +30,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,14 +175,14 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
     [TerraformProperty("network_acls")]
-    public partial TerraformList<TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>>? NetworkAcls { get; set; }
+    public TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock> NetworkAcls { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hsm_uri attribute.

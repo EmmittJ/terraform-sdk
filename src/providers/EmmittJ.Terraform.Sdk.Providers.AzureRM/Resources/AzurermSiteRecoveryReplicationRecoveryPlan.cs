@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_to_azure_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock() : TerraformBlock("azure_to_azure_settings")
 {
     /// <summary>
     /// The primary_edge_zone attribute.
@@ -42,7 +42,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSetti
 /// Block type for boot_recovery_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock() : TerraformBlock("boot_recovery_group")
 {
     /// <summary>
     /// The replicated_protected_items attribute.
@@ -57,7 +57,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroup
 /// Block type for failover_recovery_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock() : TerraformBlock("failover_recovery_group")
 {
 }
 
@@ -65,7 +65,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryG
 /// Block type for shutdown_recovery_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock() : TerraformBlock("shutdown_recovery_group")
 {
 }
 
@@ -73,7 +73,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryG
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -160,7 +160,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureToAzureSettings block(s) allowed")]
     [TerraformProperty("azure_to_azure_settings")]
-    public partial TerraformList<TerraformBlock<AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock>>? AzureToAzureSettings { get; set; }
+    public TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock> AzureToAzureSettings { get; set; } = new();
 
     /// <summary>
     /// Block for boot_recovery_group.
@@ -169,7 +169,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BootRecoveryGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BootRecoveryGroup block(s) required")]
     [TerraformProperty("boot_recovery_group")]
-    public partial TerraformList<TerraformBlock<AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock>>? BootRecoveryGroup { get; set; }
+    public required TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock> BootRecoveryGroup { get; set; } = new();
 
     /// <summary>
     /// Block for failover_recovery_group.
@@ -179,7 +179,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FailoverRecoveryGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FailoverRecoveryGroup block(s) allowed")]
     [TerraformProperty("failover_recovery_group")]
-    public partial TerraformList<TerraformBlock<AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock>>? FailoverRecoveryGroup { get; set; }
+    public required TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock> FailoverRecoveryGroup { get; set; } = new();
 
     /// <summary>
     /// Block for shutdown_recovery_group.
@@ -189,13 +189,13 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ShutdownRecoveryGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShutdownRecoveryGroup block(s) allowed")]
     [TerraformProperty("shutdown_recovery_group")]
-    public partial TerraformList<TerraformBlock<AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock>>? ShutdownRecoveryGroup { get; set; }
+    public required TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock> ShutdownRecoveryGroup { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock Timeouts { get; set; } = new();
 
 }

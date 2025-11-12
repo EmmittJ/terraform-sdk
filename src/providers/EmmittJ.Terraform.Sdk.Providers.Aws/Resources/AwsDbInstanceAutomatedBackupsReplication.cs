@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock : TerraformBlockBase
+public partial class AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -81,6 +81,6 @@ public partial class AwsDbInstanceAutomatedBackupsReplication : TerraformResourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEvidentlyFeatureTimeoutsBlock : TerraformBlockBase
+public partial class AwsEvidentlyFeatureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsEvidentlyFeatureTimeoutsBlock : TerraformBlockBase
 /// Block type for variations in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEvidentlyFeatureVariationsBlock : TerraformBlockBase
+public partial class AwsEvidentlyFeatureVariationsBlock() : TerraformBlock("variations")
 {
     /// <summary>
     /// The name attribute.
@@ -135,7 +135,7 @@ public partial class AwsEvidentlyFeature : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEvidentlyFeatureTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEvidentlyFeatureTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for variations.
@@ -145,7 +145,7 @@ public partial class AwsEvidentlyFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Variations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Variations block(s) allowed")]
     [TerraformProperty("variations")]
-    public partial TerraformSet<TerraformBlock<AwsEvidentlyFeatureVariationsBlock>>? Variations { get; set; }
+    public required TerraformSet<AwsEvidentlyFeatureVariationsBlock> Variations { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

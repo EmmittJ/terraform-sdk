@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bandwidth_limit in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageTransferAgentPoolBandwidthLimitBlock : TerraformBlockBase
+public partial class GoogleStorageTransferAgentPoolBandwidthLimitBlock() : TerraformBlock("bandwidth_limit")
 {
     /// <summary>
     /// Bandwidth rate in megabytes per second, distributed across all the agents in the pool.
@@ -22,7 +22,7 @@ public partial class GoogleStorageTransferAgentPoolBandwidthLimitBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageTransferAgentPoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageTransferAgentPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,14 +101,14 @@ public partial class GoogleStorageTransferAgentPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BandwidthLimit block(s) allowed")]
     [TerraformProperty("bandwidth_limit")]
-    public partial TerraformList<TerraformBlock<GoogleStorageTransferAgentPoolBandwidthLimitBlock>>? BandwidthLimit { get; set; }
+    public TerraformList<GoogleStorageTransferAgentPoolBandwidthLimitBlock> BandwidthLimit { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageTransferAgentPoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageTransferAgentPoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Specifies the state of the AgentPool.

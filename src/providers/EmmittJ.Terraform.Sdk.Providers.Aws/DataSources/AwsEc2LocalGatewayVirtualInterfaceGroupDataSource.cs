@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceFilterBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -83,14 +83,14 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceGroupDataSource : Terrafo
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2LocalGatewayVirtualInterfaceGroupDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The local_gateway_virtual_interface_ids attribute.

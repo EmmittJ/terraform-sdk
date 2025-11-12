@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cluster_endpoints in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlock : TerraformBlockBase
+public partial class GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlock() : TerraformBlock("cluster_endpoints")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,13 +83,13 @@ public partial class GoogleRedisClusterUserCreatedConnections : TerraformResourc
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cluster_endpoints")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlock>>? ClusterEndpoints { get; set; }
+    public TerraformList<GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlock> ClusterEndpoints { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for custom_intercept_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock : TerraformBlockBase
+public partial class GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock() : TerraformBlock("custom_intercept_profile")
 {
     /// <summary>
     /// The Intercept Endpoint Group to which matching traffic should be intercepted.
@@ -23,7 +23,7 @@ public partial class GoogleNetworkSecuritySecurityProfileCustomInterceptProfileB
 /// Block type for custom_mirroring_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock : TerraformBlockBase
+public partial class GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock() : TerraformBlock("custom_mirroring_profile")
 {
     /// <summary>
     /// The Mirroring Endpoint Group to which matching traffic should be mirrored.
@@ -40,7 +40,7 @@ public partial class GoogleNetworkSecuritySecurityProfileCustomMirroringProfileB
 /// Block type for threat_prevention_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock : TerraformBlockBase
+public partial class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock() : TerraformBlock("threat_prevention_profile")
 {
 }
 
@@ -48,7 +48,7 @@ public partial class GoogleNetworkSecuritySecurityProfileThreatPreventionProfile
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkSecuritySecurityProfileTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkSecuritySecurityProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,7 +146,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomInterceptProfile block(s) allowed")]
     [TerraformProperty("custom_intercept_profile")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock>>? CustomInterceptProfile { get; set; }
+    public TerraformList<GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock> CustomInterceptProfile { get; set; } = new();
 
     /// <summary>
     /// Block for custom_mirroring_profile.
@@ -154,7 +154,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomMirroringProfile block(s) allowed")]
     [TerraformProperty("custom_mirroring_profile")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock>>? CustomMirroringProfile { get; set; }
+    public TerraformList<GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock> CustomMirroringProfile { get; set; } = new();
 
     /// <summary>
     /// Block for threat_prevention_profile.
@@ -162,14 +162,14 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatPreventionProfile block(s) allowed")]
     [TerraformProperty("threat_prevention_profile")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock>>? ThreatPreventionProfile { get; set; }
+    public TerraformList<GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock> ThreatPreventionProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkSecuritySecurityProfileTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkSecuritySecurityProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the security profile was created in UTC.

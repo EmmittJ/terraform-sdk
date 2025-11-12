@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : TerraformBlockBase
+public partial class AzurermContainerAppEnvironmentDaprComponentMetadataBlock() : TerraformBlock("metadata")
 {
     /// <summary>
     /// The name of the Metadata configuration item.
@@ -36,7 +36,7 @@ public partial class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : 
 /// Block type for secret in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformBlockBase
+public partial class AzurermContainerAppEnvironmentDaprComponentSecretBlock() : TerraformBlock("secret")
 {
     /// <summary>
     /// The identity to use for accessing key vault reference.
@@ -73,7 +73,7 @@ public partial class AzurermContainerAppEnvironmentDaprComponentSecretBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -179,20 +179,20 @@ public partial class AzurermContainerAppEnvironmentDaprComponent : TerraformReso
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("metadata")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>>? Metadata { get; set; }
+    public TerraformList<AzurermContainerAppEnvironmentDaprComponentMetadataBlock> Metadata { get; set; } = new();
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("secret")]
-    public partial TerraformSet<TerraformBlock<AzurermContainerAppEnvironmentDaprComponentSecretBlock>>? Secret { get; set; }
+    public TerraformSet<AzurermContainerAppEnvironmentDaprComponentSecretBlock> Secret { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

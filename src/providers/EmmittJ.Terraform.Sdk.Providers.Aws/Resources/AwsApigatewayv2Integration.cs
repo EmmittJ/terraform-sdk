@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for response_parameters in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsApigatewayv2IntegrationResponseParametersBlock : TerraformBlockBase
+public partial class AwsApigatewayv2IntegrationResponseParametersBlock() : TerraformBlock("response_parameters")
 {
     /// <summary>
     /// The mappings attribute.
@@ -30,7 +30,7 @@ public partial class AwsApigatewayv2IntegrationResponseParametersBlock : Terrafo
 /// Block type for tls_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApigatewayv2IntegrationTlsConfigBlock : TerraformBlockBase
+public partial class AwsApigatewayv2IntegrationTlsConfigBlock() : TerraformBlock("tls_config")
 {
     /// <summary>
     /// The server_name_to_verify attribute.
@@ -184,7 +184,7 @@ public partial class AwsApigatewayv2Integration : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("response_parameters")]
-    public partial TerraformSet<TerraformBlock<AwsApigatewayv2IntegrationResponseParametersBlock>>? ResponseParameters { get; set; }
+    public TerraformSet<AwsApigatewayv2IntegrationResponseParametersBlock> ResponseParameters { get; set; } = new();
 
     /// <summary>
     /// Block for tls_config.
@@ -192,7 +192,7 @@ public partial class AwsApigatewayv2Integration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
     [TerraformProperty("tls_config")]
-    public partial TerraformList<TerraformBlock<AwsApigatewayv2IntegrationTlsConfigBlock>>? TlsConfig { get; set; }
+    public TerraformList<AwsApigatewayv2IntegrationTlsConfigBlock> TlsConfig { get; set; } = new();
 
     /// <summary>
     /// The integration_response_selection_expression attribute.

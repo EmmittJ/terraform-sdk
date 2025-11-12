@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpatialAnchorsAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpatialAnchorsAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,7 +91,7 @@ public partial class AzurermSpatialAnchorsAccount : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpatialAnchorsAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpatialAnchorsAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The account_domain attribute.

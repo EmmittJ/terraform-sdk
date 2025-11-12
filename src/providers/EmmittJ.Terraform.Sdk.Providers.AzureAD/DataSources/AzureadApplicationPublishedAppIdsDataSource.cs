@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -38,7 +38,7 @@ public partial class AzureadApplicationPublishedAppIdsDataSource : TerraformData
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A mapping of application names and application IDs

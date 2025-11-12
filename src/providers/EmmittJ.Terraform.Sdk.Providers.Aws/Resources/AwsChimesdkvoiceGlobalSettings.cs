@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for voice_connector in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock : TerraformBlockBase
+public partial class AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock() : TerraformBlock("voice_connector")
 {
     /// <summary>
     /// The cdr_bucket attribute.
@@ -42,6 +42,6 @@ public partial class AwsChimesdkvoiceGlobalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VoiceConnector block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VoiceConnector block(s) allowed")]
     [TerraformProperty("voice_connector")]
-    public partial TerraformList<TerraformBlock<AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock>>? VoiceConnector { get; set; }
+    public required TerraformList<AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock> VoiceConnector { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsControltowerLandingZoneTimeoutsBlock : TerraformBlockBase
+public partial class AwsControltowerLandingZoneTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -89,7 +89,7 @@ public partial class AwsControltowerLandingZone : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsControltowerLandingZoneTimeoutsBlock>? Timeouts { get; set; }
+    public AwsControltowerLandingZoneTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

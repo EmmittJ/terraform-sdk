@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for create_database_default_permissions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock : TerraformBlockBase
+public partial class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock() : TerraformBlock("create_database_default_permissions")
 {
     /// <summary>
     /// The permissions attribute.
@@ -28,7 +28,7 @@ public partial class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermis
 /// Block type for create_table_default_permissions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock : TerraformBlockBase
+public partial class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock() : TerraformBlock("create_table_default_permissions")
 {
     /// <summary>
     /// The permissions attribute.
@@ -139,7 +139,7 @@ public partial class AwsLakeformationDataLakeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 CreateDatabaseDefaultPermissions block(s) allowed")]
     [TerraformProperty("create_database_default_permissions")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock>>? CreateDatabaseDefaultPermissions { get; set; }
+    public TerraformList<AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock> CreateDatabaseDefaultPermissions { get; set; } = new();
 
     /// <summary>
     /// Block for create_table_default_permissions.
@@ -147,6 +147,6 @@ public partial class AwsLakeformationDataLakeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 CreateTableDefaultPermissions block(s) allowed")]
     [TerraformProperty("create_table_default_permissions")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock>>? CreateTableDefaultPermissions { get; set; }
+    public TerraformList<AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock> CreateTableDefaultPermissions { get; set; } = new();
 
 }

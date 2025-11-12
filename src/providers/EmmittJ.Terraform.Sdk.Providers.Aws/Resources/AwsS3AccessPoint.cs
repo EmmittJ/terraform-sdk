@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for public_access_block_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBlockBase
+public partial class AwsS3AccessPointPublicAccessBlockConfigurationBlock() : TerraformBlock("public_access_block_configuration")
 {
     /// <summary>
     /// The block_public_acls attribute.
@@ -42,7 +42,7 @@ public partial class AwsS3AccessPointPublicAccessBlockConfigurationBlock : Terra
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3AccessPointVpcConfigurationBlock : TerraformBlockBase
+public partial class AwsS3AccessPointVpcConfigurationBlock() : TerraformBlock("vpc_configuration")
 {
     /// <summary>
     /// The vpc_id attribute.
@@ -135,7 +135,7 @@ public partial class AwsS3AccessPoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicAccessBlockConfiguration block(s) allowed")]
     [TerraformProperty("public_access_block_configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3AccessPointPublicAccessBlockConfigurationBlock>>? PublicAccessBlockConfiguration { get; set; }
+    public TerraformList<AwsS3AccessPointPublicAccessBlockConfigurationBlock> PublicAccessBlockConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_configuration.
@@ -143,7 +143,7 @@ public partial class AwsS3AccessPoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     [TerraformProperty("vpc_configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3AccessPointVpcConfigurationBlock>>? VpcConfiguration { get; set; }
+    public TerraformList<AwsS3AccessPointVpcConfigurationBlock> VpcConfiguration { get; set; } = new();
 
     /// <summary>
     /// The alias attribute.

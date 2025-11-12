@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : TerraformBlockBase
+public partial class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,7 +132,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2 : TerraformReso
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The is_default attribute.

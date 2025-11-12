@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for validity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAcmpcaCertificateValidityBlock : TerraformBlockBase
+public partial class AwsAcmpcaCertificateValidityBlock() : TerraformBlock("validity")
 {
     /// <summary>
     /// The type attribute.
@@ -96,7 +96,7 @@ public partial class AwsAcmpcaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Validity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Validity block(s) allowed")]
     [TerraformProperty("validity")]
-    public partial TerraformList<TerraformBlock<AwsAcmpcaCertificateValidityBlock>>? Validity { get; set; }
+    public required TerraformList<AwsAcmpcaCertificateValidityBlock> Validity { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

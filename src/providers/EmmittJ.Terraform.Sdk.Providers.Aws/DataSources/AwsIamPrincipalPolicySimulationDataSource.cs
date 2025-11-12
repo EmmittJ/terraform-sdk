@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for context in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBlockBase
+public partial class AwsIamPrincipalPolicySimulationDataSourceContextBlock() : TerraformBlock("context")
 {
     /// <summary>
     /// The key name of the context entry, such as &amp;quot;aws:CurrentTime&amp;quot;.
@@ -113,7 +113,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSo
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("context")]
-    public partial TerraformSet<TerraformBlock<AwsIamPrincipalPolicySimulationDataSourceContextBlock>>? Context { get; set; }
+    public TerraformSet<AwsIamPrincipalPolicySimulationDataSourceContextBlock> Context { get; set; } = new();
 
     /// <summary>
     /// A summary of the results attribute which is true if all of the results have decision &amp;quot;allowed&amp;quot;, and false otherwise.

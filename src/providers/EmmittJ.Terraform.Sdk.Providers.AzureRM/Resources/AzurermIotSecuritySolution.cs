@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_workspace in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlockBase
+public partial class AzurermIotSecuritySolutionAdditionalWorkspaceBlock() : TerraformBlock("additional_workspace")
 {
     /// <summary>
     /// The data_types attribute.
@@ -30,7 +30,7 @@ public partial class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : Terraf
 /// Block type for recommendations_enabled in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBlockBase
+public partial class AzurermIotSecuritySolutionRecommendationsEnabledBlock() : TerraformBlock("recommendations_enabled")
 {
     /// <summary>
     /// The acr_authentication attribute.
@@ -150,7 +150,7 @@ public partial class AzurermIotSecuritySolutionRecommendationsEnabledBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIotSecuritySolutionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -300,7 +300,7 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("additional_workspace")]
-    public partial TerraformSet<TerraformBlock<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>>? AdditionalWorkspace { get; set; }
+    public TerraformSet<AzurermIotSecuritySolutionAdditionalWorkspaceBlock> AdditionalWorkspace { get; set; } = new();
 
     /// <summary>
     /// Block for recommendations_enabled.
@@ -308,13 +308,13 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecommendationsEnabled block(s) allowed")]
     [TerraformProperty("recommendations_enabled")]
-    public partial TerraformList<TerraformBlock<AzurermIotSecuritySolutionRecommendationsEnabledBlock>>? RecommendationsEnabled { get; set; }
+    public TerraformList<AzurermIotSecuritySolutionRecommendationsEnabledBlock> RecommendationsEnabled { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIotSecuritySolutionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIotSecuritySolutionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

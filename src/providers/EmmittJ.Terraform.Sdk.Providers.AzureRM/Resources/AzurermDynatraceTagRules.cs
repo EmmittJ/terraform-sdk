@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for log_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlockBase
+public partial class AzurermDynatraceTagRulesLogRuleBlock() : TerraformBlock("log_rule")
 {
     /// <summary>
     /// The send_activity_logs_enabled attribute.
@@ -35,7 +35,7 @@ public partial class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlockBase
 /// Block type for metric_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlockBase
+public partial class AzurermDynatraceTagRulesMetricRuleBlock() : TerraformBlock("metric_rule")
 {
     /// <summary>
     /// The sending_metrics_enabled attribute.
@@ -50,7 +50,7 @@ public partial class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDynatraceTagRulesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -121,7 +121,7 @@ public partial class AzurermDynatraceTagRules : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogRule block(s) allowed")]
     [TerraformProperty("log_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDynatraceTagRulesLogRuleBlock>>? LogRule { get; set; }
+    public TerraformList<AzurermDynatraceTagRulesLogRuleBlock> LogRule { get; set; } = new();
 
     /// <summary>
     /// Block for metric_rule.
@@ -129,13 +129,13 @@ public partial class AzurermDynatraceTagRules : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricRule block(s) allowed")]
     [TerraformProperty("metric_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDynatraceTagRulesMetricRuleBlock>>? MetricRule { get; set; }
+    public TerraformList<AzurermDynatraceTagRulesMetricRuleBlock> MetricRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDynatraceTagRulesTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDynatraceTagRulesTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for permissions_boundary in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock : TerraformBlockBase
+public partial class AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock() : TerraformBlock("permissions_boundary")
 {
     /// <summary>
     /// The managed_policy_arn attribute.
@@ -21,7 +21,7 @@ public partial class AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundary
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -87,13 +87,13 @@ public partial class AwsSsoadminPermissionsBoundaryAttachment : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PermissionsBoundary block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PermissionsBoundary block(s) allowed")]
     [TerraformProperty("permissions_boundary")]
-    public partial TerraformList<TerraformBlock<AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock>>? PermissionsBoundary { get; set; }
+    public required TerraformList<AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock> PermissionsBoundary { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

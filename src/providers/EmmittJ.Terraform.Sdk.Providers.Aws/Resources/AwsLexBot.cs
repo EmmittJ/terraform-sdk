@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for abort_statement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexBotAbortStatementBlock : TerraformBlockBase
+public partial class AwsLexBotAbortStatementBlock() : TerraformBlock("abort_statement")
 {
     /// <summary>
     /// The response_card attribute.
@@ -21,7 +21,7 @@ public partial class AwsLexBotAbortStatementBlock : TerraformBlockBase
 /// Block type for clarification_prompt in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexBotClarificationPromptBlock : TerraformBlockBase
+public partial class AwsLexBotClarificationPromptBlock() : TerraformBlock("clarification_prompt")
 {
     /// <summary>
     /// The max_attempts attribute.
@@ -44,7 +44,7 @@ public partial class AwsLexBotClarificationPromptBlock : TerraformBlockBase
 /// Block type for intent in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLexBotIntentBlock : TerraformBlockBase
+public partial class AwsLexBotIntentBlock() : TerraformBlock("intent")
 {
     /// <summary>
     /// The intent_name attribute.
@@ -68,7 +68,7 @@ public partial class AwsLexBotIntentBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLexBotTimeoutsBlock : TerraformBlockBase
+public partial class AwsLexBotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -204,7 +204,7 @@ public partial class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AbortStatement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AbortStatement block(s) allowed")]
     [TerraformProperty("abort_statement")]
-    public partial TerraformList<TerraformBlock<AwsLexBotAbortStatementBlock>>? AbortStatement { get; set; }
+    public required TerraformList<AwsLexBotAbortStatementBlock> AbortStatement { get; set; } = new();
 
     /// <summary>
     /// Block for clarification_prompt.
@@ -212,7 +212,7 @@ public partial class AwsLexBot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClarificationPrompt block(s) allowed")]
     [TerraformProperty("clarification_prompt")]
-    public partial TerraformList<TerraformBlock<AwsLexBotClarificationPromptBlock>>? ClarificationPrompt { get; set; }
+    public TerraformList<AwsLexBotClarificationPromptBlock> ClarificationPrompt { get; set; } = new();
 
     /// <summary>
     /// Block for intent.
@@ -222,14 +222,14 @@ public partial class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(250, ErrorMessage = "Maximum 250 Intent block(s) allowed")]
     [TerraformProperty("intent")]
-    public partial TerraformSet<TerraformBlock<AwsLexBotIntentBlock>>? Intent { get; set; }
+    public required TerraformSet<AwsLexBotIntentBlock> Intent { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLexBotTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLexBotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

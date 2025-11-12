@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for linked_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryCustomDatasetLinkedServiceBlock : TerraformBlockBase
+public partial class AzurermDataFactoryCustomDatasetLinkedServiceBlock() : TerraformBlock("linked_service")
 {
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermDataFactoryCustomDatasetLinkedServiceBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryCustomDatasetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryCustomDatasetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -160,13 +160,13 @@ public partial class AzurermDataFactoryCustomDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LinkedService block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedService block(s) allowed")]
     [TerraformProperty("linked_service")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryCustomDatasetLinkedServiceBlock>>? LinkedService { get; set; }
+    public required TerraformList<AzurermDataFactoryCustomDatasetLinkedServiceBlock> LinkedService { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryCustomDatasetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryCustomDatasetTimeoutsBlock Timeouts { get; set; } = new();
 
 }

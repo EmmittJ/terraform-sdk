@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for subnet in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlockBase
+public partial class AzurermStackHciLogicalNetworkSubnetBlock() : TerraformBlock("subnet")
 {
     /// <summary>
     /// The address_prefix attribute.
@@ -36,7 +36,7 @@ public partial class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStackHciLogicalNetworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -147,13 +147,13 @@ public partial class AzurermStackHciLogicalNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subnet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
     [TerraformProperty("subnet")]
-    public partial TerraformList<TerraformBlock<AzurermStackHciLogicalNetworkSubnetBlock>>? Subnet { get; set; }
+    public required TerraformList<AzurermStackHciLogicalNetworkSubnetBlock> Subnet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStackHciLogicalNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStackHciLogicalNetworkTimeoutsBlock Timeouts { get; set; } = new();
 
 }

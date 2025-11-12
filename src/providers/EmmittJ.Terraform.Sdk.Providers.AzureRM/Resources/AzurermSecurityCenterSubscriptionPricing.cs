@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for extension in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermSecurityCenterSubscriptionPricingExtensionBlock : TerraformBlockBase
+public partial class AzurermSecurityCenterSubscriptionPricingExtensionBlock() : TerraformBlock("extension")
 {
     /// <summary>
     /// The additional_extension_properties attribute.
@@ -29,7 +29,7 @@ public partial class AzurermSecurityCenterSubscriptionPricingExtensionBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -104,13 +104,13 @@ public partial class AzurermSecurityCenterSubscriptionPricing : TerraformResourc
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("extension")]
-    public partial TerraformSet<TerraformBlock<AzurermSecurityCenterSubscriptionPricingExtensionBlock>>? Extension { get; set; }
+    public TerraformSet<AzurermSecurityCenterSubscriptionPricingExtensionBlock> Extension { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSecurityCenterSubscriptionPricingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSecurityCenterSubscriptionPricingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

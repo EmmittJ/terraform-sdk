@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for delete_after_duration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeReservationDeleteAfterDurationBlock : TerraformBlockBase
+public partial class GoogleComputeReservationDeleteAfterDurationBlock() : TerraformBlock("delete_after_duration")
 {
     /// <summary>
     /// Number of nanoseconds for the auto-delete duration.
@@ -28,7 +28,7 @@ public partial class GoogleComputeReservationDeleteAfterDurationBlock : Terrafor
 /// Block type for reservation_sharing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeReservationReservationSharingPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeReservationReservationSharingPolicyBlock() : TerraformBlock("reservation_sharing_policy")
 {
     /// <summary>
     /// Sharing config for all Google Cloud services. Possible values: [&amp;quot;ALLOW_ALL&amp;quot;, &amp;quot;DISALLOW_ALL&amp;quot;]
@@ -43,7 +43,7 @@ public partial class GoogleComputeReservationReservationSharingPolicyBlock : Ter
 /// Block type for share_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeReservationShareSettingsBlock : TerraformBlockBase
+public partial class GoogleComputeReservationShareSettingsBlock() : TerraformBlock("share_settings")
 {
     /// <summary>
     /// Type of sharing for this shared-reservation Possible values: [&amp;quot;LOCAL&amp;quot;, &amp;quot;SPECIFIC_PROJECTS&amp;quot;]
@@ -58,7 +58,7 @@ public partial class GoogleComputeReservationShareSettingsBlock : TerraformBlock
 /// Block type for specific_reservation in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeReservationSpecificReservationBlock : TerraformBlockBase
+public partial class GoogleComputeReservationSpecificReservationBlock() : TerraformBlock("specific_reservation")
 {
     /// <summary>
     /// The number of resources that are allocated.
@@ -83,7 +83,7 @@ public partial class GoogleComputeReservationSpecificReservationBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeReservationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeReservationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -184,7 +184,7 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteAfterDuration block(s) allowed")]
     [TerraformProperty("delete_after_duration")]
-    public partial TerraformList<TerraformBlock<GoogleComputeReservationDeleteAfterDurationBlock>>? DeleteAfterDuration { get; set; }
+    public TerraformList<GoogleComputeReservationDeleteAfterDurationBlock> DeleteAfterDuration { get; set; } = new();
 
     /// <summary>
     /// Block for reservation_sharing_policy.
@@ -192,7 +192,7 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationSharingPolicy block(s) allowed")]
     [TerraformProperty("reservation_sharing_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeReservationReservationSharingPolicyBlock>>? ReservationSharingPolicy { get; set; }
+    public TerraformList<GoogleComputeReservationReservationSharingPolicyBlock> ReservationSharingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for share_settings.
@@ -200,7 +200,7 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareSettings block(s) allowed")]
     [TerraformProperty("share_settings")]
-    public partial TerraformList<TerraformBlock<GoogleComputeReservationShareSettingsBlock>>? ShareSettings { get; set; }
+    public TerraformList<GoogleComputeReservationShareSettingsBlock> ShareSettings { get; set; } = new();
 
     /// <summary>
     /// Block for specific_reservation.
@@ -210,14 +210,14 @@ public partial class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SpecificReservation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpecificReservation block(s) allowed")]
     [TerraformProperty("specific_reservation")]
-    public partial TerraformList<TerraformBlock<GoogleComputeReservationSpecificReservationBlock>>? SpecificReservation { get; set; }
+    public required TerraformList<GoogleComputeReservationSpecificReservationBlock> SpecificReservation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeReservationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeReservationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Full or partial URL to a parent commitment. This field displays for

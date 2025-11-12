@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsJobIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlockBase
 /// Block type for job_storage_account in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsJobJobStorageAccountBlock() : TerraformBlock("job_storage_account")
 {
     /// <summary>
     /// The account_key attribute.
@@ -61,7 +61,7 @@ public partial class AzurermStreamAnalyticsJobJobStorageAccountBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -232,7 +232,7 @@ public partial class AzurermStreamAnalyticsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermStreamAnalyticsJobIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermStreamAnalyticsJobIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for job_storage_account.
@@ -240,14 +240,14 @@ public partial class AzurermStreamAnalyticsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobStorageAccount block(s) allowed")]
     [TerraformProperty("job_storage_account")]
-    public partial TerraformList<TerraformBlock<AzurermStreamAnalyticsJobJobStorageAccountBlock>>? JobStorageAccount { get; set; }
+    public TerraformList<AzurermStreamAnalyticsJobJobStorageAccountBlock> JobStorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStreamAnalyticsJobTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStreamAnalyticsJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The job_id attribute.

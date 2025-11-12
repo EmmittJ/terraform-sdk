@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContactCenterInsightsViewTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContactCenterInsightsViewTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,7 +83,7 @@ public partial class GoogleContactCenterInsightsView : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContactCenterInsightsViewTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContactCenterInsightsViewTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this view was created.

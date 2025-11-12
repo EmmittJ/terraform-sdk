@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlockBase
+public partial class AzurermHealthcareFhirServiceAuthenticationBlock() : TerraformBlock("authentication")
 {
     /// <summary>
     /// The audience attribute.
@@ -37,7 +37,7 @@ public partial class AzurermHealthcareFhirServiceAuthenticationBlock : Terraform
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareFhirServiceCorsBlock : TerraformBlockBase
+public partial class AzurermHealthcareFhirServiceCorsBlock() : TerraformBlock("cors")
 {
     /// <summary>
     /// The allowed_headers attribute.
@@ -83,7 +83,7 @@ public partial class AzurermHealthcareFhirServiceCorsBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlockBase
+public partial class AzurermHealthcareFhirServiceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -108,7 +108,7 @@ public partial class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlockB
 /// Block type for oci_artifact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlockBase
+public partial class AzurermHealthcareFhirServiceOciArtifactBlock() : TerraformBlock("oci_artifact")
 {
     /// <summary>
     /// The digest attribute.
@@ -138,7 +138,7 @@ public partial class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHealthcareFhirServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -262,7 +262,7 @@ public partial class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     [TerraformProperty("authentication")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareFhirServiceAuthenticationBlock>>? Authentication { get; set; }
+    public required TerraformList<AzurermHealthcareFhirServiceAuthenticationBlock> Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for cors.
@@ -270,7 +270,7 @@ public partial class AzurermHealthcareFhirService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     [TerraformProperty("cors")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareFhirServiceCorsBlock>>? Cors { get; set; }
+    public TerraformList<AzurermHealthcareFhirServiceCorsBlock> Cors { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -278,21 +278,21 @@ public partial class AzurermHealthcareFhirService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareFhirServiceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermHealthcareFhirServiceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for oci_artifact.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("oci_artifact")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareFhirServiceOciArtifactBlock>>? OciArtifact { get; set; }
+    public TerraformList<AzurermHealthcareFhirServiceOciArtifactBlock> OciArtifact { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHealthcareFhirServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHealthcareFhirServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The public_network_access_enabled attribute.

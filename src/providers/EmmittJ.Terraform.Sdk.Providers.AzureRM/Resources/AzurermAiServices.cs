@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAiServicesCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermAiServicesCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The identity_client_id attribute.
@@ -35,7 +35,7 @@ public partial class AzurermAiServicesCustomerManagedKeyBlock : TerraformBlockBa
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAiServicesIdentityBlock : TerraformBlockBase
+public partial class AzurermAiServicesIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -60,7 +60,7 @@ public partial class AzurermAiServicesIdentityBlock : TerraformBlockBase
 /// Block type for network_acls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAiServicesNetworkAclsBlock : TerraformBlockBase
+public partial class AzurermAiServicesNetworkAclsBlock() : TerraformBlock("network_acls")
 {
     /// <summary>
     /// The bypass attribute.
@@ -90,7 +90,7 @@ public partial class AzurermAiServicesNetworkAclsBlock : TerraformBlockBase
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAiServicesStorageBlock : TerraformBlockBase
+public partial class AzurermAiServicesStorageBlock() : TerraformBlock("storage")
 {
     /// <summary>
     /// The identity_client_id attribute.
@@ -113,7 +113,7 @@ public partial class AzurermAiServicesStorageBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAiServicesTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAiServicesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -242,7 +242,7 @@ public partial class AzurermAiServices : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermAiServicesCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermAiServicesCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -250,7 +250,7 @@ public partial class AzurermAiServices : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermAiServicesIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermAiServicesIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_acls.
@@ -258,21 +258,21 @@ public partial class AzurermAiServices : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
     [TerraformProperty("network_acls")]
-    public partial TerraformList<TerraformBlock<AzurermAiServicesNetworkAclsBlock>>? NetworkAcls { get; set; }
+    public TerraformList<AzurermAiServicesNetworkAclsBlock> NetworkAcls { get; set; } = new();
 
     /// <summary>
     /// Block for storage.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage")]
-    public partial TerraformList<TerraformBlock<AzurermAiServicesStorageBlock>>? Storage { get; set; }
+    public TerraformList<AzurermAiServicesStorageBlock> Storage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAiServicesTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAiServicesTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

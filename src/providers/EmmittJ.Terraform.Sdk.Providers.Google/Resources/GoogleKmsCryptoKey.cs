@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleKmsCryptoKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlockBase
 /// Block type for version_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlockBase
+public partial class GoogleKmsCryptoKeyVersionTemplateBlock() : TerraformBlock("version_template")
 {
     /// <summary>
     /// The algorithm to use when creating a version based on this template.
@@ -158,7 +158,7 @@ public partial class GoogleKmsCryptoKey : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleKmsCryptoKeyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleKmsCryptoKeyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for version_template.
@@ -166,7 +166,7 @@ public partial class GoogleKmsCryptoKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VersionTemplate block(s) allowed")]
     [TerraformProperty("version_template")]
-    public partial TerraformList<TerraformBlock<GoogleKmsCryptoKeyVersionTemplateBlock>>? VersionTemplate { get; set; }
+    public TerraformList<GoogleKmsCryptoKeyVersionTemplateBlock> VersionTemplate { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

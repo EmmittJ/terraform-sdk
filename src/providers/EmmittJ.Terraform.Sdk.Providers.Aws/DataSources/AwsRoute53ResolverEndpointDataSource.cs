@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRoute53ResolverEndpointDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsRoute53ResolverEndpointDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AwsRoute53ResolverEndpointDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsRoute53ResolverEndpointDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsRoute53ResolverEndpointDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleChronicleRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleChronicleRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,7 +127,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleChronicleRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleChronicleRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The run frequencies that are allowed for the rule.

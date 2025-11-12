@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configurations in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock() : TerraformBlock("ip_configurations")
 {
     /// <summary>
     /// The private_ip_address attribute.
@@ -36,7 +36,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,13 +124,13 @@ public partial class AzurermPrivateDnsResolverInboundEndpoint : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfigurations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfigurations block(s) allowed")]
     [TerraformProperty("ip_configurations")]
-    public partial TerraformList<TerraformBlock<AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock>>? IpConfigurations { get; set; }
+    public required TerraformList<AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock> IpConfigurations { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
 }

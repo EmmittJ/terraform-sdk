@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cache_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsStoragegatewayFileSystemAssociationCacheAttributesBlock : TerraformBlockBase
+public partial class AwsStoragegatewayFileSystemAssociationCacheAttributesBlock() : TerraformBlock("cache_attributes")
 {
     /// <summary>
     /// The cache_stale_timeout_in_seconds attribute.
@@ -21,7 +21,7 @@ public partial class AwsStoragegatewayFileSystemAssociationCacheAttributesBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsStoragegatewayFileSystemAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsStoragegatewayFileSystemAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,14 +129,14 @@ public partial class AwsStoragegatewayFileSystemAssociation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheAttributes block(s) allowed")]
     [TerraformProperty("cache_attributes")]
-    public partial TerraformList<TerraformBlock<AwsStoragegatewayFileSystemAssociationCacheAttributesBlock>>? CacheAttributes { get; set; }
+    public TerraformList<AwsStoragegatewayFileSystemAssociationCacheAttributesBlock> CacheAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsStoragegatewayFileSystemAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsStoragegatewayFileSystemAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

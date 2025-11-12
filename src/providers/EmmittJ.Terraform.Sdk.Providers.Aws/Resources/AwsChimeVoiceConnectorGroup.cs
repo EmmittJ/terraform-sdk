@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connector in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsChimeVoiceConnectorGroupConnectorBlock : TerraformBlockBase
+public partial class AwsChimeVoiceConnectorGroupConnectorBlock() : TerraformBlock("connector")
 {
     /// <summary>
     /// The priority attribute.
@@ -64,6 +64,6 @@ public partial class AwsChimeVoiceConnectorGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 Connector block(s) allowed")]
     [TerraformProperty("connector")]
-    public partial TerraformSet<TerraformBlock<AwsChimeVoiceConnectorGroupConnectorBlock>>? Connector { get; set; }
+    public TerraformSet<AwsChimeVoiceConnectorGroupConnectorBlock> Connector { get; set; } = new();
 
 }

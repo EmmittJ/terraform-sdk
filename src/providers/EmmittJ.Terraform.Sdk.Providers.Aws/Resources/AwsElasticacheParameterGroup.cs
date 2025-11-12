@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsElasticacheParameterGroupParameterBlock : TerraformBlockBase
+public partial class AwsElasticacheParameterGroupParameterBlock() : TerraformBlock("parameter")
 {
     /// <summary>
     /// The name attribute.
@@ -91,7 +91,7 @@ public partial class AwsElasticacheParameterGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter")]
-    public partial TerraformSet<TerraformBlock<AwsElasticacheParameterGroupParameterBlock>>? Parameter { get; set; }
+    public TerraformSet<AwsElasticacheParameterGroupParameterBlock> Parameter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

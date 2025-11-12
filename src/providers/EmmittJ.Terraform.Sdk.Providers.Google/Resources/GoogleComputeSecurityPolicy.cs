@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for adaptive_protection_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock() : TerraformBlock("adaptive_protection_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock : 
 /// Block type for advanced_options_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock() : TerraformBlock("advanced_options_config")
 {
     /// <summary>
     /// JSON body parsing. Supported values include: &amp;quot;DISABLED&amp;quot;, &amp;quot;STANDARD&amp;quot;.
@@ -43,7 +43,7 @@ public partial class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : Ter
 /// Block type for recaptcha_options_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock() : TerraformBlock("recaptcha_options_config")
 {
     /// <summary>
     /// A field to supply a reCAPTCHA site key to be used for all the rules using the redirect action with the type of GOOGLE_RECAPTCHA under the security policy. The specified site key needs to be created from the reCAPTCHA API. The user is responsible for the validity of the specified site key. If not specified, a Google-managed site key is used.
@@ -59,7 +59,7 @@ public partial class GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock : Te
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeSecurityPolicyRuleBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// Action to take when match matches the request.
@@ -97,7 +97,7 @@ public partial class GoogleComputeSecurityPolicyRuleBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeSecurityPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -185,7 +185,7 @@ public partial class GoogleComputeSecurityPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdaptiveProtectionConfig block(s) allowed")]
     [TerraformProperty("adaptive_protection_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock>>? AdaptiveProtectionConfig { get; set; }
+    public TerraformList<GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock> AdaptiveProtectionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for advanced_options_config.
@@ -193,7 +193,7 @@ public partial class GoogleComputeSecurityPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedOptionsConfig block(s) allowed")]
     [TerraformProperty("advanced_options_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock>>? AdvancedOptionsConfig { get; set; }
+    public TerraformList<GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock> AdvancedOptionsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for recaptcha_options_config.
@@ -201,21 +201,21 @@ public partial class GoogleComputeSecurityPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecaptchaOptionsConfig block(s) allowed")]
     [TerraformProperty("recaptcha_options_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock>>? RecaptchaOptionsConfig { get; set; }
+    public TerraformList<GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock> RecaptchaOptionsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeSecurityPolicyRuleBlock>>? Rule { get; set; }
+    public TerraformSet<GoogleComputeSecurityPolicyRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeSecurityPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeSecurityPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

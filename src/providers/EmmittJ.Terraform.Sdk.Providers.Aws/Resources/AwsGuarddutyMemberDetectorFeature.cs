@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for additional_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGuarddutyMemberDetectorFeatureAdditionalConfigurationBlock : TerraformBlockBase
+public partial class AwsGuarddutyMemberDetectorFeatureAdditionalConfigurationBlock() : TerraformBlock("additional_configuration")
 {
     /// <summary>
     /// The name attribute.
@@ -79,6 +79,6 @@ public partial class AwsGuarddutyMemberDetectorFeature : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("additional_configuration")]
-    public partial TerraformList<TerraformBlock<AwsGuarddutyMemberDetectorFeatureAdditionalConfigurationBlock>>? AdditionalConfiguration { get; set; }
+    public TerraformList<AwsGuarddutyMemberDetectorFeatureAdditionalConfigurationBlock> AdditionalConfiguration { get; set; } = new();
 
 }

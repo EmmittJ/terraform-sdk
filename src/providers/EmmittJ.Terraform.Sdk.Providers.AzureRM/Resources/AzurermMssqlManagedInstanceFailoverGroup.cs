@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for read_write_endpoint_failover_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock() : TerraformBlock("read_write_endpoint_failover_policy")
 {
     /// <summary>
     /// The grace_minutes attribute.
@@ -29,7 +29,7 @@ public partial class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,14 +132,14 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadWriteEndpointFailoverPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadWriteEndpointFailoverPolicy block(s) allowed")]
     [TerraformProperty("read_write_endpoint_failover_policy")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock>>? ReadWriteEndpointFailoverPolicy { get; set; }
+    public required TerraformList<AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock> ReadWriteEndpointFailoverPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The partner_region attribute.

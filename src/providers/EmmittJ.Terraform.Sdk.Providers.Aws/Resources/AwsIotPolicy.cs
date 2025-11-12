@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsIotPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AwsIotPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -82,7 +82,7 @@ public partial class AwsIotPolicy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsIotPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AwsIotPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

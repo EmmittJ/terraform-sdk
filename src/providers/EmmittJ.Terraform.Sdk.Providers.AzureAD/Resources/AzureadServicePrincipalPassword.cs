@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadServicePrincipalPasswordTimeoutsBlock : TerraformBlockBase
+public partial class AzureadServicePrincipalPasswordTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,7 +96,7 @@ public partial class AzureadServicePrincipalPassword : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadServicePrincipalPasswordTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadServicePrincipalPasswordTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A UUID used to uniquely identify this password credential

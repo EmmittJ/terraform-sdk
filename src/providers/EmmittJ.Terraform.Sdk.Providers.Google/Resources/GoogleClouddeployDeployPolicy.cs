@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployDeployPolicyRulesBlock : TerraformBlockBase
+public partial class GoogleClouddeployDeployPolicyRulesBlock() : TerraformBlock("rules")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleClouddeployDeployPolicyRulesBlock : TerraformBlockBas
 /// Block type for selectors in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployDeployPolicySelectorsBlock : TerraformBlockBase
+public partial class GoogleClouddeployDeployPolicySelectorsBlock() : TerraformBlock("selectors")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class GoogleClouddeployDeployPolicySelectorsBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleClouddeployDeployPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleClouddeployDeployPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,7 +128,7 @@ public partial class GoogleClouddeployDeployPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployDeployPolicyRulesBlock>>? Rules { get; set; }
+    public required TerraformList<GoogleClouddeployDeployPolicyRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for selectors.
@@ -137,14 +137,14 @@ public partial class GoogleClouddeployDeployPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selectors is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selectors block(s) required")]
     [TerraformProperty("selectors")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployDeployPolicySelectorsBlock>>? Selectors { get; set; }
+    public required TerraformList<GoogleClouddeployDeployPolicySelectorsBlock> Selectors { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleClouddeployDeployPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleClouddeployDeployPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Time at which the DeployPolicy was created.

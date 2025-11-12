@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for idp_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineAclConfigIdpConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineAclConfigIdpConfigBlock() : TerraformBlock("idp_config")
 {
     /// <summary>
     /// Identity provider type. Possible values: [&amp;quot;GSUITE&amp;quot;, &amp;quot;THIRD_PARTY&amp;quot;]
@@ -21,7 +21,7 @@ public partial class GoogleDiscoveryEngineAclConfigIdpConfigBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineAclConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineAclConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -85,14 +85,14 @@ public partial class GoogleDiscoveryEngineAclConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdpConfig block(s) allowed")]
     [TerraformProperty("idp_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineAclConfigIdpConfigBlock>>? IdpConfig { get; set; }
+    public TerraformList<GoogleDiscoveryEngineAclConfigIdpConfigBlock> IdpConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineAclConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineAclConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique full resource name of the aclConfig. Values are of the format

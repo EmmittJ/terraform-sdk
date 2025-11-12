@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for analytics_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolClientAnalyticsConfigurationBlock() : TerraformBlock("analytics_configuration")
 {
     /// <summary>
     /// The application_arn attribute.
@@ -49,7 +49,7 @@ public partial class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : Terra
 /// Block type for refresh_token_rotation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolClientRefreshTokenRotationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolClientRefreshTokenRotationBlock() : TerraformBlock("refresh_token_rotation")
 {
     /// <summary>
     /// The feature attribute.
@@ -72,7 +72,7 @@ public partial class AwsCognitoUserPoolClientRefreshTokenRotationBlock : Terrafo
 /// Block type for token_validity_units in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolClientTokenValidityUnitsBlock() : TerraformBlock("token_validity_units")
 {
     /// <summary>
     /// The access_token attribute.
@@ -260,21 +260,21 @@ public partial class AwsCognitoUserPoolClient : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("analytics_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolClientAnalyticsConfigurationBlock>>? AnalyticsConfiguration { get; set; }
+    public TerraformList<AwsCognitoUserPoolClientAnalyticsConfigurationBlock> AnalyticsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for refresh_token_rotation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("refresh_token_rotation")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolClientRefreshTokenRotationBlock>>? RefreshTokenRotation { get; set; }
+    public TerraformList<AwsCognitoUserPoolClientRefreshTokenRotationBlock> RefreshTokenRotation { get; set; } = new();
 
     /// <summary>
     /// Block for token_validity_units.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("token_validity_units")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolClientTokenValidityUnitsBlock>>? TokenValidityUnits { get; set; }
+    public TerraformList<AwsCognitoUserPoolClientTokenValidityUnitsBlock> TokenValidityUnits { get; set; } = new();
 
     /// <summary>
     /// The client_secret attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoLocalRulestackTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,6 +132,6 @@ public partial class AzurermPaloAltoLocalRulestack : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPaloAltoLocalRulestackTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPaloAltoLocalRulestackTimeoutsBlock Timeouts { get; set; } = new();
 
 }

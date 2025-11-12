@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for suspended_state in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlockBase
+public partial class AwsAppautoscalingTargetSuspendedStateBlock() : TerraformBlock("suspended_state")
 {
     /// <summary>
     /// The dynamic_scaling_in_suspended attribute.
@@ -122,7 +122,7 @@ public partial class AwsAppautoscalingTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SuspendedState block(s) allowed")]
     [TerraformProperty("suspended_state")]
-    public partial TerraformList<TerraformBlock<AwsAppautoscalingTargetSuspendedStateBlock>>? SuspendedState { get; set; }
+    public TerraformList<AwsAppautoscalingTargetSuspendedStateBlock> SuspendedState { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

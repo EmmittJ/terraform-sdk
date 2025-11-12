@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeDeveloperAttributesBlock : TerraformBlockBase
+public partial class GoogleApigeeDeveloperAttributesBlock() : TerraformBlock("attributes")
 {
     /// <summary>
     /// Key of the attribute
@@ -28,7 +28,7 @@ public partial class GoogleApigeeDeveloperAttributesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeDeveloperTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,14 +115,14 @@ public partial class GoogleApigeeDeveloper : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attributes")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeDeveloperAttributesBlock>>? Attributes { get; set; }
+    public TerraformList<GoogleApigeeDeveloperAttributesBlock> Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeDeveloperTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeDeveloperTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time at which the developer was created in milliseconds since epoch.

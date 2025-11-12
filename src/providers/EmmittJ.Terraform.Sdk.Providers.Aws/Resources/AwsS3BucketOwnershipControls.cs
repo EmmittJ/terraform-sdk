@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketOwnershipControlsRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketOwnershipControlsRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The object_ownership attribute.
@@ -58,6 +58,6 @@ public partial class AwsS3BucketOwnershipControls : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rule block(s) allowed")]
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketOwnershipControlsRuleBlock>>? Rule { get; set; }
+    public required TerraformList<AwsS3BucketOwnershipControlsRuleBlock> Rule { get; set; } = new();
 
 }

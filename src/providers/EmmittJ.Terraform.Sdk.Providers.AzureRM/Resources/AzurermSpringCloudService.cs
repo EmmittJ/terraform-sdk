@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for config_server_git_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudServiceConfigServerGitSettingBlock : TerraformBlockBase
+public partial class AzurermSpringCloudServiceConfigServerGitSettingBlock() : TerraformBlock("config_server_git_setting")
 {
     /// <summary>
     /// The label attribute.
@@ -36,7 +36,7 @@ public partial class AzurermSpringCloudServiceConfigServerGitSettingBlock : Terr
 /// Block type for container_registry in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlockBase
+public partial class AzurermSpringCloudServiceContainerRegistryBlock() : TerraformBlock("container_registry")
 {
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermSpringCloudServiceContainerRegistryBlock : Terraform
 /// Block type for default_build_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudServiceDefaultBuildServiceBlock : TerraformBlockBase
+public partial class AzurermSpringCloudServiceDefaultBuildServiceBlock() : TerraformBlock("default_build_service")
 {
     /// <summary>
     /// The container_registry_name attribute.
@@ -91,7 +91,7 @@ public partial class AzurermSpringCloudServiceDefaultBuildServiceBlock : Terrafo
 /// Block type for marketplace in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlockBase
+public partial class AzurermSpringCloudServiceMarketplaceBlock() : TerraformBlock("marketplace")
 {
     /// <summary>
     /// The plan attribute.
@@ -123,7 +123,7 @@ public partial class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlockB
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudServiceNetworkBlock : TerraformBlockBase
+public partial class AzurermSpringCloudServiceNetworkBlock() : TerraformBlock("network")
 {
     /// <summary>
     /// The app_network_resource_group attribute.
@@ -183,7 +183,7 @@ public partial class AzurermSpringCloudServiceNetworkBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -219,7 +219,7 @@ public partial class AzurermSpringCloudServiceTimeoutsBlock : TerraformBlockBase
 /// Block type for trace in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudServiceTraceBlock : TerraformBlockBase
+public partial class AzurermSpringCloudServiceTraceBlock() : TerraformBlock("trace")
 {
     /// <summary>
     /// The connection_string attribute.
@@ -340,14 +340,14 @@ public partial class AzurermSpringCloudService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigServerGitSetting block(s) allowed")]
     [TerraformProperty("config_server_git_setting")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudServiceConfigServerGitSettingBlock>>? ConfigServerGitSetting { get; set; }
+    public TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlock> ConfigServerGitSetting { get; set; } = new();
 
     /// <summary>
     /// Block for container_registry.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("container_registry")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudServiceContainerRegistryBlock>>? ContainerRegistry { get; set; }
+    public TerraformList<AzurermSpringCloudServiceContainerRegistryBlock> ContainerRegistry { get; set; } = new();
 
     /// <summary>
     /// Block for default_build_service.
@@ -355,7 +355,7 @@ public partial class AzurermSpringCloudService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultBuildService block(s) allowed")]
     [TerraformProperty("default_build_service")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudServiceDefaultBuildServiceBlock>>? DefaultBuildService { get; set; }
+    public TerraformList<AzurermSpringCloudServiceDefaultBuildServiceBlock> DefaultBuildService { get; set; } = new();
 
     /// <summary>
     /// Block for marketplace.
@@ -363,7 +363,7 @@ public partial class AzurermSpringCloudService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Marketplace block(s) allowed")]
     [TerraformProperty("marketplace")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudServiceMarketplaceBlock>>? Marketplace { get; set; }
+    public TerraformList<AzurermSpringCloudServiceMarketplaceBlock> Marketplace { get; set; } = new();
 
     /// <summary>
     /// Block for network.
@@ -371,14 +371,14 @@ public partial class AzurermSpringCloudService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformProperty("network")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudServiceNetworkBlock>>? Network { get; set; }
+    public TerraformList<AzurermSpringCloudServiceNetworkBlock> Network { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trace.
@@ -386,7 +386,7 @@ public partial class AzurermSpringCloudService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trace block(s) allowed")]
     [TerraformProperty("trace")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudServiceTraceBlock>>? Trace { get; set; }
+    public TerraformList<AzurermSpringCloudServiceTraceBlock> Trace { get; set; } = new();
 
     /// <summary>
     /// The outbound_public_ip_addresses attribute.

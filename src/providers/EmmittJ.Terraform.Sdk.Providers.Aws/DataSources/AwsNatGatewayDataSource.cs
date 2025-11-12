@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsNatGatewayDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsNatGatewayDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsNatGatewayDataSourceFilterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNatGatewayDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsNatGatewayDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -97,14 +97,14 @@ public partial class AwsNatGatewayDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsNatGatewayDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsNatGatewayDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNatGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNatGatewayDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocation_id attribute.

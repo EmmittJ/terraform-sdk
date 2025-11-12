@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlockBase
+public partial class AwsSecuritylakeDataLakeConfigurationBlock() : TerraformBlock("configuration")
 {
     /// <summary>
     /// The encryption_configuration attribute.
@@ -29,7 +29,7 @@ public partial class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSecuritylakeDataLakeTimeoutsBlock : TerraformBlockBase
+public partial class AwsSecuritylakeDataLakeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -90,14 +90,14 @@ public partial class AwsSecuritylakeDataLake : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsSecuritylakeDataLakeConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsSecuritylakeDataLakeConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSecuritylakeDataLakeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSecuritylakeDataLakeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

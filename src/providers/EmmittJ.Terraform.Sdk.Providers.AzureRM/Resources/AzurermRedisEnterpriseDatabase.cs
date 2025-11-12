@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for module in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlockBase
+public partial class AzurermRedisEnterpriseDatabaseModuleBlock() : TerraformBlock("module")
 {
     /// <summary>
     /// The args attribute.
@@ -30,7 +30,7 @@ public partial class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRedisEnterpriseDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -143,14 +143,14 @@ public partial class AzurermRedisEnterpriseDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 Module block(s) allowed")]
     [TerraformProperty("module")]
-    public partial TerraformList<TerraformBlock<AzurermRedisEnterpriseDatabaseModuleBlock>>? Module { get; set; }
+    public TerraformList<AzurermRedisEnterpriseDatabaseModuleBlock> Module { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRedisEnterpriseDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRedisEnterpriseDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_access_key attribute.

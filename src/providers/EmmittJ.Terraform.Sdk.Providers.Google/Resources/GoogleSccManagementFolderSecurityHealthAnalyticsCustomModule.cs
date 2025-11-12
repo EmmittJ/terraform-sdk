@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for custom_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomConfigBlock : TerraformBlockBase
+public partial class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomConfigBlock() : TerraformBlock("custom_config")
 {
     /// <summary>
     /// Text that describes the vulnerability or misconfiguration that the custom
@@ -39,7 +39,7 @@ public partial class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModul
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,14 +120,14 @@ public partial class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModul
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomConfig block(s) allowed")]
     [TerraformProperty("custom_config")]
-    public partial TerraformList<TerraformBlock<GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomConfigBlock>>? CustomConfig { get; set; }
+    public TerraformList<GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomConfigBlock> CustomConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// If empty, indicates that the custom module was created in the organization, folder,

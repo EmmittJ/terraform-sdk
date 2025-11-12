@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlockBase
+public partial class GoogleMemcacheInstanceMaintenancePolicyBlock() : TerraformBlock("maintenance_policy")
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ public partial class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlo
 /// Block type for memcache_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemcacheInstanceMemcacheParametersBlock : TerraformBlockBase
+public partial class GoogleMemcacheInstanceMemcacheParametersBlock() : TerraformBlock("memcache_parameters")
 {
 
     /// <summary>
@@ -41,7 +41,7 @@ public partial class GoogleMemcacheInstanceMemcacheParametersBlock : TerraformBl
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlockBase
+public partial class GoogleMemcacheInstanceNodeConfigBlock() : TerraformBlock("node_config")
 {
     /// <summary>
     /// Number of CPUs per node.
@@ -65,7 +65,7 @@ public partial class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMemcacheInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -207,7 +207,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public partial TerraformList<TerraformBlock<GoogleMemcacheInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public TerraformList<GoogleMemcacheInstanceMaintenancePolicyBlock> MaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for memcache_parameters.
@@ -215,7 +215,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MemcacheParameters block(s) allowed")]
     [TerraformProperty("memcache_parameters")]
-    public partial TerraformList<TerraformBlock<GoogleMemcacheInstanceMemcacheParametersBlock>>? MemcacheParameters { get; set; }
+    public TerraformList<GoogleMemcacheInstanceMemcacheParametersBlock> MemcacheParameters { get; set; } = new();
 
     /// <summary>
     /// Block for node_config.
@@ -225,14 +225,14 @@ public partial class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public partial TerraformList<TerraformBlock<GoogleMemcacheInstanceNodeConfigBlock>>? NodeConfig { get; set; }
+    public required TerraformList<GoogleMemcacheInstanceNodeConfigBlock> NodeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMemcacheInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMemcacheInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

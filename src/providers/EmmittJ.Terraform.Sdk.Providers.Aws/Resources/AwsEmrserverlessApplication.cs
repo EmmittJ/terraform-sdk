@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_start_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationAutoStartConfigurationBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationAutoStartConfigurationBlock() : TerraformBlock("auto_start_configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -21,7 +21,7 @@ public partial class AwsEmrserverlessApplicationAutoStartConfigurationBlock : Te
 /// Block type for auto_stop_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationAutoStopConfigurationBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationAutoStopConfigurationBlock() : TerraformBlock("auto_stop_configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -43,7 +43,7 @@ public partial class AwsEmrserverlessApplicationAutoStopConfigurationBlock : Ter
 /// Block type for image_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationImageConfigurationBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationImageConfigurationBlock() : TerraformBlock("image_configuration")
 {
     /// <summary>
     /// The image_uri attribute.
@@ -59,7 +59,7 @@ public partial class AwsEmrserverlessApplicationImageConfigurationBlock : Terraf
 /// Block type for initial_capacity in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEmrserverlessApplicationInitialCapacityBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationInitialCapacityBlock() : TerraformBlock("initial_capacity")
 {
     /// <summary>
     /// The initial_capacity_type attribute.
@@ -75,7 +75,7 @@ public partial class AwsEmrserverlessApplicationInitialCapacityBlock : Terraform
 /// Block type for interactive_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationInteractiveConfigurationBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationInteractiveConfigurationBlock() : TerraformBlock("interactive_configuration")
 {
     /// <summary>
     /// The livy_endpoint_enabled attribute.
@@ -97,7 +97,7 @@ public partial class AwsEmrserverlessApplicationInteractiveConfigurationBlock : 
 /// Block type for maximum_capacity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationMaximumCapacityBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationMaximumCapacityBlock() : TerraformBlock("maximum_capacity")
 {
     /// <summary>
     /// The cpu attribute.
@@ -128,7 +128,7 @@ public partial class AwsEmrserverlessApplicationMaximumCapacityBlock : Terraform
 /// Block type for monitoring_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationMonitoringConfigurationBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationMonitoringConfigurationBlock() : TerraformBlock("monitoring_configuration")
 {
 }
 
@@ -136,7 +136,7 @@ public partial class AwsEmrserverlessApplicationMonitoringConfigurationBlock : T
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -158,7 +158,7 @@ public partial class AwsEmrserverlessApplicationNetworkConfigurationBlock : Terr
 /// Block type for runtime_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationRuntimeConfigurationBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationRuntimeConfigurationBlock() : TerraformBlock("runtime_configuration")
 {
     /// <summary>
     /// The classification attribute.
@@ -181,7 +181,7 @@ public partial class AwsEmrserverlessApplicationRuntimeConfigurationBlock : Terr
 /// Block type for scheduler_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrserverlessApplicationSchedulerConfigurationBlock : TerraformBlockBase
+public partial class AwsEmrserverlessApplicationSchedulerConfigurationBlock() : TerraformBlock("scheduler_configuration")
 {
     /// <summary>
     /// The max_concurrent_runs attribute.
@@ -274,7 +274,7 @@ public partial class AwsEmrserverlessApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoStartConfiguration block(s) allowed")]
     [TerraformProperty("auto_start_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationAutoStartConfigurationBlock>>? AutoStartConfiguration { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationAutoStartConfigurationBlock> AutoStartConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for auto_stop_configuration.
@@ -282,7 +282,7 @@ public partial class AwsEmrserverlessApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoStopConfiguration block(s) allowed")]
     [TerraformProperty("auto_stop_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationAutoStopConfigurationBlock>>? AutoStopConfiguration { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationAutoStopConfigurationBlock> AutoStopConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for image_configuration.
@@ -290,14 +290,14 @@ public partial class AwsEmrserverlessApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageConfiguration block(s) allowed")]
     [TerraformProperty("image_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationImageConfigurationBlock>>? ImageConfiguration { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationImageConfigurationBlock> ImageConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for initial_capacity.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("initial_capacity")]
-    public partial TerraformSet<TerraformBlock<AwsEmrserverlessApplicationInitialCapacityBlock>>? InitialCapacity { get; set; }
+    public TerraformSet<AwsEmrserverlessApplicationInitialCapacityBlock> InitialCapacity { get; set; } = new();
 
     /// <summary>
     /// Block for interactive_configuration.
@@ -305,7 +305,7 @@ public partial class AwsEmrserverlessApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InteractiveConfiguration block(s) allowed")]
     [TerraformProperty("interactive_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationInteractiveConfigurationBlock>>? InteractiveConfiguration { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationInteractiveConfigurationBlock> InteractiveConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for maximum_capacity.
@@ -313,7 +313,7 @@ public partial class AwsEmrserverlessApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaximumCapacity block(s) allowed")]
     [TerraformProperty("maximum_capacity")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationMaximumCapacityBlock>>? MaximumCapacity { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationMaximumCapacityBlock> MaximumCapacity { get; set; } = new();
 
     /// <summary>
     /// Block for monitoring_configuration.
@@ -321,7 +321,7 @@ public partial class AwsEmrserverlessApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfiguration block(s) allowed")]
     [TerraformProperty("monitoring_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationMonitoringConfigurationBlock>>? MonitoringConfiguration { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationMonitoringConfigurationBlock> MonitoringConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
@@ -329,14 +329,14 @@ public partial class AwsEmrserverlessApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for runtime_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("runtime_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationRuntimeConfigurationBlock>>? RuntimeConfiguration { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationRuntimeConfigurationBlock> RuntimeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for scheduler_configuration.
@@ -344,7 +344,7 @@ public partial class AwsEmrserverlessApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchedulerConfiguration block(s) allowed")]
     [TerraformProperty("scheduler_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEmrserverlessApplicationSchedulerConfigurationBlock>>? SchedulerConfiguration { get; set; }
+    public TerraformList<AwsEmrserverlessApplicationSchedulerConfigurationBlock> SchedulerConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

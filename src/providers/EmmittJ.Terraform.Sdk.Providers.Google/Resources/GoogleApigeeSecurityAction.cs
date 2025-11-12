@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allow in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeSecurityActionAllowBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityActionAllowBlock() : TerraformBlock("allow")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApigeeSecurityActionAllowBlock : TerraformBlockBase
 /// Block type for condition_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityActionConditionConfigBlock() : TerraformBlock("condition_config")
 {
     /// <summary>
     /// A list of accessTokens. Limit 1000 per action.
@@ -103,7 +103,7 @@ public partial class GoogleApigeeSecurityActionConditionConfigBlock : TerraformB
 /// Block type for deny in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeSecurityActionDenyBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityActionDenyBlock() : TerraformBlock("deny")
 {
     /// <summary>
     /// The HTTP response code if the Action = DENY.
@@ -118,7 +118,7 @@ public partial class GoogleApigeeSecurityActionDenyBlock : TerraformBlockBase
 /// Block type for flag in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeSecurityActionFlagBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityActionFlagBlock() : TerraformBlock("flag")
 {
 }
 
@@ -126,7 +126,7 @@ public partial class GoogleApigeeSecurityActionFlagBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeSecurityActionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityActionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -236,7 +236,7 @@ public partial class GoogleApigeeSecurityAction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Allow block(s) allowed")]
     [TerraformProperty("allow")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeSecurityActionAllowBlock>>? Allow { get; set; }
+    public TerraformList<GoogleApigeeSecurityActionAllowBlock> Allow { get; set; } = new();
 
     /// <summary>
     /// Block for condition_config.
@@ -246,7 +246,7 @@ public partial class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConditionConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConditionConfig block(s) allowed")]
     [TerraformProperty("condition_config")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeSecurityActionConditionConfigBlock>>? ConditionConfig { get; set; }
+    public required TerraformList<GoogleApigeeSecurityActionConditionConfigBlock> ConditionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for deny.
@@ -254,7 +254,7 @@ public partial class GoogleApigeeSecurityAction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deny block(s) allowed")]
     [TerraformProperty("deny")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeSecurityActionDenyBlock>>? Deny { get; set; }
+    public TerraformList<GoogleApigeeSecurityActionDenyBlock> Deny { get; set; } = new();
 
     /// <summary>
     /// Block for flag.
@@ -262,14 +262,14 @@ public partial class GoogleApigeeSecurityAction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Flag block(s) allowed")]
     [TerraformProperty("flag")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeSecurityActionFlagBlock>>? Flag { get; set; }
+    public TerraformList<GoogleApigeeSecurityActionFlagBlock> Flag { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeSecurityActionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeSecurityActionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The create time for this SecurityAction.

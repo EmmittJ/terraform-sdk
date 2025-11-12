@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for log_configurations in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : TerraformBlockBase
+public partial class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock() : TerraformBlock("log_configurations")
 {
     /// <summary>
     /// The event_source attribute.
@@ -55,6 +55,6 @@ public partial class AwsCognitoLogDeliveryConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log_configurations")]
-    public partial TerraformList<TerraformBlock<AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock>>? LogConfigurations { get; set; }
+    public TerraformList<AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock> LogConfigurations { get; set; } = new();
 
 }

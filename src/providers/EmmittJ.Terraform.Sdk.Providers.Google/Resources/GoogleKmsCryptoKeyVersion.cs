@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for external_protection_level_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock : TerraformBlockBase
+public partial class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock() : TerraformBlock("external_protection_level_options")
 {
     /// <summary>
     /// The path to the external key material on the EKM when using EkmConnection e.g., &amp;quot;v0/my/key&amp;quot;. Set this field instead of externalKeyUri when using an EkmConnection.
@@ -28,7 +28,7 @@ public partial class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleKmsCryptoKeyVersionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,14 +93,14 @@ public partial class GoogleKmsCryptoKeyVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalProtectionLevelOptions block(s) allowed")]
     [TerraformProperty("external_protection_level_options")]
-    public partial TerraformList<TerraformBlock<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>>? ExternalProtectionLevelOptions { get; set; }
+    public TerraformList<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock> ExternalProtectionLevelOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleKmsCryptoKeyVersionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleKmsCryptoKeyVersionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports.

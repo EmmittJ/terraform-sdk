@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for api_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionApiConfigBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionApiConfigBlock() : TerraformBlock("api_config")
 {
     /// <summary>
     /// Action to take when users access resources that require authentication. Default value: &amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot; Possible values: [&amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot;, &amp;quot;AUTH_FAIL_ACTION_UNAUTHORIZED&amp;quot;]
@@ -50,7 +50,7 @@ public partial class GoogleAppEngineFlexibleAppVersionApiConfigBlock : Terraform
 /// Block type for automatic_scaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock() : TerraformBlock("automatic_scaling")
 {
     /// <summary>
     /// The time period that the Autoscaler should wait before it starts collecting information from a new instance.
@@ -118,7 +118,7 @@ public partial class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : Te
 /// Block type for deployment in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionDeploymentBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionDeploymentBlock() : TerraformBlock("deployment")
 {
 }
 
@@ -126,7 +126,7 @@ public partial class GoogleAppEngineFlexibleAppVersionDeploymentBlock : Terrafor
 /// Block type for endpoints_api_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock() : TerraformBlock("endpoints_api_service")
 {
     /// <summary>
     /// Endpoints service configuration ID as specified by the Service Management API. For example &amp;quot;2016-09-19r1&amp;quot;.
@@ -171,7 +171,7 @@ public partial class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock :
 /// Block type for entrypoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionEntrypointBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionEntrypointBlock() : TerraformBlock("entrypoint")
 {
     /// <summary>
     /// The format should be a shell command that can be fed to bash -c.
@@ -187,7 +187,7 @@ public partial class GoogleAppEngineFlexibleAppVersionEntrypointBlock : Terrafor
 /// Block type for flexible_runtime_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock() : TerraformBlock("flexible_runtime_settings")
 {
     /// <summary>
     /// Operating System of the application runtime.
@@ -209,7 +209,7 @@ public partial class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlo
 /// Block type for handlers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionHandlersBlock() : TerraformBlock("handlers")
 {
     /// <summary>
     /// Actions to take when the user is not logged in. Possible values: [&amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot;, &amp;quot;AUTH_FAIL_ACTION_UNAUTHORIZED&amp;quot;]
@@ -253,7 +253,7 @@ public partial class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformB
 /// Block type for liveness_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock() : TerraformBlock("liveness_check")
 {
     /// <summary>
     /// Interval between health checks.
@@ -311,7 +311,7 @@ public partial class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : Terra
 /// Block type for manual_scaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionManualScalingBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionManualScalingBlock() : TerraformBlock("manual_scaling")
 {
     /// <summary>
     /// Number of instances to assign to the service at the start.
@@ -330,7 +330,7 @@ public partial class GoogleAppEngineFlexibleAppVersionManualScalingBlock : Terra
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionNetworkBlock() : TerraformBlock("network")
 {
     /// <summary>
     /// List of ports, or port pairs, to forward from the virtual machine to the application container.
@@ -379,7 +379,7 @@ public partial class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBl
 /// Block type for readiness_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock() : TerraformBlock("readiness_check")
 {
     /// <summary>
     /// A maximum time limit on application initialization, measured from moment the application successfully
@@ -438,7 +438,7 @@ public partial class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : Terr
 /// Block type for resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionResourcesBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionResourcesBlock() : TerraformBlock("resources")
 {
     /// <summary>
     /// Number of CPU cores needed.
@@ -467,7 +467,7 @@ public partial class GoogleAppEngineFlexibleAppVersionResourcesBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -496,7 +496,7 @@ public partial class GoogleAppEngineFlexibleAppVersionTimeoutsBlock : TerraformB
 /// Block type for vpc_access_connector in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock : TerraformBlockBase
+public partial class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock() : TerraformBlock("vpc_access_connector")
 {
     /// <summary>
     /// Full Serverless VPC Access Connector name e.g. /projects/my-project/locations/us-central1/connectors/c1.
@@ -660,7 +660,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiConfig block(s) allowed")]
     [TerraformProperty("api_config")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionApiConfigBlock>>? ApiConfig { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionApiConfigBlock> ApiConfig { get; set; } = new();
 
     /// <summary>
     /// Block for automatic_scaling.
@@ -668,7 +668,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticScaling block(s) allowed")]
     [TerraformProperty("automatic_scaling")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock>>? AutomaticScaling { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock> AutomaticScaling { get; set; } = new();
 
     /// <summary>
     /// Block for deployment.
@@ -676,7 +676,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deployment block(s) allowed")]
     [TerraformProperty("deployment")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionDeploymentBlock>>? Deployment { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionDeploymentBlock> Deployment { get; set; } = new();
 
     /// <summary>
     /// Block for endpoints_api_service.
@@ -684,7 +684,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointsApiService block(s) allowed")]
     [TerraformProperty("endpoints_api_service")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock>>? EndpointsApiService { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock> EndpointsApiService { get; set; } = new();
 
     /// <summary>
     /// Block for entrypoint.
@@ -692,7 +692,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Entrypoint block(s) allowed")]
     [TerraformProperty("entrypoint")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEntrypointBlock>>? Entrypoint { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionEntrypointBlock> Entrypoint { get; set; } = new();
 
     /// <summary>
     /// Block for flexible_runtime_settings.
@@ -700,14 +700,14 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleRuntimeSettings block(s) allowed")]
     [TerraformProperty("flexible_runtime_settings")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock>>? FlexibleRuntimeSettings { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock> FlexibleRuntimeSettings { get; set; } = new();
 
     /// <summary>
     /// Block for handlers.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("handlers")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionHandlersBlock>>? Handlers { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionHandlersBlock> Handlers { get; set; } = new();
 
     /// <summary>
     /// Block for liveness_check.
@@ -717,7 +717,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LivenessCheck block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LivenessCheck block(s) allowed")]
     [TerraformProperty("liveness_check")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionLivenessCheckBlock>>? LivenessCheck { get; set; }
+    public required TerraformList<GoogleAppEngineFlexibleAppVersionLivenessCheckBlock> LivenessCheck { get; set; } = new();
 
     /// <summary>
     /// Block for manual_scaling.
@@ -725,7 +725,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualScaling block(s) allowed")]
     [TerraformProperty("manual_scaling")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionManualScalingBlock>>? ManualScaling { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionManualScalingBlock> ManualScaling { get; set; } = new();
 
     /// <summary>
     /// Block for network.
@@ -733,7 +733,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformProperty("network")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionNetworkBlock>>? Network { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionNetworkBlock> Network { get; set; } = new();
 
     /// <summary>
     /// Block for readiness_check.
@@ -743,7 +743,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadinessCheck block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadinessCheck block(s) allowed")]
     [TerraformProperty("readiness_check")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionReadinessCheckBlock>>? ReadinessCheck { get; set; }
+    public required TerraformList<GoogleAppEngineFlexibleAppVersionReadinessCheckBlock> ReadinessCheck { get; set; } = new();
 
     /// <summary>
     /// Block for resources.
@@ -751,14 +751,14 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Resources block(s) allowed")]
     [TerraformProperty("resources")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionResourcesBlock>>? Resources { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionResourcesBlock> Resources { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAppEngineFlexibleAppVersionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAppEngineFlexibleAppVersionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_access_connector.
@@ -766,7 +766,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcAccessConnector block(s) allowed")]
     [TerraformProperty("vpc_access_connector")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock>>? VpcAccessConnector { get; set; }
+    public TerraformList<GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock> VpcAccessConnector { get; set; } = new();
 
     /// <summary>
     /// Full path to the Version resource in the API. Example, &amp;quot;v1&amp;quot;.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2ManagedPrefixListsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2ManagedPrefixListsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AwsEc2ManagedPrefixListsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2ManagedPrefixListsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2ManagedPrefixListsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The ids attribute.

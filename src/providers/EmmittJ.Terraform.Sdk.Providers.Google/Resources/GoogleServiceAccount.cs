@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleServiceAccountTimeoutsBlock : TerraformBlockBase
+public partial class GoogleServiceAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -81,7 +81,7 @@ public partial class GoogleServiceAccount : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleServiceAccountTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleServiceAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The e-mail address of the service account. This value should be referenced from any google_iam_policy data sources that would grant the service account privileges.

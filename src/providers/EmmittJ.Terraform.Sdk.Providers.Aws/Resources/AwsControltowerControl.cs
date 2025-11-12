@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameters in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsControltowerControlParametersBlock : TerraformBlockBase
+public partial class AwsControltowerControlParametersBlock() : TerraformBlock("parameters")
 {
     /// <summary>
     /// The key attribute.
@@ -30,7 +30,7 @@ public partial class AwsControltowerControlParametersBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsControltowerControlTimeoutsBlock : TerraformBlockBase
+public partial class AwsControltowerControlTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -99,14 +99,14 @@ public partial class AwsControltowerControl : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameters")]
-    public partial TerraformSet<TerraformBlock<AwsControltowerControlParametersBlock>>? Parameters { get; set; }
+    public TerraformSet<AwsControltowerControlParametersBlock> Parameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsControltowerControlTimeoutsBlock>? Timeouts { get; set; }
+    public AwsControltowerControlTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

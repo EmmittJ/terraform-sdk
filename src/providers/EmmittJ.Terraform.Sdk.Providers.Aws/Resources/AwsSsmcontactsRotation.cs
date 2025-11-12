@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for recurrence in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlockBase
+public partial class AwsSsmcontactsRotationRecurrenceBlock() : TerraformBlock("recurrence")
 {
     /// <summary>
     /// The number_of_on_calls attribute.
@@ -85,7 +85,7 @@ public partial class AwsSsmcontactsRotation : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("recurrence")]
-    public partial TerraformList<TerraformBlock<AwsSsmcontactsRotationRecurrenceBlock>>? Recurrence { get; set; }
+    public TerraformList<AwsSsmcontactsRotationRecurrenceBlock> Recurrence { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

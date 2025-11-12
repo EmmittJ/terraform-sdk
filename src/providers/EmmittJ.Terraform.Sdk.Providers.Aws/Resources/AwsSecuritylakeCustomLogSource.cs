@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecuritylakeCustomLogSourceConfigurationBlock : TerraformBlockBase
+public partial class AwsSecuritylakeCustomLogSourceConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -53,7 +53,7 @@ public partial class AwsSecuritylakeCustomLogSource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsSecuritylakeCustomLogSourceConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsSecuritylakeCustomLogSourceConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// The attributes attribute.

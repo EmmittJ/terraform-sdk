@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identifier in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBlockBase
+public partial class AzurermStackHciMarketplaceGalleryImageIdentifierBlock() : TerraformBlock("identifier")
 {
     /// <summary>
     /// The offer attribute.
@@ -38,7 +38,7 @@ public partial class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,13 +165,13 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
     [TerraformProperty("identifier")]
-    public partial TerraformList<TerraformBlock<AzurermStackHciMarketplaceGalleryImageIdentifierBlock>>? Identifier { get; set; }
+    public required TerraformList<AzurermStackHciMarketplaceGalleryImageIdentifierBlock> Identifier { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStackHciMarketplaceGalleryImageTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStackHciMarketplaceGalleryImageTimeoutsBlock Timeouts { get; set; } = new();
 
 }

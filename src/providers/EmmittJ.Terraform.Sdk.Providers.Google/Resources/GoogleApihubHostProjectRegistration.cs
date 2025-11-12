@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApihubHostProjectRegistrationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApihubHostProjectRegistrationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -81,7 +81,7 @@ public partial class GoogleApihubHostProjectRegistration : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApihubHostProjectRegistrationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApihubHostProjectRegistrationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which the host project registration was created.

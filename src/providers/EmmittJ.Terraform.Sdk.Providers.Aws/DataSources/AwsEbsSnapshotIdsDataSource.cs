@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEbsSnapshotIdsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEbsSnapshotIdsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsEbsSnapshotIdsDataSourceFilterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEbsSnapshotIdsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEbsSnapshotIdsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -83,14 +83,14 @@ public partial class AwsEbsSnapshotIdsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEbsSnapshotIdsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEbsSnapshotIdsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEbsSnapshotIdsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEbsSnapshotIdsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ids attribute.

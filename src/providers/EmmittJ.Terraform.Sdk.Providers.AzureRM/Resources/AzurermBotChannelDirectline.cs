@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for site in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermBotChannelDirectlineSiteBlock : TerraformBlockBase
+public partial class AzurermBotChannelDirectlineSiteBlock() : TerraformBlock("site")
 {
     /// <summary>
     /// The enabled attribute.
@@ -81,7 +81,7 @@ public partial class AzurermBotChannelDirectlineSiteBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBotChannelDirectlineTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBotChannelDirectlineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,13 +161,13 @@ public partial class AzurermBotChannelDirectline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Site is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Site block(s) required")]
     [TerraformProperty("site")]
-    public partial TerraformSet<TerraformBlock<AzurermBotChannelDirectlineSiteBlock>>? Site { get; set; }
+    public required TerraformSet<AzurermBotChannelDirectlineSiteBlock> Site { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBotChannelDirectlineTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBotChannelDirectlineTimeoutsBlock Timeouts { get; set; } = new();
 
 }

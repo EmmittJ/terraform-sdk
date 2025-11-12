@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerVpnConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBl
 /// Block type for vpc_project in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerVpnConnectionVpcProjectBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerVpnConnectionVpcProjectBlock() : TerraformBlock("vpc_project")
 {
     /// <summary>
     /// The project of the VPC to connect to. If not specified, it is the same as the cluster project.
@@ -138,7 +138,7 @@ public partial class GoogleEdgecontainerVpnConnection : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEdgecontainerVpnConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEdgecontainerVpnConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_project.
@@ -146,7 +146,7 @@ public partial class GoogleEdgecontainerVpnConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcProject block(s) allowed")]
     [TerraformProperty("vpc_project")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerVpnConnectionVpcProjectBlock>>? VpcProject { get; set; }
+    public TerraformList<GoogleEdgecontainerVpnConnectionVpcProjectBlock> VpcProject { get; set; } = new();
 
     /// <summary>
     /// The time when the VPN connection was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for campaign_hook in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPinpointAppCampaignHookBlock : TerraformBlockBase
+public partial class AwsPinpointAppCampaignHookBlock() : TerraformBlock("campaign_hook")
 {
     /// <summary>
     /// The lambda_function_name attribute.
@@ -35,7 +35,7 @@ public partial class AwsPinpointAppCampaignHookBlock : TerraformBlockBase
 /// Block type for limits in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPinpointAppLimitsBlock : TerraformBlockBase
+public partial class AwsPinpointAppLimitsBlock() : TerraformBlock("limits")
 {
     /// <summary>
     /// The daily attribute.
@@ -71,7 +71,7 @@ public partial class AwsPinpointAppLimitsBlock : TerraformBlockBase
 /// Block type for quiet_time in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPinpointAppQuietTimeBlock : TerraformBlockBase
+public partial class AwsPinpointAppQuietTimeBlock() : TerraformBlock("quiet_time")
 {
     /// <summary>
     /// The end attribute.
@@ -147,7 +147,7 @@ public partial class AwsPinpointApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CampaignHook block(s) allowed")]
     [TerraformProperty("campaign_hook")]
-    public partial TerraformList<TerraformBlock<AwsPinpointAppCampaignHookBlock>>? CampaignHook { get; set; }
+    public TerraformList<AwsPinpointAppCampaignHookBlock> CampaignHook { get; set; } = new();
 
     /// <summary>
     /// Block for limits.
@@ -155,7 +155,7 @@ public partial class AwsPinpointApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Limits block(s) allowed")]
     [TerraformProperty("limits")]
-    public partial TerraformList<TerraformBlock<AwsPinpointAppLimitsBlock>>? Limits { get; set; }
+    public TerraformList<AwsPinpointAppLimitsBlock> Limits { get; set; } = new();
 
     /// <summary>
     /// Block for quiet_time.
@@ -163,7 +163,7 @@ public partial class AwsPinpointApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuietTime block(s) allowed")]
     [TerraformProperty("quiet_time")]
-    public partial TerraformList<TerraformBlock<AwsPinpointAppQuietTimeBlock>>? QuietTime { get; set; }
+    public TerraformList<AwsPinpointAppQuietTimeBlock> QuietTime { get; set; } = new();
 
     /// <summary>
     /// The application_id attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for availability_zone_mapping in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock() : TerraformBlock("availability_zone_mapping")
 {
     /// <summary>
     /// The availability_zone_id attribute.
@@ -22,7 +22,7 @@ public partial class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock : Te
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallFirewallEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The key_id attribute.
@@ -45,7 +45,7 @@ public partial class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : Te
 /// Block type for subnet_mapping in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallFirewallSubnetMappingBlock() : TerraformBlock("subnet_mapping")
 {
     /// <summary>
     /// The ip_address_type attribute.
@@ -68,7 +68,7 @@ public partial class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallFirewallTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -208,7 +208,7 @@ public partial class AwsNetworkfirewallFirewall : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("availability_zone_mapping")]
-    public partial TerraformSet<TerraformBlock<AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock>>? AvailabilityZoneMapping { get; set; }
+    public TerraformSet<AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock> AvailabilityZoneMapping { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_configuration.
@@ -216,21 +216,21 @@ public partial class AwsNetworkfirewallFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsNetworkfirewallFirewallEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsNetworkfirewallFirewallEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for subnet_mapping.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("subnet_mapping")]
-    public partial TerraformSet<TerraformBlock<AwsNetworkfirewallFirewallSubnetMappingBlock>>? SubnetMapping { get; set; }
+    public TerraformSet<AwsNetworkfirewallFirewallSubnetMappingBlock> SubnetMapping { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkfirewallFirewallTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkfirewallFirewallTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPrivateDnsZoneDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsZoneDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -60,7 +60,7 @@ public partial class AzurermPrivateDnsZoneDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPrivateDnsZoneDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPrivateDnsZoneDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The max_number_of_record_sets attribute.

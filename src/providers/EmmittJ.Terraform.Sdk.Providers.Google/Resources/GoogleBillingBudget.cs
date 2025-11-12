@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for all_updates_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlockBase
+public partial class GoogleBillingBudgetAllUpdatesRuleBlock() : TerraformBlock("all_updates_rule")
 {
     /// <summary>
     /// Boolean. When set to true, disables default notifications sent
@@ -64,7 +64,7 @@ public partial class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlockBase
 /// Block type for amount in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBillingBudgetAmountBlock : TerraformBlockBase
+public partial class GoogleBillingBudgetAmountBlock() : TerraformBlock("amount")
 {
     /// <summary>
     /// Configures a budget amount that is automatically set to 100% of
@@ -82,7 +82,7 @@ public partial class GoogleBillingBudgetAmountBlock : TerraformBlockBase
 /// Block type for budget_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
+public partial class GoogleBillingBudgetBudgetFilterBlock() : TerraformBlock("budget_filter")
 {
     /// <summary>
     /// A CalendarPeriod represents the abstract concept of a recurring time period that has a
@@ -171,7 +171,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
 /// Block type for threshold_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBillingBudgetThresholdRulesBlock : TerraformBlockBase
+public partial class GoogleBillingBudgetThresholdRulesBlock() : TerraformBlock("threshold_rules")
 {
     /// <summary>
     /// The type of basis used to determine if spend has passed
@@ -196,7 +196,7 @@ public partial class GoogleBillingBudgetThresholdRulesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBillingBudgetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBillingBudgetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -267,7 +267,7 @@ public partial class GoogleBillingBudget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllUpdatesRule block(s) allowed")]
     [TerraformProperty("all_updates_rule")]
-    public partial TerraformList<TerraformBlock<GoogleBillingBudgetAllUpdatesRuleBlock>>? AllUpdatesRule { get; set; }
+    public TerraformList<GoogleBillingBudgetAllUpdatesRuleBlock> AllUpdatesRule { get; set; } = new();
 
     /// <summary>
     /// Block for amount.
@@ -277,7 +277,7 @@ public partial class GoogleBillingBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Amount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Amount block(s) allowed")]
     [TerraformProperty("amount")]
-    public partial TerraformList<TerraformBlock<GoogleBillingBudgetAmountBlock>>? Amount { get; set; }
+    public required TerraformList<GoogleBillingBudgetAmountBlock> Amount { get; set; } = new();
 
     /// <summary>
     /// Block for budget_filter.
@@ -285,21 +285,21 @@ public partial class GoogleBillingBudget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BudgetFilter block(s) allowed")]
     [TerraformProperty("budget_filter")]
-    public partial TerraformList<TerraformBlock<GoogleBillingBudgetBudgetFilterBlock>>? BudgetFilter { get; set; }
+    public TerraformList<GoogleBillingBudgetBudgetFilterBlock> BudgetFilter { get; set; } = new();
 
     /// <summary>
     /// Block for threshold_rules.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("threshold_rules")]
-    public partial TerraformList<TerraformBlock<GoogleBillingBudgetThresholdRulesBlock>>? ThresholdRules { get; set; }
+    public TerraformList<GoogleBillingBudgetThresholdRulesBlock> ThresholdRules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBillingBudgetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBillingBudgetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Resource name of the budget. The resource name

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access_logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleApigeeInstanceAccessLoggingConfigBlock() : TerraformBlock("access_logging_config")
 {
     /// <summary>
     /// Boolean flag that specifies whether the customer access log feature is enabled.
@@ -32,7 +32,7 @@ public partial class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -158,14 +158,14 @@ public partial class GoogleApigeeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLoggingConfig block(s) allowed")]
     [TerraformProperty("access_logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeInstanceAccessLoggingConfigBlock>>? AccessLoggingConfig { get; set; }
+    public TerraformList<GoogleApigeeInstanceAccessLoggingConfigBlock> AccessLoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Hostname or IP address of the exposed Apigee endpoint used by clients to connect to the service.

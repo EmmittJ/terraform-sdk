@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attribute in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSsoadminInstanceAccessControlAttributesAttributeBlock : TerraformBlockBase
+public partial class AwsSsoadminInstanceAccessControlAttributesAttributeBlock() : TerraformBlock("attribute")
 {
     /// <summary>
     /// The key attribute.
@@ -57,7 +57,7 @@ public partial class AwsSsoadminInstanceAccessControlAttributes : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Attribute block(s) required")]
     [TerraformProperty("attribute")]
-    public partial TerraformSet<TerraformBlock<AwsSsoadminInstanceAccessControlAttributesAttributeBlock>>? Attribute { get; set; }
+    public required TerraformSet<AwsSsoadminInstanceAccessControlAttributesAttributeBlock> Attribute { get; set; } = new();
 
     /// <summary>
     /// The status attribute.

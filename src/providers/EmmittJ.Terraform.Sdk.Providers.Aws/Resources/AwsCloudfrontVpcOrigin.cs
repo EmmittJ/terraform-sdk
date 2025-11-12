@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCloudfrontVpcOriginTimeoutsBlock : TerraformBlockBase
+public partial class AwsCloudfrontVpcOriginTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -35,7 +35,7 @@ public partial class AwsCloudfrontVpcOriginTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc_origin_endpoint_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock() : TerraformBlock("vpc_origin_endpoint_config")
 {
     /// <summary>
     /// The arn attribute.
@@ -100,14 +100,14 @@ public partial class AwsCloudfrontVpcOrigin : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCloudfrontVpcOriginTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCloudfrontVpcOriginTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_origin_endpoint_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vpc_origin_endpoint_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock>>? VpcOriginEndpointConfig { get; set; }
+    public TerraformList<AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock> VpcOriginEndpointConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

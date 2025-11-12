@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for response_type in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock() : TerraformBlock("response_type")
 {
     /// <summary>
     /// If true, authorization code is returned from IdP&#39;s authorization endpoint.
@@ -28,7 +28,7 @@ public partial class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,13 +128,13 @@ public partial class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResponseType block(s) allowed")]
     [TerraformProperty("response_type")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock>>? ResponseType { get; set; }
+    public TerraformList<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock> ResponseType { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock Timeouts { get; set; } = new();
 
 }

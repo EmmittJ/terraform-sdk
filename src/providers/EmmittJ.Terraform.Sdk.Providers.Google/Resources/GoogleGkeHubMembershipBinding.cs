@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeHubMembershipBindingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeHubMembershipBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -103,7 +103,7 @@ public partial class GoogleGkeHubMembershipBinding : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeHubMembershipBindingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeHubMembershipBindingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the MembershipBinding was created in UTC.

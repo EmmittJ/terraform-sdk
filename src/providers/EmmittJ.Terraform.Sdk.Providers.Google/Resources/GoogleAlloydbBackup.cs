@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbBackupEncryptionConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbBackupEncryptionConfigBlock() : TerraformBlock("encryption_config")
 {
     /// <summary>
     /// The fully-qualified resource name of the KMS key. Each Cloud KMS key is regionalized and has the following format: projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME].
@@ -21,7 +21,7 @@ public partial class GoogleAlloydbBackupEncryptionConfigBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAlloydbBackupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAlloydbBackupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,14 +144,14 @@ public partial class GoogleAlloydbBackup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbBackupEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public TerraformList<GoogleAlloydbBackupEncryptionConfigBlock> EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAlloydbBackupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAlloydbBackupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The system-generated UID of the cluster which was used to create this resource.

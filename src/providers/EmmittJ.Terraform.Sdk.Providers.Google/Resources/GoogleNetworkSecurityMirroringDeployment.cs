@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkSecurityMirroringDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityMirroringDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -114,7 +114,7 @@ public partial class GoogleNetworkSecurityMirroringDeployment : TerraformResourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkSecurityMirroringDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkSecurityMirroringDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

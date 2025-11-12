@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for kubelet_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterNodePoolKubeletConfigBlock() : TerraformBlock("kubelet_config")
 {
     /// <summary>
     /// The allowed_unsafe_sysctls attribute.
@@ -84,7 +84,7 @@ public partial class AzurermKubernetesClusterNodePoolKubeletConfigBlock : Terraf
 /// Block type for linux_os_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock() : TerraformBlock("linux_os_config")
 {
     /// <summary>
     /// The swap_file_size_mb attribute.
@@ -121,7 +121,7 @@ public partial class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : Terraf
 /// Block type for node_network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock() : TerraformBlock("node_network_profile")
 {
     /// <summary>
     /// The application_security_group_ids attribute.
@@ -143,7 +143,7 @@ public partial class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterNodePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -179,7 +179,7 @@ public partial class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBl
 /// Block type for upgrade_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock() : TerraformBlock("upgrade_settings")
 {
     /// <summary>
     /// The drain_timeout_in_minutes attribute.
@@ -209,7 +209,7 @@ public partial class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : Terr
 /// Block type for windows_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterNodePoolWindowsProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterNodePoolWindowsProfileBlock() : TerraformBlock("windows_profile")
 {
     /// <summary>
     /// The outbound_nat_enabled attribute.
@@ -511,7 +511,7 @@ public partial class AzurermKubernetesClusterNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletConfig block(s) allowed")]
     [TerraformProperty("kubelet_config")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolKubeletConfigBlock>>? KubeletConfig { get; set; }
+    public TerraformList<AzurermKubernetesClusterNodePoolKubeletConfigBlock> KubeletConfig { get; set; } = new();
 
     /// <summary>
     /// Block for linux_os_config.
@@ -519,7 +519,7 @@ public partial class AzurermKubernetesClusterNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinuxOsConfig block(s) allowed")]
     [TerraformProperty("linux_os_config")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock>>? LinuxOsConfig { get; set; }
+    public TerraformList<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock> LinuxOsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_network_profile.
@@ -527,14 +527,14 @@ public partial class AzurermKubernetesClusterNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeNetworkProfile block(s) allowed")]
     [TerraformProperty("node_network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock>>? NodeNetworkProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock> NodeNetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKubernetesClusterNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKubernetesClusterNodePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_settings.
@@ -542,7 +542,7 @@ public partial class AzurermKubernetesClusterNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeSettings block(s) allowed")]
     [TerraformProperty("upgrade_settings")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock>>? UpgradeSettings { get; set; }
+    public TerraformList<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock> UpgradeSettings { get; set; } = new();
 
     /// <summary>
     /// Block for windows_profile.
@@ -550,6 +550,6 @@ public partial class AzurermKubernetesClusterNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsProfile block(s) allowed")]
     [TerraformProperty("windows_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolWindowsProfileBlock>>? WindowsProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterNodePoolWindowsProfileBlock> WindowsProfile { get; set; } = new();
 
 }

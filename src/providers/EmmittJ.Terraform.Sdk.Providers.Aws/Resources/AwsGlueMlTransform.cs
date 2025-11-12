@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for input_record_tables in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlockBase
+public partial class AwsGlueMlTransformInputRecordTablesBlock() : TerraformBlock("input_record_tables")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -44,7 +44,7 @@ public partial class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlockBa
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueMlTransformParametersBlock : TerraformBlockBase
+public partial class AwsGlueMlTransformParametersBlock() : TerraformBlock("parameters")
 {
     /// <summary>
     /// The transform_type attribute.
@@ -166,7 +166,7 @@ public partial class AwsGlueMlTransform : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputRecordTables is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputRecordTables block(s) required")]
     [TerraformProperty("input_record_tables")]
-    public partial TerraformList<TerraformBlock<AwsGlueMlTransformInputRecordTablesBlock>>? InputRecordTables { get; set; }
+    public required TerraformList<AwsGlueMlTransformInputRecordTablesBlock> InputRecordTables { get; set; } = new();
 
     /// <summary>
     /// Block for parameters.
@@ -176,7 +176,7 @@ public partial class AwsGlueMlTransform : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     [TerraformProperty("parameters")]
-    public partial TerraformList<TerraformBlock<AwsGlueMlTransformParametersBlock>>? Parameters { get; set; }
+    public required TerraformList<AwsGlueMlTransformParametersBlock> Parameters { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for delivery_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubLiteSubscriptionDeliveryConfigBlock : TerraformBlockBase
+public partial class GooglePubsubLiteSubscriptionDeliveryConfigBlock() : TerraformBlock("delivery_config")
 {
     /// <summary>
     /// When this subscription should send messages to subscribers relative to messages persistence in storage. Possible values: [&amp;quot;DELIVER_IMMEDIATELY&amp;quot;, &amp;quot;DELIVER_AFTER_STORED&amp;quot;, &amp;quot;DELIVERY_REQUIREMENT_UNSPECIFIED&amp;quot;]
@@ -22,7 +22,7 @@ public partial class GooglePubsubLiteSubscriptionDeliveryConfigBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePubsubLiteSubscriptionTimeoutsBlock : TerraformBlockBase
+public partial class GooglePubsubLiteSubscriptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,13 +107,13 @@ public partial class GooglePubsubLiteSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryConfig block(s) allowed")]
     [TerraformProperty("delivery_config")]
-    public partial TerraformList<TerraformBlock<GooglePubsubLiteSubscriptionDeliveryConfigBlock>>? DeliveryConfig { get; set; }
+    public TerraformList<GooglePubsubLiteSubscriptionDeliveryConfigBlock> DeliveryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePubsubLiteSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePubsubLiteSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

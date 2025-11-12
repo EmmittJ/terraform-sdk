@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for command in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueJobCommandBlock : TerraformBlockBase
+public partial class AwsGlueJobCommandBlock() : TerraformBlock("command")
 {
     /// <summary>
     /// The name attribute.
@@ -43,7 +43,7 @@ public partial class AwsGlueJobCommandBlock : TerraformBlockBase
 /// Block type for execution_property in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueJobExecutionPropertyBlock : TerraformBlockBase
+public partial class AwsGlueJobExecutionPropertyBlock() : TerraformBlock("execution_property")
 {
     /// <summary>
     /// The max_concurrent_runs attribute.
@@ -58,7 +58,7 @@ public partial class AwsGlueJobExecutionPropertyBlock : TerraformBlockBase
 /// Block type for notification_property in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueJobNotificationPropertyBlock : TerraformBlockBase
+public partial class AwsGlueJobNotificationPropertyBlock() : TerraformBlock("notification_property")
 {
     /// <summary>
     /// The notify_delay_after attribute.
@@ -73,7 +73,7 @@ public partial class AwsGlueJobNotificationPropertyBlock : TerraformBlockBase
 /// Block type for source_control_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueJobSourceControlDetailsBlock : TerraformBlockBase
+public partial class AwsGlueJobSourceControlDetailsBlock() : TerraformBlock("source_control_details")
 {
     /// <summary>
     /// The auth_strategy attribute.
@@ -300,7 +300,7 @@ public partial class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Command block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Command block(s) allowed")]
     [TerraformProperty("command")]
-    public partial TerraformList<TerraformBlock<AwsGlueJobCommandBlock>>? Command { get; set; }
+    public required TerraformList<AwsGlueJobCommandBlock> Command { get; set; } = new();
 
     /// <summary>
     /// Block for execution_property.
@@ -308,7 +308,7 @@ public partial class AwsGlueJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionProperty block(s) allowed")]
     [TerraformProperty("execution_property")]
-    public partial TerraformList<TerraformBlock<AwsGlueJobExecutionPropertyBlock>>? ExecutionProperty { get; set; }
+    public TerraformList<AwsGlueJobExecutionPropertyBlock> ExecutionProperty { get; set; } = new();
 
     /// <summary>
     /// Block for notification_property.
@@ -316,7 +316,7 @@ public partial class AwsGlueJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationProperty block(s) allowed")]
     [TerraformProperty("notification_property")]
-    public partial TerraformList<TerraformBlock<AwsGlueJobNotificationPropertyBlock>>? NotificationProperty { get; set; }
+    public TerraformList<AwsGlueJobNotificationPropertyBlock> NotificationProperty { get; set; } = new();
 
     /// <summary>
     /// Block for source_control_details.
@@ -324,7 +324,7 @@ public partial class AwsGlueJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControlDetails block(s) allowed")]
     [TerraformProperty("source_control_details")]
-    public partial TerraformList<TerraformBlock<AwsGlueJobSourceControlDetailsBlock>>? SourceControlDetails { get; set; }
+    public TerraformList<AwsGlueJobSourceControlDetailsBlock> SourceControlDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

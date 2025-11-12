@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for api in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationApiBlock : TerraformBlockBase
+public partial class AzureadApplicationApiBlock() : TerraformBlock("api")
 {
     /// <summary>
     /// Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app
@@ -35,7 +35,7 @@ public partial class AzureadApplicationApiBlock : TerraformBlockBase
 /// Block type for app_role in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzureadApplicationAppRoleBlock : TerraformBlockBase
+public partial class AzureadApplicationAppRoleBlock() : TerraformBlock("app_role")
 {
     /// <summary>
     /// Specifies whether this app role definition can be assigned to users and groups by setting to `User`, or to other applications (that are accessing this application in a standalone scenario) by setting to `Application`, or to both
@@ -89,7 +89,7 @@ public partial class AzureadApplicationAppRoleBlock : TerraformBlockBase
 /// Block type for feature_tags in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationFeatureTagsBlock : TerraformBlockBase
+public partial class AzureadApplicationFeatureTagsBlock() : TerraformBlock("feature_tags")
 {
     /// <summary>
     /// Whether this application represents a custom SAML application for linked service principals
@@ -125,7 +125,7 @@ public partial class AzureadApplicationFeatureTagsBlock : TerraformBlockBase
 /// Block type for optional_claims in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationOptionalClaimsBlock : TerraformBlockBase
+public partial class AzureadApplicationOptionalClaimsBlock() : TerraformBlock("optional_claims")
 {
 }
 
@@ -133,7 +133,7 @@ public partial class AzureadApplicationOptionalClaimsBlock : TerraformBlockBase
 /// Block type for password in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzureadApplicationPasswordBlock : TerraformBlockBase
+public partial class AzureadApplicationPasswordBlock() : TerraformBlock("password")
 {
     /// <summary>
     /// A display name for the password
@@ -165,7 +165,7 @@ public partial class AzureadApplicationPasswordBlock : TerraformBlockBase
 /// Block type for public_client in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationPublicClientBlock : TerraformBlockBase
+public partial class AzureadApplicationPublicClientBlock() : TerraformBlock("public_client")
 {
     /// <summary>
     /// The URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent
@@ -180,7 +180,7 @@ public partial class AzureadApplicationPublicClientBlock : TerraformBlockBase
 /// Block type for required_resource_access in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzureadApplicationRequiredResourceAccessBlock : TerraformBlockBase
+public partial class AzureadApplicationRequiredResourceAccessBlock() : TerraformBlock("required_resource_access")
 {
     /// <summary>
     /// The resource_app_id attribute.
@@ -196,7 +196,7 @@ public partial class AzureadApplicationRequiredResourceAccessBlock : TerraformBl
 /// Block type for single_page_application in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationSinglePageApplicationBlock : TerraformBlockBase
+public partial class AzureadApplicationSinglePageApplicationBlock() : TerraformBlock("single_page_application")
 {
     /// <summary>
     /// The URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent
@@ -211,7 +211,7 @@ public partial class AzureadApplicationSinglePageApplicationBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadApplicationTimeoutsBlock : TerraformBlockBase
+public partial class AzureadApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -247,7 +247,7 @@ public partial class AzureadApplicationTimeoutsBlock : TerraformBlockBase
 /// Block type for web in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationWebBlock : TerraformBlockBase
+public partial class AzureadApplicationWebBlock() : TerraformBlock("web")
 {
     /// <summary>
     /// Home page or landing page of the application
@@ -429,21 +429,21 @@ public partial class AzureadApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Api block(s) allowed")]
     [TerraformProperty("api")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationApiBlock>>? Api { get; set; }
+    public TerraformList<AzureadApplicationApiBlock> Api { get; set; } = new();
 
     /// <summary>
     /// Block for app_role.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("app_role")]
-    public partial TerraformSet<TerraformBlock<AzureadApplicationAppRoleBlock>>? AppRole { get; set; }
+    public TerraformSet<AzureadApplicationAppRoleBlock> AppRole { get; set; } = new();
 
     /// <summary>
     /// Block for feature_tags.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("feature_tags")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationFeatureTagsBlock>>? FeatureTags { get; set; }
+    public TerraformList<AzureadApplicationFeatureTagsBlock> FeatureTags { get; set; } = new();
 
     /// <summary>
     /// Block for optional_claims.
@@ -451,7 +451,7 @@ public partial class AzureadApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OptionalClaims block(s) allowed")]
     [TerraformProperty("optional_claims")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationOptionalClaimsBlock>>? OptionalClaims { get; set; }
+    public TerraformList<AzureadApplicationOptionalClaimsBlock> OptionalClaims { get; set; } = new();
 
     /// <summary>
     /// Block for password.
@@ -459,7 +459,7 @@ public partial class AzureadApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password block(s) allowed")]
     [TerraformProperty("password")]
-    public partial TerraformSet<TerraformBlock<AzureadApplicationPasswordBlock>>? Password { get; set; }
+    public TerraformSet<AzureadApplicationPasswordBlock> Password { get; set; } = new();
 
     /// <summary>
     /// Block for public_client.
@@ -467,14 +467,14 @@ public partial class AzureadApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicClient block(s) allowed")]
     [TerraformProperty("public_client")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationPublicClientBlock>>? PublicClient { get; set; }
+    public TerraformList<AzureadApplicationPublicClientBlock> PublicClient { get; set; } = new();
 
     /// <summary>
     /// Block for required_resource_access.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("required_resource_access")]
-    public partial TerraformSet<TerraformBlock<AzureadApplicationRequiredResourceAccessBlock>>? RequiredResourceAccess { get; set; }
+    public TerraformSet<AzureadApplicationRequiredResourceAccessBlock> RequiredResourceAccess { get; set; } = new();
 
     /// <summary>
     /// Block for single_page_application.
@@ -482,14 +482,14 @@ public partial class AzureadApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SinglePageApplication block(s) allowed")]
     [TerraformProperty("single_page_application")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationSinglePageApplicationBlock>>? SinglePageApplication { get; set; }
+    public TerraformList<AzureadApplicationSinglePageApplicationBlock> SinglePageApplication { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for web.
@@ -497,7 +497,7 @@ public partial class AzureadApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Web block(s) allowed")]
     [TerraformProperty("web")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationWebBlock>>? Web { get; set; }
+    public TerraformList<AzureadApplicationWebBlock> Web { get; set; } = new();
 
     /// <summary>
     /// Mapping of app role names to UUIDs

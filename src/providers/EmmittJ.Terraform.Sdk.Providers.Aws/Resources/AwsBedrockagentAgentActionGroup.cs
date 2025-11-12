@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action_group_executor in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : TerraformBlockBase
+public partial class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock() : TerraformBlock("action_group_executor")
 {
     /// <summary>
     /// The custom_control attribute.
@@ -28,7 +28,7 @@ public partial class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : T
 /// Block type for api_schema in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentAgentActionGroupApiSchemaBlock : TerraformBlockBase
+public partial class AwsBedrockagentAgentActionGroupApiSchemaBlock() : TerraformBlock("api_schema")
 {
     /// <summary>
     /// The payload attribute.
@@ -43,7 +43,7 @@ public partial class AwsBedrockagentAgentActionGroupApiSchemaBlock : TerraformBl
 /// Block type for function_schema in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentAgentActionGroupFunctionSchemaBlock : TerraformBlockBase
+public partial class AwsBedrockagentAgentActionGroupFunctionSchemaBlock() : TerraformBlock("function_schema")
 {
 }
 
@@ -51,7 +51,7 @@ public partial class AwsBedrockagentAgentActionGroupFunctionSchemaBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentAgentActionGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentAgentActionGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -149,28 +149,28 @@ public partial class AwsBedrockagentAgentActionGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("action_group_executor")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentAgentActionGroupActionGroupExecutorBlock>>? ActionGroupExecutor { get; set; }
+    public TerraformList<AwsBedrockagentAgentActionGroupActionGroupExecutorBlock> ActionGroupExecutor { get; set; } = new();
 
     /// <summary>
     /// Block for api_schema.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("api_schema")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentAgentActionGroupApiSchemaBlock>>? ApiSchema { get; set; }
+    public TerraformList<AwsBedrockagentAgentActionGroupApiSchemaBlock> ApiSchema { get; set; } = new();
 
     /// <summary>
     /// Block for function_schema.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("function_schema")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentAgentActionGroupFunctionSchemaBlock>>? FunctionSchema { get; set; }
+    public TerraformList<AwsBedrockagentAgentActionGroupFunctionSchemaBlock> FunctionSchema { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentAgentActionGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentAgentActionGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The action_group_id attribute.

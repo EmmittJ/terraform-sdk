@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlockBase
+public partial class AzurermDatabricksWorkspaceCustomParametersBlock() : TerraformBlock("custom_parameters")
 {
     /// <summary>
     /// The machine_learning_workspace_id attribute.
@@ -98,7 +98,7 @@ public partial class AzurermDatabricksWorkspaceCustomParametersBlock : Terraform
 /// Block type for enhanced_security_compliance in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : TerraformBlockBase
+public partial class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock() : TerraformBlock("enhanced_security_compliance")
 {
     /// <summary>
     /// The automatic_cluster_update_enabled attribute.
@@ -134,7 +134,7 @@ public partial class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDatabricksWorkspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -319,7 +319,7 @@ public partial class AzurermDatabricksWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomParameters block(s) allowed")]
     [TerraformProperty("custom_parameters")]
-    public partial TerraformList<TerraformBlock<AzurermDatabricksWorkspaceCustomParametersBlock>>? CustomParameters { get; set; }
+    public TerraformList<AzurermDatabricksWorkspaceCustomParametersBlock> CustomParameters { get; set; } = new();
 
     /// <summary>
     /// Block for enhanced_security_compliance.
@@ -327,14 +327,14 @@ public partial class AzurermDatabricksWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnhancedSecurityCompliance block(s) allowed")]
     [TerraformProperty("enhanced_security_compliance")]
-    public partial TerraformList<TerraformBlock<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock>>? EnhancedSecurityCompliance { get; set; }
+    public TerraformList<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock> EnhancedSecurityCompliance { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDatabricksWorkspaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDatabricksWorkspaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The disk_encryption_set_id attribute.

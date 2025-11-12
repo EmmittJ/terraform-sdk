@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for client_scoped_subscription in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : TerraformBlockBase
+public partial class AzurermServicebusSubscriptionClientScopedSubscriptionBlock() : TerraformBlock("client_scoped_subscription")
 {
     /// <summary>
     /// The client_id attribute.
@@ -29,7 +29,7 @@ public partial class AzurermServicebusSubscriptionClientScopedSubscriptionBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermServicebusSubscriptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -185,13 +185,13 @@ public partial class AzurermServicebusSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientScopedSubscription block(s) allowed")]
     [TerraformProperty("client_scoped_subscription")]
-    public partial TerraformList<TerraformBlock<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>>? ClientScopedSubscription { get; set; }
+    public TerraformList<AzurermServicebusSubscriptionClientScopedSubscriptionBlock> ClientScopedSubscription { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermServicebusSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermServicebusSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

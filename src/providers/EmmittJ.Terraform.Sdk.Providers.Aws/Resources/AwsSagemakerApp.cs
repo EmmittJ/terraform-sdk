@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resource_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerAppResourceSpecBlock : TerraformBlockBase
+public partial class AwsSagemakerAppResourceSpecBlock() : TerraformBlock("resource_spec")
 {
     /// <summary>
     /// The instance_type attribute.
@@ -127,7 +127,7 @@ public partial class AwsSagemakerApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceSpec block(s) allowed")]
     [TerraformProperty("resource_spec")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerAppResourceSpecBlock>>? ResourceSpec { get; set; }
+    public TerraformList<AwsSagemakerAppResourceSpecBlock> ResourceSpec { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

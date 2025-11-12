@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesAlertActionBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesAlertActionBlock() : TerraformBlock("action")
 {
     /// <summary>
     /// The action_group attribute.
@@ -36,7 +36,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertActionBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -72,7 +72,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock : Terra
 /// Block type for trigger in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesAlertTriggerBlock() : TerraformBlock("trigger")
 {
     /// <summary>
     /// The operator attribute.
@@ -229,14 +229,14 @@ public partial class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertActionBlock>>? Action { get; set; }
+    public required TerraformList<AzurermMonitorScheduledQueryRulesAlertActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trigger.
@@ -246,6 +246,6 @@ public partial class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trigger block(s) allowed")]
     [TerraformProperty("trigger")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertTriggerBlock>>? Trigger { get; set; }
+    public required TerraformList<AzurermMonitorScheduledQueryRulesAlertTriggerBlock> Trigger { get; set; } = new();
 
 }

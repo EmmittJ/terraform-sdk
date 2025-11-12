@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for sensitive_labels in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringNotificationChannelSensitiveLabelsBlock : TerraformBlockBase
+public partial class GoogleMonitoringNotificationChannelSensitiveLabelsBlock() : TerraformBlock("sensitive_labels")
 {
     /// <summary>
     /// An authorization token for a notification channel. Channel types that support this field include: slack
@@ -35,7 +35,7 @@ public partial class GoogleMonitoringNotificationChannelSensitiveLabelsBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMonitoringNotificationChannelTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMonitoringNotificationChannelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -150,14 +150,14 @@ public partial class GoogleMonitoringNotificationChannel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SensitiveLabels block(s) allowed")]
     [TerraformProperty("sensitive_labels")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringNotificationChannelSensitiveLabelsBlock>>? SensitiveLabels { get; set; }
+    public TerraformList<GoogleMonitoringNotificationChannelSensitiveLabelsBlock> SensitiveLabels { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMonitoringNotificationChannelTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMonitoringNotificationChannelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The full REST resource name for this channel. The syntax is:

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for player_latency_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock : TerraformBlockBase
+public partial class AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock() : TerraformBlock("player_latency_policy")
 {
     /// <summary>
     /// The maximum_individual_player_latency_milliseconds attribute.
@@ -103,7 +103,7 @@ public partial class AwsGameliftGameSessionQueue : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("player_latency_policy")]
-    public partial TerraformList<TerraformBlock<AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock>>? PlayerLatencyPolicy { get; set; }
+    public TerraformList<AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock> PlayerLatencyPolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

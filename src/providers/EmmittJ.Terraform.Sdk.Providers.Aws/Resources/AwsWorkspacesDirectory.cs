@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for active_directory_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : TerraformBlockBase
+public partial class AwsWorkspacesDirectoryActiveDirectoryConfigBlock() : TerraformBlock("active_directory_config")
 {
     /// <summary>
     /// The domain_name attribute.
@@ -30,7 +30,7 @@ public partial class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : Terrafor
 /// Block type for certificate_based_auth_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock : TerraformBlockBase
+public partial class AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock() : TerraformBlock("certificate_based_auth_properties")
 {
     /// <summary>
     /// The certificate_authority_arn attribute.
@@ -52,7 +52,7 @@ public partial class AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock :
 /// Block type for saml_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspacesDirectorySamlPropertiesBlock : TerraformBlockBase
+public partial class AwsWorkspacesDirectorySamlPropertiesBlock() : TerraformBlock("saml_properties")
 {
     /// <summary>
     /// The relay_state_parameter_name attribute.
@@ -81,7 +81,7 @@ public partial class AwsWorkspacesDirectorySamlPropertiesBlock : TerraformBlockB
 /// Block type for self_service_permissions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspacesDirectorySelfServicePermissionsBlock : TerraformBlockBase
+public partial class AwsWorkspacesDirectorySelfServicePermissionsBlock() : TerraformBlock("self_service_permissions")
 {
     /// <summary>
     /// The change_compute_type attribute.
@@ -124,7 +124,7 @@ public partial class AwsWorkspacesDirectorySelfServicePermissionsBlock : Terrafo
 /// Block type for workspace_access_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlockBase
+public partial class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock() : TerraformBlock("workspace_access_properties")
 {
     /// <summary>
     /// The device_type_android attribute.
@@ -188,7 +188,7 @@ public partial class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : Terr
 /// Block type for workspace_creation_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock : TerraformBlockBase
+public partial class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock() : TerraformBlock("workspace_creation_properties")
 {
     /// <summary>
     /// The custom_security_group_id attribute.
@@ -320,7 +320,7 @@ public partial class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectoryConfig block(s) allowed")]
     [TerraformProperty("active_directory_config")]
-    public partial TerraformList<TerraformBlock<AwsWorkspacesDirectoryActiveDirectoryConfigBlock>>? ActiveDirectoryConfig { get; set; }
+    public TerraformList<AwsWorkspacesDirectoryActiveDirectoryConfigBlock> ActiveDirectoryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for certificate_based_auth_properties.
@@ -328,7 +328,7 @@ public partial class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateBasedAuthProperties block(s) allowed")]
     [TerraformProperty("certificate_based_auth_properties")]
-    public partial TerraformList<TerraformBlock<AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock>>? CertificateBasedAuthProperties { get; set; }
+    public TerraformList<AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock> CertificateBasedAuthProperties { get; set; } = new();
 
     /// <summary>
     /// Block for saml_properties.
@@ -336,7 +336,7 @@ public partial class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlProperties block(s) allowed")]
     [TerraformProperty("saml_properties")]
-    public partial TerraformList<TerraformBlock<AwsWorkspacesDirectorySamlPropertiesBlock>>? SamlProperties { get; set; }
+    public TerraformList<AwsWorkspacesDirectorySamlPropertiesBlock> SamlProperties { get; set; } = new();
 
     /// <summary>
     /// Block for self_service_permissions.
@@ -344,7 +344,7 @@ public partial class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfServicePermissions block(s) allowed")]
     [TerraformProperty("self_service_permissions")]
-    public partial TerraformList<TerraformBlock<AwsWorkspacesDirectorySelfServicePermissionsBlock>>? SelfServicePermissions { get; set; }
+    public TerraformList<AwsWorkspacesDirectorySelfServicePermissionsBlock> SelfServicePermissions { get; set; } = new();
 
     /// <summary>
     /// Block for workspace_access_properties.
@@ -352,7 +352,7 @@ public partial class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkspaceAccessProperties block(s) allowed")]
     [TerraformProperty("workspace_access_properties")]
-    public partial TerraformList<TerraformBlock<AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock>>? WorkspaceAccessProperties { get; set; }
+    public TerraformList<AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock> WorkspaceAccessProperties { get; set; } = new();
 
     /// <summary>
     /// Block for workspace_creation_properties.
@@ -360,7 +360,7 @@ public partial class AwsWorkspacesDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkspaceCreationProperties block(s) allowed")]
     [TerraformProperty("workspace_creation_properties")]
-    public partial TerraformList<TerraformBlock<AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock>>? WorkspaceCreationProperties { get; set; }
+    public TerraformList<AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock> WorkspaceCreationProperties { get; set; } = new();
 
     /// <summary>
     /// The alias attribute.

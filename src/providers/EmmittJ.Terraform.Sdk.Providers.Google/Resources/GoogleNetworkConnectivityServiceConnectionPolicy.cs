@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for psc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock() : TerraformBlock("psc_config")
 {
     /// <summary>
     /// List of Projects, Folders, or Organizations from where the Producer instance can be within. For example,
@@ -52,7 +52,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -158,14 +158,14 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
     [TerraformProperty("psc_config")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock>>? PscConfig { get; set; }
+    public TerraformList<GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock> PscConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppmeshMeshSpecBlock : TerraformBlockBase
+public partial class AwsAppmeshMeshSpecBlock() : TerraformBlock("spec")
 {
 }
 
@@ -62,7 +62,7 @@ public partial class AwsAppmeshMesh : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<AwsAppmeshMeshSpecBlock>>? Spec { get; set; }
+    public TerraformList<AwsAppmeshMeshSpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

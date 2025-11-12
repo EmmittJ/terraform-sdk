@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for catalog_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock() : TerraformBlock("catalog_info")
 {
     /// <summary>
     /// The administrator_login attribute.
@@ -57,7 +57,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlo
 /// Block type for copy_compute_scale in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock() : TerraformBlock("copy_compute_scale")
 {
     /// <summary>
     /// The data_integration_unit attribute.
@@ -79,7 +79,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeSca
 /// Block type for custom_setup_script in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock() : TerraformBlock("custom_setup_script")
 {
     /// <summary>
     /// The blob_container_uri attribute.
@@ -103,7 +103,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScr
 /// Block type for express_custom_setup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock() : TerraformBlock("express_custom_setup")
 {
     /// <summary>
     /// The environment attribute.
@@ -125,7 +125,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomS
 /// Block type for express_vnet_integration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock() : TerraformBlock("express_vnet_integration")
 {
     /// <summary>
     /// The subnet_id attribute.
@@ -141,7 +141,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetInt
 /// Block type for package_store in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock() : TerraformBlock("package_store")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -165,7 +165,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBl
 /// Block type for pipeline_external_compute_scale in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock() : TerraformBlock("pipeline_external_compute_scale")
 {
     /// <summary>
     /// The number_of_external_nodes attribute.
@@ -194,7 +194,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExtern
 /// Block type for proxy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock() : TerraformBlock("proxy")
 {
     /// <summary>
     /// The path attribute.
@@ -225,7 +225,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -261,7 +261,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock 
 /// Block type for vnet_integration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock() : TerraformBlock("vnet_integration")
 {
     /// <summary>
     /// The public_ips attribute.
@@ -390,7 +390,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogInfo block(s) allowed")]
     [TerraformProperty("catalog_info")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>>? CatalogInfo { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock> CatalogInfo { get; set; } = new();
 
     /// <summary>
     /// Block for copy_compute_scale.
@@ -398,7 +398,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CopyComputeScale block(s) allowed")]
     [TerraformProperty("copy_compute_scale")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>>? CopyComputeScale { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock> CopyComputeScale { get; set; } = new();
 
     /// <summary>
     /// Block for custom_setup_script.
@@ -406,7 +406,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomSetupScript block(s) allowed")]
     [TerraformProperty("custom_setup_script")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>>? CustomSetupScript { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock> CustomSetupScript { get; set; } = new();
 
     /// <summary>
     /// Block for express_custom_setup.
@@ -414,7 +414,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressCustomSetup block(s) allowed")]
     [TerraformProperty("express_custom_setup")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>>? ExpressCustomSetup { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock> ExpressCustomSetup { get; set; } = new();
 
     /// <summary>
     /// Block for express_vnet_integration.
@@ -422,14 +422,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressVnetIntegration block(s) allowed")]
     [TerraformProperty("express_vnet_integration")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>>? ExpressVnetIntegration { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock> ExpressVnetIntegration { get; set; } = new();
 
     /// <summary>
     /// Block for package_store.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("package_store")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>>? PackageStore { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock> PackageStore { get; set; } = new();
 
     /// <summary>
     /// Block for pipeline_external_compute_scale.
@@ -437,7 +437,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineExternalComputeScale block(s) allowed")]
     [TerraformProperty("pipeline_external_compute_scale")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>>? PipelineExternalComputeScale { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock> PipelineExternalComputeScale { get; set; } = new();
 
     /// <summary>
     /// Block for proxy.
@@ -445,14 +445,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformProperty("proxy")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>>? Proxy { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock> Proxy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vnet_integration.
@@ -460,6 +460,6 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VnetIntegration block(s) allowed")]
     [TerraformProperty("vnet_integration")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>>? VnetIntegration { get; set; }
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock> VnetIntegration { get; set; } = new();
 
 }

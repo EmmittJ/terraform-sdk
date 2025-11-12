@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for addresses in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIdentitystoreUserAddressesBlock : TerraformBlockBase
+public partial class AwsIdentitystoreUserAddressesBlock() : TerraformBlock("addresses")
 {
     /// <summary>
     /// The country attribute.
@@ -70,7 +70,7 @@ public partial class AwsIdentitystoreUserAddressesBlock : TerraformBlockBase
 /// Block type for emails in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIdentitystoreUserEmailsBlock : TerraformBlockBase
+public partial class AwsIdentitystoreUserEmailsBlock() : TerraformBlock("emails")
 {
     /// <summary>
     /// The primary attribute.
@@ -99,7 +99,7 @@ public partial class AwsIdentitystoreUserEmailsBlock : TerraformBlockBase
 /// Block type for name in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIdentitystoreUserNameBlock : TerraformBlockBase
+public partial class AwsIdentitystoreUserNameBlock() : TerraformBlock("name")
 {
     /// <summary>
     /// The family_name attribute.
@@ -151,7 +151,7 @@ public partial class AwsIdentitystoreUserNameBlock : TerraformBlockBase
 /// Block type for phone_numbers in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIdentitystoreUserPhoneNumbersBlock : TerraformBlockBase
+public partial class AwsIdentitystoreUserPhoneNumbersBlock() : TerraformBlock("phone_numbers")
 {
     /// <summary>
     /// The primary attribute.
@@ -279,7 +279,7 @@ public partial class AwsIdentitystoreUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Addresses block(s) allowed")]
     [TerraformProperty("addresses")]
-    public partial TerraformList<TerraformBlock<AwsIdentitystoreUserAddressesBlock>>? Addresses { get; set; }
+    public TerraformList<AwsIdentitystoreUserAddressesBlock> Addresses { get; set; } = new();
 
     /// <summary>
     /// Block for emails.
@@ -287,7 +287,7 @@ public partial class AwsIdentitystoreUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Emails block(s) allowed")]
     [TerraformProperty("emails")]
-    public partial TerraformList<TerraformBlock<AwsIdentitystoreUserEmailsBlock>>? Emails { get; set; }
+    public TerraformList<AwsIdentitystoreUserEmailsBlock> Emails { get; set; } = new();
 
     /// <summary>
     /// Block for name.
@@ -297,7 +297,7 @@ public partial class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Name block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Name block(s) allowed")]
     [TerraformProperty("name")]
-    public partial TerraformList<TerraformBlock<AwsIdentitystoreUserNameBlock>>? Name { get; set; }
+    public required TerraformList<AwsIdentitystoreUserNameBlock> Name { get; set; } = new();
 
     /// <summary>
     /// Block for phone_numbers.
@@ -305,7 +305,7 @@ public partial class AwsIdentitystoreUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhoneNumbers block(s) allowed")]
     [TerraformProperty("phone_numbers")]
-    public partial TerraformList<TerraformBlock<AwsIdentitystoreUserPhoneNumbersBlock>>? PhoneNumbers { get; set; }
+    public TerraformList<AwsIdentitystoreUserPhoneNumbersBlock> PhoneNumbers { get; set; } = new();
 
     /// <summary>
     /// The external_ids attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for predictive_scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingPolicyPredictiveScalingConfigurationBlock : TerraformBlockBase
+public partial class AwsAutoscalingPolicyPredictiveScalingConfigurationBlock() : TerraformBlock("predictive_scaling_configuration")
 {
     /// <summary>
     /// The max_capacity_breach_behavior attribute.
@@ -42,7 +42,7 @@ public partial class AwsAutoscalingPolicyPredictiveScalingConfigurationBlock : T
 /// Block type for step_adjustment in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAutoscalingPolicyStepAdjustmentBlock : TerraformBlockBase
+public partial class AwsAutoscalingPolicyStepAdjustmentBlock() : TerraformBlock("step_adjustment")
 {
     /// <summary>
     /// The metric_interval_lower_bound attribute.
@@ -72,7 +72,7 @@ public partial class AwsAutoscalingPolicyStepAdjustmentBlock : TerraformBlockBas
 /// Block type for target_tracking_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingPolicyTargetTrackingConfigurationBlock : TerraformBlockBase
+public partial class AwsAutoscalingPolicyTargetTrackingConfigurationBlock() : TerraformBlock("target_tracking_configuration")
 {
     /// <summary>
     /// The disable_scale_in attribute.
@@ -193,14 +193,14 @@ public partial class AwsAutoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredictiveScalingConfiguration block(s) allowed")]
     [TerraformProperty("predictive_scaling_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingPolicyPredictiveScalingConfigurationBlock>>? PredictiveScalingConfiguration { get; set; }
+    public TerraformList<AwsAutoscalingPolicyPredictiveScalingConfigurationBlock> PredictiveScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for step_adjustment.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("step_adjustment")]
-    public partial TerraformSet<TerraformBlock<AwsAutoscalingPolicyStepAdjustmentBlock>>? StepAdjustment { get; set; }
+    public TerraformSet<AwsAutoscalingPolicyStepAdjustmentBlock> StepAdjustment { get; set; } = new();
 
     /// <summary>
     /// Block for target_tracking_configuration.
@@ -208,7 +208,7 @@ public partial class AwsAutoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTrackingConfiguration block(s) allowed")]
     [TerraformProperty("target_tracking_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingPolicyTargetTrackingConfigurationBlock>>? TargetTrackingConfiguration { get; set; }
+    public TerraformList<AwsAutoscalingPolicyTargetTrackingConfigurationBlock> TargetTrackingConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

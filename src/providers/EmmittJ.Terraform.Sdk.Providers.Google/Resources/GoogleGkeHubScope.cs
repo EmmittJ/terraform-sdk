@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeHubScopeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeHubScopeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -89,7 +89,7 @@ public partial class GoogleGkeHubScope : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeHubScopeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeHubScopeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the Scope was created in UTC.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for run_after in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlockBase
+public partial class AzurermLogicAppActionHttpRunAfterBlock() : TerraformBlock("run_after")
 {
     /// <summary>
     /// The action_name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppActionHttpTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -136,13 +136,13 @@ public partial class AzurermLogicAppActionHttp : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("run_after")]
-    public partial TerraformSet<TerraformBlock<AzurermLogicAppActionHttpRunAfterBlock>>? RunAfter { get; set; }
+    public TerraformSet<AzurermLogicAppActionHttpRunAfterBlock> RunAfter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppActionHttpTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppActionHttpTimeoutsBlock Timeouts { get; set; } = new();
 
 }

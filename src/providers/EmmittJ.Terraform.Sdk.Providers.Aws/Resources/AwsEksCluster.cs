@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterAccessConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterAccessConfigBlock() : TerraformBlock("access_config")
 {
     /// <summary>
     /// The authentication_mode attribute.
@@ -28,7 +28,7 @@ public partial class AwsEksClusterAccessConfigBlock : TerraformBlockBase
 /// Block type for compute_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterComputeConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterComputeConfigBlock() : TerraformBlock("compute_config")
 {
     /// <summary>
     /// The enabled attribute.
@@ -57,7 +57,7 @@ public partial class AwsEksClusterComputeConfigBlock : TerraformBlockBase
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterEncryptionConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterEncryptionConfigBlock() : TerraformBlock("encryption_config")
 {
     /// <summary>
     /// The resources attribute.
@@ -73,7 +73,7 @@ public partial class AwsEksClusterEncryptionConfigBlock : TerraformBlockBase
 /// Block type for kubernetes_network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterKubernetesNetworkConfigBlock() : TerraformBlock("kubernetes_network_config")
 {
     /// <summary>
     /// The ip_family attribute.
@@ -96,7 +96,7 @@ public partial class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlockB
 /// Block type for outpost_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterOutpostConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterOutpostConfigBlock() : TerraformBlock("outpost_config")
 {
     /// <summary>
     /// The control_plane_instance_type attribute.
@@ -120,7 +120,7 @@ public partial class AwsEksClusterOutpostConfigBlock : TerraformBlockBase
 /// Block type for remote_network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterRemoteNetworkConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterRemoteNetworkConfigBlock() : TerraformBlock("remote_network_config")
 {
 }
 
@@ -128,7 +128,7 @@ public partial class AwsEksClusterRemoteNetworkConfigBlock : TerraformBlockBase
 /// Block type for storage_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterStorageConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterStorageConfigBlock() : TerraformBlock("storage_config")
 {
 }
 
@@ -136,7 +136,7 @@ public partial class AwsEksClusterStorageConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEksClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsEksClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,7 +165,7 @@ public partial class AwsEksClusterTimeoutsBlock : TerraformBlockBase
 /// Block type for upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterUpgradePolicyBlock : TerraformBlockBase
+public partial class AwsEksClusterUpgradePolicyBlock() : TerraformBlock("upgrade_policy")
 {
     /// <summary>
     /// The support_type attribute.
@@ -180,7 +180,7 @@ public partial class AwsEksClusterUpgradePolicyBlock : TerraformBlockBase
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterVpcConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterVpcConfigBlock() : TerraformBlock("vpc_config")
 {
 
     /// <summary>
@@ -226,7 +226,7 @@ public partial class AwsEksClusterVpcConfigBlock : TerraformBlockBase
 /// Block type for zonal_shift_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksClusterZonalShiftConfigBlock : TerraformBlockBase
+public partial class AwsEksClusterZonalShiftConfigBlock() : TerraformBlock("zonal_shift_config")
 {
     /// <summary>
     /// The enabled attribute.
@@ -332,7 +332,7 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessConfig block(s) allowed")]
     [TerraformProperty("access_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterAccessConfigBlock>>? AccessConfig { get; set; }
+    public TerraformList<AwsEksClusterAccessConfigBlock> AccessConfig { get; set; } = new();
 
     /// <summary>
     /// Block for compute_config.
@@ -340,7 +340,7 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeConfig block(s) allowed")]
     [TerraformProperty("compute_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterComputeConfigBlock>>? ComputeConfig { get; set; }
+    public TerraformList<AwsEksClusterComputeConfigBlock> ComputeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_config.
@@ -348,7 +348,7 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public TerraformList<AwsEksClusterEncryptionConfigBlock> EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for kubernetes_network_config.
@@ -356,7 +356,7 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubernetesNetworkConfig block(s) allowed")]
     [TerraformProperty("kubernetes_network_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterKubernetesNetworkConfigBlock>>? KubernetesNetworkConfig { get; set; }
+    public TerraformList<AwsEksClusterKubernetesNetworkConfigBlock> KubernetesNetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for outpost_config.
@@ -364,7 +364,7 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutpostConfig block(s) allowed")]
     [TerraformProperty("outpost_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterOutpostConfigBlock>>? OutpostConfig { get; set; }
+    public TerraformList<AwsEksClusterOutpostConfigBlock> OutpostConfig { get; set; } = new();
 
     /// <summary>
     /// Block for remote_network_config.
@@ -372,7 +372,7 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteNetworkConfig block(s) allowed")]
     [TerraformProperty("remote_network_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterRemoteNetworkConfigBlock>>? RemoteNetworkConfig { get; set; }
+    public TerraformList<AwsEksClusterRemoteNetworkConfigBlock> RemoteNetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for storage_config.
@@ -380,14 +380,14 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
     [TerraformProperty("storage_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterStorageConfigBlock>>? StorageConfig { get; set; }
+    public TerraformList<AwsEksClusterStorageConfigBlock> StorageConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEksClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEksClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_policy.
@@ -395,7 +395,7 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
     [TerraformProperty("upgrade_policy")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterUpgradePolicyBlock>>? UpgradePolicy { get; set; }
+    public TerraformList<AwsEksClusterUpgradePolicyBlock> UpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -405,7 +405,7 @@ public partial class AwsEksCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterVpcConfigBlock>>? VpcConfig { get; set; }
+    public required TerraformList<AwsEksClusterVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// Block for zonal_shift_config.
@@ -413,7 +413,7 @@ public partial class AwsEksCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZonalShiftConfig block(s) allowed")]
     [TerraformProperty("zonal_shift_config")]
-    public partial TerraformList<TerraformBlock<AwsEksClusterZonalShiftConfigBlock>>? ZonalShiftConfig { get; set; }
+    public TerraformList<AwsEksClusterZonalShiftConfigBlock> ZonalShiftConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

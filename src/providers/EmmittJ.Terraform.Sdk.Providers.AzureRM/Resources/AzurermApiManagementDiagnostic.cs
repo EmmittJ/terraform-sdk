@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for backend_request in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementDiagnosticBackendRequestBlock : TerraformBlockBase
+public partial class AzurermApiManagementDiagnosticBackendRequestBlock() : TerraformBlock("backend_request")
 {
     /// <summary>
     /// The body_bytes attribute.
@@ -28,7 +28,7 @@ public partial class AzurermApiManagementDiagnosticBackendRequestBlock : Terrafo
 /// Block type for backend_response in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementDiagnosticBackendResponseBlock : TerraformBlockBase
+public partial class AzurermApiManagementDiagnosticBackendResponseBlock() : TerraformBlock("backend_response")
 {
     /// <summary>
     /// The body_bytes attribute.
@@ -50,7 +50,7 @@ public partial class AzurermApiManagementDiagnosticBackendResponseBlock : Terraf
 /// Block type for frontend_request in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementDiagnosticFrontendRequestBlock : TerraformBlockBase
+public partial class AzurermApiManagementDiagnosticFrontendRequestBlock() : TerraformBlock("frontend_request")
 {
     /// <summary>
     /// The body_bytes attribute.
@@ -72,7 +72,7 @@ public partial class AzurermApiManagementDiagnosticFrontendRequestBlock : Terraf
 /// Block type for frontend_response in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementDiagnosticFrontendResponseBlock : TerraformBlockBase
+public partial class AzurermApiManagementDiagnosticFrontendResponseBlock() : TerraformBlock("frontend_response")
 {
     /// <summary>
     /// The body_bytes attribute.
@@ -94,7 +94,7 @@ public partial class AzurermApiManagementDiagnosticFrontendResponseBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementDiagnosticTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementDiagnosticTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -223,7 +223,7 @@ public partial class AzurermApiManagementDiagnostic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendRequest block(s) allowed")]
     [TerraformProperty("backend_request")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementDiagnosticBackendRequestBlock>>? BackendRequest { get; set; }
+    public TerraformList<AzurermApiManagementDiagnosticBackendRequestBlock> BackendRequest { get; set; } = new();
 
     /// <summary>
     /// Block for backend_response.
@@ -231,7 +231,7 @@ public partial class AzurermApiManagementDiagnostic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendResponse block(s) allowed")]
     [TerraformProperty("backend_response")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementDiagnosticBackendResponseBlock>>? BackendResponse { get; set; }
+    public TerraformList<AzurermApiManagementDiagnosticBackendResponseBlock> BackendResponse { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_request.
@@ -239,7 +239,7 @@ public partial class AzurermApiManagementDiagnostic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendRequest block(s) allowed")]
     [TerraformProperty("frontend_request")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementDiagnosticFrontendRequestBlock>>? FrontendRequest { get; set; }
+    public TerraformList<AzurermApiManagementDiagnosticFrontendRequestBlock> FrontendRequest { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_response.
@@ -247,13 +247,13 @@ public partial class AzurermApiManagementDiagnostic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendResponse block(s) allowed")]
     [TerraformProperty("frontend_response")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementDiagnosticFrontendResponseBlock>>? FrontendResponse { get; set; }
+    public TerraformList<AzurermApiManagementDiagnosticFrontendResponseBlock> FrontendResponse { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementDiagnosticTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementDiagnosticTimeoutsBlock Timeouts { get; set; } = new();
 
 }

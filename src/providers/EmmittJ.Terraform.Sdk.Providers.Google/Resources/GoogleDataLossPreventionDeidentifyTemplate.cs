@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for deidentify_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlock() : TerraformBlock("deidentify_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -100,14 +100,14 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DeidentifyConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeidentifyConfig block(s) allowed")]
     [TerraformProperty("deidentify_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlock>>? DeidentifyConfig { get; set; }
+    public required TerraformList<GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlock> DeidentifyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation timestamp of an deidentifyTemplate. Set by the server.

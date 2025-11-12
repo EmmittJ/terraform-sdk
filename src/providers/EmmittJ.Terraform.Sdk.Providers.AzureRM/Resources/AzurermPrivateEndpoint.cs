@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermPrivateEndpointIpConfigurationBlock() : TerraformBlock("ip_configuration")
 {
     /// <summary>
     /// The member_name attribute.
@@ -44,7 +44,7 @@ public partial class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
 /// Block type for private_dns_zone_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlockBase
+public partial class AzurermPrivateEndpointPrivateDnsZoneGroupBlock() : TerraformBlock("private_dns_zone_group")
 {
 
     /// <summary>
@@ -69,7 +69,7 @@ public partial class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformB
 /// Block type for private_service_connection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBlockBase
+public partial class AzurermPrivateEndpointPrivateServiceConnectionBlock() : TerraformBlock("private_service_connection")
 {
     /// <summary>
     /// The is_manual_connection attribute.
@@ -122,7 +122,7 @@ public partial class AzurermPrivateEndpointPrivateServiceConnectionBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPrivateEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPrivateEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -222,7 +222,7 @@ public partial class AzurermPrivateEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermPrivateEndpointIpConfigurationBlock>>? IpConfiguration { get; set; }
+    public TerraformList<AzurermPrivateEndpointIpConfigurationBlock> IpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for private_dns_zone_group.
@@ -230,7 +230,7 @@ public partial class AzurermPrivateEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateDnsZoneGroup block(s) allowed")]
     [TerraformProperty("private_dns_zone_group")]
-    public partial TerraformList<TerraformBlock<AzurermPrivateEndpointPrivateDnsZoneGroupBlock>>? PrivateDnsZoneGroup { get; set; }
+    public TerraformList<AzurermPrivateEndpointPrivateDnsZoneGroupBlock> PrivateDnsZoneGroup { get; set; } = new();
 
     /// <summary>
     /// Block for private_service_connection.
@@ -240,14 +240,14 @@ public partial class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrivateServiceConnection block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnection block(s) allowed")]
     [TerraformProperty("private_service_connection")]
-    public partial TerraformList<TerraformBlock<AzurermPrivateEndpointPrivateServiceConnectionBlock>>? PrivateServiceConnection { get; set; }
+    public required TerraformList<AzurermPrivateEndpointPrivateServiceConnectionBlock> PrivateServiceConnection { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPrivateEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_dns_configs attribute.

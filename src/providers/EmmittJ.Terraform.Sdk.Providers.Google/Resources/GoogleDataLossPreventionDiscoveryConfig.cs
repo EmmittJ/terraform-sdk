@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for actions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionDiscoveryConfigActionsBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionDiscoveryConfigActionsBlock() : TerraformBlock("actions")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfigActionsBlock : Terra
 /// Block type for org_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock() : TerraformBlock("org_config")
 {
     /// <summary>
     /// The project that will run the scan. The DLP service account that exists within this project must have access to all resources that are profiled, and the cloud DLP API must be enabled.
@@ -29,7 +29,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock : Ter
 /// Block type for other_cloud_starting_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLocationBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLocationBlock() : TerraformBlock("other_cloud_starting_location")
 {
 }
 
@@ -37,7 +37,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLo
 /// Block type for targets in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionDiscoveryConfigTargetsBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionDiscoveryConfigTargetsBlock() : TerraformBlock("targets")
 {
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfigTargetsBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,7 +132,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("actions")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionDiscoveryConfigActionsBlock>>? Actions { get; set; }
+    public TerraformList<GoogleDataLossPreventionDiscoveryConfigActionsBlock> Actions { get; set; } = new();
 
     /// <summary>
     /// Block for org_config.
@@ -140,7 +140,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrgConfig block(s) allowed")]
     [TerraformProperty("org_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock>>? OrgConfig { get; set; }
+    public TerraformList<GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock> OrgConfig { get; set; } = new();
 
     /// <summary>
     /// Block for other_cloud_starting_location.
@@ -148,21 +148,21 @@ public partial class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OtherCloudStartingLocation block(s) allowed")]
     [TerraformProperty("other_cloud_starting_location")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLocationBlock>>? OtherCloudStartingLocation { get; set; }
+    public TerraformList<GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLocationBlock> OtherCloudStartingLocation { get; set; } = new();
 
     /// <summary>
     /// Block for targets.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("targets")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionDiscoveryConfigTargetsBlock>>? Targets { get; set; }
+    public TerraformList<GoogleDataLossPreventionDiscoveryConfigTargetsBlock> Targets { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The creation timestamp of a DiscoveryConfig.

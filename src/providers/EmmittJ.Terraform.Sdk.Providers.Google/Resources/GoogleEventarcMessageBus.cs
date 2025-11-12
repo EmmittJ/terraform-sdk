@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcMessageBusLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleEventarcMessageBusLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// Optional. The minimum severity of logs that will be sent to Stackdriver/Platform
@@ -22,7 +22,7 @@ public partial class GoogleEventarcMessageBusLoggingConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEventarcMessageBusTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEventarcMessageBusTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,14 +132,14 @@ public partial class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcMessageBusLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<GoogleEventarcMessageBusLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEventarcMessageBusTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEventarcMessageBusTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The creation time.

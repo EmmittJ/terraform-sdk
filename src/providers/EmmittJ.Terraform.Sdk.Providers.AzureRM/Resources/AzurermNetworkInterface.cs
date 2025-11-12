@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermNetworkInterfaceIpConfigurationBlock() : TerraformBlock("ip_configuration")
 {
     /// <summary>
     /// The gateway_load_balancer_frontend_ip_configuration_id attribute.
@@ -72,7 +72,7 @@ public partial class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkInterfaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -208,14 +208,14 @@ public partial class AzurermNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
     [TerraformProperty("ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkInterfaceIpConfigurationBlock>>? IpConfiguration { get; set; }
+    public required TerraformList<AzurermNetworkInterfaceIpConfigurationBlock> IpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkInterfaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkInterfaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The applied_dns_servers attribute.

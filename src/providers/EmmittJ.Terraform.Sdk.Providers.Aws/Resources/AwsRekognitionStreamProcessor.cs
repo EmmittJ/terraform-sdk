@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_sharing_preference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRekognitionStreamProcessorDataSharingPreferenceBlock : TerraformBlockBase
+public partial class AwsRekognitionStreamProcessorDataSharingPreferenceBlock() : TerraformBlock("data_sharing_preference")
 {
     /// <summary>
     /// Do you want to share data with Rekognition to improve model performance.
@@ -22,7 +22,7 @@ public partial class AwsRekognitionStreamProcessorDataSharingPreferenceBlock : T
 /// Block type for input in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRekognitionStreamProcessorInputBlock : TerraformBlockBase
+public partial class AwsRekognitionStreamProcessorInputBlock() : TerraformBlock("input")
 {
 }
 
@@ -30,7 +30,7 @@ public partial class AwsRekognitionStreamProcessorInputBlock : TerraformBlockBas
 /// Block type for notification_channel in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRekognitionStreamProcessorNotificationChannelBlock : TerraformBlockBase
+public partial class AwsRekognitionStreamProcessorNotificationChannelBlock() : TerraformBlock("notification_channel")
 {
     /// <summary>
     /// The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
@@ -45,7 +45,7 @@ public partial class AwsRekognitionStreamProcessorNotificationChannelBlock : Ter
 /// Block type for output in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRekognitionStreamProcessorOutputBlock : TerraformBlockBase
+public partial class AwsRekognitionStreamProcessorOutputBlock() : TerraformBlock("output")
 {
 }
 
@@ -53,7 +53,7 @@ public partial class AwsRekognitionStreamProcessorOutputBlock : TerraformBlockBa
 /// Block type for regions_of_interest in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRekognitionStreamProcessorRegionsOfInterestBlock : TerraformBlockBase
+public partial class AwsRekognitionStreamProcessorRegionsOfInterestBlock() : TerraformBlock("regions_of_interest")
 {
 }
 
@@ -61,7 +61,7 @@ public partial class AwsRekognitionStreamProcessorRegionsOfInterestBlock : Terra
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRekognitionStreamProcessorSettingsBlock : TerraformBlockBase
+public partial class AwsRekognitionStreamProcessorSettingsBlock() : TerraformBlock("settings")
 {
 }
 
@@ -69,7 +69,7 @@ public partial class AwsRekognitionStreamProcessorSettingsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlockBase
+public partial class AwsRekognitionStreamProcessorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -145,49 +145,49 @@ public partial class AwsRekognitionStreamProcessor : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_sharing_preference")]
-    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorDataSharingPreferenceBlock>>? DataSharingPreference { get; set; }
+    public TerraformList<AwsRekognitionStreamProcessorDataSharingPreferenceBlock> DataSharingPreference { get; set; } = new();
 
     /// <summary>
     /// Block for input.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("input")]
-    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorInputBlock>>? Input { get; set; }
+    public TerraformList<AwsRekognitionStreamProcessorInputBlock> Input { get; set; } = new();
 
     /// <summary>
     /// Block for notification_channel.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("notification_channel")]
-    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorNotificationChannelBlock>>? NotificationChannel { get; set; }
+    public TerraformList<AwsRekognitionStreamProcessorNotificationChannelBlock> NotificationChannel { get; set; } = new();
 
     /// <summary>
     /// Block for output.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("output")]
-    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorOutputBlock>>? Output { get; set; }
+    public TerraformList<AwsRekognitionStreamProcessorOutputBlock> Output { get; set; } = new();
 
     /// <summary>
     /// Block for regions_of_interest.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("regions_of_interest")]
-    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorRegionsOfInterestBlock>>? RegionsOfInterest { get; set; }
+    public TerraformList<AwsRekognitionStreamProcessorRegionsOfInterestBlock> RegionsOfInterest { get; set; } = new();
 
     /// <summary>
     /// Block for settings.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("settings")]
-    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorSettingsBlock>>? Settings { get; set; }
+    public TerraformList<AwsRekognitionStreamProcessorSettingsBlock> Settings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRekognitionStreamProcessorTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRekognitionStreamProcessorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

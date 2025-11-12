@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppConfigurationEncryptionBlock : TerraformBlockBase
+public partial class AzurermAppConfigurationEncryptionBlock() : TerraformBlock("encryption")
 {
     /// <summary>
     /// The identity_client_id attribute.
@@ -28,7 +28,7 @@ public partial class AzurermAppConfigurationEncryptionBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppConfigurationIdentityBlock : TerraformBlockBase
+public partial class AzurermAppConfigurationIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -53,7 +53,7 @@ public partial class AzurermAppConfigurationIdentityBlock : TerraformBlockBase
 /// Block type for replica in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermAppConfigurationReplicaBlock : TerraformBlockBase
+public partial class AzurermAppConfigurationReplicaBlock() : TerraformBlock("replica")
 {
 
 
@@ -79,7 +79,7 @@ public partial class AzurermAppConfigurationReplicaBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -214,7 +214,7 @@ public partial class AzurermAppConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<AzurermAppConfigurationEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<AzurermAppConfigurationEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -222,21 +222,21 @@ public partial class AzurermAppConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermAppConfigurationIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermAppConfigurationIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for replica.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("replica")]
-    public partial TerraformSet<TerraformBlock<AzurermAppConfigurationReplicaBlock>>? Replica { get; set; }
+    public TerraformSet<AzurermAppConfigurationReplicaBlock> Replica { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

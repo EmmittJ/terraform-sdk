@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for audio in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElastictranscoderPresetAudioBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPresetAudioBlock() : TerraformBlock("audio")
 {
     /// <summary>
     /// The audio_packing_mode attribute.
@@ -49,7 +49,7 @@ public partial class AwsElastictranscoderPresetAudioBlock : TerraformBlockBase
 /// Block type for audio_codec_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPresetAudioCodecOptionsBlock() : TerraformBlock("audio_codec_options")
 {
     /// <summary>
     /// The bit_depth attribute.
@@ -85,7 +85,7 @@ public partial class AwsElastictranscoderPresetAudioCodecOptionsBlock : Terrafor
 /// Block type for thumbnails in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPresetThumbnailsBlock() : TerraformBlock("thumbnails")
 {
     /// <summary>
     /// The aspect_ratio attribute.
@@ -149,7 +149,7 @@ public partial class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlockB
 /// Block type for video in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElastictranscoderPresetVideoBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPresetVideoBlock() : TerraformBlock("video")
 {
     /// <summary>
     /// The aspect_ratio attribute.
@@ -248,7 +248,7 @@ public partial class AwsElastictranscoderPresetVideoBlock : TerraformBlockBase
 /// Block type for video_watermarks in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPresetVideoWatermarksBlock() : TerraformBlock("video_watermarks")
 {
     /// <summary>
     /// The horizontal_align attribute.
@@ -389,7 +389,7 @@ public partial class AwsElastictranscoderPreset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Audio block(s) allowed")]
     [TerraformProperty("audio")]
-    public partial TerraformList<TerraformBlock<AwsElastictranscoderPresetAudioBlock>>? Audio { get; set; }
+    public TerraformList<AwsElastictranscoderPresetAudioBlock> Audio { get; set; } = new();
 
     /// <summary>
     /// Block for audio_codec_options.
@@ -397,7 +397,7 @@ public partial class AwsElastictranscoderPreset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioCodecOptions block(s) allowed")]
     [TerraformProperty("audio_codec_options")]
-    public partial TerraformList<TerraformBlock<AwsElastictranscoderPresetAudioCodecOptionsBlock>>? AudioCodecOptions { get; set; }
+    public TerraformList<AwsElastictranscoderPresetAudioCodecOptionsBlock> AudioCodecOptions { get; set; } = new();
 
     /// <summary>
     /// Block for thumbnails.
@@ -405,7 +405,7 @@ public partial class AwsElastictranscoderPreset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Thumbnails block(s) allowed")]
     [TerraformProperty("thumbnails")]
-    public partial TerraformList<TerraformBlock<AwsElastictranscoderPresetThumbnailsBlock>>? Thumbnails { get; set; }
+    public TerraformList<AwsElastictranscoderPresetThumbnailsBlock> Thumbnails { get; set; } = new();
 
     /// <summary>
     /// Block for video.
@@ -413,14 +413,14 @@ public partial class AwsElastictranscoderPreset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Video block(s) allowed")]
     [TerraformProperty("video")]
-    public partial TerraformList<TerraformBlock<AwsElastictranscoderPresetVideoBlock>>? Video { get; set; }
+    public TerraformList<AwsElastictranscoderPresetVideoBlock> Video { get; set; } = new();
 
     /// <summary>
     /// Block for video_watermarks.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("video_watermarks")]
-    public partial TerraformSet<TerraformBlock<AwsElastictranscoderPresetVideoWatermarksBlock>>? VideoWatermarks { get; set; }
+    public TerraformSet<AwsElastictranscoderPresetVideoWatermarksBlock> VideoWatermarks { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

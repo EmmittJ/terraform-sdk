@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAccessanalyzerAnalyzerConfigurationBlock : TerraformBlockBase
+public partial class AwsAccessanalyzerAnalyzerConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -69,7 +69,7 @@ public partial class AwsAccessanalyzerAnalyzer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsAccessanalyzerAnalyzerConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsAccessanalyzerAnalyzerConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

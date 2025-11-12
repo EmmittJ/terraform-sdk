@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricManagedClusterAuthenticationBlock : TerraformBlockBase
+public partial class AzurermServiceFabricManagedClusterAuthenticationBlock() : TerraformBlock("authentication")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermServiceFabricManagedClusterAuthenticationBlock : Ter
 /// Block type for custom_fabric_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricManagedClusterCustomFabricSettingBlock : TerraformBlockBase
+public partial class AzurermServiceFabricManagedClusterCustomFabricSettingBlock() : TerraformBlock("custom_fabric_setting")
 {
     /// <summary>
     /// The parameter attribute.
@@ -46,7 +46,7 @@ public partial class AzurermServiceFabricManagedClusterCustomFabricSettingBlock 
 /// Block type for lb_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricManagedClusterLbRuleBlock : TerraformBlockBase
+public partial class AzurermServiceFabricManagedClusterLbRuleBlock() : TerraformBlock("lb_rule")
 {
     /// <summary>
     /// The backend_port attribute.
@@ -93,7 +93,7 @@ public partial class AzurermServiceFabricManagedClusterLbRuleBlock : TerraformBl
 /// Block type for node_type in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricManagedClusterNodeTypeBlock : TerraformBlockBase
+public partial class AzurermServiceFabricManagedClusterNodeTypeBlock() : TerraformBlock("node_type")
 {
     /// <summary>
     /// The application_port_range attribute.
@@ -224,7 +224,7 @@ public partial class AzurermServiceFabricManagedClusterNodeTypeBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermServiceFabricManagedClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermServiceFabricManagedClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -382,14 +382,14 @@ public partial class AzurermServiceFabricManagedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     [TerraformProperty("authentication")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricManagedClusterAuthenticationBlock>>? Authentication { get; set; }
+    public TerraformList<AzurermServiceFabricManagedClusterAuthenticationBlock> Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for custom_fabric_setting.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_fabric_setting")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricManagedClusterCustomFabricSettingBlock>>? CustomFabricSetting { get; set; }
+    public TerraformList<AzurermServiceFabricManagedClusterCustomFabricSettingBlock> CustomFabricSetting { get; set; } = new();
 
     /// <summary>
     /// Block for lb_rule.
@@ -398,20 +398,20 @@ public partial class AzurermServiceFabricManagedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LbRule block(s) required")]
     [TerraformProperty("lb_rule")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricManagedClusterLbRuleBlock>>? LbRule { get; set; }
+    public required TerraformList<AzurermServiceFabricManagedClusterLbRuleBlock> LbRule { get; set; } = new();
 
     /// <summary>
     /// Block for node_type.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("node_type")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricManagedClusterNodeTypeBlock>>? NodeType { get; set; }
+    public TerraformList<AzurermServiceFabricManagedClusterNodeTypeBlock> NodeType { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermServiceFabricManagedClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermServiceFabricManagedClusterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

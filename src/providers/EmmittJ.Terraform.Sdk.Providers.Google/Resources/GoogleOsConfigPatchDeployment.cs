@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for instance_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlockBase
+public partial class GoogleOsConfigPatchDeploymentInstanceFilterBlock() : TerraformBlock("instance_filter")
 {
     /// <summary>
     /// Target all VM instances in the project. If true, no other criteria is permitted.
@@ -45,7 +45,7 @@ public partial class GoogleOsConfigPatchDeploymentInstanceFilterBlock : Terrafor
 /// Block type for one_time_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : TerraformBlockBase
+public partial class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock() : TerraformBlock("one_time_schedule")
 {
     /// <summary>
     /// The desired patch job execution time. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -62,7 +62,7 @@ public partial class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : Terrafo
 /// Block type for patch_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigPatchDeploymentPatchConfigBlock : TerraformBlockBase
+public partial class GoogleOsConfigPatchDeploymentPatchConfigBlock() : TerraformBlock("patch_config")
 {
     /// <summary>
     /// Allows the patch job to run on Managed instance groups (MIGs).
@@ -84,7 +84,7 @@ public partial class GoogleOsConfigPatchDeploymentPatchConfigBlock : TerraformBl
 /// Block type for recurring_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBlockBase
+public partial class GoogleOsConfigPatchDeploymentRecurringScheduleBlock() : TerraformBlock("recurring_schedule")
 {
     /// <summary>
     /// The end time at which a recurring patch deployment schedule is no longer active.
@@ -110,7 +110,7 @@ public partial class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : Terra
 /// Block type for rollout in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigPatchDeploymentRolloutBlock : TerraformBlockBase
+public partial class GoogleOsConfigPatchDeploymentRolloutBlock() : TerraformBlock("rollout")
 {
     /// <summary>
     /// Mode of the patch rollout. Possible values: [&amp;quot;ZONE_BY_ZONE&amp;quot;, &amp;quot;CONCURRENT_ZONES&amp;quot;]
@@ -126,7 +126,7 @@ public partial class GoogleOsConfigPatchDeploymentRolloutBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOsConfigPatchDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOsConfigPatchDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -204,7 +204,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InstanceFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceFilter block(s) allowed")]
     [TerraformProperty("instance_filter")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentInstanceFilterBlock>>? InstanceFilter { get; set; }
+    public required TerraformList<GoogleOsConfigPatchDeploymentInstanceFilterBlock> InstanceFilter { get; set; } = new();
 
     /// <summary>
     /// Block for one_time_schedule.
@@ -212,7 +212,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OneTimeSchedule block(s) allowed")]
     [TerraformProperty("one_time_schedule")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentOneTimeScheduleBlock>>? OneTimeSchedule { get; set; }
+    public TerraformList<GoogleOsConfigPatchDeploymentOneTimeScheduleBlock> OneTimeSchedule { get; set; } = new();
 
     /// <summary>
     /// Block for patch_config.
@@ -220,7 +220,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PatchConfig block(s) allowed")]
     [TerraformProperty("patch_config")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentPatchConfigBlock>>? PatchConfig { get; set; }
+    public TerraformList<GoogleOsConfigPatchDeploymentPatchConfigBlock> PatchConfig { get; set; } = new();
 
     /// <summary>
     /// Block for recurring_schedule.
@@ -228,7 +228,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecurringSchedule block(s) allowed")]
     [TerraformProperty("recurring_schedule")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRecurringScheduleBlock>>? RecurringSchedule { get; set; }
+    public TerraformList<GoogleOsConfigPatchDeploymentRecurringScheduleBlock> RecurringSchedule { get; set; } = new();
 
     /// <summary>
     /// Block for rollout.
@@ -236,14 +236,14 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rollout block(s) allowed")]
     [TerraformProperty("rollout")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRolloutBlock>>? Rollout { get; set; }
+    public TerraformList<GoogleOsConfigPatchDeploymentRolloutBlock> Rollout { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOsConfigPatchDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOsConfigPatchDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the patch deployment was created. Timestamp is in RFC3339 text format.

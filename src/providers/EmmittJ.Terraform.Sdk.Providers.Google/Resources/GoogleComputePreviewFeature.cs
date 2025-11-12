@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rollout_operation in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputePreviewFeatureRolloutOperationBlock : TerraformBlockBase
+public partial class GoogleComputePreviewFeatureRolloutOperationBlock() : TerraformBlock("rollout_operation")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleComputePreviewFeatureRolloutOperationBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputePreviewFeatureTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputePreviewFeatureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -85,13 +85,13 @@ public partial class GoogleComputePreviewFeature : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RolloutOperation block(s) allowed")]
     [TerraformProperty("rollout_operation")]
-    public partial TerraformList<TerraformBlock<GoogleComputePreviewFeatureRolloutOperationBlock>>? RolloutOperation { get; set; }
+    public TerraformList<GoogleComputePreviewFeatureRolloutOperationBlock> RolloutOperation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputePreviewFeatureTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputePreviewFeatureTimeoutsBlock Timeouts { get; set; } = new();
 
 }

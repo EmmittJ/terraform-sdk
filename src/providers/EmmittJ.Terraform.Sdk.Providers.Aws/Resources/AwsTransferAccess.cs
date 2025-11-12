@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for home_directory_mappings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBlockBase
+public partial class AwsTransferAccessHomeDirectoryMappingsBlock() : TerraformBlock("home_directory_mappings")
 {
     /// <summary>
     /// The entry attribute.
@@ -30,7 +30,7 @@ public partial class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBloc
 /// Block type for posix_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferAccessPosixProfileBlock : TerraformBlockBase
+public partial class AwsTransferAccessPosixProfileBlock() : TerraformBlock("posix_profile")
 {
     /// <summary>
     /// The gid attribute.
@@ -131,7 +131,7 @@ public partial class AwsTransferAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 HomeDirectoryMappings block(s) allowed")]
     [TerraformProperty("home_directory_mappings")]
-    public partial TerraformList<TerraformBlock<AwsTransferAccessHomeDirectoryMappingsBlock>>? HomeDirectoryMappings { get; set; }
+    public TerraformList<AwsTransferAccessHomeDirectoryMappingsBlock> HomeDirectoryMappings { get; set; } = new();
 
     /// <summary>
     /// Block for posix_profile.
@@ -139,6 +139,6 @@ public partial class AwsTransferAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixProfile block(s) allowed")]
     [TerraformProperty("posix_profile")]
-    public partial TerraformList<TerraformBlock<AwsTransferAccessPosixProfileBlock>>? PosixProfile { get; set; }
+    public TerraformList<AwsTransferAccessPosixProfileBlock> PosixProfile { get; set; } = new();
 
 }

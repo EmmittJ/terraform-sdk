@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for custom_response_body in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafv2RuleGroupCustomResponseBodyBlock : TerraformBlockBase
+public partial class AwsWafv2RuleGroupCustomResponseBodyBlock() : TerraformBlock("custom_response_body")
 {
     /// <summary>
     /// The content attribute.
@@ -38,7 +38,7 @@ public partial class AwsWafv2RuleGroupCustomResponseBodyBlock : TerraformBlockBa
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafv2RuleGroupRuleBlock : TerraformBlockBase
+public partial class AwsWafv2RuleGroupRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The name attribute.
@@ -62,7 +62,7 @@ public partial class AwsWafv2RuleGroupRuleBlock : TerraformBlockBase
 /// Block type for visibility_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2RuleGroupVisibilityConfigBlock : TerraformBlockBase
+public partial class AwsWafv2RuleGroupVisibilityConfigBlock() : TerraformBlock("visibility_config")
 {
     /// <summary>
     /// The cloudwatch_metrics_enabled attribute.
@@ -177,14 +177,14 @@ public partial class AwsWafv2RuleGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("custom_response_body")]
-    public partial TerraformSet<TerraformBlock<AwsWafv2RuleGroupCustomResponseBodyBlock>>? CustomResponseBody { get; set; }
+    public TerraformSet<AwsWafv2RuleGroupCustomResponseBodyBlock> CustomResponseBody { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsWafv2RuleGroupRuleBlock>>? Rule { get; set; }
+    public TerraformSet<AwsWafv2RuleGroupRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for visibility_config.
@@ -194,7 +194,7 @@ public partial class AwsWafv2RuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VisibilityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VisibilityConfig block(s) allowed")]
     [TerraformProperty("visibility_config")]
-    public partial TerraformList<TerraformBlock<AwsWafv2RuleGroupVisibilityConfigBlock>>? VisibilityConfig { get; set; }
+    public required TerraformList<AwsWafv2RuleGroupVisibilityConfigBlock> VisibilityConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowEncryptionSpecEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleDialogflowEncryptionSpecEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// The name of customer-managed encryption key that is used to secure a resource and its sub-resources.
@@ -25,7 +25,7 @@ public partial class GoogleDialogflowEncryptionSpecEncryptionSpecBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowEncryptionSpecTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowEncryptionSpecTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,13 +83,13 @@ public partial class GoogleDialogflowEncryptionSpec : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EncryptionSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowEncryptionSpecEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public required TerraformList<GoogleDialogflowEncryptionSpecEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowEncryptionSpecTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowEncryptionSpecTimeoutsBlock Timeouts { get; set; } = new();
 
 }

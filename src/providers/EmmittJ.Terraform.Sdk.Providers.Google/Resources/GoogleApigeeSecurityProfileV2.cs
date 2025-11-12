@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for profile_assessment_configs in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock() : TerraformBlock("profile_assessment_configs")
 {
     /// <summary>
     /// The assessment attribute.
@@ -30,7 +30,7 @@ public partial class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeSecurityProfileV2TimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -103,14 +103,14 @@ public partial class GoogleApigeeSecurityProfileV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileAssessmentConfigs is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProfileAssessmentConfigs block(s) required")]
     [TerraformProperty("profile_assessment_configs")]
-    public partial TerraformSet<TerraformBlock<GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock>>? ProfileAssessmentConfigs { get; set; }
+    public required TerraformSet<GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock> ProfileAssessmentConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeSecurityProfileV2TimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeSecurityProfileV2TimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp at which this profile was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for access_control in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppWorkflowAccessControlBlock : TerraformBlockBase
+public partial class AzurermLogicAppWorkflowAccessControlBlock() : TerraformBlock("access_control")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermLogicAppWorkflowAccessControlBlock : TerraformBlockB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppWorkflowIdentityBlock : TerraformBlockBase
+public partial class AzurermLogicAppWorkflowIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -39,7 +39,7 @@ public partial class AzurermLogicAppWorkflowIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppWorkflowTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -174,7 +174,7 @@ public partial class AzurermLogicAppWorkflow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControl block(s) allowed")]
     [TerraformProperty("access_control")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppWorkflowAccessControlBlock>>? AccessControl { get; set; }
+    public TerraformList<AzurermLogicAppWorkflowAccessControlBlock> AccessControl { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -182,14 +182,14 @@ public partial class AzurermLogicAppWorkflow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppWorkflowIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermLogicAppWorkflowIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppWorkflowTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppWorkflowTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The access_endpoint attribute.

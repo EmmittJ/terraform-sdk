@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for csv_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsReportConfigCsvOptionsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsReportConfigCsvOptionsBlock() : TerraformBlock("csv_options")
 {
     /// <summary>
     /// The delimiter used to separate the fields in the inventory report CSV file.
@@ -35,7 +35,7 @@ public partial class GoogleStorageInsightsReportConfigCsvOptionsBlock : Terrafor
 /// Block type for frequency_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsReportConfigFrequencyOptionsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsReportConfigFrequencyOptionsBlock() : TerraformBlock("frequency_options")
 {
     /// <summary>
     /// The frequency in which inventory reports are generated. Values are DAILY or WEEKLY. Possible values: [&amp;quot;DAILY&amp;quot;, &amp;quot;WEEKLY&amp;quot;]
@@ -51,7 +51,7 @@ public partial class GoogleStorageInsightsReportConfigFrequencyOptionsBlock : Te
 /// Block type for object_metadata_report_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock() : TerraformBlock("object_metadata_report_options")
 {
     /// <summary>
     /// The metadata fields included in an inventory report.
@@ -67,7 +67,7 @@ public partial class GoogleStorageInsightsReportConfigObjectMetadataReportOption
 /// Block type for parquet_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsReportConfigParquetOptionsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsReportConfigParquetOptionsBlock() : TerraformBlock("parquet_options")
 {
 }
 
@@ -75,7 +75,7 @@ public partial class GoogleStorageInsightsReportConfigParquetOptionsBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsReportConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -153,7 +153,7 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CsvOptions block(s) allowed")]
     [TerraformProperty("csv_options")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigCsvOptionsBlock>>? CsvOptions { get; set; }
+    public TerraformList<GoogleStorageInsightsReportConfigCsvOptionsBlock> CsvOptions { get; set; } = new();
 
     /// <summary>
     /// Block for frequency_options.
@@ -161,7 +161,7 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrequencyOptions block(s) allowed")]
     [TerraformProperty("frequency_options")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigFrequencyOptionsBlock>>? FrequencyOptions { get; set; }
+    public TerraformList<GoogleStorageInsightsReportConfigFrequencyOptionsBlock> FrequencyOptions { get; set; } = new();
 
     /// <summary>
     /// Block for object_metadata_report_options.
@@ -169,7 +169,7 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObjectMetadataReportOptions block(s) allowed")]
     [TerraformProperty("object_metadata_report_options")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock>>? ObjectMetadataReportOptions { get; set; }
+    public TerraformList<GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock> ObjectMetadataReportOptions { get; set; } = new();
 
     /// <summary>
     /// Block for parquet_options.
@@ -177,14 +177,14 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParquetOptions block(s) allowed")]
     [TerraformProperty("parquet_options")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigParquetOptionsBlock>>? ParquetOptions { get; set; }
+    public TerraformList<GoogleStorageInsightsReportConfigParquetOptionsBlock> ParquetOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageInsightsReportConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageInsightsReportConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The UUID of the inventory report configuration.

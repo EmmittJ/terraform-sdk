@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for target_region in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSharedImageVersionTargetRegionBlock : TerraformBlockBase
+public partial class AzurermSharedImageVersionTargetRegionBlock() : TerraformBlock("target_region")
 {
     /// <summary>
     /// The disk_encryption_set_id attribute.
@@ -51,7 +51,7 @@ public partial class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSharedImageVersionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSharedImageVersionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -210,13 +210,13 @@ public partial class AzurermSharedImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRegion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRegion block(s) required")]
     [TerraformProperty("target_region")]
-    public partial TerraformList<TerraformBlock<AzurermSharedImageVersionTargetRegionBlock>>? TargetRegion { get; set; }
+    public required TerraformList<AzurermSharedImageVersionTargetRegionBlock> TargetRegion { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSharedImageVersionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSharedImageVersionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

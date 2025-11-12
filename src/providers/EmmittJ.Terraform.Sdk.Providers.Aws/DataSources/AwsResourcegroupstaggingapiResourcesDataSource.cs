@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for tag_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : TerraformBlockBase
+public partial class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock() : TerraformBlock("tag_filter")
 {
     /// <summary>
     /// The key attribute.
@@ -83,7 +83,7 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource : TerraformD
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 TagFilter block(s) allowed")]
     [TerraformProperty("tag_filter")]
-    public partial TerraformList<TerraformBlock<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>>? TagFilter { get; set; }
+    public TerraformList<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock> TagFilter { get; set; } = new();
 
     /// <summary>
     /// The resource_tag_mapping_list attribute.

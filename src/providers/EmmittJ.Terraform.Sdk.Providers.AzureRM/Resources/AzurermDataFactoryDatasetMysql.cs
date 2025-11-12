@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schema_column in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetMysqlSchemaColumnBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetMysqlSchemaColumnBlock() : TerraformBlock("schema_column")
 {
     /// <summary>
     /// The description attribute.
@@ -36,7 +36,7 @@ public partial class AzurermDataFactoryDatasetMysqlSchemaColumnBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryDatasetMysqlTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetMysqlTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -155,13 +155,13 @@ public partial class AzurermDataFactoryDatasetMysql : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schema_column")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetMysqlSchemaColumnBlock>>? SchemaColumn { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetMysqlSchemaColumnBlock> SchemaColumn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryDatasetMysqlTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryDatasetMysqlTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_blob_storage_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock() : TerraformBlock("azure_blob_storage_location")
 {
     /// <summary>
     /// The container attribute.
@@ -57,7 +57,7 @@ public partial class AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBloc
 /// Block type for compression in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetBinaryCompressionBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetBinaryCompressionBlock() : TerraformBlock("compression")
 {
     /// <summary>
     /// The level attribute.
@@ -80,7 +80,7 @@ public partial class AzurermDataFactoryDatasetBinaryCompressionBlock : Terraform
 /// Block type for http_server_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetBinaryHttpServerLocationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetBinaryHttpServerLocationBlock() : TerraformBlock("http_server_location")
 {
     /// <summary>
     /// The dynamic_filename_enabled attribute.
@@ -126,7 +126,7 @@ public partial class AzurermDataFactoryDatasetBinaryHttpServerLocationBlock : Te
 /// Block type for sftp_server_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetBinarySftpServerLocationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetBinarySftpServerLocationBlock() : TerraformBlock("sftp_server_location")
 {
     /// <summary>
     /// The dynamic_filename_enabled attribute.
@@ -164,7 +164,7 @@ public partial class AzurermDataFactoryDatasetBinarySftpServerLocationBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryDatasetBinaryTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetBinaryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -278,7 +278,7 @@ public partial class AzurermDataFactoryDatasetBinary : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
     [TerraformProperty("azure_blob_storage_location")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock>>? AzureBlobStorageLocation { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock> AzureBlobStorageLocation { get; set; } = new();
 
     /// <summary>
     /// Block for compression.
@@ -286,7 +286,7 @@ public partial class AzurermDataFactoryDatasetBinary : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Compression block(s) allowed")]
     [TerraformProperty("compression")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetBinaryCompressionBlock>>? Compression { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetBinaryCompressionBlock> Compression { get; set; } = new();
 
     /// <summary>
     /// Block for http_server_location.
@@ -294,7 +294,7 @@ public partial class AzurermDataFactoryDatasetBinary : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
     [TerraformProperty("http_server_location")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetBinaryHttpServerLocationBlock>>? HttpServerLocation { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetBinaryHttpServerLocationBlock> HttpServerLocation { get; set; } = new();
 
     /// <summary>
     /// Block for sftp_server_location.
@@ -302,13 +302,13 @@ public partial class AzurermDataFactoryDatasetBinary : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SftpServerLocation block(s) allowed")]
     [TerraformProperty("sftp_server_location")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetBinarySftpServerLocationBlock>>? SftpServerLocation { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetBinarySftpServerLocationBlock> SftpServerLocation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryDatasetBinaryTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryDatasetBinaryTimeoutsBlock Timeouts { get; set; } = new();
 
 }

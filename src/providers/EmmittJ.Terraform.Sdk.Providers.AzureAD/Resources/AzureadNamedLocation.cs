@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for country in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadNamedLocationCountryBlock : TerraformBlockBase
+public partial class AzureadNamedLocationCountryBlock() : TerraformBlock("country")
 {
     /// <summary>
     /// The countries_and_regions attribute.
@@ -36,7 +36,7 @@ public partial class AzureadNamedLocationCountryBlock : TerraformBlockBase
 /// Block type for ip in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadNamedLocationIpBlock : TerraformBlockBase
+public partial class AzureadNamedLocationIpBlock() : TerraformBlock("ip")
 {
     /// <summary>
     /// The ip_ranges attribute.
@@ -59,7 +59,7 @@ public partial class AzureadNamedLocationIpBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadNamedLocationTimeoutsBlock : TerraformBlockBase
+public partial class AzureadNamedLocationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -122,7 +122,7 @@ public partial class AzureadNamedLocation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Country block(s) allowed")]
     [TerraformProperty("country")]
-    public partial TerraformList<TerraformBlock<AzureadNamedLocationCountryBlock>>? Country { get; set; }
+    public TerraformList<AzureadNamedLocationCountryBlock> Country { get; set; } = new();
 
     /// <summary>
     /// Block for ip.
@@ -130,14 +130,14 @@ public partial class AzureadNamedLocation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ip block(s) allowed")]
     [TerraformProperty("ip")]
-    public partial TerraformList<TerraformBlock<AzureadNamedLocationIpBlock>>? Ip { get; set; }
+    public TerraformList<AzureadNamedLocationIpBlock> Ip { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadNamedLocationTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadNamedLocationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object ID of the named location

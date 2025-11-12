@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlockBase
+public partial class AzurermMachineLearningSynapseSparkIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermMachineLearningSynapseSparkIdentityBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMachineLearningSynapseSparkTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMachineLearningSynapseSparkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,13 +132,13 @@ public partial class AzurermMachineLearningSynapseSpark : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningSynapseSparkIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMachineLearningSynapseSparkIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMachineLearningSynapseSparkTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMachineLearningSynapseSparkTimeoutsBlock Timeouts { get; set; } = new();
 
 }

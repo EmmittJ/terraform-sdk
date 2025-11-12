@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for finding_criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGuarddutyFilterFindingCriteriaBlock : TerraformBlockBase
+public partial class AwsGuarddutyFilterFindingCriteriaBlock() : TerraformBlock("finding_criteria")
 {
 }
 
@@ -95,7 +95,7 @@ public partial class AwsGuarddutyFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FindingCriteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FindingCriteria block(s) allowed")]
     [TerraformProperty("finding_criteria")]
-    public partial TerraformList<TerraformBlock<AwsGuarddutyFilterFindingCriteriaBlock>>? FindingCriteria { get; set; }
+    public required TerraformList<AwsGuarddutyFilterFindingCriteriaBlock> FindingCriteria { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

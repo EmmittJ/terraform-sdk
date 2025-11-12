@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for trusted_token_issuer_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock : TerraformBlockBase
+public partial class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock() : TerraformBlock("trusted_token_issuer_configuration")
 {
 }
 
@@ -69,7 +69,7 @@ public partial class AwsSsoadminTrustedTokenIssuer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("trusted_token_issuer_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock>>? TrustedTokenIssuerConfiguration { get; set; }
+    public TerraformList<AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock> TrustedTokenIssuerConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

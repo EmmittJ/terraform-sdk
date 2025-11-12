@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFmsAdminAccountTimeoutsBlock : TerraformBlockBase
+public partial class AwsFmsAdminAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -52,6 +52,6 @@ public partial class AwsFmsAdminAccount : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFmsAdminAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFmsAdminAccountTimeoutsBlock Timeouts { get; set; } = new();
 
 }

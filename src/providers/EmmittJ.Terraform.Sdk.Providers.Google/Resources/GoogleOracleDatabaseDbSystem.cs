@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseDbSystemPropertiesBlock() : TerraformBlock("properties")
 {
     /// <summary>
     /// The number of CPU cores to enable for the DbSystem.
@@ -131,7 +131,7 @@ public partial class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOracleDatabaseDbSystemTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseDbSystemTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -260,14 +260,14 @@ public partial class GoogleOracleDatabaseDbSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public partial TerraformList<TerraformBlock<GoogleOracleDatabaseDbSystemPropertiesBlock>>? Properties { get; set; }
+    public TerraformList<GoogleOracleDatabaseDbSystemPropertiesBlock> Properties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOracleDatabaseDbSystemTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOracleDatabaseDbSystemTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The date and time that the DbSystem was created.

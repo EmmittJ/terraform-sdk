@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGeminiRepositoryGroupIamMemberConditionBlock : TerraformBlockBase
+public partial class GoogleGeminiRepositoryGroupIamMemberConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -102,7 +102,7 @@ public partial class GoogleGeminiRepositoryGroupIamMember : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleGeminiRepositoryGroupIamMemberConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleGeminiRepositoryGroupIamMemberConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

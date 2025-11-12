@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ec2_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationEfsEc2ConfigBlock() : TerraformBlock("ec2_config")
 {
     /// <summary>
     /// The security_group_arns attribute.
@@ -108,7 +108,7 @@ public partial class AwsDatasyncLocationEfs : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Ec2Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ec2Config block(s) allowed")]
     [TerraformProperty("ec2_config")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncLocationEfsEc2ConfigBlock>>? Ec2Config { get; set; }
+    public required TerraformList<AwsDatasyncLocationEfsEc2ConfigBlock> Ec2Config { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBlockBase
+public partial class AzurermElasticCloudElasticsearchDataSourceLogsBlock() : TerraformBlock("logs")
 {
 
 
@@ -18,7 +18,7 @@ public partial class AzurermElasticCloudElasticsearchDataSourceLogsBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -66,14 +66,14 @@ public partial class AzurermElasticCloudElasticsearchDataSource : TerraformDataS
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("logs")]
-    public partial TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchDataSourceLogsBlock>>? Logs { get; set; }
+    public TerraformList<AzurermElasticCloudElasticsearchDataSourceLogsBlock> Logs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The elastic_cloud_deployment_id attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for input_data_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTranscribeLanguageModelInputDataConfigBlock : TerraformBlockBase
+public partial class AwsTranscribeLanguageModelInputDataConfigBlock() : TerraformBlock("input_data_config")
 {
     /// <summary>
     /// The data_access_role_arn attribute.
@@ -37,7 +37,7 @@ public partial class AwsTranscribeLanguageModelInputDataConfigBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsTranscribeLanguageModelTimeoutsBlock : TerraformBlockBase
+public partial class AwsTranscribeLanguageModelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -118,14 +118,14 @@ public partial class AwsTranscribeLanguageModel : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputDataConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputDataConfig block(s) allowed")]
     [TerraformProperty("input_data_config")]
-    public partial TerraformList<TerraformBlock<AwsTranscribeLanguageModelInputDataConfigBlock>>? InputDataConfig { get; set; }
+    public required TerraformList<AwsTranscribeLanguageModelInputDataConfigBlock> InputDataConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsTranscribeLanguageModelTimeoutsBlock>? Timeouts { get; set; }
+    public AwsTranscribeLanguageModelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

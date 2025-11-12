@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for dynamic_membership in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadGroupDynamicMembershipBlock : TerraformBlockBase
+public partial class AzureadGroupDynamicMembershipBlock() : TerraformBlock("dynamic_membership")
 {
     /// <summary>
     /// The enabled attribute.
@@ -30,7 +30,7 @@ public partial class AzureadGroupDynamicMembershipBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzureadGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -233,14 +233,14 @@ public partial class AzureadGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamicMembership block(s) allowed")]
     [TerraformProperty("dynamic_membership")]
-    public partial TerraformList<TerraformBlock<AzureadGroupDynamicMembershipBlock>>? DynamicMembership { get; set; }
+    public TerraformList<AzureadGroupDynamicMembershipBlock> DynamicMembership { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The SMTP address for the group

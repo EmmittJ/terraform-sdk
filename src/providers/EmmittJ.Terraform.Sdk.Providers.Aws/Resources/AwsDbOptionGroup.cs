@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for option in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDbOptionGroupOptionBlock : TerraformBlockBase
+public partial class AwsDbOptionGroupOptionBlock() : TerraformBlock("option")
 {
     /// <summary>
     /// The db_security_group_memberships attribute.
@@ -50,7 +50,7 @@ public partial class AwsDbOptionGroupOptionBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDbOptionGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsDbOptionGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -147,14 +147,14 @@ public partial class AwsDbOptionGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("option")]
-    public partial TerraformSet<TerraformBlock<AwsDbOptionGroupOptionBlock>>? Option { get; set; }
+    public TerraformSet<AwsDbOptionGroupOptionBlock> Option { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDbOptionGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDbOptionGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

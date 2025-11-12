@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for credentials in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock : TerraformBlockBase
+public partial class AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock() : TerraformBlock("credentials")
 {
     /// <summary>
     /// The password attribute.
@@ -66,6 +66,6 @@ public partial class AwsChimeVoiceConnectorTerminationCredentials : TerraformRes
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Credentials block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Credentials block(s) allowed")]
     [TerraformProperty("credentials")]
-    public partial TerraformSet<TerraformBlock<AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock>>? Credentials { get; set; }
+    public required TerraformSet<AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock> Credentials { get; set; } = new();
 
 }

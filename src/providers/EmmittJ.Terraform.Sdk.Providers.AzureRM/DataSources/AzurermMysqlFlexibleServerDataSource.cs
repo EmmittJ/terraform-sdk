@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMysqlFlexibleServerDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermMysqlFlexibleServerDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMysqlFlexibleServerDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMysqlFlexibleServerDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The administrator_login attribute.

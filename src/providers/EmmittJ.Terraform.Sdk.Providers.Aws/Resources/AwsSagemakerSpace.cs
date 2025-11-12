@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ownership_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerSpaceOwnershipSettingsBlock : TerraformBlockBase
+public partial class AwsSagemakerSpaceOwnershipSettingsBlock() : TerraformBlock("ownership_settings")
 {
     /// <summary>
     /// The owner_user_profile_name attribute.
@@ -22,7 +22,7 @@ public partial class AwsSagemakerSpaceOwnershipSettingsBlock : TerraformBlockBas
 /// Block type for space_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerSpaceSpaceSettingsBlock : TerraformBlockBase
+public partial class AwsSagemakerSpaceSpaceSettingsBlock() : TerraformBlock("space_settings")
 {
     /// <summary>
     /// The app_type attribute.
@@ -37,7 +37,7 @@ public partial class AwsSagemakerSpaceSpaceSettingsBlock : TerraformBlockBase
 /// Block type for space_sharing_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerSpaceSpaceSharingSettingsBlock : TerraformBlockBase
+public partial class AwsSagemakerSpaceSpaceSharingSettingsBlock() : TerraformBlock("space_sharing_settings")
 {
     /// <summary>
     /// The sharing_type attribute.
@@ -116,7 +116,7 @@ public partial class AwsSagemakerSpace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OwnershipSettings block(s) allowed")]
     [TerraformProperty("ownership_settings")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerSpaceOwnershipSettingsBlock>>? OwnershipSettings { get; set; }
+    public TerraformList<AwsSagemakerSpaceOwnershipSettingsBlock> OwnershipSettings { get; set; } = new();
 
     /// <summary>
     /// Block for space_settings.
@@ -124,7 +124,7 @@ public partial class AwsSagemakerSpace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpaceSettings block(s) allowed")]
     [TerraformProperty("space_settings")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerSpaceSpaceSettingsBlock>>? SpaceSettings { get; set; }
+    public TerraformList<AwsSagemakerSpaceSpaceSettingsBlock> SpaceSettings { get; set; } = new();
 
     /// <summary>
     /// Block for space_sharing_settings.
@@ -132,7 +132,7 @@ public partial class AwsSagemakerSpace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpaceSharingSettings block(s) allowed")]
     [TerraformProperty("space_sharing_settings")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerSpaceSpaceSharingSettingsBlock>>? SpaceSharingSettings { get; set; }
+    public TerraformList<AwsSagemakerSpaceSpaceSharingSettingsBlock> SpaceSharingSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

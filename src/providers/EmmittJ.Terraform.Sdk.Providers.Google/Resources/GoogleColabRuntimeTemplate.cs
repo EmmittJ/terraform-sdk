@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data_persistent_disk_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock() : TerraformBlock("data_persistent_disk_spec")
 {
     /// <summary>
     /// The disk size of the runtime in GB. If specified, the diskType must also be specified. The minimum size is 10GB and the maximum is 65536GB.
@@ -28,7 +28,7 @@ public partial class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock : Ter
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeTemplateEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// The Cloud KMS encryption key (customer-managed encryption key) used to protect the runtime.
@@ -43,7 +43,7 @@ public partial class GoogleColabRuntimeTemplateEncryptionSpecBlock : TerraformBl
 /// Block type for euc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeTemplateEucConfigBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateEucConfigBlock() : TerraformBlock("euc_config")
 {
     /// <summary>
     /// Disable end user credential access for the runtime.
@@ -58,7 +58,7 @@ public partial class GoogleColabRuntimeTemplateEucConfigBlock : TerraformBlockBa
 /// Block type for idle_shutdown_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeTemplateIdleShutdownConfigBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateIdleShutdownConfigBlock() : TerraformBlock("idle_shutdown_config")
 {
     /// <summary>
     /// The duration after which the runtime is automatically shut down. An input of 0s disables the idle shutdown feature, and a valid range is [10m, 24h].
@@ -73,7 +73,7 @@ public partial class GoogleColabRuntimeTemplateIdleShutdownConfigBlock : Terrafo
 /// Block type for machine_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateMachineSpecBlock() : TerraformBlock("machine_spec")
 {
     /// <summary>
     /// The number of accelerators used by the runtime.
@@ -102,7 +102,7 @@ public partial class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
 /// Block type for network_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateNetworkSpecBlock() : TerraformBlock("network_spec")
 {
     /// <summary>
     /// Enable public internet access for the runtime.
@@ -131,7 +131,7 @@ public partial class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlock
 /// Block type for shielded_vm_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeTemplateShieldedVmConfigBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateShieldedVmConfigBlock() : TerraformBlock("shielded_vm_config")
 {
     /// <summary>
     /// Enables secure boot for the runtime.
@@ -146,7 +146,7 @@ public partial class GoogleColabRuntimeTemplateShieldedVmConfigBlock : Terraform
 /// Block type for software_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeTemplateSoftwareConfigBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateSoftwareConfigBlock() : TerraformBlock("software_config")
 {
 }
 
@@ -154,7 +154,7 @@ public partial class GoogleColabRuntimeTemplateSoftwareConfigBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -256,7 +256,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataPersistentDiskSpec block(s) allowed")]
     [TerraformProperty("data_persistent_disk_spec")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock>>? DataPersistentDiskSpec { get; set; }
+    public TerraformList<GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock> DataPersistentDiskSpec { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_spec.
@@ -264,7 +264,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleColabRuntimeTemplateEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for euc_config.
@@ -272,7 +272,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EucConfig block(s) allowed")]
     [TerraformProperty("euc_config")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateEucConfigBlock>>? EucConfig { get; set; }
+    public TerraformList<GoogleColabRuntimeTemplateEucConfigBlock> EucConfig { get; set; } = new();
 
     /// <summary>
     /// Block for idle_shutdown_config.
@@ -280,7 +280,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdleShutdownConfig block(s) allowed")]
     [TerraformProperty("idle_shutdown_config")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateIdleShutdownConfigBlock>>? IdleShutdownConfig { get; set; }
+    public TerraformList<GoogleColabRuntimeTemplateIdleShutdownConfigBlock> IdleShutdownConfig { get; set; } = new();
 
     /// <summary>
     /// Block for machine_spec.
@@ -288,7 +288,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineSpec block(s) allowed")]
     [TerraformProperty("machine_spec")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateMachineSpecBlock>>? MachineSpec { get; set; }
+    public TerraformList<GoogleColabRuntimeTemplateMachineSpecBlock> MachineSpec { get; set; } = new();
 
     /// <summary>
     /// Block for network_spec.
@@ -296,7 +296,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkSpec block(s) allowed")]
     [TerraformProperty("network_spec")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateNetworkSpecBlock>>? NetworkSpec { get; set; }
+    public TerraformList<GoogleColabRuntimeTemplateNetworkSpecBlock> NetworkSpec { get; set; } = new();
 
     /// <summary>
     /// Block for shielded_vm_config.
@@ -304,7 +304,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedVmConfig block(s) allowed")]
     [TerraformProperty("shielded_vm_config")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateShieldedVmConfigBlock>>? ShieldedVmConfig { get; set; }
+    public TerraformList<GoogleColabRuntimeTemplateShieldedVmConfigBlock> ShieldedVmConfig { get; set; } = new();
 
     /// <summary>
     /// Block for software_config.
@@ -312,14 +312,14 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareConfig block(s) allowed")]
     [TerraformProperty("software_config")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateSoftwareConfigBlock>>? SoftwareConfig { get; set; }
+    public TerraformList<GoogleColabRuntimeTemplateSoftwareConfigBlock> SoftwareConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleColabRuntimeTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleColabRuntimeTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

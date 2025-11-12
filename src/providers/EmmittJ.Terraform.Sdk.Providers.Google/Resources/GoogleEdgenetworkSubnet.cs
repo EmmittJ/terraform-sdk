@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEdgenetworkSubnetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEdgenetworkSubnetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,7 +131,7 @@ public partial class GoogleEdgenetworkSubnet : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEdgenetworkSubnetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEdgenetworkSubnetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the subnet was created.

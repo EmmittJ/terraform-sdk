@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -145,7 +145,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The status attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for as2_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferConnectorAs2ConfigBlock : TerraformBlockBase
+public partial class AwsTransferConnectorAs2ConfigBlock() : TerraformBlock("as2_config")
 {
     /// <summary>
     /// The compression attribute.
@@ -76,7 +76,7 @@ public partial class AwsTransferConnectorAs2ConfigBlock : TerraformBlockBase
 /// Block type for sftp_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferConnectorSftpConfigBlock : TerraformBlockBase
+public partial class AwsTransferConnectorSftpConfigBlock() : TerraformBlock("sftp_config")
 {
     /// <summary>
     /// The trusted_host_keys attribute.
@@ -168,7 +168,7 @@ public partial class AwsTransferConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 As2Config block(s) allowed")]
     [TerraformProperty("as2_config")]
-    public partial TerraformList<TerraformBlock<AwsTransferConnectorAs2ConfigBlock>>? As2Config { get; set; }
+    public TerraformList<AwsTransferConnectorAs2ConfigBlock> As2Config { get; set; } = new();
 
     /// <summary>
     /// Block for sftp_config.
@@ -176,7 +176,7 @@ public partial class AwsTransferConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SftpConfig block(s) allowed")]
     [TerraformProperty("sftp_config")]
-    public partial TerraformList<TerraformBlock<AwsTransferConnectorSftpConfigBlock>>? SftpConfig { get; set; }
+    public TerraformList<AwsTransferConnectorSftpConfigBlock> SftpConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

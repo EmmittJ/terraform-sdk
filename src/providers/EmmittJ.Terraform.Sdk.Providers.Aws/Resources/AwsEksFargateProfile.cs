@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for selector in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEksFargateProfileSelectorBlock : TerraformBlockBase
+public partial class AwsEksFargateProfileSelectorBlock() : TerraformBlock("selector")
 {
     /// <summary>
     /// The labels attribute.
@@ -29,7 +29,7 @@ public partial class AwsEksFargateProfileSelectorBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEksFargateProfileTimeoutsBlock : TerraformBlockBase
+public partial class AwsEksFargateProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,14 +123,14 @@ public partial class AwsEksFargateProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selector block(s) required")]
     [TerraformProperty("selector")]
-    public partial TerraformSet<TerraformBlock<AwsEksFargateProfileSelectorBlock>>? Selector { get; set; }
+    public required TerraformSet<AwsEksFargateProfileSelectorBlock> Selector { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEksFargateProfileTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEksFargateProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

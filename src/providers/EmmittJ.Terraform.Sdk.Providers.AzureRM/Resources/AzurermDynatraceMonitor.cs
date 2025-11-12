@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for environment_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDynatraceMonitorEnvironmentPropertiesBlock : TerraformBlockBase
+public partial class AzurermDynatraceMonitorEnvironmentPropertiesBlock() : TerraformBlock("environment_properties")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermDynatraceMonitorEnvironmentPropertiesBlock : Terrafo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDynatraceMonitorIdentityBlock : TerraformBlockBase
+public partial class AzurermDynatraceMonitorIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -32,7 +32,7 @@ public partial class AzurermDynatraceMonitorIdentityBlock : TerraformBlockBase
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDynatraceMonitorPlanBlock : TerraformBlockBase
+public partial class AzurermDynatraceMonitorPlanBlock() : TerraformBlock("plan")
 {
     /// <summary>
     /// The billing_cycle attribute.
@@ -63,7 +63,7 @@ public partial class AzurermDynatraceMonitorPlanBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDynatraceMonitorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -99,7 +99,7 @@ public partial class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlockBase
 /// Block type for user in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDynatraceMonitorUserBlock : TerraformBlockBase
+public partial class AzurermDynatraceMonitorUserBlock() : TerraformBlock("user")
 {
     /// <summary>
     /// The country attribute.
@@ -211,7 +211,7 @@ public partial class AzurermDynatraceMonitor : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("environment_properties")]
-    public partial TerraformList<TerraformBlock<AzurermDynatraceMonitorEnvironmentPropertiesBlock>>? EnvironmentProperties { get; set; }
+    public TerraformList<AzurermDynatraceMonitorEnvironmentPropertiesBlock> EnvironmentProperties { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -221,7 +221,7 @@ public partial class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDynatraceMonitorIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermDynatraceMonitorIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for plan.
@@ -231,14 +231,14 @@ public partial class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformList<TerraformBlock<AzurermDynatraceMonitorPlanBlock>>? Plan { get; set; }
+    public required TerraformList<AzurermDynatraceMonitorPlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDynatraceMonitorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDynatraceMonitorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user.
@@ -248,6 +248,6 @@ public partial class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
     [TerraformProperty("user")]
-    public partial TerraformList<TerraformBlock<AzurermDynatraceMonitorUserBlock>>? User { get; set; }
+    public required TerraformList<AzurermDynatraceMonitorUserBlock> User { get; set; } = new();
 
 }

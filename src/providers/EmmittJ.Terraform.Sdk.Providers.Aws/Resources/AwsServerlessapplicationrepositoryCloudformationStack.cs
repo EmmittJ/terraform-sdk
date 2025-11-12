@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsServerlessapplicationrepositoryCloudformationStackTimeoutsBlock : TerraformBlockBase
+public partial class AwsServerlessapplicationrepositoryCloudformationStackTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,7 +111,7 @@ public partial class AwsServerlessapplicationrepositoryCloudformationStack : Ter
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsServerlessapplicationrepositoryCloudformationStackTimeoutsBlock>? Timeouts { get; set; }
+    public AwsServerlessapplicationrepositoryCloudformationStackTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The outputs attribute.

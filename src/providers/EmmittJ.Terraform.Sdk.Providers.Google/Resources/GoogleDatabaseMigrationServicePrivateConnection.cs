@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBloc
 /// Block type for vpc_peering_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBlock() : TerraformBlock("vpc_peering_config")
 {
     /// <summary>
     /// A free subnet for peering. (CIDR of /29)
@@ -125,7 +125,7 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_peering_config.
@@ -135,7 +135,7 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection : Terraform
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcPeeringConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConfig block(s) allowed")]
     [TerraformProperty("vpc_peering_config")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBlock>>? VpcPeeringConfig { get; set; }
+    public required TerraformList<GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBlock> VpcPeeringConfig { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

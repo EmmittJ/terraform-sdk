@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for service_catalog_provisioning_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : TerraformBlockBase
+public partial class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock() : TerraformBlock("service_catalog_provisioning_details")
 {
     /// <summary>
     /// The path_id attribute.
@@ -93,7 +93,7 @@ public partial class AwsSagemakerProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceCatalogProvisioningDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceCatalogProvisioningDetails block(s) allowed")]
     [TerraformProperty("service_catalog_provisioning_details")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock>>? ServiceCatalogProvisioningDetails { get; set; }
+    public required TerraformList<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock> ServiceCatalogProvisioningDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

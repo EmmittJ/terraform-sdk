@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for config_parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRedshiftserverlessWorkgroupConfigParameterBlock : TerraformBlockBase
+public partial class AwsRedshiftserverlessWorkgroupConfigParameterBlock() : TerraformBlock("config_parameter")
 {
     /// <summary>
     /// The parameter_key attribute.
@@ -30,7 +30,7 @@ public partial class AwsRedshiftserverlessWorkgroupConfigParameterBlock : Terraf
 /// Block type for price_performance_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock : TerraformBlockBase
+public partial class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock() : TerraformBlock("price_performance_target")
 {
     /// <summary>
     /// The enabled attribute.
@@ -53,7 +53,7 @@ public partial class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsRedshiftserverlessWorkgroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -193,7 +193,7 @@ public partial class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("config_parameter")]
-    public partial TerraformSet<TerraformBlock<AwsRedshiftserverlessWorkgroupConfigParameterBlock>>? ConfigParameter { get; set; }
+    public TerraformSet<AwsRedshiftserverlessWorkgroupConfigParameterBlock> ConfigParameter { get; set; } = new();
 
     /// <summary>
     /// Block for price_performance_target.
@@ -201,14 +201,14 @@ public partial class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PricePerformanceTarget block(s) allowed")]
     [TerraformProperty("price_performance_target")]
-    public partial TerraformList<TerraformBlock<AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock>>? PricePerformanceTarget { get; set; }
+    public TerraformList<AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock> PricePerformanceTarget { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRedshiftserverlessWorkgroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRedshiftserverlessWorkgroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter_object in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDatapipelinePipelineDefinitionParameterObjectBlock : TerraformBlockBase
+public partial class AwsDatapipelinePipelineDefinitionParameterObjectBlock() : TerraformBlock("parameter_object")
 {
     /// <summary>
     /// The id attribute.
@@ -22,7 +22,7 @@ public partial class AwsDatapipelinePipelineDefinitionParameterObjectBlock : Ter
 /// Block type for parameter_value in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDatapipelinePipelineDefinitionParameterValueBlock : TerraformBlockBase
+public partial class AwsDatapipelinePipelineDefinitionParameterValueBlock() : TerraformBlock("parameter_value")
 {
     /// <summary>
     /// The id attribute.
@@ -46,7 +46,7 @@ public partial class AwsDatapipelinePipelineDefinitionParameterValueBlock : Terr
 /// Block type for pipeline_object in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : TerraformBlockBase
+public partial class AwsDatapipelinePipelineDefinitionPipelineObjectBlock() : TerraformBlock("pipeline_object")
 {
     /// <summary>
     /// The id attribute.
@@ -103,14 +103,14 @@ public partial class AwsDatapipelinePipelineDefinition : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter_object")]
-    public partial TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterObjectBlock>>? ParameterObject { get; set; }
+    public TerraformSet<AwsDatapipelinePipelineDefinitionParameterObjectBlock> ParameterObject { get; set; } = new();
 
     /// <summary>
     /// Block for parameter_value.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter_value")]
-    public partial TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterValueBlock>>? ParameterValue { get; set; }
+    public TerraformSet<AwsDatapipelinePipelineDefinitionParameterValueBlock> ParameterValue { get; set; } = new();
 
     /// <summary>
     /// Block for pipeline_object.
@@ -119,6 +119,6 @@ public partial class AwsDatapipelinePipelineDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineObject is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PipelineObject block(s) required")]
     [TerraformProperty("pipeline_object")]
-    public partial TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionPipelineObjectBlock>>? PipelineObject { get; set; }
+    public required TerraformSet<AwsDatapipelinePipelineDefinitionPipelineObjectBlock> PipelineObject { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,7 +93,7 @@ public partial class GoogleFirebaseAppCheckDebugToken : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseAppCheckDebugTokenTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseAppCheckDebugTokenTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The last segment of the resource name of the debug token.

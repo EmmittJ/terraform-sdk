@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSsmMaintenanceWindowsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsSsmMaintenanceWindowsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -54,7 +54,7 @@ public partial class AwsSsmMaintenanceWindowsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsSsmMaintenanceWindowsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsSsmMaintenanceWindowsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The ids attribute.

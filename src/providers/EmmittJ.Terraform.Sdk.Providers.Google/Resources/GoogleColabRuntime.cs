@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for notebook_runtime_template_ref in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock() : TerraformBlock("notebook_runtime_template_ref")
 {
     /// <summary>
     /// The resource name of the NotebookRuntimeTemplate based on which a NotebookRuntime will be created.
@@ -22,7 +22,7 @@ public partial class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleColabRuntimeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleColabRuntimeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,14 +129,14 @@ public partial class GoogleColabRuntime : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotebookRuntimeTemplateRef block(s) allowed")]
     [TerraformProperty("notebook_runtime_template_ref")]
-    public partial TerraformList<TerraformBlock<GoogleColabRuntimeNotebookRuntimeTemplateRefBlock>>? NotebookRuntimeTemplateRef { get; set; }
+    public TerraformList<GoogleColabRuntimeNotebookRuntimeTemplateRefBlock> NotebookRuntimeTemplateRef { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleColabRuntimeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleColabRuntimeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Timestamp when this NotebookRuntime will be expired.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for bgp_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlockBase
+public partial class AzurermLocalNetworkGatewayBgpSettingsBlock() : TerraformBlock("bgp_settings")
 {
     /// <summary>
     /// The asn attribute.
@@ -37,7 +37,7 @@ public partial class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLocalNetworkGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,13 +144,13 @@ public partial class AzurermLocalNetworkGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
     [TerraformProperty("bgp_settings")]
-    public partial TerraformList<TerraformBlock<AzurermLocalNetworkGatewayBgpSettingsBlock>>? BgpSettings { get; set; }
+    public TerraformList<AzurermLocalNetworkGatewayBgpSettingsBlock> BgpSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLocalNetworkGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLocalNetworkGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
 }

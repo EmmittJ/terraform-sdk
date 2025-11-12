@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for bandwidth in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerLinkBandwidthBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerLinkBandwidthBlock() : TerraformBlock("bandwidth")
 {
     /// <summary>
     /// The download_speed attribute.
@@ -28,7 +28,7 @@ public partial class AwsNetworkmanagerLinkBandwidthBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkmanagerLinkTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerLinkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,14 +129,14 @@ public partial class AwsNetworkmanagerLink : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Bandwidth block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bandwidth block(s) allowed")]
     [TerraformProperty("bandwidth")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerLinkBandwidthBlock>>? Bandwidth { get; set; }
+    public required TerraformList<AwsNetworkmanagerLinkBandwidthBlock> Bandwidth { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkmanagerLinkTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkmanagerLinkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

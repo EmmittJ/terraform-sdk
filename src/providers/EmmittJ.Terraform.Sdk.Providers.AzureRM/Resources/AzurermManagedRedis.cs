@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermManagedRedisCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
 /// Block type for default_database in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlockBase
+public partial class AzurermManagedRedisDefaultDatabaseBlock() : TerraformBlock("default_database")
 {
     /// <summary>
     /// The access_keys_authentication_enabled attribute.
@@ -76,7 +76,7 @@ public partial class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlockBas
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedRedisIdentityBlock : TerraformBlockBase
+public partial class AzurermManagedRedisIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -101,7 +101,7 @@ public partial class AzurermManagedRedisIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagedRedisTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagedRedisTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -202,7 +202,7 @@ public partial class AzurermManagedRedis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermManagedRedisCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermManagedRedisCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for default_database.
@@ -210,7 +210,7 @@ public partial class AzurermManagedRedis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultDatabase block(s) allowed")]
     [TerraformProperty("default_database")]
-    public partial TerraformList<TerraformBlock<AzurermManagedRedisDefaultDatabaseBlock>>? DefaultDatabase { get; set; }
+    public TerraformList<AzurermManagedRedisDefaultDatabaseBlock> DefaultDatabase { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -218,14 +218,14 @@ public partial class AzurermManagedRedis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermManagedRedisIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermManagedRedisIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagedRedisTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagedRedisTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hostname attribute.

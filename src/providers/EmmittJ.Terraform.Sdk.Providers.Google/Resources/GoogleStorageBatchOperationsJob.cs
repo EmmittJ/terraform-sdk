@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bucket_list in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBatchOperationsJobBucketListBlock : TerraformBlockBase
+public partial class GoogleStorageBatchOperationsJobBucketListBlock() : TerraformBlock("bucket_list")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleStorageBatchOperationsJobBucketListBlock : TerraformB
 /// Block type for delete_object in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBatchOperationsJobDeleteObjectBlock : TerraformBlockBase
+public partial class GoogleStorageBatchOperationsJobDeleteObjectBlock() : TerraformBlock("delete_object")
 {
     /// <summary>
     /// enable flag to permanently delete object and all object versions if versioning is enabled on bucket.
@@ -30,7 +30,7 @@ public partial class GoogleStorageBatchOperationsJobDeleteObjectBlock : Terrafor
 /// Block type for put_metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlockBase
+public partial class GoogleStorageBatchOperationsJobPutMetadataBlock() : TerraformBlock("put_metadata")
 {
     /// <summary>
     /// Cache-Control directive to specify caching behavior of object data. If omitted and object is accessible to all anonymous users, the default will be public, max-age=3600
@@ -87,7 +87,7 @@ public partial class GoogleStorageBatchOperationsJobPutMetadataBlock : Terraform
 /// Block type for put_object_hold in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBatchOperationsJobPutObjectHoldBlock : TerraformBlockBase
+public partial class GoogleStorageBatchOperationsJobPutObjectHoldBlock() : TerraformBlock("put_object_hold")
 {
     /// <summary>
     /// set/unset to update event based hold for objects.
@@ -109,7 +109,7 @@ public partial class GoogleStorageBatchOperationsJobPutObjectHoldBlock : Terrafo
 /// Block type for rewrite_object in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBatchOperationsJobRewriteObjectBlock : TerraformBlockBase
+public partial class GoogleStorageBatchOperationsJobRewriteObjectBlock() : TerraformBlock("rewrite_object")
 {
     /// <summary>
     /// valid kms key
@@ -125,7 +125,7 @@ public partial class GoogleStorageBatchOperationsJobRewriteObjectBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageBatchOperationsJobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageBatchOperationsJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -194,7 +194,7 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BucketList block(s) allowed")]
     [TerraformProperty("bucket_list")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobBucketListBlock>>? BucketList { get; set; }
+    public TerraformList<GoogleStorageBatchOperationsJobBucketListBlock> BucketList { get; set; } = new();
 
     /// <summary>
     /// Block for delete_object.
@@ -202,7 +202,7 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteObject block(s) allowed")]
     [TerraformProperty("delete_object")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobDeleteObjectBlock>>? DeleteObject { get; set; }
+    public TerraformList<GoogleStorageBatchOperationsJobDeleteObjectBlock> DeleteObject { get; set; } = new();
 
     /// <summary>
     /// Block for put_metadata.
@@ -210,7 +210,7 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PutMetadata block(s) allowed")]
     [TerraformProperty("put_metadata")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutMetadataBlock>>? PutMetadata { get; set; }
+    public TerraformList<GoogleStorageBatchOperationsJobPutMetadataBlock> PutMetadata { get; set; } = new();
 
     /// <summary>
     /// Block for put_object_hold.
@@ -218,7 +218,7 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PutObjectHold block(s) allowed")]
     [TerraformProperty("put_object_hold")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutObjectHoldBlock>>? PutObjectHold { get; set; }
+    public TerraformList<GoogleStorageBatchOperationsJobPutObjectHoldBlock> PutObjectHold { get; set; } = new();
 
     /// <summary>
     /// Block for rewrite_object.
@@ -226,14 +226,14 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RewriteObject block(s) allowed")]
     [TerraformProperty("rewrite_object")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobRewriteObjectBlock>>? RewriteObject { get; set; }
+    public TerraformList<GoogleStorageBatchOperationsJobRewriteObjectBlock> RewriteObject { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageBatchOperationsJobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageBatchOperationsJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time that the job was completed.

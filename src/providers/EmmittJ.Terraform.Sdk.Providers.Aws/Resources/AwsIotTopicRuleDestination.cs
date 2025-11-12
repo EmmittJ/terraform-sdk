@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsIotTopicRuleDestinationTimeoutsBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleDestinationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsIotTopicRuleDestinationTimeoutsBlock : TerraformBlockBas
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotTopicRuleDestinationVpcConfigurationBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleDestinationVpcConfigurationBlock() : TerraformBlock("vpc_configuration")
 {
     /// <summary>
     /// The role_arn attribute.
@@ -106,7 +106,7 @@ public partial class AwsIotTopicRuleDestination : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsIotTopicRuleDestinationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsIotTopicRuleDestinationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_configuration.
@@ -116,7 +116,7 @@ public partial class AwsIotTopicRuleDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     [TerraformProperty("vpc_configuration")]
-    public partial TerraformList<TerraformBlock<AwsIotTopicRuleDestinationVpcConfigurationBlock>>? VpcConfiguration { get; set; }
+    public required TerraformList<AwsIotTopicRuleDestinationVpcConfigurationBlock> VpcConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

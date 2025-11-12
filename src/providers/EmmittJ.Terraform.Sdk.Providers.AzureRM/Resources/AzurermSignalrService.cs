@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSignalrServiceCorsBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceCorsBlock() : TerraformBlock("cors")
 {
     /// <summary>
     /// The allowed_origins attribute.
@@ -22,7 +22,7 @@ public partial class AzurermSignalrServiceCorsBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSignalrServiceIdentityBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -47,7 +47,7 @@ public partial class AzurermSignalrServiceIdentityBlock : TerraformBlockBase
 /// Block type for live_trace in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSignalrServiceLiveTraceBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceLiveTraceBlock() : TerraformBlock("live_trace")
 {
     /// <summary>
     /// The connectivity_logs_enabled attribute.
@@ -83,7 +83,7 @@ public partial class AzurermSignalrServiceLiveTraceBlock : TerraformBlockBase
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSignalrServiceSkuBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -107,7 +107,7 @@ public partial class AzurermSignalrServiceSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSignalrServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -143,7 +143,7 @@ public partial class AzurermSignalrServiceTimeoutsBlock : TerraformBlockBase
 /// Block type for upstream_endpoint in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceUpstreamEndpointBlock() : TerraformBlock("upstream_endpoint")
 {
     /// <summary>
     /// The category_pattern attribute.
@@ -310,7 +310,7 @@ public partial class AzurermSignalrService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cors")]
-    public partial TerraformList<TerraformBlock<AzurermSignalrServiceCorsBlock>>? Cors { get; set; }
+    public TerraformList<AzurermSignalrServiceCorsBlock> Cors { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -318,7 +318,7 @@ public partial class AzurermSignalrService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermSignalrServiceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermSignalrServiceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for live_trace.
@@ -326,7 +326,7 @@ public partial class AzurermSignalrService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LiveTrace block(s) allowed")]
     [TerraformProperty("live_trace")]
-    public partial TerraformList<TerraformBlock<AzurermSignalrServiceLiveTraceBlock>>? LiveTrace { get; set; }
+    public TerraformList<AzurermSignalrServiceLiveTraceBlock> LiveTrace { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -336,21 +336,21 @@ public partial class AzurermSignalrService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermSignalrServiceSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermSignalrServiceSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSignalrServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSignalrServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upstream_endpoint.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("upstream_endpoint")]
-    public partial TerraformSet<TerraformBlock<AzurermSignalrServiceUpstreamEndpointBlock>>? UpstreamEndpoint { get; set; }
+    public TerraformSet<AzurermSignalrServiceUpstreamEndpointBlock> UpstreamEndpoint { get; set; } = new();
 
     /// <summary>
     /// The hostname attribute.

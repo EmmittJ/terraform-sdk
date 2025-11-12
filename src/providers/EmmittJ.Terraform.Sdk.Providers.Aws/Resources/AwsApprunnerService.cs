@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApprunnerServiceEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsApprunnerServiceEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The kms_key attribute.
@@ -22,7 +22,7 @@ public partial class AwsApprunnerServiceEncryptionConfigurationBlock : Terraform
 /// Block type for health_check_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApprunnerServiceHealthCheckConfigurationBlock : TerraformBlockBase
+public partial class AwsApprunnerServiceHealthCheckConfigurationBlock() : TerraformBlock("health_check_configuration")
 {
     /// <summary>
     /// The healthy_threshold attribute.
@@ -72,7 +72,7 @@ public partial class AwsApprunnerServiceHealthCheckConfigurationBlock : Terrafor
 /// Block type for instance_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApprunnerServiceInstanceConfigurationBlock : TerraformBlockBase
+public partial class AwsApprunnerServiceInstanceConfigurationBlock() : TerraformBlock("instance_configuration")
 {
     /// <summary>
     /// The cpu attribute.
@@ -101,7 +101,7 @@ public partial class AwsApprunnerServiceInstanceConfigurationBlock : TerraformBl
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApprunnerServiceNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsApprunnerServiceNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The ip_address_type attribute.
@@ -116,7 +116,7 @@ public partial class AwsApprunnerServiceNetworkConfigurationBlock : TerraformBlo
 /// Block type for observability_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApprunnerServiceObservabilityConfigurationBlock : TerraformBlockBase
+public partial class AwsApprunnerServiceObservabilityConfigurationBlock() : TerraformBlock("observability_configuration")
 {
     /// <summary>
     /// The observability_configuration_arn attribute.
@@ -139,7 +139,7 @@ public partial class AwsApprunnerServiceObservabilityConfigurationBlock : Terraf
 /// Block type for source_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApprunnerServiceSourceConfigurationBlock : TerraformBlockBase
+public partial class AwsApprunnerServiceSourceConfigurationBlock() : TerraformBlock("source_configuration")
 {
     /// <summary>
     /// The auto_deployments_enabled attribute.
@@ -209,7 +209,7 @@ public partial class AwsApprunnerService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApprunnerServiceEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsApprunnerServiceEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for health_check_configuration.
@@ -217,7 +217,7 @@ public partial class AwsApprunnerService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckConfiguration block(s) allowed")]
     [TerraformProperty("health_check_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApprunnerServiceHealthCheckConfigurationBlock>>? HealthCheckConfiguration { get; set; }
+    public TerraformList<AwsApprunnerServiceHealthCheckConfigurationBlock> HealthCheckConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for instance_configuration.
@@ -225,7 +225,7 @@ public partial class AwsApprunnerService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceConfiguration block(s) allowed")]
     [TerraformProperty("instance_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApprunnerServiceInstanceConfigurationBlock>>? InstanceConfiguration { get; set; }
+    public TerraformList<AwsApprunnerServiceInstanceConfigurationBlock> InstanceConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
@@ -233,7 +233,7 @@ public partial class AwsApprunnerService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApprunnerServiceNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public TerraformList<AwsApprunnerServiceNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for observability_configuration.
@@ -241,7 +241,7 @@ public partial class AwsApprunnerService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObservabilityConfiguration block(s) allowed")]
     [TerraformProperty("observability_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApprunnerServiceObservabilityConfigurationBlock>>? ObservabilityConfiguration { get; set; }
+    public TerraformList<AwsApprunnerServiceObservabilityConfigurationBlock> ObservabilityConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for source_configuration.
@@ -251,7 +251,7 @@ public partial class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceConfiguration block(s) allowed")]
     [TerraformProperty("source_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApprunnerServiceSourceConfigurationBlock>>? SourceConfiguration { get; set; }
+    public required TerraformList<AwsApprunnerServiceSourceConfigurationBlock> SourceConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for component_version in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterComponentVersionBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterComponentVersionBlock() : TerraformBlock("component_version")
 {
     /// <summary>
     /// The hbase attribute.
@@ -22,7 +22,7 @@ public partial class AzurermHdinsightHbaseClusterComponentVersionBlock : Terrafo
 /// Block type for compute_isolation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterComputeIsolationBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterComputeIsolationBlock() : TerraformBlock("compute_isolation")
 {
     /// <summary>
     /// The compute_isolation_enabled attribute.
@@ -44,7 +44,7 @@ public partial class AzurermHdinsightHbaseClusterComputeIsolationBlock : Terrafo
 /// Block type for disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterDiskEncryptionBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterDiskEncryptionBlock() : TerraformBlock("disk_encryption")
 {
     /// <summary>
     /// The encryption_algorithm attribute.
@@ -80,7 +80,7 @@ public partial class AzurermHdinsightHbaseClusterDiskEncryptionBlock : Terraform
 /// Block type for extension in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterExtensionBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterExtensionBlock() : TerraformBlock("extension")
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -104,7 +104,7 @@ public partial class AzurermHdinsightHbaseClusterExtensionBlock : TerraformBlock
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterGatewayBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterGatewayBlock() : TerraformBlock("gateway")
 {
     /// <summary>
     /// The password attribute.
@@ -128,7 +128,7 @@ public partial class AzurermHdinsightHbaseClusterGatewayBlock : TerraformBlockBa
 /// Block type for metastores in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterMetastoresBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterMetastoresBlock() : TerraformBlock("metastores")
 {
 }
 
@@ -136,7 +136,7 @@ public partial class AzurermHdinsightHbaseClusterMetastoresBlock : TerraformBloc
 /// Block type for monitor in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterMonitorBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterMonitorBlock() : TerraformBlock("monitor")
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -160,7 +160,7 @@ public partial class AzurermHdinsightHbaseClusterMonitorBlock : TerraformBlockBa
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterNetworkBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterNetworkBlock() : TerraformBlock("network")
 {
     /// <summary>
     /// The connection_direction attribute.
@@ -182,7 +182,7 @@ public partial class AzurermHdinsightHbaseClusterNetworkBlock : TerraformBlockBa
 /// Block type for private_link_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock() : TerraformBlock("private_link_configuration")
 {
     /// <summary>
     /// The group_id attribute.
@@ -206,7 +206,7 @@ public partial class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock :
 /// Block type for roles in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterRolesBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterRolesBlock() : TerraformBlock("roles")
 {
 }
 
@@ -214,7 +214,7 @@ public partial class AzurermHdinsightHbaseClusterRolesBlock : TerraformBlockBase
 /// Block type for security_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock() : TerraformBlock("security_profile")
 {
     /// <summary>
     /// The aadds_resource_id attribute.
@@ -277,7 +277,7 @@ public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock : Terrafor
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterStorageAccountBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The is_default attribute.
@@ -316,7 +316,7 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountBlock : Terraform
 /// Block type for storage_account_gen2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterStorageAccountGen2Block : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterStorageAccountGen2Block() : TerraformBlock("storage_account_gen2")
 {
     /// <summary>
     /// The filesystem_id attribute.
@@ -356,7 +356,7 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountGen2Block : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHdinsightHbaseClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHdinsightHbaseClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -467,7 +467,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
     [TerraformProperty("component_version")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterComponentVersionBlock>>? ComponentVersion { get; set; }
+    public required TerraformList<AzurermHdinsightHbaseClusterComponentVersionBlock> ComponentVersion { get; set; } = new();
 
     /// <summary>
     /// Block for compute_isolation.
@@ -475,14 +475,14 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
     [TerraformProperty("compute_isolation")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterComputeIsolationBlock>>? ComputeIsolation { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterComputeIsolationBlock> ComputeIsolation { get; set; } = new();
 
     /// <summary>
     /// Block for disk_encryption.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("disk_encryption")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterDiskEncryptionBlock>>? DiskEncryption { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterDiskEncryptionBlock> DiskEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for extension.
@@ -490,7 +490,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
     [TerraformProperty("extension")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterExtensionBlock>>? Extension { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterExtensionBlock> Extension { get; set; } = new();
 
     /// <summary>
     /// Block for gateway.
@@ -500,7 +500,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     [TerraformProperty("gateway")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterGatewayBlock>>? Gateway { get; set; }
+    public required TerraformList<AzurermHdinsightHbaseClusterGatewayBlock> Gateway { get; set; } = new();
 
     /// <summary>
     /// Block for metastores.
@@ -508,7 +508,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
     [TerraformProperty("metastores")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterMetastoresBlock>>? Metastores { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterMetastoresBlock> Metastores { get; set; } = new();
 
     /// <summary>
     /// Block for monitor.
@@ -516,7 +516,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
     [TerraformProperty("monitor")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterMonitorBlock>>? Monitor { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterMonitorBlock> Monitor { get; set; } = new();
 
     /// <summary>
     /// Block for network.
@@ -524,7 +524,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformProperty("network")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterNetworkBlock>>? Network { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterNetworkBlock> Network { get; set; } = new();
 
     /// <summary>
     /// Block for private_link_configuration.
@@ -532,7 +532,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
     [TerraformProperty("private_link_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock> PrivateLinkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for roles.
@@ -542,7 +542,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
     [TerraformProperty("roles")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterRolesBlock>>? Roles { get; set; }
+    public required TerraformList<AzurermHdinsightHbaseClusterRolesBlock> Roles { get; set; } = new();
 
     /// <summary>
     /// Block for security_profile.
@@ -550,14 +550,14 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
     [TerraformProperty("security_profile")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterSecurityProfileBlock>>? SecurityProfile { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterSecurityProfileBlock> SecurityProfile { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account_gen2.
@@ -565,14 +565,14 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
     [TerraformProperty("storage_account_gen2")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterStorageAccountGen2Block>>? StorageAccountGen2 { get; set; }
+    public TerraformList<AzurermHdinsightHbaseClusterStorageAccountGen2Block> StorageAccountGen2 { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHdinsightHbaseClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHdinsightHbaseClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The https_endpoint attribute.

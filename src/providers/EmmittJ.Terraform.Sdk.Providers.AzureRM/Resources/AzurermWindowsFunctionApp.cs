@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
@@ -78,7 +78,7 @@ public partial class AzurermWindowsFunctionAppAuthSettingsBlock : TerraformBlock
 /// Block type for auth_settings_v2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppAuthSettingsV2Block : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppAuthSettingsV2Block() : TerraformBlock("auth_settings_v2")
 {
     /// <summary>
     /// Should the AuthV2 Settings be enabled. Defaults to `false`
@@ -170,7 +170,7 @@ public partial class AzurermWindowsFunctionAppAuthSettingsV2Block : TerraformBlo
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppBackupBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppBackupBlock() : TerraformBlock("backup")
 {
     /// <summary>
     /// Should this backup job be enabled?
@@ -201,7 +201,7 @@ public partial class AzurermWindowsFunctionAppBackupBlock : TerraformBlockBase
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermWindowsFunctionAppConnectionStringBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name which should be used for this Connection.
@@ -233,7 +233,7 @@ public partial class AzurermWindowsFunctionAppConnectionStringBlock : TerraformB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppIdentityBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -258,7 +258,7 @@ public partial class AzurermWindowsFunctionAppIdentityBlock : TerraformBlockBase
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppSiteConfigBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// If this Windows Web App is Always On enabled. Defaults to `false`.
@@ -465,7 +465,7 @@ public partial class AzurermWindowsFunctionAppSiteConfigBlock : TerraformBlockBa
 /// Block type for sticky_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppStickySettingsBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppStickySettingsBlock() : TerraformBlock("sticky_settings")
 {
     /// <summary>
     /// The app_setting_names attribute.
@@ -487,7 +487,7 @@ public partial class AzurermWindowsFunctionAppStickySettingsBlock : TerraformBlo
 /// Block type for storage_account in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermWindowsFunctionAppStorageAccountBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The access_key attribute.
@@ -542,7 +542,7 @@ public partial class AzurermWindowsFunctionAppStorageAccountBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWindowsFunctionAppTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -790,7 +790,7 @@ public partial class AzurermWindowsFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for auth_settings_v2.
@@ -798,7 +798,7 @@ public partial class AzurermWindowsFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
     [TerraformProperty("auth_settings_v2")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppAuthSettingsV2Block>>? AuthSettingsV2 { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppAuthSettingsV2Block> AuthSettingsV2 { get; set; } = new();
 
     /// <summary>
     /// Block for backup.
@@ -806,14 +806,14 @@ public partial class AzurermWindowsFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppBackupBlock>>? Backup { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppBackupBlock> Backup { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermWindowsFunctionAppConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermWindowsFunctionAppConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -821,7 +821,7 @@ public partial class AzurermWindowsFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -831,7 +831,7 @@ public partial class AzurermWindowsFunctionApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppSiteConfigBlock>>? SiteConfig { get; set; }
+    public required TerraformList<AzurermWindowsFunctionAppSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for sticky_settings.
@@ -839,21 +839,21 @@ public partial class AzurermWindowsFunctionApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StickySettings block(s) allowed")]
     [TerraformProperty("sticky_settings")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppStickySettingsBlock>>? StickySettings { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppStickySettingsBlock> StickySettings { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformSet<TerraformBlock<AzurermWindowsFunctionAppStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformSet<AzurermWindowsFunctionAppStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWindowsFunctionAppTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWindowsFunctionAppTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_domain_verification_id attribute.

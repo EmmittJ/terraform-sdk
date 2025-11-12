@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for enrolled_services in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleProjectAccessApprovalSettingsEnrolledServicesBlock : TerraformBlockBase
+public partial class GoogleProjectAccessApprovalSettingsEnrolledServicesBlock() : TerraformBlock("enrolled_services")
 {
     /// <summary>
     /// The product for which Access Approval will be enrolled. Allowed values are listed (case-sensitive):
@@ -39,7 +39,7 @@ public partial class GoogleProjectAccessApprovalSettingsEnrolledServicesBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleProjectAccessApprovalSettingsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleProjectAccessApprovalSettingsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -122,14 +122,14 @@ public partial class GoogleProjectAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrolledServices is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnrolledServices block(s) required")]
     [TerraformProperty("enrolled_services")]
-    public partial TerraformSet<TerraformBlock<GoogleProjectAccessApprovalSettingsEnrolledServicesBlock>>? EnrolledServices { get; set; }
+    public required TerraformSet<GoogleProjectAccessApprovalSettingsEnrolledServicesBlock> EnrolledServices { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleProjectAccessApprovalSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleProjectAccessApprovalSettingsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// If the field is true, that indicates that an ancestor of this Project has set active_key_version.

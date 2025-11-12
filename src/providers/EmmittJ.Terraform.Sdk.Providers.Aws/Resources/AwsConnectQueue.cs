@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for outbound_caller_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConnectQueueOutboundCallerConfigBlock : TerraformBlockBase
+public partial class AwsConnectQueueOutboundCallerConfigBlock() : TerraformBlock("outbound_caller_config")
 {
     /// <summary>
     /// The outbound_caller_id_name attribute.
@@ -127,7 +127,7 @@ public partial class AwsConnectQueue : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutboundCallerConfig block(s) allowed")]
     [TerraformProperty("outbound_caller_config")]
-    public partial TerraformList<TerraformBlock<AwsConnectQueueOutboundCallerConfigBlock>>? OutboundCallerConfig { get; set; }
+    public TerraformList<AwsConnectQueueOutboundCallerConfigBlock> OutboundCallerConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

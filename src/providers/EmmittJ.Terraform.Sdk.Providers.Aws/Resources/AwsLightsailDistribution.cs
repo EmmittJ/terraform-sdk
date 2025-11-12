@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cache_behavior in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLightsailDistributionCacheBehaviorBlock : TerraformBlockBase
+public partial class AwsLightsailDistributionCacheBehaviorBlock() : TerraformBlock("cache_behavior")
 {
     /// <summary>
     /// The cache behavior for the specified path.
@@ -30,7 +30,7 @@ public partial class AwsLightsailDistributionCacheBehaviorBlock : TerraformBlock
 /// Block type for cache_behavior_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLightsailDistributionCacheBehaviorSettingsBlock : TerraformBlockBase
+public partial class AwsLightsailDistributionCacheBehaviorSettingsBlock() : TerraformBlock("cache_behavior_settings")
 {
     /// <summary>
     /// The HTTP methods that are processed and forwarded to the distribution&#39;s origin.
@@ -73,7 +73,7 @@ public partial class AwsLightsailDistributionCacheBehaviorSettingsBlock : Terraf
 /// Block type for default_cache_behavior in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLightsailDistributionDefaultCacheBehaviorBlock : TerraformBlockBase
+public partial class AwsLightsailDistributionDefaultCacheBehaviorBlock() : TerraformBlock("default_cache_behavior")
 {
     /// <summary>
     /// The cache behavior of the distribution.
@@ -89,7 +89,7 @@ public partial class AwsLightsailDistributionDefaultCacheBehaviorBlock : Terrafo
 /// Block type for origin in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLightsailDistributionOriginBlock : TerraformBlockBase
+public partial class AwsLightsailDistributionOriginBlock() : TerraformBlock("origin")
 {
     /// <summary>
     /// The name of the origin resource.
@@ -121,7 +121,7 @@ public partial class AwsLightsailDistributionOriginBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLightsailDistributionTimeoutsBlock : TerraformBlockBase
+public partial class AwsLightsailDistributionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -226,7 +226,7 @@ public partial class AwsLightsailDistribution : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cache_behavior")]
-    public partial TerraformSet<TerraformBlock<AwsLightsailDistributionCacheBehaviorBlock>>? CacheBehavior { get; set; }
+    public TerraformSet<AwsLightsailDistributionCacheBehaviorBlock> CacheBehavior { get; set; } = new();
 
     /// <summary>
     /// Block for cache_behavior_settings.
@@ -234,7 +234,7 @@ public partial class AwsLightsailDistribution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheBehaviorSettings block(s) allowed")]
     [TerraformProperty("cache_behavior_settings")]
-    public partial TerraformList<TerraformBlock<AwsLightsailDistributionCacheBehaviorSettingsBlock>>? CacheBehaviorSettings { get; set; }
+    public TerraformList<AwsLightsailDistributionCacheBehaviorSettingsBlock> CacheBehaviorSettings { get; set; } = new();
 
     /// <summary>
     /// Block for default_cache_behavior.
@@ -244,7 +244,7 @@ public partial class AwsLightsailDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultCacheBehavior block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultCacheBehavior block(s) allowed")]
     [TerraformProperty("default_cache_behavior")]
-    public partial TerraformList<TerraformBlock<AwsLightsailDistributionDefaultCacheBehaviorBlock>>? DefaultCacheBehavior { get; set; }
+    public required TerraformList<AwsLightsailDistributionDefaultCacheBehaviorBlock> DefaultCacheBehavior { get; set; } = new();
 
     /// <summary>
     /// Block for origin.
@@ -254,14 +254,14 @@ public partial class AwsLightsailDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Origin block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Origin block(s) allowed")]
     [TerraformProperty("origin")]
-    public partial TerraformList<TerraformBlock<AwsLightsailDistributionOriginBlock>>? Origin { get; set; }
+    public required TerraformList<AwsLightsailDistributionOriginBlock> Origin { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLightsailDistributionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLightsailDistributionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The alternate domain names of the distribution.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schema_column in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock() : TerraformBlock("schema_column")
 {
     /// <summary>
     /// The description attribute.
@@ -36,7 +36,7 @@ public partial class AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryDatasetCosmosdbSqlapiTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetCosmosdbSqlapiTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -155,13 +155,13 @@ public partial class AzurermDataFactoryDatasetCosmosdbSqlapi : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schema_column")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock>>? SchemaColumn { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock> SchemaColumn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryDatasetCosmosdbSqlapiTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryDatasetCosmosdbSqlapiTimeoutsBlock Timeouts { get; set; } = new();
 
 }

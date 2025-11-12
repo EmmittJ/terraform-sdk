@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRedisLinkedServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -92,7 +92,7 @@ public partial class AzurermRedisLinkedServer : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRedisLinkedServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRedisLinkedServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The geo_replicated_primary_host_name attribute.

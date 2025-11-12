@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for column_groups in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSetColumnGroupsBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetColumnGroupsBlock() : TerraformBlock("column_groups")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsQuicksightDataSetColumnGroupsBlock : TerraformBlockBase
 /// Block type for column_level_permission_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSetColumnLevelPermissionRulesBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetColumnLevelPermissionRulesBlock() : TerraformBlock("column_level_permission_rules")
 {
     /// <summary>
     /// The column_names attribute.
@@ -36,7 +36,7 @@ public partial class AwsQuicksightDataSetColumnLevelPermissionRulesBlock : Terra
 /// Block type for data_set_usage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSetDataSetUsageConfigurationBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetDataSetUsageConfigurationBlock() : TerraformBlock("data_set_usage_configuration")
 {
     /// <summary>
     /// The disable_use_as_direct_query_source attribute.
@@ -58,7 +58,7 @@ public partial class AwsQuicksightDataSetDataSetUsageConfigurationBlock : Terraf
 /// Block type for field_folders in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightDataSetFieldFoldersBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetFieldFoldersBlock() : TerraformBlock("field_folders")
 {
     /// <summary>
     /// The columns attribute.
@@ -88,7 +88,7 @@ public partial class AwsQuicksightDataSetFieldFoldersBlock : TerraformBlockBase
 /// Block type for logical_table_map in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightDataSetLogicalTableMapBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetLogicalTableMapBlock() : TerraformBlock("logical_table_map")
 {
     /// <summary>
     /// The alias attribute.
@@ -112,7 +112,7 @@ public partial class AwsQuicksightDataSetLogicalTableMapBlock : TerraformBlockBa
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightDataSetPermissionsBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetPermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The actions attribute.
@@ -136,7 +136,7 @@ public partial class AwsQuicksightDataSetPermissionsBlock : TerraformBlockBase
 /// Block type for physical_table_map in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightDataSetPhysicalTableMapBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetPhysicalTableMapBlock() : TerraformBlock("physical_table_map")
 {
     /// <summary>
     /// The physical_table_map_id attribute.
@@ -152,7 +152,7 @@ public partial class AwsQuicksightDataSetPhysicalTableMapBlock : TerraformBlockB
 /// Block type for refresh_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSetRefreshPropertiesBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetRefreshPropertiesBlock() : TerraformBlock("refresh_properties")
 {
 }
 
@@ -160,7 +160,7 @@ public partial class AwsQuicksightDataSetRefreshPropertiesBlock : TerraformBlock
 /// Block type for row_level_permission_data_set in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetRowLevelPermissionDataSetBlock() : TerraformBlock("row_level_permission_data_set")
 {
     /// <summary>
     /// The arn attribute.
@@ -205,7 +205,7 @@ public partial class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : Terraf
 /// Block type for row_level_permission_tag_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock() : TerraformBlock("row_level_permission_tag_configuration")
 {
     /// <summary>
     /// The status attribute.
@@ -291,14 +291,14 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 ColumnGroups block(s) allowed")]
     [TerraformProperty("column_groups")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSetColumnGroupsBlock>>? ColumnGroups { get; set; }
+    public TerraformList<AwsQuicksightDataSetColumnGroupsBlock> ColumnGroups { get; set; } = new();
 
     /// <summary>
     /// Block for column_level_permission_rules.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("column_level_permission_rules")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSetColumnLevelPermissionRulesBlock>>? ColumnLevelPermissionRules { get; set; }
+    public TerraformList<AwsQuicksightDataSetColumnLevelPermissionRulesBlock> ColumnLevelPermissionRules { get; set; } = new();
 
     /// <summary>
     /// Block for data_set_usage_configuration.
@@ -306,7 +306,7 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSetUsageConfiguration block(s) allowed")]
     [TerraformProperty("data_set_usage_configuration")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSetDataSetUsageConfigurationBlock>>? DataSetUsageConfiguration { get; set; }
+    public TerraformList<AwsQuicksightDataSetDataSetUsageConfigurationBlock> DataSetUsageConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for field_folders.
@@ -314,7 +314,7 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1000, ErrorMessage = "Maximum 1000 FieldFolders block(s) allowed")]
     [TerraformProperty("field_folders")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightDataSetFieldFoldersBlock>>? FieldFolders { get; set; }
+    public TerraformSet<AwsQuicksightDataSetFieldFoldersBlock> FieldFolders { get; set; } = new();
 
     /// <summary>
     /// Block for logical_table_map.
@@ -322,7 +322,7 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 LogicalTableMap block(s) allowed")]
     [TerraformProperty("logical_table_map")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightDataSetLogicalTableMapBlock>>? LogicalTableMap { get; set; }
+    public TerraformSet<AwsQuicksightDataSetLogicalTableMapBlock> LogicalTableMap { get; set; } = new();
 
     /// <summary>
     /// Block for permissions.
@@ -330,7 +330,7 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     [TerraformProperty("permissions")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightDataSetPermissionsBlock>>? Permissions { get; set; }
+    public TerraformSet<AwsQuicksightDataSetPermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for physical_table_map.
@@ -338,7 +338,7 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(32, ErrorMessage = "Maximum 32 PhysicalTableMap block(s) allowed")]
     [TerraformProperty("physical_table_map")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightDataSetPhysicalTableMapBlock>>? PhysicalTableMap { get; set; }
+    public TerraformSet<AwsQuicksightDataSetPhysicalTableMapBlock> PhysicalTableMap { get; set; } = new();
 
     /// <summary>
     /// Block for refresh_properties.
@@ -346,7 +346,7 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RefreshProperties block(s) allowed")]
     [TerraformProperty("refresh_properties")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSetRefreshPropertiesBlock>>? RefreshProperties { get; set; }
+    public TerraformList<AwsQuicksightDataSetRefreshPropertiesBlock> RefreshProperties { get; set; } = new();
 
     /// <summary>
     /// Block for row_level_permission_data_set.
@@ -354,7 +354,7 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RowLevelPermissionDataSet block(s) allowed")]
     [TerraformProperty("row_level_permission_data_set")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSetRowLevelPermissionDataSetBlock>>? RowLevelPermissionDataSet { get; set; }
+    public TerraformList<AwsQuicksightDataSetRowLevelPermissionDataSetBlock> RowLevelPermissionDataSet { get; set; } = new();
 
     /// <summary>
     /// Block for row_level_permission_tag_configuration.
@@ -362,7 +362,7 @@ public partial class AwsQuicksightDataSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RowLevelPermissionTagConfiguration block(s) allowed")]
     [TerraformProperty("row_level_permission_tag_configuration")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock>>? RowLevelPermissionTagConfiguration { get; set; }
+    public TerraformList<AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock> RowLevelPermissionTagConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

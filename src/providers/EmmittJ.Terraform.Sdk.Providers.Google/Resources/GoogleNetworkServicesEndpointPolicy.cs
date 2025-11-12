@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for endpoint_matcher in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock() : TerraformBlock("endpoint_matcher")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEndpointPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -43,7 +43,7 @@ public partial class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : Terrafor
 /// Block type for traffic_port_selector in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock() : TerraformBlock("traffic_port_selector")
 {
     /// <summary>
     /// List of ports. Can be port numbers or port range (example, [80-90] specifies all ports from 80 to 90, including 80 and 90) or named ports or * to specify all ports. If the list is empty, all ports are selected.
@@ -141,14 +141,14 @@ public partial class GoogleNetworkServicesEndpointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EndpointMatcher block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointMatcher block(s) allowed")]
     [TerraformProperty("endpoint_matcher")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock>>? EndpointMatcher { get; set; }
+    public required TerraformList<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock> EndpointMatcher { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesEndpointPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesEndpointPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_port_selector.
@@ -156,7 +156,7 @@ public partial class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficPortSelector block(s) allowed")]
     [TerraformProperty("traffic_port_selector")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock>>? TrafficPortSelector { get; set; }
+    public TerraformList<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock> TrafficPortSelector { get; set; } = new();
 
     /// <summary>
     /// Time the TcpRoute was created in UTC.

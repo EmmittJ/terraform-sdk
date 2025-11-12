@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMemorydbParameterGroupParameterBlock : TerraformBlockBase
+public partial class AwsMemorydbParameterGroupParameterBlock() : TerraformBlock("parameter")
 {
     /// <summary>
     /// The name attribute.
@@ -97,7 +97,7 @@ public partial class AwsMemorydbParameterGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter")]
-    public partial TerraformSet<TerraformBlock<AwsMemorydbParameterGroupParameterBlock>>? Parameter { get; set; }
+    public TerraformSet<AwsMemorydbParameterGroupParameterBlock> Parameter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

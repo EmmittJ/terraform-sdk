@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -52,7 +52,7 @@ public partial class AzurermAdvisorRecommendationsDataSource : TerraformDataSour
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAdvisorRecommendationsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAdvisorRecommendationsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The recommendations attribute.

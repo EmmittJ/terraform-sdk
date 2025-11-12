@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for create_table_default_permission in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock : TerraformBlockBase
+public partial class AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock() : TerraformBlock("create_table_default_permission")
 {
     /// <summary>
     /// The permissions attribute.
@@ -21,7 +21,7 @@ public partial class AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock : T
 /// Block type for federated_database in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogDatabaseFederatedDatabaseBlock : TerraformBlockBase
+public partial class AwsGlueCatalogDatabaseFederatedDatabaseBlock() : TerraformBlock("federated_database")
 {
     /// <summary>
     /// The connection_name attribute.
@@ -43,7 +43,7 @@ public partial class AwsGlueCatalogDatabaseFederatedDatabaseBlock : TerraformBlo
 /// Block type for target_database in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogDatabaseTargetDatabaseBlock : TerraformBlockBase
+public partial class AwsGlueCatalogDatabaseTargetDatabaseBlock() : TerraformBlock("target_database")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -149,7 +149,7 @@ public partial class AwsGlueCatalogDatabase : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("create_table_default_permission")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock>>? CreateTableDefaultPermission { get; set; }
+    public TerraformList<AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock> CreateTableDefaultPermission { get; set; } = new();
 
     /// <summary>
     /// Block for federated_database.
@@ -157,7 +157,7 @@ public partial class AwsGlueCatalogDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FederatedDatabase block(s) allowed")]
     [TerraformProperty("federated_database")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogDatabaseFederatedDatabaseBlock>>? FederatedDatabase { get; set; }
+    public TerraformList<AwsGlueCatalogDatabaseFederatedDatabaseBlock> FederatedDatabase { get; set; } = new();
 
     /// <summary>
     /// Block for target_database.
@@ -165,7 +165,7 @@ public partial class AwsGlueCatalogDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetDatabase block(s) allowed")]
     [TerraformProperty("target_database")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogDatabaseTargetDatabaseBlock>>? TargetDatabase { get; set; }
+    public TerraformList<AwsGlueCatalogDatabaseTargetDatabaseBlock> TargetDatabase { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

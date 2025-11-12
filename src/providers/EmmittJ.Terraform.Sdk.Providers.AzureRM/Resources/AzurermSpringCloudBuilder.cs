@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for build_pack_group in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermSpringCloudBuilderBuildPackGroupBlock : TerraformBlockBase
+public partial class AzurermSpringCloudBuilderBuildPackGroupBlock() : TerraformBlock("build_pack_group")
 {
     /// <summary>
     /// The build_pack_ids attribute.
@@ -29,7 +29,7 @@ public partial class AzurermSpringCloudBuilderBuildPackGroupBlock : TerraformBlo
 /// Block type for stack in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudBuilderStackBlock : TerraformBlockBase
+public partial class AzurermSpringCloudBuilderStackBlock() : TerraformBlock("stack")
 {
     /// <summary>
     /// The id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermSpringCloudBuilderStackBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudBuilderTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudBuilderTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,7 +125,7 @@ public partial class AzurermSpringCloudBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildPackGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BuildPackGroup block(s) required")]
     [TerraformProperty("build_pack_group")]
-    public partial TerraformSet<TerraformBlock<AzurermSpringCloudBuilderBuildPackGroupBlock>>? BuildPackGroup { get; set; }
+    public required TerraformSet<AzurermSpringCloudBuilderBuildPackGroupBlock> BuildPackGroup { get; set; } = new();
 
     /// <summary>
     /// Block for stack.
@@ -135,13 +135,13 @@ public partial class AzurermSpringCloudBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stack block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Stack block(s) allowed")]
     [TerraformProperty("stack")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudBuilderStackBlock>>? Stack { get; set; }
+    public required TerraformList<AzurermSpringCloudBuilderStackBlock> Stack { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudBuilderTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudBuilderTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock : TerraformBlockBase
+public partial class AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,6 +90,6 @@ public partial class AzureadServicePrincipalDelegatedPermissionGrant : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for private_endpoint in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlockBase
+public partial class AzurermWebPubsubNetworkAclPrivateEndpointBlock() : TerraformBlock("private_endpoint")
 {
     /// <summary>
     /// The allowed_request_types attribute.
@@ -36,7 +36,7 @@ public partial class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformB
 /// Block type for public_network in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlockBase
+public partial class AzurermWebPubsubNetworkAclPublicNetworkBlock() : TerraformBlock("public_network")
 {
     /// <summary>
     /// The allowed_request_types attribute.
@@ -58,7 +58,7 @@ public partial class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWebPubsubNetworkAclTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,7 +127,7 @@ public partial class AzurermWebPubsubNetworkAcl : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("private_endpoint")]
-    public partial TerraformSet<TerraformBlock<AzurermWebPubsubNetworkAclPrivateEndpointBlock>>? PrivateEndpoint { get; set; }
+    public TerraformSet<AzurermWebPubsubNetworkAclPrivateEndpointBlock> PrivateEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for public_network.
@@ -137,13 +137,13 @@ public partial class AzurermWebPubsubNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PublicNetwork block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicNetwork block(s) allowed")]
     [TerraformProperty("public_network")]
-    public partial TerraformList<TerraformBlock<AzurermWebPubsubNetworkAclPublicNetworkBlock>>? PublicNetwork { get; set; }
+    public required TerraformList<AzurermWebPubsubNetworkAclPublicNetworkBlock> PublicNetwork { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWebPubsubNetworkAclTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWebPubsubNetworkAclTimeoutsBlock Timeouts { get; set; } = new();
 
 }

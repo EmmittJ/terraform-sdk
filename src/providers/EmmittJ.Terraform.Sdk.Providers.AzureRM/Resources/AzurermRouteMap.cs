@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRouteMapRuleBlock : TerraformBlockBase
+public partial class AzurermRouteMapRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermRouteMapRuleBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRouteMapTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRouteMapTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,13 +98,13 @@ public partial class AzurermRouteMap : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AzurermRouteMapRuleBlock>>? Rule { get; set; }
+    public TerraformList<AzurermRouteMapRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRouteMapTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRouteMapTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permissions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountSasDataSourcePermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The add attribute.
@@ -14,7 +14,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Add is required")]
     [TerraformProperty("add")]
     // Required argument - source generator will implement get/set
-    public required partial TerraformValue<bool> Add { get; set; }
+    public required new partial TerraformValue<bool> Add { get; set; }
 
     /// <summary>
     /// The create attribute.
@@ -94,7 +94,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
 /// Block type for resource_types in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountSasDataSourceResourceTypesBlock : TerraformBlockBase
+public partial class AzurermStorageAccountSasDataSourceResourceTypesBlock() : TerraformBlock("resource_types")
 {
     /// <summary>
     /// The container attribute.
@@ -126,7 +126,7 @@ public partial class AzurermStorageAccountSasDataSourceResourceTypesBlock : Terr
 /// Block type for services in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountSasDataSourceServicesBlock : TerraformBlockBase
+public partial class AzurermStorageAccountSasDataSourceServicesBlock() : TerraformBlock("services")
 {
     /// <summary>
     /// The blob attribute.
@@ -166,7 +166,7 @@ public partial class AzurermStorageAccountSasDataSourceServicesBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageAccountSasDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountSasDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -247,7 +247,7 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
     [TerraformProperty("permissions")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourcePermissionsBlock>>? Permissions { get; set; }
+    public required TerraformList<AzurermStorageAccountSasDataSourcePermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for resource_types.
@@ -257,7 +257,7 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ResourceTypes block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceTypes block(s) allowed")]
     [TerraformProperty("resource_types")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourceResourceTypesBlock>>? ResourceTypes { get; set; }
+    public required TerraformList<AzurermStorageAccountSasDataSourceResourceTypesBlock> ResourceTypes { get; set; } = new();
 
     /// <summary>
     /// Block for services.
@@ -267,14 +267,14 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Services block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Services block(s) allowed")]
     [TerraformProperty("services")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourceServicesBlock>>? Services { get; set; }
+    public required TerraformList<AzurermStorageAccountSasDataSourceServicesBlock> Services { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageAccountSasDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageAccountSasDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The sas attribute.

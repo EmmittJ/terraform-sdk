@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The start_day attribute.
@@ -46,7 +46,7 @@ public partial class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,14 +124,14 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock>>? Schedule { get; set; }
+    public required TerraformList<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The next_execution_time attribute.

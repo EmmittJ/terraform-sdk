@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEventarcEnrollmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEventarcEnrollmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,7 +131,7 @@ public partial class GoogleEventarcEnrollment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEventarcEnrollmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEventarcEnrollmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation time.

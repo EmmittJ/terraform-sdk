@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allowlisted_certificates in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock() : TerraformBlock("allowlisted_certificates")
 {
     /// <summary>
     /// PEM certificate that is allowlisted. The certificate can be up to 5k bytes, and must be a parseable X.509 certificate.
@@ -22,7 +22,7 @@ public partial class GoogleCertificateManagerTrustConfigAllowlistedCertificatesB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCertificateManagerTrustConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerTrustConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -51,7 +51,7 @@ public partial class GoogleCertificateManagerTrustConfigTimeoutsBlock : Terrafor
 /// Block type for trust_stores in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCertificateManagerTrustConfigTrustStoresBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerTrustConfigTrustStoresBlock() : TerraformBlock("trust_stores")
 {
 }
 
@@ -116,21 +116,21 @@ public partial class GoogleCertificateManagerTrustConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("allowlisted_certificates")]
-    public partial TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock>>? AllowlistedCertificates { get; set; }
+    public TerraformList<GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock> AllowlistedCertificates { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCertificateManagerTrustConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCertificateManagerTrustConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trust_stores.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("trust_stores")]
-    public partial TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigTrustStoresBlock>>? TrustStores { get; set; }
+    public TerraformList<GoogleCertificateManagerTrustConfigTrustStoresBlock> TrustStores { get; set; } = new();
 
     /// <summary>
     /// The creation timestamp of a TrustConfig.

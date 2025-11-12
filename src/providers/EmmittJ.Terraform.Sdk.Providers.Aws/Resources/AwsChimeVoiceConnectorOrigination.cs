@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for route in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlockBase
+public partial class AwsChimeVoiceConnectorOriginationRouteBlock() : TerraformBlock("route")
 {
     /// <summary>
     /// The host attribute.
@@ -96,6 +96,6 @@ public partial class AwsChimeVoiceConnectorOrigination : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Route block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Route block(s) allowed")]
     [TerraformProperty("route")]
-    public partial TerraformSet<TerraformBlock<AwsChimeVoiceConnectorOriginationRouteBlock>>? Route { get; set; }
+    public required TerraformSet<AwsChimeVoiceConnectorOriginationRouteBlock> Route { get; set; } = new();
 
 }

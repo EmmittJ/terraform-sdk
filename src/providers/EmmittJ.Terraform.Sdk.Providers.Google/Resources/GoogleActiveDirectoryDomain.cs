@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleActiveDirectoryDomainTimeoutsBlock : TerraformBlockBase
+public partial class GoogleActiveDirectoryDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,7 +124,7 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleActiveDirectoryDomainTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleActiveDirectoryDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

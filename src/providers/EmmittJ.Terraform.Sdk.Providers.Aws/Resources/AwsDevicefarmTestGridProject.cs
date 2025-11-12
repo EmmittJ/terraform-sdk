@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevicefarmTestGridProjectVpcConfigBlock : TerraformBlockBase
+public partial class AwsDevicefarmTestGridProjectVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -93,7 +93,7 @@ public partial class AwsDevicefarmTestGridProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsDevicefarmTestGridProjectVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsDevicefarmTestGridProjectVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

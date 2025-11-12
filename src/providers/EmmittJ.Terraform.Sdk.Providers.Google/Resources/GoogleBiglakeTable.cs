@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for hive_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBiglakeTableHiveOptionsBlock : TerraformBlockBase
+public partial class GoogleBiglakeTableHiveOptionsBlock() : TerraformBlock("hive_options")
 {
     /// <summary>
     /// Stores user supplied Hive table parameters. An object containing a
@@ -30,7 +30,7 @@ public partial class GoogleBiglakeTableHiveOptionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBiglakeTableTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBiglakeTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,14 +101,14 @@ public partial class GoogleBiglakeTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveOptions block(s) allowed")]
     [TerraformProperty("hive_options")]
-    public partial TerraformList<TerraformBlock<GoogleBiglakeTableHiveOptionsBlock>>? HiveOptions { get; set; }
+    public TerraformList<GoogleBiglakeTableHiveOptionsBlock> HiveOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBiglakeTableTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBiglakeTableTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The creation time of the table. A timestamp in RFC3339 UTC

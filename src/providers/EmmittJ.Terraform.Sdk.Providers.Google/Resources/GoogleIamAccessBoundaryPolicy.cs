@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamAccessBoundaryPolicyRulesBlock : TerraformBlockBase
+public partial class GoogleIamAccessBoundaryPolicyRulesBlock() : TerraformBlock("rules")
 {
     /// <summary>
     /// The description of the rule.
@@ -21,7 +21,7 @@ public partial class GoogleIamAccessBoundaryPolicyRulesBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamAccessBoundaryPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamAccessBoundaryPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,14 +93,14 @@ public partial class GoogleIamAccessBoundaryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public partial TerraformList<TerraformBlock<GoogleIamAccessBoundaryPolicyRulesBlock>>? Rules { get; set; }
+    public required TerraformList<GoogleIamAccessBoundaryPolicyRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamAccessBoundaryPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamAccessBoundaryPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hash of the resource. Used internally during updates.

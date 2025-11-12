@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for actions_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApihubPluginActionsConfigBlock : TerraformBlockBase
+public partial class GoogleApihubPluginActionsConfigBlock() : TerraformBlock("actions_config")
 {
     /// <summary>
     /// The description of the operation performed by the action.
@@ -51,7 +51,7 @@ public partial class GoogleApihubPluginActionsConfigBlock : TerraformBlockBase
 /// Block type for config_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApihubPluginConfigTemplateBlock : TerraformBlockBase
+public partial class GoogleApihubPluginConfigTemplateBlock() : TerraformBlock("config_template")
 {
 }
 
@@ -59,7 +59,7 @@ public partial class GoogleApihubPluginConfigTemplateBlock : TerraformBlockBase
 /// Block type for documentation in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApihubPluginDocumentationBlock : TerraformBlockBase
+public partial class GoogleApihubPluginDocumentationBlock() : TerraformBlock("documentation")
 {
     /// <summary>
     /// The uri of the externally hosted documentation.
@@ -74,7 +74,7 @@ public partial class GoogleApihubPluginDocumentationBlock : TerraformBlockBase
 /// Block type for hosting_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApihubPluginHostingServiceBlock : TerraformBlockBase
+public partial class GoogleApihubPluginHostingServiceBlock() : TerraformBlock("hosting_service")
 {
     /// <summary>
     /// The URI of the service implemented by the plugin developer, used to
@@ -91,7 +91,7 @@ public partial class GoogleApihubPluginHostingServiceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApihubPluginTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApihubPluginTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -193,7 +193,7 @@ public partial class GoogleApihubPlugin : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("actions_config")]
-    public partial TerraformList<TerraformBlock<GoogleApihubPluginActionsConfigBlock>>? ActionsConfig { get; set; }
+    public TerraformList<GoogleApihubPluginActionsConfigBlock> ActionsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for config_template.
@@ -201,7 +201,7 @@ public partial class GoogleApihubPlugin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigTemplate block(s) allowed")]
     [TerraformProperty("config_template")]
-    public partial TerraformList<TerraformBlock<GoogleApihubPluginConfigTemplateBlock>>? ConfigTemplate { get; set; }
+    public TerraformList<GoogleApihubPluginConfigTemplateBlock> ConfigTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for documentation.
@@ -209,7 +209,7 @@ public partial class GoogleApihubPlugin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Documentation block(s) allowed")]
     [TerraformProperty("documentation")]
-    public partial TerraformList<TerraformBlock<GoogleApihubPluginDocumentationBlock>>? Documentation { get; set; }
+    public TerraformList<GoogleApihubPluginDocumentationBlock> Documentation { get; set; } = new();
 
     /// <summary>
     /// Block for hosting_service.
@@ -217,14 +217,14 @@ public partial class GoogleApihubPlugin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HostingService block(s) allowed")]
     [TerraformProperty("hosting_service")]
-    public partial TerraformList<TerraformBlock<GoogleApihubPluginHostingServiceBlock>>? HostingService { get; set; }
+    public TerraformList<GoogleApihubPluginHostingServiceBlock> HostingService { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApihubPluginTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApihubPluginTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp indicating when the plugin was created.

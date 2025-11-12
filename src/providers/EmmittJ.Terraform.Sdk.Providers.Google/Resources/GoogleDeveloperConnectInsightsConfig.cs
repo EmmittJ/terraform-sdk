@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for artifact_configs in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock() : TerraformBlock("artifact_configs")
 {
     /// <summary>
     /// The URI of the artifact that is deployed.
@@ -24,7 +24,7 @@ public partial class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectInsightsConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,14 +124,14 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("artifact_configs")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>>? ArtifactConfigs { get; set; }
+    public TerraformList<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock> ArtifactConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDeveloperConnectInsightsConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDeveloperConnectInsightsConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// [Output only] Create timestamp

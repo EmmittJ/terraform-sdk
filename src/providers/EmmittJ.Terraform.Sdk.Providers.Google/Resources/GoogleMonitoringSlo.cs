@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for basic_sli in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringSloBasicSliBlock : TerraformBlockBase
+public partial class GoogleMonitoringSloBasicSliBlock() : TerraformBlock("basic_sli")
 {
     /// <summary>
     /// An optional set of locations to which this SLI is relevant.
@@ -50,7 +50,7 @@ public partial class GoogleMonitoringSloBasicSliBlock : TerraformBlockBase
 /// Block type for request_based_sli in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringSloRequestBasedSliBlock : TerraformBlockBase
+public partial class GoogleMonitoringSloRequestBasedSliBlock() : TerraformBlock("request_based_sli")
 {
 }
 
@@ -58,7 +58,7 @@ public partial class GoogleMonitoringSloRequestBasedSliBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMonitoringSloTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMonitoringSloTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -87,7 +87,7 @@ public partial class GoogleMonitoringSloTimeoutsBlock : TerraformBlockBase
 /// Block type for windows_based_sli in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlockBase
+public partial class GoogleMonitoringSloWindowsBasedSliBlock() : TerraformBlock("windows_based_sli")
 {
     /// <summary>
     /// A TimeSeries [monitoring filter](https://cloud.google.com/monitoring/api/v3/filters)
@@ -199,7 +199,7 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicSli block(s) allowed")]
     [TerraformProperty("basic_sli")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringSloBasicSliBlock>>? BasicSli { get; set; }
+    public TerraformList<GoogleMonitoringSloBasicSliBlock> BasicSli { get; set; } = new();
 
     /// <summary>
     /// Block for request_based_sli.
@@ -207,14 +207,14 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestBasedSli block(s) allowed")]
     [TerraformProperty("request_based_sli")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringSloRequestBasedSliBlock>>? RequestBasedSli { get; set; }
+    public TerraformList<GoogleMonitoringSloRequestBasedSliBlock> RequestBasedSli { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMonitoringSloTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMonitoringSloTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for windows_based_sli.
@@ -222,7 +222,7 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsBasedSli block(s) allowed")]
     [TerraformProperty("windows_based_sli")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringSloWindowsBasedSliBlock>>? WindowsBasedSli { get; set; }
+    public TerraformList<GoogleMonitoringSloWindowsBasedSliBlock> WindowsBasedSli { get; set; } = new();
 
     /// <summary>
     /// The full resource name for this service. The syntax is:

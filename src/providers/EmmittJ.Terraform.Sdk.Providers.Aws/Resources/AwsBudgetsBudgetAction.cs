@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action_threshold in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetActionActionThresholdBlock() : TerraformBlock("action_threshold")
 {
     /// <summary>
     /// The action_threshold_type attribute.
@@ -30,7 +30,7 @@ public partial class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBudgetsBudgetActionDefinitionBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetActionDefinitionBlock() : TerraformBlock("definition")
 {
 }
 
@@ -38,7 +38,7 @@ public partial class AwsBudgetsBudgetActionDefinitionBlock : TerraformBlockBase
 /// Block type for subscriber in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetActionSubscriberBlock() : TerraformBlock("subscriber")
 {
     /// <summary>
     /// The address attribute.
@@ -62,7 +62,7 @@ public partial class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBudgetsBudgetActionTimeoutsBlock : TerraformBlockBase
+public partial class AwsBudgetsBudgetActionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,7 +173,7 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionThreshold block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionThreshold block(s) allowed")]
     [TerraformProperty("action_threshold")]
-    public partial TerraformList<TerraformBlock<AwsBudgetsBudgetActionActionThresholdBlock>>? ActionThreshold { get; set; }
+    public required TerraformList<AwsBudgetsBudgetActionActionThresholdBlock> ActionThreshold { get; set; } = new();
 
     /// <summary>
     /// Block for definition.
@@ -183,7 +183,7 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Definition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AwsBudgetsBudgetActionDefinitionBlock>>? Definition { get; set; }
+    public required TerraformList<AwsBudgetsBudgetActionDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// Block for subscriber.
@@ -193,14 +193,14 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subscriber block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(11, ErrorMessage = "Maximum 11 Subscriber block(s) allowed")]
     [TerraformProperty("subscriber")]
-    public partial TerraformSet<TerraformBlock<AwsBudgetsBudgetActionSubscriberBlock>>? Subscriber { get; set; }
+    public required TerraformSet<AwsBudgetsBudgetActionSubscriberBlock> Subscriber { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBudgetsBudgetActionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBudgetsBudgetActionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The action_id attribute.

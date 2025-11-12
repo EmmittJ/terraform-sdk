@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for initial_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBlockBase
+public partial class GoogleSecureSourceManagerRepositoryInitialConfigBlock() : TerraformBlock("initial_config")
 {
     /// <summary>
     /// Default branch name of the repository.
@@ -45,7 +45,7 @@ public partial class GoogleSecureSourceManagerRepositoryInitialConfigBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecureSourceManagerRepositoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -145,14 +145,14 @@ public partial class GoogleSecureSourceManagerRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialConfig block(s) allowed")]
     [TerraformProperty("initial_config")]
-    public partial TerraformList<TerraformBlock<GoogleSecureSourceManagerRepositoryInitialConfigBlock>>? InitialConfig { get; set; }
+    public TerraformList<GoogleSecureSourceManagerRepositoryInitialConfigBlock> InitialConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecureSourceManagerRepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecureSourceManagerRepositoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the repository was created in UTC.

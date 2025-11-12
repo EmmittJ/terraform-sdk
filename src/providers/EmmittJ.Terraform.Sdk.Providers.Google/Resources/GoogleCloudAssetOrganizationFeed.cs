@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudAssetOrganizationFeedConditionBlock : TerraformBlockBase
+public partial class GoogleCloudAssetOrganizationFeedConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// Description of the expression. This is a longer text which describes the expression,
@@ -46,7 +46,7 @@ public partial class GoogleCloudAssetOrganizationFeedConditionBlock : TerraformB
 /// Block type for feed_output_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock : TerraformBlockBase
+public partial class GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock() : TerraformBlock("feed_output_config")
 {
 }
 
@@ -54,7 +54,7 @@ public partial class GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudAssetOrganizationFeedTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudAssetOrganizationFeedTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -156,7 +156,7 @@ public partial class GoogleCloudAssetOrganizationFeed : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleCloudAssetOrganizationFeedConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleCloudAssetOrganizationFeedConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for feed_output_config.
@@ -166,14 +166,14 @@ public partial class GoogleCloudAssetOrganizationFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FeedOutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeedOutputConfig block(s) allowed")]
     [TerraformProperty("feed_output_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock>>? FeedOutputConfig { get; set; }
+    public required TerraformList<GoogleCloudAssetOrganizationFeedFeedOutputConfigBlock> FeedOutputConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudAssetOrganizationFeedTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudAssetOrganizationFeedTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The format will be organizations/{organization_number}/feeds/{client-assigned_feed_identifier}.

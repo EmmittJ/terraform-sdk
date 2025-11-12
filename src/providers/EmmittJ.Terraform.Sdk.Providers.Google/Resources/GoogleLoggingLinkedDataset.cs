@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigquery_dataset in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLoggingLinkedDatasetBigqueryDatasetBlock : TerraformBlockBase
+public partial class GoogleLoggingLinkedDatasetBigqueryDatasetBlock() : TerraformBlock("bigquery_dataset")
 {
 
 }
@@ -15,7 +15,7 @@ public partial class GoogleLoggingLinkedDatasetBigqueryDatasetBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleLoggingLinkedDatasetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleLoggingLinkedDatasetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,14 +91,14 @@ public partial class GoogleLoggingLinkedDataset : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("bigquery_dataset")]
-    public partial TerraformList<TerraformBlock<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>>? BigqueryDataset { get; set; }
+    public TerraformList<GoogleLoggingLinkedDatasetBigqueryDatasetBlock> BigqueryDataset { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleLoggingLinkedDatasetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleLoggingLinkedDatasetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The creation timestamp of the link. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,

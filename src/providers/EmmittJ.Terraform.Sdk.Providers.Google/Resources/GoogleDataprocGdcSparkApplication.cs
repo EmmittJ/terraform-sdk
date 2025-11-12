@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for pyspark_application_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock() : TerraformBlock("pyspark_application_config")
 {
     /// <summary>
     /// HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
@@ -57,7 +57,7 @@ public partial class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBl
 /// Block type for spark_application_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock() : TerraformBlock("spark_application_config")
 {
     /// <summary>
     /// HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: &#39;.jar&#39;, &#39;.tar&#39;, &#39;.tar.gz&#39;, &#39;.tgz&#39;, and &#39;.zip&#39;.
@@ -107,7 +107,7 @@ public partial class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBloc
 /// Block type for spark_r_application_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock() : TerraformBlock("spark_r_application_config")
 {
     /// <summary>
     /// HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
@@ -144,7 +144,7 @@ public partial class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlo
 /// Block type for spark_sql_application_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock() : TerraformBlock("spark_sql_application_config")
 {
     /// <summary>
     /// HCFS URIs of jar files to be added to the Spark CLASSPATH.
@@ -173,7 +173,7 @@ public partial class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcSparkApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -314,7 +314,7 @@ public partial class GoogleDataprocGdcSparkApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PysparkApplicationConfig block(s) allowed")]
     [TerraformProperty("pyspark_application_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock>>? PysparkApplicationConfig { get; set; }
+    public TerraformList<GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock> PysparkApplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spark_application_config.
@@ -322,7 +322,7 @@ public partial class GoogleDataprocGdcSparkApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkApplicationConfig block(s) allowed")]
     [TerraformProperty("spark_application_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock>>? SparkApplicationConfig { get; set; }
+    public TerraformList<GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock> SparkApplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spark_r_application_config.
@@ -330,7 +330,7 @@ public partial class GoogleDataprocGdcSparkApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkRApplicationConfig block(s) allowed")]
     [TerraformProperty("spark_r_application_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock>>? SparkRApplicationConfig { get; set; }
+    public TerraformList<GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock> SparkRApplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spark_sql_application_config.
@@ -338,14 +338,14 @@ public partial class GoogleDataprocGdcSparkApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkSqlApplicationConfig block(s) allowed")]
     [TerraformProperty("spark_sql_application_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock>>? SparkSqlApplicationConfig { get; set; }
+    public TerraformList<GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock> SparkSqlApplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocGdcSparkApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocGdcSparkApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

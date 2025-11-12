@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMapsAccountCorsBlock : TerraformBlockBase
+public partial class AzurermMapsAccountCorsBlock() : TerraformBlock("cors")
 {
     /// <summary>
     /// The allowed_origins attribute.
@@ -22,7 +22,7 @@ public partial class AzurermMapsAccountCorsBlock : TerraformBlockBase
 /// Block type for data_store in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMapsAccountDataStoreBlock : TerraformBlockBase
+public partial class AzurermMapsAccountDataStoreBlock() : TerraformBlock("data_store")
 {
     /// <summary>
     /// The storage_account_id attribute.
@@ -45,7 +45,7 @@ public partial class AzurermMapsAccountDataStoreBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMapsAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermMapsAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -70,7 +70,7 @@ public partial class AzurermMapsAccountIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMapsAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMapsAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -171,14 +171,14 @@ public partial class AzurermMapsAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     [TerraformProperty("cors")]
-    public partial TerraformList<TerraformBlock<AzurermMapsAccountCorsBlock>>? Cors { get; set; }
+    public TerraformList<AzurermMapsAccountCorsBlock> Cors { get; set; } = new();
 
     /// <summary>
     /// Block for data_store.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_store")]
-    public partial TerraformList<TerraformBlock<AzurermMapsAccountDataStoreBlock>>? DataStore { get; set; }
+    public TerraformList<AzurermMapsAccountDataStoreBlock> DataStore { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -186,14 +186,14 @@ public partial class AzurermMapsAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMapsAccountIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMapsAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMapsAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMapsAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_access_key attribute.

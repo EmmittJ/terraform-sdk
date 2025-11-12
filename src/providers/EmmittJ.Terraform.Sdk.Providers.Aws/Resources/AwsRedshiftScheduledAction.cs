@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRedshiftScheduledActionTargetActionBlock : TerraformBlockBase
+public partial class AwsRedshiftScheduledActionTargetActionBlock() : TerraformBlock("target_action")
 {
 }
 
@@ -94,6 +94,6 @@ public partial class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetAction block(s) allowed")]
     [TerraformProperty("target_action")]
-    public partial TerraformList<TerraformBlock<AwsRedshiftScheduledActionTargetActionBlock>>? TargetAction { get; set; }
+    public required TerraformList<AwsRedshiftScheduledActionTargetActionBlock> TargetAction { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermTrafficManagerGeographicalLocationDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermTrafficManagerGeographicalLocationDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -46,6 +46,6 @@ public partial class AzurermTrafficManagerGeographicalLocationDataSource : Terra
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermTrafficManagerGeographicalLocationDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermTrafficManagerGeographicalLocationDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

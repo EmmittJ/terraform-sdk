@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock() : TerraformBlock("autoscale_settings")
 {
     /// <summary>
     /// The max_throughput attribute.
@@ -21,7 +21,7 @@ public partial class AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbGremlinDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbGremlinDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,13 +107,13 @@ public partial class AzurermCosmosdbGremlinDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public TerraformList<AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbGremlinDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbGremlinDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
 }

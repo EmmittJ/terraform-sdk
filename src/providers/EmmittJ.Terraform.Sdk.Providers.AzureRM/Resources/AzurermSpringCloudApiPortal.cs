@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sso in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudApiPortalSsoBlock : TerraformBlockBase
+public partial class AzurermSpringCloudApiPortalSsoBlock() : TerraformBlock("sso")
 {
     /// <summary>
     /// The client_id attribute.
@@ -42,7 +42,7 @@ public partial class AzurermSpringCloudApiPortalSsoBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudApiPortalTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,14 +148,14 @@ public partial class AzurermSpringCloudApiPortal : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
     [TerraformProperty("sso")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudApiPortalSsoBlock>>? Sso { get; set; }
+    public TerraformList<AzurermSpringCloudApiPortalSsoBlock> Sso { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudApiPortalTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudApiPortalTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The url attribute.

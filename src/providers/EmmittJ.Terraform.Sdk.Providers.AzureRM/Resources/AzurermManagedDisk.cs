@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedDiskEncryptionSettingsBlock : TerraformBlockBase
+public partial class AzurermManagedDiskEncryptionSettingsBlock() : TerraformBlock("encryption_settings")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermManagedDiskEncryptionSettingsBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagedDiskTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagedDiskTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -312,13 +312,13 @@ public partial class AzurermManagedDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSettings block(s) allowed")]
     [TerraformProperty("encryption_settings")]
-    public partial TerraformList<TerraformBlock<AzurermManagedDiskEncryptionSettingsBlock>>? EncryptionSettings { get; set; }
+    public TerraformList<AzurermManagedDiskEncryptionSettingsBlock> EncryptionSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagedDiskTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagedDiskTimeoutsBlock Timeouts { get; set; } = new();
 
 }

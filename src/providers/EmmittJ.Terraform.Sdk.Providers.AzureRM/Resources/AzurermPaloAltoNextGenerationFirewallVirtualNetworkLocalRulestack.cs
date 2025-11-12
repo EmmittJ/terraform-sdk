@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for destination_nat in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBlock() : TerraformBlock("destination_nat")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRul
 /// Block type for dns_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsBlock() : TerraformBlock("dns_settings")
 {
 
     /// <summary>
@@ -53,7 +53,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRul
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileBlock() : TerraformBlock("network_profile")
 {
     /// <summary>
     /// The egress_nat_ip_address_ids attribute.
@@ -85,7 +85,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRul
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -184,7 +184,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRul
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("destination_nat")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBlock>>? DestinationNat { get; set; }
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBlock> DestinationNat { get; set; } = new();
 
     /// <summary>
     /// Block for dns_settings.
@@ -192,7 +192,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRul
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
     [TerraformProperty("dns_settings")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsBlock>>? DnsSettings { get; set; }
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsBlock> DnsSettings { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -202,13 +202,13 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRul
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public required TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTimeoutsBlock Timeouts { get; set; } = new();
 
 }

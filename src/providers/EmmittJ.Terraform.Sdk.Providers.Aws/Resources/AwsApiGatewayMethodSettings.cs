@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlockBase
+public partial class AwsApiGatewayMethodSettingsSettingsBlock() : TerraformBlock("settings")
 {
     /// <summary>
     /// The cache_data_encrypted attribute.
@@ -136,6 +136,6 @@ public partial class AwsApiGatewayMethodSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Settings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     [TerraformProperty("settings")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayMethodSettingsSettingsBlock>>? Settings { get; set; }
+    public required TerraformList<AwsApiGatewayMethodSettingsSettingsBlock> Settings { get; set; } = new();
 
 }

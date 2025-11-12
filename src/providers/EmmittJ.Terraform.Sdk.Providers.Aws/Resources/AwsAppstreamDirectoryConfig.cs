@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for certificate_based_auth_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamDirectoryConfigCertificateBasedAuthPropertiesBlock : TerraformBlockBase
+public partial class AwsAppstreamDirectoryConfigCertificateBasedAuthPropertiesBlock() : TerraformBlock("certificate_based_auth_properties")
 {
     /// <summary>
     /// The certificate_authority_arn attribute.
@@ -28,7 +28,7 @@ public partial class AwsAppstreamDirectoryConfigCertificateBasedAuthPropertiesBl
 /// Block type for service_account_credentials in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock : TerraformBlockBase
+public partial class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock() : TerraformBlock("service_account_credentials")
 {
     /// <summary>
     /// The account_name attribute.
@@ -94,7 +94,7 @@ public partial class AwsAppstreamDirectoryConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateBasedAuthProperties block(s) allowed")]
     [TerraformProperty("certificate_based_auth_properties")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamDirectoryConfigCertificateBasedAuthPropertiesBlock>>? CertificateBasedAuthProperties { get; set; }
+    public TerraformList<AwsAppstreamDirectoryConfigCertificateBasedAuthPropertiesBlock> CertificateBasedAuthProperties { get; set; } = new();
 
     /// <summary>
     /// Block for service_account_credentials.
@@ -104,7 +104,7 @@ public partial class AwsAppstreamDirectoryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceAccountCredentials block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceAccountCredentials block(s) allowed")]
     [TerraformProperty("service_account_credentials")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock>>? ServiceAccountCredentials { get; set; }
+    public required TerraformList<AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock> ServiceAccountCredentials { get; set; } = new();
 
     /// <summary>
     /// The created_time attribute.

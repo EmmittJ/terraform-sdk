@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for policy in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVpnServerConfigurationPolicyGroupPolicyBlock : TerraformBlockBase
+public partial class AzurermVpnServerConfigurationPolicyGroupPolicyBlock() : TerraformBlock("policy")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermVpnServerConfigurationPolicyGroupPolicyBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,13 +124,13 @@ public partial class AzurermVpnServerConfigurationPolicyGroup : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Policy block(s) required")]
     [TerraformProperty("policy")]
-    public partial TerraformSet<TerraformBlock<AzurermVpnServerConfigurationPolicyGroupPolicyBlock>>? Policy { get; set; }
+    public required TerraformSet<AzurermVpnServerConfigurationPolicyGroupPolicyBlock> Policy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

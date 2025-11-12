@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for catalog_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerCatalogTargetBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerCatalogTargetBlock() : TerraformBlock("catalog_target")
 {
     /// <summary>
     /// The connection_name attribute.
@@ -51,7 +51,7 @@ public partial class AwsGlueCrawlerCatalogTargetBlock : TerraformBlockBase
 /// Block type for delta_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerDeltaTargetBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerDeltaTargetBlock() : TerraformBlock("delta_target")
 {
     /// <summary>
     /// The connection_name attribute.
@@ -89,7 +89,7 @@ public partial class AwsGlueCrawlerDeltaTargetBlock : TerraformBlockBase
 /// Block type for dynamodb_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerDynamodbTargetBlock() : TerraformBlock("dynamodb_target")
 {
     /// <summary>
     /// The path attribute.
@@ -119,7 +119,7 @@ public partial class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlockBase
 /// Block type for hudi_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerHudiTargetBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerHudiTargetBlock() : TerraformBlock("hudi_target")
 {
     /// <summary>
     /// The connection_name attribute.
@@ -157,7 +157,7 @@ public partial class AwsGlueCrawlerHudiTargetBlock : TerraformBlockBase
 /// Block type for iceberg_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerIcebergTargetBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerIcebergTargetBlock() : TerraformBlock("iceberg_target")
 {
     /// <summary>
     /// The connection_name attribute.
@@ -195,7 +195,7 @@ public partial class AwsGlueCrawlerIcebergTargetBlock : TerraformBlockBase
 /// Block type for jdbc_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerJdbcTargetBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerJdbcTargetBlock() : TerraformBlock("jdbc_target")
 {
     /// <summary>
     /// The connection_name attribute.
@@ -233,7 +233,7 @@ public partial class AwsGlueCrawlerJdbcTargetBlock : TerraformBlockBase
 /// Block type for lake_formation_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerLakeFormationConfigurationBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerLakeFormationConfigurationBlock() : TerraformBlock("lake_formation_configuration")
 {
     /// <summary>
     /// The account_id attribute.
@@ -255,7 +255,7 @@ public partial class AwsGlueCrawlerLakeFormationConfigurationBlock : TerraformBl
 /// Block type for lineage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerLineageConfigurationBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerLineageConfigurationBlock() : TerraformBlock("lineage_configuration")
 {
     /// <summary>
     /// The crawler_lineage_settings attribute.
@@ -270,7 +270,7 @@ public partial class AwsGlueCrawlerLineageConfigurationBlock : TerraformBlockBas
 /// Block type for mongodb_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerMongodbTargetBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerMongodbTargetBlock() : TerraformBlock("mongodb_target")
 {
     /// <summary>
     /// The connection_name attribute.
@@ -301,7 +301,7 @@ public partial class AwsGlueCrawlerMongodbTargetBlock : TerraformBlockBase
 /// Block type for recrawl_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerRecrawlPolicyBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerRecrawlPolicyBlock() : TerraformBlock("recrawl_policy")
 {
     /// <summary>
     /// The recrawl_behavior attribute.
@@ -316,7 +316,7 @@ public partial class AwsGlueCrawlerRecrawlPolicyBlock : TerraformBlockBase
 /// Block type for s3_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerS3TargetBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerS3TargetBlock() : TerraformBlock("s3_target")
 {
     /// <summary>
     /// The connection_name attribute.
@@ -367,7 +367,7 @@ public partial class AwsGlueCrawlerS3TargetBlock : TerraformBlockBase
 /// Block type for schema_change_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCrawlerSchemaChangePolicyBlock : TerraformBlockBase
+public partial class AwsGlueCrawlerSchemaChangePolicyBlock() : TerraformBlock("schema_change_policy")
 {
     /// <summary>
     /// The delete_behavior attribute.
@@ -494,42 +494,42 @@ public partial class AwsGlueCrawler : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("catalog_target")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerCatalogTargetBlock>>? CatalogTarget { get; set; }
+    public TerraformList<AwsGlueCrawlerCatalogTargetBlock> CatalogTarget { get; set; } = new();
 
     /// <summary>
     /// Block for delta_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("delta_target")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerDeltaTargetBlock>>? DeltaTarget { get; set; }
+    public TerraformList<AwsGlueCrawlerDeltaTargetBlock> DeltaTarget { get; set; } = new();
 
     /// <summary>
     /// Block for dynamodb_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("dynamodb_target")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerDynamodbTargetBlock>>? DynamodbTarget { get; set; }
+    public TerraformList<AwsGlueCrawlerDynamodbTargetBlock> DynamodbTarget { get; set; } = new();
 
     /// <summary>
     /// Block for hudi_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("hudi_target")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerHudiTargetBlock>>? HudiTarget { get; set; }
+    public TerraformList<AwsGlueCrawlerHudiTargetBlock> HudiTarget { get; set; } = new();
 
     /// <summary>
     /// Block for iceberg_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("iceberg_target")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerIcebergTargetBlock>>? IcebergTarget { get; set; }
+    public TerraformList<AwsGlueCrawlerIcebergTargetBlock> IcebergTarget { get; set; } = new();
 
     /// <summary>
     /// Block for jdbc_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("jdbc_target")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerJdbcTargetBlock>>? JdbcTarget { get; set; }
+    public TerraformList<AwsGlueCrawlerJdbcTargetBlock> JdbcTarget { get; set; } = new();
 
     /// <summary>
     /// Block for lake_formation_configuration.
@@ -537,7 +537,7 @@ public partial class AwsGlueCrawler : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LakeFormationConfiguration block(s) allowed")]
     [TerraformProperty("lake_formation_configuration")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerLakeFormationConfigurationBlock>>? LakeFormationConfiguration { get; set; }
+    public TerraformList<AwsGlueCrawlerLakeFormationConfigurationBlock> LakeFormationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for lineage_configuration.
@@ -545,14 +545,14 @@ public partial class AwsGlueCrawler : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LineageConfiguration block(s) allowed")]
     [TerraformProperty("lineage_configuration")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerLineageConfigurationBlock>>? LineageConfiguration { get; set; }
+    public TerraformList<AwsGlueCrawlerLineageConfigurationBlock> LineageConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for mongodb_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("mongodb_target")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerMongodbTargetBlock>>? MongodbTarget { get; set; }
+    public TerraformList<AwsGlueCrawlerMongodbTargetBlock> MongodbTarget { get; set; } = new();
 
     /// <summary>
     /// Block for recrawl_policy.
@@ -560,14 +560,14 @@ public partial class AwsGlueCrawler : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecrawlPolicy block(s) allowed")]
     [TerraformProperty("recrawl_policy")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerRecrawlPolicyBlock>>? RecrawlPolicy { get; set; }
+    public TerraformList<AwsGlueCrawlerRecrawlPolicyBlock> RecrawlPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for s3_target.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("s3_target")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerS3TargetBlock>>? S3Target { get; set; }
+    public TerraformList<AwsGlueCrawlerS3TargetBlock> S3Target { get; set; } = new();
 
     /// <summary>
     /// Block for schema_change_policy.
@@ -575,7 +575,7 @@ public partial class AwsGlueCrawler : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaChangePolicy block(s) allowed")]
     [TerraformProperty("schema_change_policy")]
-    public partial TerraformList<TerraformBlock<AwsGlueCrawlerSchemaChangePolicyBlock>>? SchemaChangePolicy { get; set; }
+    public TerraformList<AwsGlueCrawlerSchemaChangePolicyBlock> SchemaChangePolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

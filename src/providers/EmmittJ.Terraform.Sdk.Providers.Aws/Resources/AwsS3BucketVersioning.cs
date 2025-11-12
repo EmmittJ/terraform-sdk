@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for versioning_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketVersioningVersioningConfigurationBlock : TerraformBlockBase
+public partial class AwsS3BucketVersioningVersioningConfigurationBlock() : TerraformBlock("versioning_configuration")
 {
     /// <summary>
     /// The mfa_delete attribute.
@@ -79,6 +79,6 @@ public partial class AwsS3BucketVersioning : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VersioningConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VersioningConfiguration block(s) allowed")]
     [TerraformProperty("versioning_configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketVersioningVersioningConfigurationBlock>>? VersioningConfiguration { get; set; }
+    public required TerraformList<AwsS3BucketVersioningVersioningConfigurationBlock> VersioningConfiguration { get; set; } = new();
 
 }

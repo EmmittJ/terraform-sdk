@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseAppCheckRecaptchaEnterpriseConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppCheckRecaptchaEnterpriseConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -88,7 +88,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseAppCheckRecaptchaEnterpriseConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseAppCheckRecaptchaEnterpriseConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The relative resource name of the reCAPTCHA Enterprise configuration object

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreBrowserNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreBrowserNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The network_mode attribute.
@@ -22,7 +22,7 @@ public partial class AwsBedrockagentcoreBrowserNetworkConfigurationBlock : Terra
 /// Block type for recording in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreBrowserRecordingBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreBrowserRecordingBlock() : TerraformBlock("recording")
 {
     /// <summary>
     /// The enabled attribute.
@@ -37,7 +37,7 @@ public partial class AwsBedrockagentcoreBrowserRecordingBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentcoreBrowserTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreBrowserTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -105,21 +105,21 @@ public partial class AwsBedrockagentcoreBrowser : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreBrowserNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreBrowserNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for recording.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("recording")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreBrowserRecordingBlock>>? Recording { get; set; }
+    public TerraformList<AwsBedrockagentcoreBrowserRecordingBlock> Recording { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentcoreBrowserTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentcoreBrowserTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The browser_arn attribute.

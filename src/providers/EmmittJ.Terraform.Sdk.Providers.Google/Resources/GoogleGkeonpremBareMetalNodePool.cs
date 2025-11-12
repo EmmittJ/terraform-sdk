@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for node_pool_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock() : TerraformBlock("node_pool_config")
 {
     /// <summary>
     /// The map of Kubernetes labels (key/value pairs) to be applied to
@@ -37,7 +37,7 @@ public partial class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -143,14 +143,14 @@ public partial class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodePoolConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolConfig block(s) allowed")]
     [TerraformProperty("node_pool_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock>>? NodePoolConfig { get; set; }
+    public required TerraformList<GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock> NodePoolConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeonpremBareMetalNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeonpremBareMetalNodePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.

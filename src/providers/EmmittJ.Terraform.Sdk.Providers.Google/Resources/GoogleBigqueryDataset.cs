@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleBigqueryDatasetAccessBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetAccessBlock() : TerraformBlock("access")
 {
     /// <summary>
     /// A domain to grant access to. Any users signed in with the
@@ -67,7 +67,7 @@ public partial class GoogleBigqueryDatasetAccessBlock : TerraformBlockBase
 /// Block type for default_encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock() : TerraformBlock("default_encryption_configuration")
 {
     /// <summary>
     /// Describes the Cloud KMS encryption key that will be used to protect destination
@@ -85,7 +85,7 @@ public partial class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : 
 /// Block type for external_catalog_dataset_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock() : TerraformBlock("external_catalog_dataset_options")
 {
     /// <summary>
     /// The storage location URI for all tables in the dataset. Equivalent to hive metastore&#39;s
@@ -109,7 +109,7 @@ public partial class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock : T
 /// Block type for external_dataset_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetExternalDatasetReferenceBlock() : TerraformBlock("external_dataset_reference")
 {
     /// <summary>
     /// The connection id that is used to access the externalSource.
@@ -134,7 +134,7 @@ public partial class GoogleBigqueryDatasetExternalDatasetReferenceBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryDatasetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatasetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -337,7 +337,7 @@ public partial class GoogleBigqueryDataset : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("access")]
-    public partial TerraformSet<TerraformBlock<GoogleBigqueryDatasetAccessBlock>>? Access { get; set; }
+    public TerraformSet<GoogleBigqueryDatasetAccessBlock> Access { get; set; } = new();
 
     /// <summary>
     /// Block for default_encryption_configuration.
@@ -345,7 +345,7 @@ public partial class GoogleBigqueryDataset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultEncryptionConfiguration block(s) allowed")]
     [TerraformProperty("default_encryption_configuration")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock>>? DefaultEncryptionConfiguration { get; set; }
+    public TerraformList<GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock> DefaultEncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for external_catalog_dataset_options.
@@ -353,7 +353,7 @@ public partial class GoogleBigqueryDataset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalCatalogDatasetOptions block(s) allowed")]
     [TerraformProperty("external_catalog_dataset_options")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock>>? ExternalCatalogDatasetOptions { get; set; }
+    public TerraformList<GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock> ExternalCatalogDatasetOptions { get; set; } = new();
 
     /// <summary>
     /// Block for external_dataset_reference.
@@ -361,14 +361,14 @@ public partial class GoogleBigqueryDataset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalDatasetReference block(s) allowed")]
     [TerraformProperty("external_dataset_reference")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatasetExternalDatasetReferenceBlock>>? ExternalDatasetReference { get; set; }
+    public TerraformList<GoogleBigqueryDatasetExternalDatasetReferenceBlock> ExternalDatasetReference { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryDatasetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryDatasetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when this dataset was created, in milliseconds since the

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for blocking_functions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformConfigBlockingFunctionsBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigBlockingFunctionsBlock() : TerraformBlock("blocking_functions")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleIdentityPlatformConfigBlockingFunctionsBlock : Terraf
 /// Block type for client in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformConfigClientBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigClientBlock() : TerraformBlock("client")
 {
 
 
@@ -24,7 +24,7 @@ public partial class GoogleIdentityPlatformConfigClientBlock : TerraformBlockBas
 /// Block type for mfa in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformConfigMfaBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigMfaBlock() : TerraformBlock("mfa")
 {
     /// <summary>
     /// A list of usable second factors for this project. Possible values: [&amp;quot;PHONE_SMS&amp;quot;]
@@ -46,7 +46,7 @@ public partial class GoogleIdentityPlatformConfigMfaBlock : TerraformBlockBase
 /// Block type for monitoring in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformConfigMonitoringBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigMonitoringBlock() : TerraformBlock("monitoring")
 {
 }
 
@@ -54,7 +54,7 @@ public partial class GoogleIdentityPlatformConfigMonitoringBlock : TerraformBloc
 /// Block type for multi_tenant in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigMultiTenantBlock() : TerraformBlock("multi_tenant")
 {
     /// <summary>
     /// Whether this project can have tenants or not.
@@ -78,7 +78,7 @@ public partial class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlo
 /// Block type for quota in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformConfigQuotaBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigQuotaBlock() : TerraformBlock("quota")
 {
 }
 
@@ -86,7 +86,7 @@ public partial class GoogleIdentityPlatformConfigQuotaBlock : TerraformBlockBase
 /// Block type for sign_in in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformConfigSignInBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigSignInBlock() : TerraformBlock("sign_in")
 {
     /// <summary>
     /// Whether to allow more than one account to have the same email.
@@ -102,7 +102,7 @@ public partial class GoogleIdentityPlatformConfigSignInBlock : TerraformBlockBas
 /// Block type for sms_region_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformConfigSmsRegionConfigBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigSmsRegionConfigBlock() : TerraformBlock("sms_region_config")
 {
 }
 
@@ -110,7 +110,7 @@ public partial class GoogleIdentityPlatformConfigSmsRegionConfigBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -179,7 +179,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlockingFunctions block(s) allowed")]
     [TerraformProperty("blocking_functions")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigBlockingFunctionsBlock>>? BlockingFunctions { get; set; }
+    public TerraformList<GoogleIdentityPlatformConfigBlockingFunctionsBlock> BlockingFunctions { get; set; } = new();
 
     /// <summary>
     /// Block for client.
@@ -187,7 +187,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Client block(s) allowed")]
     [TerraformProperty("client")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigClientBlock>>? Client { get; set; }
+    public TerraformList<GoogleIdentityPlatformConfigClientBlock> Client { get; set; } = new();
 
     /// <summary>
     /// Block for mfa.
@@ -195,7 +195,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mfa block(s) allowed")]
     [TerraformProperty("mfa")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMfaBlock>>? Mfa { get; set; }
+    public TerraformList<GoogleIdentityPlatformConfigMfaBlock> Mfa { get; set; } = new();
 
     /// <summary>
     /// Block for monitoring.
@@ -203,7 +203,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
     [TerraformProperty("monitoring")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMonitoringBlock>>? Monitoring { get; set; }
+    public TerraformList<GoogleIdentityPlatformConfigMonitoringBlock> Monitoring { get; set; } = new();
 
     /// <summary>
     /// Block for multi_tenant.
@@ -211,7 +211,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiTenant block(s) allowed")]
     [TerraformProperty("multi_tenant")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMultiTenantBlock>>? MultiTenant { get; set; }
+    public TerraformList<GoogleIdentityPlatformConfigMultiTenantBlock> MultiTenant { get; set; } = new();
 
     /// <summary>
     /// Block for quota.
@@ -219,7 +219,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
     [TerraformProperty("quota")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigQuotaBlock>>? Quota { get; set; }
+    public TerraformList<GoogleIdentityPlatformConfigQuotaBlock> Quota { get; set; } = new();
 
     /// <summary>
     /// Block for sign_in.
@@ -227,7 +227,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignIn block(s) allowed")]
     [TerraformProperty("sign_in")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigSignInBlock>>? SignIn { get; set; }
+    public TerraformList<GoogleIdentityPlatformConfigSignInBlock> SignIn { get; set; } = new();
 
     /// <summary>
     /// Block for sms_region_config.
@@ -235,14 +235,14 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmsRegionConfig block(s) allowed")]
     [TerraformProperty("sms_region_config")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigSmsRegionConfigBlock>>? SmsRegionConfig { get; set; }
+    public TerraformList<GoogleIdentityPlatformConfigSmsRegionConfigBlock> SmsRegionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIdentityPlatformConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIdentityPlatformConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the Config resource

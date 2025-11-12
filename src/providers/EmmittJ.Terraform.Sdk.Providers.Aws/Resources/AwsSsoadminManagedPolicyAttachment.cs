@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSsoadminManagedPolicyAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsSsoadminManagedPolicyAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,7 +76,7 @@ public partial class AwsSsoadminManagedPolicyAttachment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSsoadminManagedPolicyAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSsoadminManagedPolicyAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The managed_policy_name attribute.

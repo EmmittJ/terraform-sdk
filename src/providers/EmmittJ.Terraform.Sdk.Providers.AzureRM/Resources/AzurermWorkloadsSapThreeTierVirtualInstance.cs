@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock : TerraformBlockBase
+public partial class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -30,7 +30,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock : 
 /// Block type for three_tier_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock : TerraformBlockBase
+public partial class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock() : TerraformBlock("three_tier_configuration")
 {
     /// <summary>
     /// The app_resource_group_name attribute.
@@ -60,7 +60,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigu
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -192,7 +192,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for three_tier_configuration.
@@ -202,13 +202,13 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformReso
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ThreeTierConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreeTierConfiguration block(s) allowed")]
     [TerraformProperty("three_tier_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock>>? ThreeTierConfiguration { get; set; }
+    public required TerraformList<AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock> ThreeTierConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

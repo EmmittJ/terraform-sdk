@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resource_record_set in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlockBase
+public partial class AwsRoute53RecordsExclusiveResourceRecordSetBlock() : TerraformBlock("resource_record_set")
 {
     /// <summary>
     /// The failover attribute.
@@ -85,7 +85,7 @@ public partial class AwsRoute53RecordsExclusiveResourceRecordSetBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53RecordsExclusiveTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53RecordsExclusiveTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -125,13 +125,13 @@ public partial class AwsRoute53RecordsExclusive : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("resource_record_set")]
-    public partial TerraformSet<TerraformBlock<AwsRoute53RecordsExclusiveResourceRecordSetBlock>>? ResourceRecordSet { get; set; }
+    public TerraformSet<AwsRoute53RecordsExclusiveResourceRecordSetBlock> ResourceRecordSet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53RecordsExclusiveTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53RecordsExclusiveTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,6 +96,6 @@ public partial class AzurermApplicationInsightsSmartDetectionRule : TerraformRes
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

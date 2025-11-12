@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for privilege in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock : TerraformBlockBase
+public partial class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock() : TerraformBlock("privilege")
 {
     /// <summary>
     /// The actions attribute.
@@ -22,7 +22,7 @@ public partial class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,13 +98,13 @@ public partial class AzurermCosmosdbMongoRoleDefinition : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("privilege")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>>? Privilege { get; set; }
+    public TerraformList<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock> Privilege { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

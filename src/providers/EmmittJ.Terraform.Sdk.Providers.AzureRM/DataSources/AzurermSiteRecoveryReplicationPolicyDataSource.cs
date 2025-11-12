@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -62,7 +62,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformD
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The application_consistent_snapshot_frequency_in_minutes attribute.

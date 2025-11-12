@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for biglake_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableBiglakeConfigurationBlock() : TerraformBlock("biglake_configuration")
 {
     /// <summary>
     /// The connection specifying the credentials to be used to read and write to external storage, such as Cloud Storage. The connection_id can have the form &amp;quot;&amp;amp;lt;project\_id&amp;amp;gt;.&amp;amp;lt;location\_id&amp;amp;gt;.&amp;amp;lt;connection\_id&amp;amp;gt;&amp;quot; or &amp;quot;projects/&amp;amp;lt;project\_id&amp;amp;gt;/locations/&amp;amp;lt;location\_id&amp;amp;gt;/connections/&amp;amp;lt;connection\_id&amp;amp;gt;&amp;quot;.
@@ -46,7 +46,7 @@ public partial class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlo
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableEncryptionConfigurationBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The self link or full name of a key which should be used to encrypt this table. Note that the default bigquery service account will need to have encrypt/decrypt permissions on this key - you may want to see the google_bigquery_default_service_account datasource and the google_kms_crypto_key_iam_binding resource.
@@ -63,7 +63,7 @@ public partial class GoogleBigqueryTableEncryptionConfigurationBlock : Terraform
 /// Block type for external_catalog_table_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableExternalCatalogTableOptionsBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableExternalCatalogTableOptionsBlock() : TerraformBlock("external_catalog_table_options")
 {
     /// <summary>
     /// The connection specifying the credentials to be used to read external storage, such as Azure Blob, Cloud Storage, or S3. The connection is needed to read the open source table from BigQuery Engine. The connection_id can have the form &amp;lt;project_id&amp;gt;.&amp;lt;location_id&amp;gt;.&amp;lt;connection_id&amp;gt; or projects/&amp;lt;project_id&amp;gt;/locations/&amp;lt;location_id&amp;gt;/connections/&amp;lt;connection_id&amp;gt;.
@@ -85,7 +85,7 @@ public partial class GoogleBigqueryTableExternalCatalogTableOptionsBlock : Terra
 /// Block type for external_data_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableExternalDataConfigurationBlock() : TerraformBlock("external_data_configuration")
 {
     /// <summary>
     /// Let BigQuery try to autodetect the schema and format of the table.
@@ -186,7 +186,7 @@ public partial class GoogleBigqueryTableExternalDataConfigurationBlock : Terrafo
 /// Block type for materialized_view in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableMaterializedViewBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableMaterializedViewBlock() : TerraformBlock("materialized_view")
 {
     /// <summary>
     /// Allow non incremental materialized view definition. The default value is false.
@@ -223,7 +223,7 @@ public partial class GoogleBigqueryTableMaterializedViewBlock : TerraformBlockBa
 /// Block type for range_partitioning in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableRangePartitioningBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableRangePartitioningBlock() : TerraformBlock("range_partitioning")
 {
     /// <summary>
     /// The field used to determine how to create a range-based partition.
@@ -239,7 +239,7 @@ public partial class GoogleBigqueryTableRangePartitioningBlock : TerraformBlockB
 /// Block type for schema_foreign_type_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableSchemaForeignTypeInfoBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableSchemaForeignTypeInfoBlock() : TerraformBlock("schema_foreign_type_info")
 {
     /// <summary>
     /// Specifies the system which defines the foreign data type.
@@ -255,7 +255,7 @@ public partial class GoogleBigqueryTableSchemaForeignTypeInfoBlock : TerraformBl
 /// Block type for table_constraints in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableTableConstraintsBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableTableConstraintsBlock() : TerraformBlock("table_constraints")
 {
 }
 
@@ -263,7 +263,7 @@ public partial class GoogleBigqueryTableTableConstraintsBlock : TerraformBlockBa
 /// Block type for table_replication_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableTableReplicationInfoBlock() : TerraformBlock("table_replication_info")
 {
     /// <summary>
     /// The interval at which the source materialized view is polled for updates. The default is 300000.
@@ -302,7 +302,7 @@ public partial class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlo
 /// Block type for time_partitioning in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableTimePartitioningBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableTimePartitioningBlock() : TerraformBlock("time_partitioning")
 {
     /// <summary>
     /// Number of milliseconds for which to keep the storage for a partition.
@@ -340,7 +340,7 @@ public partial class GoogleBigqueryTableTimePartitioningBlock : TerraformBlockBa
 /// Block type for view in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryTableViewBlock : TerraformBlockBase
+public partial class GoogleBigqueryTableViewBlock() : TerraformBlock("view")
 {
     /// <summary>
     /// A query that BigQuery executes when the view is referenced.
@@ -499,7 +499,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BiglakeConfiguration block(s) allowed")]
     [TerraformProperty("biglake_configuration")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableBiglakeConfigurationBlock>>? BiglakeConfiguration { get; set; }
+    public TerraformList<GoogleBigqueryTableBiglakeConfigurationBlock> BiglakeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_configuration.
@@ -507,7 +507,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<GoogleBigqueryTableEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for external_catalog_table_options.
@@ -515,7 +515,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalCatalogTableOptions block(s) allowed")]
     [TerraformProperty("external_catalog_table_options")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableExternalCatalogTableOptionsBlock>>? ExternalCatalogTableOptions { get; set; }
+    public TerraformList<GoogleBigqueryTableExternalCatalogTableOptionsBlock> ExternalCatalogTableOptions { get; set; } = new();
 
     /// <summary>
     /// Block for external_data_configuration.
@@ -523,7 +523,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalDataConfiguration block(s) allowed")]
     [TerraformProperty("external_data_configuration")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableExternalDataConfigurationBlock>>? ExternalDataConfiguration { get; set; }
+    public TerraformList<GoogleBigqueryTableExternalDataConfigurationBlock> ExternalDataConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for materialized_view.
@@ -531,7 +531,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaterializedView block(s) allowed")]
     [TerraformProperty("materialized_view")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableMaterializedViewBlock>>? MaterializedView { get; set; }
+    public TerraformList<GoogleBigqueryTableMaterializedViewBlock> MaterializedView { get; set; } = new();
 
     /// <summary>
     /// Block for range_partitioning.
@@ -539,7 +539,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RangePartitioning block(s) allowed")]
     [TerraformProperty("range_partitioning")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableRangePartitioningBlock>>? RangePartitioning { get; set; }
+    public TerraformList<GoogleBigqueryTableRangePartitioningBlock> RangePartitioning { get; set; } = new();
 
     /// <summary>
     /// Block for schema_foreign_type_info.
@@ -547,7 +547,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaForeignTypeInfo block(s) allowed")]
     [TerraformProperty("schema_foreign_type_info")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableSchemaForeignTypeInfoBlock>>? SchemaForeignTypeInfo { get; set; }
+    public TerraformList<GoogleBigqueryTableSchemaForeignTypeInfoBlock> SchemaForeignTypeInfo { get; set; } = new();
 
     /// <summary>
     /// Block for table_constraints.
@@ -555,7 +555,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableConstraints block(s) allowed")]
     [TerraformProperty("table_constraints")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableTableConstraintsBlock>>? TableConstraints { get; set; }
+    public TerraformList<GoogleBigqueryTableTableConstraintsBlock> TableConstraints { get; set; } = new();
 
     /// <summary>
     /// Block for table_replication_info.
@@ -563,7 +563,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableReplicationInfo block(s) allowed")]
     [TerraformProperty("table_replication_info")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableTableReplicationInfoBlock>>? TableReplicationInfo { get; set; }
+    public TerraformList<GoogleBigqueryTableTableReplicationInfoBlock> TableReplicationInfo { get; set; } = new();
 
     /// <summary>
     /// Block for time_partitioning.
@@ -571,7 +571,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePartitioning block(s) allowed")]
     [TerraformProperty("time_partitioning")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableTimePartitioningBlock>>? TimePartitioning { get; set; }
+    public TerraformList<GoogleBigqueryTableTimePartitioningBlock> TimePartitioning { get; set; } = new();
 
     /// <summary>
     /// Block for view.
@@ -579,7 +579,7 @@ public partial class GoogleBigqueryTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 View block(s) allowed")]
     [TerraformProperty("view")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryTableViewBlock>>? View { get; set; }
+    public TerraformList<GoogleBigqueryTableViewBlock> View { get; set; } = new();
 
     /// <summary>
     /// The time when this table was created, in milliseconds since the epoch.

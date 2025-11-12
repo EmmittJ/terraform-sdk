@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for deployment_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerEndpointDeploymentConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerEndpointDeploymentConfigBlock() : TerraformBlock("deployment_config")
 {
 }
 
@@ -69,7 +69,7 @@ public partial class AwsSagemakerEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentConfig block(s) allowed")]
     [TerraformProperty("deployment_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointDeploymentConfigBlock>>? DeploymentConfig { get; set; }
+    public TerraformList<AwsSagemakerEndpointDeploymentConfigBlock> DeploymentConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

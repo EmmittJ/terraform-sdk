@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for model_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockInferenceProfileModelSourceBlock : TerraformBlockBase
+public partial class AwsBedrockInferenceProfileModelSourceBlock() : TerraformBlock("model_source")
 {
     /// <summary>
     /// The copy_from attribute.
@@ -22,7 +22,7 @@ public partial class AwsBedrockInferenceProfileModelSourceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockInferenceProfileTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockInferenceProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -90,14 +90,14 @@ public partial class AwsBedrockInferenceProfile : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("model_source")]
-    public partial TerraformList<TerraformBlock<AwsBedrockInferenceProfileModelSourceBlock>>? ModelSource { get; set; }
+    public TerraformList<AwsBedrockInferenceProfileModelSourceBlock> ModelSource { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockInferenceProfileTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockInferenceProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

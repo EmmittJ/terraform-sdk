@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkfirewallRuleGroupEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallRuleGroupEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The key_id attribute.
@@ -29,7 +29,7 @@ public partial class AwsNetworkfirewallRuleGroupEncryptionConfigurationBlock : T
 /// Block type for rule_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkfirewallRuleGroupRuleGroupBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallRuleGroupRuleGroupBlock() : TerraformBlock("rule_group")
 {
 }
 
@@ -115,7 +115,7 @@ public partial class AwsNetworkfirewallRuleGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsNetworkfirewallRuleGroupEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsNetworkfirewallRuleGroupEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for rule_group.
@@ -123,7 +123,7 @@ public partial class AwsNetworkfirewallRuleGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuleGroup block(s) allowed")]
     [TerraformProperty("rule_group")]
-    public partial TerraformList<TerraformBlock<AwsNetworkfirewallRuleGroupRuleGroupBlock>>? RuleGroup { get; set; }
+    public TerraformList<AwsNetworkfirewallRuleGroupRuleGroupBlock> RuleGroup { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

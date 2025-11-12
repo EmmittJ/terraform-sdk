@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterResourceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterResourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -63,7 +63,7 @@ public partial class GoogleAccessContextManagerServicePerimeterResource : Terraf
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerServicePerimeterResourceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerServicePerimeterResourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.

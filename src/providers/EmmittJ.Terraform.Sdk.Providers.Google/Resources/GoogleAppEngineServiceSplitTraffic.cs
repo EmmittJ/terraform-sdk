@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for split in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineServiceSplitTrafficSplitBlock : TerraformBlockBase
+public partial class GoogleAppEngineServiceSplitTrafficSplitBlock() : TerraformBlock("split")
 {
     /// <summary>
     /// Mapping from version IDs within the service to fractional (0.000, 1] allocations of traffic for that version. Each version can be specified only once, but some versions in the service may not have any traffic allocation. Services that have traffic allocated cannot be deleted until either the service is deleted or their traffic allocation is removed. Allocations must sum to 1. Up to two decimal place precision is supported for IP-based splits and up to three decimal places is supported for cookie-based splits.
@@ -29,7 +29,7 @@ public partial class GoogleAppEngineServiceSplitTrafficSplitBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAppEngineServiceSplitTrafficTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,13 +101,13 @@ public partial class GoogleAppEngineServiceSplitTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Split block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Split block(s) allowed")]
     [TerraformProperty("split")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineServiceSplitTrafficSplitBlock>>? Split { get; set; }
+    public required TerraformList<GoogleAppEngineServiceSplitTrafficSplitBlock> Split { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAppEngineServiceSplitTrafficTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAppEngineServiceSplitTrafficTimeoutsBlock Timeouts { get; set; } = new();
 
 }

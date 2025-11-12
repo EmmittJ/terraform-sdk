@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -76,14 +76,14 @@ public partial class AwsEc2TransitGatewayPeeringAttachmentDataSource : Terraform
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

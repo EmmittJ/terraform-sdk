@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,7 +83,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion : TerraformR
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleParameterManagerRegionalParameterVersionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleParameterManagerRegionalParameterVersionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time at which the Regional Parameter Version was created.

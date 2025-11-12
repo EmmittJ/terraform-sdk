@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kafka_cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskReplicatorKafkaClusterBlock : TerraformBlockBase
+public partial class AwsMskReplicatorKafkaClusterBlock() : TerraformBlock("kafka_cluster")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsMskReplicatorKafkaClusterBlock : TerraformBlockBase
 /// Block type for replication_info_list in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskReplicatorReplicationInfoListBlock : TerraformBlockBase
+public partial class AwsMskReplicatorReplicationInfoListBlock() : TerraformBlock("replication_info_list")
 {
 
     /// <summary>
@@ -48,7 +48,7 @@ public partial class AwsMskReplicatorReplicationInfoListBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMskReplicatorTimeoutsBlock : TerraformBlockBase
+public partial class AwsMskReplicatorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -141,7 +141,7 @@ public partial class AwsMskReplicator : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 KafkaCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 KafkaCluster block(s) allowed")]
     [TerraformProperty("kafka_cluster")]
-    public partial TerraformList<TerraformBlock<AwsMskReplicatorKafkaClusterBlock>>? KafkaCluster { get; set; }
+    public TerraformList<AwsMskReplicatorKafkaClusterBlock> KafkaCluster { get; set; } = new();
 
     /// <summary>
     /// Block for replication_info_list.
@@ -151,14 +151,14 @@ public partial class AwsMskReplicator : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReplicationInfoList block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationInfoList block(s) allowed")]
     [TerraformProperty("replication_info_list")]
-    public partial TerraformList<TerraformBlock<AwsMskReplicatorReplicationInfoListBlock>>? ReplicationInfoList { get; set; }
+    public required TerraformList<AwsMskReplicatorReplicationInfoListBlock> ReplicationInfoList { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMskReplicatorTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMskReplicatorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

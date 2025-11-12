@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for elasticsearch_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock() : TerraformBlock("elasticsearch_configuration")
 {
     /// <summary>
     /// The buffering_interval attribute.
@@ -86,7 +86,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationB
 /// Block type for extended_s3_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock() : TerraformBlock("extended_s3_configuration")
 {
     /// <summary>
     /// The bucket_arn attribute.
@@ -173,7 +173,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBloc
 /// Block type for http_endpoint_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock() : TerraformBlock("http_endpoint_configuration")
 {
     /// <summary>
     /// The access_key attribute.
@@ -238,7 +238,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBl
 /// Block type for iceberg_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock() : TerraformBlock("iceberg_configuration")
 {
     /// <summary>
     /// The append_only attribute.
@@ -297,7 +297,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock :
 /// Block type for kinesis_source_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock() : TerraformBlock("kinesis_source_configuration")
 {
     /// <summary>
     /// The kinesis_stream_arn attribute.
@@ -321,7 +321,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationB
 /// Block type for msk_source_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock() : TerraformBlock("msk_source_configuration")
 {
     /// <summary>
     /// The msk_cluster_arn attribute.
@@ -352,7 +352,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock
 /// Block type for opensearch_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock() : TerraformBlock("opensearch_configuration")
 {
     /// <summary>
     /// The buffering_interval attribute.
@@ -432,7 +432,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBloc
 /// Block type for opensearchserverless_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock() : TerraformBlock("opensearchserverless_configuration")
 {
     /// <summary>
     /// The buffering_interval attribute.
@@ -492,7 +492,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigu
 /// Block type for redshift_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock() : TerraformBlock("redshift_configuration")
 {
     /// <summary>
     /// The cluster_jdbcurl attribute.
@@ -566,7 +566,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock 
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock() : TerraformBlock("server_side_encryption")
 {
     /// <summary>
     /// The enabled attribute.
@@ -595,7 +595,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock :
 /// Block type for snowflake_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock() : TerraformBlock("snowflake_configuration")
 {
     /// <summary>
     /// The account_url attribute.
@@ -713,7 +713,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock
 /// Block type for splunk_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock() : TerraformBlock("splunk_configuration")
 {
     /// <summary>
     /// The buffering_interval attribute.
@@ -778,7 +778,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlockBase
+public partial class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -884,7 +884,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchConfiguration block(s) allowed")]
     [TerraformProperty("elasticsearch_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock>>? ElasticsearchConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock> ElasticsearchConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for extended_s3_configuration.
@@ -892,7 +892,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtendedS3Configuration block(s) allowed")]
     [TerraformProperty("extended_s3_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock>>? ExtendedS3Configuration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock> ExtendedS3Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for http_endpoint_configuration.
@@ -900,7 +900,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpEndpointConfiguration block(s) allowed")]
     [TerraformProperty("http_endpoint_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock>>? HttpEndpointConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock> HttpEndpointConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for iceberg_configuration.
@@ -908,7 +908,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IcebergConfiguration block(s) allowed")]
     [TerraformProperty("iceberg_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock>>? IcebergConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock> IcebergConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for kinesis_source_configuration.
@@ -916,7 +916,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisSourceConfiguration block(s) allowed")]
     [TerraformProperty("kinesis_source_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock>>? KinesisSourceConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock> KinesisSourceConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for msk_source_configuration.
@@ -924,7 +924,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MskSourceConfiguration block(s) allowed")]
     [TerraformProperty("msk_source_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock>>? MskSourceConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock> MskSourceConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for opensearch_configuration.
@@ -932,7 +932,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchConfiguration block(s) allowed")]
     [TerraformProperty("opensearch_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock>>? OpensearchConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock> OpensearchConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for opensearchserverless_configuration.
@@ -940,7 +940,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchserverlessConfiguration block(s) allowed")]
     [TerraformProperty("opensearchserverless_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock>>? OpensearchserverlessConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock> OpensearchserverlessConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for redshift_configuration.
@@ -948,7 +948,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftConfiguration block(s) allowed")]
     [TerraformProperty("redshift_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock>>? RedshiftConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock> RedshiftConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for server_side_encryption.
@@ -956,7 +956,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     [TerraformProperty("server_side_encryption")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock>>? ServerSideEncryption { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock> ServerSideEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for snowflake_configuration.
@@ -964,7 +964,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnowflakeConfiguration block(s) allowed")]
     [TerraformProperty("snowflake_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock>>? SnowflakeConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock> SnowflakeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for splunk_configuration.
@@ -972,13 +972,13 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SplunkConfiguration block(s) allowed")]
     [TerraformProperty("splunk_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock>>? SplunkConfiguration { get; set; }
+    public TerraformList<AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock> SplunkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKinesisFirehoseDeliveryStreamTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKinesisFirehoseDeliveryStreamTimeoutsBlock Timeouts { get; set; } = new();
 
 }

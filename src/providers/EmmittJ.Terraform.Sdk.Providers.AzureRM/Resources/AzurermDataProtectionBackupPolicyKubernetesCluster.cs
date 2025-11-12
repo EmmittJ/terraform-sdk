@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for default_retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionRuleBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionRuleBlock() : TerraformBlock("default_retention_rule")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRe
 /// Block type for retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBlock() : TerraformBlock("retention_rule")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDataProtectionBackupPolicyKubernetesClusterRetention
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyKubernetesClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyKubernetesClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,20 +127,20 @@ public partial class AzurermDataProtectionBackupPolicyKubernetesCluster : Terraf
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
     [TerraformProperty("default_retention_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionRuleBlock>>? DefaultRetentionRule { get; set; }
+    public required TerraformList<AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionRuleBlock> DefaultRetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for retention_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("retention_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBlock>>? RetentionRule { get; set; }
+    public TerraformList<AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBlock> RetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataProtectionBackupPolicyKubernetesClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataProtectionBackupPolicyKubernetesClusterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

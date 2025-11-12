@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermExtendedCustomLocationAuthenticationBlock : TerraformBlockBase
+public partial class AzurermExtendedCustomLocationAuthenticationBlock() : TerraformBlock("authentication")
 {
     /// <summary>
     /// The type attribute.
@@ -29,7 +29,7 @@ public partial class AzurermExtendedCustomLocationAuthenticationBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermExtendedCustomLocationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermExtendedCustomLocationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -147,13 +147,13 @@ public partial class AzurermExtendedCustomLocation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     [TerraformProperty("authentication")]
-    public partial TerraformList<TerraformBlock<AzurermExtendedCustomLocationAuthenticationBlock>>? Authentication { get; set; }
+    public TerraformList<AzurermExtendedCustomLocationAuthenticationBlock> Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermExtendedCustomLocationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermExtendedCustomLocationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

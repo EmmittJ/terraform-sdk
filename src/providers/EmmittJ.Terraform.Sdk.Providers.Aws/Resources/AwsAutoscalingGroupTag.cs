@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for tag in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingGroupTagTagBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupTagTagBlock() : TerraformBlock("tag")
 {
     /// <summary>
     /// The key attribute.
@@ -74,6 +74,6 @@ public partial class AwsAutoscalingGroupTag : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tag block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tag block(s) allowed")]
     [TerraformProperty("tag")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupTagTagBlock>>? Tag { get; set; }
+    public required TerraformList<AwsAutoscalingGroupTagTagBlock> Tag { get; set; } = new();
 
 }

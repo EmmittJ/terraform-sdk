@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetappBackupPolicyDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetappBackupPolicyDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -62,7 +62,7 @@ public partial class AzurermNetappBackupPolicyDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetappBackupPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetappBackupPolicyDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The daily_backups_to_keep attribute.

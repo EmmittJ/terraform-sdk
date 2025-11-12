@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for sql_injection_match_tuples in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock : TerraformBlockBase
+public partial class AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock() : TerraformBlock("sql_injection_match_tuples")
 {
     /// <summary>
     /// The text_transformation attribute.
@@ -47,7 +47,7 @@ public partial class AwsWafSqlInjectionMatchSet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("sql_injection_match_tuples")]
-    public partial TerraformSet<TerraformBlock<AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock>>? SqlInjectionMatchTuples { get; set; }
+    public TerraformSet<AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock> SqlInjectionMatchTuples { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

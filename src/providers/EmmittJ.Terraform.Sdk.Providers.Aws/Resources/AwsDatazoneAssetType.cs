@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for forms_input in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlockBase
+public partial class AwsDatazoneAssetTypeFormsInputBlock() : TerraformBlock("forms_input")
 {
     /// <summary>
     /// The map_block_key attribute.
@@ -45,7 +45,7 @@ public partial class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDatazoneAssetTypeTimeoutsBlock : TerraformBlockBase
+public partial class AwsDatazoneAssetTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -108,14 +108,14 @@ public partial class AwsDatazoneAssetType : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("forms_input")]
-    public partial TerraformSet<TerraformBlock<AwsDatazoneAssetTypeFormsInputBlock>>? FormsInput { get; set; }
+    public TerraformSet<AwsDatazoneAssetTypeFormsInputBlock> FormsInput { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDatazoneAssetTypeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDatazoneAssetTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceSharedDirectoryTargetBlock() : TerraformBlock("target")
 {
     /// <summary>
     /// The id attribute.
@@ -29,7 +29,7 @@ public partial class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDirectoryServiceSharedDirectoryTimeoutsBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceSharedDirectoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -94,14 +94,14 @@ public partial class AwsDirectoryServiceSharedDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<AwsDirectoryServiceSharedDirectoryTargetBlock>>? Target { get; set; }
+    public required TerraformList<AwsDirectoryServiceSharedDirectoryTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDirectoryServiceSharedDirectoryTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDirectoryServiceSharedDirectoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The shared_directory_id attribute.

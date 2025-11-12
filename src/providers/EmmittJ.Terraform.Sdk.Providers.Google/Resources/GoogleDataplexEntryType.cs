@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for required_aspects in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexEntryTypeRequiredAspectsBlock : TerraformBlockBase
+public partial class GoogleDataplexEntryTypeRequiredAspectsBlock() : TerraformBlock("required_aspects")
 {
     /// <summary>
     /// Required aspect type for the entry type.
@@ -21,7 +21,7 @@ public partial class GoogleDataplexEntryTypeRequiredAspectsBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexEntryTypeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexEntryTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -134,14 +134,14 @@ public partial class GoogleDataplexEntryType : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("required_aspects")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexEntryTypeRequiredAspectsBlock>>? RequiredAspects { get; set; }
+    public TerraformList<GoogleDataplexEntryTypeRequiredAspectsBlock> RequiredAspects { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexEntryTypeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexEntryTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the EntryType was created.

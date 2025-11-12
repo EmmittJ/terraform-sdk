@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_ip in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlockBase
+public partial class AwsRoute53ResolverRuleTargetIpBlock() : TerraformBlock("target_ip")
 {
     /// <summary>
     /// The ip attribute.
@@ -42,7 +42,7 @@ public partial class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53ResolverRuleTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53ResolverRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -139,14 +139,14 @@ public partial class AwsRoute53ResolverRule : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("target_ip")]
-    public partial TerraformSet<TerraformBlock<AwsRoute53ResolverRuleTargetIpBlock>>? TargetIp { get; set; }
+    public TerraformSet<AwsRoute53ResolverRuleTargetIpBlock> TargetIp { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53ResolverRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53ResolverRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

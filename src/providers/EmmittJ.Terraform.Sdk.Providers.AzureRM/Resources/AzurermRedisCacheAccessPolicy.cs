@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRedisCacheAccessPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRedisCacheAccessPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,6 +83,6 @@ public partial class AzurermRedisCacheAccessPolicy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRedisCacheAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRedisCacheAccessPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

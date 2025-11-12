@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,6 +91,6 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding : Terrafor
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

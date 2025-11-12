@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for server_side_encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationBlock() : TerraformBlock("server_side_encryption_configuration")
 {
     /// <summary>
     /// The kms_key_arn attribute.
@@ -22,7 +22,7 @@ public partial class AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfi
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsChimesdkvoiceVoiceProfileDomainTimeoutsBlock : TerraformBlockBase
+public partial class AwsChimesdkvoiceVoiceProfileDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,14 +101,14 @@ public partial class AwsChimesdkvoiceVoiceProfileDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServerSideEncryptionConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryptionConfiguration block(s) allowed")]
     [TerraformProperty("server_side_encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationBlock>>? ServerSideEncryptionConfiguration { get; set; }
+    public required TerraformList<AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationBlock> ServerSideEncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsChimesdkvoiceVoiceProfileDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AwsChimesdkvoiceVoiceProfileDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

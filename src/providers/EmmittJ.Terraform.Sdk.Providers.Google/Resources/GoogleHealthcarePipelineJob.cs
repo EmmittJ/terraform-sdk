@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backfill_pipeline_job in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcarePipelineJobBackfillPipelineJobBlock : TerraformBlockBase
+public partial class GoogleHealthcarePipelineJobBackfillPipelineJobBlock() : TerraformBlock("backfill_pipeline_job")
 {
     /// <summary>
     /// Specifies the mapping pipeline job to backfill, the name format
@@ -22,7 +22,7 @@ public partial class GoogleHealthcarePipelineJobBackfillPipelineJobBlock : Terra
 /// Block type for mapping_pipeline_job in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcarePipelineJobMappingPipelineJobBlock : TerraformBlockBase
+public partial class GoogleHealthcarePipelineJobMappingPipelineJobBlock() : TerraformBlock("mapping_pipeline_job")
 {
     /// <summary>
     /// If set, the mapping pipeline will write snapshots to this
@@ -55,7 +55,7 @@ public partial class GoogleHealthcarePipelineJobMappingPipelineJobBlock : Terraf
 /// Block type for reconciliation_pipeline_job in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock : TerraformBlockBase
+public partial class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock() : TerraformBlock("reconciliation_pipeline_job")
 {
     /// <summary>
     /// The harmonized FHIR store to write harmonized FHIR resources to,
@@ -82,7 +82,7 @@ public partial class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleHealthcarePipelineJobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleHealthcarePipelineJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -181,7 +181,7 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackfillPipelineJob block(s) allowed")]
     [TerraformProperty("backfill_pipeline_job")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcarePipelineJobBackfillPipelineJobBlock>>? BackfillPipelineJob { get; set; }
+    public TerraformList<GoogleHealthcarePipelineJobBackfillPipelineJobBlock> BackfillPipelineJob { get; set; } = new();
 
     /// <summary>
     /// Block for mapping_pipeline_job.
@@ -189,7 +189,7 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MappingPipelineJob block(s) allowed")]
     [TerraformProperty("mapping_pipeline_job")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcarePipelineJobMappingPipelineJobBlock>>? MappingPipelineJob { get; set; }
+    public TerraformList<GoogleHealthcarePipelineJobMappingPipelineJobBlock> MappingPipelineJob { get; set; } = new();
 
     /// <summary>
     /// Block for reconciliation_pipeline_job.
@@ -197,14 +197,14 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReconciliationPipelineJob block(s) allowed")]
     [TerraformProperty("reconciliation_pipeline_job")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcarePipelineJobReconciliationPipelineJobBlock>>? ReconciliationPipelineJob { get; set; }
+    public TerraformList<GoogleHealthcarePipelineJobReconciliationPipelineJobBlock> ReconciliationPipelineJob { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleHealthcarePipelineJobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleHealthcarePipelineJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

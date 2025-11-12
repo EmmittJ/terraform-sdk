@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connect_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceDirectoryConnectSettingsBlock() : TerraformBlock("connect_settings")
 {
 
 
@@ -48,7 +48,7 @@ public partial class AwsDirectoryServiceDirectoryConnectSettingsBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDirectoryServiceDirectoryTimeoutsBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceDirectoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -77,7 +77,7 @@ public partial class AwsDirectoryServiceDirectoryTimeoutsBlock : TerraformBlockB
 /// Block type for vpc_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceDirectoryVpcSettingsBlock() : TerraformBlock("vpc_settings")
 {
 
     /// <summary>
@@ -214,14 +214,14 @@ public partial class AwsDirectoryServiceDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectSettings block(s) allowed")]
     [TerraformProperty("connect_settings")]
-    public partial TerraformList<TerraformBlock<AwsDirectoryServiceDirectoryConnectSettingsBlock>>? ConnectSettings { get; set; }
+    public TerraformList<AwsDirectoryServiceDirectoryConnectSettingsBlock> ConnectSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDirectoryServiceDirectoryTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDirectoryServiceDirectoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_settings.
@@ -229,7 +229,7 @@ public partial class AwsDirectoryServiceDirectory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcSettings block(s) allowed")]
     [TerraformProperty("vpc_settings")]
-    public partial TerraformList<TerraformBlock<AwsDirectoryServiceDirectoryVpcSettingsBlock>>? VpcSettings { get; set; }
+    public TerraformList<AwsDirectoryServiceDirectoryVpcSettingsBlock> VpcSettings { get; set; } = new();
 
     /// <summary>
     /// The access_url attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpclatticeListenerRuleActionBlock : TerraformBlockBase
+public partial class AwsVpclatticeListenerRuleActionBlock() : TerraformBlock("action")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsVpclatticeListenerRuleActionBlock : TerraformBlockBase
 /// Block type for match in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpclatticeListenerRuleMatchBlock : TerraformBlockBase
+public partial class AwsVpclatticeListenerRuleMatchBlock() : TerraformBlock("match")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsVpclatticeListenerRuleMatchBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpclatticeListenerRuleTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpclatticeListenerRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,7 +125,7 @@ public partial class AwsVpclatticeListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AwsVpclatticeListenerRuleActionBlock>>? Action { get; set; }
+    public required TerraformList<AwsVpclatticeListenerRuleActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for match.
@@ -135,14 +135,14 @@ public partial class AwsVpclatticeListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Match block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     [TerraformProperty("match")]
-    public partial TerraformList<TerraformBlock<AwsVpclatticeListenerRuleMatchBlock>>? Match { get; set; }
+    public required TerraformList<AwsVpclatticeListenerRuleMatchBlock> Match { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpclatticeListenerRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpclatticeListenerRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

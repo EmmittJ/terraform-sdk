@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for component in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderContainerRecipeComponentBlock : TerraformBlockBase
+public partial class AwsImagebuilderContainerRecipeComponentBlock() : TerraformBlock("component")
 {
     /// <summary>
     /// The component_arn attribute.
@@ -22,7 +22,7 @@ public partial class AwsImagebuilderContainerRecipeComponentBlock : TerraformBlo
 /// Block type for instance_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderContainerRecipeInstanceConfigurationBlock : TerraformBlockBase
+public partial class AwsImagebuilderContainerRecipeInstanceConfigurationBlock() : TerraformBlock("instance_configuration")
 {
     /// <summary>
     /// The image attribute.
@@ -37,7 +37,7 @@ public partial class AwsImagebuilderContainerRecipeInstanceConfigurationBlock : 
 /// Block type for target_repository in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBlockBase
+public partial class AwsImagebuilderContainerRecipeTargetRepositoryBlock() : TerraformBlock("target_repository")
 {
     /// <summary>
     /// The repository_name attribute.
@@ -176,7 +176,7 @@ public partial class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Component block(s) required")]
     [TerraformProperty("component")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeComponentBlock>>? Component { get; set; }
+    public required TerraformList<AwsImagebuilderContainerRecipeComponentBlock> Component { get; set; } = new();
 
     /// <summary>
     /// Block for instance_configuration.
@@ -184,7 +184,7 @@ public partial class AwsImagebuilderContainerRecipe : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceConfiguration block(s) allowed")]
     [TerraformProperty("instance_configuration")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeInstanceConfigurationBlock>>? InstanceConfiguration { get; set; }
+    public TerraformList<AwsImagebuilderContainerRecipeInstanceConfigurationBlock> InstanceConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for target_repository.
@@ -194,7 +194,7 @@ public partial class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetRepository block(s) allowed")]
     [TerraformProperty("target_repository")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeTargetRepositoryBlock>>? TargetRepository { get; set; }
+    public required TerraformList<AwsImagebuilderContainerRecipeTargetRepositoryBlock> TargetRepository { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

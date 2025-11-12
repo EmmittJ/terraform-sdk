@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for frontend_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermLbOutboundRuleFrontendIpConfigurationBlock() : TerraformBlock("frontend_ip_configuration")
 {
 
     /// <summary>
@@ -23,7 +23,7 @@ public partial class AzurermLbOutboundRuleFrontendIpConfigurationBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLbOutboundRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -137,13 +137,13 @@ public partial class AzurermLbOutboundRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("frontend_ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermLbOutboundRuleFrontendIpConfigurationBlock>>? FrontendIpConfiguration { get; set; }
+    public TerraformList<AzurermLbOutboundRuleFrontendIpConfigurationBlock> FrontendIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLbOutboundRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLbOutboundRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIotcentralOrganizationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,6 +90,6 @@ public partial class AzurermIotcentralOrganization : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIotcentralOrganizationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIotcentralOrganizationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for external_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : TerraformBlockBase
+public partial class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock() : TerraformBlock("external_reference")
 {
     /// <summary>
     /// The description attribute.
@@ -43,7 +43,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicatorExternalReference
 /// Block type for granular_marking in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : TerraformBlockBase
+public partial class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock() : TerraformBlock("granular_marking")
 {
     /// <summary>
     /// The language attribute.
@@ -72,7 +72,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBl
 /// Block type for kill_chain_phase in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock : TerraformBlockBase
+public partial class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock() : TerraformBlock("kill_chain_phase")
 {
     /// <summary>
     /// The name attribute.
@@ -87,7 +87,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -265,28 +265,28 @@ public partial class AzurermSentinelThreatIntelligenceIndicator : TerraformResou
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("external_reference")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>>? ExternalReference { get; set; }
+    public TerraformList<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock> ExternalReference { get; set; } = new();
 
     /// <summary>
     /// Block for granular_marking.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("granular_marking")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock>>? GranularMarking { get; set; }
+    public TerraformList<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock> GranularMarking { get; set; } = new();
 
     /// <summary>
     /// Block for kill_chain_phase.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kill_chain_phase")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock>>? KillChainPhase { get; set; }
+    public TerraformList<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock> KillChainPhase { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_on attribute.

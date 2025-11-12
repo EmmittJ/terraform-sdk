@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlServerTransparentDataEncryptionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlServerTransparentDataEncryptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -88,6 +88,6 @@ public partial class AzurermMssqlServerTransparentDataEncryption : TerraformReso
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlServerTransparentDataEncryptionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlServerTransparentDataEncryptionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

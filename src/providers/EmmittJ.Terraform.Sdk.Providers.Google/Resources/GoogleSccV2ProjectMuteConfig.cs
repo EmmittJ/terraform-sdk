@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccV2ProjectMuteConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccV2ProjectMuteConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,7 +101,7 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccV2ProjectMuteConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccV2ProjectMuteConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time at which the mute config was created. This field is set by

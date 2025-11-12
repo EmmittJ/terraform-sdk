@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : TerraformBlockBase
+public partial class AwsMacie2ClassificationExportConfigurationS3DestinationBlock() : TerraformBlock("s3_destination")
 {
     /// <summary>
     /// The bucket_name attribute.
@@ -65,6 +65,6 @@ public partial class AwsMacie2ClassificationExportConfiguration : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Destination block(s) allowed")]
     [TerraformProperty("s3_destination")]
-    public partial TerraformList<TerraformBlock<AwsMacie2ClassificationExportConfigurationS3DestinationBlock>>? S3Destination { get; set; }
+    public required TerraformList<AwsMacie2ClassificationExportConfigurationS3DestinationBlock> S3Destination { get; set; } = new();
 
 }

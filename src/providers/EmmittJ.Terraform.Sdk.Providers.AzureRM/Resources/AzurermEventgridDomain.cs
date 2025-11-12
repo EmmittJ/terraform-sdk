@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridDomainIdentityBlock : TerraformBlockBase
+public partial class AzurermEventgridDomainIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermEventgridDomainIdentityBlock : TerraformBlockBase
 /// Block type for input_mapping_default_values in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridDomainInputMappingDefaultValuesBlock : TerraformBlockBase
+public partial class AzurermEventgridDomainInputMappingDefaultValuesBlock() : TerraformBlock("input_mapping_default_values")
 {
     /// <summary>
     /// The data_version attribute.
@@ -60,7 +60,7 @@ public partial class AzurermEventgridDomainInputMappingDefaultValuesBlock : Terr
 /// Block type for input_mapping_fields in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlockBase
+public partial class AzurermEventgridDomainInputMappingFieldsBlock() : TerraformBlock("input_mapping_fields")
 {
     /// <summary>
     /// The data_version attribute.
@@ -110,7 +110,7 @@ public partial class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventgridDomainTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventgridDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -238,7 +238,7 @@ public partial class AzurermEventgridDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridDomainIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermEventgridDomainIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for input_mapping_default_values.
@@ -246,7 +246,7 @@ public partial class AzurermEventgridDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputMappingDefaultValues block(s) allowed")]
     [TerraformProperty("input_mapping_default_values")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridDomainInputMappingDefaultValuesBlock>>? InputMappingDefaultValues { get; set; }
+    public TerraformList<AzurermEventgridDomainInputMappingDefaultValuesBlock> InputMappingDefaultValues { get; set; } = new();
 
     /// <summary>
     /// Block for input_mapping_fields.
@@ -254,14 +254,14 @@ public partial class AzurermEventgridDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputMappingFields block(s) allowed")]
     [TerraformProperty("input_mapping_fields")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridDomainInputMappingFieldsBlock>>? InputMappingFields { get; set; }
+    public TerraformList<AzurermEventgridDomainInputMappingFieldsBlock> InputMappingFields { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventgridDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventgridDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

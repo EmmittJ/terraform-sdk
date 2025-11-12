@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capabilities in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlockBase
+public partial class AwsQuicksightCustomPermissionsCapabilitiesBlock() : TerraformBlock("capabilities")
 {
     /// <summary>
     /// The add_or_run_anomaly_detection_for_analyses attribute.
@@ -214,7 +214,7 @@ public partial class AwsQuicksightCustomPermissions : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("capabilities")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightCustomPermissionsCapabilitiesBlock>>? Capabilities { get; set; }
+    public TerraformList<AwsQuicksightCustomPermissionsCapabilitiesBlock> Capabilities { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

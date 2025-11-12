@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock() : TerraformBlock("autoscale_settings")
 {
     /// <summary>
     /// The max_throughput attribute.
@@ -21,7 +21,7 @@ public partial class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : Terrafo
 /// Block type for conflict_resolution_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : TerraformBlockBase
+public partial class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock() : TerraformBlock("conflict_resolution_policy")
 {
     /// <summary>
     /// The conflict_resolution_path attribute.
@@ -51,7 +51,7 @@ public partial class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : 
 /// Block type for index_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlockBase
+public partial class AzurermCosmosdbGremlinGraphIndexPolicyBlock() : TerraformBlock("index_policy")
 {
     /// <summary>
     /// The automatic attribute.
@@ -88,7 +88,7 @@ public partial class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbGremlinGraphTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,7 +124,7 @@ public partial class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlockBa
 /// Block type for unique_key in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCosmosdbGremlinGraphUniqueKeyBlock : TerraformBlockBase
+public partial class AzurermCosmosdbGremlinGraphUniqueKeyBlock() : TerraformBlock("unique_key")
 {
     /// <summary>
     /// The paths attribute.
@@ -227,7 +227,7 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public TerraformList<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for conflict_resolution_policy.
@@ -235,7 +235,7 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConflictResolutionPolicy block(s) allowed")]
     [TerraformProperty("conflict_resolution_policy")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>>? ConflictResolutionPolicy { get; set; }
+    public TerraformList<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock> ConflictResolutionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for index_policy.
@@ -243,20 +243,20 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexPolicy block(s) allowed")]
     [TerraformProperty("index_policy")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphIndexPolicyBlock>>? IndexPolicy { get; set; }
+    public TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlock> IndexPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbGremlinGraphTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbGremlinGraphTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for unique_key.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("unique_key")]
-    public partial TerraformSet<TerraformBlock<AzurermCosmosdbGremlinGraphUniqueKeyBlock>>? UniqueKey { get; set; }
+    public TerraformSet<AzurermCosmosdbGremlinGraphUniqueKeyBlock> UniqueKey { get; set; } = new();
 
 }

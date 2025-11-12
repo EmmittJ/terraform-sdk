@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The local_ip_address attribute.
@@ -50,7 +50,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock : Ter
 /// Block type for machine_scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock() : TerraformBlock("machine_scope")
 {
     /// <summary>
     /// The exclude_instance_ids attribute.
@@ -72,7 +72,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock
 /// Block type for storage_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock() : TerraformBlock("storage_location")
 {
     /// <summary>
     /// The file_path attribute.
@@ -95,7 +95,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetPacketCaptureTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetPacketCaptureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -187,7 +187,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture : TerraformResou
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetPacketCaptureFilterBlock>>? Filter { get; set; }
+    public TerraformList<AzurermVirtualMachineScaleSetPacketCaptureFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for machine_scope.
@@ -195,7 +195,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineScope block(s) allowed")]
     [TerraformProperty("machine_scope")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock>>? MachineScope { get; set; }
+    public TerraformList<AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock> MachineScope { get; set; } = new();
 
     /// <summary>
     /// Block for storage_location.
@@ -205,13 +205,13 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
     [TerraformProperty("storage_location")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock>>? StorageLocation { get; set; }
+    public required TerraformList<AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock> StorageLocation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualMachineScaleSetPacketCaptureTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualMachineScaleSetPacketCaptureTimeoutsBlock Timeouts { get; set; } = new();
 
 }

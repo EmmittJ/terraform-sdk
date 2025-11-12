@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for destination_nat in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock() : TerraformBlock("destination_nat")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
 /// Block type for dns_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock() : TerraformBlock("dns_settings")
 {
 
     /// <summary>
@@ -53,7 +53,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock() : TerraformBlock("network_profile")
 {
     /// <summary>
     /// The egress_nat_ip_address_ids attribute.
@@ -104,7 +104,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -203,7 +203,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("destination_nat")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock>>? DestinationNat { get; set; }
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock> DestinationNat { get; set; } = new();
 
     /// <summary>
     /// Block for dns_settings.
@@ -211,7 +211,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
     [TerraformProperty("dns_settings")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock>>? DnsSettings { get; set; }
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock> DnsSettings { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -221,13 +221,13 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public required TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackTimeoutsBlock Timeouts { get; set; } = new();
 
 }

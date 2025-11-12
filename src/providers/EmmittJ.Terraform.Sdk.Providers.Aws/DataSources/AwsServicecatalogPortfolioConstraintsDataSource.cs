@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsServicecatalogPortfolioConstraintsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsServicecatalogPortfolioConstraintsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -67,7 +67,7 @@ public partial class AwsServicecatalogPortfolioConstraintsDataSource : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsServicecatalogPortfolioConstraintsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsServicecatalogPortfolioConstraintsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The details attribute.

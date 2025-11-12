@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for image_scanning_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderImagePipelineImageScanningConfigurationBlock : TerraformBlockBase
+public partial class AwsImagebuilderImagePipelineImageScanningConfigurationBlock() : TerraformBlock("image_scanning_configuration")
 {
     /// <summary>
     /// The image_scanning_enabled attribute.
@@ -21,7 +21,7 @@ public partial class AwsImagebuilderImagePipelineImageScanningConfigurationBlock
 /// Block type for image_tests_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderImagePipelineImageTestsConfigurationBlock : TerraformBlockBase
+public partial class AwsImagebuilderImagePipelineImageTestsConfigurationBlock() : TerraformBlock("image_tests_configuration")
 {
     /// <summary>
     /// The image_tests_enabled attribute.
@@ -43,7 +43,7 @@ public partial class AwsImagebuilderImagePipelineImageTestsConfigurationBlock : 
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderImagePipelineScheduleBlock : TerraformBlockBase
+public partial class AwsImagebuilderImagePipelineScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The pipeline_execution_start_condition attribute.
@@ -73,7 +73,7 @@ public partial class AwsImagebuilderImagePipelineScheduleBlock : TerraformBlockB
 /// Block type for workflow in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderImagePipelineWorkflowBlock : TerraformBlockBase
+public partial class AwsImagebuilderImagePipelineWorkflowBlock() : TerraformBlock("workflow")
 {
     /// <summary>
     /// The on_failure attribute.
@@ -208,7 +208,7 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
     [TerraformProperty("image_scanning_configuration")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderImagePipelineImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; }
+    public TerraformList<AwsImagebuilderImagePipelineImageScanningConfigurationBlock> ImageScanningConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for image_tests_configuration.
@@ -216,7 +216,7 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageTestsConfiguration block(s) allowed")]
     [TerraformProperty("image_tests_configuration")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderImagePipelineImageTestsConfigurationBlock>>? ImageTestsConfiguration { get; set; }
+    public TerraformList<AwsImagebuilderImagePipelineImageTestsConfigurationBlock> ImageTestsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -224,14 +224,14 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderImagePipelineScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AwsImagebuilderImagePipelineScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for workflow.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("workflow")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderImagePipelineWorkflowBlock>>? Workflow { get; set; }
+    public TerraformList<AwsImagebuilderImagePipelineWorkflowBlock> Workflow { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

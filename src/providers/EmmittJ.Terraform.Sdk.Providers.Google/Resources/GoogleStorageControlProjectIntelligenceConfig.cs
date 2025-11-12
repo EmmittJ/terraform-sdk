@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageControlProjectIntelligenceConfigFilterBlock : TerraformBlockBase
+public partial class GoogleStorageControlProjectIntelligenceConfigFilterBlock() : TerraformBlock("filter")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleStorageControlProjectIntelligenceConfigFilterBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageControlProjectIntelligenceConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageControlProjectIntelligenceConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -77,14 +77,14 @@ public partial class GoogleStorageControlProjectIntelligenceConfig : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<GoogleStorageControlProjectIntelligenceConfigFilterBlock>>? Filter { get; set; }
+    public TerraformList<GoogleStorageControlProjectIntelligenceConfigFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageControlProjectIntelligenceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageControlProjectIntelligenceConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.

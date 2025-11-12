@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkManagementConnectivityTestDestinationBlock : TerraformBlockBase
+public partial class GoogleNetworkManagementConnectivityTestDestinationBlock() : TerraformBlock("destination")
 {
     /// <summary>
     /// A Cloud SQL instance URI.
@@ -103,7 +103,7 @@ public partial class GoogleNetworkManagementConnectivityTestDestinationBlock : T
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlockBase
+public partial class GoogleNetworkManagementConnectivityTestSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// A Cloud SQL instance URI.
@@ -176,7 +176,7 @@ public partial class GoogleNetworkManagementConnectivityTestSourceBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkManagementConnectivityTestTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -291,7 +291,7 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkManagementConnectivityTestDestinationBlock>>? Destination { get; set; }
+    public required TerraformList<GoogleNetworkManagementConnectivityTestDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -301,14 +301,14 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkManagementConnectivityTestSourceBlock>>? Source { get; set; }
+    public required TerraformList<GoogleNetworkManagementConnectivityTestSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkManagementConnectivityTestTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkManagementConnectivityTestTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

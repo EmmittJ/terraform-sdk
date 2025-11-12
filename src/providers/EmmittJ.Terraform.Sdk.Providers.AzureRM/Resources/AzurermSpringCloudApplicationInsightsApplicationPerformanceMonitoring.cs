@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,6 +117,6 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock Timeouts { get; set; } = new();
 
 }

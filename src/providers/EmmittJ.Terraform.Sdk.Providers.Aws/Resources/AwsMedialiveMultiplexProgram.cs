@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for multiplex_program_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : TerraformBlockBase
+public partial class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock() : TerraformBlock("multiplex_program_settings")
 {
     /// <summary>
     /// The preferred_channel_pipeline attribute.
@@ -30,7 +30,7 @@ public partial class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMedialiveMultiplexProgramTimeoutsBlock : TerraformBlockBase
+public partial class AwsMedialiveMultiplexProgramTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -78,14 +78,14 @@ public partial class AwsMedialiveMultiplexProgram : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("multiplex_program_settings")]
-    public partial TerraformList<TerraformBlock<AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock>>? MultiplexProgramSettings { get; set; }
+    public TerraformList<AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock> MultiplexProgramSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMedialiveMultiplexProgramTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMedialiveMultiplexProgramTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

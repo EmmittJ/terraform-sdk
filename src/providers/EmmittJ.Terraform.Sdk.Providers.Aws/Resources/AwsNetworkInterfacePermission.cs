@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkInterfacePermissionTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkInterfacePermissionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -69,7 +69,7 @@ public partial class AwsNetworkInterfacePermission : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkInterfacePermissionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkInterfacePermissionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The network_interface_permission_id attribute.

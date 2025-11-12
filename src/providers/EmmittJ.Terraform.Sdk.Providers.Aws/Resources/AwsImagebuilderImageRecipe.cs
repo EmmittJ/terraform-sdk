@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for block_device_mapping in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsImagebuilderImageRecipeBlockDeviceMappingBlock : TerraformBlockBase
+public partial class AwsImagebuilderImageRecipeBlockDeviceMappingBlock() : TerraformBlock("block_device_mapping")
 {
     /// <summary>
     /// The device_name attribute.
@@ -35,7 +35,7 @@ public partial class AwsImagebuilderImageRecipeBlockDeviceMappingBlock : Terrafo
 /// Block type for component in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderImageRecipeComponentBlock : TerraformBlockBase
+public partial class AwsImagebuilderImageRecipeComponentBlock() : TerraformBlock("component")
 {
     /// <summary>
     /// The component_arn attribute.
@@ -51,7 +51,7 @@ public partial class AwsImagebuilderImageRecipeComponentBlock : TerraformBlockBa
 /// Block type for systems_manager_agent in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderImageRecipeSystemsManagerAgentBlock : TerraformBlockBase
+public partial class AwsImagebuilderImageRecipeSystemsManagerAgentBlock() : TerraformBlock("systems_manager_agent")
 {
     /// <summary>
     /// The uninstall_after_build attribute.
@@ -158,7 +158,7 @@ public partial class AwsImagebuilderImageRecipe : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("block_device_mapping")]
-    public partial TerraformSet<TerraformBlock<AwsImagebuilderImageRecipeBlockDeviceMappingBlock>>? BlockDeviceMapping { get; set; }
+    public TerraformSet<AwsImagebuilderImageRecipeBlockDeviceMappingBlock> BlockDeviceMapping { get; set; } = new();
 
     /// <summary>
     /// Block for component.
@@ -167,7 +167,7 @@ public partial class AwsImagebuilderImageRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Component block(s) required")]
     [TerraformProperty("component")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderImageRecipeComponentBlock>>? Component { get; set; }
+    public required TerraformList<AwsImagebuilderImageRecipeComponentBlock> Component { get; set; } = new();
 
     /// <summary>
     /// Block for systems_manager_agent.
@@ -175,7 +175,7 @@ public partial class AwsImagebuilderImageRecipe : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SystemsManagerAgent block(s) allowed")]
     [TerraformProperty("systems_manager_agent")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderImageRecipeSystemsManagerAgentBlock>>? SystemsManagerAgent { get; set; }
+    public TerraformList<AwsImagebuilderImageRecipeSystemsManagerAgentBlock> SystemsManagerAgent { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbTargetGroupHealthCheckBlock : TerraformBlockBase
+public partial class AwsLbTargetGroupHealthCheckBlock() : TerraformBlock("health_check")
 {
     /// <summary>
     /// The enabled attribute.
@@ -77,7 +77,7 @@ public partial class AwsLbTargetGroupHealthCheckBlock : TerraformBlockBase
 /// Block type for stickiness in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbTargetGroupStickinessBlock : TerraformBlockBase
+public partial class AwsLbTargetGroupStickinessBlock() : TerraformBlock("stickiness")
 {
     /// <summary>
     /// The cookie_duration attribute.
@@ -114,7 +114,7 @@ public partial class AwsLbTargetGroupStickinessBlock : TerraformBlockBase
 /// Block type for target_failover in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbTargetGroupTargetFailoverBlock : TerraformBlockBase
+public partial class AwsLbTargetGroupTargetFailoverBlock() : TerraformBlock("target_failover")
 {
     /// <summary>
     /// The on_deregistration attribute.
@@ -138,7 +138,7 @@ public partial class AwsLbTargetGroupTargetFailoverBlock : TerraformBlockBase
 /// Block type for target_group_health in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbTargetGroupTargetGroupHealthBlock : TerraformBlockBase
+public partial class AwsLbTargetGroupTargetGroupHealthBlock() : TerraformBlock("target_group_health")
 {
 }
 
@@ -146,7 +146,7 @@ public partial class AwsLbTargetGroupTargetGroupHealthBlock : TerraformBlockBase
 /// Block type for target_health_state in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbTargetGroupTargetHealthStateBlock : TerraformBlockBase
+public partial class AwsLbTargetGroupTargetHealthStateBlock() : TerraformBlock("target_health_state")
 {
     /// <summary>
     /// The enable_unhealthy_connection_termination attribute.
@@ -328,7 +328,7 @@ public partial class AwsLbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheck block(s) allowed")]
     [TerraformProperty("health_check")]
-    public partial TerraformList<TerraformBlock<AwsLbTargetGroupHealthCheckBlock>>? HealthCheck { get; set; }
+    public TerraformList<AwsLbTargetGroupHealthCheckBlock> HealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for stickiness.
@@ -336,14 +336,14 @@ public partial class AwsLbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Stickiness block(s) allowed")]
     [TerraformProperty("stickiness")]
-    public partial TerraformList<TerraformBlock<AwsLbTargetGroupStickinessBlock>>? Stickiness { get; set; }
+    public TerraformList<AwsLbTargetGroupStickinessBlock> Stickiness { get; set; } = new();
 
     /// <summary>
     /// Block for target_failover.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("target_failover")]
-    public partial TerraformList<TerraformBlock<AwsLbTargetGroupTargetFailoverBlock>>? TargetFailover { get; set; }
+    public TerraformList<AwsLbTargetGroupTargetFailoverBlock> TargetFailover { get; set; } = new();
 
     /// <summary>
     /// Block for target_group_health.
@@ -351,14 +351,14 @@ public partial class AwsLbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetGroupHealth block(s) allowed")]
     [TerraformProperty("target_group_health")]
-    public partial TerraformList<TerraformBlock<AwsLbTargetGroupTargetGroupHealthBlock>>? TargetGroupHealth { get; set; }
+    public TerraformList<AwsLbTargetGroupTargetGroupHealthBlock> TargetGroupHealth { get; set; } = new();
 
     /// <summary>
     /// Block for target_health_state.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("target_health_state")]
-    public partial TerraformList<TerraformBlock<AwsLbTargetGroupTargetHealthStateBlock>>? TargetHealthState { get; set; }
+    public TerraformList<AwsLbTargetGroupTargetHealthStateBlock> TargetHealthState { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

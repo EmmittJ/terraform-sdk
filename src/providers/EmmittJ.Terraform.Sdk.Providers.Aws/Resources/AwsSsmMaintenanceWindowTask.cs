@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for targets in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlockBase
+public partial class AwsSsmMaintenanceWindowTaskTargetsBlock() : TerraformBlock("targets")
 {
     /// <summary>
     /// The key attribute.
@@ -30,7 +30,7 @@ public partial class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlockBas
 /// Block type for task_invocation_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock : TerraformBlockBase
+public partial class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock() : TerraformBlock("task_invocation_parameters")
 {
 }
 
@@ -137,7 +137,7 @@ public partial class AwsSsmMaintenanceWindowTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Targets block(s) allowed")]
     [TerraformProperty("targets")]
-    public partial TerraformList<TerraformBlock<AwsSsmMaintenanceWindowTaskTargetsBlock>>? Targets { get; set; }
+    public TerraformList<AwsSsmMaintenanceWindowTaskTargetsBlock> Targets { get; set; } = new();
 
     /// <summary>
     /// Block for task_invocation_parameters.
@@ -145,7 +145,7 @@ public partial class AwsSsmMaintenanceWindowTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskInvocationParameters block(s) allowed")]
     [TerraformProperty("task_invocation_parameters")]
-    public partial TerraformList<TerraformBlock<AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock>>? TaskInvocationParameters { get; set; }
+    public TerraformList<AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock> TaskInvocationParameters { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for subscriber in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlockBase
+public partial class AwsCeAnomalySubscriptionSubscriberBlock() : TerraformBlock("subscriber")
 {
     /// <summary>
     /// The address attribute.
@@ -30,7 +30,7 @@ public partial class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlockBas
 /// Block type for threshold_expression in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCeAnomalySubscriptionThresholdExpressionBlock : TerraformBlockBase
+public partial class AwsCeAnomalySubscriptionThresholdExpressionBlock() : TerraformBlock("threshold_expression")
 {
 }
 
@@ -103,7 +103,7 @@ public partial class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subscriber is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subscriber block(s) required")]
     [TerraformProperty("subscriber")]
-    public partial TerraformSet<TerraformBlock<AwsCeAnomalySubscriptionSubscriberBlock>>? Subscriber { get; set; }
+    public required TerraformSet<AwsCeAnomalySubscriptionSubscriberBlock> Subscriber { get; set; } = new();
 
     /// <summary>
     /// Block for threshold_expression.
@@ -111,7 +111,7 @@ public partial class AwsCeAnomalySubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThresholdExpression block(s) allowed")]
     [TerraformProperty("threshold_expression")]
-    public partial TerraformList<TerraformBlock<AwsCeAnomalySubscriptionThresholdExpressionBlock>>? ThresholdExpression { get; set; }
+    public TerraformList<AwsCeAnomalySubscriptionThresholdExpressionBlock> ThresholdExpression { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

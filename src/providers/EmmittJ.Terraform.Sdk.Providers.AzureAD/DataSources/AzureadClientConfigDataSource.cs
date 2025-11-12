@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadClientConfigDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzureadClientConfigDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -38,7 +38,7 @@ public partial class AzureadClientConfigDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadClientConfigDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadClientConfigDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The client ID (application ID) linked to the authenticated principal, or the application used for delegated authentication

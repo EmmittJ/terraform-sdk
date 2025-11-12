@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_files_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlockBase
+public partial class AzurermStorageAccountAzureFilesAuthenticationBlock() : TerraformBlock("azure_files_authentication")
 {
     /// <summary>
     /// The default_share_level_permission attribute.
@@ -29,7 +29,7 @@ public partial class AzurermStorageAccountAzureFilesAuthenticationBlock : Terraf
 /// Block type for blob_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountBlobPropertiesBlock : TerraformBlockBase
+public partial class AzurermStorageAccountBlobPropertiesBlock() : TerraformBlock("blob_properties")
 {
     /// <summary>
     /// The change_feed_enabled attribute.
@@ -72,7 +72,7 @@ public partial class AzurermStorageAccountBlobPropertiesBlock : TerraformBlockBa
 /// Block type for custom_domain in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountCustomDomainBlock : TerraformBlockBase
+public partial class AzurermStorageAccountCustomDomainBlock() : TerraformBlock("custom_domain")
 {
     /// <summary>
     /// The name attribute.
@@ -95,7 +95,7 @@ public partial class AzurermStorageAccountCustomDomainBlock : TerraformBlockBase
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermStorageAccountCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -125,7 +125,7 @@ public partial class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermStorageAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -150,7 +150,7 @@ public partial class AzurermStorageAccountIdentityBlock : TerraformBlockBase
 /// Block type for immutability_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlockBase
+public partial class AzurermStorageAccountImmutabilityPolicyBlock() : TerraformBlock("immutability_policy")
 {
     /// <summary>
     /// The allow_protected_append_writes attribute.
@@ -182,7 +182,7 @@ public partial class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlo
 /// Block type for network_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountNetworkRulesBlock : TerraformBlockBase
+public partial class AzurermStorageAccountNetworkRulesBlock() : TerraformBlock("network_rules")
 {
     /// <summary>
     /// The bypass attribute.
@@ -220,7 +220,7 @@ public partial class AzurermStorageAccountNetworkRulesBlock : TerraformBlockBase
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermStorageAccountQueuePropertiesBlock : TerraformBlockBase
+public partial class AzurermStorageAccountQueuePropertiesBlock() : TerraformBlock("queue_properties")
 {
 }
 
@@ -228,7 +228,7 @@ public partial class AzurermStorageAccountQueuePropertiesBlock : TerraformBlockB
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountRoutingBlock : TerraformBlockBase
+public partial class AzurermStorageAccountRoutingBlock() : TerraformBlock("routing")
 {
     /// <summary>
     /// The choice attribute.
@@ -257,7 +257,7 @@ public partial class AzurermStorageAccountRoutingBlock : TerraformBlockBase
 /// Block type for sas_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountSasPolicyBlock : TerraformBlockBase
+public partial class AzurermStorageAccountSasPolicyBlock() : TerraformBlock("sas_policy")
 {
     /// <summary>
     /// The expiration_action attribute.
@@ -280,7 +280,7 @@ public partial class AzurermStorageAccountSasPolicyBlock : TerraformBlockBase
 /// Block type for share_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountSharePropertiesBlock : TerraformBlockBase
+public partial class AzurermStorageAccountSharePropertiesBlock() : TerraformBlock("share_properties")
 {
 }
 
@@ -289,7 +289,7 @@ public partial class AzurermStorageAccountSharePropertiesBlock : TerraformBlockB
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermStorageAccountStaticWebsiteBlock : TerraformBlockBase
+public partial class AzurermStorageAccountStaticWebsiteBlock() : TerraformBlock("static_website")
 {
     /// <summary>
     /// The error_404_document attribute.
@@ -311,7 +311,7 @@ public partial class AzurermStorageAccountStaticWebsiteBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -560,7 +560,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureFilesAuthentication block(s) allowed")]
     [TerraformProperty("azure_files_authentication")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountAzureFilesAuthenticationBlock>>? AzureFilesAuthentication { get; set; }
+    public TerraformList<AzurermStorageAccountAzureFilesAuthenticationBlock> AzureFilesAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for blob_properties.
@@ -568,7 +568,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlobProperties block(s) allowed")]
     [TerraformProperty("blob_properties")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountBlobPropertiesBlock>>? BlobProperties { get; set; }
+    public TerraformList<AzurermStorageAccountBlobPropertiesBlock> BlobProperties { get; set; } = new();
 
     /// <summary>
     /// Block for custom_domain.
@@ -576,7 +576,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDomain block(s) allowed")]
     [TerraformProperty("custom_domain")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountCustomDomainBlock>>? CustomDomain { get; set; }
+    public TerraformList<AzurermStorageAccountCustomDomainBlock> CustomDomain { get; set; } = new();
 
     /// <summary>
     /// Block for customer_managed_key.
@@ -584,7 +584,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermStorageAccountCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -592,7 +592,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermStorageAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for immutability_policy.
@@ -600,7 +600,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImmutabilityPolicy block(s) allowed")]
     [TerraformProperty("immutability_policy")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountImmutabilityPolicyBlock>>? ImmutabilityPolicy { get; set; }
+    public TerraformList<AzurermStorageAccountImmutabilityPolicyBlock> ImmutabilityPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for network_rules.
@@ -608,7 +608,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRules block(s) allowed")]
     [TerraformProperty("network_rules")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountNetworkRulesBlock>>? NetworkRules { get; set; }
+    public TerraformList<AzurermStorageAccountNetworkRulesBlock> NetworkRules { get; set; } = new();
 
     /// <summary>
     /// Block for queue_properties.
@@ -617,7 +617,7 @@ public partial class AzurermStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueueProperties block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("queue_properties")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesBlock>>? QueueProperties { get; set; }
+    public TerraformList<AzurermStorageAccountQueuePropertiesBlock> QueueProperties { get; set; } = new();
 
     /// <summary>
     /// Block for routing.
@@ -625,7 +625,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformProperty("routing")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountRoutingBlock>>? Routing { get; set; }
+    public TerraformList<AzurermStorageAccountRoutingBlock> Routing { get; set; } = new();
 
     /// <summary>
     /// Block for sas_policy.
@@ -633,7 +633,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SasPolicy block(s) allowed")]
     [TerraformProperty("sas_policy")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountSasPolicyBlock>>? SasPolicy { get; set; }
+    public TerraformList<AzurermStorageAccountSasPolicyBlock> SasPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for share_properties.
@@ -641,7 +641,7 @@ public partial class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareProperties block(s) allowed")]
     [TerraformProperty("share_properties")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountSharePropertiesBlock>>? ShareProperties { get; set; }
+    public TerraformList<AzurermStorageAccountSharePropertiesBlock> ShareProperties { get; set; } = new();
 
     /// <summary>
     /// Block for static_website.
@@ -650,14 +650,14 @@ public partial class AzurermStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticWebsite block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("static_website")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountStaticWebsiteBlock>>? StaticWebsite { get; set; }
+    public TerraformList<AzurermStorageAccountStaticWebsiteBlock> StaticWebsite { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_access_key attribute.

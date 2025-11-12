@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for delivery_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlockBase
+public partial class AwsSesv2ConfigurationSetDeliveryOptionsBlock() : TerraformBlock("delivery_options")
 {
     /// <summary>
     /// The max_delivery_seconds attribute.
@@ -35,7 +35,7 @@ public partial class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlo
 /// Block type for reputation_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2ConfigurationSetReputationOptionsBlock : TerraformBlockBase
+public partial class AwsSesv2ConfigurationSetReputationOptionsBlock() : TerraformBlock("reputation_options")
 {
 
     /// <summary>
@@ -51,7 +51,7 @@ public partial class AwsSesv2ConfigurationSetReputationOptionsBlock : TerraformB
 /// Block type for sending_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2ConfigurationSetSendingOptionsBlock : TerraformBlockBase
+public partial class AwsSesv2ConfigurationSetSendingOptionsBlock() : TerraformBlock("sending_options")
 {
     /// <summary>
     /// The sending_enabled attribute.
@@ -66,7 +66,7 @@ public partial class AwsSesv2ConfigurationSetSendingOptionsBlock : TerraformBloc
 /// Block type for suppression_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2ConfigurationSetSuppressionOptionsBlock : TerraformBlockBase
+public partial class AwsSesv2ConfigurationSetSuppressionOptionsBlock() : TerraformBlock("suppression_options")
 {
     /// <summary>
     /// The suppressed_reasons attribute.
@@ -81,7 +81,7 @@ public partial class AwsSesv2ConfigurationSetSuppressionOptionsBlock : Terraform
 /// Block type for tracking_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlockBase
+public partial class AwsSesv2ConfigurationSetTrackingOptionsBlock() : TerraformBlock("tracking_options")
 {
     /// <summary>
     /// The custom_redirect_domain attribute.
@@ -104,7 +104,7 @@ public partial class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlo
 /// Block type for vdm_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2ConfigurationSetVdmOptionsBlock : TerraformBlockBase
+public partial class AwsSesv2ConfigurationSetVdmOptionsBlock() : TerraformBlock("vdm_options")
 {
 }
 
@@ -160,7 +160,7 @@ public partial class AwsSesv2ConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryOptions block(s) allowed")]
     [TerraformProperty("delivery_options")]
-    public partial TerraformList<TerraformBlock<AwsSesv2ConfigurationSetDeliveryOptionsBlock>>? DeliveryOptions { get; set; }
+    public TerraformList<AwsSesv2ConfigurationSetDeliveryOptionsBlock> DeliveryOptions { get; set; } = new();
 
     /// <summary>
     /// Block for reputation_options.
@@ -168,7 +168,7 @@ public partial class AwsSesv2ConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReputationOptions block(s) allowed")]
     [TerraformProperty("reputation_options")]
-    public partial TerraformList<TerraformBlock<AwsSesv2ConfigurationSetReputationOptionsBlock>>? ReputationOptions { get; set; }
+    public TerraformList<AwsSesv2ConfigurationSetReputationOptionsBlock> ReputationOptions { get; set; } = new();
 
     /// <summary>
     /// Block for sending_options.
@@ -176,7 +176,7 @@ public partial class AwsSesv2ConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SendingOptions block(s) allowed")]
     [TerraformProperty("sending_options")]
-    public partial TerraformList<TerraformBlock<AwsSesv2ConfigurationSetSendingOptionsBlock>>? SendingOptions { get; set; }
+    public TerraformList<AwsSesv2ConfigurationSetSendingOptionsBlock> SendingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for suppression_options.
@@ -184,7 +184,7 @@ public partial class AwsSesv2ConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SuppressionOptions block(s) allowed")]
     [TerraformProperty("suppression_options")]
-    public partial TerraformList<TerraformBlock<AwsSesv2ConfigurationSetSuppressionOptionsBlock>>? SuppressionOptions { get; set; }
+    public TerraformList<AwsSesv2ConfigurationSetSuppressionOptionsBlock> SuppressionOptions { get; set; } = new();
 
     /// <summary>
     /// Block for tracking_options.
@@ -192,7 +192,7 @@ public partial class AwsSesv2ConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrackingOptions block(s) allowed")]
     [TerraformProperty("tracking_options")]
-    public partial TerraformList<TerraformBlock<AwsSesv2ConfigurationSetTrackingOptionsBlock>>? TrackingOptions { get; set; }
+    public TerraformList<AwsSesv2ConfigurationSetTrackingOptionsBlock> TrackingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for vdm_options.
@@ -200,7 +200,7 @@ public partial class AwsSesv2ConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VdmOptions block(s) allowed")]
     [TerraformProperty("vdm_options")]
-    public partial TerraformList<TerraformBlock<AwsSesv2ConfigurationSetVdmOptionsBlock>>? VdmOptions { get; set; }
+    public TerraformList<AwsSesv2ConfigurationSetVdmOptionsBlock> VdmOptions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

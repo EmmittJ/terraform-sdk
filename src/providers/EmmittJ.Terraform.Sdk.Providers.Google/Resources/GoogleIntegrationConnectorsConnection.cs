@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for auth_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionAuthConfigBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionAuthConfigBlock() : TerraformBlock("auth_config")
 {
     /// <summary>
     /// The type of authentication configured.
@@ -29,7 +29,7 @@ public partial class GoogleIntegrationConnectorsConnectionAuthConfigBlock : Terr
 /// Block type for config_variable in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionConfigVariableBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionConfigVariableBlock() : TerraformBlock("config_variable")
 {
     /// <summary>
     /// Boolean Value of configVariable
@@ -66,7 +66,7 @@ public partial class GoogleIntegrationConnectorsConnectionConfigVariableBlock : 
 /// Block type for destination_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionDestinationConfigBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionDestinationConfigBlock() : TerraformBlock("destination_config")
 {
     /// <summary>
     /// The key is the destination identifier that is supported by the Connector.
@@ -82,7 +82,7 @@ public partial class GoogleIntegrationConnectorsConnectionDestinationConfigBlock
 /// Block type for eventing_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionEventingConfigBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionEventingConfigBlock() : TerraformBlock("eventing_config")
 {
     /// <summary>
     /// Enrichment Enabled.
@@ -97,7 +97,7 @@ public partial class GoogleIntegrationConnectorsConnectionEventingConfigBlock : 
 /// Block type for lock_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionLockConfigBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionLockConfigBlock() : TerraformBlock("lock_config")
 {
     /// <summary>
     /// Indicates whether or not the connection is locked.
@@ -120,7 +120,7 @@ public partial class GoogleIntegrationConnectorsConnectionLockConfigBlock : Terr
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionLogConfigBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// Enabled represents whether logging is enabled or not for a connection.
@@ -143,7 +143,7 @@ public partial class GoogleIntegrationConnectorsConnectionLogConfigBlock : Terra
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionNodeConfigBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionNodeConfigBlock() : TerraformBlock("node_config")
 {
     /// <summary>
     /// Minimum number of nodes in the runtime nodes.
@@ -165,7 +165,7 @@ public partial class GoogleIntegrationConnectorsConnectionNodeConfigBlock : Terr
 /// Block type for ssl_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionSslConfigBlock() : TerraformBlock("ssl_config")
 {
     /// <summary>
     /// Type of Client Cert (PEM/JKS/.. etc.) Possible values: [&amp;quot;PEM&amp;quot;]
@@ -209,7 +209,7 @@ public partial class GoogleIntegrationConnectorsConnectionSslConfigBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -327,21 +327,21 @@ public partial class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthConfig block(s) allowed")]
     [TerraformProperty("auth_config")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionAuthConfigBlock>>? AuthConfig { get; set; }
+    public TerraformList<GoogleIntegrationConnectorsConnectionAuthConfigBlock> AuthConfig { get; set; } = new();
 
     /// <summary>
     /// Block for config_variable.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("config_variable")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionConfigVariableBlock>>? ConfigVariable { get; set; }
+    public TerraformList<GoogleIntegrationConnectorsConnectionConfigVariableBlock> ConfigVariable { get; set; } = new();
 
     /// <summary>
     /// Block for destination_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("destination_config")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionDestinationConfigBlock>>? DestinationConfig { get; set; }
+    public TerraformList<GoogleIntegrationConnectorsConnectionDestinationConfigBlock> DestinationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for eventing_config.
@@ -349,7 +349,7 @@ public partial class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventingConfig block(s) allowed")]
     [TerraformProperty("eventing_config")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionEventingConfigBlock>>? EventingConfig { get; set; }
+    public TerraformList<GoogleIntegrationConnectorsConnectionEventingConfigBlock> EventingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for lock_config.
@@ -357,7 +357,7 @@ public partial class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LockConfig block(s) allowed")]
     [TerraformProperty("lock_config")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionLockConfigBlock>>? LockConfig { get; set; }
+    public TerraformList<GoogleIntegrationConnectorsConnectionLockConfigBlock> LockConfig { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
@@ -365,7 +365,7 @@ public partial class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<GoogleIntegrationConnectorsConnectionLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_config.
@@ -373,7 +373,7 @@ public partial class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionNodeConfigBlock>>? NodeConfig { get; set; }
+    public TerraformList<GoogleIntegrationConnectorsConnectionNodeConfigBlock> NodeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for ssl_config.
@@ -381,14 +381,14 @@ public partial class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslConfig block(s) allowed")]
     [TerraformProperty("ssl_config")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionSslConfigBlock>>? SslConfig { get; set; }
+    public TerraformList<GoogleIntegrationConnectorsConnectionSslConfigBlock> SslConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIntegrationConnectorsConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIntegrationConnectorsConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Connection revision. This field is only updated when the connection is created or updated by User.

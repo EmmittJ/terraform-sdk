@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSpannerDatabaseEncryptionConfigBlock : TerraformBlockBase
+public partial class GoogleSpannerDatabaseEncryptionConfigBlock() : TerraformBlock("encryption_config")
 {
     /// <summary>
     /// Fully qualified name of the KMS key to use to encrypt this database. This key must exist
@@ -30,7 +30,7 @@ public partial class GoogleSpannerDatabaseEncryptionConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSpannerDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSpannerDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -170,14 +170,14 @@ public partial class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public partial TerraformList<TerraformBlock<GoogleSpannerDatabaseEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public TerraformList<GoogleSpannerDatabaseEncryptionConfigBlock> EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSpannerDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSpannerDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// An explanation of the status of the database.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_machine_features in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceAdvancedMachineFeaturesBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceAdvancedMachineFeaturesBlock() : TerraformBlock("advanced_machine_features")
 {
     /// <summary>
     /// Whether to enable nested virtualization or not.
@@ -56,7 +56,7 @@ public partial class GoogleComputeInstanceAdvancedMachineFeaturesBlock : Terrafo
 /// Block type for attached_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceAttachedDiskBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceAttachedDiskBlock() : TerraformBlock("attached_disk")
 {
     /// <summary>
     /// Name with which the attached disk is accessible under /dev/disk/by-id/
@@ -122,7 +122,7 @@ public partial class GoogleComputeInstanceAttachedDiskBlock : TerraformBlockBase
 /// Block type for boot_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceBootDiskBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceBootDiskBlock() : TerraformBlock("boot_disk")
 {
     /// <summary>
     /// Whether the disk will be auto-deleted when the instance is deleted.
@@ -208,7 +208,7 @@ public partial class GoogleComputeInstanceBootDiskBlock : TerraformBlockBase
 /// Block type for confidential_instance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceConfidentialInstanceConfigBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceConfidentialInstanceConfigBlock() : TerraformBlock("confidential_instance_config")
 {
     /// <summary>
     /// 
@@ -234,7 +234,7 @@ public partial class GoogleComputeInstanceConfidentialInstanceConfigBlock : Terr
 /// Block type for guest_accelerator in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGuestAcceleratorBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGuestAcceleratorBlock() : TerraformBlock("guest_accelerator")
 {
     /// <summary>
     /// The number of the guest accelerator cards exposed to this instance.
@@ -258,7 +258,7 @@ public partial class GoogleComputeInstanceGuestAcceleratorBlock : TerraformBlock
 /// Block type for instance_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceInstanceEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceInstanceEncryptionKeyBlock() : TerraformBlock("instance_encryption_key")
 {
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud KMS.
@@ -281,7 +281,7 @@ public partial class GoogleComputeInstanceInstanceEncryptionKeyBlock : Terraform
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceNetworkInterfaceBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceNetworkInterfaceBlock() : TerraformBlock("network_interface")
 {
     /// <summary>
     /// The prefix length of the primary internal IPv6 range.
@@ -361,7 +361,7 @@ public partial class GoogleComputeInstanceNetworkInterfaceBlock : TerraformBlock
 /// Block type for network_performance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceNetworkPerformanceConfigBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceNetworkPerformanceConfigBlock() : TerraformBlock("network_performance_config")
 {
     /// <summary>
     /// The egress bandwidth tier to enable. Possible values:TIER_1, DEFAULT
@@ -377,7 +377,7 @@ public partial class GoogleComputeInstanceNetworkPerformanceConfigBlock : Terraf
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceParamsBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored (both PUT &amp;amp; PATCH) when empty.
@@ -392,7 +392,7 @@ public partial class GoogleComputeInstanceParamsBlock : TerraformBlockBase
 /// Block type for reservation_affinity in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceReservationAffinityBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceReservationAffinityBlock() : TerraformBlock("reservation_affinity")
 {
     /// <summary>
     /// The type of reservation from which this instance can consume resources.
@@ -408,7 +408,7 @@ public partial class GoogleComputeInstanceReservationAffinityBlock : TerraformBl
 /// Block type for scheduling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceSchedulingBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceSchedulingBlock() : TerraformBlock("scheduling")
 {
     /// <summary>
     /// Specifies if the instance should be restarted if it was terminated by Compute Engine (not a user).
@@ -474,7 +474,7 @@ public partial class GoogleComputeInstanceSchedulingBlock : TerraformBlockBase
 /// Block type for scratch_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceScratchDiskBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceScratchDiskBlock() : TerraformBlock("scratch_disk")
 {
     /// <summary>
     /// Name with which the attached disk is accessible under /dev/disk/by-id/
@@ -504,7 +504,7 @@ public partial class GoogleComputeInstanceScratchDiskBlock : TerraformBlockBase
 /// Block type for service_account in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceServiceAccountBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceServiceAccountBlock() : TerraformBlock("service_account")
 {
     /// <summary>
     /// The service account e-mail address.
@@ -527,7 +527,7 @@ public partial class GoogleComputeInstanceServiceAccountBlock : TerraformBlockBa
 /// Block type for shielded_instance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceShieldedInstanceConfigBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceShieldedInstanceConfigBlock() : TerraformBlock("shielded_instance_config")
 {
     /// <summary>
     /// Whether integrity monitoring is enabled for the instance.
@@ -556,7 +556,7 @@ public partial class GoogleComputeInstanceShieldedInstanceConfigBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -735,14 +735,14 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedMachineFeatures block(s) allowed")]
     [TerraformProperty("advanced_machine_features")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceAdvancedMachineFeaturesBlock>>? AdvancedMachineFeatures { get; set; }
+    public TerraformList<GoogleComputeInstanceAdvancedMachineFeaturesBlock> AdvancedMachineFeatures { get; set; } = new();
 
     /// <summary>
     /// Block for attached_disk.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attached_disk")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceAttachedDiskBlock>>? AttachedDisk { get; set; }
+    public TerraformList<GoogleComputeInstanceAttachedDiskBlock> AttachedDisk { get; set; } = new();
 
     /// <summary>
     /// Block for boot_disk.
@@ -752,7 +752,7 @@ public partial class GoogleComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BootDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDisk block(s) allowed")]
     [TerraformProperty("boot_disk")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceBootDiskBlock>>? BootDisk { get; set; }
+    public required TerraformList<GoogleComputeInstanceBootDiskBlock> BootDisk { get; set; } = new();
 
     /// <summary>
     /// Block for confidential_instance_config.
@@ -760,14 +760,14 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfidentialInstanceConfig block(s) allowed")]
     [TerraformProperty("confidential_instance_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceConfidentialInstanceConfigBlock>>? ConfidentialInstanceConfig { get; set; }
+    public TerraformList<GoogleComputeInstanceConfidentialInstanceConfigBlock> ConfidentialInstanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for guest_accelerator.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("guest_accelerator")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGuestAcceleratorBlock>>? GuestAccelerator { get; set; }
+    public TerraformList<GoogleComputeInstanceGuestAcceleratorBlock> GuestAccelerator { get; set; } = new();
 
     /// <summary>
     /// Block for instance_encryption_key.
@@ -775,7 +775,7 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceEncryptionKey block(s) allowed")]
     [TerraformProperty("instance_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceInstanceEncryptionKeyBlock>>? InstanceEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeInstanceInstanceEncryptionKeyBlock> InstanceEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
@@ -784,7 +784,7 @@ public partial class GoogleComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterface is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkInterface block(s) required")]
     [TerraformProperty("network_interface")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceNetworkInterfaceBlock>>? NetworkInterface { get; set; }
+    public required TerraformList<GoogleComputeInstanceNetworkInterfaceBlock> NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for network_performance_config.
@@ -792,7 +792,7 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkPerformanceConfig block(s) allowed")]
     [TerraformProperty("network_performance_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceNetworkPerformanceConfigBlock>>? NetworkPerformanceConfig { get; set; }
+    public TerraformList<GoogleComputeInstanceNetworkPerformanceConfigBlock> NetworkPerformanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for params.
@@ -800,7 +800,7 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeInstanceParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for reservation_affinity.
@@ -808,7 +808,7 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationAffinity block(s) allowed")]
     [TerraformProperty("reservation_affinity")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceReservationAffinityBlock>>? ReservationAffinity { get; set; }
+    public TerraformList<GoogleComputeInstanceReservationAffinityBlock> ReservationAffinity { get; set; } = new();
 
     /// <summary>
     /// Block for scheduling.
@@ -816,14 +816,14 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scheduling block(s) allowed")]
     [TerraformProperty("scheduling")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceSchedulingBlock>>? Scheduling { get; set; }
+    public TerraformList<GoogleComputeInstanceSchedulingBlock> Scheduling { get; set; } = new();
 
     /// <summary>
     /// Block for scratch_disk.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scratch_disk")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceScratchDiskBlock>>? ScratchDisk { get; set; }
+    public TerraformList<GoogleComputeInstanceScratchDiskBlock> ScratchDisk { get; set; } = new();
 
     /// <summary>
     /// Block for service_account.
@@ -831,7 +831,7 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceAccount block(s) allowed")]
     [TerraformProperty("service_account")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceServiceAccountBlock>>? ServiceAccount { get; set; }
+    public TerraformList<GoogleComputeInstanceServiceAccountBlock> ServiceAccount { get; set; } = new();
 
     /// <summary>
     /// Block for shielded_instance_config.
@@ -839,14 +839,14 @@ public partial class GoogleComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceConfig block(s) allowed")]
     [TerraformProperty("shielded_instance_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceShieldedInstanceConfigBlock>>? ShieldedInstanceConfig { get; set; }
+    public TerraformList<GoogleComputeInstanceShieldedInstanceConfigBlock> ShieldedInstanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The CPU platform used by this instance.

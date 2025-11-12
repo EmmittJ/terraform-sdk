@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineTargetSiteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -97,7 +97,7 @@ public partial class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineTargetSiteTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineTargetSiteTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Site search indexing failure reasons.

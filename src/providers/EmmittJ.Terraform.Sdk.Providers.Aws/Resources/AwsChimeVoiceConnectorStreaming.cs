@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for media_insights_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock : TerraformBlockBase
+public partial class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock() : TerraformBlock("media_insights_configuration")
 {
     /// <summary>
     /// The configuration_arn attribute.
@@ -84,6 +84,6 @@ public partial class AwsChimeVoiceConnectorStreaming : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaInsightsConfiguration block(s) allowed")]
     [TerraformProperty("media_insights_configuration")]
-    public partial TerraformList<TerraformBlock<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>>? MediaInsightsConfiguration { get; set; }
+    public TerraformList<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock> MediaInsightsConfiguration { get; set; } = new();
 
 }

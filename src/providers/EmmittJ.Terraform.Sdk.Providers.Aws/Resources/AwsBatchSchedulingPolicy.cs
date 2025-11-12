@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for fair_share_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchSchedulingPolicyFairSharePolicyBlock : TerraformBlockBase
+public partial class AwsBatchSchedulingPolicyFairSharePolicyBlock() : TerraformBlock("fair_share_policy")
 {
     /// <summary>
     /// The compute_reservation attribute.
@@ -76,7 +76,7 @@ public partial class AwsBatchSchedulingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FairSharePolicy block(s) allowed")]
     [TerraformProperty("fair_share_policy")]
-    public partial TerraformList<TerraformBlock<AwsBatchSchedulingPolicyFairSharePolicyBlock>>? FairSharePolicy { get; set; }
+    public TerraformList<AwsBatchSchedulingPolicyFairSharePolicyBlock> FairSharePolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

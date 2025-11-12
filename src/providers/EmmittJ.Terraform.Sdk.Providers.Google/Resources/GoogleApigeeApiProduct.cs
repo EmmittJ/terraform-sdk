@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleApigeeApiProductAttributesBlock : TerraformBlockBase
+public partial class GoogleApigeeApiProductAttributesBlock() : TerraformBlock("attributes")
 {
     /// <summary>
     /// Key of the attribute.
@@ -28,7 +28,7 @@ public partial class GoogleApigeeApiProductAttributesBlock : TerraformBlockBase
 /// Block type for graphql_operation_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeApiProductGraphqlOperationGroupBlock : TerraformBlockBase
+public partial class GoogleApigeeApiProductGraphqlOperationGroupBlock() : TerraformBlock("graphql_operation_group")
 {
     /// <summary>
     /// Flag that specifes whether the configuration is for Apigee API proxy or a remote service. Valid values include proxy or remoteservice. Defaults to proxy. Set to proxy when Apigee API proxies are associated with the API product. Set to remoteservice when non-Apigee proxies like Istio-Envoy are associated with the API product. Possible values: [&amp;quot;proxy&amp;quot;, &amp;quot;remoteservice&amp;quot;]
@@ -43,7 +43,7 @@ public partial class GoogleApigeeApiProductGraphqlOperationGroupBlock : Terrafor
 /// Block type for grpc_operation_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeApiProductGrpcOperationGroupBlock : TerraformBlockBase
+public partial class GoogleApigeeApiProductGrpcOperationGroupBlock() : TerraformBlock("grpc_operation_group")
 {
 }
 
@@ -51,7 +51,7 @@ public partial class GoogleApigeeApiProductGrpcOperationGroupBlock : TerraformBl
 /// Block type for operation_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeApiProductOperationGroupBlock : TerraformBlockBase
+public partial class GoogleApigeeApiProductOperationGroupBlock() : TerraformBlock("operation_group")
 {
     /// <summary>
     /// Flag that specifes whether the configuration is for Apigee API proxy or a remote service. Valid values include proxy or remoteservice. Defaults to proxy. Set to proxy when Apigee API proxies are associated with the API product. Set to remoteservice when non-Apigee proxies like Istio-Envoy are associated with the API product. Possible values: [&amp;quot;proxy&amp;quot;, &amp;quot;remoteservice&amp;quot;]
@@ -66,7 +66,7 @@ public partial class GoogleApigeeApiProductOperationGroupBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeApiProductTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeApiProductTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -220,7 +220,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("attributes")]
-    public partial TerraformSet<TerraformBlock<GoogleApigeeApiProductAttributesBlock>>? Attributes { get; set; }
+    public TerraformSet<GoogleApigeeApiProductAttributesBlock> Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for graphql_operation_group.
@@ -228,7 +228,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GraphqlOperationGroup block(s) allowed")]
     [TerraformProperty("graphql_operation_group")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeApiProductGraphqlOperationGroupBlock>>? GraphqlOperationGroup { get; set; }
+    public TerraformList<GoogleApigeeApiProductGraphqlOperationGroupBlock> GraphqlOperationGroup { get; set; } = new();
 
     /// <summary>
     /// Block for grpc_operation_group.
@@ -236,7 +236,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcOperationGroup block(s) allowed")]
     [TerraformProperty("grpc_operation_group")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeApiProductGrpcOperationGroupBlock>>? GrpcOperationGroup { get; set; }
+    public TerraformList<GoogleApigeeApiProductGrpcOperationGroupBlock> GrpcOperationGroup { get; set; } = new();
 
     /// <summary>
     /// Block for operation_group.
@@ -244,14 +244,14 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationGroup block(s) allowed")]
     [TerraformProperty("operation_group")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeApiProductOperationGroupBlock>>? OperationGroup { get; set; }
+    public TerraformList<GoogleApigeeApiProductOperationGroupBlock> OperationGroup { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeApiProductTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeApiProductTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Response only. Creation time of this environment as milliseconds since epoch.

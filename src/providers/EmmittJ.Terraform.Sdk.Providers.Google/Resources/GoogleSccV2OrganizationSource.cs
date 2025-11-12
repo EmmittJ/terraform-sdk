@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccV2OrganizationSourceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccV2OrganizationSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -80,7 +80,7 @@ public partial class GoogleSccV2OrganizationSource : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccV2OrganizationSourceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccV2OrganizationSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of this source, in the format

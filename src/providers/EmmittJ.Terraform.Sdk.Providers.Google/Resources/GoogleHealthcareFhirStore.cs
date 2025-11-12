@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class GoogleHealthcareFhirStoreNotificationConfigBlock : TerraformBlockBase
+public partial class GoogleHealthcareFhirStoreNotificationConfigBlock() : TerraformBlock("notification_config")
 {
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -28,7 +28,7 @@ public partial class GoogleHealthcareFhirStoreNotificationConfigBlock : Terrafor
 /// Block type for notification_configs in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareFhirStoreNotificationConfigsBlock : TerraformBlockBase
+public partial class GoogleHealthcareFhirStoreNotificationConfigsBlock() : TerraformBlock("notification_configs")
 {
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -71,7 +71,7 @@ public partial class GoogleHealthcareFhirStoreNotificationConfigsBlock : Terrafo
 /// Block type for stream_configs in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareFhirStoreStreamConfigsBlock : TerraformBlockBase
+public partial class GoogleHealthcareFhirStoreStreamConfigsBlock() : TerraformBlock("stream_configs")
 {
     /// <summary>
     /// Supply a FHIR resource type (such as &amp;quot;Patient&amp;quot; or &amp;quot;Observation&amp;quot;). See
@@ -88,7 +88,7 @@ public partial class GoogleHealthcareFhirStoreStreamConfigsBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleHealthcareFhirStoreTimeoutsBlock : TerraformBlockBase
+public partial class GoogleHealthcareFhirStoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,7 +117,7 @@ public partial class GoogleHealthcareFhirStoreTimeoutsBlock : TerraformBlockBase
 /// Block type for validation_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlockBase
+public partial class GoogleHealthcareFhirStoreValidationConfigBlock() : TerraformBlock("validation_config")
 {
     /// <summary>
     /// Whether to disable FHIRPath validation for incoming resources. The default value is false. Set this to true to disable checking incoming resources for conformance against FHIRPath requirement defined in the FHIR specification. This property only affects resource types that do not have profiles configured for them, any rules in enabled implementation guides will still be enforced.
@@ -307,28 +307,28 @@ public partial class GoogleHealthcareFhirStore : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("notification_config")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareFhirStoreNotificationConfigBlock>>? NotificationConfig { get; set; }
+    public TerraformList<GoogleHealthcareFhirStoreNotificationConfigBlock> NotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for notification_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("notification_configs")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareFhirStoreNotificationConfigsBlock>>? NotificationConfigs { get; set; }
+    public TerraformList<GoogleHealthcareFhirStoreNotificationConfigsBlock> NotificationConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for stream_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("stream_configs")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareFhirStoreStreamConfigsBlock>>? StreamConfigs { get; set; }
+    public TerraformList<GoogleHealthcareFhirStoreStreamConfigsBlock> StreamConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleHealthcareFhirStoreTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleHealthcareFhirStoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for validation_config.
@@ -336,7 +336,7 @@ public partial class GoogleHealthcareFhirStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValidationConfig block(s) allowed")]
     [TerraformProperty("validation_config")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareFhirStoreValidationConfigBlock>>? ValidationConfig { get; set; }
+    public TerraformList<GoogleHealthcareFhirStoreValidationConfigBlock> ValidationConfig { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attestation_authority in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAnalysisNoteAttestationAuthorityBlock : TerraformBlockBase
+public partial class GoogleContainerAnalysisNoteAttestationAuthorityBlock() : TerraformBlock("attestation_authority")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleContainerAnalysisNoteAttestationAuthorityBlock : Terr
 /// Block type for related_url in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlockBase
+public partial class GoogleContainerAnalysisNoteRelatedUrlBlock() : TerraformBlock("related_url")
 {
     /// <summary>
     /// Label to describe usage of the URL
@@ -37,7 +37,7 @@ public partial class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerAnalysisNoteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -130,21 +130,21 @@ public partial class GoogleContainerAnalysisNote : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AttestationAuthority block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AttestationAuthority block(s) allowed")]
     [TerraformProperty("attestation_authority")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAnalysisNoteAttestationAuthorityBlock>>? AttestationAuthority { get; set; }
+    public required TerraformList<GoogleContainerAnalysisNoteAttestationAuthorityBlock> AttestationAuthority { get; set; } = new();
 
     /// <summary>
     /// Block for related_url.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("related_url")]
-    public partial TerraformSet<TerraformBlock<GoogleContainerAnalysisNoteRelatedUrlBlock>>? RelatedUrl { get; set; }
+    public TerraformSet<GoogleContainerAnalysisNoteRelatedUrlBlock> RelatedUrl { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerAnalysisNoteTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerAnalysisNoteTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time this note was created.

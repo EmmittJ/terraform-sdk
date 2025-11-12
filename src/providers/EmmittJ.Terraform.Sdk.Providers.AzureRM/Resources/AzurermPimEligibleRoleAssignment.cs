@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPimEligibleRoleAssignmentScheduleBlock : TerraformBlockBase
+public partial class AzurermPimEligibleRoleAssignmentScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The start date/time
@@ -21,7 +21,7 @@ public partial class AzurermPimEligibleRoleAssignmentScheduleBlock : TerraformBl
 /// Block type for ticket in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPimEligibleRoleAssignmentTicketBlock : TerraformBlockBase
+public partial class AzurermPimEligibleRoleAssignmentTicketBlock() : TerraformBlock("ticket")
 {
     /// <summary>
     /// User-supplied ticket number to be included with the request
@@ -43,7 +43,7 @@ public partial class AzurermPimEligibleRoleAssignmentTicketBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPimEligibleRoleAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPimEligibleRoleAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -136,7 +136,7 @@ public partial class AzurermPimEligibleRoleAssignment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermPimEligibleRoleAssignmentScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AzurermPimEligibleRoleAssignmentScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for ticket.
@@ -144,14 +144,14 @@ public partial class AzurermPimEligibleRoleAssignment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ticket block(s) allowed")]
     [TerraformProperty("ticket")]
-    public partial TerraformList<TerraformBlock<AzurermPimEligibleRoleAssignmentTicketBlock>>? Ticket { get; set; }
+    public TerraformList<AzurermPimEligibleRoleAssignmentTicketBlock> Ticket { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPimEligibleRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPimEligibleRoleAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Type of principal to which the role will be assigned

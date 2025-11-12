@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployCustomTargetTypeIamBindingConditionBlock : TerraformBlockBase
+public partial class GoogleClouddeployCustomTargetTypeIamBindingConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -94,7 +94,7 @@ public partial class GoogleClouddeployCustomTargetTypeIamBinding : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployCustomTargetTypeIamBindingConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleClouddeployCustomTargetTypeIamBindingConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIapBrandTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIapBrandTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -73,7 +73,7 @@ public partial class GoogleIapBrand : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIapBrandTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIapBrandTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Identifier of the brand, in the format &#39;projects/{project_number}/brands/{brand_id}&#39;

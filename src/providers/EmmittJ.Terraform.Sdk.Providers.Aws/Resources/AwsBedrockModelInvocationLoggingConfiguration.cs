@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : TerraformBlockBase
+public partial class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// The embedding_data_delivery_enabled attribute.
@@ -59,7 +59,7 @@ public partial class AwsBedrockModelInvocationLoggingConfiguration : TerraformRe
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

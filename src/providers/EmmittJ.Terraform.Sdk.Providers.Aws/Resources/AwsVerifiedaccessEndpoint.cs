@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cidr_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessEndpointCidrOptionsBlock() : TerraformBlock("cidr_options")
 {
     /// <summary>
     /// The cidr attribute.
@@ -36,7 +36,7 @@ public partial class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlockB
 /// Block type for load_balancer_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock() : TerraformBlock("load_balancer_options")
 {
     /// <summary>
     /// The load_balancer_arn attribute.
@@ -72,7 +72,7 @@ public partial class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : Terrafo
 /// Block type for network_interface_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock() : TerraformBlock("network_interface_options")
 {
     /// <summary>
     /// The network_interface_id attribute.
@@ -101,7 +101,7 @@ public partial class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : Ter
 /// Block type for rds_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessEndpointRdsOptionsBlock() : TerraformBlock("rds_options")
 {
     /// <summary>
     /// The port attribute.
@@ -158,7 +158,7 @@ public partial class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlockBa
 /// Block type for sse_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessEndpointSseSpecificationBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessEndpointSseSpecificationBlock() : TerraformBlock("sse_specification")
 {
     /// <summary>
     /// The customer_managed_key_enabled attribute.
@@ -180,7 +180,7 @@ public partial class AwsVerifiedaccessEndpointSseSpecificationBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -315,7 +315,7 @@ public partial class AwsVerifiedaccessEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrOptions block(s) allowed")]
     [TerraformProperty("cidr_options")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessEndpointCidrOptionsBlock>>? CidrOptions { get; set; }
+    public TerraformList<AwsVerifiedaccessEndpointCidrOptionsBlock> CidrOptions { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancer_options.
@@ -323,7 +323,7 @@ public partial class AwsVerifiedaccessEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerOptions block(s) allowed")]
     [TerraformProperty("load_balancer_options")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessEndpointLoadBalancerOptionsBlock>>? LoadBalancerOptions { get; set; }
+    public TerraformList<AwsVerifiedaccessEndpointLoadBalancerOptionsBlock> LoadBalancerOptions { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface_options.
@@ -331,7 +331,7 @@ public partial class AwsVerifiedaccessEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkInterfaceOptions block(s) allowed")]
     [TerraformProperty("network_interface_options")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock>>? NetworkInterfaceOptions { get; set; }
+    public TerraformList<AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock> NetworkInterfaceOptions { get; set; } = new();
 
     /// <summary>
     /// Block for rds_options.
@@ -339,7 +339,7 @@ public partial class AwsVerifiedaccessEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RdsOptions block(s) allowed")]
     [TerraformProperty("rds_options")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessEndpointRdsOptionsBlock>>? RdsOptions { get; set; }
+    public TerraformList<AwsVerifiedaccessEndpointRdsOptionsBlock> RdsOptions { get; set; } = new();
 
     /// <summary>
     /// Block for sse_specification.
@@ -347,14 +347,14 @@ public partial class AwsVerifiedaccessEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseSpecification block(s) allowed")]
     [TerraformProperty("sse_specification")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessEndpointSseSpecificationBlock>>? SseSpecification { get; set; }
+    public TerraformList<AwsVerifiedaccessEndpointSseSpecificationBlock> SseSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVerifiedaccessEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVerifiedaccessEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The device_validation_domain attribute.

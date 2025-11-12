@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for external_mapping in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayNatRuleExternalMappingBlock() : TerraformBlock("external_mapping")
 {
     /// <summary>
     /// The address_space attribute.
@@ -29,7 +29,7 @@ public partial class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlo
 /// Block type for internal_mapping in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayNatRuleInternalMappingBlock() : TerraformBlock("internal_mapping")
 {
     /// <summary>
     /// The address_space attribute.
@@ -52,7 +52,7 @@ public partial class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayNatRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -142,20 +142,20 @@ public partial class AzurermVpnGatewayNatRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("external_mapping")]
-    public partial TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleExternalMappingBlock>>? ExternalMapping { get; set; }
+    public TerraformList<AzurermVpnGatewayNatRuleExternalMappingBlock> ExternalMapping { get; set; } = new();
 
     /// <summary>
     /// Block for internal_mapping.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("internal_mapping")]
-    public partial TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleInternalMappingBlock>>? InternalMapping { get; set; }
+    public TerraformList<AzurermVpnGatewayNatRuleInternalMappingBlock> InternalMapping { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVpnGatewayNatRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVpnGatewayNatRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

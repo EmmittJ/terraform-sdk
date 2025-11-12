@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for correlation_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : TerraformBlockBase
+public partial class AzurermServicebusSubscriptionRuleCorrelationFilterBlock() : TerraformBlock("correlation_filter")
 {
     /// <summary>
     /// The content_type attribute.
@@ -77,7 +77,7 @@ public partial class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermServicebusSubscriptionRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -170,14 +170,14 @@ public partial class AzurermServicebusSubscriptionRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorrelationFilter block(s) allowed")]
     [TerraformProperty("correlation_filter")]
-    public partial TerraformList<TerraformBlock<AzurermServicebusSubscriptionRuleCorrelationFilterBlock>>? CorrelationFilter { get; set; }
+    public TerraformList<AzurermServicebusSubscriptionRuleCorrelationFilterBlock> CorrelationFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermServicebusSubscriptionRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermServicebusSubscriptionRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The sql_filter_compatibility_level attribute.

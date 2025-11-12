@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_scaling_group_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBlockBase
+public partial class AwsEcsCapacityProviderAutoScalingGroupProviderBlock() : TerraformBlock("auto_scaling_group_provider")
 {
     /// <summary>
     /// The auto_scaling_group_arn attribute.
@@ -36,7 +36,7 @@ public partial class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : Terra
 /// Block type for managed_instances_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBlockBase
+public partial class AwsEcsCapacityProviderManagedInstancesProviderBlock() : TerraformBlock("managed_instances_provider")
 {
     /// <summary>
     /// The infrastructure_role_arn attribute.
@@ -114,7 +114,7 @@ public partial class AwsEcsCapacityProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingGroupProvider block(s) allowed")]
     [TerraformProperty("auto_scaling_group_provider")]
-    public partial TerraformList<TerraformBlock<AwsEcsCapacityProviderAutoScalingGroupProviderBlock>>? AutoScalingGroupProvider { get; set; }
+    public TerraformList<AwsEcsCapacityProviderAutoScalingGroupProviderBlock> AutoScalingGroupProvider { get; set; } = new();
 
     /// <summary>
     /// Block for managed_instances_provider.
@@ -122,7 +122,7 @@ public partial class AwsEcsCapacityProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedInstancesProvider block(s) allowed")]
     [TerraformProperty("managed_instances_provider")]
-    public partial TerraformList<TerraformBlock<AwsEcsCapacityProviderManagedInstancesProviderBlock>>? ManagedInstancesProvider { get; set; }
+    public TerraformList<AwsEcsCapacityProviderManagedInstancesProviderBlock> ManagedInstancesProvider { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

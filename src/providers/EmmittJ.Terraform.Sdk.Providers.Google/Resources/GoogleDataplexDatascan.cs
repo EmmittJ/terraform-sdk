@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexDatascanDataBlock : TerraformBlockBase
+public partial class GoogleDataplexDatascanDataBlock() : TerraformBlock("data")
 {
     /// <summary>
     /// The Dataplex entity that represents the data source(e.g. BigQuery table) for Datascan.
@@ -29,7 +29,7 @@ public partial class GoogleDataplexDatascanDataBlock : TerraformBlockBase
 /// Block type for data_discovery_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexDatascanDataDiscoverySpecBlock : TerraformBlockBase
+public partial class GoogleDataplexDatascanDataDiscoverySpecBlock() : TerraformBlock("data_discovery_spec")
 {
 }
 
@@ -37,7 +37,7 @@ public partial class GoogleDataplexDatascanDataDiscoverySpecBlock : TerraformBlo
 /// Block type for data_profile_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexDatascanDataProfileSpecBlock : TerraformBlockBase
+public partial class GoogleDataplexDatascanDataProfileSpecBlock() : TerraformBlock("data_profile_spec")
 {
     /// <summary>
     /// A filter applied to all rows in a single DataScan job. The filter needs to be a valid SQL expression for a WHERE clause in BigQuery standard SQL syntax. Example: col1 &amp;gt;= 0 AND col2 &amp;lt; 10
@@ -61,7 +61,7 @@ public partial class GoogleDataplexDatascanDataProfileSpecBlock : TerraformBlock
 /// Block type for data_quality_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlockBase
+public partial class GoogleDataplexDatascanDataQualitySpecBlock() : TerraformBlock("data_quality_spec")
 {
     /// <summary>
     /// If set, the latest DataScan job result will be published to Dataplex Catalog.
@@ -92,7 +92,7 @@ public partial class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
 /// Block type for execution_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexDatascanExecutionSpecBlock : TerraformBlockBase
+public partial class GoogleDataplexDatascanExecutionSpecBlock() : TerraformBlock("execution_spec")
 {
     /// <summary>
     /// The unnested field (of type Date or Timestamp) that contains values which monotonically increase over time. If not specified, a data scan will run for all data in the table.
@@ -107,7 +107,7 @@ public partial class GoogleDataplexDatascanExecutionSpecBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexDatascanTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexDatascanTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -205,7 +205,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Data block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Data block(s) allowed")]
     [TerraformProperty("data")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanDataBlock>>? Data { get; set; }
+    public required TerraformList<GoogleDataplexDatascanDataBlock> Data { get; set; } = new();
 
     /// <summary>
     /// Block for data_discovery_spec.
@@ -213,7 +213,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataDiscoverySpec block(s) allowed")]
     [TerraformProperty("data_discovery_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanDataDiscoverySpecBlock>>? DataDiscoverySpec { get; set; }
+    public TerraformList<GoogleDataplexDatascanDataDiscoverySpecBlock> DataDiscoverySpec { get; set; } = new();
 
     /// <summary>
     /// Block for data_profile_spec.
@@ -221,7 +221,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProfileSpec block(s) allowed")]
     [TerraformProperty("data_profile_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanDataProfileSpecBlock>>? DataProfileSpec { get; set; }
+    public TerraformList<GoogleDataplexDatascanDataProfileSpecBlock> DataProfileSpec { get; set; } = new();
 
     /// <summary>
     /// Block for data_quality_spec.
@@ -229,7 +229,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualitySpec block(s) allowed")]
     [TerraformProperty("data_quality_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanDataQualitySpecBlock>>? DataQualitySpec { get; set; }
+    public TerraformList<GoogleDataplexDatascanDataQualitySpecBlock> DataQualitySpec { get; set; } = new();
 
     /// <summary>
     /// Block for execution_spec.
@@ -239,14 +239,14 @@ public partial class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExecutionSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionSpec block(s) allowed")]
     [TerraformProperty("execution_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanExecutionSpecBlock>>? ExecutionSpec { get; set; }
+    public required TerraformList<GoogleDataplexDatascanExecutionSpecBlock> ExecutionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexDatascanTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexDatascanTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the scan was created.

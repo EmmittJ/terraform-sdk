@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_source_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentDataSourceDataSourceConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentDataSourceDataSourceConfigurationBlock() : TerraformBlock("data_source_configuration")
 {
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsBedrockagentDataSourceDataSourceConfigurationBlock : Ter
 /// Block type for server_side_encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentDataSourceServerSideEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentDataSourceServerSideEncryptionConfigurationBlock() : TerraformBlock("server_side_encryption_configuration")
 {
     /// <summary>
     /// The kms_key_arn attribute.
@@ -37,7 +37,7 @@ public partial class AwsBedrockagentDataSourceServerSideEncryptionConfigurationB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -59,7 +59,7 @@ public partial class AwsBedrockagentDataSourceTimeoutsBlock : TerraformBlockBase
 /// Block type for vector_ingestion_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentDataSourceVectorIngestionConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentDataSourceVectorIngestionConfigurationBlock() : TerraformBlock("vector_ingestion_configuration")
 {
 }
 
@@ -114,28 +114,28 @@ public partial class AwsBedrockagentDataSource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_source_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentDataSourceDataSourceConfigurationBlock>>? DataSourceConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentDataSourceDataSourceConfigurationBlock> DataSourceConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for server_side_encryption_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("server_side_encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentDataSourceServerSideEncryptionConfigurationBlock>>? ServerSideEncryptionConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentDataSourceServerSideEncryptionConfigurationBlock> ServerSideEncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vector_ingestion_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vector_ingestion_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentDataSourceVectorIngestionConfigurationBlock>>? VectorIngestionConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentDataSourceVectorIngestionConfigurationBlock> VectorIngestionConfiguration { get; set; } = new();
 
     /// <summary>
     /// The data_source_id attribute.

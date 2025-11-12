@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for admin_contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsRegisteredDomainAdminContactBlock : TerraformBlockBase
+public partial class AwsRoute53domainsRegisteredDomainAdminContactBlock() : TerraformBlock("admin_contact")
 {
     /// <summary>
     /// The address_line_1 attribute.
@@ -112,7 +112,7 @@ public partial class AwsRoute53domainsRegisteredDomainAdminContactBlock : Terraf
 /// Block type for billing_contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsRegisteredDomainBillingContactBlock : TerraformBlockBase
+public partial class AwsRoute53domainsRegisteredDomainBillingContactBlock() : TerraformBlock("billing_contact")
 {
     /// <summary>
     /// The address_line_1 attribute.
@@ -218,7 +218,7 @@ public partial class AwsRoute53domainsRegisteredDomainBillingContactBlock : Terr
 /// Block type for name_server in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsRegisteredDomainNameServerBlock : TerraformBlockBase
+public partial class AwsRoute53domainsRegisteredDomainNameServerBlock() : TerraformBlock("name_server")
 {
     /// <summary>
     /// The glue_ips attribute.
@@ -241,7 +241,7 @@ public partial class AwsRoute53domainsRegisteredDomainNameServerBlock : Terrafor
 /// Block type for registrant_contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : TerraformBlockBase
+public partial class AwsRoute53domainsRegisteredDomainRegistrantContactBlock() : TerraformBlock("registrant_contact")
 {
     /// <summary>
     /// The address_line_1 attribute.
@@ -347,7 +347,7 @@ public partial class AwsRoute53domainsRegisteredDomainRegistrantContactBlock : T
 /// Block type for tech_contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsRegisteredDomainTechContactBlock : TerraformBlockBase
+public partial class AwsRoute53domainsRegisteredDomainTechContactBlock() : TerraformBlock("tech_contact")
 {
     /// <summary>
     /// The address_line_1 attribute.
@@ -453,7 +453,7 @@ public partial class AwsRoute53domainsRegisteredDomainTechContactBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53domainsRegisteredDomainTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53domainsRegisteredDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -558,7 +558,7 @@ public partial class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminContact block(s) allowed")]
     [TerraformProperty("admin_contact")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainAdminContactBlock>>? AdminContact { get; set; }
+    public TerraformList<AwsRoute53domainsRegisteredDomainAdminContactBlock> AdminContact { get; set; } = new();
 
     /// <summary>
     /// Block for billing_contact.
@@ -566,7 +566,7 @@ public partial class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BillingContact block(s) allowed")]
     [TerraformProperty("billing_contact")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainBillingContactBlock>>? BillingContact { get; set; }
+    public TerraformList<AwsRoute53domainsRegisteredDomainBillingContactBlock> BillingContact { get; set; } = new();
 
     /// <summary>
     /// Block for name_server.
@@ -574,7 +574,7 @@ public partial class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(6, ErrorMessage = "Maximum 6 NameServer block(s) allowed")]
     [TerraformProperty("name_server")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainNameServerBlock>>? NameServer { get; set; }
+    public TerraformList<AwsRoute53domainsRegisteredDomainNameServerBlock> NameServer { get; set; } = new();
 
     /// <summary>
     /// Block for registrant_contact.
@@ -582,7 +582,7 @@ public partial class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistrantContact block(s) allowed")]
     [TerraformProperty("registrant_contact")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainRegistrantContactBlock>>? RegistrantContact { get; set; }
+    public TerraformList<AwsRoute53domainsRegisteredDomainRegistrantContactBlock> RegistrantContact { get; set; } = new();
 
     /// <summary>
     /// Block for tech_contact.
@@ -590,14 +590,14 @@ public partial class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TechContact block(s) allowed")]
     [TerraformProperty("tech_contact")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsRegisteredDomainTechContactBlock>>? TechContact { get; set; }
+    public TerraformList<AwsRoute53domainsRegisteredDomainTechContactBlock> TechContact { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53domainsRegisteredDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53domainsRegisteredDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The abuse_contact_email attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountMapTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountMapTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -106,6 +106,6 @@ public partial class AzurermLogicAppIntegrationAccountMap : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppIntegrationAccountMapTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppIntegrationAccountMapTimeoutsBlock Timeouts { get; set; } = new();
 
 }

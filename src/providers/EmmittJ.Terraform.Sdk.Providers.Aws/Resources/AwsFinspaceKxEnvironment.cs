@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for custom_dns_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock() : TerraformBlock("custom_dns_configuration")
 {
     /// <summary>
     /// The custom_dns_server_ip attribute.
@@ -30,7 +30,7 @@ public partial class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFinspaceKxEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsFinspaceKxEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -59,7 +59,7 @@ public partial class AwsFinspaceKxEnvironmentTimeoutsBlock : TerraformBlockBase
 /// Block type for transit_gateway_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock() : TerraformBlock("transit_gateway_configuration")
 {
     /// <summary>
     /// The routable_cidr_space attribute.
@@ -138,14 +138,14 @@ public partial class AwsFinspaceKxEnvironment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_dns_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock>>? CustomDnsConfiguration { get; set; }
+    public TerraformList<AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock> CustomDnsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFinspaceKxEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFinspaceKxEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for transit_gateway_configuration.
@@ -153,7 +153,7 @@ public partial class AwsFinspaceKxEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TransitGatewayConfiguration block(s) allowed")]
     [TerraformProperty("transit_gateway_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock>>? TransitGatewayConfiguration { get; set; }
+    public TerraformList<AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock> TransitGatewayConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

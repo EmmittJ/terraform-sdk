@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for nat_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermPrivateLinkServiceNatIpConfigurationBlock() : TerraformBlock("nat_ip_configuration")
 {
     /// <summary>
     /// The name attribute.
@@ -52,7 +52,7 @@ public partial class AzurermPrivateLinkServiceNatIpConfigurationBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPrivateLinkServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -182,14 +182,14 @@ public partial class AzurermPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NatIpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 NatIpConfiguration block(s) allowed")]
     [TerraformProperty("nat_ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermPrivateLinkServiceNatIpConfigurationBlock>>? NatIpConfiguration { get; set; }
+    public required TerraformList<AzurermPrivateLinkServiceNatIpConfigurationBlock> NatIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPrivateLinkServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPrivateLinkServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The alias attribute.

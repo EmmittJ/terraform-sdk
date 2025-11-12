@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for boot_diagnostics in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetBootDiagnosticsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetBootDiagnosticsBlock() : TerraformBlock("boot_diagnostics")
 {
     /// <summary>
     /// The enabled attribute.
@@ -29,7 +29,7 @@ public partial class AzurermVirtualMachineScaleSetBootDiagnosticsBlock : Terrafo
 /// Block type for extension in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetExtensionBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetExtensionBlock() : TerraformBlock("extension")
 {
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
@@ -97,7 +97,7 @@ public partial class AzurermVirtualMachineScaleSetExtensionBlock : TerraformBloc
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetIdentityBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -122,7 +122,7 @@ public partial class AzurermVirtualMachineScaleSetIdentityBlock : TerraformBlock
 /// Block type for network_profile in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetNetworkProfileBlock() : TerraformBlock("network_profile")
 {
     /// <summary>
     /// The accelerated_networking attribute.
@@ -167,7 +167,7 @@ public partial class AzurermVirtualMachineScaleSetNetworkProfileBlock : Terrafor
 /// Block type for os_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetOsProfileBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetOsProfileBlock() : TerraformBlock("os_profile")
 {
     /// <summary>
     /// The admin_password attribute.
@@ -205,7 +205,7 @@ public partial class AzurermVirtualMachineScaleSetOsProfileBlock : TerraformBloc
 /// Block type for os_profile_linux_config in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock() : TerraformBlock("os_profile_linux_config")
 {
     /// <summary>
     /// The disable_password_authentication attribute.
@@ -220,7 +220,7 @@ public partial class AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock : Te
 /// Block type for os_profile_secrets in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetOsProfileSecretsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetOsProfileSecretsBlock() : TerraformBlock("os_profile_secrets")
 {
     /// <summary>
     /// The source_vault_id attribute.
@@ -236,7 +236,7 @@ public partial class AzurermVirtualMachineScaleSetOsProfileSecretsBlock : Terraf
 /// Block type for os_profile_windows_config in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock() : TerraformBlock("os_profile_windows_config")
 {
     /// <summary>
     /// The enable_automatic_upgrades attribute.
@@ -258,7 +258,7 @@ public partial class AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock : 
 /// Block type for plan in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetPlanBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetPlanBlock() : TerraformBlock("plan")
 {
     /// <summary>
     /// The name attribute.
@@ -290,7 +290,7 @@ public partial class AzurermVirtualMachineScaleSetPlanBlock : TerraformBlockBase
 /// Block type for rolling_upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock() : TerraformBlock("rolling_upgrade_policy")
 {
     /// <summary>
     /// The max_batch_instance_percent attribute.
@@ -326,7 +326,7 @@ public partial class AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock : Te
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetSkuBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -357,7 +357,7 @@ public partial class AzurermVirtualMachineScaleSetSkuBlock : TerraformBlockBase
 /// Block type for storage_profile_data_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock() : TerraformBlock("storage_profile_data_disk")
 {
     /// <summary>
     /// The caching attribute.
@@ -402,7 +402,7 @@ public partial class AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock : 
 /// Block type for storage_profile_image_reference in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock() : TerraformBlock("storage_profile_image_reference")
 {
     /// <summary>
     /// The id attribute.
@@ -445,7 +445,7 @@ public partial class AzurermVirtualMachineScaleSetStorageProfileImageReferenceBl
 /// Block type for storage_profile_os_disk in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock() : TerraformBlock("storage_profile_os_disk")
 {
     /// <summary>
     /// The caching attribute.
@@ -503,7 +503,7 @@ public partial class AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -661,14 +661,14 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
     [TerraformProperty("boot_diagnostics")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetBootDiagnosticsBlock>>? BootDiagnostics { get; set; }
+    public TerraformList<AzurermVirtualMachineScaleSetBootDiagnosticsBlock> BootDiagnostics { get; set; } = new();
 
     /// <summary>
     /// Block for extension.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("extension")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualMachineScaleSetExtensionBlock>>? Extension { get; set; }
+    public TerraformSet<AzurermVirtualMachineScaleSetExtensionBlock> Extension { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -676,7 +676,7 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermVirtualMachineScaleSetIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -685,7 +685,7 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [TerraformProperty("network_profile")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualMachineScaleSetNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public required TerraformSet<AzurermVirtualMachineScaleSetNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for os_profile.
@@ -695,7 +695,7 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfile block(s) allowed")]
     [TerraformProperty("os_profile")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetOsProfileBlock>>? OsProfile { get; set; }
+    public required TerraformList<AzurermVirtualMachineScaleSetOsProfileBlock> OsProfile { get; set; } = new();
 
     /// <summary>
     /// Block for os_profile_linux_config.
@@ -703,14 +703,14 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfileLinuxConfig block(s) allowed")]
     [TerraformProperty("os_profile_linux_config")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock>>? OsProfileLinuxConfig { get; set; }
+    public TerraformSet<AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock> OsProfileLinuxConfig { get; set; } = new();
 
     /// <summary>
     /// Block for os_profile_secrets.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("os_profile_secrets")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualMachineScaleSetOsProfileSecretsBlock>>? OsProfileSecrets { get; set; }
+    public TerraformSet<AzurermVirtualMachineScaleSetOsProfileSecretsBlock> OsProfileSecrets { get; set; } = new();
 
     /// <summary>
     /// Block for os_profile_windows_config.
@@ -718,7 +718,7 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfileWindowsConfig block(s) allowed")]
     [TerraformProperty("os_profile_windows_config")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock>>? OsProfileWindowsConfig { get; set; }
+    public TerraformSet<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock> OsProfileWindowsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for plan.
@@ -726,7 +726,7 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualMachineScaleSetPlanBlock>>? Plan { get; set; }
+    public TerraformSet<AzurermVirtualMachineScaleSetPlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for rolling_upgrade_policy.
@@ -734,7 +734,7 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RollingUpgradePolicy block(s) allowed")]
     [TerraformProperty("rolling_upgrade_policy")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock>>? RollingUpgradePolicy { get; set; }
+    public TerraformList<AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock> RollingUpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -744,14 +744,14 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermVirtualMachineScaleSetSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for storage_profile_data_disk.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage_profile_data_disk")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock>>? StorageProfileDataDisk { get; set; }
+    public TerraformList<AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock> StorageProfileDataDisk { get; set; } = new();
 
     /// <summary>
     /// Block for storage_profile_image_reference.
@@ -759,7 +759,7 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageProfileImageReference block(s) allowed")]
     [TerraformProperty("storage_profile_image_reference")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock>>? StorageProfileImageReference { get; set; }
+    public TerraformSet<AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock> StorageProfileImageReference { get; set; } = new();
 
     /// <summary>
     /// Block for storage_profile_os_disk.
@@ -769,13 +769,13 @@ public partial class AzurermVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageProfileOsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageProfileOsDisk block(s) allowed")]
     [TerraformProperty("storage_profile_os_disk")]
-    public partial TerraformSet<TerraformBlock<AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock>>? StorageProfileOsDisk { get; set; }
+    public required TerraformSet<AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock> StorageProfileOsDisk { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualMachineScaleSetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualMachineScaleSetTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -106,6 +106,6 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine : Terrafo
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock Timeouts { get; set; } = new();
 
 }

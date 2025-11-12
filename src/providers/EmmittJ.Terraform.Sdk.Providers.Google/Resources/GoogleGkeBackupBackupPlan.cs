@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backup_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlockBase
+public partial class GoogleGkeBackupBackupPlanBackupConfigBlock() : TerraformBlock("backup_config")
 {
     /// <summary>
     /// If True, include all namespaced resources.
@@ -46,7 +46,7 @@ public partial class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlock
 /// Block type for backup_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeBackupBackupPlanBackupScheduleBlock : TerraformBlockBase
+public partial class GoogleGkeBackupBackupPlanBackupScheduleBlock() : TerraformBlock("backup_schedule")
 {
     /// <summary>
     /// A standard cron string that defines a repeating schedule for
@@ -72,7 +72,7 @@ public partial class GoogleGkeBackupBackupPlanBackupScheduleBlock : TerraformBlo
 /// Block type for retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBlockBase
+public partial class GoogleGkeBackupBackupPlanRetentionPolicyBlock() : TerraformBlock("retention_policy")
 {
     /// <summary>
     /// Minimum age for a Backup created via this BackupPlan (in days).
@@ -119,7 +119,7 @@ public partial class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeBackupBackupPlanTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeBackupBackupPlanTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -228,7 +228,7 @@ public partial class GoogleGkeBackupBackupPlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupConfig block(s) allowed")]
     [TerraformProperty("backup_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeBackupBackupPlanBackupConfigBlock>>? BackupConfig { get; set; }
+    public TerraformList<GoogleGkeBackupBackupPlanBackupConfigBlock> BackupConfig { get; set; } = new();
 
     /// <summary>
     /// Block for backup_schedule.
@@ -236,7 +236,7 @@ public partial class GoogleGkeBackupBackupPlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupSchedule block(s) allowed")]
     [TerraformProperty("backup_schedule")]
-    public partial TerraformList<TerraformBlock<GoogleGkeBackupBackupPlanBackupScheduleBlock>>? BackupSchedule { get; set; }
+    public TerraformList<GoogleGkeBackupBackupPlanBackupScheduleBlock> BackupSchedule { get; set; } = new();
 
     /// <summary>
     /// Block for retention_policy.
@@ -244,14 +244,14 @@ public partial class GoogleGkeBackupBackupPlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
     [TerraformProperty("retention_policy")]
-    public partial TerraformList<TerraformBlock<GoogleGkeBackupBackupPlanRetentionPolicyBlock>>? RetentionPolicy { get; set; }
+    public TerraformList<GoogleGkeBackupBackupPlanRetentionPolicyBlock> RetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeBackupBackupPlanTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeBackupBackupPlanTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

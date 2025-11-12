@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for nfs_exports in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOpenzfsVolumeNfsExportsBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsVolumeNfsExportsBlock() : TerraformBlock("nfs_exports")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsFsxOpenzfsVolumeNfsExportsBlock : TerraformBlockBase
 /// Block type for origin_snapshot in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsVolumeOriginSnapshotBlock() : TerraformBlock("origin_snapshot")
 {
     /// <summary>
     /// The copy_strategy attribute.
@@ -38,7 +38,7 @@ public partial class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsVolumeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -67,7 +67,7 @@ public partial class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlockBase
 /// Block type for user_and_group_quotas in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock() : TerraformBlock("user_and_group_quotas")
 {
     /// <summary>
     /// The id attribute.
@@ -211,7 +211,7 @@ public partial class AwsFsxOpenzfsVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NfsExports block(s) allowed")]
     [TerraformProperty("nfs_exports")]
-    public partial TerraformList<TerraformBlock<AwsFsxOpenzfsVolumeNfsExportsBlock>>? NfsExports { get; set; }
+    public TerraformList<AwsFsxOpenzfsVolumeNfsExportsBlock> NfsExports { get; set; } = new();
 
     /// <summary>
     /// Block for origin_snapshot.
@@ -219,21 +219,21 @@ public partial class AwsFsxOpenzfsVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginSnapshot block(s) allowed")]
     [TerraformProperty("origin_snapshot")]
-    public partial TerraformList<TerraformBlock<AwsFsxOpenzfsVolumeOriginSnapshotBlock>>? OriginSnapshot { get; set; }
+    public TerraformList<AwsFsxOpenzfsVolumeOriginSnapshotBlock> OriginSnapshot { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxOpenzfsVolumeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxOpenzfsVolumeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_and_group_quotas.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("user_and_group_quotas")]
-    public partial TerraformSet<TerraformBlock<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>>? UserAndGroupQuotas { get; set; }
+    public TerraformSet<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock> UserAndGroupQuotas { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

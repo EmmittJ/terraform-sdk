@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for inbound_ip_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlockBase
+public partial class AzurermEventgridPartnerNamespaceInboundIpRuleBlock() : TerraformBlock("inbound_ip_rule")
 {
     /// <summary>
     /// The action attribute.
@@ -29,7 +29,7 @@ public partial class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventgridPartnerNamespaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,14 +144,14 @@ public partial class AzurermEventgridPartnerNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(16, ErrorMessage = "Maximum 16 InboundIpRule block(s) allowed")]
     [TerraformProperty("inbound_ip_rule")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridPartnerNamespaceInboundIpRuleBlock>>? InboundIpRule { get; set; }
+    public TerraformList<AzurermEventgridPartnerNamespaceInboundIpRuleBlock> InboundIpRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventgridPartnerNamespaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventgridPartnerNamespaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

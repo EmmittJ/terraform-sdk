@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlockBase
+public partial class AzurermLogicAppTriggerRecurrenceScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The at_these_hours attribute.
@@ -35,7 +35,7 @@ public partial class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppTriggerRecurrenceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -136,13 +136,13 @@ public partial class AzurermLogicAppTriggerRecurrence : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppTriggerRecurrenceScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AzurermLogicAppTriggerRecurrenceScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppTriggerRecurrenceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppTriggerRecurrenceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

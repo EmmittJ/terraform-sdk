@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for model in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCognitiveDeploymentModelBlock : TerraformBlockBase
+public partial class AzurermCognitiveDeploymentModelBlock() : TerraformBlock("model")
 {
     /// <summary>
     /// The format attribute.
@@ -37,7 +37,7 @@ public partial class AzurermCognitiveDeploymentModelBlock : TerraformBlockBase
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCognitiveDeploymentSkuBlock : TerraformBlockBase
+public partial class AzurermCognitiveDeploymentSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -81,7 +81,7 @@ public partial class AzurermCognitiveDeploymentSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCognitiveDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,7 +175,7 @@ public partial class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Model block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Model block(s) allowed")]
     [TerraformProperty("model")]
-    public partial TerraformList<TerraformBlock<AzurermCognitiveDeploymentModelBlock>>? Model { get; set; }
+    public required TerraformList<AzurermCognitiveDeploymentModelBlock> Model { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -185,13 +185,13 @@ public partial class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermCognitiveDeploymentSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermCognitiveDeploymentSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCognitiveDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCognitiveDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

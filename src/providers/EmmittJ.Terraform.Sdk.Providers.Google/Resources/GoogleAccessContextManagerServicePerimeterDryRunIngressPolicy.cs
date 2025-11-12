@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for ingress_from in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressFromBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressFromBlock() : TerraformBlock("ingress_from")
 {
     /// <summary>
     /// Identities can be an individual user, service account, Google group,
@@ -34,7 +34,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
 /// Block type for ingress_to in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressToBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressToBlock() : TerraformBlock("ingress_to")
 {
     /// <summary>
     /// A list of resources, currently only projects in the form
@@ -65,7 +65,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -121,7 +121,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressFrom block(s) allowed")]
     [TerraformProperty("ingress_from")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressFromBlock>>? IngressFrom { get; set; }
+    public TerraformList<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressFromBlock> IngressFrom { get; set; } = new();
 
     /// <summary>
     /// Block for ingress_to.
@@ -129,14 +129,14 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressTo block(s) allowed")]
     [TerraformProperty("ingress_to")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressToBlock>>? IngressTo { get; set; }
+    public TerraformList<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressToBlock> IngressTo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for managed_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock() : TerraformBlock("managed_disk")
 {
     /// <summary>
     /// The disk_id attribute.
@@ -44,7 +44,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : Ter
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock() : TerraformBlock("network_interface")
 {
     /// <summary>
     /// The is_primary attribute.
@@ -89,7 +89,7 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -290,20 +290,20 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("managed_disk")]
-    public partial TerraformList<TerraformBlock<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock>>? ManagedDisk { get; set; }
+    public TerraformList<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock> ManagedDisk { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_interface")]
-    public partial TerraformList<TerraformBlock<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock>>? NetworkInterface { get; set; }
+    public TerraformList<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock> NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsInspector2DelegatedAdminAccountTimeoutsBlock : TerraformBlockBase
+public partial class AwsInspector2DelegatedAdminAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -60,7 +60,7 @@ public partial class AwsInspector2DelegatedAdminAccount : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsInspector2DelegatedAdminAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AwsInspector2DelegatedAdminAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The relationship_status attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock() : TerraformBlock("binary_authorization")
 {
     /// <summary>
     /// If present, indicates to use Breakglass using this justification. If useDefault is False, then it must be empty. For more information on breakglass, see https://cloud.google.com/binary-authorization/docs/using-breakglass
@@ -35,7 +35,7 @@ public partial class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : Terraf
 /// Block type for instance_splits in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock() : TerraformBlock("instance_splits")
 {
     /// <summary>
     /// Specifies percent of the instance split to this Revision. This defaults to zero if unspecified.
@@ -64,7 +64,7 @@ public partial class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBl
 /// Block type for scaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2WorkerPoolScalingBlock() : TerraformBlock("scaling")
 {
     /// <summary>
     /// The total number of instances in manual scaling mode.
@@ -100,7 +100,7 @@ public partial class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlockBase
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2WorkerPoolTemplateBlock() : TerraformBlock("template")
 {
     /// <summary>
     /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
@@ -175,7 +175,7 @@ public partial class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2WorkerPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -326,14 +326,14 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public TerraformList<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock> BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for instance_splits.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("instance_splits")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>>? InstanceSplits { get; set; }
+    public TerraformList<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock> InstanceSplits { get; set; } = new();
 
     /// <summary>
     /// Block for scaling.
@@ -341,7 +341,7 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scaling block(s) allowed")]
     [TerraformProperty("scaling")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolScalingBlock>>? Scaling { get; set; }
+    public TerraformList<GoogleCloudRunV2WorkerPoolScalingBlock> Scaling { get; set; } = new();
 
     /// <summary>
     /// Block for template.
@@ -351,14 +351,14 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolTemplateBlock>>? Template { get; set; }
+    public required TerraformList<GoogleCloudRunV2WorkerPoolTemplateBlock> Template { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudRunV2WorkerPoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudRunV2WorkerPoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the WorkerPool does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.

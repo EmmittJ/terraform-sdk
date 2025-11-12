@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock() : TerraformBlock("cors_config")
 {
     /// <summary>
     /// The access_control_allow_credentials attribute.
@@ -37,7 +37,7 @@ public partial class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : Terrafo
 /// Block type for custom_headers_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock() : TerraformBlock("custom_headers_config")
 {
 }
 
@@ -45,7 +45,7 @@ public partial class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock 
 /// Block type for remove_headers_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock() : TerraformBlock("remove_headers_config")
 {
 }
 
@@ -53,7 +53,7 @@ public partial class AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock 
 /// Block type for security_headers_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock() : TerraformBlock("security_headers_config")
 {
 }
 
@@ -61,7 +61,7 @@ public partial class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBloc
 /// Block type for server_timing_headers_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock() : TerraformBlock("server_timing_headers_config")
 {
     /// <summary>
     /// The enabled attribute.
@@ -119,7 +119,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfig block(s) allowed")]
     [TerraformProperty("cors_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyCorsConfigBlock>>? CorsConfig { get; set; }
+    public TerraformList<AwsCloudfrontResponseHeadersPolicyCorsConfigBlock> CorsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for custom_headers_config.
@@ -127,7 +127,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHeadersConfig block(s) allowed")]
     [TerraformProperty("custom_headers_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock>>? CustomHeadersConfig { get; set; }
+    public TerraformList<AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock> CustomHeadersConfig { get; set; } = new();
 
     /// <summary>
     /// Block for remove_headers_config.
@@ -135,7 +135,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoveHeadersConfig block(s) allowed")]
     [TerraformProperty("remove_headers_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock>>? RemoveHeadersConfig { get; set; }
+    public TerraformList<AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock> RemoveHeadersConfig { get; set; } = new();
 
     /// <summary>
     /// Block for security_headers_config.
@@ -143,7 +143,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityHeadersConfig block(s) allowed")]
     [TerraformProperty("security_headers_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock>>? SecurityHeadersConfig { get; set; }
+    public TerraformList<AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock> SecurityHeadersConfig { get; set; } = new();
 
     /// <summary>
     /// Block for server_timing_headers_config.
@@ -151,7 +151,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerTimingHeadersConfig block(s) allowed")]
     [TerraformProperty("server_timing_headers_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock>>? ServerTimingHeadersConfig { get; set; }
+    public TerraformList<AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock> ServerTimingHeadersConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

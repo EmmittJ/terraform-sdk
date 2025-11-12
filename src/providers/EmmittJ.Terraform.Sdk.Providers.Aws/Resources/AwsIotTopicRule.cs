@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cloudwatch_alarm in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleCloudwatchAlarmBlock() : TerraformBlock("cloudwatch_alarm")
 {
     /// <summary>
     /// The alarm_name attribute.
@@ -46,7 +46,7 @@ public partial class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlockBase
 /// Block type for cloudwatch_logs in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleCloudwatchLogsBlock() : TerraformBlock("cloudwatch_logs")
 {
     /// <summary>
     /// The batch_mode attribute.
@@ -77,7 +77,7 @@ public partial class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlockBase
 /// Block type for cloudwatch_metric in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleCloudwatchMetricBlock() : TerraformBlock("cloudwatch_metric")
 {
     /// <summary>
     /// The metric_name attribute.
@@ -132,7 +132,7 @@ public partial class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlockBase
 /// Block type for dynamodb in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleDynamodbBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleDynamodbBlock() : TerraformBlock("dynamodb")
 {
     /// <summary>
     /// The hash_key_field attribute.
@@ -214,7 +214,7 @@ public partial class AwsIotTopicRuleDynamodbBlock : TerraformBlockBase
 /// Block type for dynamodbv2 in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleDynamodbv2Block : TerraformBlockBase
+public partial class AwsIotTopicRuleDynamodbv2Block() : TerraformBlock("dynamodbv2")
 {
     /// <summary>
     /// The role_arn attribute.
@@ -230,7 +230,7 @@ public partial class AwsIotTopicRuleDynamodbv2Block : TerraformBlockBase
 /// Block type for elasticsearch in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleElasticsearchBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleElasticsearchBlock() : TerraformBlock("elasticsearch")
 {
     /// <summary>
     /// The endpoint attribute.
@@ -278,7 +278,7 @@ public partial class AwsIotTopicRuleElasticsearchBlock : TerraformBlockBase
 /// Block type for error_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotTopicRuleErrorActionBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleErrorActionBlock() : TerraformBlock("error_action")
 {
 }
 
@@ -286,7 +286,7 @@ public partial class AwsIotTopicRuleErrorActionBlock : TerraformBlockBase
 /// Block type for firehose in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleFirehoseBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleFirehoseBlock() : TerraformBlock("firehose")
 {
     /// <summary>
     /// The batch_mode attribute.
@@ -324,7 +324,7 @@ public partial class AwsIotTopicRuleFirehoseBlock : TerraformBlockBase
 /// Block type for http in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleHttpBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleHttpBlock() : TerraformBlock("http")
 {
     /// <summary>
     /// The confirmation_url attribute.
@@ -347,7 +347,7 @@ public partial class AwsIotTopicRuleHttpBlock : TerraformBlockBase
 /// Block type for iot_analytics in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleIotAnalyticsBlock() : TerraformBlock("iot_analytics")
 {
     /// <summary>
     /// The batch_mode attribute.
@@ -378,7 +378,7 @@ public partial class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlockBase
 /// Block type for iot_events in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleIotEventsBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleIotEventsBlock() : TerraformBlock("iot_events")
 {
     /// <summary>
     /// The batch_mode attribute.
@@ -416,7 +416,7 @@ public partial class AwsIotTopicRuleIotEventsBlock : TerraformBlockBase
 /// Block type for kafka in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleKafkaBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleKafkaBlock() : TerraformBlock("kafka")
 {
     /// <summary>
     /// The client_properties attribute.
@@ -462,7 +462,7 @@ public partial class AwsIotTopicRuleKafkaBlock : TerraformBlockBase
 /// Block type for kinesis in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleKinesisBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleKinesisBlock() : TerraformBlock("kinesis")
 {
     /// <summary>
     /// The partition_key attribute.
@@ -493,7 +493,7 @@ public partial class AwsIotTopicRuleKinesisBlock : TerraformBlockBase
 /// Block type for lambda in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleLambdaBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleLambdaBlock() : TerraformBlock("lambda")
 {
     /// <summary>
     /// The function_arn attribute.
@@ -509,7 +509,7 @@ public partial class AwsIotTopicRuleLambdaBlock : TerraformBlockBase
 /// Block type for republish in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleRepublishBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleRepublishBlock() : TerraformBlock("republish")
 {
     /// <summary>
     /// The qos attribute.
@@ -540,7 +540,7 @@ public partial class AwsIotTopicRuleRepublishBlock : TerraformBlockBase
 /// Block type for s3 in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleS3Block : TerraformBlockBase
+public partial class AwsIotTopicRuleS3Block() : TerraformBlock("s3")
 {
     /// <summary>
     /// The bucket_name attribute.
@@ -579,7 +579,7 @@ public partial class AwsIotTopicRuleS3Block : TerraformBlockBase
 /// Block type for sns in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleSnsBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleSnsBlock() : TerraformBlock("sns")
 {
     /// <summary>
     /// The message_format attribute.
@@ -610,7 +610,7 @@ public partial class AwsIotTopicRuleSnsBlock : TerraformBlockBase
 /// Block type for sqs in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleSqsBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleSqsBlock() : TerraformBlock("sqs")
 {
     /// <summary>
     /// The queue_url attribute.
@@ -642,7 +642,7 @@ public partial class AwsIotTopicRuleSqsBlock : TerraformBlockBase
 /// Block type for step_functions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleStepFunctionsBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleStepFunctionsBlock() : TerraformBlock("step_functions")
 {
     /// <summary>
     /// The execution_name_prefix attribute.
@@ -673,7 +673,7 @@ public partial class AwsIotTopicRuleStepFunctionsBlock : TerraformBlockBase
 /// Block type for timestream in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsIotTopicRuleTimestreamBlock : TerraformBlockBase
+public partial class AwsIotTopicRuleTimestreamBlock() : TerraformBlock("timestream")
 {
     /// <summary>
     /// The database_name attribute.
@@ -783,42 +783,42 @@ public partial class AwsIotTopicRule : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cloudwatch_alarm")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleCloudwatchAlarmBlock>>? CloudwatchAlarm { get; set; }
+    public TerraformSet<AwsIotTopicRuleCloudwatchAlarmBlock> CloudwatchAlarm { get; set; } = new();
 
     /// <summary>
     /// Block for cloudwatch_logs.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cloudwatch_logs")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleCloudwatchLogsBlock>>? CloudwatchLogs { get; set; }
+    public TerraformSet<AwsIotTopicRuleCloudwatchLogsBlock> CloudwatchLogs { get; set; } = new();
 
     /// <summary>
     /// Block for cloudwatch_metric.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cloudwatch_metric")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleCloudwatchMetricBlock>>? CloudwatchMetric { get; set; }
+    public TerraformSet<AwsIotTopicRuleCloudwatchMetricBlock> CloudwatchMetric { get; set; } = new();
 
     /// <summary>
     /// Block for dynamodb.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("dynamodb")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleDynamodbBlock>>? Dynamodb { get; set; }
+    public TerraformSet<AwsIotTopicRuleDynamodbBlock> Dynamodb { get; set; } = new();
 
     /// <summary>
     /// Block for dynamodbv2.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("dynamodbv2")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleDynamodbv2Block>>? Dynamodbv2 { get; set; }
+    public TerraformSet<AwsIotTopicRuleDynamodbv2Block> Dynamodbv2 { get; set; } = new();
 
     /// <summary>
     /// Block for elasticsearch.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("elasticsearch")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleElasticsearchBlock>>? Elasticsearch { get; set; }
+    public TerraformSet<AwsIotTopicRuleElasticsearchBlock> Elasticsearch { get; set; } = new();
 
     /// <summary>
     /// Block for error_action.
@@ -826,98 +826,98 @@ public partial class AwsIotTopicRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorAction block(s) allowed")]
     [TerraformProperty("error_action")]
-    public partial TerraformList<TerraformBlock<AwsIotTopicRuleErrorActionBlock>>? ErrorAction { get; set; }
+    public TerraformList<AwsIotTopicRuleErrorActionBlock> ErrorAction { get; set; } = new();
 
     /// <summary>
     /// Block for firehose.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("firehose")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleFirehoseBlock>>? Firehose { get; set; }
+    public TerraformSet<AwsIotTopicRuleFirehoseBlock> Firehose { get; set; } = new();
 
     /// <summary>
     /// Block for http.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("http")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleHttpBlock>>? Http { get; set; }
+    public TerraformSet<AwsIotTopicRuleHttpBlock> Http { get; set; } = new();
 
     /// <summary>
     /// Block for iot_analytics.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("iot_analytics")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleIotAnalyticsBlock>>? IotAnalytics { get; set; }
+    public TerraformSet<AwsIotTopicRuleIotAnalyticsBlock> IotAnalytics { get; set; } = new();
 
     /// <summary>
     /// Block for iot_events.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("iot_events")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleIotEventsBlock>>? IotEvents { get; set; }
+    public TerraformSet<AwsIotTopicRuleIotEventsBlock> IotEvents { get; set; } = new();
 
     /// <summary>
     /// Block for kafka.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("kafka")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleKafkaBlock>>? Kafka { get; set; }
+    public TerraformSet<AwsIotTopicRuleKafkaBlock> Kafka { get; set; } = new();
 
     /// <summary>
     /// Block for kinesis.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("kinesis")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleKinesisBlock>>? Kinesis { get; set; }
+    public TerraformSet<AwsIotTopicRuleKinesisBlock> Kinesis { get; set; } = new();
 
     /// <summary>
     /// Block for lambda.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("lambda")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleLambdaBlock>>? Lambda { get; set; }
+    public TerraformSet<AwsIotTopicRuleLambdaBlock> Lambda { get; set; } = new();
 
     /// <summary>
     /// Block for republish.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("republish")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleRepublishBlock>>? Republish { get; set; }
+    public TerraformSet<AwsIotTopicRuleRepublishBlock> Republish { get; set; } = new();
 
     /// <summary>
     /// Block for s3.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("s3")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleS3Block>>? S3 { get; set; }
+    public TerraformSet<AwsIotTopicRuleS3Block> S3 { get; set; } = new();
 
     /// <summary>
     /// Block for sns.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("sns")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleSnsBlock>>? Sns { get; set; }
+    public TerraformSet<AwsIotTopicRuleSnsBlock> Sns { get; set; } = new();
 
     /// <summary>
     /// Block for sqs.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("sqs")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleSqsBlock>>? Sqs { get; set; }
+    public TerraformSet<AwsIotTopicRuleSqsBlock> Sqs { get; set; } = new();
 
     /// <summary>
     /// Block for step_functions.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("step_functions")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleStepFunctionsBlock>>? StepFunctions { get; set; }
+    public TerraformSet<AwsIotTopicRuleStepFunctionsBlock> StepFunctions { get; set; } = new();
 
     /// <summary>
     /// Block for timestream.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("timestream")]
-    public partial TerraformSet<TerraformBlock<AwsIotTopicRuleTimestreamBlock>>? Timestream { get; set; }
+    public TerraformSet<AwsIotTopicRuleTimestreamBlock> Timestream { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

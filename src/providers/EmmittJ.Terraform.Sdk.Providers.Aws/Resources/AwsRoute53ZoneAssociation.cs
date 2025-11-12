@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53ZoneAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53ZoneAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,7 +68,7 @@ public partial class AwsRoute53ZoneAssociation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53ZoneAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53ZoneAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The owning_account attribute.

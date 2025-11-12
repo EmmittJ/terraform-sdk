@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for boolean_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOrganizationPolicyBooleanPolicyBlock : TerraformBlockBase
+public partial class GoogleOrganizationPolicyBooleanPolicyBlock() : TerraformBlock("boolean_policy")
 {
     /// <summary>
     /// If true, then the Policy is enforced. If false, then any configuration is acceptable.
@@ -22,7 +22,7 @@ public partial class GoogleOrganizationPolicyBooleanPolicyBlock : TerraformBlock
 /// Block type for list_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOrganizationPolicyListPolicyBlock : TerraformBlockBase
+public partial class GoogleOrganizationPolicyListPolicyBlock() : TerraformBlock("list_policy")
 {
     /// <summary>
     /// If set to true, the values from the effective Policy of the parent resource are inherited, meaning the values set in this Policy are added to the values inherited up the hierarchy.
@@ -44,7 +44,7 @@ public partial class GoogleOrganizationPolicyListPolicyBlock : TerraformBlockBas
 /// Block type for restore_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOrganizationPolicyRestorePolicyBlock : TerraformBlockBase
+public partial class GoogleOrganizationPolicyRestorePolicyBlock() : TerraformBlock("restore_policy")
 {
     /// <summary>
     /// May only be set to true. If set, then the default Policy is restored.
@@ -60,7 +60,7 @@ public partial class GoogleOrganizationPolicyRestorePolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOrganizationPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,7 +138,7 @@ public partial class GoogleOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BooleanPolicy block(s) allowed")]
     [TerraformProperty("boolean_policy")]
-    public partial TerraformList<TerraformBlock<GoogleOrganizationPolicyBooleanPolicyBlock>>? BooleanPolicy { get; set; }
+    public TerraformList<GoogleOrganizationPolicyBooleanPolicyBlock> BooleanPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for list_policy.
@@ -146,7 +146,7 @@ public partial class GoogleOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ListPolicy block(s) allowed")]
     [TerraformProperty("list_policy")]
-    public partial TerraformList<TerraformBlock<GoogleOrganizationPolicyListPolicyBlock>>? ListPolicy { get; set; }
+    public TerraformList<GoogleOrganizationPolicyListPolicyBlock> ListPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for restore_policy.
@@ -154,14 +154,14 @@ public partial class GoogleOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
     [TerraformProperty("restore_policy")]
-    public partial TerraformList<TerraformBlock<GoogleOrganizationPolicyRestorePolicyBlock>>? RestorePolicy { get; set; }
+    public TerraformList<GoogleOrganizationPolicyRestorePolicyBlock> RestorePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOrganizationPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOrganizationPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for health_events_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInternetmonitorMonitorHealthEventsConfigBlock : TerraformBlockBase
+public partial class AwsInternetmonitorMonitorHealthEventsConfigBlock() : TerraformBlock("health_events_config")
 {
     /// <summary>
     /// The availability_score_threshold attribute.
@@ -28,7 +28,7 @@ public partial class AwsInternetmonitorMonitorHealthEventsConfigBlock : Terrafor
 /// Block type for internet_measurements_log_delivery in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock : TerraformBlockBase
+public partial class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock() : TerraformBlock("internet_measurements_log_delivery")
 {
 }
 
@@ -112,7 +112,7 @@ public partial class AwsInternetmonitorMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthEventsConfig block(s) allowed")]
     [TerraformProperty("health_events_config")]
-    public partial TerraformList<TerraformBlock<AwsInternetmonitorMonitorHealthEventsConfigBlock>>? HealthEventsConfig { get; set; }
+    public TerraformList<AwsInternetmonitorMonitorHealthEventsConfigBlock> HealthEventsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for internet_measurements_log_delivery.
@@ -120,7 +120,7 @@ public partial class AwsInternetmonitorMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InternetMeasurementsLogDelivery block(s) allowed")]
     [TerraformProperty("internet_measurements_log_delivery")]
-    public partial TerraformList<TerraformBlock<AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock>>? InternetMeasurementsLogDelivery { get; set; }
+    public TerraformList<AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock> InternetMeasurementsLogDelivery { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

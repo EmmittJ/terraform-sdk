@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSynapseSqlPoolExtendedAuditingPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSynapseSqlPoolExtendedAuditingPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -102,6 +102,6 @@ public partial class AzurermSynapseSqlPoolExtendedAuditingPolicy : TerraformReso
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSynapseSqlPoolExtendedAuditingPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSynapseSqlPoolExtendedAuditingPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

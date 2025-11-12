@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bitbucket_cloud_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock() : TerraformBlock("bitbucket_cloud_config")
 {
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook
@@ -32,7 +32,7 @@ public partial class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock :
 /// Block type for bitbucket_data_center_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock() : TerraformBlock("bitbucket_data_center_config")
 {
     /// <summary>
     /// Required. The URI of the Bitbucket Data Center host this connection is for.
@@ -67,7 +67,7 @@ public partial class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBl
 /// Block type for crypto_key_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock() : TerraformBlock("crypto_key_config")
 {
     /// <summary>
     /// Required. The name of the key which is used to encrypt/decrypt customer data. For key
@@ -85,7 +85,7 @@ public partial class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock : Terr
 /// Block type for github_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectConnectionGithubConfigBlock() : TerraformBlock("github_config")
 {
     /// <summary>
     /// Optional. GitHub App installation id.
@@ -114,7 +114,7 @@ public partial class GoogleDeveloperConnectConnectionGithubConfigBlock : Terrafo
 /// Block type for github_enterprise_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock() : TerraformBlock("github_enterprise_config")
 {
     /// <summary>
     /// Optional. ID of the GitHub App created from the manifest.
@@ -170,7 +170,7 @@ public partial class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock
 /// Block type for gitlab_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectConnectionGitlabConfigBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectConnectionGitlabConfigBlock() : TerraformBlock("gitlab_config")
 {
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,
@@ -188,7 +188,7 @@ public partial class GoogleDeveloperConnectConnectionGitlabConfigBlock : Terrafo
 /// Block type for gitlab_enterprise_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock() : TerraformBlock("gitlab_enterprise_config")
 {
     /// <summary>
     /// Required. The URI of the GitLab Enterprise host this connection is for.
@@ -223,7 +223,7 @@ public partial class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDeveloperConnectConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -334,7 +334,7 @@ public partial class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketCloudConfig block(s) allowed")]
     [TerraformProperty("bitbucket_cloud_config")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock>>? BitbucketCloudConfig { get; set; }
+    public TerraformList<GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock> BitbucketCloudConfig { get; set; } = new();
 
     /// <summary>
     /// Block for bitbucket_data_center_config.
@@ -342,7 +342,7 @@ public partial class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketDataCenterConfig block(s) allowed")]
     [TerraformProperty("bitbucket_data_center_config")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock>>? BitbucketDataCenterConfig { get; set; }
+    public TerraformList<GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock> BitbucketDataCenterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for crypto_key_config.
@@ -350,7 +350,7 @@ public partial class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CryptoKeyConfig block(s) allowed")]
     [TerraformProperty("crypto_key_config")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionCryptoKeyConfigBlock>>? CryptoKeyConfig { get; set; }
+    public TerraformList<GoogleDeveloperConnectConnectionCryptoKeyConfigBlock> CryptoKeyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for github_config.
@@ -358,7 +358,7 @@ public partial class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubConfig block(s) allowed")]
     [TerraformProperty("github_config")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGithubConfigBlock>>? GithubConfig { get; set; }
+    public TerraformList<GoogleDeveloperConnectConnectionGithubConfigBlock> GithubConfig { get; set; } = new();
 
     /// <summary>
     /// Block for github_enterprise_config.
@@ -366,7 +366,7 @@ public partial class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubEnterpriseConfig block(s) allowed")]
     [TerraformProperty("github_enterprise_config")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock>>? GithubEnterpriseConfig { get; set; }
+    public TerraformList<GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock> GithubEnterpriseConfig { get; set; } = new();
 
     /// <summary>
     /// Block for gitlab_config.
@@ -374,7 +374,7 @@ public partial class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabConfig block(s) allowed")]
     [TerraformProperty("gitlab_config")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGitlabConfigBlock>>? GitlabConfig { get; set; }
+    public TerraformList<GoogleDeveloperConnectConnectionGitlabConfigBlock> GitlabConfig { get; set; } = new();
 
     /// <summary>
     /// Block for gitlab_enterprise_config.
@@ -382,14 +382,14 @@ public partial class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabEnterpriseConfig block(s) allowed")]
     [TerraformProperty("gitlab_enterprise_config")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock>>? GitlabEnterpriseConfig { get; set; }
+    public TerraformList<GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock> GitlabEnterpriseConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDeveloperConnectConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDeveloperConnectConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. [Output only] Create timestamp

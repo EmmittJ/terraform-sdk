@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for daily_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlockBase
+public partial class AzurermDevTestScheduleDailyRecurrenceBlock() : TerraformBlock("daily_recurrence")
 {
     /// <summary>
     /// The time attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlock
 /// Block type for hourly_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBlockBase
+public partial class AzurermDevTestScheduleHourlyRecurrenceBlock() : TerraformBlock("hourly_recurrence")
 {
     /// <summary>
     /// The minute attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBloc
 /// Block type for notification_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlockBase
+public partial class AzurermDevTestScheduleNotificationSettingsBlock() : TerraformBlock("notification_settings")
 {
     /// <summary>
     /// The status attribute.
@@ -67,7 +67,7 @@ public partial class AzurermDevTestScheduleNotificationSettingsBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevTestScheduleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevTestScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -103,7 +103,7 @@ public partial class AzurermDevTestScheduleTimeoutsBlock : TerraformBlockBase
 /// Block type for weekly_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlockBase
+public partial class AzurermDevTestScheduleWeeklyRecurrenceBlock() : TerraformBlock("weekly_recurrence")
 {
     /// <summary>
     /// The time attribute.
@@ -207,7 +207,7 @@ public partial class AzurermDevTestSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailyRecurrence block(s) allowed")]
     [TerraformProperty("daily_recurrence")]
-    public partial TerraformList<TerraformBlock<AzurermDevTestScheduleDailyRecurrenceBlock>>? DailyRecurrence { get; set; }
+    public TerraformList<AzurermDevTestScheduleDailyRecurrenceBlock> DailyRecurrence { get; set; } = new();
 
     /// <summary>
     /// Block for hourly_recurrence.
@@ -215,7 +215,7 @@ public partial class AzurermDevTestSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourlyRecurrence block(s) allowed")]
     [TerraformProperty("hourly_recurrence")]
-    public partial TerraformList<TerraformBlock<AzurermDevTestScheduleHourlyRecurrenceBlock>>? HourlyRecurrence { get; set; }
+    public TerraformList<AzurermDevTestScheduleHourlyRecurrenceBlock> HourlyRecurrence { get; set; } = new();
 
     /// <summary>
     /// Block for notification_settings.
@@ -225,14 +225,14 @@ public partial class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NotificationSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationSettings block(s) allowed")]
     [TerraformProperty("notification_settings")]
-    public partial TerraformList<TerraformBlock<AzurermDevTestScheduleNotificationSettingsBlock>>? NotificationSettings { get; set; }
+    public required TerraformList<AzurermDevTestScheduleNotificationSettingsBlock> NotificationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevTestScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevTestScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for weekly_recurrence.
@@ -240,6 +240,6 @@ public partial class AzurermDevTestSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklyRecurrence block(s) allowed")]
     [TerraformProperty("weekly_recurrence")]
-    public partial TerraformList<TerraformBlock<AzurermDevTestScheduleWeeklyRecurrenceBlock>>? WeeklyRecurrence { get; set; }
+    public TerraformList<AzurermDevTestScheduleWeeklyRecurrenceBlock> WeeklyRecurrence { get; set; } = new();
 
 }

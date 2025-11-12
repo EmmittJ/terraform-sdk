@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for git_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerCodeRepositoryGitConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerCodeRepositoryGitConfigBlock() : TerraformBlock("git_config")
 {
     /// <summary>
     /// The branch attribute.
@@ -86,7 +86,7 @@ public partial class AwsSagemakerCodeRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitConfig block(s) allowed")]
     [TerraformProperty("git_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerCodeRepositoryGitConfigBlock>>? GitConfig { get; set; }
+    public required TerraformList<AwsSagemakerCodeRepositoryGitConfigBlock> GitConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

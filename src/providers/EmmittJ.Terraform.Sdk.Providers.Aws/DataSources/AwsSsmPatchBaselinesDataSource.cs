@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsSsmPatchBaselinesDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The key attribute.
@@ -54,7 +54,7 @@ public partial class AwsSsmPatchBaselinesDataSource : TerraformDataSource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AwsSsmPatchBaselinesDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformList<AwsSsmPatchBaselinesDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The baseline_identities attribute.

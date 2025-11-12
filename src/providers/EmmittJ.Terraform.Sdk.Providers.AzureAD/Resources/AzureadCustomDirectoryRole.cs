@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzureadCustomDirectoryRolePermissionsBlock : TerraformBlockBase
+public partial class AzureadCustomDirectoryRolePermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// Set of tasks that can be performed on a resource
@@ -22,7 +22,7 @@ public partial class AzureadCustomDirectoryRolePermissionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlockBase
+public partial class AzureadCustomDirectoryRoleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -116,14 +116,14 @@ public partial class AzureadCustomDirectoryRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [TerraformProperty("permissions")]
-    public partial TerraformSet<TerraformBlock<AzureadCustomDirectoryRolePermissionsBlock>>? Permissions { get; set; }
+    public required TerraformSet<AzureadCustomDirectoryRolePermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadCustomDirectoryRoleTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadCustomDirectoryRoleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object ID of the directory role

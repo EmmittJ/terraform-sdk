@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for common_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock() : TerraformBlock("common_config")
 {
     /// <summary>
     /// The name of the company, business or entity that is associated with the engine. Setting this may help improve LLM related features.cd
@@ -21,7 +21,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock 
 /// Block type for media_recommendation_engine_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock() : TerraformBlock("media_recommendation_engine_config")
 {
     /// <summary>
     /// The optimization objective. e.g., &#39;cvr&#39;.
@@ -65,7 +65,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngineMediaRecommendatio
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -160,7 +160,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
     [TerraformProperty("common_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock>>? CommonConfig { get; set; }
+    public TerraformList<GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock> CommonConfig { get; set; } = new();
 
     /// <summary>
     /// Block for media_recommendation_engine_config.
@@ -168,14 +168,14 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaRecommendationEngineConfig block(s) allowed")]
     [TerraformProperty("media_recommendation_engine_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock>>? MediaRecommendationEngineConfig { get; set; }
+    public TerraformList<GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock> MediaRecommendationEngineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp the Engine was created at.

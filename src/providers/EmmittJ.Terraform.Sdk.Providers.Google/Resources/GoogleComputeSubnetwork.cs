@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSubnetworkLogConfigBlock : TerraformBlockBase
+public partial class GoogleComputeSubnetworkLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// Can only be specified if VPC flow logging for this subnetwork is enabled.
@@ -61,7 +61,7 @@ public partial class GoogleComputeSubnetworkLogConfigBlock : TerraformBlockBase
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSubnetworkParamsBlock : TerraformBlockBase
+public partial class GoogleComputeSubnetworkParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// Resource manager tags to be bound to the subnetwork. Tag keys and values have the
@@ -81,7 +81,7 @@ public partial class GoogleComputeSubnetworkParamsBlock : TerraformBlockBase
 /// Block type for secondary_ip_range in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSubnetworkSecondaryIpRangeBlock : TerraformBlockBase
+public partial class GoogleComputeSubnetworkSecondaryIpRangeBlock() : TerraformBlock("secondary_ip_range")
 {
     /// <summary>
     /// The range of IP addresses belonging to this subnetwork secondary
@@ -119,7 +119,7 @@ public partial class GoogleComputeSubnetworkSecondaryIpRangeBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeSubnetworkTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeSubnetworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -323,7 +323,7 @@ public partial class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSubnetworkLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<GoogleComputeSubnetworkLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for params.
@@ -331,21 +331,21 @@ public partial class GoogleComputeSubnetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSubnetworkParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeSubnetworkParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_ip_range.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("secondary_ip_range")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSubnetworkSecondaryIpRangeBlock>>? SecondaryIpRange { get; set; }
+    public TerraformList<GoogleComputeSubnetworkSecondaryIpRangeBlock> SecondaryIpRange { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeSubnetworkTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeSubnetworkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

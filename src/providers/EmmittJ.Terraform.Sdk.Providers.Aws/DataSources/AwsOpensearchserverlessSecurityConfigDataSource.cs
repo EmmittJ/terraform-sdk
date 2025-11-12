@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for saml_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock : TerraformBlockBase
+public partial class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock() : TerraformBlock("saml_options")
 {
 
 
@@ -43,7 +43,7 @@ public partial class AwsOpensearchserverlessSecurityConfigDataSource : Terraform
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("saml_options")]
-    public partial TerraformList<TerraformBlock<AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock>>? SamlOptions { get; set; }
+    public TerraformList<AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock> SamlOptions { get; set; } = new();
 
     /// <summary>
     /// The version of the security configuration.

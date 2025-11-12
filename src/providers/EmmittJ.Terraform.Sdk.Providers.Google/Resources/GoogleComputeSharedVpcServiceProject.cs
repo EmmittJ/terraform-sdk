@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeSharedVpcServiceProjectTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -69,6 +69,6 @@ public partial class GoogleComputeSharedVpcServiceProject : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeSharedVpcServiceProjectTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeSharedVpcServiceProjectTimeoutsBlock Timeouts { get; set; } = new();
 
 }

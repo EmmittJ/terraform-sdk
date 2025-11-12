@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLbBackendAddressPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -42,7 +42,7 @@ public partial class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlockBa
 /// Block type for tunnel_interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlockBase
+public partial class AzurermLbBackendAddressPoolTunnelInterfaceBlock() : TerraformBlock("tunnel_interface")
 {
     /// <summary>
     /// The identifier attribute.
@@ -129,14 +129,14 @@ public partial class AzurermLbBackendAddressPool : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLbBackendAddressPoolTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLbBackendAddressPoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tunnel_interface.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tunnel_interface")]
-    public partial TerraformList<TerraformBlock<AzurermLbBackendAddressPoolTunnelInterfaceBlock>>? TunnelInterface { get; set; }
+    public TerraformList<AzurermLbBackendAddressPoolTunnelInterfaceBlock> TunnelInterface { get; set; } = new();
 
     /// <summary>
     /// The backend_ip_configurations attribute.

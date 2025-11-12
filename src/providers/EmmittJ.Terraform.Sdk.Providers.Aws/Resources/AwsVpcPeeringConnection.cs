@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for accepter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpcPeeringConnectionAccepterBlock : TerraformBlockBase
+public partial class AwsVpcPeeringConnectionAccepterBlock() : TerraformBlock("accepter")
 {
     /// <summary>
     /// The allow_remote_vpc_dns_resolution attribute.
@@ -21,7 +21,7 @@ public partial class AwsVpcPeeringConnectionAccepterBlock : TerraformBlockBase
 /// Block type for requester in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpcPeeringConnectionRequesterBlock : TerraformBlockBase
+public partial class AwsVpcPeeringConnectionRequesterBlock() : TerraformBlock("requester")
 {
     /// <summary>
     /// The allow_remote_vpc_dns_resolution attribute.
@@ -36,7 +36,7 @@ public partial class AwsVpcPeeringConnectionRequesterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpcPeeringConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpcPeeringConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -142,7 +142,7 @@ public partial class AwsVpcPeeringConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
     [TerraformProperty("accepter")]
-    public partial TerraformList<TerraformBlock<AwsVpcPeeringConnectionAccepterBlock>>? Accepter { get; set; }
+    public TerraformList<AwsVpcPeeringConnectionAccepterBlock> Accepter { get; set; } = new();
 
     /// <summary>
     /// Block for requester.
@@ -150,14 +150,14 @@ public partial class AwsVpcPeeringConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
     [TerraformProperty("requester")]
-    public partial TerraformList<TerraformBlock<AwsVpcPeeringConnectionRequesterBlock>>? Requester { get; set; }
+    public TerraformList<AwsVpcPeeringConnectionRequesterBlock> Requester { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpcPeeringConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpcPeeringConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The accept_status attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudAppRedisAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudAppRedisAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,6 +98,6 @@ public partial class AzurermSpringCloudAppRedisAssociation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudAppRedisAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudAppRedisAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

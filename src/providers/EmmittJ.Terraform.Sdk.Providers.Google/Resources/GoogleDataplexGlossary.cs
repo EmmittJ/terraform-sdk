@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexGlossaryTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexGlossaryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -100,7 +100,7 @@ public partial class GoogleDataplexGlossary : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexGlossaryTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexGlossaryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The number of categories in the glossary.

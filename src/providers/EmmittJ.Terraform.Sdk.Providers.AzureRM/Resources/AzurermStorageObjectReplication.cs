@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rules in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermStorageObjectReplicationRulesBlock : TerraformBlockBase
+public partial class AzurermStorageObjectReplicationRulesBlock() : TerraformBlock("rules")
 {
     /// <summary>
     /// The copy_blobs_created_after attribute.
@@ -45,7 +45,7 @@ public partial class AzurermStorageObjectReplicationRulesBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageObjectReplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,14 +117,14 @@ public partial class AzurermStorageObjectReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public partial TerraformSet<TerraformBlock<AzurermStorageObjectReplicationRulesBlock>>? Rules { get; set; }
+    public required TerraformSet<AzurermStorageObjectReplicationRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageObjectReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageObjectReplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The destination_object_replication_id attribute.

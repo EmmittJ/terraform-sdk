@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -65,7 +65,7 @@ public partial class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock>>? Filter { get; set; }
+    public required TerraformSet<AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The routes attribute.

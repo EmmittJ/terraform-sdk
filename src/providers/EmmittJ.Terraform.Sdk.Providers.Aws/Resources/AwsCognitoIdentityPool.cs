@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cognito_identity_providers in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCognitoIdentityPoolCognitoIdentityProvidersBlock : TerraformBlockBase
+public partial class AwsCognitoIdentityPoolCognitoIdentityProvidersBlock() : TerraformBlock("cognito_identity_providers")
 {
     /// <summary>
     /// The client_id attribute.
@@ -123,7 +123,7 @@ public partial class AwsCognitoIdentityPool : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cognito_identity_providers")]
-    public partial TerraformSet<TerraformBlock<AwsCognitoIdentityPoolCognitoIdentityProvidersBlock>>? CognitoIdentityProviders { get; set; }
+    public TerraformSet<AwsCognitoIdentityPoolCognitoIdentityProvidersBlock> CognitoIdentityProviders { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

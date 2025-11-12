@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data_store_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxToolDataStoreSpecBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxToolDataStoreSpecBlock() : TerraformBlock("data_store_spec")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDialogflowCxToolDataStoreSpecBlock : TerraformBlockBa
 /// Block type for function_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxToolFunctionSpecBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxToolFunctionSpecBlock() : TerraformBlock("function_spec")
 {
     /// <summary>
     /// Optional. The JSON schema is encapsulated in a [google.protobuf.Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct) to describe the input of the function.
@@ -38,7 +38,7 @@ public partial class GoogleDialogflowCxToolFunctionSpecBlock : TerraformBlockBas
 /// Block type for open_api_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxToolOpenApiSpecBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxToolOpenApiSpecBlock() : TerraformBlock("open_api_spec")
 {
     /// <summary>
     /// The OpenAPI schema specified as a text.
@@ -55,7 +55,7 @@ public partial class GoogleDialogflowCxToolOpenApiSpecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxToolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,7 +127,7 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataStoreSpec block(s) allowed")]
     [TerraformProperty("data_store_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxToolDataStoreSpecBlock>>? DataStoreSpec { get; set; }
+    public TerraformList<GoogleDialogflowCxToolDataStoreSpecBlock> DataStoreSpec { get; set; } = new();
 
     /// <summary>
     /// Block for function_spec.
@@ -135,7 +135,7 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FunctionSpec block(s) allowed")]
     [TerraformProperty("function_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxToolFunctionSpecBlock>>? FunctionSpec { get; set; }
+    public TerraformList<GoogleDialogflowCxToolFunctionSpecBlock> FunctionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for open_api_spec.
@@ -143,14 +143,14 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApiSpec block(s) allowed")]
     [TerraformProperty("open_api_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxToolOpenApiSpecBlock>>? OpenApiSpec { get; set; }
+    public TerraformList<GoogleDialogflowCxToolOpenApiSpecBlock> OpenApiSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxToolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxToolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the Tool.

@@ -158,6 +158,59 @@ public partial class TestProvider : TerraformProvider
         return Verify(new { diagnostics = diagnostics.Select(d => d.ToString()), output });
     }
 
+    [Fact]
+    public Task GeneratesReferenceGetterForBlockReadOnlyProperty()
+    {
+        // Arrange
+        // Block classes should return references for read-only (output) properties
+        // Example: AzurermRedisCache.PrimaryConnectionString should return a reference to azurerm_redis_cache.<name>.primary_connection_string
+        var source = @"
+using EmmittJ.Terraform.Sdk;
+
+namespace TestNamespace;
+
+public partial class TestBlock : TerraformBlock
+{
+    public TestBlock(string blockLabel) : base(blockLabel) { }
+
+    [TerraformProperty(""primary_connection_string"")]
+    public partial TerraformValue<string> PrimaryConnectionString { get; }
+}
+";
+
+        // Act
+        var (diagnostics, output) = GetGeneratedOutput(source);
+
+        // Assert
+        return Verify(new { diagnostics = diagnostics.Select(d => d.ToString()), output });
+    }
+
+    [Fact]
+    public Task GeneratesReferenceGetterForResourceReadOnlyProperty()
+    {
+        // Arrange
+        // Resources should return references for read-only (output) properties
+        var source = @"
+using EmmittJ.Terraform.Sdk;
+
+namespace TestNamespace;
+
+public partial class AzurermRedisCache : TerraformResource
+{
+    public AzurermRedisCache(string name) : base(""azurerm_redis_cache"", name) { }
+
+    [TerraformProperty(""primary_connection_string"")]
+    public partial TerraformValue<string> PrimaryConnectionString { get; }
+}
+";
+
+        // Act
+        var (diagnostics, output) = GetGeneratedOutput(source);
+
+        // Assert
+        return Verify(new { diagnostics = diagnostics.Select(d => d.ToString()), output });
+    }
+
     private static (ImmutableArray<Diagnostic> Diagnostics, string Output) GetGeneratedOutput(string source)
     {
         var syntaxTree = CSharpSyntaxTree.ParseText(source);

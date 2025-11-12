@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureClusterAuthorizationBlock : TerraformBlockBase
+public partial class GoogleContainerAzureClusterAuthorizationBlock() : TerraformBlock("authorization")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleContainerAzureClusterAuthorizationBlock : TerraformBl
 /// Block type for azure_services_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureClusterAzureServicesAuthenticationBlock : TerraformBlockBase
+public partial class GoogleContainerAzureClusterAzureServicesAuthenticationBlock() : TerraformBlock("azure_services_authentication")
 {
     /// <summary>
     /// The Azure Active Directory Application ID for Authentication configuration.
@@ -38,7 +38,7 @@ public partial class GoogleContainerAzureClusterAzureServicesAuthenticationBlock
 /// Block type for control_plane in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlockBase
+public partial class GoogleContainerAzureClusterControlPlaneBlock() : TerraformBlock("control_plane")
 {
     /// <summary>
     /// The ARM ID of the subnet where the control plane VMs are deployed. Example: `/subscriptions//resourceGroups//providers/Microsoft.Network/virtualNetworks//subnets/default`.
@@ -76,7 +76,7 @@ public partial class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlo
 /// Block type for fleet in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureClusterFleetBlock : TerraformBlockBase
+public partial class GoogleContainerAzureClusterFleetBlock() : TerraformBlock("fleet")
 {
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class GoogleContainerAzureClusterFleetBlock : TerraformBlockBase
 /// Block type for networking in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureClusterNetworkingBlock : TerraformBlockBase
+public partial class GoogleContainerAzureClusterNetworkingBlock() : TerraformBlock("networking")
 {
     /// <summary>
     /// The IP address range of the pods in this cluster, in CIDR notation (e.g. `10.96.0.0/14`). All pods in the cluster get assigned a unique RFC1918 IPv4 address from these ranges. Only a single range is supported. This field cannot be changed after creation.
@@ -124,7 +124,7 @@ public partial class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerAzureClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerAzureClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -237,7 +237,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterAuthorizationBlock>>? Authorization { get; set; }
+    public required TerraformList<GoogleContainerAzureClusterAuthorizationBlock> Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for azure_services_authentication.
@@ -245,7 +245,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureServicesAuthentication block(s) allowed")]
     [TerraformProperty("azure_services_authentication")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterAzureServicesAuthenticationBlock>>? AzureServicesAuthentication { get; set; }
+    public TerraformList<GoogleContainerAzureClusterAzureServicesAuthenticationBlock> AzureServicesAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for control_plane.
@@ -255,7 +255,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ControlPlane block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     [TerraformProperty("control_plane")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterControlPlaneBlock>>? ControlPlane { get; set; }
+    public required TerraformList<GoogleContainerAzureClusterControlPlaneBlock> ControlPlane { get; set; } = new();
 
     /// <summary>
     /// Block for fleet.
@@ -265,7 +265,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformProperty("fleet")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterFleetBlock>>? Fleet { get; set; }
+    public required TerraformList<GoogleContainerAzureClusterFleetBlock> Fleet { get; set; } = new();
 
     /// <summary>
     /// Block for networking.
@@ -275,14 +275,14 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
     [TerraformProperty("networking")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterNetworkingBlock>>? Networking { get; set; }
+    public required TerraformList<GoogleContainerAzureClusterNetworkingBlock> Networking { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerAzureClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerAzureClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this cluster was created.

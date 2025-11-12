@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for egress in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDefaultNetworkAclEgressBlock : TerraformBlockBase
+public partial class AwsDefaultNetworkAclEgressBlock() : TerraformBlock("egress")
 {
     /// <summary>
     /// The action attribute.
@@ -82,7 +82,7 @@ public partial class AwsDefaultNetworkAclEgressBlock : TerraformBlockBase
 /// Block type for ingress in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDefaultNetworkAclIngressBlock : TerraformBlockBase
+public partial class AwsDefaultNetworkAclIngressBlock() : TerraformBlock("ingress")
 {
     /// <summary>
     /// The action attribute.
@@ -211,14 +211,14 @@ public partial class AwsDefaultNetworkAcl : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("egress")]
-    public partial TerraformSet<TerraformBlock<AwsDefaultNetworkAclEgressBlock>>? Egress { get; set; }
+    public TerraformSet<AwsDefaultNetworkAclEgressBlock> Egress { get; set; } = new();
 
     /// <summary>
     /// Block for ingress.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ingress")]
-    public partial TerraformSet<TerraformBlock<AwsDefaultNetworkAclIngressBlock>>? Ingress { get; set; }
+    public TerraformSet<AwsDefaultNetworkAclIngressBlock> Ingress { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareDicomStoreNotificationConfigBlock : TerraformBlockBase
+public partial class GoogleHealthcareDicomStoreNotificationConfigBlock() : TerraformBlock("notification_config")
 {
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -34,7 +34,7 @@ public partial class GoogleHealthcareDicomStoreNotificationConfigBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleHealthcareDicomStoreTimeoutsBlock : TerraformBlockBase
+public partial class GoogleHealthcareDicomStoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,14 +123,14 @@ public partial class GoogleHealthcareDicomStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformProperty("notification_config")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareDicomStoreNotificationConfigBlock>>? NotificationConfig { get; set; }
+    public TerraformList<GoogleHealthcareDicomStoreNotificationConfigBlock> NotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleHealthcareDicomStoreTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleHealthcareDicomStoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

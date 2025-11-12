@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for address in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCustomerprofilesProfileAddressBlock : TerraformBlockBase
+public partial class AwsCustomerprofilesProfileAddressBlock() : TerraformBlock("address")
 {
     /// <summary>
     /// The address_1 attribute.
@@ -84,7 +84,7 @@ public partial class AwsCustomerprofilesProfileAddressBlock : TerraformBlockBase
 /// Block type for billing_address in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlockBase
+public partial class AwsCustomerprofilesProfileBillingAddressBlock() : TerraformBlock("billing_address")
 {
     /// <summary>
     /// The address_1 attribute.
@@ -162,7 +162,7 @@ public partial class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBl
 /// Block type for mailing_address in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlockBase
+public partial class AwsCustomerprofilesProfileMailingAddressBlock() : TerraformBlock("mailing_address")
 {
     /// <summary>
     /// The address_1 attribute.
@@ -240,7 +240,7 @@ public partial class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBl
 /// Block type for shipping_address in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlockBase
+public partial class AwsCustomerprofilesProfileShippingAddressBlock() : TerraformBlock("shipping_address")
 {
     /// <summary>
     /// The address_1 attribute.
@@ -471,7 +471,7 @@ public partial class AwsCustomerprofilesProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Address block(s) allowed")]
     [TerraformProperty("address")]
-    public partial TerraformList<TerraformBlock<AwsCustomerprofilesProfileAddressBlock>>? Address { get; set; }
+    public TerraformList<AwsCustomerprofilesProfileAddressBlock> Address { get; set; } = new();
 
     /// <summary>
     /// Block for billing_address.
@@ -479,7 +479,7 @@ public partial class AwsCustomerprofilesProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BillingAddress block(s) allowed")]
     [TerraformProperty("billing_address")]
-    public partial TerraformList<TerraformBlock<AwsCustomerprofilesProfileBillingAddressBlock>>? BillingAddress { get; set; }
+    public TerraformList<AwsCustomerprofilesProfileBillingAddressBlock> BillingAddress { get; set; } = new();
 
     /// <summary>
     /// Block for mailing_address.
@@ -487,7 +487,7 @@ public partial class AwsCustomerprofilesProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MailingAddress block(s) allowed")]
     [TerraformProperty("mailing_address")]
-    public partial TerraformList<TerraformBlock<AwsCustomerprofilesProfileMailingAddressBlock>>? MailingAddress { get; set; }
+    public TerraformList<AwsCustomerprofilesProfileMailingAddressBlock> MailingAddress { get; set; } = new();
 
     /// <summary>
     /// Block for shipping_address.
@@ -495,6 +495,6 @@ public partial class AwsCustomerprofilesProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShippingAddress block(s) allowed")]
     [TerraformProperty("shipping_address")]
-    public partial TerraformList<TerraformBlock<AwsCustomerprofilesProfileShippingAddressBlock>>? ShippingAddress { get; set; }
+    public TerraformList<AwsCustomerprofilesProfileShippingAddressBlock> ShippingAddress { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for additional_authentication_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock : TerraformBlockBase
+public partial class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock() : TerraformBlock("additional_authentication_provider")
 {
     /// <summary>
     /// The authentication_type attribute.
@@ -22,7 +22,7 @@ public partial class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock :
 /// Block type for enhanced_metrics_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock() : TerraformBlock("enhanced_metrics_config")
 {
     /// <summary>
     /// The data_source_level_metrics_behavior attribute.
@@ -54,7 +54,7 @@ public partial class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformB
 /// Block type for lambda_authorizer_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock() : TerraformBlock("lambda_authorizer_config")
 {
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
@@ -84,7 +84,7 @@ public partial class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : Terraform
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncGraphqlApiLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// The cloudwatch_logs_role_arn attribute.
@@ -115,7 +115,7 @@ public partial class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlockBase
 /// Block type for openid_connect_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncGraphqlApiOpenidConnectConfigBlock() : TerraformBlock("openid_connect_config")
 {
     /// <summary>
     /// The auth_ttl attribute.
@@ -152,7 +152,7 @@ public partial class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlo
 /// Block type for user_pool_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncGraphqlApiUserPoolConfigBlock() : TerraformBlock("user_pool_config")
 {
     /// <summary>
     /// The app_id_client_regex attribute.
@@ -301,7 +301,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("additional_authentication_provider")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock>>? AdditionalAuthenticationProvider { get; set; }
+    public TerraformList<AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock> AdditionalAuthenticationProvider { get; set; } = new();
 
     /// <summary>
     /// Block for enhanced_metrics_config.
@@ -309,7 +309,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnhancedMetricsConfig block(s) allowed")]
     [TerraformProperty("enhanced_metrics_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock>>? EnhancedMetricsConfig { get; set; }
+    public TerraformList<AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock> EnhancedMetricsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for lambda_authorizer_config.
@@ -317,7 +317,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LambdaAuthorizerConfig block(s) allowed")]
     [TerraformProperty("lambda_authorizer_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock>>? LambdaAuthorizerConfig { get; set; }
+    public TerraformList<AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock> LambdaAuthorizerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
@@ -325,7 +325,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<AwsAppsyncGraphqlApiLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for openid_connect_config.
@@ -333,7 +333,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenidConnectConfig block(s) allowed")]
     [TerraformProperty("openid_connect_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiOpenidConnectConfigBlock>>? OpenidConnectConfig { get; set; }
+    public TerraformList<AwsAppsyncGraphqlApiOpenidConnectConfigBlock> OpenidConnectConfig { get; set; } = new();
 
     /// <summary>
     /// Block for user_pool_config.
@@ -341,7 +341,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserPoolConfig block(s) allowed")]
     [TerraformProperty("user_pool_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiUserPoolConfigBlock>>? UserPoolConfig { get; set; }
+    public TerraformList<AwsAppsyncGraphqlApiUserPoolConfigBlock> UserPoolConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

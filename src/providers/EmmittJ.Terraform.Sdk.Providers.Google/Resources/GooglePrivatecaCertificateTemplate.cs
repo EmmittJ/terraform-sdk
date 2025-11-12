@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for identity_constraints in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock() : TerraformBlock("identity_constraints")
 {
     /// <summary>
     /// Required. If this is true, the SubjectAltNames extension may be copied from a certificate request into the signed certificate. Otherwise, the requested SubjectAltNames will be discarded.
@@ -30,7 +30,7 @@ public partial class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock 
 /// Block type for passthrough_extensions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock() : TerraformBlock("passthrough_extensions")
 {
     /// <summary>
     /// Optional. A set of named X.509 extensions. Will be combined with additional_extensions to determine the full set of X.509 extensions.
@@ -45,7 +45,7 @@ public partial class GooglePrivatecaCertificateTemplatePassthroughExtensionsBloc
 /// Block type for predefined_values in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCertificateTemplatePredefinedValuesBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateTemplatePredefinedValuesBlock() : TerraformBlock("predefined_values")
 {
     /// <summary>
     /// Optional. Describes Online Certificate Status Protocol (OCSP) endpoint addresses that appear in the &amp;quot;Authority Information Access&amp;quot; extension in the certificate.
@@ -60,7 +60,7 @@ public partial class GooglePrivatecaCertificateTemplatePredefinedValuesBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -155,7 +155,7 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityConstraints block(s) allowed")]
     [TerraformProperty("identity_constraints")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplateIdentityConstraintsBlock>>? IdentityConstraints { get; set; }
+    public TerraformList<GooglePrivatecaCertificateTemplateIdentityConstraintsBlock> IdentityConstraints { get; set; } = new();
 
     /// <summary>
     /// Block for passthrough_extensions.
@@ -163,7 +163,7 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PassthroughExtensions block(s) allowed")]
     [TerraformProperty("passthrough_extensions")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock>>? PassthroughExtensions { get; set; }
+    public TerraformList<GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock> PassthroughExtensions { get; set; } = new();
 
     /// <summary>
     /// Block for predefined_values.
@@ -171,14 +171,14 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredefinedValues block(s) allowed")]
     [TerraformProperty("predefined_values")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplatePredefinedValuesBlock>>? PredefinedValues { get; set; }
+    public TerraformList<GooglePrivatecaCertificateTemplatePredefinedValuesBlock> PredefinedValues { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePrivatecaCertificateTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePrivatecaCertificateTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this CertificateTemplate was created.

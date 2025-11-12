@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -28,7 +28,7 @@ public partial class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock : Terraf
 /// Block type for traffic_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : TerraformBlockBase
+public partial class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock() : TerraformBlock("traffic_source")
 {
     /// <summary>
     /// The identifier attribute.
@@ -85,7 +85,7 @@ public partial class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_source.
@@ -93,6 +93,6 @@ public partial class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficSource block(s) allowed")]
     [TerraformProperty("traffic_source")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock>>? TrafficSource { get; set; }
+    public TerraformList<AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock> TrafficSource { get; set; } = new();
 
 }

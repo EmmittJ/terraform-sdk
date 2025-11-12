@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for application_rule_collection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock() : TerraformBlock("application_rule_collection")
 {
     /// <summary>
     /// The action attribute.
@@ -38,7 +38,7 @@ public partial class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleColl
 /// Block type for nat_rule_collection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock() : TerraformBlock("nat_rule_collection")
 {
     /// <summary>
     /// The action attribute.
@@ -70,7 +70,7 @@ public partial class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBl
 /// Block type for network_rule_collection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock() : TerraformBlock("network_rule_collection")
 {
     /// <summary>
     /// The action attribute.
@@ -102,7 +102,7 @@ public partial class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollecti
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -179,27 +179,27 @@ public partial class AzurermFirewallPolicyRuleCollectionGroup : TerraformResourc
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("application_rule_collection")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock>>? ApplicationRuleCollection { get; set; }
+    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock> ApplicationRuleCollection { get; set; } = new();
 
     /// <summary>
     /// Block for nat_rule_collection.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("nat_rule_collection")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock>>? NatRuleCollection { get; set; }
+    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock> NatRuleCollection { get; set; } = new();
 
     /// <summary>
     /// Block for network_rule_collection.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_rule_collection")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock>>? NetworkRuleCollection { get; set; }
+    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock> NetworkRuleCollection { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

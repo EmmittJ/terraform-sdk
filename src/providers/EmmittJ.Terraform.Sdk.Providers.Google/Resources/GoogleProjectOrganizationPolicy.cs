@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for boolean_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleProjectOrganizationPolicyBooleanPolicyBlock : TerraformBlockBase
+public partial class GoogleProjectOrganizationPolicyBooleanPolicyBlock() : TerraformBlock("boolean_policy")
 {
     /// <summary>
     /// If true, then the Policy is enforced. If false, then any configuration is acceptable.
@@ -22,7 +22,7 @@ public partial class GoogleProjectOrganizationPolicyBooleanPolicyBlock : Terrafo
 /// Block type for list_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleProjectOrganizationPolicyListPolicyBlock : TerraformBlockBase
+public partial class GoogleProjectOrganizationPolicyListPolicyBlock() : TerraformBlock("list_policy")
 {
     /// <summary>
     /// If set to true, the values from the effective Policy of the parent resource are inherited, meaning the values set in this Policy are added to the values inherited up the hierarchy.
@@ -44,7 +44,7 @@ public partial class GoogleProjectOrganizationPolicyListPolicyBlock : TerraformB
 /// Block type for restore_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleProjectOrganizationPolicyRestorePolicyBlock : TerraformBlockBase
+public partial class GoogleProjectOrganizationPolicyRestorePolicyBlock() : TerraformBlock("restore_policy")
 {
     /// <summary>
     /// May only be set to true. If set, then the default Policy is restored.
@@ -60,7 +60,7 @@ public partial class GoogleProjectOrganizationPolicyRestorePolicyBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleProjectOrganizationPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleProjectOrganizationPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,7 +138,7 @@ public partial class GoogleProjectOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BooleanPolicy block(s) allowed")]
     [TerraformProperty("boolean_policy")]
-    public partial TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyBooleanPolicyBlock>>? BooleanPolicy { get; set; }
+    public TerraformList<GoogleProjectOrganizationPolicyBooleanPolicyBlock> BooleanPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for list_policy.
@@ -146,7 +146,7 @@ public partial class GoogleProjectOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ListPolicy block(s) allowed")]
     [TerraformProperty("list_policy")]
-    public partial TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyListPolicyBlock>>? ListPolicy { get; set; }
+    public TerraformList<GoogleProjectOrganizationPolicyListPolicyBlock> ListPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for restore_policy.
@@ -154,14 +154,14 @@ public partial class GoogleProjectOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
     [TerraformProperty("restore_policy")]
-    public partial TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyRestorePolicyBlock>>? RestorePolicy { get; set; }
+    public TerraformList<GoogleProjectOrganizationPolicyRestorePolicyBlock> RestorePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleProjectOrganizationPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleProjectOrganizationPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.

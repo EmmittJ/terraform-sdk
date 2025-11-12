@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetappActiveDirectoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -215,7 +215,7 @@ public partial class GoogleNetappActiveDirectory : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetappActiveDirectoryTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetappActiveDirectoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time of the active directory. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_event_selector in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudtrailAdvancedEventSelectorBlock : TerraformBlockBase
+public partial class AwsCloudtrailAdvancedEventSelectorBlock() : TerraformBlock("advanced_event_selector")
 {
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AwsCloudtrailAdvancedEventSelectorBlock : TerraformBlockBas
 /// Block type for event_selector in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudtrailEventSelectorBlock : TerraformBlockBase
+public partial class AwsCloudtrailEventSelectorBlock() : TerraformBlock("event_selector")
 {
     /// <summary>
     /// The exclude_management_event_sources attribute.
@@ -50,7 +50,7 @@ public partial class AwsCloudtrailEventSelectorBlock : TerraformBlockBase
 /// Block type for insight_selector in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudtrailInsightSelectorBlock : TerraformBlockBase
+public partial class AwsCloudtrailInsightSelectorBlock() : TerraformBlock("insight_selector")
 {
     /// <summary>
     /// The insight_type attribute.
@@ -191,7 +191,7 @@ public partial class AwsCloudtrail : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("advanced_event_selector")]
-    public partial TerraformList<TerraformBlock<AwsCloudtrailAdvancedEventSelectorBlock>>? AdvancedEventSelector { get; set; }
+    public TerraformList<AwsCloudtrailAdvancedEventSelectorBlock> AdvancedEventSelector { get; set; } = new();
 
     /// <summary>
     /// Block for event_selector.
@@ -199,14 +199,14 @@ public partial class AwsCloudtrail : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 EventSelector block(s) allowed")]
     [TerraformProperty("event_selector")]
-    public partial TerraformList<TerraformBlock<AwsCloudtrailEventSelectorBlock>>? EventSelector { get; set; }
+    public TerraformList<AwsCloudtrailEventSelectorBlock> EventSelector { get; set; } = new();
 
     /// <summary>
     /// Block for insight_selector.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("insight_selector")]
-    public partial TerraformSet<TerraformBlock<AwsCloudtrailInsightSelectorBlock>>? InsightSelector { get; set; }
+    public TerraformSet<AwsCloudtrailInsightSelectorBlock> InsightSelector { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

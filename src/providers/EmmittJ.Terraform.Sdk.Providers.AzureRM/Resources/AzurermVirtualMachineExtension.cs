@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for protected_settings_from_key_vault in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock() : TerraformBlock("protected_settings_from_key_vault")
 {
     /// <summary>
     /// The secret_url attribute.
@@ -30,7 +30,7 @@ public partial class AzurermVirtualMachineExtensionProtectedSettingsFromKeyVault
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualMachineExtensionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineExtensionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -174,13 +174,13 @@ public partial class AzurermVirtualMachineExtension : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtectedSettingsFromKeyVault block(s) allowed")]
     [TerraformProperty("protected_settings_from_key_vault")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock>>? ProtectedSettingsFromKeyVault { get; set; }
+    public TerraformList<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock> ProtectedSettingsFromKeyVault { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualMachineExtensionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualMachineExtensionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

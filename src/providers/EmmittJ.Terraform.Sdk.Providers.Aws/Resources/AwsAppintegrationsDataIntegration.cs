@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for schedule_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppintegrationsDataIntegrationScheduleConfigBlock : TerraformBlockBase
+public partial class AwsAppintegrationsDataIntegrationScheduleConfigBlock() : TerraformBlock("schedule_config")
 {
     /// <summary>
     /// The first_execution_from attribute.
@@ -111,7 +111,7 @@ public partial class AwsAppintegrationsDataIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScheduleConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleConfig block(s) allowed")]
     [TerraformProperty("schedule_config")]
-    public partial TerraformList<TerraformBlock<AwsAppintegrationsDataIntegrationScheduleConfigBlock>>? ScheduleConfig { get; set; }
+    public required TerraformList<AwsAppintegrationsDataIntegrationScheduleConfigBlock> ScheduleConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

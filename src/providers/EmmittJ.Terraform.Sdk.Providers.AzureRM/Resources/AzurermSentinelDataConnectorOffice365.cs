@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSentinelDataConnectorOffice365TimeoutsBlock : TerraformBlockBase
+public partial class AzurermSentinelDataConnectorOffice365TimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -103,6 +103,6 @@ public partial class AzurermSentinelDataConnectorOffice365 : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSentinelDataConnectorOffice365TimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSentinelDataConnectorOffice365TimeoutsBlock Timeouts { get; set; } = new();
 
 }

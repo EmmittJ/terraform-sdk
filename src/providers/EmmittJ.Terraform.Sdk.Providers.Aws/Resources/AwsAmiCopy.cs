@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ebs_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAmiCopyEbsBlockDeviceBlock : TerraformBlockBase
+public partial class AwsAmiCopyEbsBlockDeviceBlock() : TerraformBlock("ebs_block_device")
 {
 
 
@@ -23,7 +23,7 @@ public partial class AwsAmiCopyEbsBlockDeviceBlock : TerraformBlockBase
 /// Block type for ephemeral_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAmiCopyEphemeralBlockDeviceBlock : TerraformBlockBase
+public partial class AwsAmiCopyEphemeralBlockDeviceBlock() : TerraformBlock("ephemeral_block_device")
 {
 
 
@@ -33,7 +33,7 @@ public partial class AwsAmiCopyEphemeralBlockDeviceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAmiCopyTimeoutsBlock : TerraformBlockBase
+public partial class AwsAmiCopyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -159,21 +159,21 @@ public partial class AwsAmiCopy : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsAmiCopyEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
+    public TerraformSet<AwsAmiCopyEbsBlockDeviceBlock> EbsBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for ephemeral_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ephemeral_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsAmiCopyEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
+    public TerraformSet<AwsAmiCopyEphemeralBlockDeviceBlock> EphemeralBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAmiCopyTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAmiCopyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The architecture attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for output_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmAssociationOutputLocationBlock : TerraformBlockBase
+public partial class AwsSsmAssociationOutputLocationBlock() : TerraformBlock("output_location")
 {
     /// <summary>
     /// The s3_bucket_name attribute.
@@ -36,7 +36,7 @@ public partial class AwsSsmAssociationOutputLocationBlock : TerraformBlockBase
 /// Block type for targets in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmAssociationTargetsBlock : TerraformBlockBase
+public partial class AwsSsmAssociationTargetsBlock() : TerraformBlock("targets")
 {
     /// <summary>
     /// The key attribute.
@@ -185,7 +185,7 @@ public partial class AwsSsmAssociation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputLocation block(s) allowed")]
     [TerraformProperty("output_location")]
-    public partial TerraformList<TerraformBlock<AwsSsmAssociationOutputLocationBlock>>? OutputLocation { get; set; }
+    public TerraformList<AwsSsmAssociationOutputLocationBlock> OutputLocation { get; set; } = new();
 
     /// <summary>
     /// Block for targets.
@@ -193,7 +193,7 @@ public partial class AwsSsmAssociation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Targets block(s) allowed")]
     [TerraformProperty("targets")]
-    public partial TerraformList<TerraformBlock<AwsSsmAssociationTargetsBlock>>? Targets { get; set; }
+    public TerraformList<AwsSsmAssociationTargetsBlock> Targets { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

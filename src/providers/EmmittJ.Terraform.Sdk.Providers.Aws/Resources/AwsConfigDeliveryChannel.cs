@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for snapshot_delivery_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock : TerraformBlockBase
+public partial class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock() : TerraformBlock("snapshot_delivery_properties")
 {
     /// <summary>
     /// The delivery_frequency attribute.
@@ -83,6 +83,6 @@ public partial class AwsConfigDeliveryChannel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotDeliveryProperties block(s) allowed")]
     [TerraformProperty("snapshot_delivery_properties")]
-    public partial TerraformList<TerraformBlock<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>>? SnapshotDeliveryProperties { get; set; }
+    public TerraformList<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock> SnapshotDeliveryProperties { get; set; } = new();
 
 }

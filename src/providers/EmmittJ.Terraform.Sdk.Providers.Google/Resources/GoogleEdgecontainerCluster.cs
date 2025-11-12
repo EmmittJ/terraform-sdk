@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerClusterAuthorizationBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerClusterAuthorizationBlock() : TerraformBlock("authorization")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleEdgecontainerClusterAuthorizationBlock : TerraformBlo
 /// Block type for control_plane in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerClusterControlPlaneBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerClusterControlPlaneBlock() : TerraformBlock("control_plane")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class GoogleEdgecontainerClusterControlPlaneBlock : TerraformBloc
 /// Block type for control_plane_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerClusterControlPlaneEncryptionBlock() : TerraformBlock("control_plane_encryption")
 {
     /// <summary>
     /// The Cloud KMS CryptoKey e.g.
@@ -43,7 +43,7 @@ public partial class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : Ter
 /// Block type for fleet in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerClusterFleetBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerClusterFleetBlock() : TerraformBlock("fleet")
 {
 
     /// <summary>
@@ -62,7 +62,7 @@ public partial class GoogleEdgecontainerClusterFleetBlock : TerraformBlockBase
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerClusterMaintenancePolicyBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerClusterMaintenancePolicyBlock() : TerraformBlock("maintenance_policy")
 {
 }
 
@@ -70,7 +70,7 @@ public partial class GoogleEdgecontainerClusterMaintenancePolicyBlock : Terrafor
 /// Block type for networking in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerClusterNetworkingBlock() : TerraformBlock("networking")
 {
     /// <summary>
     /// All pods in the cluster are assigned an RFC1918 IPv4 address from these
@@ -119,7 +119,7 @@ public partial class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlockB
 /// Block type for system_addons_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerClusterSystemAddonsConfigBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerClusterSystemAddonsConfigBlock() : TerraformBlock("system_addons_config")
 {
 }
 
@@ -127,7 +127,7 @@ public partial class GoogleEdgecontainerClusterSystemAddonsConfigBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEdgecontainerClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -240,7 +240,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterAuthorizationBlock>>? Authorization { get; set; }
+    public required TerraformList<GoogleEdgecontainerClusterAuthorizationBlock> Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for control_plane.
@@ -248,7 +248,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     [TerraformProperty("control_plane")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneBlock>>? ControlPlane { get; set; }
+    public TerraformList<GoogleEdgecontainerClusterControlPlaneBlock> ControlPlane { get; set; } = new();
 
     /// <summary>
     /// Block for control_plane_encryption.
@@ -256,7 +256,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneEncryption block(s) allowed")]
     [TerraformProperty("control_plane_encryption")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>>? ControlPlaneEncryption { get; set; }
+    public TerraformList<GoogleEdgecontainerClusterControlPlaneEncryptionBlock> ControlPlaneEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for fleet.
@@ -266,7 +266,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformProperty("fleet")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterFleetBlock>>? Fleet { get; set; }
+    public required TerraformList<GoogleEdgecontainerClusterFleetBlock> Fleet { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -274,7 +274,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public TerraformList<GoogleEdgecontainerClusterMaintenancePolicyBlock> MaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for networking.
@@ -284,7 +284,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
     [TerraformProperty("networking")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterNetworkingBlock>>? Networking { get; set; }
+    public required TerraformList<GoogleEdgecontainerClusterNetworkingBlock> Networking { get; set; } = new();
 
     /// <summary>
     /// Block for system_addons_config.
@@ -292,14 +292,14 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SystemAddonsConfig block(s) allowed")]
     [TerraformProperty("system_addons_config")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterSystemAddonsConfigBlock>>? SystemAddonsConfig { get; set; }
+    public TerraformList<GoogleEdgecontainerClusterSystemAddonsConfigBlock> SystemAddonsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEdgecontainerClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEdgecontainerClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The PEM-encoded public certificate of the cluster&#39;s CA.

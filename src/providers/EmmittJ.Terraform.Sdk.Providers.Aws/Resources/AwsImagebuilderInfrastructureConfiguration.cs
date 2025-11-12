@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for instance_metadata_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock : TerraformBlockBase
+public partial class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock() : TerraformBlock("instance_metadata_options")
 {
     /// <summary>
     /// The http_put_response_hop_limit attribute.
@@ -28,7 +28,7 @@ public partial class AwsImagebuilderInfrastructureConfigurationInstanceMetadataO
 /// Block type for logging in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderInfrastructureConfigurationLoggingBlock : TerraformBlockBase
+public partial class AwsImagebuilderInfrastructureConfigurationLoggingBlock() : TerraformBlock("logging")
 {
 }
 
@@ -36,7 +36,7 @@ public partial class AwsImagebuilderInfrastructureConfigurationLoggingBlock : Te
 /// Block type for placement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderInfrastructureConfigurationPlacementBlock : TerraformBlockBase
+public partial class AwsImagebuilderInfrastructureConfigurationPlacementBlock() : TerraformBlock("placement")
 {
     /// <summary>
     /// The availability_zone attribute.
@@ -184,7 +184,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMetadataOptions block(s) allowed")]
     [TerraformProperty("instance_metadata_options")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock>>? InstanceMetadataOptions { get; set; }
+    public TerraformList<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock> InstanceMetadataOptions { get; set; } = new();
 
     /// <summary>
     /// Block for logging.
@@ -192,7 +192,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
     [TerraformProperty("logging")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationLoggingBlock>>? Logging { get; set; }
+    public TerraformList<AwsImagebuilderInfrastructureConfigurationLoggingBlock> Logging { get; set; } = new();
 
     /// <summary>
     /// Block for placement.
@@ -200,7 +200,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
     [TerraformProperty("placement")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationPlacementBlock>>? Placement { get; set; }
+    public TerraformList<AwsImagebuilderInfrastructureConfigurationPlacementBlock> Placement { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

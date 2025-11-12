@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for restore in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseSqlPoolRestoreBlock : TerraformBlockBase
+public partial class AzurermSynapseSqlPoolRestoreBlock() : TerraformBlock("restore")
 {
     /// <summary>
     /// The point_in_time attribute.
@@ -30,7 +30,7 @@ public partial class AzurermSynapseSqlPoolRestoreBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSynapseSqlPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -159,13 +159,13 @@ public partial class AzurermSynapseSqlPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restore block(s) allowed")]
     [TerraformProperty("restore")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseSqlPoolRestoreBlock>>? Restore { get; set; }
+    public TerraformList<AzurermSynapseSqlPoolRestoreBlock> Restore { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSynapseSqlPoolTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSynapseSqlPoolTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for galleries in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : TerraformBlockBase
+public partial class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock() : TerraformBlock("galleries")
 {
     /// <summary>
     /// The category attribute.
@@ -51,7 +51,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -167,13 +167,13 @@ public partial class AzurermApplicationInsightsWorkbookTemplate : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Galleries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Galleries block(s) required")]
     [TerraformProperty("galleries")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>>? Galleries { get; set; }
+    public required TerraformList<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock> Galleries { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
 }

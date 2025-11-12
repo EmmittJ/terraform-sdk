@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNginxCertificateDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNginxCertificateDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermNginxCertificateDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNginxCertificateDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNginxCertificateDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The certificate_virtual_path attribute.

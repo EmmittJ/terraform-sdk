@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for gke_clusters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsResponsePolicyGkeClustersBlock : TerraformBlockBase
+public partial class GoogleDnsResponsePolicyGkeClustersBlock() : TerraformBlock("gke_clusters")
 {
     /// <summary>
     /// The resource name of the cluster to bind this ManagedZone to.
@@ -24,7 +24,7 @@ public partial class GoogleDnsResponsePolicyGkeClustersBlock : TerraformBlockBas
 /// Block type for networks in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsResponsePolicyNetworksBlock : TerraformBlockBase
+public partial class GoogleDnsResponsePolicyNetworksBlock() : TerraformBlock("networks")
 {
     /// <summary>
     /// The fully qualified URL of the VPC network to bind to.
@@ -42,7 +42,7 @@ public partial class GoogleDnsResponsePolicyNetworksBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDnsResponsePolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDnsResponsePolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,20 +110,20 @@ public partial class GoogleDnsResponsePolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("gke_clusters")]
-    public partial TerraformList<TerraformBlock<GoogleDnsResponsePolicyGkeClustersBlock>>? GkeClusters { get; set; }
+    public TerraformList<GoogleDnsResponsePolicyGkeClustersBlock> GkeClusters { get; set; } = new();
 
     /// <summary>
     /// Block for networks.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("networks")]
-    public partial TerraformList<TerraformBlock<GoogleDnsResponsePolicyNetworksBlock>>? Networks { get; set; }
+    public TerraformList<GoogleDnsResponsePolicyNetworksBlock> Networks { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDnsResponsePolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDnsResponsePolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for allow_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlockBase
+public partial class AzurermIotSecurityDeviceGroupAllowRuleBlock() : TerraformBlock("allow_rule")
 {
     /// <summary>
     /// The connection_from_ips_not_allowed attribute.
@@ -42,7 +42,7 @@ public partial class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBloc
 /// Block type for range_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlockBase
+public partial class AzurermIotSecurityDeviceGroupRangeRuleBlock() : TerraformBlock("range_rule")
 {
     /// <summary>
     /// The duration attribute.
@@ -82,7 +82,7 @@ public partial class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIotSecurityDeviceGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -153,20 +153,20 @@ public partial class AzurermIotSecurityDeviceGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllowRule block(s) allowed")]
     [TerraformProperty("allow_rule")]
-    public partial TerraformList<TerraformBlock<AzurermIotSecurityDeviceGroupAllowRuleBlock>>? AllowRule { get; set; }
+    public TerraformList<AzurermIotSecurityDeviceGroupAllowRuleBlock> AllowRule { get; set; } = new();
 
     /// <summary>
     /// Block for range_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("range_rule")]
-    public partial TerraformSet<TerraformBlock<AzurermIotSecurityDeviceGroupRangeRuleBlock>>? RangeRule { get; set; }
+    public TerraformSet<AzurermIotSecurityDeviceGroupRangeRuleBlock> RangeRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIotSecurityDeviceGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIotSecurityDeviceGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxIntentParametersBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxIntentParametersBlock() : TerraformBlock("parameters")
 {
     /// <summary>
     /// The entity type of the parameter.
@@ -46,7 +46,7 @@ public partial class GoogleDialogflowCxIntentParametersBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxIntentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -75,7 +75,7 @@ public partial class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlockBase
 /// Block type for training_phrases in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxIntentTrainingPhrasesBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxIntentTrainingPhrasesBlock() : TerraformBlock("training_phrases")
 {
 
     /// <summary>
@@ -191,21 +191,21 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("parameters")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxIntentParametersBlock>>? Parameters { get; set; }
+    public TerraformList<GoogleDialogflowCxIntentParametersBlock> Parameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxIntentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxIntentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for training_phrases.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("training_phrases")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxIntentTrainingPhrasesBlock>>? TrainingPhrases { get; set; }
+    public TerraformList<GoogleDialogflowCxIntentTrainingPhrasesBlock> TrainingPhrases { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -113,6 +113,6 @@ public partial class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock Timeouts { get; set; } = new();
 
 }

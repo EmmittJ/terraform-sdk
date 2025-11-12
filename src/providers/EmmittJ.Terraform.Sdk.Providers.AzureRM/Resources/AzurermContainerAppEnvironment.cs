@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlockBase
+public partial class AzurermContainerAppEnvironmentIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermContainerAppEnvironmentIdentityBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerAppEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -67,7 +67,7 @@ public partial class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBloc
 /// Block type for workload_profile in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlockBase
+public partial class AzurermContainerAppEnvironmentWorkloadProfileBlock() : TerraformBlock("workload_profile")
 {
     /// <summary>
     /// The maximum_count attribute.
@@ -218,21 +218,21 @@ public partial class AzurermContainerAppEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppEnvironmentIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermContainerAppEnvironmentIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerAppEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerAppEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workload_profile.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("workload_profile")]
-    public partial TerraformSet<TerraformBlock<AzurermContainerAppEnvironmentWorkloadProfileBlock>>? WorkloadProfile { get; set; }
+    public TerraformSet<AzurermContainerAppEnvironmentWorkloadProfileBlock> WorkloadProfile { get; set; } = new();
 
     /// <summary>
     /// The ID of the Custom Domain Verification for this Container App Environment.

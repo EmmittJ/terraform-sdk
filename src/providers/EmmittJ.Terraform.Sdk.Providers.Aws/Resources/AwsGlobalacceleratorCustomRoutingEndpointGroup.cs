@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock() : TerraformBlock("destination_configuration")
 {
     /// <summary>
     /// The from_port attribute.
@@ -38,7 +38,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationCo
 /// Block type for endpoint_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock() : TerraformBlock("endpoint_configuration")
 {
     /// <summary>
     /// The endpoint_id attribute.
@@ -53,7 +53,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfi
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,21 +110,21 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationConfiguration block(s) required")]
     [TerraformProperty("destination_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock>>? DestinationConfiguration { get; set; }
+    public required TerraformSet<AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock> DestinationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for endpoint_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("endpoint_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock>>? EndpointConfiguration { get; set; }
+    public TerraformSet<AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock> EndpointConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

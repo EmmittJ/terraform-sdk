@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for operating_regions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsVpcIpamResourceDiscoveryOperatingRegionsBlock : TerraformBlockBase
+public partial class AwsVpcIpamResourceDiscoveryOperatingRegionsBlock() : TerraformBlock("operating_regions")
 {
     /// <summary>
     /// The region_name attribute.
@@ -22,7 +22,7 @@ public partial class AwsVpcIpamResourceDiscoveryOperatingRegionsBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpcIpamResourceDiscoveryTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpcIpamResourceDiscoveryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -99,14 +99,14 @@ public partial class AwsVpcIpamResourceDiscovery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatingRegions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OperatingRegions block(s) required")]
     [TerraformProperty("operating_regions")]
-    public partial TerraformSet<TerraformBlock<AwsVpcIpamResourceDiscoveryOperatingRegionsBlock>>? OperatingRegions { get; set; }
+    public required TerraformSet<AwsVpcIpamResourceDiscoveryOperatingRegionsBlock> OperatingRegions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpcIpamResourceDiscoveryTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpcIpamResourceDiscoveryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

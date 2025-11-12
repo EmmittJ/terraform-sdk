@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for partner_server in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlFailoverGroupPartnerServerBlock : TerraformBlockBase
+public partial class AzurermMssqlFailoverGroupPartnerServerBlock() : TerraformBlock("partner_server")
 {
     /// <summary>
     /// The id attribute.
@@ -24,7 +24,7 @@ public partial class AzurermMssqlFailoverGroupPartnerServerBlock : TerraformBloc
 /// Block type for read_write_endpoint_failover_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock : TerraformBlockBase
+public partial class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock() : TerraformBlock("read_write_endpoint_failover_policy")
 {
     /// <summary>
     /// The grace_minutes attribute.
@@ -47,7 +47,7 @@ public partial class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlFailoverGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlFailoverGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,7 +140,7 @@ public partial class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerServer is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartnerServer block(s) required")]
     [TerraformProperty("partner_server")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlFailoverGroupPartnerServerBlock>>? PartnerServer { get; set; }
+    public required TerraformList<AzurermMssqlFailoverGroupPartnerServerBlock> PartnerServer { get; set; } = new();
 
     /// <summary>
     /// Block for read_write_endpoint_failover_policy.
@@ -150,13 +150,13 @@ public partial class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadWriteEndpointFailoverPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadWriteEndpointFailoverPolicy block(s) allowed")]
     [TerraformProperty("read_write_endpoint_failover_policy")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock>>? ReadWriteEndpointFailoverPolicy { get; set; }
+    public required TerraformList<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock> ReadWriteEndpointFailoverPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlFailoverGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlFailoverGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

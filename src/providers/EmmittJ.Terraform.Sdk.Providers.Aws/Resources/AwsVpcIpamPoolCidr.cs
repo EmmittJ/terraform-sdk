@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cidr_authorization_context in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock : TerraformBlockBase
+public partial class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock() : TerraformBlock("cidr_authorization_context")
 {
     /// <summary>
     /// The message attribute.
@@ -28,7 +28,7 @@ public partial class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpcIpamPoolCidrTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpcIpamPoolCidrTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,14 +98,14 @@ public partial class AwsVpcIpamPoolCidr : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrAuthorizationContext block(s) allowed")]
     [TerraformProperty("cidr_authorization_context")]
-    public partial TerraformList<TerraformBlock<AwsVpcIpamPoolCidrCidrAuthorizationContextBlock>>? CidrAuthorizationContext { get; set; }
+    public TerraformList<AwsVpcIpamPoolCidrCidrAuthorizationContextBlock> CidrAuthorizationContext { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpcIpamPoolCidrTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpcIpamPoolCidrTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ipam_pool_cidr_id attribute.

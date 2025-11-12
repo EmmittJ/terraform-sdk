@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_catalog_encryption_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock : TerraformBlockBase
+public partial class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock() : TerraformBlock("data_catalog_encryption_settings")
 {
 }
 
@@ -49,6 +49,6 @@ public partial class AwsGlueDataCatalogEncryptionSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataCatalogEncryptionSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCatalogEncryptionSettings block(s) allowed")]
     [TerraformProperty("data_catalog_encryption_settings")]
-    public partial TerraformList<TerraformBlock<AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock>>? DataCatalogEncryptionSettings { get; set; }
+    public required TerraformList<AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock> DataCatalogEncryptionSettings { get; set; } = new();
 
 }

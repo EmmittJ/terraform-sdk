@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsIvsPlaybackKeyPairTimeoutsBlock : TerraformBlockBase
+public partial class AwsIvsPlaybackKeyPairTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -81,7 +81,7 @@ public partial class AwsIvsPlaybackKeyPair : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsIvsPlaybackKeyPairTimeoutsBlock>? Timeouts { get; set; }
+    public AwsIvsPlaybackKeyPairTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

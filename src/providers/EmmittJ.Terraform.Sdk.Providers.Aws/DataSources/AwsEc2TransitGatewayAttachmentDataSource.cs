@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2TransitGatewayAttachmentDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2TransitGatewayAttachmentDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AwsEc2TransitGatewayAttachmentDataSource : TerraformDataSou
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2TransitGatewayAttachmentDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2TransitGatewayAttachmentDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

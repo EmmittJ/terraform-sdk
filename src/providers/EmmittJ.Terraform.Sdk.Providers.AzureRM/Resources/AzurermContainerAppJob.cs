@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for event_trigger_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppJobEventTriggerConfigBlock : TerraformBlockBase
+public partial class AzurermContainerAppJobEventTriggerConfigBlock() : TerraformBlock("event_trigger_config")
 {
     /// <summary>
     /// The parallelism attribute.
@@ -28,7 +28,7 @@ public partial class AzurermContainerAppJobEventTriggerConfigBlock : TerraformBl
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppJobIdentityBlock : TerraformBlockBase
+public partial class AzurermContainerAppJobIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -53,7 +53,7 @@ public partial class AzurermContainerAppJobIdentityBlock : TerraformBlockBase
 /// Block type for manual_trigger_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppJobManualTriggerConfigBlock : TerraformBlockBase
+public partial class AzurermContainerAppJobManualTriggerConfigBlock() : TerraformBlock("manual_trigger_config")
 {
     /// <summary>
     /// The parallelism attribute.
@@ -75,7 +75,7 @@ public partial class AzurermContainerAppJobManualTriggerConfigBlock : TerraformB
 /// Block type for registry in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppJobRegistryBlock : TerraformBlockBase
+public partial class AzurermContainerAppJobRegistryBlock() : TerraformBlock("registry")
 {
     /// <summary>
     /// ID of the System or User Managed Identity used to pull images from the Container Registry
@@ -112,7 +112,7 @@ public partial class AzurermContainerAppJobRegistryBlock : TerraformBlockBase
 /// Block type for schedule_trigger_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppJobScheduleTriggerConfigBlock : TerraformBlockBase
+public partial class AzurermContainerAppJobScheduleTriggerConfigBlock() : TerraformBlock("schedule_trigger_config")
 {
     /// <summary>
     /// The cron_expression attribute.
@@ -142,7 +142,7 @@ public partial class AzurermContainerAppJobScheduleTriggerConfigBlock : Terrafor
 /// Block type for secret in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermContainerAppJobSecretBlock : TerraformBlockBase
+public partial class AzurermContainerAppJobSecretBlock() : TerraformBlock("secret")
 {
     /// <summary>
     /// The identity to use for accessing key vault reference.
@@ -179,7 +179,7 @@ public partial class AzurermContainerAppJobSecretBlock : TerraformBlockBase
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppJobTemplateBlock : TerraformBlockBase
+public partial class AzurermContainerAppJobTemplateBlock() : TerraformBlock("template")
 {
 }
 
@@ -187,7 +187,7 @@ public partial class AzurermContainerAppJobTemplateBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerAppJobTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerAppJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -303,7 +303,7 @@ public partial class AzurermContainerAppJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventTriggerConfig block(s) allowed")]
     [TerraformProperty("event_trigger_config")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppJobEventTriggerConfigBlock>>? EventTriggerConfig { get; set; }
+    public TerraformList<AzurermContainerAppJobEventTriggerConfigBlock> EventTriggerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -311,7 +311,7 @@ public partial class AzurermContainerAppJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppJobIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermContainerAppJobIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for manual_trigger_config.
@@ -319,14 +319,14 @@ public partial class AzurermContainerAppJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualTriggerConfig block(s) allowed")]
     [TerraformProperty("manual_trigger_config")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppJobManualTriggerConfigBlock>>? ManualTriggerConfig { get; set; }
+    public TerraformList<AzurermContainerAppJobManualTriggerConfigBlock> ManualTriggerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for registry.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("registry")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppJobRegistryBlock>>? Registry { get; set; }
+    public TerraformList<AzurermContainerAppJobRegistryBlock> Registry { get; set; } = new();
 
     /// <summary>
     /// Block for schedule_trigger_config.
@@ -334,14 +334,14 @@ public partial class AzurermContainerAppJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleTriggerConfig block(s) allowed")]
     [TerraformProperty("schedule_trigger_config")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppJobScheduleTriggerConfigBlock>>? ScheduleTriggerConfig { get; set; }
+    public TerraformList<AzurermContainerAppJobScheduleTriggerConfigBlock> ScheduleTriggerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("secret")]
-    public partial TerraformSet<TerraformBlock<AzurermContainerAppJobSecretBlock>>? Secret { get; set; }
+    public TerraformSet<AzurermContainerAppJobSecretBlock> Secret { get; set; } = new();
 
     /// <summary>
     /// Block for template.
@@ -351,14 +351,14 @@ public partial class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppJobTemplateBlock>>? Template { get; set; }
+    public required TerraformList<AzurermContainerAppJobTemplateBlock> Template { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerAppJobTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerAppJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The event_stream_endpoint attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_endpoint in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBlockBase
+public partial class AwsAppstreamImageBuilderAccessEndpointBlock() : TerraformBlock("access_endpoint")
 {
     /// <summary>
     /// The endpoint_type attribute.
@@ -29,7 +29,7 @@ public partial class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBloc
 /// Block type for domain_join_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBlockBase
+public partial class AwsAppstreamImageBuilderDomainJoinInfoBlock() : TerraformBlock("domain_join_info")
 {
     /// <summary>
     /// The directory_name attribute.
@@ -51,7 +51,7 @@ public partial class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBloc
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlockBase
+public partial class AwsAppstreamImageBuilderVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -178,7 +178,7 @@ public partial class AwsAppstreamImageBuilder : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 AccessEndpoint block(s) allowed")]
     [TerraformProperty("access_endpoint")]
-    public partial TerraformSet<TerraformBlock<AwsAppstreamImageBuilderAccessEndpointBlock>>? AccessEndpoint { get; set; }
+    public TerraformSet<AwsAppstreamImageBuilderAccessEndpointBlock> AccessEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for domain_join_info.
@@ -186,7 +186,7 @@ public partial class AwsAppstreamImageBuilder : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainJoinInfo block(s) allowed")]
     [TerraformProperty("domain_join_info")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamImageBuilderDomainJoinInfoBlock>>? DomainJoinInfo { get; set; }
+    public TerraformList<AwsAppstreamImageBuilderDomainJoinInfoBlock> DomainJoinInfo { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -194,7 +194,7 @@ public partial class AwsAppstreamImageBuilder : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamImageBuilderVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsAppstreamImageBuilderVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

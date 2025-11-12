@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCloudhsmV2HsmTimeoutsBlock : TerraformBlockBase
+public partial class AwsCloudhsmV2HsmTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -81,7 +81,7 @@ public partial class AwsCloudhsmV2Hsm : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCloudhsmV2HsmTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCloudhsmV2HsmTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hsm_eni_id attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for private_link in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorOriginPrivateLinkBlock() : TerraformBlock("private_link")
 {
     /// <summary>
     /// The location attribute.
@@ -44,7 +44,7 @@ public partial class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorOriginTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,13 +173,13 @@ public partial class AzurermCdnFrontdoorOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLink block(s) allowed")]
     [TerraformProperty("private_link")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorOriginPrivateLinkBlock>>? PrivateLink { get; set; }
+    public TerraformList<AzurermCdnFrontdoorOriginPrivateLinkBlock> PrivateLink { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorOriginTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorOriginTimeoutsBlock Timeouts { get; set; } = new();
 
 }

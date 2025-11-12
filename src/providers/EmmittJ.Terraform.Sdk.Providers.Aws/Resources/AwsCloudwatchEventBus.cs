@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dead_letter_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventBusDeadLetterConfigBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventBusDeadLetterConfigBlock() : TerraformBlock("dead_letter_config")
 {
     /// <summary>
     /// The arn attribute.
@@ -21,7 +21,7 @@ public partial class AwsCloudwatchEventBusDeadLetterConfigBlock : TerraformBlock
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventBusLogConfigBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventBusLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// The include_detail attribute.
@@ -112,7 +112,7 @@ public partial class AwsCloudwatchEventBus : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
     [TerraformProperty("dead_letter_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventBusDeadLetterConfigBlock>>? DeadLetterConfig { get; set; }
+    public TerraformList<AwsCloudwatchEventBusDeadLetterConfigBlock> DeadLetterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
@@ -120,7 +120,7 @@ public partial class AwsCloudwatchEventBus : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventBusLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<AwsCloudwatchEventBusLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

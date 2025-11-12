@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backup_retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappBackupVaultBackupRetentionPolicyBlock : TerraformBlockBase
+public partial class GoogleNetappBackupVaultBackupRetentionPolicyBlock() : TerraformBlock("backup_retention_policy")
 {
     /// <summary>
     /// Minimum retention duration in days for backups in the backup vault.
@@ -50,7 +50,7 @@ public partial class GoogleNetappBackupVaultBackupRetentionPolicyBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetappBackupVaultTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetappBackupVaultTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -153,14 +153,14 @@ public partial class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupRetentionPolicy block(s) allowed")]
     [TerraformProperty("backup_retention_policy")]
-    public partial TerraformList<TerraformBlock<GoogleNetappBackupVaultBackupRetentionPolicyBlock>>? BackupRetentionPolicy { get; set; }
+    public TerraformList<GoogleNetappBackupVaultBackupRetentionPolicyBlock> BackupRetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetappBackupVaultTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetappBackupVaultTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time of the backup vault. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.

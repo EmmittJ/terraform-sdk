@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for antimalware in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlockBase
+public partial class AzurermAutomanageConfigurationAntimalwareBlock() : TerraformBlock("antimalware")
 {
     /// <summary>
     /// The real_time_protection_enabled attribute.
@@ -49,7 +49,7 @@ public partial class AzurermAutomanageConfigurationAntimalwareBlock : TerraformB
 /// Block type for azure_security_baseline in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : TerraformBlockBase
+public partial class AzurermAutomanageConfigurationAzureSecurityBaselineBlock() : TerraformBlock("azure_security_baseline")
 {
     /// <summary>
     /// The assignment_type attribute.
@@ -64,7 +64,7 @@ public partial class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : 
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomanageConfigurationBackupBlock : TerraformBlockBase
+public partial class AzurermAutomanageConfigurationBackupBlock() : TerraformBlock("backup")
 {
     /// <summary>
     /// The instant_rp_retention_range_in_days attribute.
@@ -93,7 +93,7 @@ public partial class AzurermAutomanageConfigurationBackupBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAutomanageConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -221,7 +221,7 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Antimalware block(s) allowed")]
     [TerraformProperty("antimalware")]
-    public partial TerraformList<TerraformBlock<AzurermAutomanageConfigurationAntimalwareBlock>>? Antimalware { get; set; }
+    public TerraformList<AzurermAutomanageConfigurationAntimalwareBlock> Antimalware { get; set; } = new();
 
     /// <summary>
     /// Block for azure_security_baseline.
@@ -229,7 +229,7 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureSecurityBaseline block(s) allowed")]
     [TerraformProperty("azure_security_baseline")]
-    public partial TerraformList<TerraformBlock<AzurermAutomanageConfigurationAzureSecurityBaselineBlock>>? AzureSecurityBaseline { get; set; }
+    public TerraformList<AzurermAutomanageConfigurationAzureSecurityBaselineBlock> AzureSecurityBaseline { get; set; } = new();
 
     /// <summary>
     /// Block for backup.
@@ -237,13 +237,13 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public partial TerraformList<TerraformBlock<AzurermAutomanageConfigurationBackupBlock>>? Backup { get; set; }
+    public TerraformList<AzurermAutomanageConfigurationBackupBlock> Backup { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAutomanageConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAutomanageConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for identity_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConnectUserIdentityInfoBlock : TerraformBlockBase
+public partial class AwsConnectUserIdentityInfoBlock() : TerraformBlock("identity_info")
 {
     /// <summary>
     /// The email attribute.
@@ -42,7 +42,7 @@ public partial class AwsConnectUserIdentityInfoBlock : TerraformBlockBase
 /// Block type for phone_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConnectUserPhoneConfigBlock : TerraformBlockBase
+public partial class AwsConnectUserPhoneConfigBlock() : TerraformBlock("phone_config")
 {
     /// <summary>
     /// The after_contact_work_time_limit attribute.
@@ -172,7 +172,7 @@ public partial class AwsConnectUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityInfo block(s) allowed")]
     [TerraformProperty("identity_info")]
-    public partial TerraformList<TerraformBlock<AwsConnectUserIdentityInfoBlock>>? IdentityInfo { get; set; }
+    public TerraformList<AwsConnectUserIdentityInfoBlock> IdentityInfo { get; set; } = new();
 
     /// <summary>
     /// Block for phone_config.
@@ -182,7 +182,7 @@ public partial class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PhoneConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhoneConfig block(s) allowed")]
     [TerraformProperty("phone_config")]
-    public partial TerraformList<TerraformBlock<AwsConnectUserPhoneConfigBlock>>? PhoneConfig { get; set; }
+    public required TerraformList<AwsConnectUserPhoneConfigBlock> PhoneConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

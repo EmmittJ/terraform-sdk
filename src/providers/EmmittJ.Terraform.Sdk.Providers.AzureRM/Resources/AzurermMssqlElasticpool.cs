@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for per_database_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlockBase
+public partial class AzurermMssqlElasticpoolPerDatabaseSettingsBlock() : TerraformBlock("per_database_settings")
 {
     /// <summary>
     /// The max_capacity attribute.
@@ -30,7 +30,7 @@ public partial class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : Terraform
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlElasticpoolSkuBlock : TerraformBlockBase
+public partial class AzurermMssqlElasticpoolSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -69,7 +69,7 @@ public partial class AzurermMssqlElasticpoolSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlElasticpoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -207,7 +207,7 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PerDatabaseSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerDatabaseSettings block(s) allowed")]
     [TerraformProperty("per_database_settings")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlElasticpoolPerDatabaseSettingsBlock>>? PerDatabaseSettings { get; set; }
+    public required TerraformList<AzurermMssqlElasticpoolPerDatabaseSettingsBlock> PerDatabaseSettings { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -217,13 +217,13 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlElasticpoolSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermMssqlElasticpoolSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlElasticpoolTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlElasticpoolTimeoutsBlock Timeouts { get; set; } = new();
 
 }

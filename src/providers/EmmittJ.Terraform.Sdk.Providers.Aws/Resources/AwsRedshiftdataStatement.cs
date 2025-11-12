@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRedshiftdataStatementParametersBlock : TerraformBlockBase
+public partial class AwsRedshiftdataStatementParametersBlock() : TerraformBlock("parameters")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsRedshiftdataStatementParametersBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRedshiftdataStatementTimeoutsBlock : TerraformBlockBase
+public partial class AwsRedshiftdataStatementTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,13 +127,13 @@ public partial class AwsRedshiftdataStatement : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("parameters")]
-    public partial TerraformList<TerraformBlock<AwsRedshiftdataStatementParametersBlock>>? Parameters { get; set; }
+    public TerraformList<AwsRedshiftdataStatementParametersBlock> Parameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRedshiftdataStatementTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRedshiftdataStatementTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlockBase
+public partial class AzurermManagedLustreFileSystemEncryptionKeyBlock() : TerraformBlock("encryption_key")
 {
     /// <summary>
     /// The key_url attribute.
@@ -30,7 +30,7 @@ public partial class AzurermManagedLustreFileSystemEncryptionKeyBlock : Terrafor
 /// Block type for hsm_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlockBase
+public partial class AzurermManagedLustreFileSystemHsmSettingBlock() : TerraformBlock("hsm_setting")
 {
     /// <summary>
     /// The container_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBl
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlockBase
+public partial class AzurermManagedLustreFileSystemIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -85,7 +85,7 @@ public partial class AzurermManagedLustreFileSystemIdentityBlock : TerraformBloc
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlockBase
+public partial class AzurermManagedLustreFileSystemMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// The day_of_week attribute.
@@ -109,7 +109,7 @@ public partial class AzurermManagedLustreFileSystemMaintenanceWindowBlock : Terr
 /// Block type for root_squash in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlockBase
+public partial class AzurermManagedLustreFileSystemRootSquashBlock() : TerraformBlock("root_squash")
 {
     /// <summary>
     /// The mode attribute.
@@ -147,7 +147,7 @@ public partial class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagedLustreFileSystemTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -265,7 +265,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionKey block(s) allowed")]
     [TerraformProperty("encryption_key")]
-    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemEncryptionKeyBlock>>? EncryptionKey { get; set; }
+    public TerraformList<AzurermManagedLustreFileSystemEncryptionKeyBlock> EncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for hsm_setting.
@@ -273,7 +273,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HsmSetting block(s) allowed")]
     [TerraformProperty("hsm_setting")]
-    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemHsmSettingBlock>>? HsmSetting { get; set; }
+    public TerraformList<AzurermManagedLustreFileSystemHsmSettingBlock> HsmSetting { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -281,7 +281,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermManagedLustreFileSystemIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window.
@@ -291,7 +291,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaintenanceWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public required TerraformList<AzurermManagedLustreFileSystemMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for root_squash.
@@ -299,14 +299,14 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootSquash block(s) allowed")]
     [TerraformProperty("root_squash")]
-    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemRootSquashBlock>>? RootSquash { get; set; }
+    public TerraformList<AzurermManagedLustreFileSystemRootSquashBlock> RootSquash { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagedLustreFileSystemTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagedLustreFileSystemTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The mgs_address attribute.

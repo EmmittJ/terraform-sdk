@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsServicecatalogOrganizationsAccessTimeoutsBlock : TerraformBlockBase
+public partial class AwsServicecatalogOrganizationsAccessTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -46,6 +46,6 @@ public partial class AwsServicecatalogOrganizationsAccess : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsServicecatalogOrganizationsAccessTimeoutsBlock>? Timeouts { get; set; }
+    public AwsServicecatalogOrganizationsAccessTimeoutsBlock Timeouts { get; set; } = new();
 
 }

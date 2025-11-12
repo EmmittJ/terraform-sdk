@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for gallery_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : TerraformBlockBase
+public partial class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock() : TerraformBlock("gallery_image_reference")
 {
     /// <summary>
     /// The offer attribute.
@@ -46,7 +46,7 @@ public partial class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock
 /// Block type for inbound_nat_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlockBase
+public partial class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock() : TerraformBlock("inbound_nat_rule")
 {
     /// <summary>
     /// The backend_port attribute.
@@ -71,7 +71,7 @@ public partial class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevTestLinuxVirtualMachineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -242,21 +242,21 @@ public partial class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GalleryImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GalleryImageReference block(s) allowed")]
     [TerraformProperty("gallery_image_reference")]
-    public partial TerraformList<TerraformBlock<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock>>? GalleryImageReference { get; set; }
+    public required TerraformList<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock> GalleryImageReference { get; set; } = new();
 
     /// <summary>
     /// Block for inbound_nat_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("inbound_nat_rule")]
-    public partial TerraformSet<TerraformBlock<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>>? InboundNatRule { get; set; }
+    public TerraformSet<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock> InboundNatRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevTestLinuxVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevTestLinuxVirtualMachineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

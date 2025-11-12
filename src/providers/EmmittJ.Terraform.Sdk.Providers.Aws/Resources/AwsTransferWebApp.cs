@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for identity_provider_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferWebAppIdentityProviderDetailsBlock : TerraformBlockBase
+public partial class AwsTransferWebAppIdentityProviderDetailsBlock() : TerraformBlock("identity_provider_details")
 {
 }
 
@@ -59,7 +59,7 @@ public partial class AwsTransferWebApp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("identity_provider_details")]
-    public partial TerraformList<TerraformBlock<AwsTransferWebAppIdentityProviderDetailsBlock>>? IdentityProviderDetails { get; set; }
+    public TerraformList<AwsTransferWebAppIdentityProviderDetailsBlock> IdentityProviderDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationAccountEncryptionBlock : TerraformBlockBase
+public partial class AzurermAutomationAccountEncryptionBlock() : TerraformBlock("encryption")
 {
     /// <summary>
     /// The key_source attribute.
@@ -37,7 +37,7 @@ public partial class AzurermAutomationAccountEncryptionBlock : TerraformBlockBas
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermAutomationAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -62,7 +62,7 @@ public partial class AzurermAutomationAccountIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAutomationAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAutomationAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,7 +169,7 @@ public partial class AzurermAutomationAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationAccountEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<AzurermAutomationAccountEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -177,14 +177,14 @@ public partial class AzurermAutomationAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationAccountIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermAutomationAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAutomationAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAutomationAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dsc_primary_access_key attribute.

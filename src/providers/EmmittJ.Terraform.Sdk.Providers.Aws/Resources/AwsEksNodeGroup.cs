@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for launch_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlockBase
+public partial class AwsEksNodeGroupLaunchTemplateBlock() : TerraformBlock("launch_template")
 {
     /// <summary>
     /// The id attribute.
@@ -36,7 +36,7 @@ public partial class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlockBase
 /// Block type for node_repair_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksNodeGroupNodeRepairConfigBlock : TerraformBlockBase
+public partial class AwsEksNodeGroupNodeRepairConfigBlock() : TerraformBlock("node_repair_config")
 {
     /// <summary>
     /// The enabled attribute.
@@ -51,7 +51,7 @@ public partial class AwsEksNodeGroupNodeRepairConfigBlock : TerraformBlockBase
 /// Block type for remote_access in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksNodeGroupRemoteAccessBlock : TerraformBlockBase
+public partial class AwsEksNodeGroupRemoteAccessBlock() : TerraformBlock("remote_access")
 {
     /// <summary>
     /// The ec2_ssh_key attribute.
@@ -73,7 +73,7 @@ public partial class AwsEksNodeGroupRemoteAccessBlock : TerraformBlockBase
 /// Block type for scaling_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksNodeGroupScalingConfigBlock : TerraformBlockBase
+public partial class AwsEksNodeGroupScalingConfigBlock() : TerraformBlock("scaling_config")
 {
     /// <summary>
     /// The desired_size attribute.
@@ -105,7 +105,7 @@ public partial class AwsEksNodeGroupScalingConfigBlock : TerraformBlockBase
 /// Block type for taint in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEksNodeGroupTaintBlock : TerraformBlockBase
+public partial class AwsEksNodeGroupTaintBlock() : TerraformBlock("taint")
 {
     /// <summary>
     /// The effect attribute.
@@ -136,7 +136,7 @@ public partial class AwsEksNodeGroupTaintBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEksNodeGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsEksNodeGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,7 +165,7 @@ public partial class AwsEksNodeGroupTimeoutsBlock : TerraformBlockBase
 /// Block type for update_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksNodeGroupUpdateConfigBlock : TerraformBlockBase
+public partial class AwsEksNodeGroupUpdateConfigBlock() : TerraformBlock("update_config")
 {
     /// <summary>
     /// The max_unavailable attribute.
@@ -321,7 +321,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
     [TerraformProperty("launch_template")]
-    public partial TerraformList<TerraformBlock<AwsEksNodeGroupLaunchTemplateBlock>>? LaunchTemplate { get; set; }
+    public TerraformList<AwsEksNodeGroupLaunchTemplateBlock> LaunchTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for node_repair_config.
@@ -329,7 +329,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeRepairConfig block(s) allowed")]
     [TerraformProperty("node_repair_config")]
-    public partial TerraformList<TerraformBlock<AwsEksNodeGroupNodeRepairConfigBlock>>? NodeRepairConfig { get; set; }
+    public TerraformList<AwsEksNodeGroupNodeRepairConfigBlock> NodeRepairConfig { get; set; } = new();
 
     /// <summary>
     /// Block for remote_access.
@@ -337,7 +337,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteAccess block(s) allowed")]
     [TerraformProperty("remote_access")]
-    public partial TerraformList<TerraformBlock<AwsEksNodeGroupRemoteAccessBlock>>? RemoteAccess { get; set; }
+    public TerraformList<AwsEksNodeGroupRemoteAccessBlock> RemoteAccess { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_config.
@@ -347,7 +347,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
     [TerraformProperty("scaling_config")]
-    public partial TerraformList<TerraformBlock<AwsEksNodeGroupScalingConfigBlock>>? ScalingConfig { get; set; }
+    public required TerraformList<AwsEksNodeGroupScalingConfigBlock> ScalingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for taint.
@@ -355,14 +355,14 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Taint block(s) allowed")]
     [TerraformProperty("taint")]
-    public partial TerraformSet<TerraformBlock<AwsEksNodeGroupTaintBlock>>? Taint { get; set; }
+    public TerraformSet<AwsEksNodeGroupTaintBlock> Taint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEksNodeGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEksNodeGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for update_config.
@@ -370,7 +370,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdateConfig block(s) allowed")]
     [TerraformProperty("update_config")]
-    public partial TerraformList<TerraformBlock<AwsEksNodeGroupUpdateConfigBlock>>? UpdateConfig { get; set; }
+    public TerraformList<AwsEksNodeGroupUpdateConfigBlock> UpdateConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

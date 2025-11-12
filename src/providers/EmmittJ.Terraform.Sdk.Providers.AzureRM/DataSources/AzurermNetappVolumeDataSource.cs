@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetappVolumeDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -77,7 +77,7 @@ public partial class AzurermNetappVolumeDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetappVolumeDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetappVolumeDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The accept grow capacity pool for short term clone split property.

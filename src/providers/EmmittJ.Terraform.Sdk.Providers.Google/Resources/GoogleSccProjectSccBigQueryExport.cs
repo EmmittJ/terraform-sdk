@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccProjectSccBigQueryExportTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccProjectSccBigQueryExportTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -114,7 +114,7 @@ public partial class GoogleSccProjectSccBigQueryExport : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccProjectSccBigQueryExportTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccProjectSccBigQueryExportTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time at which the BigQuery export was created. This field is set by the server and will be ignored if provided on export on creation.

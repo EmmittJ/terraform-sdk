@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action_point in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppconfigExtensionActionPointBlock : TerraformBlockBase
+public partial class AwsAppconfigExtensionActionPointBlock() : TerraformBlock("action_point")
 {
     /// <summary>
     /// The point attribute.
@@ -22,7 +22,7 @@ public partial class AwsAppconfigExtensionActionPointBlock : TerraformBlockBase
 /// Block type for parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppconfigExtensionParameterBlock : TerraformBlockBase
+public partial class AwsAppconfigExtensionParameterBlock() : TerraformBlock("parameter")
 {
     /// <summary>
     /// The description attribute.
@@ -108,14 +108,14 @@ public partial class AwsAppconfigExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionPoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionPoint block(s) required")]
     [TerraformProperty("action_point")]
-    public partial TerraformSet<TerraformBlock<AwsAppconfigExtensionActionPointBlock>>? ActionPoint { get; set; }
+    public required TerraformSet<AwsAppconfigExtensionActionPointBlock> ActionPoint { get; set; } = new();
 
     /// <summary>
     /// Block for parameter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter")]
-    public partial TerraformSet<TerraformBlock<AwsAppconfigExtensionParameterBlock>>? Parameter { get; set; }
+    public TerraformSet<AwsAppconfigExtensionParameterBlock> Parameter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

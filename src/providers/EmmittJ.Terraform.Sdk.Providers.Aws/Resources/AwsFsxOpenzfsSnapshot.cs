@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxOpenzfsSnapshotTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsSnapshotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,7 +96,7 @@ public partial class AwsFsxOpenzfsSnapshot : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxOpenzfsSnapshotTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxOpenzfsSnapshotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

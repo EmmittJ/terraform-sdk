@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleLoggingFolderSettingsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleLoggingFolderSettingsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -81,7 +81,7 @@ public partial class GoogleLoggingFolderSettings : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleLoggingFolderSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleLoggingFolderSettingsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The service account that will be used by the Log Router to access your Cloud KMS key.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualDesktopApplicationGroupDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopApplicationGroupDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermVirtualDesktopApplicationGroupDataSource : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualDesktopApplicationGroupDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualDesktopApplicationGroupDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The description attribute.

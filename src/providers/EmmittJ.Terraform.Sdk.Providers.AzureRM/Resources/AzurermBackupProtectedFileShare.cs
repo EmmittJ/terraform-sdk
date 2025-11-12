@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBackupProtectedFileShareTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -99,6 +99,6 @@ public partial class AzurermBackupProtectedFileShare : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBackupProtectedFileShareTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBackupProtectedFileShareTimeoutsBlock Timeouts { get; set; } = new();
 
 }

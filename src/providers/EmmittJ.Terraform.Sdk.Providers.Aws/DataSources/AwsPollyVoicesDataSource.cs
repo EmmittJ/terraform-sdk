@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for voices in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlockBase
+public partial class AwsPollyVoicesDataSourceVoicesBlock() : TerraformBlock("voices")
 {
 
 
@@ -59,7 +59,7 @@ public partial class AwsPollyVoicesDataSource : TerraformDataSource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("voices")]
-    public partial TerraformList<TerraformBlock<AwsPollyVoicesDataSourceVoicesBlock>>? Voices { get; set; }
+    public TerraformList<AwsPollyVoicesDataSourceVoicesBlock> Voices { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

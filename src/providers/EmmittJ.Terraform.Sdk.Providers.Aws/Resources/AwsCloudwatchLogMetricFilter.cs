@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for metric_transformation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBlockBase
+public partial class AwsCloudwatchLogMetricFilterMetricTransformationBlock() : TerraformBlock("metric_transformation")
 {
     /// <summary>
     /// The default_value attribute.
@@ -118,6 +118,6 @@ public partial class AwsCloudwatchLogMetricFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MetricTransformation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricTransformation block(s) allowed")]
     [TerraformProperty("metric_transformation")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchLogMetricFilterMetricTransformationBlock>>? MetricTransformation { get; set; }
+    public required TerraformList<AwsCloudwatchLogMetricFilterMetricTransformationBlock> MetricTransformation { get; set; } = new();
 
 }

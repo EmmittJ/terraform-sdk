@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for line_channel in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermBotChannelLineLineChannelBlock : TerraformBlockBase
+public partial class AzurermBotChannelLineLineChannelBlock() : TerraformBlock("line_channel")
 {
     /// <summary>
     /// The access_token attribute.
@@ -30,7 +30,7 @@ public partial class AzurermBotChannelLineLineChannelBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBotChannelLineTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBotChannelLineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,13 +110,13 @@ public partial class AzurermBotChannelLine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LineChannel is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LineChannel block(s) required")]
     [TerraformProperty("line_channel")]
-    public partial TerraformSet<TerraformBlock<AzurermBotChannelLineLineChannelBlock>>? LineChannel { get; set; }
+    public required TerraformSet<AzurermBotChannelLineLineChannelBlock> LineChannel { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBotChannelLineTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBotChannelLineTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backup_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlockBase
+public partial class GoogleBackupDrBackupPlanBackupRulesBlock() : TerraformBlock("backup_rules")
 {
     /// <summary>
     /// Configures the duration for which backup data will be kept. The value should be greater than or equal to minimum enforced retention of the backup vault.
@@ -30,7 +30,7 @@ public partial class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBackupDrBackupPlanTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBackupDrBackupPlanTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,14 +133,14 @@ public partial class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackupRules block(s) required")]
     [TerraformProperty("backup_rules")]
-    public partial TerraformList<TerraformBlock<GoogleBackupDrBackupPlanBackupRulesBlock>>? BackupRules { get; set; }
+    public required TerraformList<GoogleBackupDrBackupPlanBackupRulesBlock> BackupRules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBackupDrBackupPlanTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBackupDrBackupPlanTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Google Cloud Platform Service Account to be used by the BackupVault for taking backups.

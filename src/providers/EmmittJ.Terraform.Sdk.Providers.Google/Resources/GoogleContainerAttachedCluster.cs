@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterAuthorizationBlock() : TerraformBlock("authorization")
 {
     /// <summary>
     /// Groups that can perform operations as a cluster admin. A managed
@@ -38,7 +38,7 @@ public partial class GoogleContainerAttachedClusterAuthorizationBlock : Terrafor
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAttachedClusterBinaryAuthorizationBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterBinaryAuthorizationBlock() : TerraformBlock("binary_authorization")
 {
     /// <summary>
     /// Configure Binary Authorization evaluation mode. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;PROJECT_SINGLETON_POLICY_ENFORCE&amp;quot;]
@@ -53,7 +53,7 @@ public partial class GoogleContainerAttachedClusterBinaryAuthorizationBlock : Te
 /// Block type for fleet in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAttachedClusterFleetBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterFleetBlock() : TerraformBlock("fleet")
 {
 
     /// <summary>
@@ -70,7 +70,7 @@ public partial class GoogleContainerAttachedClusterFleetBlock : TerraformBlockBa
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAttachedClusterLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterLoggingConfigBlock() : TerraformBlock("logging_config")
 {
 }
 
@@ -78,7 +78,7 @@ public partial class GoogleContainerAttachedClusterLoggingConfigBlock : Terrafor
 /// Block type for monitoring_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAttachedClusterMonitoringConfigBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterMonitoringConfigBlock() : TerraformBlock("monitoring_config")
 {
 }
 
@@ -86,7 +86,7 @@ public partial class GoogleContainerAttachedClusterMonitoringConfigBlock : Terra
 /// Block type for oidc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterOidcConfigBlock() : TerraformBlock("oidc_config")
 {
     /// <summary>
     /// A JSON Web Token (JWT) issuer URI. &#39;issuer&#39; must start with &#39;https://&#39;
@@ -109,7 +109,7 @@ public partial class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBl
 /// Block type for proxy_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAttachedClusterProxyConfigBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterProxyConfigBlock() : TerraformBlock("proxy_config")
 {
 }
 
@@ -118,7 +118,7 @@ public partial class GoogleContainerAttachedClusterProxyConfigBlock : TerraformB
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class GoogleContainerAttachedClusterSecurityPostureConfigBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterSecurityPostureConfigBlock() : TerraformBlock("security_posture_config")
 {
     /// <summary>
     /// Sets the mode of the Kubernetes security posture API&#39;s workload vulnerability scanning. Possible values: [&amp;quot;VULNERABILITY_DISABLED&amp;quot;, &amp;quot;VULNERABILITY_ENTERPRISE&amp;quot;]
@@ -134,7 +134,7 @@ public partial class GoogleContainerAttachedClusterSecurityPostureConfigBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerAttachedClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -254,7 +254,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterAuthorizationBlock>>? Authorization { get; set; }
+    public TerraformList<GoogleContainerAttachedClusterAuthorizationBlock> Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for binary_authorization.
@@ -262,7 +262,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public TerraformList<GoogleContainerAttachedClusterBinaryAuthorizationBlock> BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for fleet.
@@ -272,7 +272,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformProperty("fleet")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterFleetBlock>>? Fleet { get; set; }
+    public required TerraformList<GoogleContainerAttachedClusterFleetBlock> Fleet { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
@@ -280,7 +280,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<GoogleContainerAttachedClusterLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for monitoring_config.
@@ -288,7 +288,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfig block(s) allowed")]
     [TerraformProperty("monitoring_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterMonitoringConfigBlock>>? MonitoringConfig { get; set; }
+    public TerraformList<GoogleContainerAttachedClusterMonitoringConfigBlock> MonitoringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for oidc_config.
@@ -298,7 +298,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OidcConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcConfig block(s) allowed")]
     [TerraformProperty("oidc_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterOidcConfigBlock>>? OidcConfig { get; set; }
+    public required TerraformList<GoogleContainerAttachedClusterOidcConfigBlock> OidcConfig { get; set; } = new();
 
     /// <summary>
     /// Block for proxy_config.
@@ -306,7 +306,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfig block(s) allowed")]
     [TerraformProperty("proxy_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterProxyConfigBlock>>? ProxyConfig { get; set; }
+    public TerraformList<GoogleContainerAttachedClusterProxyConfigBlock> ProxyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for security_posture_config.
@@ -315,14 +315,14 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPostureConfig block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("security_posture_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterSecurityPostureConfigBlock>>? SecurityPostureConfig { get; set; }
+    public TerraformList<GoogleContainerAttachedClusterSecurityPostureConfigBlock> SecurityPostureConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerAttachedClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerAttachedClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The region where this cluster runs.

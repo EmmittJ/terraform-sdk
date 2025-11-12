@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeGlobalAddressTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeGlobalAddressTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -150,7 +150,7 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeGlobalAddressTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeGlobalAddressTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

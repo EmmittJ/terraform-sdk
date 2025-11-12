@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for conclusion_statement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexIntentConclusionStatementBlock : TerraformBlockBase
+public partial class AwsLexIntentConclusionStatementBlock() : TerraformBlock("conclusion_statement")
 {
     /// <summary>
     /// The response_card attribute.
@@ -21,7 +21,7 @@ public partial class AwsLexIntentConclusionStatementBlock : TerraformBlockBase
 /// Block type for confirmation_prompt in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexIntentConfirmationPromptBlock : TerraformBlockBase
+public partial class AwsLexIntentConfirmationPromptBlock() : TerraformBlock("confirmation_prompt")
 {
     /// <summary>
     /// The max_attempts attribute.
@@ -44,7 +44,7 @@ public partial class AwsLexIntentConfirmationPromptBlock : TerraformBlockBase
 /// Block type for dialog_code_hook in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexIntentDialogCodeHookBlock : TerraformBlockBase
+public partial class AwsLexIntentDialogCodeHookBlock() : TerraformBlock("dialog_code_hook")
 {
     /// <summary>
     /// The message_version attribute.
@@ -68,7 +68,7 @@ public partial class AwsLexIntentDialogCodeHookBlock : TerraformBlockBase
 /// Block type for follow_up_prompt in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexIntentFollowUpPromptBlock : TerraformBlockBase
+public partial class AwsLexIntentFollowUpPromptBlock() : TerraformBlock("follow_up_prompt")
 {
 }
 
@@ -76,7 +76,7 @@ public partial class AwsLexIntentFollowUpPromptBlock : TerraformBlockBase
 /// Block type for fulfillment_activity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexIntentFulfillmentActivityBlock : TerraformBlockBase
+public partial class AwsLexIntentFulfillmentActivityBlock() : TerraformBlock("fulfillment_activity")
 {
     /// <summary>
     /// The type attribute.
@@ -92,7 +92,7 @@ public partial class AwsLexIntentFulfillmentActivityBlock : TerraformBlockBase
 /// Block type for rejection_statement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexIntentRejectionStatementBlock : TerraformBlockBase
+public partial class AwsLexIntentRejectionStatementBlock() : TerraformBlock("rejection_statement")
 {
     /// <summary>
     /// The response_card attribute.
@@ -107,7 +107,7 @@ public partial class AwsLexIntentRejectionStatementBlock : TerraformBlockBase
 /// Block type for slot in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLexIntentSlotBlock : TerraformBlockBase
+public partial class AwsLexIntentSlotBlock() : TerraformBlock("slot")
 {
     /// <summary>
     /// The description attribute.
@@ -174,7 +174,7 @@ public partial class AwsLexIntentSlotBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLexIntentTimeoutsBlock : TerraformBlockBase
+public partial class AwsLexIntentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -265,7 +265,7 @@ public partial class AwsLexIntent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConclusionStatement block(s) allowed")]
     [TerraformProperty("conclusion_statement")]
-    public partial TerraformList<TerraformBlock<AwsLexIntentConclusionStatementBlock>>? ConclusionStatement { get; set; }
+    public TerraformList<AwsLexIntentConclusionStatementBlock> ConclusionStatement { get; set; } = new();
 
     /// <summary>
     /// Block for confirmation_prompt.
@@ -273,7 +273,7 @@ public partial class AwsLexIntent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfirmationPrompt block(s) allowed")]
     [TerraformProperty("confirmation_prompt")]
-    public partial TerraformList<TerraformBlock<AwsLexIntentConfirmationPromptBlock>>? ConfirmationPrompt { get; set; }
+    public TerraformList<AwsLexIntentConfirmationPromptBlock> ConfirmationPrompt { get; set; } = new();
 
     /// <summary>
     /// Block for dialog_code_hook.
@@ -281,7 +281,7 @@ public partial class AwsLexIntent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DialogCodeHook block(s) allowed")]
     [TerraformProperty("dialog_code_hook")]
-    public partial TerraformList<TerraformBlock<AwsLexIntentDialogCodeHookBlock>>? DialogCodeHook { get; set; }
+    public TerraformList<AwsLexIntentDialogCodeHookBlock> DialogCodeHook { get; set; } = new();
 
     /// <summary>
     /// Block for follow_up_prompt.
@@ -289,7 +289,7 @@ public partial class AwsLexIntent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FollowUpPrompt block(s) allowed")]
     [TerraformProperty("follow_up_prompt")]
-    public partial TerraformList<TerraformBlock<AwsLexIntentFollowUpPromptBlock>>? FollowUpPrompt { get; set; }
+    public TerraformList<AwsLexIntentFollowUpPromptBlock> FollowUpPrompt { get; set; } = new();
 
     /// <summary>
     /// Block for fulfillment_activity.
@@ -299,7 +299,7 @@ public partial class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FulfillmentActivity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FulfillmentActivity block(s) allowed")]
     [TerraformProperty("fulfillment_activity")]
-    public partial TerraformList<TerraformBlock<AwsLexIntentFulfillmentActivityBlock>>? FulfillmentActivity { get; set; }
+    public required TerraformList<AwsLexIntentFulfillmentActivityBlock> FulfillmentActivity { get; set; } = new();
 
     /// <summary>
     /// Block for rejection_statement.
@@ -307,7 +307,7 @@ public partial class AwsLexIntent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RejectionStatement block(s) allowed")]
     [TerraformProperty("rejection_statement")]
-    public partial TerraformList<TerraformBlock<AwsLexIntentRejectionStatementBlock>>? RejectionStatement { get; set; }
+    public TerraformList<AwsLexIntentRejectionStatementBlock> RejectionStatement { get; set; } = new();
 
     /// <summary>
     /// Block for slot.
@@ -315,14 +315,14 @@ public partial class AwsLexIntent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Slot block(s) allowed")]
     [TerraformProperty("slot")]
-    public partial TerraformSet<TerraformBlock<AwsLexIntentSlotBlock>>? Slot { get; set; }
+    public TerraformSet<AwsLexIntentSlotBlock> Slot { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLexIntentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLexIntentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

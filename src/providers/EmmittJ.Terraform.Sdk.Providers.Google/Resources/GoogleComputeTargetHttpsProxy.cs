@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeTargetHttpsProxyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeTargetHttpsProxyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -191,7 +191,7 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeTargetHttpsProxyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeTargetHttpsProxyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

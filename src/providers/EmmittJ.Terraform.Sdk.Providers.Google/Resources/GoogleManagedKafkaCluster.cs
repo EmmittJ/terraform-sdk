@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for capacity_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleManagedKafkaClusterCapacityConfigBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaClusterCapacityConfigBlock() : TerraformBlock("capacity_config")
 {
     /// <summary>
     /// The memory to provision for the cluster in bytes. The value must be between 1 GiB and 8 GiB per vCPU. Ex. 1024Mi, 4Gi.
@@ -30,7 +30,7 @@ public partial class GoogleManagedKafkaClusterCapacityConfigBlock : TerraformBlo
 /// Block type for gcp_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleManagedKafkaClusterGcpConfigBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaClusterGcpConfigBlock() : TerraformBlock("gcp_config")
 {
     /// <summary>
     /// The Cloud KMS Key name to use for encryption. The key must be located in the same region as the cluster and cannot be changed. Must be in the format &#39;projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY&#39;.
@@ -45,7 +45,7 @@ public partial class GoogleManagedKafkaClusterGcpConfigBlock : TerraformBlockBas
 /// Block type for rebalance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleManagedKafkaClusterRebalanceConfigBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaClusterRebalanceConfigBlock() : TerraformBlock("rebalance_config")
 {
     /// <summary>
     /// The rebalance behavior for the cluster. When not specified, defaults to &#39;NO_REBALANCE&#39;. Possible values: &#39;MODE_UNSPECIFIED&#39;, &#39;NO_REBALANCE&#39;, &#39;AUTO_REBALANCE_ON_SCALE_UP&#39;.
@@ -60,7 +60,7 @@ public partial class GoogleManagedKafkaClusterRebalanceConfigBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleManagedKafkaClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -89,7 +89,7 @@ public partial class GoogleManagedKafkaClusterTimeoutsBlock : TerraformBlockBase
 /// Block type for tls_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleManagedKafkaClusterTlsConfigBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaClusterTlsConfigBlock() : TerraformBlock("tls_config")
 {
     /// <summary>
     /// The rules for mapping mTLS certificate Distinguished Names (DNs) to shortened principal names for Kafka ACLs. This field corresponds exactly to the ssl.principal.mapping.rules broker config and matches the format and syntax defined in the Apache Kafka documentation. Setting or modifying this field will trigger a rolling restart of the Kafka brokers to apply the change. An empty string means that the default Kafka behavior is used. Example: &#39;RULE:^CN=(.?),OU=ServiceUsers.$/$1@example.com/,DEFAULT&#39;
@@ -158,7 +158,7 @@ public partial class GoogleManagedKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CapacityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityConfig block(s) allowed")]
     [TerraformProperty("capacity_config")]
-    public partial TerraformList<TerraformBlock<GoogleManagedKafkaClusterCapacityConfigBlock>>? CapacityConfig { get; set; }
+    public required TerraformList<GoogleManagedKafkaClusterCapacityConfigBlock> CapacityConfig { get; set; } = new();
 
     /// <summary>
     /// Block for gcp_config.
@@ -168,7 +168,7 @@ public partial class GoogleManagedKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GcpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcpConfig block(s) allowed")]
     [TerraformProperty("gcp_config")]
-    public partial TerraformList<TerraformBlock<GoogleManagedKafkaClusterGcpConfigBlock>>? GcpConfig { get; set; }
+    public required TerraformList<GoogleManagedKafkaClusterGcpConfigBlock> GcpConfig { get; set; } = new();
 
     /// <summary>
     /// Block for rebalance_config.
@@ -176,14 +176,14 @@ public partial class GoogleManagedKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RebalanceConfig block(s) allowed")]
     [TerraformProperty("rebalance_config")]
-    public partial TerraformList<TerraformBlock<GoogleManagedKafkaClusterRebalanceConfigBlock>>? RebalanceConfig { get; set; }
+    public TerraformList<GoogleManagedKafkaClusterRebalanceConfigBlock> RebalanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleManagedKafkaClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleManagedKafkaClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tls_config.
@@ -191,7 +191,7 @@ public partial class GoogleManagedKafkaCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
     [TerraformProperty("tls_config")]
-    public partial TerraformList<TerraformBlock<GoogleManagedKafkaClusterTlsConfigBlock>>? TlsConfig { get; set; }
+    public TerraformList<GoogleManagedKafkaClusterTlsConfigBlock> TlsConfig { get; set; } = new();
 
     /// <summary>
     /// The time when the cluster was created.

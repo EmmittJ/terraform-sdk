@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIapTunnelDestGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIapTunnelDestGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -88,7 +88,7 @@ public partial class GoogleIapTunnelDestGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIapTunnelDestGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIapTunnelDestGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Full resource name.

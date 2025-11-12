@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_capacity_provider_strategy in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock : TerraformBlockBase
+public partial class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock() : TerraformBlock("default_capacity_provider_strategy")
 {
     /// <summary>
     /// The base attribute.
@@ -75,6 +75,6 @@ public partial class AwsEcsClusterCapacityProviders : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("default_capacity_provider_strategy")]
-    public partial TerraformSet<TerraformBlock<AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock>>? DefaultCapacityProviderStrategy { get; set; }
+    public TerraformSet<AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock> DefaultCapacityProviderStrategy { get; set; } = new();
 
 }

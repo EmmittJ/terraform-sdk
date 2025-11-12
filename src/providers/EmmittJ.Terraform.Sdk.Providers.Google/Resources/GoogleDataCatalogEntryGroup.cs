@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataCatalogEntryGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataCatalogEntryGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,7 +90,7 @@ public partial class GoogleDataCatalogEntryGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataCatalogEntryGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataCatalogEntryGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the entry group in URL format. Example: projects/{project}/locations/{location}/entryGroups/{entryGroupId}

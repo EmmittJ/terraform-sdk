@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVpnGatewayDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermVpnGatewayDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVpnGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVpnGatewayDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The bgp_settings attribute.

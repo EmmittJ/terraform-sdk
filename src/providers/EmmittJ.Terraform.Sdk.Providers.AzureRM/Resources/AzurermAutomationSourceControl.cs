@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for security in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationSourceControlSecurityBlock : TerraformBlockBase
+public partial class AzurermAutomationSourceControlSecurityBlock() : TerraformBlock("security")
 {
     /// <summary>
     /// The refresh_token attribute.
@@ -37,7 +37,7 @@ public partial class AzurermAutomationSourceControlSecurityBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAutomationSourceControlTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -162,13 +162,13 @@ public partial class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Security block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
     [TerraformProperty("security")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationSourceControlSecurityBlock>>? Security { get; set; }
+    public required TerraformList<AzurermAutomationSourceControlSecurityBlock> Security { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAutomationSourceControlTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAutomationSourceControlTimeoutsBlock Timeouts { get; set; } = new();
 
 }

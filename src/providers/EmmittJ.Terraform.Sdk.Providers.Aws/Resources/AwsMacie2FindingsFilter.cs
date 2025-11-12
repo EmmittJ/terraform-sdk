@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for finding_criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMacie2FindingsFilterFindingCriteriaBlock : TerraformBlockBase
+public partial class AwsMacie2FindingsFilterFindingCriteriaBlock() : TerraformBlock("finding_criteria")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsMacie2FindingsFilterFindingCriteriaBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMacie2FindingsFilterTimeoutsBlock : TerraformBlockBase
+public partial class AwsMacie2FindingsFilterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,14 +107,14 @@ public partial class AwsMacie2FindingsFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FindingCriteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FindingCriteria block(s) allowed")]
     [TerraformProperty("finding_criteria")]
-    public partial TerraformList<TerraformBlock<AwsMacie2FindingsFilterFindingCriteriaBlock>>? FindingCriteria { get; set; }
+    public required TerraformList<AwsMacie2FindingsFilterFindingCriteriaBlock> FindingCriteria { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMacie2FindingsFilterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMacie2FindingsFilterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

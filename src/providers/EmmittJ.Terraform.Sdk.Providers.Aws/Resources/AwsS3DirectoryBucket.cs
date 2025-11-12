@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3DirectoryBucketLocationBlock : TerraformBlockBase
+public partial class AwsS3DirectoryBucketLocationBlock() : TerraformBlock("location")
 {
     /// <summary>
     /// The name attribute.
@@ -82,7 +82,7 @@ public partial class AwsS3DirectoryBucket : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("location")]
-    public partial TerraformList<TerraformBlock<AwsS3DirectoryBucketLocationBlock>>? Location { get; set; }
+    public TerraformList<AwsS3DirectoryBucketLocationBlock> Location { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

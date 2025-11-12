@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeFlowhookTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeFlowhookTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,6 +91,6 @@ public partial class GoogleApigeeFlowhook : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeFlowhookTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeFlowhookTimeoutsBlock Timeouts { get; set; } = new();
 
 }

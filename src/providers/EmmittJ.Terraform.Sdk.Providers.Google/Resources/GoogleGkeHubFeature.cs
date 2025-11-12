@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for fleet_default_member_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubFeatureFleetDefaultMemberConfigBlock : TerraformBlockBase
+public partial class GoogleGkeHubFeatureFleetDefaultMemberConfigBlock() : TerraformBlock("fleet_default_member_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleGkeHubFeatureFleetDefaultMemberConfigBlock : Terrafor
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubFeatureSpecBlock : TerraformBlockBase
+public partial class GoogleGkeHubFeatureSpecBlock() : TerraformBlock("spec")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class GoogleGkeHubFeatureSpecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeHubFeatureTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeHubFeatureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -102,7 +102,7 @@ public partial class GoogleGkeHubFeature : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FleetDefaultMemberConfig block(s) allowed")]
     [TerraformProperty("fleet_default_member_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubFeatureFleetDefaultMemberConfigBlock>>? FleetDefaultMemberConfig { get; set; }
+    public TerraformList<GoogleGkeHubFeatureFleetDefaultMemberConfigBlock> FleetDefaultMemberConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spec.
@@ -110,14 +110,14 @@ public partial class GoogleGkeHubFeature : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubFeatureSpecBlock>>? Spec { get; set; }
+    public TerraformList<GoogleGkeHubFeatureSpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeHubFeatureTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeHubFeatureTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. When the Feature resource was created.

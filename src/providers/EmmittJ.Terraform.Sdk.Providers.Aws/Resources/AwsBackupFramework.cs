@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for control in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBackupFrameworkControlBlock : TerraformBlockBase
+public partial class AwsBackupFrameworkControlBlock() : TerraformBlock("control")
 {
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public partial class AwsBackupFrameworkControlBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBackupFrameworkTimeoutsBlock : TerraformBlockBase
+public partial class AwsBackupFrameworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,14 +107,14 @@ public partial class AwsBackupFramework : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Control is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Control block(s) required")]
     [TerraformProperty("control")]
-    public partial TerraformSet<TerraformBlock<AwsBackupFrameworkControlBlock>>? Control { get; set; }
+    public required TerraformSet<AwsBackupFrameworkControlBlock> Control { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBackupFrameworkTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBackupFrameworkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

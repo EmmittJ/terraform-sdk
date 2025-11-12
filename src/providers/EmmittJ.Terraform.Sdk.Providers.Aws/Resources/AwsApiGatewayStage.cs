@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_log_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlockBase
+public partial class AwsApiGatewayStageAccessLogSettingsBlock() : TerraformBlock("access_log_settings")
 {
     /// <summary>
     /// The destination_arn attribute.
@@ -30,7 +30,7 @@ public partial class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlockBa
 /// Block type for canary_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayStageCanarySettingsBlock : TerraformBlockBase
+public partial class AwsApiGatewayStageCanarySettingsBlock() : TerraformBlock("canary_settings")
 {
     /// <summary>
     /// The deployment_id attribute.
@@ -180,7 +180,7 @@ public partial class AwsApiGatewayStage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogSettings block(s) allowed")]
     [TerraformProperty("access_log_settings")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayStageAccessLogSettingsBlock>>? AccessLogSettings { get; set; }
+    public TerraformList<AwsApiGatewayStageAccessLogSettingsBlock> AccessLogSettings { get; set; } = new();
 
     /// <summary>
     /// Block for canary_settings.
@@ -188,7 +188,7 @@ public partial class AwsApiGatewayStage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CanarySettings block(s) allowed")]
     [TerraformProperty("canary_settings")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayStageCanarySettingsBlock>>? CanarySettings { get; set; }
+    public TerraformList<AwsApiGatewayStageCanarySettingsBlock> CanarySettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

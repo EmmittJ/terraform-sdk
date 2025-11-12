@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pipeline in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerSchedulePipelineBlock() : TerraformBlock("pipeline")
 {
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformB
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerScheduleScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The days_of_month attribute.
@@ -65,7 +65,7 @@ public partial class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -205,7 +205,7 @@ public partial class AzurermDataFactoryTriggerSchedule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("pipeline")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryTriggerSchedulePipelineBlock>>? Pipeline { get; set; }
+    public TerraformList<AzurermDataFactoryTriggerSchedulePipelineBlock> Pipeline { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -213,13 +213,13 @@ public partial class AzurermDataFactoryTriggerSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryTriggerScheduleScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AzurermDataFactoryTriggerScheduleScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryTriggerScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryTriggerScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

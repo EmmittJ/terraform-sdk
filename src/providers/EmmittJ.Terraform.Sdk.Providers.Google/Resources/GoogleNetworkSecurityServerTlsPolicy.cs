@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for mtls_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock() : TerraformBlock("mtls_policy")
 {
     /// <summary>
     /// When the client presents an invalid certificate or no certificate to the load balancer, the clientValidationMode specifies how the client connection is handled.
@@ -31,7 +31,7 @@ public partial class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock : Terra
 /// Block type for server_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock() : TerraformBlock("server_certificate")
 {
 }
 
@@ -39,7 +39,7 @@ public partial class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -136,7 +136,7 @@ public partial class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MtlsPolicy block(s) allowed")]
     [TerraformProperty("mtls_policy")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock>>? MtlsPolicy { get; set; }
+    public TerraformList<GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock> MtlsPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for server_certificate.
@@ -144,14 +144,14 @@ public partial class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerCertificate block(s) allowed")]
     [TerraformProperty("server_certificate")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock>>? ServerCertificate { get; set; }
+    public TerraformList<GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock> ServerCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the ServerTlsPolicy was created in UTC.

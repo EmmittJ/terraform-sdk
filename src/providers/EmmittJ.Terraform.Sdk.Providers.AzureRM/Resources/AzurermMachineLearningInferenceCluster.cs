@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBlockBase
+public partial class AzurermMachineLearningInferenceClusterIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermMachineLearningInferenceClusterIdentityBlock : Terra
 /// Block type for ssl in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlockBase
+public partial class AzurermMachineLearningInferenceClusterSslBlock() : TerraformBlock("ssl")
 {
     /// <summary>
     /// The cert attribute.
@@ -74,7 +74,7 @@ public partial class AzurermMachineLearningInferenceClusterSslBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMachineLearningInferenceClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,7 +175,7 @@ public partial class AzurermMachineLearningInferenceCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningInferenceClusterIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMachineLearningInferenceClusterIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for ssl.
@@ -183,13 +183,13 @@ public partial class AzurermMachineLearningInferenceCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssl block(s) allowed")]
     [TerraformProperty("ssl")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningInferenceClusterSslBlock>>? Ssl { get; set; }
+    public TerraformList<AzurermMachineLearningInferenceClusterSslBlock> Ssl { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMachineLearningInferenceClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMachineLearningInferenceClusterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

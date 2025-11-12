@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsImagebuilderInfrastructureConfigurationsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsImagebuilderInfrastructureConfigurationsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -54,7 +54,7 @@ public partial class AwsImagebuilderInfrastructureConfigurationsDataSource : Ter
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsImagebuilderInfrastructureConfigurationsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsImagebuilderInfrastructureConfigurationsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arns attribute.

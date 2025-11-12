@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for metric_query in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlockBase
+public partial class AwsCloudwatchMetricAlarmMetricQueryBlock() : TerraformBlock("metric_query")
 {
     /// <summary>
     /// The account_id attribute.
@@ -238,7 +238,7 @@ public partial class AwsCloudwatchMetricAlarm : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("metric_query")]
-    public partial TerraformSet<TerraformBlock<AwsCloudwatchMetricAlarmMetricQueryBlock>>? MetricQuery { get; set; }
+    public TerraformSet<AwsCloudwatchMetricAlarmMetricQueryBlock> MetricQuery { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

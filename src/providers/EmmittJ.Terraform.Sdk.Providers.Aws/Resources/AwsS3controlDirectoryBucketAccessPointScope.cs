@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3controlDirectoryBucketAccessPointScopeScopeBlock : TerraformBlockBase
+public partial class AwsS3controlDirectoryBucketAccessPointScopeScopeBlock() : TerraformBlock("scope")
 {
     /// <summary>
     /// The permissions attribute.
@@ -61,6 +61,6 @@ public partial class AwsS3controlDirectoryBucketAccessPointScope : TerraformReso
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scope")]
-    public partial TerraformList<TerraformBlock<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>>? Scope { get; set; }
+    public TerraformList<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock> Scope { get; set; } = new();
 
 }

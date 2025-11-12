@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsConnectPhoneNumberTimeoutsBlock : TerraformBlockBase
+public partial class AwsConnectPhoneNumberTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,7 +111,7 @@ public partial class AwsConnectPhoneNumber : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsConnectPhoneNumberTimeoutsBlock>? Timeouts { get; set; }
+    public AwsConnectPhoneNumberTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

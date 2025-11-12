@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allow in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeFirewallAllowBlock : TerraformBlockBase
+public partial class GoogleComputeFirewallAllowBlock() : TerraformBlock("allow")
 {
     /// <summary>
     /// An optional list of ports to which this rule applies. This field
@@ -38,7 +38,7 @@ public partial class GoogleComputeFirewallAllowBlock : TerraformBlockBase
 /// Block type for deny in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeFirewallDenyBlock : TerraformBlockBase
+public partial class GoogleComputeFirewallDenyBlock() : TerraformBlock("deny")
 {
     /// <summary>
     /// An optional list of ports to which this rule applies. This field
@@ -70,7 +70,7 @@ public partial class GoogleComputeFirewallDenyBlock : TerraformBlockBase
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeFirewallLogConfigBlock : TerraformBlockBase
+public partial class GoogleComputeFirewallLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// This field denotes whether to include or exclude metadata for firewall logs. Possible values: [&amp;quot;EXCLUDE_ALL_METADATA&amp;quot;, &amp;quot;INCLUDE_ALL_METADATA&amp;quot;]
@@ -86,7 +86,7 @@ public partial class GoogleComputeFirewallLogConfigBlock : TerraformBlockBase
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeFirewallParamsBlock : TerraformBlockBase
+public partial class GoogleComputeFirewallParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// Resource manager tags to be bound to the firewall. Tag keys and values have the
@@ -106,7 +106,7 @@ public partial class GoogleComputeFirewallParamsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeFirewallTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeFirewallTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -309,14 +309,14 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("allow")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeFirewallAllowBlock>>? Allow { get; set; }
+    public TerraformSet<GoogleComputeFirewallAllowBlock> Allow { get; set; } = new();
 
     /// <summary>
     /// Block for deny.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("deny")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeFirewallDenyBlock>>? Deny { get; set; }
+    public TerraformSet<GoogleComputeFirewallDenyBlock> Deny { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
@@ -324,7 +324,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeFirewallLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<GoogleComputeFirewallLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for params.
@@ -332,14 +332,14 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeFirewallParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeFirewallParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeFirewallTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeFirewallTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

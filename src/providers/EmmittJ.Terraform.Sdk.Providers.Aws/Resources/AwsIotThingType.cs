@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotThingTypePropertiesBlock : TerraformBlockBase
+public partial class AwsIotThingTypePropertiesBlock() : TerraformBlock("properties")
 {
     /// <summary>
     /// The description attribute.
@@ -83,7 +83,7 @@ public partial class AwsIotThingType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public partial TerraformList<TerraformBlock<AwsIotThingTypePropertiesBlock>>? Properties { get; set; }
+    public TerraformList<AwsIotThingTypePropertiesBlock> Properties { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

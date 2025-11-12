@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,6 +83,6 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociation : Terra
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

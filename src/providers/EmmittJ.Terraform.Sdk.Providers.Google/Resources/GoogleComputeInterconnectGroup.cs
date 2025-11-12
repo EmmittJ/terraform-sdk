@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for intent in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInterconnectGroupIntentBlock : TerraformBlockBase
+public partial class GoogleComputeInterconnectGroupIntentBlock() : TerraformBlock("intent")
 {
     /// <summary>
     /// The reliability the user intends this group to be capable of, in terms
@@ -22,7 +22,7 @@ public partial class GoogleComputeInterconnectGroupIntentBlock : TerraformBlockB
 /// Block type for interconnects in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeInterconnectGroupInterconnectsBlock : TerraformBlockBase
+public partial class GoogleComputeInterconnectGroupInterconnectsBlock() : TerraformBlock("interconnects")
 {
     /// <summary>
     /// The URL of an Interconnect in this group. All Interconnects in the group are unique.
@@ -45,7 +45,7 @@ public partial class GoogleComputeInterconnectGroupInterconnectsBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeInterconnectGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -121,21 +121,21 @@ public partial class GoogleComputeInterconnectGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Intent block(s) allowed")]
     [TerraformProperty("intent")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInterconnectGroupIntentBlock>>? Intent { get; set; }
+    public required TerraformList<GoogleComputeInterconnectGroupIntentBlock> Intent { get; set; } = new();
 
     /// <summary>
     /// Block for interconnects.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("interconnects")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeInterconnectGroupInterconnectsBlock>>? Interconnects { get; set; }
+    public TerraformSet<GoogleComputeInterconnectGroupInterconnectsBlock> Interconnects { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeInterconnectGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeInterconnectGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The status of the group as configured. This has the same

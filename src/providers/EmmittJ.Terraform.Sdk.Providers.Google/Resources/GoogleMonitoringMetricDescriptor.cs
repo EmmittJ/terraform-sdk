@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for labels in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlockBase
+public partial class GoogleMonitoringMetricDescriptorLabelsBlock() : TerraformBlock("labels")
 {
     /// <summary>
     /// A human-readable description for the label.
@@ -36,7 +36,7 @@ public partial class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBloc
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringMetricDescriptorMetadataBlock : TerraformBlockBase
+public partial class GoogleMonitoringMetricDescriptorMetadataBlock() : TerraformBlock("metadata")
 {
     /// <summary>
     /// The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data loss due to errors. In &#39;[duration format](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf?&amp;amp;_ga=2.264881487.1507873253.1593446723-935052455.1591817775#google.protobuf.Duration)&#39;.
@@ -58,7 +58,7 @@ public partial class GoogleMonitoringMetricDescriptorMetadataBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMonitoringMetricDescriptorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -183,7 +183,7 @@ public partial class GoogleMonitoringMetricDescriptor : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("labels")]
-    public partial TerraformSet<TerraformBlock<GoogleMonitoringMetricDescriptorLabelsBlock>>? Labels { get; set; }
+    public TerraformSet<GoogleMonitoringMetricDescriptorLabelsBlock> Labels { get; set; } = new();
 
     /// <summary>
     /// Block for metadata.
@@ -191,14 +191,14 @@ public partial class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringMetricDescriptorMetadataBlock>>? Metadata { get; set; }
+    public TerraformList<GoogleMonitoringMetricDescriptorMetadataBlock> Metadata { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMonitoringMetricDescriptorTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMonitoringMetricDescriptorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be associated with one of the monitored resource types listed here. This field allows time series to be associated with the intersection of this metric type and the monitored resource types in this list.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxPageAdvancedSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPageAdvancedSettingsBlock() : TerraformBlock("advanced_settings")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDialogflowCxPageAdvancedSettingsBlock : TerraformBloc
 /// Block type for entry_fulfillment in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxPageEntryFulfillmentBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPageEntryFulfillmentBlock() : TerraformBlock("entry_fulfillment")
 {
     /// <summary>
     /// Whether Dialogflow should return currently queued fulfillment response messages in streaming APIs. If a webhook is specified, it happens before Dialogflow invokes webhook. Warning: 1) This flag only affects streaming API. Responses are still queued and returned once in non-streaming API. 2) The flag can be enabled in any fulfillment but only the first 3 partial responses will be returned. You may only want to apply it to fulfillments that have slow webhooks.
@@ -43,7 +43,7 @@ public partial class GoogleDialogflowCxPageEntryFulfillmentBlock : TerraformBloc
 /// Block type for event_handlers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPageEventHandlersBlock() : TerraformBlock("event_handlers")
 {
     /// <summary>
     /// The name of the event to handle.
@@ -75,7 +75,7 @@ public partial class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlockBa
 /// Block type for form in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxPageFormBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPageFormBlock() : TerraformBlock("form")
 {
 }
 
@@ -83,7 +83,7 @@ public partial class GoogleDialogflowCxPageFormBlock : TerraformBlockBase
 /// Block type for knowledge_connector_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock() : TerraformBlock("knowledge_connector_settings")
 {
     /// <summary>
     /// Whether Knowledge Connector is enabled or not.
@@ -115,7 +115,7 @@ public partial class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxPageTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,7 +144,7 @@ public partial class GoogleDialogflowCxPageTimeoutsBlock : TerraformBlockBase
 /// Block type for transition_routes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPageTransitionRoutesBlock() : TerraformBlock("transition_routes")
 {
     /// <summary>
     /// The condition to evaluate against form parameters or session parameters.
@@ -249,7 +249,7 @@ public partial class GoogleDialogflowCxPage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSettings block(s) allowed")]
     [TerraformProperty("advanced_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxPageAdvancedSettingsBlock>>? AdvancedSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxPageAdvancedSettingsBlock> AdvancedSettings { get; set; } = new();
 
     /// <summary>
     /// Block for entry_fulfillment.
@@ -257,14 +257,14 @@ public partial class GoogleDialogflowCxPage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntryFulfillment block(s) allowed")]
     [TerraformProperty("entry_fulfillment")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxPageEntryFulfillmentBlock>>? EntryFulfillment { get; set; }
+    public TerraformList<GoogleDialogflowCxPageEntryFulfillmentBlock> EntryFulfillment { get; set; } = new();
 
     /// <summary>
     /// Block for event_handlers.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_handlers")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxPageEventHandlersBlock>>? EventHandlers { get; set; }
+    public TerraformList<GoogleDialogflowCxPageEventHandlersBlock> EventHandlers { get; set; } = new();
 
     /// <summary>
     /// Block for form.
@@ -272,7 +272,7 @@ public partial class GoogleDialogflowCxPage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Form block(s) allowed")]
     [TerraformProperty("form")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxPageFormBlock>>? Form { get; set; }
+    public TerraformList<GoogleDialogflowCxPageFormBlock> Form { get; set; } = new();
 
     /// <summary>
     /// Block for knowledge_connector_settings.
@@ -280,21 +280,21 @@ public partial class GoogleDialogflowCxPage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KnowledgeConnectorSettings block(s) allowed")]
     [TerraformProperty("knowledge_connector_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock>>? KnowledgeConnectorSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock> KnowledgeConnectorSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxPageTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxPageTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for transition_routes.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("transition_routes")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxPageTransitionRoutesBlock>>? TransitionRoutes { get; set; }
+    public TerraformList<GoogleDialogflowCxPageTransitionRoutesBlock> TransitionRoutes { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the page.

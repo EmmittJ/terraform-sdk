@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupVaultIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupVaultTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,13 +161,13 @@ public partial class AzurermDataProtectionBackupVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupVaultIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermDataProtectionBackupVaultIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataProtectionBackupVaultTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataProtectionBackupVaultTimeoutsBlock Timeouts { get; set; } = new();
 
 }

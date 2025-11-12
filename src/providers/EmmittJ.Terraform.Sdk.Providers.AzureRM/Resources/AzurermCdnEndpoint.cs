@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for delivery_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnEndpointDeliveryRuleBlock : TerraformBlockBase
+public partial class AzurermCdnEndpointDeliveryRuleBlock() : TerraformBlock("delivery_rule")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermCdnEndpointDeliveryRuleBlock : TerraformBlockBase
 /// Block type for geo_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnEndpointGeoFilterBlock : TerraformBlockBase
+public partial class AzurermCdnEndpointGeoFilterBlock() : TerraformBlock("geo_filter")
 {
     /// <summary>
     /// The action attribute.
@@ -62,7 +62,7 @@ public partial class AzurermCdnEndpointGeoFilterBlock : TerraformBlockBase
 /// Block type for global_delivery_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnEndpointGlobalDeliveryRuleBlock : TerraformBlockBase
+public partial class AzurermCdnEndpointGlobalDeliveryRuleBlock() : TerraformBlock("global_delivery_rule")
 {
 }
 
@@ -70,7 +70,7 @@ public partial class AzurermCdnEndpointGlobalDeliveryRuleBlock : TerraformBlockB
 /// Block type for origin in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCdnEndpointOriginBlock : TerraformBlockBase
+public partial class AzurermCdnEndpointOriginBlock() : TerraformBlock("origin")
 {
     /// <summary>
     /// The host_name attribute.
@@ -108,7 +108,7 @@ public partial class AzurermCdnEndpointOriginBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -264,14 +264,14 @@ public partial class AzurermCdnEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("delivery_rule")]
-    public partial TerraformList<TerraformBlock<AzurermCdnEndpointDeliveryRuleBlock>>? DeliveryRule { get; set; }
+    public TerraformList<AzurermCdnEndpointDeliveryRuleBlock> DeliveryRule { get; set; } = new();
 
     /// <summary>
     /// Block for geo_filter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("geo_filter")]
-    public partial TerraformList<TerraformBlock<AzurermCdnEndpointGeoFilterBlock>>? GeoFilter { get; set; }
+    public TerraformList<AzurermCdnEndpointGeoFilterBlock> GeoFilter { get; set; } = new();
 
     /// <summary>
     /// Block for global_delivery_rule.
@@ -279,7 +279,7 @@ public partial class AzurermCdnEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GlobalDeliveryRule block(s) allowed")]
     [TerraformProperty("global_delivery_rule")]
-    public partial TerraformList<TerraformBlock<AzurermCdnEndpointGlobalDeliveryRuleBlock>>? GlobalDeliveryRule { get; set; }
+    public TerraformList<AzurermCdnEndpointGlobalDeliveryRuleBlock> GlobalDeliveryRule { get; set; } = new();
 
     /// <summary>
     /// Block for origin.
@@ -288,14 +288,14 @@ public partial class AzurermCdnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Origin block(s) required")]
     [TerraformProperty("origin")]
-    public partial TerraformSet<TerraformBlock<AzurermCdnEndpointOriginBlock>>? Origin { get; set; }
+    public required TerraformSet<AzurermCdnEndpointOriginBlock> Origin { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

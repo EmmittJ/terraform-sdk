@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for license_resource in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlockBase
+public partial class GoogleComputeRegionCommitmentLicenseResourceBlock() : TerraformBlock("license_resource")
 {
     /// <summary>
     /// The number of licenses purchased.
@@ -36,7 +36,7 @@ public partial class GoogleComputeRegionCommitmentLicenseResourceBlock : Terrafo
 /// Block type for resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionCommitmentResourcesBlock : TerraformBlockBase
+public partial class GoogleComputeRegionCommitmentResourcesBlock() : TerraformBlock("resources")
 {
     /// <summary>
     /// Name of the accelerator type resource. Applicable only when the type is ACCELERATOR.
@@ -69,7 +69,7 @@ public partial class GoogleComputeRegionCommitmentResourcesBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRegionCommitmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionCommitmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -190,21 +190,21 @@ public partial class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LicenseResource block(s) allowed")]
     [TerraformProperty("license_resource")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionCommitmentLicenseResourceBlock>>? LicenseResource { get; set; }
+    public TerraformList<GoogleComputeRegionCommitmentLicenseResourceBlock> LicenseResource { get; set; } = new();
 
     /// <summary>
     /// Block for resources.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resources")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionCommitmentResourcesBlock>>? Resources { get; set; }
+    public TerraformList<GoogleComputeRegionCommitmentResourcesBlock> Resources { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRegionCommitmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRegionCommitmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Unique identifier for the resource.

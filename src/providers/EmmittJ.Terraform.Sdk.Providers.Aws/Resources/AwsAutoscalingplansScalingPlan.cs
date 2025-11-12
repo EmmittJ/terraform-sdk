@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for application_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingplansScalingPlanApplicationSourceBlock : TerraformBlockBase
+public partial class AwsAutoscalingplansScalingPlanApplicationSourceBlock() : TerraformBlock("application_source")
 {
     /// <summary>
     /// The cloudformation_stack_arn attribute.
@@ -21,7 +21,7 @@ public partial class AwsAutoscalingplansScalingPlanApplicationSourceBlock : Terr
 /// Block type for scaling_instruction in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBlockBase
+public partial class AwsAutoscalingplansScalingPlanScalingInstructionBlock() : TerraformBlock("scaling_instruction")
 {
     /// <summary>
     /// The disable_dynamic_scaling attribute.
@@ -147,7 +147,7 @@ public partial class AwsAutoscalingplansScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApplicationSource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSource block(s) allowed")]
     [TerraformProperty("application_source")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingplansScalingPlanApplicationSourceBlock>>? ApplicationSource { get; set; }
+    public required TerraformList<AwsAutoscalingplansScalingPlanApplicationSourceBlock> ApplicationSource { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_instruction.
@@ -156,7 +156,7 @@ public partial class AwsAutoscalingplansScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingInstruction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalingInstruction block(s) required")]
     [TerraformProperty("scaling_instruction")]
-    public partial TerraformSet<TerraformBlock<AwsAutoscalingplansScalingPlanScalingInstructionBlock>>? ScalingInstruction { get; set; }
+    public required TerraformSet<AwsAutoscalingplansScalingPlanScalingInstructionBlock> ScalingInstruction { get; set; } = new();
 
     /// <summary>
     /// The scaling_plan_version attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for page in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermBotChannelFacebookPageBlock : TerraformBlockBase
+public partial class AzurermBotChannelFacebookPageBlock() : TerraformBlock("page")
 {
     /// <summary>
     /// The access_token attribute.
@@ -30,7 +30,7 @@ public partial class AzurermBotChannelFacebookPageBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBotChannelFacebookTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,13 +126,13 @@ public partial class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Page is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Page block(s) required")]
     [TerraformProperty("page")]
-    public partial TerraformSet<TerraformBlock<AzurermBotChannelFacebookPageBlock>>? Page { get; set; }
+    public required TerraformSet<AzurermBotChannelFacebookPageBlock> Page { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBotChannelFacebookTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBotChannelFacebookTimeoutsBlock Timeouts { get; set; } = new();
 
 }

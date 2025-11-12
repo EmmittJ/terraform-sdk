@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for enabled_log in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermMonitorDiagnosticSettingEnabledLogBlock : TerraformBlockBase
+public partial class AzurermMonitorDiagnosticSettingEnabledLogBlock() : TerraformBlock("enabled_log")
 {
     /// <summary>
     /// The category attribute.
@@ -28,7 +28,7 @@ public partial class AzurermMonitorDiagnosticSettingEnabledLogBlock : TerraformB
 /// Block type for enabled_metric in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermMonitorDiagnosticSettingEnabledMetricBlock : TerraformBlockBase
+public partial class AzurermMonitorDiagnosticSettingEnabledMetricBlock() : TerraformBlock("enabled_metric")
 {
     /// <summary>
     /// The category attribute.
@@ -45,7 +45,7 @@ public partial class AzurermMonitorDiagnosticSettingEnabledMetricBlock : Terrafo
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlockBase
+public partial class AzurermMonitorDiagnosticSettingMetricBlock() : TerraformBlock("metric")
 {
     /// <summary>
     /// The category attribute.
@@ -68,7 +68,7 @@ public partial class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorDiagnosticSettingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorDiagnosticSettingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -179,14 +179,14 @@ public partial class AzurermMonitorDiagnosticSetting : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("enabled_log")]
-    public partial TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingEnabledLogBlock>>? EnabledLog { get; set; }
+    public TerraformSet<AzurermMonitorDiagnosticSettingEnabledLogBlock> EnabledLog { get; set; } = new();
 
     /// <summary>
     /// Block for enabled_metric.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("enabled_metric")]
-    public partial TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingEnabledMetricBlock>>? EnabledMetric { get; set; }
+    public TerraformSet<AzurermMonitorDiagnosticSettingEnabledMetricBlock> EnabledMetric { get; set; } = new();
 
     /// <summary>
     /// Block for metric.
@@ -194,13 +194,13 @@ public partial class AzurermMonitorDiagnosticSetting : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("metric")]
-    public partial TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingMetricBlock>>? Metric { get; set; }
+    public TerraformSet<AzurermMonitorDiagnosticSettingMetricBlock> Metric { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorDiagnosticSettingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorDiagnosticSettingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

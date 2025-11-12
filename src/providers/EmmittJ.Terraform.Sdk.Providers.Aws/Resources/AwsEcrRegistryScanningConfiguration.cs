@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcrRegistryScanningConfigurationRuleBlock : TerraformBlockBase
+public partial class AwsEcrRegistryScanningConfigurationRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The scan_frequency attribute.
@@ -56,7 +56,7 @@ public partial class AwsEcrRegistryScanningConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Rule block(s) allowed")]
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsEcrRegistryScanningConfigurationRuleBlock>>? Rule { get; set; }
+    public TerraformSet<AwsEcrRegistryScanningConfigurationRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// The registry_id attribute.

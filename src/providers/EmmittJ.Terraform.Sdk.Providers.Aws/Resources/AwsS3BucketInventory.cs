@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketInventoryDestinationBlock : TerraformBlockBase
+public partial class AwsS3BucketInventoryDestinationBlock() : TerraformBlock("destination")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsS3BucketInventoryDestinationBlock : TerraformBlockBase
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketInventoryFilterBlock : TerraformBlockBase
+public partial class AwsS3BucketInventoryFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The prefix attribute.
@@ -29,7 +29,7 @@ public partial class AwsS3BucketInventoryFilterBlock : TerraformBlockBase
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketInventoryScheduleBlock : TerraformBlockBase
+public partial class AwsS3BucketInventoryScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The frequency attribute.
@@ -111,7 +111,7 @@ public partial class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketInventoryDestinationBlock>>? Destination { get; set; }
+    public required TerraformList<AwsS3BucketInventoryDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for filter.
@@ -119,7 +119,7 @@ public partial class AwsS3BucketInventory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketInventoryFilterBlock>>? Filter { get; set; }
+    public TerraformList<AwsS3BucketInventoryFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -129,6 +129,6 @@ public partial class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketInventoryScheduleBlock>>? Schedule { get; set; }
+    public required TerraformList<AwsS3BucketInventoryScheduleBlock> Schedule { get; set; } = new();
 
 }

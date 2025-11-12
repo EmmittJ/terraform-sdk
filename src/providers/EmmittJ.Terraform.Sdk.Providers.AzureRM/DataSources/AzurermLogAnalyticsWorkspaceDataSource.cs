@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The daily_quota_gb attribute.

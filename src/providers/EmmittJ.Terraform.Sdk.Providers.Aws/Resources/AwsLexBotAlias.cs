@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for conversation_logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexBotAliasConversationLogsBlock : TerraformBlockBase
+public partial class AwsLexBotAliasConversationLogsBlock() : TerraformBlock("conversation_logs")
 {
     /// <summary>
     /// The iam_role_arn attribute.
@@ -22,7 +22,7 @@ public partial class AwsLexBotAliasConversationLogsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLexBotAliasTimeoutsBlock : TerraformBlockBase
+public partial class AwsLexBotAliasTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -108,14 +108,14 @@ public partial class AwsLexBotAlias : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConversationLogs block(s) allowed")]
     [TerraformProperty("conversation_logs")]
-    public partial TerraformList<TerraformBlock<AwsLexBotAliasConversationLogsBlock>>? ConversationLogs { get; set; }
+    public TerraformList<AwsLexBotAliasConversationLogsBlock> ConversationLogs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLexBotAliasTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLexBotAliasTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

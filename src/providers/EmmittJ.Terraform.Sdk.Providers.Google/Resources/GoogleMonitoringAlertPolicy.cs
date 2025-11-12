@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for alert_strategy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringAlertPolicyAlertStrategyBlock : TerraformBlockBase
+public partial class GoogleMonitoringAlertPolicyAlertStrategyBlock() : TerraformBlock("alert_strategy")
 {
     /// <summary>
     /// If an alert policy that was active has no data for this long, any open incidents will close.
@@ -28,7 +28,7 @@ public partial class GoogleMonitoringAlertPolicyAlertStrategyBlock : TerraformBl
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlockBase
+public partial class GoogleMonitoringAlertPolicyConditionsBlock() : TerraformBlock("conditions")
 {
     /// <summary>
     /// A short name or phrase used to identify the
@@ -49,7 +49,7 @@ public partial class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
 /// Block type for documentation in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBlockBase
+public partial class GoogleMonitoringAlertPolicyDocumentationBlock() : TerraformBlock("documentation")
 {
     /// <summary>
     /// The text of the documentation, interpreted according to mimeType.
@@ -85,7 +85,7 @@ public partial class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMonitoringAlertPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -200,7 +200,7 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlertStrategy block(s) allowed")]
     [TerraformProperty("alert_strategy")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyAlertStrategyBlock>>? AlertStrategy { get; set; }
+    public TerraformList<GoogleMonitoringAlertPolicyAlertStrategyBlock> AlertStrategy { get; set; } = new();
 
     /// <summary>
     /// Block for conditions.
@@ -209,7 +209,7 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Conditions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Conditions block(s) required")]
     [TerraformProperty("conditions")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyConditionsBlock>>? Conditions { get; set; }
+    public required TerraformList<GoogleMonitoringAlertPolicyConditionsBlock> Conditions { get; set; } = new();
 
     /// <summary>
     /// Block for documentation.
@@ -217,14 +217,14 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Documentation block(s) allowed")]
     [TerraformProperty("documentation")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyDocumentationBlock>>? Documentation { get; set; }
+    public TerraformList<GoogleMonitoringAlertPolicyDocumentationBlock> Documentation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMonitoringAlertPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMonitoringAlertPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A read-only record of the creation of the alerting policy.

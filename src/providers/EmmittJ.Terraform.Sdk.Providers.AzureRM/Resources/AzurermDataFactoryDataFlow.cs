@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sink in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDataFlowSinkBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDataFlowSinkBlock() : TerraformBlock("sink")
 {
     /// <summary>
     /// The description attribute.
@@ -29,7 +29,7 @@ public partial class AzurermDataFactoryDataFlowSinkBlock : TerraformBlockBase
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDataFlowSourceBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDataFlowSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The description attribute.
@@ -52,7 +52,7 @@ public partial class AzurermDataFactoryDataFlowSourceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryDataFlowTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDataFlowTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -88,7 +88,7 @@ public partial class AzurermDataFactoryDataFlowTimeoutsBlock : TerraformBlockBas
 /// Block type for transformation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDataFlowTransformationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDataFlowTransformationBlock() : TerraformBlock("transformation")
 {
     /// <summary>
     /// The description attribute.
@@ -182,7 +182,7 @@ public partial class AzurermDataFactoryDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sink block(s) required")]
     [TerraformProperty("sink")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDataFlowSinkBlock>>? Sink { get; set; }
+    public required TerraformList<AzurermDataFactoryDataFlowSinkBlock> Sink { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -191,20 +191,20 @@ public partial class AzurermDataFactoryDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDataFlowSourceBlock>>? Source { get; set; }
+    public required TerraformList<AzurermDataFactoryDataFlowSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryDataFlowTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryDataFlowTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for transformation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("transformation")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDataFlowTransformationBlock>>? Transformation { get; set; }
+    public TerraformList<AzurermDataFactoryDataFlowTransformationBlock> Transformation { get; set; } = new();
 
 }

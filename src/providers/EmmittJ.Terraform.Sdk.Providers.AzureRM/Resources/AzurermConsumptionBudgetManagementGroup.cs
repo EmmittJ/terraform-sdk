@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermConsumptionBudgetManagementGroupFilterBlock : TerraformBlockBase
+public partial class AzurermConsumptionBudgetManagementGroupFilterBlock() : TerraformBlock("filter")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermConsumptionBudgetManagementGroupFilterBlock : Terraf
 /// Block type for notification in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermConsumptionBudgetManagementGroupNotificationBlock : TerraformBlockBase
+public partial class AzurermConsumptionBudgetManagementGroupNotificationBlock() : TerraformBlock("notification")
 {
     /// <summary>
     /// The contact_emails attribute.
@@ -60,7 +60,7 @@ public partial class AzurermConsumptionBudgetManagementGroupNotificationBlock : 
 /// Block type for time_period in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermConsumptionBudgetManagementGroupTimePeriodBlock : TerraformBlockBase
+public partial class AzurermConsumptionBudgetManagementGroupTimePeriodBlock() : TerraformBlock("time_period")
 {
     /// <summary>
     /// The end_date attribute.
@@ -83,7 +83,7 @@ public partial class AzurermConsumptionBudgetManagementGroupTimePeriodBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermConsumptionBudgetManagementGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermConsumptionBudgetManagementGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -176,7 +176,7 @@ public partial class AzurermConsumptionBudgetManagementGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AzurermConsumptionBudgetManagementGroupFilterBlock>>? Filter { get; set; }
+    public TerraformList<AzurermConsumptionBudgetManagementGroupFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for notification.
@@ -185,7 +185,7 @@ public partial class AzurermConsumptionBudgetManagementGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Notification block(s) required")]
     [TerraformProperty("notification")]
-    public partial TerraformSet<TerraformBlock<AzurermConsumptionBudgetManagementGroupNotificationBlock>>? Notification { get; set; }
+    public required TerraformSet<AzurermConsumptionBudgetManagementGroupNotificationBlock> Notification { get; set; } = new();
 
     /// <summary>
     /// Block for time_period.
@@ -195,13 +195,13 @@ public partial class AzurermConsumptionBudgetManagementGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
     [TerraformProperty("time_period")]
-    public partial TerraformList<TerraformBlock<AzurermConsumptionBudgetManagementGroupTimePeriodBlock>>? TimePeriod { get; set; }
+    public required TerraformList<AzurermConsumptionBudgetManagementGroupTimePeriodBlock> TimePeriod { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermConsumptionBudgetManagementGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermConsumptionBudgetManagementGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

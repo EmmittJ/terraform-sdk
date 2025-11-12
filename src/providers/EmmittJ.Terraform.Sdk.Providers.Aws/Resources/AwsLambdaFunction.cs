@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dead_letter_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionDeadLetterConfigBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionDeadLetterConfigBlock() : TerraformBlock("dead_letter_config")
 {
     /// <summary>
     /// The target_arn attribute.
@@ -22,7 +22,7 @@ public partial class AwsLambdaFunctionDeadLetterConfigBlock : TerraformBlockBase
 /// Block type for environment in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionEnvironmentBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionEnvironmentBlock() : TerraformBlock("environment")
 {
     /// <summary>
     /// The variables attribute.
@@ -37,7 +37,7 @@ public partial class AwsLambdaFunctionEnvironmentBlock : TerraformBlockBase
 /// Block type for ephemeral_storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionEphemeralStorageBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionEphemeralStorageBlock() : TerraformBlock("ephemeral_storage")
 {
     /// <summary>
     /// The size attribute.
@@ -52,7 +52,7 @@ public partial class AwsLambdaFunctionEphemeralStorageBlock : TerraformBlockBase
 /// Block type for file_system_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionFileSystemConfigBlock() : TerraformBlock("file_system_config")
 {
     /// <summary>
     /// The arn attribute.
@@ -76,7 +76,7 @@ public partial class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlockBase
 /// Block type for image_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionImageConfigBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionImageConfigBlock() : TerraformBlock("image_config")
 {
     /// <summary>
     /// The command attribute.
@@ -105,7 +105,7 @@ public partial class AwsLambdaFunctionImageConfigBlock : TerraformBlockBase
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionLoggingConfigBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// The application_log_level attribute.
@@ -142,7 +142,7 @@ public partial class AwsLambdaFunctionLoggingConfigBlock : TerraformBlockBase
 /// Block type for snap_start in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionSnapStartBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionSnapStartBlock() : TerraformBlock("snap_start")
 {
     /// <summary>
     /// The apply_on attribute.
@@ -159,7 +159,7 @@ public partial class AwsLambdaFunctionSnapStartBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLambdaFunctionTimeoutsBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -188,7 +188,7 @@ public partial class AwsLambdaFunctionTimeoutsBlock : TerraformBlockBase
 /// Block type for tracing_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionTracingConfigBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionTracingConfigBlock() : TerraformBlock("tracing_config")
 {
     /// <summary>
     /// The mode attribute.
@@ -204,7 +204,7 @@ public partial class AwsLambdaFunctionTracingConfigBlock : TerraformBlockBase
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionVpcConfigBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The ipv6_allowed_for_dual_stack attribute.
@@ -446,7 +446,7 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
     [TerraformProperty("dead_letter_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionDeadLetterConfigBlock>>? DeadLetterConfig { get; set; }
+    public TerraformList<AwsLambdaFunctionDeadLetterConfigBlock> DeadLetterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for environment.
@@ -454,7 +454,7 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Environment block(s) allowed")]
     [TerraformProperty("environment")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionEnvironmentBlock>>? Environment { get; set; }
+    public TerraformList<AwsLambdaFunctionEnvironmentBlock> Environment { get; set; } = new();
 
     /// <summary>
     /// Block for ephemeral_storage.
@@ -462,7 +462,7 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralStorage block(s) allowed")]
     [TerraformProperty("ephemeral_storage")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionEphemeralStorageBlock>>? EphemeralStorage { get; set; }
+    public TerraformList<AwsLambdaFunctionEphemeralStorageBlock> EphemeralStorage { get; set; } = new();
 
     /// <summary>
     /// Block for file_system_config.
@@ -470,7 +470,7 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileSystemConfig block(s) allowed")]
     [TerraformProperty("file_system_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionFileSystemConfigBlock>>? FileSystemConfig { get; set; }
+    public TerraformList<AwsLambdaFunctionFileSystemConfigBlock> FileSystemConfig { get; set; } = new();
 
     /// <summary>
     /// Block for image_config.
@@ -478,7 +478,7 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageConfig block(s) allowed")]
     [TerraformProperty("image_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionImageConfigBlock>>? ImageConfig { get; set; }
+    public TerraformList<AwsLambdaFunctionImageConfigBlock> ImageConfig { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
@@ -486,7 +486,7 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<AwsLambdaFunctionLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for snap_start.
@@ -494,14 +494,14 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapStart block(s) allowed")]
     [TerraformProperty("snap_start")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionSnapStartBlock>>? SnapStart { get; set; }
+    public TerraformList<AwsLambdaFunctionSnapStartBlock> SnapStart { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLambdaFunctionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLambdaFunctionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tracing_config.
@@ -509,7 +509,7 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TracingConfig block(s) allowed")]
     [TerraformProperty("tracing_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionTracingConfigBlock>>? TracingConfig { get; set; }
+    public TerraformList<AwsLambdaFunctionTracingConfigBlock> TracingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -517,7 +517,7 @@ public partial class AwsLambdaFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsLambdaFunctionVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

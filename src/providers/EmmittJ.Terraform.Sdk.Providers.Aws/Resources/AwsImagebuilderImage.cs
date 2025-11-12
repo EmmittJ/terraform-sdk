@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for image_scanning_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderImageImageScanningConfigurationBlock : TerraformBlockBase
+public partial class AwsImagebuilderImageImageScanningConfigurationBlock() : TerraformBlock("image_scanning_configuration")
 {
     /// <summary>
     /// The image_scanning_enabled attribute.
@@ -21,7 +21,7 @@ public partial class AwsImagebuilderImageImageScanningConfigurationBlock : Terra
 /// Block type for image_tests_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderImageImageTestsConfigurationBlock : TerraformBlockBase
+public partial class AwsImagebuilderImageImageTestsConfigurationBlock() : TerraformBlock("image_tests_configuration")
 {
     /// <summary>
     /// The image_tests_enabled attribute.
@@ -43,7 +43,7 @@ public partial class AwsImagebuilderImageImageTestsConfigurationBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsImagebuilderImageTimeoutsBlock : TerraformBlockBase
+public partial class AwsImagebuilderImageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -58,7 +58,7 @@ public partial class AwsImagebuilderImageTimeoutsBlock : TerraformBlockBase
 /// Block type for workflow in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsImagebuilderImageWorkflowBlock : TerraformBlockBase
+public partial class AwsImagebuilderImageWorkflowBlock() : TerraformBlock("workflow")
 {
     /// <summary>
     /// The on_failure attribute.
@@ -171,7 +171,7 @@ public partial class AwsImagebuilderImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
     [TerraformProperty("image_scanning_configuration")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderImageImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; }
+    public TerraformList<AwsImagebuilderImageImageScanningConfigurationBlock> ImageScanningConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for image_tests_configuration.
@@ -179,21 +179,21 @@ public partial class AwsImagebuilderImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageTestsConfiguration block(s) allowed")]
     [TerraformProperty("image_tests_configuration")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderImageImageTestsConfigurationBlock>>? ImageTestsConfiguration { get; set; }
+    public TerraformList<AwsImagebuilderImageImageTestsConfigurationBlock> ImageTestsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsImagebuilderImageTimeoutsBlock>? Timeouts { get; set; }
+    public AwsImagebuilderImageTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workflow.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("workflow")]
-    public partial TerraformSet<TerraformBlock<AwsImagebuilderImageWorkflowBlock>>? Workflow { get; set; }
+    public TerraformSet<AwsImagebuilderImageWorkflowBlock> Workflow { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

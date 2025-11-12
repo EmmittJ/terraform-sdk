@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermKeyVaultContactBlock : TerraformBlockBase
+public partial class AzurermKeyVaultContactBlock() : TerraformBlock("contact")
 {
     /// <summary>
     /// The email attribute.
@@ -37,7 +37,7 @@ public partial class AzurermKeyVaultContactBlock : TerraformBlockBase
 /// Block type for network_acls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKeyVaultNetworkAclsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultNetworkAclsBlock() : TerraformBlock("network_acls")
 {
     /// <summary>
     /// The bypass attribute.
@@ -75,7 +75,7 @@ public partial class AzurermKeyVaultNetworkAclsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKeyVaultTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -241,7 +241,7 @@ public partial class AzurermKeyVault : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("contact")]
-    public partial TerraformSet<TerraformBlock<AzurermKeyVaultContactBlock>>? Contact { get; set; }
+    public TerraformSet<AzurermKeyVaultContactBlock> Contact { get; set; } = new();
 
     /// <summary>
     /// Block for network_acls.
@@ -249,14 +249,14 @@ public partial class AzurermKeyVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
     [TerraformProperty("network_acls")]
-    public partial TerraformList<TerraformBlock<AzurermKeyVaultNetworkAclsBlock>>? NetworkAcls { get; set; }
+    public TerraformList<AzurermKeyVaultNetworkAclsBlock> NetworkAcls { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKeyVaultTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKeyVaultTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The vault_uri attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for kms_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlockBase
+public partial class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock() : TerraformBlock("kms_settings")
 {
     /// <summary>
     /// Required. Input only. Immutable. The time at which the Key Management Service will automatically create a new version of the crypto key and mark it as the primary.
@@ -30,7 +30,7 @@ public partial class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformB
 /// Block type for partner_permissions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock : TerraformBlockBase
+public partial class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock() : TerraformBlock("partner_permissions")
 {
     /// <summary>
     /// Optional. Allow partner to view violation alerts.
@@ -59,7 +59,7 @@ public partial class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock : Ter
 /// Block type for resource_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock : TerraformBlockBase
+public partial class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock() : TerraformBlock("resource_settings")
 {
     /// <summary>
     /// User-assigned resource display name. If not empty it will be used to create a resource with the specified name.
@@ -88,7 +88,7 @@ public partial class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAssuredWorkloadsWorkloadTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAssuredWorkloadsWorkloadTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,7 +117,7 @@ public partial class GoogleAssuredWorkloadsWorkloadTimeoutsBlock : TerraformBloc
 /// Block type for workload_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock : TerraformBlockBase
+public partial class GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock() : TerraformBlock("workload_options")
 {
     /// <summary>
     /// Indicates type of KAJ enrollment for the workload. Currently, only specifiying KEY_ACCESS_TRANSPARENCY_OFF is implemented to not enroll in KAT-level KAJ enrollment for Regional Controls workloads. Possible values: KAJ_ENROLLMENT_TYPE_UNSPECIFIED, FULL_KAJ, EKM_ONLY, KEY_ACCESS_TRANSPARENCY_OFF
@@ -235,7 +235,7 @@ public partial class GoogleAssuredWorkloadsWorkload : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KmsSettings block(s) allowed")]
     [TerraformProperty("kms_settings")]
-    public partial TerraformList<TerraformBlock<GoogleAssuredWorkloadsWorkloadKmsSettingsBlock>>? KmsSettings { get; set; }
+    public TerraformList<GoogleAssuredWorkloadsWorkloadKmsSettingsBlock> KmsSettings { get; set; } = new();
 
     /// <summary>
     /// Block for partner_permissions.
@@ -243,21 +243,21 @@ public partial class GoogleAssuredWorkloadsWorkload : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartnerPermissions block(s) allowed")]
     [TerraformProperty("partner_permissions")]
-    public partial TerraformList<TerraformBlock<GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock>>? PartnerPermissions { get; set; }
+    public TerraformList<GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock> PartnerPermissions { get; set; } = new();
 
     /// <summary>
     /// Block for resource_settings.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resource_settings")]
-    public partial TerraformList<TerraformBlock<GoogleAssuredWorkloadsWorkloadResourceSettingsBlock>>? ResourceSettings { get; set; }
+    public TerraformList<GoogleAssuredWorkloadsWorkloadResourceSettingsBlock> ResourceSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAssuredWorkloadsWorkloadTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAssuredWorkloadsWorkloadTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workload_options.
@@ -265,7 +265,7 @@ public partial class GoogleAssuredWorkloadsWorkload : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadOptions block(s) allowed")]
     [TerraformProperty("workload_options")]
-    public partial TerraformList<TerraformBlock<GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock>>? WorkloadOptions { get; set; }
+    public TerraformList<GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock> WorkloadOptions { get; set; } = new();
 
     /// <summary>
     /// Output only. Count of active Violations in the Workload.

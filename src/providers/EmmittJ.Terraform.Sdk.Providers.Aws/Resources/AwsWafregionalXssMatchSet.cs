@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for xss_match_tuple in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafregionalXssMatchSetXssMatchTupleBlock : TerraformBlockBase
+public partial class AwsWafregionalXssMatchSetXssMatchTupleBlock() : TerraformBlock("xss_match_tuple")
 {
     /// <summary>
     /// The text_transformation attribute.
@@ -54,6 +54,6 @@ public partial class AwsWafregionalXssMatchSet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("xss_match_tuple")]
-    public partial TerraformSet<TerraformBlock<AwsWafregionalXssMatchSetXssMatchTupleBlock>>? XssMatchTuple { get; set; }
+    public TerraformSet<AwsWafregionalXssMatchSetXssMatchTupleBlock> XssMatchTuple { get; set; } = new();
 
 }

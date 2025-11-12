@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,7 +124,7 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy : TerraformResourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

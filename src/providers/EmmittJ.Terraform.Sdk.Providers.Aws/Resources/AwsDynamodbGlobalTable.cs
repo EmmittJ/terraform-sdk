@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for replica in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDynamodbGlobalTableReplicaBlock : TerraformBlockBase
+public partial class AwsDynamodbGlobalTableReplicaBlock() : TerraformBlock("replica")
 {
     /// <summary>
     /// The region_name attribute.
@@ -22,7 +22,7 @@ public partial class AwsDynamodbGlobalTableReplicaBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDynamodbGlobalTableTimeoutsBlock : TerraformBlockBase
+public partial class AwsDynamodbGlobalTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -86,14 +86,14 @@ public partial class AwsDynamodbGlobalTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replica is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replica block(s) required")]
     [TerraformProperty("replica")]
-    public partial TerraformSet<TerraformBlock<AwsDynamodbGlobalTableReplicaBlock>>? Replica { get; set; }
+    public required TerraformSet<AwsDynamodbGlobalTableReplicaBlock> Replica { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDynamodbGlobalTableTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDynamodbGlobalTableTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

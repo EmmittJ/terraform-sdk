@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cmek_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlockBase
+public partial class GoogleFirestoreDatabaseCmekConfigBlock() : TerraformBlock("cmek_config")
 {
 
     /// <summary>
@@ -35,7 +35,7 @@ public partial class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirestoreDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -187,14 +187,14 @@ public partial class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekConfig block(s) allowed")]
     [TerraformProperty("cmek_config")]
-    public partial TerraformList<TerraformBlock<GoogleFirestoreDatabaseCmekConfigBlock>>? CmekConfig { get; set; }
+    public TerraformList<GoogleFirestoreDatabaseCmekConfigBlock> CmekConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirestoreDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirestoreDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp at which this database was created.

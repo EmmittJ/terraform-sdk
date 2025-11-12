@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for odb_peering_connections in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock : TerraformBlockBase
+public partial class AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock() : TerraformBlock("odb_peering_connections")
 {
 }
 
@@ -31,6 +31,6 @@ public partial class AwsOdbNetworkPeeringConnectionsDataSource : TerraformDataSo
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("odb_peering_connections")]
-    public partial TerraformList<TerraformBlock<AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock>>? OdbPeeringConnections { get; set; }
+    public TerraformList<AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock> OdbPeeringConnections { get; set; } = new();
 
 }

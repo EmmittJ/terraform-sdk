@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for credentials in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSourceCredentialsBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSourceCredentialsBlock() : TerraformBlock("credentials")
 {
     /// <summary>
     /// The copy_source_arn attribute.
@@ -28,7 +28,7 @@ public partial class AwsQuicksightDataSourceCredentialsBlock : TerraformBlockBas
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSourceParametersBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSourceParametersBlock() : TerraformBlock("parameters")
 {
 }
 
@@ -36,7 +36,7 @@ public partial class AwsQuicksightDataSourceParametersBlock : TerraformBlockBase
 /// Block type for permission in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightDataSourcePermissionBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSourcePermissionBlock() : TerraformBlock("permission")
 {
     /// <summary>
     /// The actions attribute.
@@ -60,7 +60,7 @@ public partial class AwsQuicksightDataSourcePermissionBlock : TerraformBlockBase
 /// Block type for ssl_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSourceSslPropertiesBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSourceSslPropertiesBlock() : TerraformBlock("ssl_properties")
 {
     /// <summary>
     /// The disable_ssl attribute.
@@ -76,7 +76,7 @@ public partial class AwsQuicksightDataSourceSslPropertiesBlock : TerraformBlockB
 /// Block type for vpc_connection_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDataSourceVpcConnectionPropertiesBlock : TerraformBlockBase
+public partial class AwsQuicksightDataSourceVpcConnectionPropertiesBlock() : TerraformBlock("vpc_connection_properties")
 {
     /// <summary>
     /// The vpc_connection_arn attribute.
@@ -163,7 +163,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
     [TerraformProperty("credentials")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSourceCredentialsBlock>>? Credentials { get; set; }
+    public TerraformList<AwsQuicksightDataSourceCredentialsBlock> Credentials { get; set; } = new();
 
     /// <summary>
     /// Block for parameters.
@@ -173,7 +173,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     [TerraformProperty("parameters")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSourceParametersBlock>>? Parameters { get; set; }
+    public required TerraformList<AwsQuicksightDataSourceParametersBlock> Parameters { get; set; } = new();
 
     /// <summary>
     /// Block for permission.
@@ -181,7 +181,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permission block(s) allowed")]
     [TerraformProperty("permission")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightDataSourcePermissionBlock>>? Permission { get; set; }
+    public TerraformSet<AwsQuicksightDataSourcePermissionBlock> Permission { get; set; } = new();
 
     /// <summary>
     /// Block for ssl_properties.
@@ -189,7 +189,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslProperties block(s) allowed")]
     [TerraformProperty("ssl_properties")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSourceSslPropertiesBlock>>? SslProperties { get; set; }
+    public TerraformList<AwsQuicksightDataSourceSslPropertiesBlock> SslProperties { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_connection_properties.
@@ -197,7 +197,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConnectionProperties block(s) allowed")]
     [TerraformProperty("vpc_connection_properties")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDataSourceVpcConnectionPropertiesBlock>>? VpcConnectionProperties { get; set; }
+    public TerraformList<AwsQuicksightDataSourceVpcConnectionPropertiesBlock> VpcConnectionProperties { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

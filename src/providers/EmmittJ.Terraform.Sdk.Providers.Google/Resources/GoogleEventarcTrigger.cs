@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcTriggerDestinationBlock : TerraformBlockBase
+public partial class GoogleEventarcTriggerDestinationBlock() : TerraformBlock("destination")
 {
 
     /// <summary>
@@ -22,7 +22,7 @@ public partial class GoogleEventarcTriggerDestinationBlock : TerraformBlockBase
 /// Block type for matching_criteria in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlockBase
+public partial class GoogleEventarcTriggerMatchingCriteriaBlock() : TerraformBlock("matching_criteria")
 {
     /// <summary>
     /// Required. The name of a CloudEvents attribute. Currently, only a subset of attributes are supported for filtering. All triggers MUST provide a filter for the &#39;type&#39; attribute.
@@ -53,7 +53,7 @@ public partial class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEventarcTriggerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEventarcTriggerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,7 +82,7 @@ public partial class GoogleEventarcTriggerTimeoutsBlock : TerraformBlockBase
 /// Block type for transport in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcTriggerTransportBlock : TerraformBlockBase
+public partial class GoogleEventarcTriggerTransportBlock() : TerraformBlock("transport")
 {
 }
 
@@ -165,7 +165,7 @@ public partial class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcTriggerDestinationBlock>>? Destination { get; set; }
+    public required TerraformList<GoogleEventarcTriggerDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for matching_criteria.
@@ -174,14 +174,14 @@ public partial class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingCriteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MatchingCriteria block(s) required")]
     [TerraformProperty("matching_criteria")]
-    public partial TerraformSet<TerraformBlock<GoogleEventarcTriggerMatchingCriteriaBlock>>? MatchingCriteria { get; set; }
+    public required TerraformSet<GoogleEventarcTriggerMatchingCriteriaBlock> MatchingCriteria { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEventarcTriggerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEventarcTriggerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for transport.
@@ -189,7 +189,7 @@ public partial class GoogleEventarcTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Transport block(s) allowed")]
     [TerraformProperty("transport")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcTriggerTransportBlock>>? Transport { get; set; }
+    public TerraformList<GoogleEventarcTriggerTransportBlock> Transport { get; set; } = new();
 
     /// <summary>
     /// Output only. The reason(s) why a trigger is in FAILED state.

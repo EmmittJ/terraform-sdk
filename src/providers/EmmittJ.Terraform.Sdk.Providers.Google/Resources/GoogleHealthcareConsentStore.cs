@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleHealthcareConsentStoreTimeoutsBlock : TerraformBlockBase
+public partial class GoogleHealthcareConsentStoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -108,7 +108,7 @@ public partial class GoogleHealthcareConsentStore : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleHealthcareConsentStoreTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleHealthcareConsentStoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

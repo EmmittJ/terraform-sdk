@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActivityLogAlertActionBlock : TerraformBlockBase
+public partial class AzurermMonitorActivityLogAlertActionBlock() : TerraformBlock("action")
 {
     /// <summary>
     /// The action_group_id attribute.
@@ -29,7 +29,7 @@ public partial class AzurermMonitorActivityLogAlertActionBlock : TerraformBlockB
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlockBase
+public partial class AzurermMonitorActivityLogAlertCriteriaBlock() : TerraformBlock("criteria")
 {
     /// <summary>
     /// The caller attribute.
@@ -178,7 +178,7 @@ public partial class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorActivityLogAlertTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -285,7 +285,7 @@ public partial class AzurermMonitorActivityLogAlert : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActivityLogAlertActionBlock>>? Action { get; set; }
+    public TerraformList<AzurermMonitorActivityLogAlertActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for criteria.
@@ -295,13 +295,13 @@ public partial class AzurermMonitorActivityLogAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
     [TerraformProperty("criteria")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorActivityLogAlertCriteriaBlock>>? Criteria { get; set; }
+    public required TerraformList<AzurermMonitorActivityLogAlertCriteriaBlock> Criteria { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorActivityLogAlertTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorActivityLogAlertTimeoutsBlock Timeouts { get; set; } = new();
 
 }

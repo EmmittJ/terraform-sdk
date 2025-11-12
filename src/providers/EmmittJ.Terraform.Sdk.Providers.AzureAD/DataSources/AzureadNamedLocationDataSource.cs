@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadNamedLocationDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzureadNamedLocationDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -46,7 +46,7 @@ public partial class AzureadNamedLocationDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadNamedLocationDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadNamedLocationDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The country attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for validator in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppconfigConfigurationProfileValidatorBlock : TerraformBlockBase
+public partial class AwsAppconfigConfigurationProfileValidatorBlock() : TerraformBlock("validator")
 {
     /// <summary>
     /// The content attribute.
@@ -121,7 +121,7 @@ public partial class AwsAppconfigConfigurationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Validator block(s) allowed")]
     [TerraformProperty("validator")]
-    public partial TerraformSet<TerraformBlock<AwsAppconfigConfigurationProfileValidatorBlock>>? Validator { get; set; }
+    public TerraformSet<AwsAppconfigConfigurationProfileValidatorBlock> Validator { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

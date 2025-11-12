@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for distribution in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsImagebuilderDistributionConfigurationDistributionBlock : TerraformBlockBase
+public partial class AwsImagebuilderDistributionConfigurationDistributionBlock() : TerraformBlock("distribution")
 {
     /// <summary>
     /// The license_configuration_arns attribute.
@@ -85,7 +85,7 @@ public partial class AwsImagebuilderDistributionConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Distribution block(s) required")]
     [TerraformProperty("distribution")]
-    public partial TerraformSet<TerraformBlock<AwsImagebuilderDistributionConfigurationDistributionBlock>>? Distribution { get; set; }
+    public required TerraformSet<AwsImagebuilderDistributionConfigurationDistributionBlock> Distribution { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightAnalysisDefinitionBlock : TerraformBlockBase
+public partial class AwsQuicksightAnalysisDefinitionBlock() : TerraformBlock("definition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsQuicksightAnalysisDefinitionBlock : TerraformBlockBase
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightAnalysisParametersBlock : TerraformBlockBase
+public partial class AwsQuicksightAnalysisParametersBlock() : TerraformBlock("parameters")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsQuicksightAnalysisParametersBlock : TerraformBlockBase
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightAnalysisPermissionsBlock : TerraformBlockBase
+public partial class AwsQuicksightAnalysisPermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The actions attribute.
@@ -46,7 +46,7 @@ public partial class AwsQuicksightAnalysisPermissionsBlock : TerraformBlockBase
 /// Block type for source_entity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightAnalysisSourceEntityBlock : TerraformBlockBase
+public partial class AwsQuicksightAnalysisSourceEntityBlock() : TerraformBlock("source_entity")
 {
 }
 
@@ -54,7 +54,7 @@ public partial class AwsQuicksightAnalysisSourceEntityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsQuicksightAnalysisTimeoutsBlock : TerraformBlockBase
+public partial class AwsQuicksightAnalysisTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -160,7 +160,7 @@ public partial class AwsQuicksightAnalysis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightAnalysisDefinitionBlock>>? Definition { get; set; }
+    public TerraformList<AwsQuicksightAnalysisDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// Block for parameters.
@@ -168,7 +168,7 @@ public partial class AwsQuicksightAnalysis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     [TerraformProperty("parameters")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightAnalysisParametersBlock>>? Parameters { get; set; }
+    public TerraformList<AwsQuicksightAnalysisParametersBlock> Parameters { get; set; } = new();
 
     /// <summary>
     /// Block for permissions.
@@ -176,7 +176,7 @@ public partial class AwsQuicksightAnalysis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     [TerraformProperty("permissions")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightAnalysisPermissionsBlock>>? Permissions { get; set; }
+    public TerraformSet<AwsQuicksightAnalysisPermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for source_entity.
@@ -184,14 +184,14 @@ public partial class AwsQuicksightAnalysis : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceEntity block(s) allowed")]
     [TerraformProperty("source_entity")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightAnalysisSourceEntityBlock>>? SourceEntity { get; set; }
+    public TerraformList<AwsQuicksightAnalysisSourceEntityBlock> SourceEntity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsQuicksightAnalysisTimeoutsBlock>? Timeouts { get; set; }
+    public AwsQuicksightAnalysisTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

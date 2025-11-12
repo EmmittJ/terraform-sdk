@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for constraints in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsKmsGrantConstraintsBlock : TerraformBlockBase
+public partial class AwsKmsGrantConstraintsBlock() : TerraformBlock("constraints")
 {
     /// <summary>
     /// The encryption_context_equals attribute.
@@ -104,7 +104,7 @@ public partial class AwsKmsGrant : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("constraints")]
-    public partial TerraformSet<TerraformBlock<AwsKmsGrantConstraintsBlock>>? Constraints { get; set; }
+    public TerraformSet<AwsKmsGrantConstraintsBlock> Constraints { get; set; } = new();
 
     /// <summary>
     /// The grant_id attribute.

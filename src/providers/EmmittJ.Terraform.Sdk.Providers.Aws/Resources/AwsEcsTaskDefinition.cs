@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ephemeral_storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlockBase
+public partial class AwsEcsTaskDefinitionEphemeralStorageBlock() : TerraformBlock("ephemeral_storage")
 {
     /// <summary>
     /// The size_in_gib attribute.
@@ -22,7 +22,7 @@ public partial class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlockB
 /// Block type for placement_constraints in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlockBase
+public partial class AwsEcsTaskDefinitionPlacementConstraintsBlock() : TerraformBlock("placement_constraints")
 {
     /// <summary>
     /// The expression attribute.
@@ -45,7 +45,7 @@ public partial class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBl
 /// Block type for proxy_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlockBase
+public partial class AwsEcsTaskDefinitionProxyConfigurationBlock() : TerraformBlock("proxy_configuration")
 {
     /// <summary>
     /// The container_name attribute.
@@ -75,7 +75,7 @@ public partial class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBloc
 /// Block type for runtime_platform in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlockBase
+public partial class AwsEcsTaskDefinitionRuntimePlatformBlock() : TerraformBlock("runtime_platform")
 {
     /// <summary>
     /// The cpu_architecture attribute.
@@ -97,7 +97,7 @@ public partial class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlockBa
 /// Block type for volume in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsTaskDefinitionVolumeBlock : TerraformBlockBase
+public partial class AwsEcsTaskDefinitionVolumeBlock() : TerraformBlock("volume")
 {
     /// <summary>
     /// The configure_at_launch attribute.
@@ -260,7 +260,7 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralStorage block(s) allowed")]
     [TerraformProperty("ephemeral_storage")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskDefinitionEphemeralStorageBlock>>? EphemeralStorage { get; set; }
+    public TerraformList<AwsEcsTaskDefinitionEphemeralStorageBlock> EphemeralStorage { get; set; } = new();
 
     /// <summary>
     /// Block for placement_constraints.
@@ -268,7 +268,7 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
     [TerraformProperty("placement_constraints")]
-    public partial TerraformSet<TerraformBlock<AwsEcsTaskDefinitionPlacementConstraintsBlock>>? PlacementConstraints { get; set; }
+    public TerraformSet<AwsEcsTaskDefinitionPlacementConstraintsBlock> PlacementConstraints { get; set; } = new();
 
     /// <summary>
     /// Block for proxy_configuration.
@@ -276,7 +276,7 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfiguration block(s) allowed")]
     [TerraformProperty("proxy_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskDefinitionProxyConfigurationBlock>>? ProxyConfiguration { get; set; }
+    public TerraformList<AwsEcsTaskDefinitionProxyConfigurationBlock> ProxyConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for runtime_platform.
@@ -284,14 +284,14 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimePlatform block(s) allowed")]
     [TerraformProperty("runtime_platform")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskDefinitionRuntimePlatformBlock>>? RuntimePlatform { get; set; }
+    public TerraformList<AwsEcsTaskDefinitionRuntimePlatformBlock> RuntimePlatform { get; set; } = new();
 
     /// <summary>
     /// Block for volume.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("volume")]
-    public partial TerraformSet<TerraformBlock<AwsEcsTaskDefinitionVolumeBlock>>? Volume { get; set; }
+    public TerraformSet<AwsEcsTaskDefinitionVolumeBlock> Volume { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

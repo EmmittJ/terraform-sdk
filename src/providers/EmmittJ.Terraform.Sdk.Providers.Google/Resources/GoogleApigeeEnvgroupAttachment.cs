@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeEnvgroupAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeEnvgroupAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -62,7 +62,7 @@ public partial class GoogleApigeeEnvgroupAttachment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeEnvgroupAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeEnvgroupAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the newly created  attachment (output parameter).

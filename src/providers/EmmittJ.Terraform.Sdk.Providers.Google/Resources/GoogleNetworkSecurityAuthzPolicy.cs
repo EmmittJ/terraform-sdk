@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for custom_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecurityAuthzPolicyCustomProviderBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityAuthzPolicyCustomProviderBlock() : TerraformBlock("custom_provider")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleNetworkSecurityAuthzPolicyCustomProviderBlock : Terra
 /// Block type for http_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecurityAuthzPolicyHttpRulesBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityAuthzPolicyHttpRulesBlock() : TerraformBlock("http_rules")
 {
     /// <summary>
     /// CEL expression that describes the conditions to be satisfied for the action. The result of the CEL expression is ANDed with the from and to. Refer to the CEL language reference for a list of available attributes.
@@ -29,7 +29,7 @@ public partial class GoogleNetworkSecurityAuthzPolicyHttpRulesBlock : TerraformB
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecurityAuthzPolicyTargetBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityAuthzPolicyTargetBlock() : TerraformBlock("target")
 {
     /// <summary>
     /// All gateways and forwarding rules referenced by this policy and extensions must share the same load balancing scheme.
@@ -53,7 +53,7 @@ public partial class GoogleNetworkSecurityAuthzPolicyTargetBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkSecurityAuthzPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityAuthzPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -158,14 +158,14 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomProvider block(s) allowed")]
     [TerraformProperty("custom_provider")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyCustomProviderBlock>>? CustomProvider { get; set; }
+    public TerraformList<GoogleNetworkSecurityAuthzPolicyCustomProviderBlock> CustomProvider { get; set; } = new();
 
     /// <summary>
     /// Block for http_rules.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("http_rules")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyHttpRulesBlock>>? HttpRules { get; set; }
+    public TerraformList<GoogleNetworkSecurityAuthzPolicyHttpRulesBlock> HttpRules { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -175,14 +175,14 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyTargetBlock>>? Target { get; set; }
+    public required TerraformList<GoogleNetworkSecurityAuthzPolicyTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkSecurityAuthzPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkSecurityAuthzPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

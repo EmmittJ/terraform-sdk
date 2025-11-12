@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbListenerDefaultActionBlock : TerraformBlockBase
+public partial class AwsLbListenerDefaultActionBlock() : TerraformBlock("default_action")
 {
     /// <summary>
     /// The order attribute.
@@ -36,7 +36,7 @@ public partial class AwsLbListenerDefaultActionBlock : TerraformBlockBase
 /// Block type for mutual_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLbListenerMutualAuthenticationBlock : TerraformBlockBase
+public partial class AwsLbListenerMutualAuthenticationBlock() : TerraformBlock("mutual_authentication")
 {
     /// <summary>
     /// The advertise_trust_store_ca_names attribute.
@@ -73,7 +73,7 @@ public partial class AwsLbListenerMutualAuthenticationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLbListenerTimeoutsBlock : TerraformBlockBase
+public partial class AwsLbListenerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -319,7 +319,7 @@ public partial class AwsLbListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
     [TerraformProperty("default_action")]
-    public partial TerraformList<TerraformBlock<AwsLbListenerDefaultActionBlock>>? DefaultAction { get; set; }
+    public required TerraformList<AwsLbListenerDefaultActionBlock> DefaultAction { get; set; } = new();
 
     /// <summary>
     /// Block for mutual_authentication.
@@ -327,14 +327,14 @@ public partial class AwsLbListener : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MutualAuthentication block(s) allowed")]
     [TerraformProperty("mutual_authentication")]
-    public partial TerraformList<TerraformBlock<AwsLbListenerMutualAuthenticationBlock>>? MutualAuthentication { get; set; }
+    public TerraformList<AwsLbListenerMutualAuthenticationBlock> MutualAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLbListenerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLbListenerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

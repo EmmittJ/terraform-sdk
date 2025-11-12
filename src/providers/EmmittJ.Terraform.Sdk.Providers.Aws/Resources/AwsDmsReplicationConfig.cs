@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDmsReplicationConfigComputeConfigBlock : TerraformBlockBase
+public partial class AwsDmsReplicationConfigComputeConfigBlock() : TerraformBlock("compute_config")
 {
     /// <summary>
     /// The availability_zone attribute.
@@ -78,7 +78,7 @@ public partial class AwsDmsReplicationConfigComputeConfigBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDmsReplicationConfigTimeoutsBlock : TerraformBlockBase
+public partial class AwsDmsReplicationConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -217,14 +217,14 @@ public partial class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComputeConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeConfig block(s) allowed")]
     [TerraformProperty("compute_config")]
-    public partial TerraformList<TerraformBlock<AwsDmsReplicationConfigComputeConfigBlock>>? ComputeConfig { get; set; }
+    public required TerraformList<AwsDmsReplicationConfigComputeConfigBlock> ComputeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDmsReplicationConfigTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDmsReplicationConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

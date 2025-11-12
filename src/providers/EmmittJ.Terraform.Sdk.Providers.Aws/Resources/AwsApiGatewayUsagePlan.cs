@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for api_stages in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlockBase
+public partial class AwsApiGatewayUsagePlanApiStagesBlock() : TerraformBlock("api_stages")
 {
     /// <summary>
     /// The api_id attribute.
@@ -30,7 +30,7 @@ public partial class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlockBase
 /// Block type for quota_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlockBase
+public partial class AwsApiGatewayUsagePlanQuotaSettingsBlock() : TerraformBlock("quota_settings")
 {
     /// <summary>
     /// The limit attribute.
@@ -61,7 +61,7 @@ public partial class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlockBa
 /// Block type for throttle_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayUsagePlanThrottleSettingsBlock : TerraformBlockBase
+public partial class AwsApiGatewayUsagePlanThrottleSettingsBlock() : TerraformBlock("throttle_settings")
 {
     /// <summary>
     /// The burst_limit attribute.
@@ -144,7 +144,7 @@ public partial class AwsApiGatewayUsagePlan : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("api_stages")]
-    public partial TerraformSet<TerraformBlock<AwsApiGatewayUsagePlanApiStagesBlock>>? ApiStages { get; set; }
+    public TerraformSet<AwsApiGatewayUsagePlanApiStagesBlock> ApiStages { get; set; } = new();
 
     /// <summary>
     /// Block for quota_settings.
@@ -152,7 +152,7 @@ public partial class AwsApiGatewayUsagePlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuotaSettings block(s) allowed")]
     [TerraformProperty("quota_settings")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayUsagePlanQuotaSettingsBlock>>? QuotaSettings { get; set; }
+    public TerraformList<AwsApiGatewayUsagePlanQuotaSettingsBlock> QuotaSettings { get; set; } = new();
 
     /// <summary>
     /// Block for throttle_settings.
@@ -160,7 +160,7 @@ public partial class AwsApiGatewayUsagePlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThrottleSettings block(s) allowed")]
     [TerraformProperty("throttle_settings")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayUsagePlanThrottleSettingsBlock>>? ThrottleSettings { get; set; }
+    public TerraformList<AwsApiGatewayUsagePlanThrottleSettingsBlock> ThrottleSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

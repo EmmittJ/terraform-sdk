@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigquery_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLoggingOrganizationSinkBigqueryOptionsBlock : TerraformBlockBase
+public partial class GoogleLoggingOrganizationSinkBigqueryOptionsBlock() : TerraformBlock("bigquery_options")
 {
     /// <summary>
     /// Whether to use BigQuery&#39;s partition tables. By default, Logging creates dated tables based on the log entries&#39; timestamps, e.g. syslog_20170523. With partitioned tables the date suffix is no longer present and special query syntax has to be used instead. In both cases, tables are sharded based on UTC timezone.
@@ -22,7 +22,7 @@ public partial class GoogleLoggingOrganizationSinkBigqueryOptionsBlock : Terrafo
 /// Block type for exclusions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLoggingOrganizationSinkExclusionsBlock : TerraformBlockBase
+public partial class GoogleLoggingOrganizationSinkExclusionsBlock() : TerraformBlock("exclusions")
 {
     /// <summary>
     /// A description of this exclusion.
@@ -138,14 +138,14 @@ public partial class GoogleLoggingOrganizationSink : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryOptions block(s) allowed")]
     [TerraformProperty("bigquery_options")]
-    public partial TerraformList<TerraformBlock<GoogleLoggingOrganizationSinkBigqueryOptionsBlock>>? BigqueryOptions { get; set; }
+    public TerraformList<GoogleLoggingOrganizationSinkBigqueryOptionsBlock> BigqueryOptions { get; set; } = new();
 
     /// <summary>
     /// Block for exclusions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("exclusions")]
-    public partial TerraformList<TerraformBlock<GoogleLoggingOrganizationSinkExclusionsBlock>>? Exclusions { get; set; }
+    public TerraformList<GoogleLoggingOrganizationSinkExclusionsBlock> Exclusions { get; set; } = new();
 
     /// <summary>
     /// The identity associated with this sink. This identity must be granted write access to the configured destination.

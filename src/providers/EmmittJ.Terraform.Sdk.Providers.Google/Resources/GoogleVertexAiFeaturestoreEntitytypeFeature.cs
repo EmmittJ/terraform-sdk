@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,7 +93,7 @@ public partial class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformReso
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the entity type was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

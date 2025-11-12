@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock() : TerraformBlock("autoscale_settings")
 {
     /// <summary>
     /// The max_throughput attribute.
@@ -21,7 +21,7 @@ public partial class AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbMongoDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbMongoDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,13 +107,13 @@ public partial class AzurermCosmosdbMongoDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public TerraformList<AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbMongoDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbMongoDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
 }

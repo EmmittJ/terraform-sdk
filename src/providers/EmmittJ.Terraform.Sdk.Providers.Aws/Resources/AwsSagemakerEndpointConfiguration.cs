@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for async_inference_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock() : TerraformBlock("async_inference_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock 
 /// Block type for data_capture_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock() : TerraformBlock("data_capture_config")
 {
     /// <summary>
     /// The destination_s3_uri attribute.
@@ -52,7 +52,7 @@ public partial class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : T
 /// Block type for production_variants in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerEndpointConfigurationProductionVariantsBlock : TerraformBlockBase
+public partial class AwsSagemakerEndpointConfigurationProductionVariantsBlock() : TerraformBlock("production_variants")
 {
     /// <summary>
     /// The accelerator_type attribute.
@@ -138,7 +138,7 @@ public partial class AwsSagemakerEndpointConfigurationProductionVariantsBlock : 
 /// Block type for shadow_production_variants in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : TerraformBlockBase
+public partial class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock() : TerraformBlock("shadow_production_variants")
 {
     /// <summary>
     /// The accelerator_type attribute.
@@ -285,7 +285,7 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncInferenceConfig block(s) allowed")]
     [TerraformProperty("async_inference_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock>>? AsyncInferenceConfig { get; set; }
+    public TerraformList<AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock> AsyncInferenceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for data_capture_config.
@@ -293,7 +293,7 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCaptureConfig block(s) allowed")]
     [TerraformProperty("data_capture_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationDataCaptureConfigBlock>>? DataCaptureConfig { get; set; }
+    public TerraformList<AwsSagemakerEndpointConfigurationDataCaptureConfigBlock> DataCaptureConfig { get; set; } = new();
 
     /// <summary>
     /// Block for production_variants.
@@ -303,7 +303,7 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProductionVariants block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ProductionVariants block(s) allowed")]
     [TerraformProperty("production_variants")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationProductionVariantsBlock>>? ProductionVariants { get; set; }
+    public required TerraformList<AwsSagemakerEndpointConfigurationProductionVariantsBlock> ProductionVariants { get; set; } = new();
 
     /// <summary>
     /// Block for shadow_production_variants.
@@ -311,7 +311,7 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ShadowProductionVariants block(s) allowed")]
     [TerraformProperty("shadow_production_variants")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock>>? ShadowProductionVariants { get; set; }
+    public TerraformList<AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock> ShadowProductionVariants { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -60,7 +60,7 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The method attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for connection_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : TerraformBlockBase
+public partial class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock() : TerraformBlock("connection_configuration")
 {
     /// <summary>
     /// The internet_security_enabled attribute.
@@ -29,7 +29,7 @@ public partial class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPointToSiteVpnGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPointToSiteVpnGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -154,13 +154,13 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionConfiguration block(s) required")]
     [TerraformProperty("connection_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock>>? ConnectionConfiguration { get; set; }
+    public required TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock> ConnectionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPointToSiteVpnGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPointToSiteVpnGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
 }

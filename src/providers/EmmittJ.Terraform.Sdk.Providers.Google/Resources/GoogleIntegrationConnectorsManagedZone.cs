@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIntegrationConnectorsManagedZoneTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIntegrationConnectorsManagedZoneTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -109,7 +109,7 @@ public partial class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIntegrationConnectorsManagedZoneTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIntegrationConnectorsManagedZoneTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the Namespace was created in UTC.

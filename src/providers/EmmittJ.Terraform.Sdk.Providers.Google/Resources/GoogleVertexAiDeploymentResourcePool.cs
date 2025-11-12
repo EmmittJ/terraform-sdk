@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for dedicated_resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock : TerraformBlockBase
+public partial class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock() : TerraformBlock("dedicated_resources")
 {
     /// <summary>
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale the model to that many replicas is guaranteed (barring service outages). If traffic against the DeployedModel increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, will use min_replica_count as the default value. The value of this field impacts the charge against Vertex CPU and GPU quotas. Specifically, you will be charged for max_replica_count * number of cores in the selected machine type) and (max_replica_count * number of GPUs per replica in the selected machine type).
@@ -29,7 +29,7 @@ public partial class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiDeploymentResourcePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiDeploymentResourcePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -92,14 +92,14 @@ public partial class GoogleVertexAiDeploymentResourcePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedResources block(s) allowed")]
     [TerraformProperty("dedicated_resources")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock>>? DedicatedResources { get; set; }
+    public TerraformList<GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock> DedicatedResources { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiDeploymentResourcePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiDeploymentResourcePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

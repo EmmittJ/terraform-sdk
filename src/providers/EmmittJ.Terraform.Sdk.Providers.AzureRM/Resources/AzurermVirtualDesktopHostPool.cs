@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for scheduled_agent_updates in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock() : TerraformBlock("scheduled_agent_updates")
 {
     /// <summary>
     /// The enabled attribute.
@@ -35,7 +35,7 @@ public partial class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopHostPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -207,13 +207,13 @@ public partial class AzurermVirtualDesktopHostPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledAgentUpdates block(s) allowed")]
     [TerraformProperty("scheduled_agent_updates")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock>>? ScheduledAgentUpdates { get; set; }
+    public TerraformList<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock> ScheduledAgentUpdates { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualDesktopHostPoolTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualDesktopHostPoolTimeoutsBlock Timeouts { get; set; } = new();
 
 }

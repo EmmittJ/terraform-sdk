@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for accelerators in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlockBase
+public partial class GoogleComputeNodeTemplateAcceleratorsBlock() : TerraformBlock("accelerators")
 {
     /// <summary>
     /// The number of the guest accelerator cards exposed to this
@@ -30,7 +30,7 @@ public partial class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
 /// Block type for disks in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNodeTemplateDisksBlock : TerraformBlockBase
+public partial class GoogleComputeNodeTemplateDisksBlock() : TerraformBlock("disks")
 {
     /// <summary>
     /// Specifies the number of such disks.
@@ -59,7 +59,7 @@ public partial class GoogleComputeNodeTemplateDisksBlock : TerraformBlockBase
 /// Block type for node_type_flexibility in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : TerraformBlockBase
+public partial class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock() : TerraformBlock("node_type_flexibility")
 {
     /// <summary>
     /// Number of virtual CPUs to use.
@@ -82,7 +82,7 @@ public partial class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : Terrafo
 /// Block type for server_binding in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNodeTemplateServerBindingBlock : TerraformBlockBase
+public partial class GoogleComputeNodeTemplateServerBindingBlock() : TerraformBlock("server_binding")
 {
     /// <summary>
     /// Type of server binding policy. If &#39;RESTART_NODE_ON_ANY_SERVER&#39;,
@@ -109,7 +109,7 @@ public partial class GoogleComputeNodeTemplateServerBindingBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNodeTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNodeTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -202,14 +202,14 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("accelerators")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNodeTemplateAcceleratorsBlock>>? Accelerators { get; set; }
+    public TerraformList<GoogleComputeNodeTemplateAcceleratorsBlock> Accelerators { get; set; } = new();
 
     /// <summary>
     /// Block for disks.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("disks")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNodeTemplateDisksBlock>>? Disks { get; set; }
+    public TerraformList<GoogleComputeNodeTemplateDisksBlock> Disks { get; set; } = new();
 
     /// <summary>
     /// Block for node_type_flexibility.
@@ -217,7 +217,7 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeTypeFlexibility block(s) allowed")]
     [TerraformProperty("node_type_flexibility")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNodeTemplateNodeTypeFlexibilityBlock>>? NodeTypeFlexibility { get; set; }
+    public TerraformList<GoogleComputeNodeTemplateNodeTypeFlexibilityBlock> NodeTypeFlexibility { get; set; } = new();
 
     /// <summary>
     /// Block for server_binding.
@@ -225,14 +225,14 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerBinding block(s) allowed")]
     [TerraformProperty("server_binding")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNodeTemplateServerBindingBlock>>? ServerBinding { get; set; }
+    public TerraformList<GoogleComputeNodeTemplateServerBindingBlock> ServerBinding { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNodeTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNodeTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

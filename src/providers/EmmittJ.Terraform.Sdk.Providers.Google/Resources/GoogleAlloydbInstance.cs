@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for client_connection_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbInstanceClientConnectionConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbInstanceClientConnectionConfigBlock() : TerraformBlock("client_connection_config")
 {
     /// <summary>
     /// Configuration to enforce connectors only (ex: AuthProxy) connections to the database.
@@ -21,7 +21,7 @@ public partial class GoogleAlloydbInstanceClientConnectionConfigBlock : Terrafor
 /// Block type for machine_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbInstanceMachineConfigBlock() : TerraformBlock("machine_config")
 {
     /// <summary>
     /// The number of CPU&#39;s in the VM instance.
@@ -45,7 +45,7 @@ public partial class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlockBas
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbInstanceNetworkConfigBlock() : TerraformBlock("network_config")
 {
     /// <summary>
     /// Name of the allocated IP range for the private IP AlloyDB instance, for example: &amp;quot;google-managed-services-default&amp;quot;.
@@ -78,7 +78,7 @@ public partial class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlockBas
 /// Block type for psc_instance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbInstancePscInstanceConfigBlock() : TerraformBlock("psc_instance_config")
 {
     /// <summary>
     /// List of consumer projects that are allowed to create PSC endpoints to service-attachments to this instance.
@@ -96,7 +96,7 @@ public partial class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBloc
 /// Block type for query_insights_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbInstanceQueryInsightsConfigBlock() : TerraformBlock("query_insights_config")
 {
     /// <summary>
     /// Number of query execution plans captured by Insights per minute for all queries combined. The default value is 5. Any integer between 0 and 20 is considered valid.
@@ -132,7 +132,7 @@ public partial class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBl
 /// Block type for read_pool_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAlloydbInstanceReadPoolConfigBlock : TerraformBlockBase
+public partial class GoogleAlloydbInstanceReadPoolConfigBlock() : TerraformBlock("read_pool_config")
 {
     /// <summary>
     /// Read capacity, i.e. number of nodes in a read pool instance.
@@ -147,7 +147,7 @@ public partial class GoogleAlloydbInstanceReadPoolConfigBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAlloydbInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -293,7 +293,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectionConfig block(s) allowed")]
     [TerraformProperty("client_connection_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceClientConnectionConfigBlock>>? ClientConnectionConfig { get; set; }
+    public TerraformList<GoogleAlloydbInstanceClientConnectionConfigBlock> ClientConnectionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for machine_config.
@@ -301,7 +301,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineConfig block(s) allowed")]
     [TerraformProperty("machine_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceMachineConfigBlock>>? MachineConfig { get; set; }
+    public TerraformList<GoogleAlloydbInstanceMachineConfigBlock> MachineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -309,7 +309,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public TerraformList<GoogleAlloydbInstanceNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for psc_instance_config.
@@ -317,7 +317,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscInstanceConfig block(s) allowed")]
     [TerraformProperty("psc_instance_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbInstancePscInstanceConfigBlock>>? PscInstanceConfig { get; set; }
+    public TerraformList<GoogleAlloydbInstancePscInstanceConfigBlock> PscInstanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for query_insights_config.
@@ -325,7 +325,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryInsightsConfig block(s) allowed")]
     [TerraformProperty("query_insights_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceQueryInsightsConfigBlock>>? QueryInsightsConfig { get; set; }
+    public TerraformList<GoogleAlloydbInstanceQueryInsightsConfigBlock> QueryInsightsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for read_pool_config.
@@ -333,14 +333,14 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadPoolConfig block(s) allowed")]
     [TerraformProperty("read_pool_config")]
-    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceReadPoolConfigBlock>>? ReadPoolConfig { get; set; }
+    public TerraformList<GoogleAlloydbInstanceReadPoolConfigBlock> ReadPoolConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAlloydbInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAlloydbInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the Instance was created in UTC.

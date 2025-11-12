@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApphubApplicationAttributesBlock : TerraformBlockBase
+public partial class GoogleApphubApplicationAttributesBlock() : TerraformBlock("attributes")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApphubApplicationAttributesBlock : TerraformBlockBase
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApphubApplicationScopeBlock : TerraformBlockBase
+public partial class GoogleApphubApplicationScopeBlock() : TerraformBlock("scope")
 {
     /// <summary>
     /// Required. Scope Type. 
@@ -33,7 +33,7 @@ public partial class GoogleApphubApplicationScopeBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApphubApplicationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApphubApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -118,7 +118,7 @@ public partial class GoogleApphubApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
     [TerraformProperty("attributes")]
-    public partial TerraformList<TerraformBlock<GoogleApphubApplicationAttributesBlock>>? Attributes { get; set; }
+    public TerraformList<GoogleApphubApplicationAttributesBlock> Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for scope.
@@ -128,14 +128,14 @@ public partial class GoogleApphubApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Scope block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scope block(s) allowed")]
     [TerraformProperty("scope")]
-    public partial TerraformList<TerraformBlock<GoogleApphubApplicationScopeBlock>>? Scope { get; set; }
+    public required TerraformList<GoogleApphubApplicationScopeBlock> Scope { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApphubApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApphubApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Create time.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cloud_logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleDnsManagedZoneCloudLoggingConfigBlock() : TerraformBlock("cloud_logging_config")
 {
     /// <summary>
     /// If set, enable query logging for this ManagedZone. False by default, making logging opt-in.
@@ -22,7 +22,7 @@ public partial class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBloc
 /// Block type for dnssec_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlockBase
+public partial class GoogleDnsManagedZoneDnssecConfigBlock() : TerraformBlock("dnssec_config")
 {
     /// <summary>
     /// Identifies what kind of resource this is
@@ -52,7 +52,7 @@ public partial class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlockBase
 /// Block type for forwarding_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsManagedZoneForwardingConfigBlock : TerraformBlockBase
+public partial class GoogleDnsManagedZoneForwardingConfigBlock() : TerraformBlock("forwarding_config")
 {
 }
 
@@ -60,7 +60,7 @@ public partial class GoogleDnsManagedZoneForwardingConfigBlock : TerraformBlockB
 /// Block type for peering_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsManagedZonePeeringConfigBlock : TerraformBlockBase
+public partial class GoogleDnsManagedZonePeeringConfigBlock() : TerraformBlock("peering_config")
 {
 }
 
@@ -68,7 +68,7 @@ public partial class GoogleDnsManagedZonePeeringConfigBlock : TerraformBlockBase
 /// Block type for private_visibility_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsManagedZonePrivateVisibilityConfigBlock : TerraformBlockBase
+public partial class GoogleDnsManagedZonePrivateVisibilityConfigBlock() : TerraformBlock("private_visibility_config")
 {
 }
 
@@ -76,7 +76,7 @@ public partial class GoogleDnsManagedZonePrivateVisibilityConfigBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDnsManagedZoneTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -181,7 +181,7 @@ public partial class GoogleDnsManagedZone : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudLoggingConfig block(s) allowed")]
     [TerraformProperty("cloud_logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleDnsManagedZoneCloudLoggingConfigBlock>>? CloudLoggingConfig { get; set; }
+    public TerraformList<GoogleDnsManagedZoneCloudLoggingConfigBlock> CloudLoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for dnssec_config.
@@ -189,7 +189,7 @@ public partial class GoogleDnsManagedZone : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnssecConfig block(s) allowed")]
     [TerraformProperty("dnssec_config")]
-    public partial TerraformList<TerraformBlock<GoogleDnsManagedZoneDnssecConfigBlock>>? DnssecConfig { get; set; }
+    public TerraformList<GoogleDnsManagedZoneDnssecConfigBlock> DnssecConfig { get; set; } = new();
 
     /// <summary>
     /// Block for forwarding_config.
@@ -197,7 +197,7 @@ public partial class GoogleDnsManagedZone : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ForwardingConfig block(s) allowed")]
     [TerraformProperty("forwarding_config")]
-    public partial TerraformList<TerraformBlock<GoogleDnsManagedZoneForwardingConfigBlock>>? ForwardingConfig { get; set; }
+    public TerraformList<GoogleDnsManagedZoneForwardingConfigBlock> ForwardingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for peering_config.
@@ -205,7 +205,7 @@ public partial class GoogleDnsManagedZone : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PeeringConfig block(s) allowed")]
     [TerraformProperty("peering_config")]
-    public partial TerraformList<TerraformBlock<GoogleDnsManagedZonePeeringConfigBlock>>? PeeringConfig { get; set; }
+    public TerraformList<GoogleDnsManagedZonePeeringConfigBlock> PeeringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for private_visibility_config.
@@ -213,14 +213,14 @@ public partial class GoogleDnsManagedZone : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateVisibilityConfig block(s) allowed")]
     [TerraformProperty("private_visibility_config")]
-    public partial TerraformList<TerraformBlock<GoogleDnsManagedZonePrivateVisibilityConfigBlock>>? PrivateVisibilityConfig { get; set; }
+    public TerraformList<GoogleDnsManagedZonePrivateVisibilityConfigBlock> PrivateVisibilityConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDnsManagedZoneTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDnsManagedZoneTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time that this resource was created on the server.

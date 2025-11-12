@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for daily_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirestoreBackupScheduleDailyRecurrenceBlock : TerraformBlockBase
+public partial class GoogleFirestoreBackupScheduleDailyRecurrenceBlock() : TerraformBlock("daily_recurrence")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleFirestoreBackupScheduleDailyRecurrenceBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirestoreBackupScheduleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirestoreBackupScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -43,7 +43,7 @@ public partial class GoogleFirestoreBackupScheduleTimeoutsBlock : TerraformBlock
 /// Block type for weekly_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock : TerraformBlockBase
+public partial class GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock() : TerraformBlock("weekly_recurrence")
 {
     /// <summary>
     /// The day of week to run. Possible values: [&amp;quot;DAY_OF_WEEK_UNSPECIFIED&amp;quot;, &amp;quot;MONDAY&amp;quot;, &amp;quot;TUESDAY&amp;quot;, &amp;quot;WEDNESDAY&amp;quot;, &amp;quot;THURSDAY&amp;quot;, &amp;quot;FRIDAY&amp;quot;, &amp;quot;SATURDAY&amp;quot;, &amp;quot;SUNDAY&amp;quot;]
@@ -102,14 +102,14 @@ public partial class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailyRecurrence block(s) allowed")]
     [TerraformProperty("daily_recurrence")]
-    public partial TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleDailyRecurrenceBlock>>? DailyRecurrence { get; set; }
+    public TerraformList<GoogleFirestoreBackupScheduleDailyRecurrenceBlock> DailyRecurrence { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirestoreBackupScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirestoreBackupScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for weekly_recurrence.
@@ -117,7 +117,7 @@ public partial class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklyRecurrence block(s) allowed")]
     [TerraformProperty("weekly_recurrence")]
-    public partial TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock>>? WeeklyRecurrence { get; set; }
+    public TerraformList<GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock> WeeklyRecurrence { get; set; } = new();
 
     /// <summary>
     /// The unique backup schedule identifier across all locations and databases for the given project. Format:

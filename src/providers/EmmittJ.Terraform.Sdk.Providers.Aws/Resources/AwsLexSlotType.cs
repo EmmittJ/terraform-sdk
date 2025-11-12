@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for enumeration_value in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLexSlotTypeEnumerationValueBlock : TerraformBlockBase
+public partial class AwsLexSlotTypeEnumerationValueBlock() : TerraformBlock("enumeration_value")
 {
     /// <summary>
     /// The synonyms attribute.
@@ -29,7 +29,7 @@ public partial class AwsLexSlotTypeEnumerationValueBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLexSlotTypeTimeoutsBlock : TerraformBlockBase
+public partial class AwsLexSlotTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,14 +115,14 @@ public partial class AwsLexSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnumerationValue block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10000, ErrorMessage = "Maximum 10000 EnumerationValue block(s) allowed")]
     [TerraformProperty("enumeration_value")]
-    public partial TerraformSet<TerraformBlock<AwsLexSlotTypeEnumerationValueBlock>>? EnumerationValue { get; set; }
+    public required TerraformSet<AwsLexSlotTypeEnumerationValueBlock> EnumerationValue { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLexSlotTypeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLexSlotTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The checksum attribute.

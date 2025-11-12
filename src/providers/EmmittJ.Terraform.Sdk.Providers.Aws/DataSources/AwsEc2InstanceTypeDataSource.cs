@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2InstanceTypeDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2InstanceTypeDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -53,7 +53,7 @@ public partial class AwsEc2InstanceTypeDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2InstanceTypeDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2InstanceTypeDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The auto_recovery_supported attribute.

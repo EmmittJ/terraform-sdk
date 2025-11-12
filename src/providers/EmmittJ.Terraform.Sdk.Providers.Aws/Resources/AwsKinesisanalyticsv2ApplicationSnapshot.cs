@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock : TerraformBlockBase
+public partial class AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,7 +68,7 @@ public partial class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The application_version_id attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ace in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlockBase
+public partial class AzurermStorageDataLakeGen2PathAceBlock() : TerraformBlock("ace")
 {
     /// <summary>
     /// The id attribute.
@@ -44,7 +44,7 @@ public partial class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageDataLakeGen2PathTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageDataLakeGen2PathTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -143,13 +143,13 @@ public partial class AzurermStorageDataLakeGen2Path : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ace")]
-    public partial TerraformSet<TerraformBlock<AzurermStorageDataLakeGen2PathAceBlock>>? Ace { get; set; }
+    public TerraformSet<AzurermStorageDataLakeGen2PathAceBlock> Ace { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageDataLakeGen2PathTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageDataLakeGen2PathTimeoutsBlock Timeouts { get; set; } = new();
 
 }

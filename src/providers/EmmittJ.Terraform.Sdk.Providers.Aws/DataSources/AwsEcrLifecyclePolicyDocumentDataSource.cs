@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : TerraformBlockBase
+public partial class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The description attribute.
@@ -39,7 +39,7 @@ public partial class AwsEcrLifecyclePolicyDocumentDataSource : TerraformDataSour
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>>? Rule { get; set; }
+    public TerraformList<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// The json attribute.

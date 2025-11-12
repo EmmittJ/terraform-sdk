@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for telemetry in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMonitoringCustomServiceTelemetryBlock : TerraformBlockBase
+public partial class GoogleMonitoringCustomServiceTelemetryBlock() : TerraformBlock("telemetry")
 {
     /// <summary>
     /// The full name of the resource that defines this service.
@@ -23,7 +23,7 @@ public partial class GoogleMonitoringCustomServiceTelemetryBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMonitoringCustomServiceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMonitoringCustomServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -105,14 +105,14 @@ public partial class GoogleMonitoringCustomService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Telemetry block(s) allowed")]
     [TerraformProperty("telemetry")]
-    public partial TerraformList<TerraformBlock<GoogleMonitoringCustomServiceTelemetryBlock>>? Telemetry { get; set; }
+    public TerraformList<GoogleMonitoringCustomServiceTelemetryBlock> Telemetry { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMonitoringCustomServiceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMonitoringCustomServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The full resource name for this service. The syntax is:

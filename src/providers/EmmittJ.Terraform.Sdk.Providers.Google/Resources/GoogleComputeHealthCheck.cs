@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for grpc_health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeHealthCheckGrpcHealthCheckBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckGrpcHealthCheckBlock() : TerraformBlock("grpc_health_check")
 {
     /// <summary>
     /// The gRPC service name for the health check.
@@ -62,7 +62,7 @@ public partial class GoogleComputeHealthCheckGrpcHealthCheckBlock : TerraformBlo
 /// Block type for grpc_tls_health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeHealthCheckGrpcTlsHealthCheckBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckGrpcTlsHealthCheckBlock() : TerraformBlock("grpc_tls_health_check")
 {
     /// <summary>
     /// The gRPC service name for the health check.
@@ -108,7 +108,7 @@ public partial class GoogleComputeHealthCheckGrpcTlsHealthCheckBlock : Terraform
 /// Block type for http2_health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckHttp2HealthCheckBlock() : TerraformBlock("http2_health_check")
 {
     /// <summary>
     /// The value of the host header in the HTTP2 health check request.
@@ -186,7 +186,7 @@ public partial class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBl
 /// Block type for http_health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckHttpHealthCheckBlock() : TerraformBlock("http_health_check")
 {
     /// <summary>
     /// The value of the host header in the HTTP health check request.
@@ -264,7 +264,7 @@ public partial class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlo
 /// Block type for https_health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckHttpsHealthCheckBlock() : TerraformBlock("https_health_check")
 {
     /// <summary>
     /// The value of the host header in the HTTPS health check request.
@@ -342,7 +342,7 @@ public partial class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBl
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeHealthCheckLogConfigBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// Indicates whether or not to export logs. This is false by default,
@@ -358,7 +358,7 @@ public partial class GoogleComputeHealthCheckLogConfigBlock : TerraformBlockBase
 /// Block type for ssl_health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeHealthCheckSslHealthCheckBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckSslHealthCheckBlock() : TerraformBlock("ssl_health_check")
 {
     /// <summary>
     /// The TCP port number for the SSL health check request.
@@ -429,7 +429,7 @@ public partial class GoogleComputeHealthCheckSslHealthCheckBlock : TerraformBloc
 /// Block type for tcp_health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeHealthCheckTcpHealthCheckBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckTcpHealthCheckBlock() : TerraformBlock("tcp_health_check")
 {
     /// <summary>
     /// The TCP port number for the TCP health check request.
@@ -500,7 +500,7 @@ public partial class GoogleComputeHealthCheckTcpHealthCheckBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeHealthCheckTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeHealthCheckTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -633,7 +633,7 @@ public partial class GoogleComputeHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcHealthCheck block(s) allowed")]
     [TerraformProperty("grpc_health_check")]
-    public partial TerraformList<TerraformBlock<GoogleComputeHealthCheckGrpcHealthCheckBlock>>? GrpcHealthCheck { get; set; }
+    public TerraformList<GoogleComputeHealthCheckGrpcHealthCheckBlock> GrpcHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for grpc_tls_health_check.
@@ -641,7 +641,7 @@ public partial class GoogleComputeHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcTlsHealthCheck block(s) allowed")]
     [TerraformProperty("grpc_tls_health_check")]
-    public partial TerraformList<TerraformBlock<GoogleComputeHealthCheckGrpcTlsHealthCheckBlock>>? GrpcTlsHealthCheck { get; set; }
+    public TerraformList<GoogleComputeHealthCheckGrpcTlsHealthCheckBlock> GrpcTlsHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for http2_health_check.
@@ -649,7 +649,7 @@ public partial class GoogleComputeHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Http2HealthCheck block(s) allowed")]
     [TerraformProperty("http2_health_check")]
-    public partial TerraformList<TerraformBlock<GoogleComputeHealthCheckHttp2HealthCheckBlock>>? Http2HealthCheck { get; set; }
+    public TerraformList<GoogleComputeHealthCheckHttp2HealthCheckBlock> Http2HealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for http_health_check.
@@ -657,7 +657,7 @@ public partial class GoogleComputeHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpHealthCheck block(s) allowed")]
     [TerraformProperty("http_health_check")]
-    public partial TerraformList<TerraformBlock<GoogleComputeHealthCheckHttpHealthCheckBlock>>? HttpHealthCheck { get; set; }
+    public TerraformList<GoogleComputeHealthCheckHttpHealthCheckBlock> HttpHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for https_health_check.
@@ -665,7 +665,7 @@ public partial class GoogleComputeHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpsHealthCheck block(s) allowed")]
     [TerraformProperty("https_health_check")]
-    public partial TerraformList<TerraformBlock<GoogleComputeHealthCheckHttpsHealthCheckBlock>>? HttpsHealthCheck { get; set; }
+    public TerraformList<GoogleComputeHealthCheckHttpsHealthCheckBlock> HttpsHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
@@ -673,7 +673,7 @@ public partial class GoogleComputeHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeHealthCheckLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<GoogleComputeHealthCheckLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for ssl_health_check.
@@ -681,7 +681,7 @@ public partial class GoogleComputeHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslHealthCheck block(s) allowed")]
     [TerraformProperty("ssl_health_check")]
-    public partial TerraformList<TerraformBlock<GoogleComputeHealthCheckSslHealthCheckBlock>>? SslHealthCheck { get; set; }
+    public TerraformList<GoogleComputeHealthCheckSslHealthCheckBlock> SslHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for tcp_health_check.
@@ -689,14 +689,14 @@ public partial class GoogleComputeHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TcpHealthCheck block(s) allowed")]
     [TerraformProperty("tcp_health_check")]
-    public partial TerraformList<TerraformBlock<GoogleComputeHealthCheckTcpHealthCheckBlock>>? TcpHealthCheck { get; set; }
+    public TerraformList<GoogleComputeHealthCheckTcpHealthCheckBlock> TcpHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeHealthCheckTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeHealthCheckTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIdentityPlatformDefaultSupportedIdpConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformDefaultSupportedIdpConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,7 +110,7 @@ public partial class GoogleIdentityPlatformDefaultSupportedIdpConfig : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIdentityPlatformDefaultSupportedIdpConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIdentityPlatformDefaultSupportedIdpConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the DefaultSupportedIdpConfig resource

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermConfidentialLedgerDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermConfidentialLedgerDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermConfidentialLedgerDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermConfidentialLedgerDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermConfidentialLedgerDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The azuread_based_service_principal attribute.

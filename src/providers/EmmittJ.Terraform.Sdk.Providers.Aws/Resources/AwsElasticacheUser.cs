@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authentication_mode in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticacheUserAuthenticationModeBlock : TerraformBlockBase
+public partial class AwsElasticacheUserAuthenticationModeBlock() : TerraformBlock("authentication_mode")
 {
 
     /// <summary>
@@ -30,7 +30,7 @@ public partial class AwsElasticacheUserAuthenticationModeBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsElasticacheUserTimeoutsBlock : TerraformBlockBase
+public partial class AwsElasticacheUserTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -152,14 +152,14 @@ public partial class AwsElasticacheUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationMode block(s) allowed")]
     [TerraformProperty("authentication_mode")]
-    public partial TerraformList<TerraformBlock<AwsElasticacheUserAuthenticationModeBlock>>? AuthenticationMode { get; set; }
+    public TerraformList<AwsElasticacheUserAuthenticationModeBlock> AuthenticationMode { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsElasticacheUserTimeoutsBlock>? Timeouts { get; set; }
+    public AwsElasticacheUserTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

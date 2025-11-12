@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleKmsKeyRingImportJobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleKmsKeyRingImportJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -79,7 +79,7 @@ public partial class GoogleKmsKeyRingImportJob : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleKmsKeyRingImportJobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleKmsKeyRingImportJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Statement that was generated and signed by the key creator (for example, an HSM) at key creation time.

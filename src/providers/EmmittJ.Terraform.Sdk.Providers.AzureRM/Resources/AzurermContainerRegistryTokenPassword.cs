@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for password1 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBlockBase
+public partial class AzurermContainerRegistryTokenPasswordPassword1Block() : TerraformBlock("password1")
 {
     /// <summary>
     /// The expiry attribute.
@@ -22,7 +22,7 @@ public partial class AzurermContainerRegistryTokenPasswordPassword1Block : Terra
 /// Block type for password2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBlockBase
+public partial class AzurermContainerRegistryTokenPasswordPassword2Block() : TerraformBlock("password2")
 {
     /// <summary>
     /// The expiry attribute.
@@ -38,7 +38,7 @@ public partial class AzurermContainerRegistryTokenPasswordPassword2Block : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTokenPasswordTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -103,7 +103,7 @@ public partial class AzurermContainerRegistryTokenPassword : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Password1 block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password1 block(s) allowed")]
     [TerraformProperty("password1")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTokenPasswordPassword1Block>>? Password1 { get; set; }
+    public required TerraformList<AzurermContainerRegistryTokenPasswordPassword1Block> Password1 { get; set; } = new();
 
     /// <summary>
     /// Block for password2.
@@ -111,13 +111,13 @@ public partial class AzurermContainerRegistryTokenPassword : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password2 block(s) allowed")]
     [TerraformProperty("password2")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTokenPasswordPassword2Block>>? Password2 { get; set; }
+    public TerraformList<AzurermContainerRegistryTokenPasswordPassword2Block> Password2 { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerRegistryTokenPasswordTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerRegistryTokenPasswordTimeoutsBlock Timeouts { get; set; } = new();
 
 }

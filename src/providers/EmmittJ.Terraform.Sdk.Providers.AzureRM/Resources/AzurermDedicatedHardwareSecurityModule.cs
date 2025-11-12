@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for management_network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock() : TerraformBlock("management_network_profile")
 {
     /// <summary>
     /// The network_interface_private_ip_addresses attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDedicatedHardwareSecurityModuleManagementNetworkProf
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock() : TerraformBlock("network_profile")
 {
     /// <summary>
     /// The network_interface_private_ip_addresses attribute.
@@ -54,7 +54,7 @@ public partial class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -162,7 +162,7 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementNetworkProfile block(s) allowed")]
     [TerraformProperty("management_network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>>? ManagementNetworkProfile { get; set; }
+    public TerraformList<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock> ManagementNetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -172,13 +172,13 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public required TerraformList<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDedicatedHardwareSecurityModuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDedicatedHardwareSecurityModuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

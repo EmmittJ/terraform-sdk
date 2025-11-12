@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for external_metrics_preference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock : TerraformBlockBase
+public partial class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock() : TerraformBlock("external_metrics_preference")
 {
     /// <summary>
     /// The source attribute.
@@ -22,7 +22,7 @@ public partial class AwsComputeoptimizerRecommendationPreferencesExternalMetrics
 /// Block type for preferred_resource in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock : TerraformBlockBase
+public partial class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock() : TerraformBlock("preferred_resource")
 {
     /// <summary>
     /// The exclude_list attribute.
@@ -52,7 +52,7 @@ public partial class AwsComputeoptimizerRecommendationPreferencesPreferredResour
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformBlockBase
+public partial class AwsComputeoptimizerRecommendationPreferencesScopeBlock() : TerraformBlock("scope")
 {
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AwsComputeoptimizerRecommendationPreferencesScopeBlock : Te
 /// Block type for utilization_preference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock : TerraformBlockBase
+public partial class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock() : TerraformBlock("utilization_preference")
 {
     /// <summary>
     /// The metric_name attribute.
@@ -145,28 +145,28 @@ public partial class AwsComputeoptimizerRecommendationPreferences : TerraformRes
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("external_metrics_preference")]
-    public partial TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock>>? ExternalMetricsPreference { get; set; }
+    public TerraformList<AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock> ExternalMetricsPreference { get; set; } = new();
 
     /// <summary>
     /// Block for preferred_resource.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("preferred_resource")]
-    public partial TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock>>? PreferredResource { get; set; }
+    public TerraformList<AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock> PreferredResource { get; set; } = new();
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scope")]
-    public partial TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesScopeBlock>>? Scope { get; set; }
+    public TerraformList<AwsComputeoptimizerRecommendationPreferencesScopeBlock> Scope { get; set; } = new();
 
     /// <summary>
     /// Block for utilization_preference.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("utilization_preference")]
-    public partial TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock>>? UtilizationPreference { get; set; }
+    public TerraformList<AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock> UtilizationPreference { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

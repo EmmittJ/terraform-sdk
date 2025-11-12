@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for advanced_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlock() : TerraformBlock("advanced_filter")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterB
 /// Block type for azure_function_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBlock() : TerraformBlock("azure_function_endpoint")
 {
     /// <summary>
     /// The function_id attribute.
@@ -44,7 +44,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEn
 /// Block type for dead_letter_identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock() : TerraformBlock("dead_letter_identity")
 {
     /// <summary>
     /// The type attribute.
@@ -67,7 +67,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdent
 /// Block type for delivery_identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock() : TerraformBlock("delivery_identity")
 {
     /// <summary>
     /// The type attribute.
@@ -90,7 +90,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentit
 /// Block type for delivery_property in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock() : TerraformBlock("delivery_property")
 {
     /// <summary>
     /// The header_name attribute.
@@ -135,7 +135,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionDeliveryPropert
 /// Block type for retry_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock() : TerraformBlock("retry_policy")
 {
     /// <summary>
     /// The event_time_to_live attribute.
@@ -159,7 +159,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBloc
 /// Block type for storage_blob_dead_letter_destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationBlock() : TerraformBlock("storage_blob_dead_letter_destination")
 {
     /// <summary>
     /// The storage_account_id attribute.
@@ -183,7 +183,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionStorageBlobDead
 /// Block type for storage_queue_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlock() : TerraformBlock("storage_queue_endpoint")
 {
     /// <summary>
     /// The queue_message_time_to_live_in_seconds attribute.
@@ -214,7 +214,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionStorageQueueEnd
 /// Block type for subject_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBlock() : TerraformBlock("subject_filter")
 {
     /// <summary>
     /// The case_sensitive attribute.
@@ -243,7 +243,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -279,7 +279,7 @@ public partial class AzurermEventgridSystemTopicEventSubscriptionTimeoutsBlock :
 /// Block type for webhook_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock() : TerraformBlock("webhook_endpoint")
 {
     /// <summary>
     /// The active_directory_app_id_or_uri attribute.
@@ -430,7 +430,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedFilter block(s) allowed")]
     [TerraformProperty("advanced_filter")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlock>>? AdvancedFilter { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlock> AdvancedFilter { get; set; } = new();
 
     /// <summary>
     /// Block for azure_function_endpoint.
@@ -438,7 +438,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureFunctionEndpoint block(s) allowed")]
     [TerraformProperty("azure_function_endpoint")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBlock>>? AzureFunctionEndpoint { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBlock> AzureFunctionEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for dead_letter_identity.
@@ -446,7 +446,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterIdentity block(s) allowed")]
     [TerraformProperty("dead_letter_identity")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock>>? DeadLetterIdentity { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock> DeadLetterIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for delivery_identity.
@@ -454,14 +454,14 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryIdentity block(s) allowed")]
     [TerraformProperty("delivery_identity")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock>>? DeliveryIdentity { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock> DeliveryIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for delivery_property.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("delivery_property")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock>>? DeliveryProperty { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock> DeliveryProperty { get; set; } = new();
 
     /// <summary>
     /// Block for retry_policy.
@@ -469,7 +469,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     [TerraformProperty("retry_policy")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock>>? RetryPolicy { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock> RetryPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for storage_blob_dead_letter_destination.
@@ -477,7 +477,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageBlobDeadLetterDestination block(s) allowed")]
     [TerraformProperty("storage_blob_dead_letter_destination")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationBlock>>? StorageBlobDeadLetterDestination { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationBlock> StorageBlobDeadLetterDestination { get; set; } = new();
 
     /// <summary>
     /// Block for storage_queue_endpoint.
@@ -485,7 +485,7 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageQueueEndpoint block(s) allowed")]
     [TerraformProperty("storage_queue_endpoint")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlock>>? StorageQueueEndpoint { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlock> StorageQueueEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for subject_filter.
@@ -493,14 +493,14 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectFilter block(s) allowed")]
     [TerraformProperty("subject_filter")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBlock>>? SubjectFilter { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBlock> SubjectFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventgridSystemTopicEventSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for webhook_endpoint.
@@ -508,6 +508,6 @@ public partial class AzurermEventgridSystemTopicEventSubscription : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebhookEndpoint block(s) allowed")]
     [TerraformProperty("webhook_endpoint")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock>>? WebhookEndpoint { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock> WebhookEndpoint { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSiteVerificationOwnerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSiteVerificationOwnerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -61,6 +61,6 @@ public partial class GoogleSiteVerificationOwner : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSiteVerificationOwnerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSiteVerificationOwnerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

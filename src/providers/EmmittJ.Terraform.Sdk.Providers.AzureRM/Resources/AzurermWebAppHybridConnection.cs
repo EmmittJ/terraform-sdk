@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWebAppHybridConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWebAppHybridConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,7 +98,7 @@ public partial class AzurermWebAppHybridConnection : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWebAppHybridConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWebAppHybridConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the Relay Namespace.

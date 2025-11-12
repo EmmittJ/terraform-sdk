@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for georeplications in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryGeoreplicationsBlock() : TerraformBlock("georeplications")
 {
     /// <summary>
     /// The location attribute.
@@ -43,7 +43,7 @@ public partial class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryIdentityBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -68,7 +68,7 @@ public partial class AzurermContainerRegistryIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerRegistryTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -245,7 +245,7 @@ public partial class AzurermContainerRegistry : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("georeplications")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryGeoreplicationsBlock>>? Georeplications { get; set; }
+    public TerraformList<AzurermContainerRegistryGeoreplicationsBlock> Georeplications { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -253,14 +253,14 @@ public partial class AzurermContainerRegistry : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermContainerRegistryIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerRegistryTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerRegistryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The admin_password attribute.

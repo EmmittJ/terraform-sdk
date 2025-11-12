@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNetworkPeeringDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkPeeringDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNetworkPeeringDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNetworkPeeringDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Whether to export the custom routes to the peer network. Defaults to false.

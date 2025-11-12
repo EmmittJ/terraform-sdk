@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlockBase
+public partial class AzurermLogAnalyticsSolutionPlanBlock() : TerraformBlock("plan")
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ public partial class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogAnalyticsSolutionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -142,13 +142,13 @@ public partial class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformList<TerraformBlock<AzurermLogAnalyticsSolutionPlanBlock>>? Plan { get; set; }
+    public required TerraformList<AzurermLogAnalyticsSolutionPlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogAnalyticsSolutionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogAnalyticsSolutionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

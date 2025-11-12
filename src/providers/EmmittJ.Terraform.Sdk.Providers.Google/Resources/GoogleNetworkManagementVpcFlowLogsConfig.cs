@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkManagementVpcFlowLogsConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkManagementVpcFlowLogsConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,7 +175,7 @@ public partial class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkManagementVpcFlowLogsConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkManagementVpcFlowLogsConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time the config was created.

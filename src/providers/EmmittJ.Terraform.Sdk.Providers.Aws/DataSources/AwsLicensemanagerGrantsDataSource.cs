@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLicensemanagerGrantsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsLicensemanagerGrantsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -54,7 +54,7 @@ public partial class AwsLicensemanagerGrantsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsLicensemanagerGrantsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsLicensemanagerGrantsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arns attribute.

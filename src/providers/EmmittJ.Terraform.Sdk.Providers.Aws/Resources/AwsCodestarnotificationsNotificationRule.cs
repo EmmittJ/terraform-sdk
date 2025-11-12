@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodestarnotificationsNotificationRuleTargetBlock : TerraformBlockBase
+public partial class AwsCodestarnotificationsNotificationRuleTargetBlock() : TerraformBlock("target")
 {
     /// <summary>
     /// The address attribute.
@@ -109,7 +109,7 @@ public partial class AwsCodestarnotificationsNotificationRule : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformSet<TerraformBlock<AwsCodestarnotificationsNotificationRuleTargetBlock>>? Target { get; set; }
+    public TerraformSet<AwsCodestarnotificationsNotificationRuleTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

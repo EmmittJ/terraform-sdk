@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayAuthenticationCertificateBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayAuthenticationCertificateBlock() : TerraformBlock("authentication_certificate")
 {
     /// <summary>
     /// The data attribute.
@@ -31,7 +31,7 @@ public partial class AzurermApplicationGatewayAuthenticationCertificateBlock : T
 /// Block type for autoscale_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayAutoscaleConfigurationBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayAutoscaleConfigurationBlock() : TerraformBlock("autoscale_configuration")
 {
     /// <summary>
     /// The max_capacity attribute.
@@ -54,7 +54,7 @@ public partial class AzurermApplicationGatewayAutoscaleConfigurationBlock : Terr
 /// Block type for backend_address_pool in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewayBackendAddressPoolBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayBackendAddressPoolBlock() : TerraformBlock("backend_address_pool")
 {
     /// <summary>
     /// The fqdns attribute.
@@ -85,7 +85,7 @@ public partial class AzurermApplicationGatewayBackendAddressPoolBlock : Terrafor
 /// Block type for backend_http_settings in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayBackendHttpSettingsBlock() : TerraformBlock("backend_http_settings")
 {
     /// <summary>
     /// The affinity_cookie_name attribute.
@@ -176,7 +176,7 @@ public partial class AzurermApplicationGatewayBackendHttpSettingsBlock : Terrafo
 /// Block type for custom_error_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayCustomErrorConfigurationBlock() : TerraformBlock("custom_error_configuration")
 {
     /// <summary>
     /// The custom_error_page_url attribute.
@@ -201,7 +201,7 @@ public partial class AzurermApplicationGatewayCustomErrorConfigurationBlock : Te
 /// Block type for frontend_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayFrontendIpConfigurationBlock() : TerraformBlock("frontend_ip_configuration")
 {
 
     /// <summary>
@@ -254,7 +254,7 @@ public partial class AzurermApplicationGatewayFrontendIpConfigurationBlock : Ter
 /// Block type for frontend_port in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewayFrontendPortBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayFrontendPortBlock() : TerraformBlock("frontend_port")
 {
 
     /// <summary>
@@ -279,7 +279,7 @@ public partial class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
 /// Block type for gateway_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayGatewayIpConfigurationBlock() : TerraformBlock("gateway_ip_configuration")
 {
 
     /// <summary>
@@ -304,7 +304,7 @@ public partial class AzurermApplicationGatewayGatewayIpConfigurationBlock : Terr
 /// Block type for global in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayGlobalBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayGlobalBlock() : TerraformBlock("global")
 {
     /// <summary>
     /// The request_buffering_enabled attribute.
@@ -328,7 +328,7 @@ public partial class AzurermApplicationGatewayGlobalBlock : TerraformBlockBase
 /// Block type for http_listener in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewayHttpListenerBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayHttpListenerBlock() : TerraformBlock("http_listener")
 {
     /// <summary>
     /// The firewall_policy_id attribute.
@@ -415,7 +415,7 @@ public partial class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayIdentityBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -440,7 +440,7 @@ public partial class AzurermApplicationGatewayIdentityBlock : TerraformBlockBase
 /// Block type for private_link_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewayPrivateLinkConfigurationBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayPrivateLinkConfigurationBlock() : TerraformBlock("private_link_configuration")
 {
 
     /// <summary>
@@ -457,7 +457,7 @@ public partial class AzurermApplicationGatewayPrivateLinkConfigurationBlock : Te
 /// Block type for probe in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewayProbeBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayProbeBlock() : TerraformBlock("probe")
 {
     /// <summary>
     /// The host attribute.
@@ -542,7 +542,7 @@ public partial class AzurermApplicationGatewayProbeBlock : TerraformBlockBase
 /// Block type for redirect_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayRedirectConfigurationBlock() : TerraformBlock("redirect_configuration")
 {
 
     /// <summary>
@@ -596,7 +596,7 @@ public partial class AzurermApplicationGatewayRedirectConfigurationBlock : Terra
 /// Block type for request_routing_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayRequestRoutingRuleBlock() : TerraformBlock("request_routing_rule")
 {
 
     /// <summary>
@@ -677,7 +677,7 @@ public partial class AzurermApplicationGatewayRequestRoutingRuleBlock : Terrafor
 /// Block type for rewrite_rule_set in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayRewriteRuleSetBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayRewriteRuleSetBlock() : TerraformBlock("rewrite_rule_set")
 {
 
     /// <summary>
@@ -694,7 +694,7 @@ public partial class AzurermApplicationGatewayRewriteRuleSetBlock : TerraformBlo
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewaySkuBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewaySkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -725,7 +725,7 @@ public partial class AzurermApplicationGatewaySkuBlock : TerraformBlockBase
 /// Block type for ssl_certificate in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermApplicationGatewaySslCertificateBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewaySslCertificateBlock() : TerraformBlock("ssl_certificate")
 {
     /// <summary>
     /// The data attribute.
@@ -764,7 +764,7 @@ public partial class AzurermApplicationGatewaySslCertificateBlock : TerraformBlo
 /// Block type for ssl_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewaySslPolicyBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewaySslPolicyBlock() : TerraformBlock("ssl_policy")
 {
     /// <summary>
     /// The cipher_suites attribute.
@@ -807,7 +807,7 @@ public partial class AzurermApplicationGatewaySslPolicyBlock : TerraformBlockBas
 /// Block type for ssl_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewaySslProfileBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewaySslProfileBlock() : TerraformBlock("ssl_profile")
 {
 
     /// <summary>
@@ -845,7 +845,7 @@ public partial class AzurermApplicationGatewaySslProfileBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApplicationGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -881,7 +881,7 @@ public partial class AzurermApplicationGatewayTimeoutsBlock : TerraformBlockBase
 /// Block type for trusted_client_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayTrustedClientCertificateBlock() : TerraformBlock("trusted_client_certificate")
 {
     /// <summary>
     /// The data attribute.
@@ -906,7 +906,7 @@ public partial class AzurermApplicationGatewayTrustedClientCertificateBlock : Te
 /// Block type for trusted_root_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayTrustedRootCertificateBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayTrustedRootCertificateBlock() : TerraformBlock("trusted_root_certificate")
 {
     /// <summary>
     /// The data attribute.
@@ -937,7 +937,7 @@ public partial class AzurermApplicationGatewayTrustedRootCertificateBlock : Terr
 /// Block type for url_path_map in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayUrlPathMapBlock() : TerraformBlock("url_path_map")
 {
 
     /// <summary>
@@ -986,7 +986,7 @@ public partial class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlockBa
 /// Block type for waf_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlockBase
+public partial class AzurermApplicationGatewayWafConfigurationBlock() : TerraformBlock("waf_configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -1130,7 +1130,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("authentication_certificate")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayAuthenticationCertificateBlock>>? AuthenticationCertificate { get; set; }
+    public TerraformList<AzurermApplicationGatewayAuthenticationCertificateBlock> AuthenticationCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for autoscale_configuration.
@@ -1138,7 +1138,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleConfiguration block(s) allowed")]
     [TerraformProperty("autoscale_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayAutoscaleConfigurationBlock>>? AutoscaleConfiguration { get; set; }
+    public TerraformList<AzurermApplicationGatewayAutoscaleConfigurationBlock> AutoscaleConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for backend_address_pool.
@@ -1147,7 +1147,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendAddressPool block(s) required")]
     [TerraformProperty("backend_address_pool")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewayBackendAddressPoolBlock>>? BackendAddressPool { get; set; }
+    public required TerraformSet<AzurermApplicationGatewayBackendAddressPoolBlock> BackendAddressPool { get; set; } = new();
 
     /// <summary>
     /// Block for backend_http_settings.
@@ -1156,14 +1156,14 @@ public partial class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendHttpSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendHttpSettings block(s) required")]
     [TerraformProperty("backend_http_settings")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewayBackendHttpSettingsBlock>>? BackendHttpSettings { get; set; }
+    public required TerraformSet<AzurermApplicationGatewayBackendHttpSettingsBlock> BackendHttpSettings { get; set; } = new();
 
     /// <summary>
     /// Block for custom_error_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_error_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayCustomErrorConfigurationBlock>>? CustomErrorConfiguration { get; set; }
+    public TerraformList<AzurermApplicationGatewayCustomErrorConfigurationBlock> CustomErrorConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_ip_configuration.
@@ -1172,7 +1172,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendIpConfiguration block(s) required")]
     [TerraformProperty("frontend_ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayFrontendIpConfigurationBlock>>? FrontendIpConfiguration { get; set; }
+    public required TerraformList<AzurermApplicationGatewayFrontendIpConfigurationBlock> FrontendIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_port.
@@ -1181,7 +1181,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPort is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendPort block(s) required")]
     [TerraformProperty("frontend_port")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewayFrontendPortBlock>>? FrontendPort { get; set; }
+    public required TerraformSet<AzurermApplicationGatewayFrontendPortBlock> FrontendPort { get; set; } = new();
 
     /// <summary>
     /// Block for gateway_ip_configuration.
@@ -1191,7 +1191,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GatewayIpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 GatewayIpConfiguration block(s) allowed")]
     [TerraformProperty("gateway_ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayGatewayIpConfigurationBlock>>? GatewayIpConfiguration { get; set; }
+    public required TerraformList<AzurermApplicationGatewayGatewayIpConfigurationBlock> GatewayIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for global.
@@ -1199,7 +1199,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Global block(s) allowed")]
     [TerraformProperty("global")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayGlobalBlock>>? Global { get; set; }
+    public TerraformList<AzurermApplicationGatewayGlobalBlock> Global { get; set; } = new();
 
     /// <summary>
     /// Block for http_listener.
@@ -1208,7 +1208,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpListener is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HttpListener block(s) required")]
     [TerraformProperty("http_listener")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewayHttpListenerBlock>>? HttpListener { get; set; }
+    public required TerraformSet<AzurermApplicationGatewayHttpListenerBlock> HttpListener { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -1216,28 +1216,28 @@ public partial class AzurermApplicationGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermApplicationGatewayIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for private_link_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("private_link_configuration")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewayPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; }
+    public TerraformSet<AzurermApplicationGatewayPrivateLinkConfigurationBlock> PrivateLinkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for probe.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("probe")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewayProbeBlock>>? Probe { get; set; }
+    public TerraformSet<AzurermApplicationGatewayProbeBlock> Probe { get; set; } = new();
 
     /// <summary>
     /// Block for redirect_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("redirect_configuration")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewayRedirectConfigurationBlock>>? RedirectConfiguration { get; set; }
+    public TerraformSet<AzurermApplicationGatewayRedirectConfigurationBlock> RedirectConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for request_routing_rule.
@@ -1246,14 +1246,14 @@ public partial class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestRoutingRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RequestRoutingRule block(s) required")]
     [TerraformProperty("request_routing_rule")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewayRequestRoutingRuleBlock>>? RequestRoutingRule { get; set; }
+    public required TerraformSet<AzurermApplicationGatewayRequestRoutingRuleBlock> RequestRoutingRule { get; set; } = new();
 
     /// <summary>
     /// Block for rewrite_rule_set.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rewrite_rule_set")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayRewriteRuleSetBlock>>? RewriteRuleSet { get; set; }
+    public TerraformList<AzurermApplicationGatewayRewriteRuleSetBlock> RewriteRuleSet { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -1263,14 +1263,14 @@ public partial class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewaySkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermApplicationGatewaySkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for ssl_certificate.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ssl_certificate")]
-    public partial TerraformSet<TerraformBlock<AzurermApplicationGatewaySslCertificateBlock>>? SslCertificate { get; set; }
+    public TerraformSet<AzurermApplicationGatewaySslCertificateBlock> SslCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for ssl_policy.
@@ -1278,42 +1278,42 @@ public partial class AzurermApplicationGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslPolicy block(s) allowed")]
     [TerraformProperty("ssl_policy")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewaySslPolicyBlock>>? SslPolicy { get; set; }
+    public TerraformList<AzurermApplicationGatewaySslPolicyBlock> SslPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for ssl_profile.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ssl_profile")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewaySslProfileBlock>>? SslProfile { get; set; }
+    public TerraformList<AzurermApplicationGatewaySslProfileBlock> SslProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApplicationGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApplicationGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trusted_client_certificate.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("trusted_client_certificate")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayTrustedClientCertificateBlock>>? TrustedClientCertificate { get; set; }
+    public TerraformList<AzurermApplicationGatewayTrustedClientCertificateBlock> TrustedClientCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for trusted_root_certificate.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("trusted_root_certificate")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayTrustedRootCertificateBlock>>? TrustedRootCertificate { get; set; }
+    public TerraformList<AzurermApplicationGatewayTrustedRootCertificateBlock> TrustedRootCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for url_path_map.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("url_path_map")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayUrlPathMapBlock>>? UrlPathMap { get; set; }
+    public TerraformList<AzurermApplicationGatewayUrlPathMapBlock> UrlPathMap { get; set; } = new();
 
     /// <summary>
     /// Block for waf_configuration.
@@ -1321,7 +1321,7 @@ public partial class AzurermApplicationGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WafConfiguration block(s) allowed")]
     [TerraformProperty("waf_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationGatewayWafConfigurationBlock>>? WafConfiguration { get; set; }
+    public TerraformList<AzurermApplicationGatewayWafConfigurationBlock> WafConfiguration { get; set; } = new();
 
     /// <summary>
     /// The private_endpoint_connection attribute.

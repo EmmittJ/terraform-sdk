@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for app_monitor_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlockBase
+public partial class AwsRumAppMonitorAppMonitorConfigurationBlock() : TerraformBlock("app_monitor_configuration")
 {
     /// <summary>
     /// The allow_cookies attribute.
@@ -77,7 +77,7 @@ public partial class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlo
 /// Block type for custom_events in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRumAppMonitorCustomEventsBlock : TerraformBlockBase
+public partial class AwsRumAppMonitorCustomEventsBlock() : TerraformBlock("custom_events")
 {
     /// <summary>
     /// The status attribute.
@@ -161,7 +161,7 @@ public partial class AwsRumAppMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppMonitorConfiguration block(s) allowed")]
     [TerraformProperty("app_monitor_configuration")]
-    public partial TerraformList<TerraformBlock<AwsRumAppMonitorAppMonitorConfigurationBlock>>? AppMonitorConfiguration { get; set; }
+    public TerraformList<AwsRumAppMonitorAppMonitorConfigurationBlock> AppMonitorConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for custom_events.
@@ -169,7 +169,7 @@ public partial class AwsRumAppMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomEvents block(s) allowed")]
     [TerraformProperty("custom_events")]
-    public partial TerraformList<TerraformBlock<AwsRumAppMonitorCustomEventsBlock>>? CustomEvents { get; set; }
+    public TerraformList<AwsRumAppMonitorCustomEventsBlock> CustomEvents { get; set; } = new();
 
     /// <summary>
     /// The app_monitor_id attribute.

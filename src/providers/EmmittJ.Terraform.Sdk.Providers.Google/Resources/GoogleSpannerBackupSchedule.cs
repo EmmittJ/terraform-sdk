@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSpannerBackupScheduleEncryptionConfigBlock : TerraformBlockBase
+public partial class GoogleSpannerBackupScheduleEncryptionConfigBlock() : TerraformBlock("encryption_config")
 {
     /// <summary>
     /// The encryption type of backups created by the backup schedule.
@@ -41,7 +41,7 @@ public partial class GoogleSpannerBackupScheduleEncryptionConfigBlock : Terrafor
 /// Block type for full_backup_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSpannerBackupScheduleFullBackupSpecBlock : TerraformBlockBase
+public partial class GoogleSpannerBackupScheduleFullBackupSpecBlock() : TerraformBlock("full_backup_spec")
 {
 }
 
@@ -49,7 +49,7 @@ public partial class GoogleSpannerBackupScheduleFullBackupSpecBlock : TerraformB
 /// Block type for incremental_backup_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSpannerBackupScheduleIncrementalBackupSpecBlock : TerraformBlockBase
+public partial class GoogleSpannerBackupScheduleIncrementalBackupSpecBlock() : TerraformBlock("incremental_backup_spec")
 {
 }
 
@@ -57,7 +57,7 @@ public partial class GoogleSpannerBackupScheduleIncrementalBackupSpecBlock : Ter
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSpannerBackupScheduleSpecBlock : TerraformBlockBase
+public partial class GoogleSpannerBackupScheduleSpecBlock() : TerraformBlock("spec")
 {
 }
 
@@ -65,7 +65,7 @@ public partial class GoogleSpannerBackupScheduleSpecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSpannerBackupScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -154,7 +154,7 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public partial TerraformList<TerraformBlock<GoogleSpannerBackupScheduleEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public TerraformList<GoogleSpannerBackupScheduleEncryptionConfigBlock> EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for full_backup_spec.
@@ -162,7 +162,7 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FullBackupSpec block(s) allowed")]
     [TerraformProperty("full_backup_spec")]
-    public partial TerraformList<TerraformBlock<GoogleSpannerBackupScheduleFullBackupSpecBlock>>? FullBackupSpec { get; set; }
+    public TerraformList<GoogleSpannerBackupScheduleFullBackupSpecBlock> FullBackupSpec { get; set; } = new();
 
     /// <summary>
     /// Block for incremental_backup_spec.
@@ -170,7 +170,7 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncrementalBackupSpec block(s) allowed")]
     [TerraformProperty("incremental_backup_spec")]
-    public partial TerraformList<TerraformBlock<GoogleSpannerBackupScheduleIncrementalBackupSpecBlock>>? IncrementalBackupSpec { get; set; }
+    public TerraformList<GoogleSpannerBackupScheduleIncrementalBackupSpecBlock> IncrementalBackupSpec { get; set; } = new();
 
     /// <summary>
     /// Block for spec.
@@ -178,13 +178,13 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<GoogleSpannerBackupScheduleSpecBlock>>? Spec { get; set; }
+    public TerraformList<GoogleSpannerBackupScheduleSpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSpannerBackupScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSpannerBackupScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

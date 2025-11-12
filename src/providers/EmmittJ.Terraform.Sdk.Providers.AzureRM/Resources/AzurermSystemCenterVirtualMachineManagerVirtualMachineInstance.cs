@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for hardware in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock : TerraformBlockBase
+public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock() : TerraformBlock("hardware")
 {
     /// <summary>
     /// The cpu_count attribute.
@@ -49,7 +49,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
 /// Block type for infrastructure in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock : TerraformBlockBase
+public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock() : TerraformBlock("infrastructure")
 {
     /// <summary>
     /// The checkpoint_type attribute.
@@ -92,7 +92,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock : TerraformBlockBase
+public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock() : TerraformBlock("network_interface")
 {
     /// <summary>
     /// The ipv4_address_type attribute.
@@ -136,7 +136,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
 /// Block type for operating_system in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock : TerraformBlockBase
+public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock() : TerraformBlock("operating_system")
 {
     /// <summary>
     /// The admin_password attribute.
@@ -158,7 +158,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
 /// Block type for storage_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock : TerraformBlockBase
+public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock() : TerraformBlock("storage_disk")
 {
     /// <summary>
     /// The bus attribute.
@@ -222,7 +222,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -300,7 +300,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hardware block(s) allowed")]
     [TerraformProperty("hardware")]
-    public partial TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock>>? Hardware { get; set; }
+    public TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock> Hardware { get; set; } = new();
 
     /// <summary>
     /// Block for infrastructure.
@@ -310,14 +310,14 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Infrastructure block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Infrastructure block(s) allowed")]
     [TerraformProperty("infrastructure")]
-    public partial TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock>>? Infrastructure { get; set; }
+    public required TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock> Infrastructure { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_interface")]
-    public partial TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock>>? NetworkInterface { get; set; }
+    public TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock> NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for operating_system.
@@ -325,20 +325,20 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperatingSystem block(s) allowed")]
     [TerraformProperty("operating_system")]
-    public partial TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock>>? OperatingSystem { get; set; }
+    public TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock> OperatingSystem { get; set; } = new();
 
     /// <summary>
     /// Block for storage_disk.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage_disk")]
-    public partial TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock>>? StorageDisk { get; set; }
+    public TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock> StorageDisk { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

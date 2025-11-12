@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceEncryptionConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceEncryptionConfigBlock() : TerraformBlock("encryption_config")
 {
     /// <summary>
     /// The fully qualified customer provided Cloud KMS key name to use for customer data encryption.
@@ -23,7 +23,7 @@ public partial class GoogleDataprocMetastoreServiceEncryptionConfigBlock : Terra
 /// Block type for hive_metastore_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock() : TerraformBlock("hive_metastore_config")
 {
     /// <summary>
     /// A mapping of Hive metastore configuration key-value pairs to apply to the Hive metastore (configured in hive-site.xml).
@@ -54,7 +54,7 @@ public partial class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : Te
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// The day of week, when the window starts. Possible values: [&amp;quot;MONDAY&amp;quot;, &amp;quot;TUESDAY&amp;quot;, &amp;quot;WEDNESDAY&amp;quot;, &amp;quot;THURSDAY&amp;quot;, &amp;quot;FRIDAY&amp;quot;, &amp;quot;SATURDAY&amp;quot;, &amp;quot;SUNDAY&amp;quot;]
@@ -78,7 +78,7 @@ public partial class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : Terr
 /// Block type for metadata_integration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceMetadataIntegrationBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceMetadataIntegrationBlock() : TerraformBlock("metadata_integration")
 {
 }
 
@@ -86,7 +86,7 @@ public partial class GoogleDataprocMetastoreServiceMetadataIntegrationBlock : Te
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceNetworkConfigBlock() : TerraformBlock("network_config")
 {
 }
 
@@ -94,7 +94,7 @@ public partial class GoogleDataprocMetastoreServiceNetworkConfigBlock : Terrafor
 /// Block type for scaling_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceScalingConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceScalingConfigBlock() : TerraformBlock("scaling_config")
 {
     /// <summary>
     /// Metastore instance sizes. Possible values: [&amp;quot;EXTRA_SMALL&amp;quot;, &amp;quot;SMALL&amp;quot;, &amp;quot;MEDIUM&amp;quot;, &amp;quot;LARGE&amp;quot;, &amp;quot;EXTRA_LARGE&amp;quot;]
@@ -116,7 +116,7 @@ public partial class GoogleDataprocMetastoreServiceScalingConfigBlock : Terrafor
 /// Block type for scheduled_backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceScheduledBackupBlock() : TerraformBlock("scheduled_backup")
 {
     /// <summary>
     /// A Cloud Storage URI of a folder, in the format gs://&amp;lt;bucket_name&amp;gt;/&amp;lt;path_inside_bucket&amp;gt;. A sub-folder &amp;lt;backup_folder&amp;gt; containing backup files will be stored below it.
@@ -153,7 +153,7 @@ public partial class GoogleDataprocMetastoreServiceScheduledBackupBlock : Terraf
 /// Block type for telemetry_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceTelemetryConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceTelemetryConfigBlock() : TerraformBlock("telemetry_config")
 {
     /// <summary>
     /// The output format of the Dataproc Metastore service&#39;s logs. Default value: &amp;quot;JSON&amp;quot; Possible values: [&amp;quot;LEGACY&amp;quot;, &amp;quot;JSON&amp;quot;]
@@ -168,7 +168,7 @@ public partial class GoogleDataprocMetastoreServiceTelemetryConfigBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocMetastoreServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -304,7 +304,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public TerraformList<GoogleDataprocMetastoreServiceEncryptionConfigBlock> EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for hive_metastore_config.
@@ -312,7 +312,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveMetastoreConfig block(s) allowed")]
     [TerraformProperty("hive_metastore_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock>>? HiveMetastoreConfig { get; set; }
+    public TerraformList<GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock> HiveMetastoreConfig { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window.
@@ -320,7 +320,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<GoogleDataprocMetastoreServiceMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for metadata_integration.
@@ -328,7 +328,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataIntegration block(s) allowed")]
     [TerraformProperty("metadata_integration")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceMetadataIntegrationBlock>>? MetadataIntegration { get; set; }
+    public TerraformList<GoogleDataprocMetastoreServiceMetadataIntegrationBlock> MetadataIntegration { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -336,7 +336,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public TerraformList<GoogleDataprocMetastoreServiceNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_config.
@@ -344,7 +344,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
     [TerraformProperty("scaling_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceScalingConfigBlock>>? ScalingConfig { get; set; }
+    public TerraformList<GoogleDataprocMetastoreServiceScalingConfigBlock> ScalingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for scheduled_backup.
@@ -352,7 +352,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledBackup block(s) allowed")]
     [TerraformProperty("scheduled_backup")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceScheduledBackupBlock>>? ScheduledBackup { get; set; }
+    public TerraformList<GoogleDataprocMetastoreServiceScheduledBackupBlock> ScheduledBackup { get; set; } = new();
 
     /// <summary>
     /// Block for telemetry_config.
@@ -360,14 +360,14 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TelemetryConfig block(s) allowed")]
     [TerraformProperty("telemetry_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceTelemetryConfigBlock>>? TelemetryConfig { get; set; }
+    public TerraformList<GoogleDataprocMetastoreServiceTelemetryConfigBlock> TelemetryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocMetastoreServiceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocMetastoreServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored.

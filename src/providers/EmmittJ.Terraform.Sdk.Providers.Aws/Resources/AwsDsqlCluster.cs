@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for multi_region_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlockBase
+public partial class AwsDsqlClusterMultiRegionPropertiesBlock() : TerraformBlock("multi_region_properties")
 {
     /// <summary>
     /// The clusters attribute.
@@ -28,7 +28,7 @@ public partial class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDsqlClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsDsqlClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -102,14 +102,14 @@ public partial class AwsDsqlCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("multi_region_properties")]
-    public partial TerraformList<TerraformBlock<AwsDsqlClusterMultiRegionPropertiesBlock>>? MultiRegionProperties { get; set; }
+    public TerraformList<AwsDsqlClusterMultiRegionPropertiesBlock> MultiRegionProperties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDsqlClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDsqlClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_storage_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerHubS3StorageConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerHubS3StorageConfigBlock() : TerraformBlock("s3_storage_config")
 {
     /// <summary>
     /// The s3_output_path attribute.
@@ -91,7 +91,7 @@ public partial class AwsSagemakerHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3StorageConfig block(s) allowed")]
     [TerraformProperty("s3_storage_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerHubS3StorageConfigBlock>>? S3StorageConfig { get; set; }
+    public TerraformList<AwsSagemakerHubS3StorageConfigBlock> S3StorageConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auth_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventConnectionAuthParametersBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventConnectionAuthParametersBlock() : TerraformBlock("auth_parameters")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsCloudwatchEventConnectionAuthParametersBlock : Terraform
 /// Block type for invocation_connectivity_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock() : TerraformBlock("invocation_connectivity_parameters")
 {
 }
 
@@ -80,7 +80,7 @@ public partial class AwsCloudwatchEventConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthParameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthParameters block(s) allowed")]
     [TerraformProperty("auth_parameters")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventConnectionAuthParametersBlock>>? AuthParameters { get; set; }
+    public required TerraformList<AwsCloudwatchEventConnectionAuthParametersBlock> AuthParameters { get; set; } = new();
 
     /// <summary>
     /// Block for invocation_connectivity_parameters.
@@ -88,7 +88,7 @@ public partial class AwsCloudwatchEventConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InvocationConnectivityParameters block(s) allowed")]
     [TerraformProperty("invocation_connectivity_parameters")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock>>? InvocationConnectivityParameters { get; set; }
+    public TerraformList<AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock> InvocationConnectivityParameters { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

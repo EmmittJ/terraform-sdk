@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRedshiftParameterGroupParameterBlock : TerraformBlockBase
+public partial class AwsRedshiftParameterGroupParameterBlock() : TerraformBlock("parameter")
 {
     /// <summary>
     /// The name attribute.
@@ -91,7 +91,7 @@ public partial class AwsRedshiftParameterGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter")]
-    public partial TerraformSet<TerraformBlock<AwsRedshiftParameterGroupParameterBlock>>? Parameter { get; set; }
+    public TerraformSet<AwsRedshiftParameterGroupParameterBlock> Parameter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

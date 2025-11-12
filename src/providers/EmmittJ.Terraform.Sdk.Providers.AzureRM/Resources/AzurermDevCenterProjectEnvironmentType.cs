@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBlockBase
+public partial class AzurermDevCenterProjectEnvironmentTypeIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -67,7 +67,7 @@ public partial class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : Terra
 /// Block type for user_role_assignment in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : TerraformBlockBase
+public partial class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock() : TerraformBlock("user_role_assignment")
 {
     /// <summary>
     /// The roles attribute.
@@ -158,20 +158,20 @@ public partial class AzurermDevCenterProjectEnvironmentType : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDevCenterProjectEnvironmentTypeIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermDevCenterProjectEnvironmentTypeIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_role_assignment.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("user_role_assignment")]
-    public partial TerraformSet<TerraformBlock<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock>>? UserRoleAssignment { get; set; }
+    public TerraformSet<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock> UserRoleAssignment { get; set; } = new();
 
 }

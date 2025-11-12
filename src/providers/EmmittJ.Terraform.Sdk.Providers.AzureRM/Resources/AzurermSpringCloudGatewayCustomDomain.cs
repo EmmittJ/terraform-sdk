@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudGatewayCustomDomainTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudGatewayCustomDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,6 +82,6 @@ public partial class AzurermSpringCloudGatewayCustomDomain : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudGatewayCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudGatewayCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
 
 }

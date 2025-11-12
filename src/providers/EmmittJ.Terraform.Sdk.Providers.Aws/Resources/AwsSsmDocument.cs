@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachments_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlockBase
+public partial class AwsSsmDocumentAttachmentsSourceBlock() : TerraformBlock("attachments_source")
 {
     /// <summary>
     /// The key attribute.
@@ -129,7 +129,7 @@ public partial class AwsSsmDocument : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 AttachmentsSource block(s) allowed")]
     [TerraformProperty("attachments_source")]
-    public partial TerraformList<TerraformBlock<AwsSsmDocumentAttachmentsSourceBlock>>? AttachmentsSource { get; set; }
+    public TerraformList<AwsSsmDocumentAttachmentsSourceBlock> AttachmentsSource { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

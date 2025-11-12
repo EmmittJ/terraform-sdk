@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for admin_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLookerInstanceAdminSettingsBlock : TerraformBlockBase
+public partial class GoogleLookerInstanceAdminSettingsBlock() : TerraformBlock("admin_settings")
 {
     /// <summary>
     /// Email domain allowlist for the instance.
@@ -26,7 +26,7 @@ public partial class GoogleLookerInstanceAdminSettingsBlock : TerraformBlockBase
 /// Block type for custom_domain in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLookerInstanceCustomDomainBlock : TerraformBlockBase
+public partial class GoogleLookerInstanceCustomDomainBlock() : TerraformBlock("custom_domain")
 {
     /// <summary>
     /// Domain name
@@ -42,7 +42,7 @@ public partial class GoogleLookerInstanceCustomDomainBlock : TerraformBlockBase
 /// Block type for deny_maintenance_period in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLookerInstanceDenyMaintenancePeriodBlock : TerraformBlockBase
+public partial class GoogleLookerInstanceDenyMaintenancePeriodBlock() : TerraformBlock("deny_maintenance_period")
 {
 }
 
@@ -50,7 +50,7 @@ public partial class GoogleLookerInstanceDenyMaintenancePeriodBlock : TerraformB
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlockBase
+public partial class GoogleLookerInstanceEncryptionConfigBlock() : TerraformBlock("encryption_config")
 {
     /// <summary>
     /// Name of the customer managed encryption key (CMEK) in KMS.
@@ -67,7 +67,7 @@ public partial class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlockB
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLookerInstanceMaintenanceWindowBlock : TerraformBlockBase
+public partial class GoogleLookerInstanceMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// Required. Day of the week for this MaintenanceWindow (in UTC).
@@ -91,7 +91,7 @@ public partial class GoogleLookerInstanceMaintenanceWindowBlock : TerraformBlock
 /// Block type for oauth_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLookerInstanceOauthConfigBlock : TerraformBlockBase
+public partial class GoogleLookerInstanceOauthConfigBlock() : TerraformBlock("oauth_config")
 {
     /// <summary>
     /// The client ID for the Oauth config.
@@ -115,7 +115,7 @@ public partial class GoogleLookerInstanceOauthConfigBlock : TerraformBlockBase
 /// Block type for psc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLookerInstancePscConfigBlock : TerraformBlockBase
+public partial class GoogleLookerInstancePscConfigBlock() : TerraformBlock("psc_config")
 {
     /// <summary>
     /// List of VPCs that are allowed ingress into the Looker instance.
@@ -131,7 +131,7 @@ public partial class GoogleLookerInstancePscConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleLookerInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleLookerInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -160,7 +160,7 @@ public partial class GoogleLookerInstanceTimeoutsBlock : TerraformBlockBase
 /// Block type for user_metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLookerInstanceUserMetadataBlock : TerraformBlockBase
+public partial class GoogleLookerInstanceUserMetadataBlock() : TerraformBlock("user_metadata")
 {
     /// <summary>
     /// Number of additional Developer Users to allocate to the Looker Instance.
@@ -310,7 +310,7 @@ public partial class GoogleLookerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminSettings block(s) allowed")]
     [TerraformProperty("admin_settings")]
-    public partial TerraformList<TerraformBlock<GoogleLookerInstanceAdminSettingsBlock>>? AdminSettings { get; set; }
+    public TerraformList<GoogleLookerInstanceAdminSettingsBlock> AdminSettings { get; set; } = new();
 
     /// <summary>
     /// Block for custom_domain.
@@ -318,7 +318,7 @@ public partial class GoogleLookerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDomain block(s) allowed")]
     [TerraformProperty("custom_domain")]
-    public partial TerraformList<TerraformBlock<GoogleLookerInstanceCustomDomainBlock>>? CustomDomain { get; set; }
+    public TerraformList<GoogleLookerInstanceCustomDomainBlock> CustomDomain { get; set; } = new();
 
     /// <summary>
     /// Block for deny_maintenance_period.
@@ -326,7 +326,7 @@ public partial class GoogleLookerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DenyMaintenancePeriod block(s) allowed")]
     [TerraformProperty("deny_maintenance_period")]
-    public partial TerraformList<TerraformBlock<GoogleLookerInstanceDenyMaintenancePeriodBlock>>? DenyMaintenancePeriod { get; set; }
+    public TerraformList<GoogleLookerInstanceDenyMaintenancePeriodBlock> DenyMaintenancePeriod { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_config.
@@ -334,7 +334,7 @@ public partial class GoogleLookerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public partial TerraformList<TerraformBlock<GoogleLookerInstanceEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public TerraformList<GoogleLookerInstanceEncryptionConfigBlock> EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window.
@@ -342,7 +342,7 @@ public partial class GoogleLookerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<GoogleLookerInstanceMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<GoogleLookerInstanceMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for oauth_config.
@@ -352,7 +352,7 @@ public partial class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OauthConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OauthConfig block(s) allowed")]
     [TerraformProperty("oauth_config")]
-    public partial TerraformList<TerraformBlock<GoogleLookerInstanceOauthConfigBlock>>? OauthConfig { get; set; }
+    public required TerraformList<GoogleLookerInstanceOauthConfigBlock> OauthConfig { get; set; } = new();
 
     /// <summary>
     /// Block for psc_config.
@@ -360,14 +360,14 @@ public partial class GoogleLookerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
     [TerraformProperty("psc_config")]
-    public partial TerraformList<TerraformBlock<GoogleLookerInstancePscConfigBlock>>? PscConfig { get; set; }
+    public TerraformList<GoogleLookerInstancePscConfigBlock> PscConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleLookerInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleLookerInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_metadata.
@@ -375,7 +375,7 @@ public partial class GoogleLookerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserMetadata block(s) allowed")]
     [TerraformProperty("user_metadata")]
-    public partial TerraformList<TerraformBlock<GoogleLookerInstanceUserMetadataBlock>>? UserMetadata { get; set; }
+    public TerraformList<GoogleLookerInstanceUserMetadataBlock> UserMetadata { get; set; } = new();
 
     /// <summary>
     /// The time the instance was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,

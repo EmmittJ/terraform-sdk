@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerRoutingRuleDestinationBlock() : TerraformBlock("destination")
 {
     /// <summary>
     /// The address attribute.
@@ -30,7 +30,7 @@ public partial class AzurermNetworkManagerRoutingRuleDestinationBlock : Terrafor
 /// Block type for next_hop in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerRoutingRuleNextHopBlock() : TerraformBlock("next_hop")
 {
     /// <summary>
     /// The address attribute.
@@ -53,7 +53,7 @@ public partial class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerRoutingRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,7 +133,7 @@ public partial class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkManagerRoutingRuleDestinationBlock>>? Destination { get; set; }
+    public required TerraformList<AzurermNetworkManagerRoutingRuleDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for next_hop.
@@ -143,13 +143,13 @@ public partial class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NextHop block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NextHop block(s) allowed")]
     [TerraformProperty("next_hop")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkManagerRoutingRuleNextHopBlock>>? NextHop { get; set; }
+    public required TerraformList<AzurermNetworkManagerRoutingRuleNextHopBlock> NextHop { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkManagerRoutingRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkManagerRoutingRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

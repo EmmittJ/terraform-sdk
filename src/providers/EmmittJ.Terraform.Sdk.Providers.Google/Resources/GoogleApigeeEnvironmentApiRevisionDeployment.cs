@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,7 +98,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformRes
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Basepaths associated with the deployed proxy.

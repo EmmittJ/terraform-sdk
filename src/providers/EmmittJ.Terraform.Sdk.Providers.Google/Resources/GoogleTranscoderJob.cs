@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleTranscoderJobConfigBlock : TerraformBlockBase
+public partial class GoogleTranscoderJobConfigBlock() : TerraformBlock("config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleTranscoderJobConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleTranscoderJobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleTranscoderJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,14 +96,14 @@ public partial class GoogleTranscoderJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GoogleTranscoderJobConfigBlock>>? Config { get; set; }
+    public TerraformList<GoogleTranscoderJobConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleTranscoderJobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleTranscoderJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time the job was created.

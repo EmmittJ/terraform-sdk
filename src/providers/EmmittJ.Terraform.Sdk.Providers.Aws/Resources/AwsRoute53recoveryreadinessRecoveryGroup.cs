@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -67,7 +67,7 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup : TerraformResourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

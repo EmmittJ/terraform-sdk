@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for open_api_toolset in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlockBase
+public partial class GoogleCesToolsetOpenApiToolsetBlock() : TerraformBlock("open_api_toolset")
 {
     /// <summary>
     /// If true, the agent will ignore unknown fields in the API response for all
@@ -31,7 +31,7 @@ public partial class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCesToolsetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCesToolsetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -135,14 +135,14 @@ public partial class GoogleCesToolset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApiToolset block(s) allowed")]
     [TerraformProperty("open_api_toolset")]
-    public partial TerraformList<TerraformBlock<GoogleCesToolsetOpenApiToolsetBlock>>? OpenApiToolset { get; set; }
+    public TerraformList<GoogleCesToolsetOpenApiToolsetBlock> OpenApiToolset { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCesToolsetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCesToolsetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp when the toolset was created.

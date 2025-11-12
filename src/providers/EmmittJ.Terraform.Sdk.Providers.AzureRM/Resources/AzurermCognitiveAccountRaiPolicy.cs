@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for content_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock() : TerraformBlock("content_filter")
 {
     /// <summary>
     /// The block_enabled attribute.
@@ -54,7 +54,7 @@ public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCognitiveAccountRaiPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountRaiPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,13 +148,13 @@ public partial class AzurermCognitiveAccountRaiPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentFilter block(s) required")]
     [TerraformProperty("content_filter")]
-    public partial TerraformList<TerraformBlock<AzurermCognitiveAccountRaiPolicyContentFilterBlock>>? ContentFilter { get; set; }
+    public required TerraformList<AzurermCognitiveAccountRaiPolicyContentFilterBlock> ContentFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCognitiveAccountRaiPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCognitiveAccountRaiPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

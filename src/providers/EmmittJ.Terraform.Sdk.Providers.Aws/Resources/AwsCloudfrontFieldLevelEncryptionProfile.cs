@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_entities in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlock : TerraformBlockBase
+public partial class AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlock() : TerraformBlock("encryption_entities")
 {
 }
 
@@ -50,7 +50,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionProfile : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EncryptionEntities block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionEntities block(s) allowed")]
     [TerraformProperty("encryption_entities")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlock>>? EncryptionEntities { get; set; }
+    public required TerraformList<AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlock> EncryptionEntities { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

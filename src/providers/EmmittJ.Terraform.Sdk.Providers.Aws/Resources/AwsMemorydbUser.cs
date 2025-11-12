@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authentication_mode in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMemorydbUserAuthenticationModeBlock : TerraformBlockBase
+public partial class AwsMemorydbUserAuthenticationModeBlock() : TerraformBlock("authentication_mode")
 {
 
     /// <summary>
@@ -88,7 +88,7 @@ public partial class AwsMemorydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationMode block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationMode block(s) allowed")]
     [TerraformProperty("authentication_mode")]
-    public partial TerraformList<TerraformBlock<AwsMemorydbUserAuthenticationModeBlock>>? AuthenticationMode { get; set; }
+    public required TerraformList<AwsMemorydbUserAuthenticationModeBlock> AuthenticationMode { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

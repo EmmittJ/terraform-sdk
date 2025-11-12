@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceManagedCertificateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -74,7 +74,7 @@ public partial class AzurermAppServiceManagedCertificate : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceManagedCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceManagedCertificateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The canonical_name attribute.

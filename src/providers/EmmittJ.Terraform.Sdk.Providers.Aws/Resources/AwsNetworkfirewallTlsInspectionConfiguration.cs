@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -35,7 +35,7 @@ public partial class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock :
 /// Block type for tls_inspection_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurationBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurationBlock() : TerraformBlock("tls_inspection_configuration")
 {
 }
 
@@ -89,14 +89,14 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration : TerraformRes
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tls_inspection_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tls_inspection_configuration")]
-    public partial TerraformList<TerraformBlock<AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurationBlock>>? TlsInspectionConfiguration { get; set; }
+    public TerraformList<AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurationBlock> TlsInspectionConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for guest_os_features in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeImageGuestOsFeaturesBlock : TerraformBlockBase
+public partial class GoogleComputeImageGuestOsFeaturesBlock() : TerraformBlock("guest_os_features")
 {
     /// <summary>
     /// The type of supported feature. Read [Enabling guest operating system features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features) to see a list of available options. Possible values: [&amp;quot;MULTI_IP_SUBNET&amp;quot;, &amp;quot;SECURE_BOOT&amp;quot;, &amp;quot;SEV_CAPABLE&amp;quot;, &amp;quot;UEFI_COMPATIBLE&amp;quot;, &amp;quot;VIRTIO_SCSI_MULTIQUEUE&amp;quot;, &amp;quot;WINDOWS&amp;quot;, &amp;quot;GVNIC&amp;quot;, &amp;quot;IDPF&amp;quot;, &amp;quot;SEV_LIVE_MIGRATABLE&amp;quot;, &amp;quot;SEV_SNP_CAPABLE&amp;quot;, &amp;quot;SUSPEND_RESUME_COMPATIBLE&amp;quot;, &amp;quot;TDX_CAPABLE&amp;quot;, &amp;quot;SEV_LIVE_MIGRATABLE_V2&amp;quot;]
@@ -22,7 +22,7 @@ public partial class GoogleComputeImageGuestOsFeaturesBlock : TerraformBlockBase
 /// Block type for image_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeImageImageEncryptionKeyBlock() : TerraformBlock("image_encryption_key")
 {
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud
@@ -63,7 +63,7 @@ public partial class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlockB
 /// Block type for raw_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeImageRawDiskBlock : TerraformBlockBase
+public partial class GoogleComputeImageRawDiskBlock() : TerraformBlock("raw_disk")
 {
     /// <summary>
     /// The format used to encode and transmit the block device, which
@@ -99,7 +99,7 @@ public partial class GoogleComputeImageRawDiskBlock : TerraformBlockBase
 /// Block type for shielded_instance_initial_state in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeImageShieldedInstanceInitialStateBlock : TerraformBlockBase
+public partial class GoogleComputeImageShieldedInstanceInitialStateBlock() : TerraformBlock("shielded_instance_initial_state")
 {
 }
 
@@ -107,7 +107,7 @@ public partial class GoogleComputeImageShieldedInstanceInitialStateBlock : Terra
 /// Block type for source_disk_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeImageSourceDiskEncryptionKeyBlock() : TerraformBlock("source_disk_encryption_key")
 {
     /// <summary>
     /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
@@ -152,7 +152,7 @@ public partial class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformB
 /// Block type for source_image_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeImageSourceImageEncryptionKeyBlock() : TerraformBlock("source_image_encryption_key")
 {
     /// <summary>
     /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
@@ -197,7 +197,7 @@ public partial class GoogleComputeImageSourceImageEncryptionKeyBlock : Terraform
 /// Block type for source_snapshot_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeImageSourceSnapshotEncryptionKeyBlock() : TerraformBlock("source_snapshot_encryption_key")
 {
     /// <summary>
     /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
@@ -242,7 +242,7 @@ public partial class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeImageTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeImageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -399,7 +399,7 @@ public partial class GoogleComputeImage : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("guest_os_features")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeImageGuestOsFeaturesBlock>>? GuestOsFeatures { get; set; }
+    public TerraformSet<GoogleComputeImageGuestOsFeaturesBlock> GuestOsFeatures { get; set; } = new();
 
     /// <summary>
     /// Block for image_encryption_key.
@@ -407,7 +407,7 @@ public partial class GoogleComputeImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageEncryptionKey block(s) allowed")]
     [TerraformProperty("image_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeImageImageEncryptionKeyBlock>>? ImageEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeImageImageEncryptionKeyBlock> ImageEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for raw_disk.
@@ -415,7 +415,7 @@ public partial class GoogleComputeImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RawDisk block(s) allowed")]
     [TerraformProperty("raw_disk")]
-    public partial TerraformList<TerraformBlock<GoogleComputeImageRawDiskBlock>>? RawDisk { get; set; }
+    public TerraformList<GoogleComputeImageRawDiskBlock> RawDisk { get; set; } = new();
 
     /// <summary>
     /// Block for shielded_instance_initial_state.
@@ -423,7 +423,7 @@ public partial class GoogleComputeImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceInitialState block(s) allowed")]
     [TerraformProperty("shielded_instance_initial_state")]
-    public partial TerraformList<TerraformBlock<GoogleComputeImageShieldedInstanceInitialStateBlock>>? ShieldedInstanceInitialState { get; set; }
+    public TerraformList<GoogleComputeImageShieldedInstanceInitialStateBlock> ShieldedInstanceInitialState { get; set; } = new();
 
     /// <summary>
     /// Block for source_disk_encryption_key.
@@ -431,7 +431,7 @@ public partial class GoogleComputeImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceDiskEncryptionKey block(s) allowed")]
     [TerraformProperty("source_disk_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeImageSourceDiskEncryptionKeyBlock>>? SourceDiskEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeImageSourceDiskEncryptionKeyBlock> SourceDiskEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for source_image_encryption_key.
@@ -439,7 +439,7 @@ public partial class GoogleComputeImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageEncryptionKey block(s) allowed")]
     [TerraformProperty("source_image_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeImageSourceImageEncryptionKeyBlock>>? SourceImageEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeImageSourceImageEncryptionKeyBlock> SourceImageEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for source_snapshot_encryption_key.
@@ -447,14 +447,14 @@ public partial class GoogleComputeImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
     [TerraformProperty("source_snapshot_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeImageSourceSnapshotEncryptionKeyBlock>>? SourceSnapshotEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeImageSourceSnapshotEncryptionKeyBlock> SourceSnapshotEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeImageTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeImageTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Size of the image tar.gz archive stored in Google Cloud Storage (in

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock() : TerraformBlock("autoscale_settings")
 {
     /// <summary>
     /// The max_throughput attribute.
@@ -21,7 +21,7 @@ public partial class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : Terr
 /// Block type for index in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlockBase
+public partial class AzurermCosmosdbMongoCollectionIndexBlock() : TerraformBlock("index")
 {
     /// <summary>
     /// The keys attribute.
@@ -44,7 +44,7 @@ public partial class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbMongoCollectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -159,21 +159,21 @@ public partial class AzurermCosmosdbMongoCollection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public TerraformList<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for index.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("index")]
-    public partial TerraformSet<TerraformBlock<AzurermCosmosdbMongoCollectionIndexBlock>>? Index { get; set; }
+    public TerraformSet<AzurermCosmosdbMongoCollectionIndexBlock> Index { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbMongoCollectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbMongoCollectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The system_indexes attribute.

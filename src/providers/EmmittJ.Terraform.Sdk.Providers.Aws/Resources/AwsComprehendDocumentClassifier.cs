@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for input_data_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsComprehendDocumentClassifierInputDataConfigBlock : TerraformBlockBase
+public partial class AwsComprehendDocumentClassifierInputDataConfigBlock() : TerraformBlock("input_data_config")
 {
     /// <summary>
     /// The data_format attribute.
@@ -42,7 +42,7 @@ public partial class AwsComprehendDocumentClassifierInputDataConfigBlock : Terra
 /// Block type for output_data_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsComprehendDocumentClassifierOutputDataConfigBlock : TerraformBlockBase
+public partial class AwsComprehendDocumentClassifierOutputDataConfigBlock() : TerraformBlock("output_data_config")
 {
     /// <summary>
     /// The kms_key_id attribute.
@@ -66,7 +66,7 @@ public partial class AwsComprehendDocumentClassifierOutputDataConfigBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlockBase
+public partial class AwsComprehendDocumentClassifierTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,7 +95,7 @@ public partial class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlo
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsComprehendDocumentClassifierVpcConfigBlock : TerraformBlockBase
+public partial class AwsComprehendDocumentClassifierVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -220,7 +220,7 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputDataConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputDataConfig block(s) allowed")]
     [TerraformProperty("input_data_config")]
-    public partial TerraformList<TerraformBlock<AwsComprehendDocumentClassifierInputDataConfigBlock>>? InputDataConfig { get; set; }
+    public required TerraformList<AwsComprehendDocumentClassifierInputDataConfigBlock> InputDataConfig { get; set; } = new();
 
     /// <summary>
     /// Block for output_data_config.
@@ -228,14 +228,14 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputDataConfig block(s) allowed")]
     [TerraformProperty("output_data_config")]
-    public partial TerraformList<TerraformBlock<AwsComprehendDocumentClassifierOutputDataConfigBlock>>? OutputDataConfig { get; set; }
+    public TerraformList<AwsComprehendDocumentClassifierOutputDataConfigBlock> OutputDataConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsComprehendDocumentClassifierTimeoutsBlock>? Timeouts { get; set; }
+    public AwsComprehendDocumentClassifierTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -243,7 +243,7 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsComprehendDocumentClassifierVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsComprehendDocumentClassifierVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

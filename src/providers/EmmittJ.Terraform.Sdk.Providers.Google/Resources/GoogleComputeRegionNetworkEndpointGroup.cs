@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for app_engine in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : TerraformBlockBase
+public partial class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock() : TerraformBlock("app_engine")
 {
     /// <summary>
     /// Optional serving service.
@@ -46,7 +46,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : Ter
 /// Block type for cloud_function in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock : TerraformBlockBase
+public partial class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock() : TerraformBlock("cloud_function")
 {
     /// <summary>
     /// A user-defined name of the Cloud Function.
@@ -76,7 +76,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock :
 /// Block type for cloud_run in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : TerraformBlockBase
+public partial class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock() : TerraformBlock("cloud_run")
 {
     /// <summary>
     /// Cloud Run service is the main resource of Cloud Run.
@@ -117,7 +117,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : Terr
 /// Block type for psc_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionNetworkEndpointGroupPscDataBlock : TerraformBlockBase
+public partial class GoogleComputeRegionNetworkEndpointGroupPscDataBlock() : TerraformBlock("psc_data")
 {
     /// <summary>
     /// The PSC producer port to use when consumer PSC NEG connects to a producer. If
@@ -135,7 +135,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupPscDataBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -249,7 +249,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngine block(s) allowed")]
     [TerraformProperty("app_engine")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionNetworkEndpointGroupAppEngineBlock>>? AppEngine { get; set; }
+    public TerraformList<GoogleComputeRegionNetworkEndpointGroupAppEngineBlock> AppEngine { get; set; } = new();
 
     /// <summary>
     /// Block for cloud_function.
@@ -257,7 +257,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudFunction block(s) allowed")]
     [TerraformProperty("cloud_function")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock>>? CloudFunction { get; set; }
+    public TerraformList<GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock> CloudFunction { get; set; } = new();
 
     /// <summary>
     /// Block for cloud_run.
@@ -265,7 +265,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudRun block(s) allowed")]
     [TerraformProperty("cloud_run")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionNetworkEndpointGroupCloudRunBlock>>? CloudRun { get; set; }
+    public TerraformList<GoogleComputeRegionNetworkEndpointGroupCloudRunBlock> CloudRun { get; set; } = new();
 
     /// <summary>
     /// Block for psc_data.
@@ -273,14 +273,14 @@ public partial class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscData block(s) allowed")]
     [TerraformProperty("psc_data")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionNetworkEndpointGroupPscDataBlock>>? PscData { get; set; }
+    public TerraformList<GoogleComputeRegionNetworkEndpointGroupPscDataBlock> PscData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The self_link attribute.

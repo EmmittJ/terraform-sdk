@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for bgp_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerConnectPeerBgpOptionsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerConnectPeerBgpOptionsBlock() : TerraformBlock("bgp_options")
 {
     /// <summary>
     /// The peer_asn attribute.
@@ -21,7 +21,7 @@ public partial class AwsNetworkmanagerConnectPeerBgpOptionsBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkmanagerConnectPeerTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerConnectPeerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -113,14 +113,14 @@ public partial class AwsNetworkmanagerConnectPeer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpOptions block(s) allowed")]
     [TerraformProperty("bgp_options")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerConnectPeerBgpOptionsBlock>>? BgpOptions { get; set; }
+    public TerraformList<AwsNetworkmanagerConnectPeerBgpOptionsBlock> BgpOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkmanagerConnectPeerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkmanagerConnectPeerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

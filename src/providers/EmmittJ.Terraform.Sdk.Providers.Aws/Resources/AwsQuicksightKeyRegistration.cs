@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for key_registration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightKeyRegistrationKeyRegistrationBlock : TerraformBlockBase
+public partial class AwsQuicksightKeyRegistrationKeyRegistrationBlock() : TerraformBlock("key_registration")
 {
     /// <summary>
     /// The default_key attribute.
@@ -53,6 +53,6 @@ public partial class AwsQuicksightKeyRegistration : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("key_registration")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightKeyRegistrationKeyRegistrationBlock>>? KeyRegistration { get; set; }
+    public TerraformSet<AwsQuicksightKeyRegistrationKeyRegistrationBlock> KeyRegistration { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceConnectionAuthenticationBlock : TerraformBlockBase
+public partial class AzurermAppServiceConnectionAuthenticationBlock() : TerraformBlock("authentication")
 {
     /// <summary>
     /// The certificate attribute.
@@ -64,7 +64,7 @@ public partial class AzurermAppServiceConnectionAuthenticationBlock : TerraformB
 /// Block type for secret_store in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceConnectionSecretStoreBlock : TerraformBlockBase
+public partial class AzurermAppServiceConnectionSecretStoreBlock() : TerraformBlock("secret_store")
 {
     /// <summary>
     /// The key_vault_id attribute.
@@ -80,7 +80,7 @@ public partial class AzurermAppServiceConnectionSecretStoreBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,7 +175,7 @@ public partial class AzurermAppServiceConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     [TerraformProperty("authentication")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceConnectionAuthenticationBlock>>? Authentication { get; set; }
+    public required TerraformList<AzurermAppServiceConnectionAuthenticationBlock> Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for secret_store.
@@ -183,13 +183,13 @@ public partial class AzurermAppServiceConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
     [TerraformProperty("secret_store")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceConnectionSecretStoreBlock>>? SecretStore { get; set; }
+    public TerraformList<AzurermAppServiceConnectionSecretStoreBlock> SecretStore { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

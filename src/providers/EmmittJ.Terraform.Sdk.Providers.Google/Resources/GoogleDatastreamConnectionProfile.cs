@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigquery_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfileBigqueryProfileBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfileBigqueryProfileBlock() : TerraformBlock("bigquery_profile")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDatastreamConnectionProfileBigqueryProfileBlock : Ter
 /// Block type for forward_ssh_connectivity in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock() : TerraformBlock("forward_ssh_connectivity")
 {
     /// <summary>
     /// Hostname for the SSH tunnel.
@@ -59,7 +59,7 @@ public partial class GoogleDatastreamConnectionProfileForwardSshConnectivityBloc
 /// Block type for gcs_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfileGcsProfileBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfileGcsProfileBlock() : TerraformBlock("gcs_profile")
 {
     /// <summary>
     /// The Cloud Storage bucket name.
@@ -82,7 +82,7 @@ public partial class GoogleDatastreamConnectionProfileGcsProfileBlock : Terrafor
 /// Block type for mongodb_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfileMongodbProfileBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfileMongodbProfileBlock() : TerraformBlock("mongodb_profile")
 {
     /// <summary>
     /// Password for the MongoDB connection. Mutually exclusive with
@@ -121,7 +121,7 @@ public partial class GoogleDatastreamConnectionProfileMongodbProfileBlock : Terr
 /// Block type for mysql_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfileMysqlProfileBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfileMysqlProfileBlock() : TerraformBlock("mysql_profile")
 {
     /// <summary>
     /// Hostname for the MySQL connection.
@@ -166,7 +166,7 @@ public partial class GoogleDatastreamConnectionProfileMysqlProfileBlock : Terraf
 /// Block type for oracle_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfileOracleProfileBlock() : TerraformBlock("oracle_profile")
 {
     /// <summary>
     /// Connection string attributes
@@ -226,7 +226,7 @@ public partial class GoogleDatastreamConnectionProfileOracleProfileBlock : Terra
 /// Block type for postgresql_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfilePostgresqlProfileBlock() : TerraformBlock("postgresql_profile")
 {
     /// <summary>
     /// Database for the PostgreSQL connection.
@@ -279,7 +279,7 @@ public partial class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : T
 /// Block type for private_connectivity in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfilePrivateConnectivityBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfilePrivateConnectivityBlock() : TerraformBlock("private_connectivity")
 {
     /// <summary>
     /// A reference to a private connection resource. Format: &#39;projects/{project}/locations/{location}/privateConnections/{name}&#39;
@@ -295,7 +295,7 @@ public partial class GoogleDatastreamConnectionProfilePrivateConnectivityBlock :
 /// Block type for sql_server_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfileSqlServerProfileBlock() : TerraformBlock("sql_server_profile")
 {
     /// <summary>
     /// Database for the SQL Server connection.
@@ -348,7 +348,7 @@ public partial class GoogleDatastreamConnectionProfileSqlServerProfileBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDatastreamConnectionProfileTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDatastreamConnectionProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -444,7 +444,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryProfile block(s) allowed")]
     [TerraformProperty("bigquery_profile")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileBigqueryProfileBlock>>? BigqueryProfile { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfileBigqueryProfileBlock> BigqueryProfile { get; set; } = new();
 
     /// <summary>
     /// Block for forward_ssh_connectivity.
@@ -452,7 +452,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ForwardSshConnectivity block(s) allowed")]
     [TerraformProperty("forward_ssh_connectivity")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileForwardSshConnectivityBlock>>? ForwardSshConnectivity { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfileForwardSshConnectivityBlock> ForwardSshConnectivity { get; set; } = new();
 
     /// <summary>
     /// Block for gcs_profile.
@@ -460,7 +460,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsProfile block(s) allowed")]
     [TerraformProperty("gcs_profile")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileGcsProfileBlock>>? GcsProfile { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfileGcsProfileBlock> GcsProfile { get; set; } = new();
 
     /// <summary>
     /// Block for mongodb_profile.
@@ -468,7 +468,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MongodbProfile block(s) allowed")]
     [TerraformProperty("mongodb_profile")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileMongodbProfileBlock>>? MongodbProfile { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfileMongodbProfileBlock> MongodbProfile { get; set; } = new();
 
     /// <summary>
     /// Block for mysql_profile.
@@ -476,7 +476,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MysqlProfile block(s) allowed")]
     [TerraformProperty("mysql_profile")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileMysqlProfileBlock>>? MysqlProfile { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfileMysqlProfileBlock> MysqlProfile { get; set; } = new();
 
     /// <summary>
     /// Block for oracle_profile.
@@ -484,7 +484,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OracleProfile block(s) allowed")]
     [TerraformProperty("oracle_profile")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileOracleProfileBlock>>? OracleProfile { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfileOracleProfileBlock> OracleProfile { get; set; } = new();
 
     /// <summary>
     /// Block for postgresql_profile.
@@ -492,7 +492,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostgresqlProfile block(s) allowed")]
     [TerraformProperty("postgresql_profile")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfilePostgresqlProfileBlock>>? PostgresqlProfile { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfilePostgresqlProfileBlock> PostgresqlProfile { get; set; } = new();
 
     /// <summary>
     /// Block for private_connectivity.
@@ -500,7 +500,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateConnectivity block(s) allowed")]
     [TerraformProperty("private_connectivity")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfilePrivateConnectivityBlock>>? PrivateConnectivity { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfilePrivateConnectivityBlock> PrivateConnectivity { get; set; } = new();
 
     /// <summary>
     /// Block for sql_server_profile.
@@ -508,14 +508,14 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SqlServerProfile block(s) allowed")]
     [TerraformProperty("sql_server_profile")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileSqlServerProfileBlock>>? SqlServerProfile { get; set; }
+    public TerraformList<GoogleDatastreamConnectionProfileSqlServerProfileBlock> SqlServerProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDatastreamConnectionProfileTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDatastreamConnectionProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for email_preferences in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDataTransferConfigEmailPreferencesBlock : TerraformBlockBase
+public partial class GoogleBigqueryDataTransferConfigEmailPreferencesBlock() : TerraformBlock("email_preferences")
 {
     /// <summary>
     /// If true, email notifications will be sent on transfer run failures.
@@ -22,7 +22,7 @@ public partial class GoogleBigqueryDataTransferConfigEmailPreferencesBlock : Ter
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock : TerraformBlockBase
+public partial class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The name of the KMS key used for encrypting BigQuery data.
@@ -38,7 +38,7 @@ public partial class GoogleBigqueryDataTransferConfigEncryptionConfigurationBloc
 /// Block type for schedule_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlockBase
+public partial class GoogleBigqueryDataTransferConfigScheduleOptionsBlock() : TerraformBlock("schedule_options")
 {
     /// <summary>
     /// If true, automatic scheduling of data transfer runs for this
@@ -78,7 +78,7 @@ public partial class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : Terr
 /// Block type for sensitive_params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlockBase
+public partial class GoogleBigqueryDataTransferConfigSensitiveParamsBlock() : TerraformBlock("sensitive_params")
 {
     /// <summary>
     /// The Secret Access Key of the AWS account transferring data from.
@@ -107,7 +107,7 @@ public partial class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryDataTransferConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -255,7 +255,7 @@ public partial class GoogleBigqueryDataTransferConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EmailPreferences block(s) allowed")]
     [TerraformProperty("email_preferences")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDataTransferConfigEmailPreferencesBlock>>? EmailPreferences { get; set; }
+    public TerraformList<GoogleBigqueryDataTransferConfigEmailPreferencesBlock> EmailPreferences { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_configuration.
@@ -263,7 +263,7 @@ public partial class GoogleBigqueryDataTransferConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for schedule_options.
@@ -271,7 +271,7 @@ public partial class GoogleBigqueryDataTransferConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleOptions block(s) allowed")]
     [TerraformProperty("schedule_options")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDataTransferConfigScheduleOptionsBlock>>? ScheduleOptions { get; set; }
+    public TerraformList<GoogleBigqueryDataTransferConfigScheduleOptionsBlock> ScheduleOptions { get; set; } = new();
 
     /// <summary>
     /// Block for sensitive_params.
@@ -279,14 +279,14 @@ public partial class GoogleBigqueryDataTransferConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SensitiveParams block(s) allowed")]
     [TerraformProperty("sensitive_params")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDataTransferConfigSensitiveParamsBlock>>? SensitiveParams { get; set; }
+    public TerraformList<GoogleBigqueryDataTransferConfigSensitiveParamsBlock> SensitiveParams { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryDataTransferConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryDataTransferConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the transfer config. Transfer config names have the

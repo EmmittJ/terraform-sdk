@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlockBase
+public partial class GoogleNotebooksRuntimeAccessConfigBlock() : TerraformBlock("access_config")
 {
     /// <summary>
     /// The type of access mode this instance. For valid values, see
@@ -32,7 +32,7 @@ public partial class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlockBas
 /// Block type for software_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlockBase
+public partial class GoogleNotebooksRuntimeSoftwareConfigBlock() : TerraformBlock("software_config")
 {
     /// <summary>
     /// Specify a custom Cloud Storage path where the GPU driver is stored.
@@ -103,7 +103,7 @@ public partial class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNotebooksRuntimeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,7 +132,7 @@ public partial class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlockBase
 /// Block type for virtual_machine in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksRuntimeVirtualMachineBlock : TerraformBlockBase
+public partial class GoogleNotebooksRuntimeVirtualMachineBlock() : TerraformBlock("virtual_machine")
 {
 
 
@@ -201,7 +201,7 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessConfig block(s) allowed")]
     [TerraformProperty("access_config")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksRuntimeAccessConfigBlock>>? AccessConfig { get; set; }
+    public TerraformList<GoogleNotebooksRuntimeAccessConfigBlock> AccessConfig { get; set; } = new();
 
     /// <summary>
     /// Block for software_config.
@@ -209,14 +209,14 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareConfig block(s) allowed")]
     [TerraformProperty("software_config")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksRuntimeSoftwareConfigBlock>>? SoftwareConfig { get; set; }
+    public TerraformList<GoogleNotebooksRuntimeSoftwareConfigBlock> SoftwareConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNotebooksRuntimeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNotebooksRuntimeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_machine.
@@ -224,7 +224,7 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachine block(s) allowed")]
     [TerraformProperty("virtual_machine")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksRuntimeVirtualMachineBlock>>? VirtualMachine { get; set; }
+    public TerraformList<GoogleNotebooksRuntimeVirtualMachineBlock> VirtualMachine { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

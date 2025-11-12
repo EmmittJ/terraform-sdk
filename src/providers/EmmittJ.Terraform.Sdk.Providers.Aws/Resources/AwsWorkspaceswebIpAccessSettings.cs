@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ip_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspaceswebIpAccessSettingsIpRuleBlock : TerraformBlockBase
+public partial class AwsWorkspaceswebIpAccessSettingsIpRuleBlock() : TerraformBlock("ip_rule")
 {
     /// <summary>
     /// The description attribute.
@@ -82,7 +82,7 @@ public partial class AwsWorkspaceswebIpAccessSettings : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ip_rule")]
-    public partial TerraformList<TerraformBlock<AwsWorkspaceswebIpAccessSettingsIpRuleBlock>>? IpRule { get; set; }
+    public TerraformList<AwsWorkspaceswebIpAccessSettingsIpRuleBlock> IpRule { get; set; } = new();
 
     /// <summary>
     /// The associated_portal_arns attribute.

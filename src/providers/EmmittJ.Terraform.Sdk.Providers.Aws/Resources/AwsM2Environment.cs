@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for high_availability_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsM2EnvironmentHighAvailabilityConfigBlock : TerraformBlockBase
+public partial class AwsM2EnvironmentHighAvailabilityConfigBlock() : TerraformBlock("high_availability_config")
 {
     /// <summary>
     /// The desired_capacity attribute.
@@ -22,7 +22,7 @@ public partial class AwsM2EnvironmentHighAvailabilityConfigBlock : TerraformBloc
 /// Block type for storage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsM2EnvironmentStorageConfigurationBlock : TerraformBlockBase
+public partial class AwsM2EnvironmentStorageConfigurationBlock() : TerraformBlock("storage_configuration")
 {
 }
 
@@ -30,7 +30,7 @@ public partial class AwsM2EnvironmentStorageConfigurationBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsM2EnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsM2EnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -170,21 +170,21 @@ public partial class AwsM2Environment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("high_availability_config")]
-    public partial TerraformList<TerraformBlock<AwsM2EnvironmentHighAvailabilityConfigBlock>>? HighAvailabilityConfig { get; set; }
+    public TerraformList<AwsM2EnvironmentHighAvailabilityConfigBlock> HighAvailabilityConfig { get; set; } = new();
 
     /// <summary>
     /// Block for storage_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage_configuration")]
-    public partial TerraformList<TerraformBlock<AwsM2EnvironmentStorageConfigurationBlock>>? StorageConfiguration { get; set; }
+    public TerraformList<AwsM2EnvironmentStorageConfigurationBlock> StorageConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsM2EnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsM2EnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

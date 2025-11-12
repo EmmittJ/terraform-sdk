@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dns_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpcEndpointDnsOptionsBlock : TerraformBlockBase
+public partial class AwsVpcEndpointDnsOptionsBlock() : TerraformBlock("dns_options")
 {
     /// <summary>
     /// The dns_record_ip_type attribute.
@@ -28,7 +28,7 @@ public partial class AwsVpcEndpointDnsOptionsBlock : TerraformBlockBase
 /// Block type for subnet_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsVpcEndpointSubnetConfigurationBlock : TerraformBlockBase
+public partial class AwsVpcEndpointSubnetConfigurationBlock() : TerraformBlock("subnet_configuration")
 {
     /// <summary>
     /// The ipv4 attribute.
@@ -57,7 +57,7 @@ public partial class AwsVpcEndpointSubnetConfigurationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpcEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpcEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -218,21 +218,21 @@ public partial class AwsVpcEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsOptions block(s) allowed")]
     [TerraformProperty("dns_options")]
-    public partial TerraformList<TerraformBlock<AwsVpcEndpointDnsOptionsBlock>>? DnsOptions { get; set; }
+    public TerraformList<AwsVpcEndpointDnsOptionsBlock> DnsOptions { get; set; } = new();
 
     /// <summary>
     /// Block for subnet_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("subnet_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsVpcEndpointSubnetConfigurationBlock>>? SubnetConfiguration { get; set; }
+    public TerraformSet<AwsVpcEndpointSubnetConfigurationBlock> SubnetConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpcEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpcEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

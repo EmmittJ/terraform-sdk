@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for input in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock() : TerraformBlock("input")
 {
     /// <summary>
     /// The configuration_parameter attribute.
@@ -29,7 +29,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock : Ter
 /// Block type for output in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock() : TerraformBlock("output")
 {
     /// <summary>
     /// The type attribute.
@@ -45,7 +45,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,7 +125,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Input block(s) required")]
     [TerraformProperty("input")]
-    public partial TerraformList<TerraformBlock<AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock>>? Input { get; set; }
+    public required TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock> Input { get; set; } = new();
 
     /// <summary>
     /// Block for output.
@@ -135,13 +135,13 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformReso
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Output block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Output block(s) allowed")]
     [TerraformProperty("output")]
-    public partial TerraformList<TerraformBlock<AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock>>? Output { get; set; }
+    public required TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock> Output { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock Timeouts { get; set; } = new();
 
 }

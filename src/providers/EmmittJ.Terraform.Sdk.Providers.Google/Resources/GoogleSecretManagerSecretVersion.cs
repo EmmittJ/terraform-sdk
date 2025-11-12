@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecretManagerSecretVersionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecretManagerSecretVersionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,7 +107,7 @@ public partial class GoogleSecretManagerSecretVersion : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecretManagerSecretVersionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecretManagerSecretVersionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time at which the Secret was created.

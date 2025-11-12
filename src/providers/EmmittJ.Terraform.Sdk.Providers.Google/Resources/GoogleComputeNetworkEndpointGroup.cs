@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNetworkEndpointGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkEndpointGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,7 +120,7 @@ public partial class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNetworkEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNetworkEndpointGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The uniquely generated identifier for the resource. This identifier is defined by the server.

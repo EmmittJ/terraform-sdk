@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiTensorboardEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleVertexAiTensorboardEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource.
@@ -23,7 +23,7 @@ public partial class GoogleVertexAiTensorboardEncryptionSpecBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiTensorboardTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiTensorboardTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,14 +111,14 @@ public partial class GoogleVertexAiTensorboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiTensorboardEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleVertexAiTensorboardEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiTensorboardTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiTensorboardTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Consumer project Cloud Storage path prefix used to store blob data, which can either be a bucket or directory. Does not end with a &#39;/&#39;.

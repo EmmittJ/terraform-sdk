@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudsearchDomainEndpointOptionsBlock : TerraformBlockBase
+public partial class AwsCloudsearchDomainEndpointOptionsBlock() : TerraformBlock("endpoint_options")
 {
     /// <summary>
     /// The enforce_https attribute.
@@ -28,7 +28,7 @@ public partial class AwsCloudsearchDomainEndpointOptionsBlock : TerraformBlockBa
 /// Block type for index_field in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudsearchDomainIndexFieldBlock : TerraformBlockBase
+public partial class AwsCloudsearchDomainIndexFieldBlock() : TerraformBlock("index_field")
 {
     /// <summary>
     /// The analysis_scheme attribute.
@@ -108,7 +108,7 @@ public partial class AwsCloudsearchDomainIndexFieldBlock : TerraformBlockBase
 /// Block type for scaling_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudsearchDomainScalingParametersBlock : TerraformBlockBase
+public partial class AwsCloudsearchDomainScalingParametersBlock() : TerraformBlock("scaling_parameters")
 {
     /// <summary>
     /// The desired_instance_type attribute.
@@ -137,7 +137,7 @@ public partial class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCloudsearchDomainTimeoutsBlock : TerraformBlockBase
+public partial class AwsCloudsearchDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -207,14 +207,14 @@ public partial class AwsCloudsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointOptions block(s) allowed")]
     [TerraformProperty("endpoint_options")]
-    public partial TerraformList<TerraformBlock<AwsCloudsearchDomainEndpointOptionsBlock>>? EndpointOptions { get; set; }
+    public TerraformList<AwsCloudsearchDomainEndpointOptionsBlock> EndpointOptions { get; set; } = new();
 
     /// <summary>
     /// Block for index_field.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("index_field")]
-    public partial TerraformSet<TerraformBlock<AwsCloudsearchDomainIndexFieldBlock>>? IndexField { get; set; }
+    public TerraformSet<AwsCloudsearchDomainIndexFieldBlock> IndexField { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_parameters.
@@ -222,14 +222,14 @@ public partial class AwsCloudsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingParameters block(s) allowed")]
     [TerraformProperty("scaling_parameters")]
-    public partial TerraformList<TerraformBlock<AwsCloudsearchDomainScalingParametersBlock>>? ScalingParameters { get; set; }
+    public TerraformList<AwsCloudsearchDomainScalingParametersBlock> ScalingParameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCloudsearchDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCloudsearchDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

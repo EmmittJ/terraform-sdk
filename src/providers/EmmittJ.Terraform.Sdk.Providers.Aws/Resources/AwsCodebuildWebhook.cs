@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter_group in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodebuildWebhookFilterGroupBlock : TerraformBlockBase
+public partial class AwsCodebuildWebhookFilterGroupBlock() : TerraformBlock("filter_group")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsCodebuildWebhookFilterGroupBlock : TerraformBlockBase
 /// Block type for pull_request_build_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlockBase
+public partial class AwsCodebuildWebhookPullRequestBuildPolicyBlock() : TerraformBlock("pull_request_build_policy")
 {
     /// <summary>
     /// The approver_roles attribute.
@@ -37,7 +37,7 @@ public partial class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformB
 /// Block type for scope_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlockBase
+public partial class AwsCodebuildWebhookScopeConfigurationBlock() : TerraformBlock("scope_configuration")
 {
     /// <summary>
     /// The domain attribute.
@@ -122,7 +122,7 @@ public partial class AwsCodebuildWebhook : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter_group")]
-    public partial TerraformSet<TerraformBlock<AwsCodebuildWebhookFilterGroupBlock>>? FilterGroup { get; set; }
+    public TerraformSet<AwsCodebuildWebhookFilterGroupBlock> FilterGroup { get; set; } = new();
 
     /// <summary>
     /// Block for pull_request_build_policy.
@@ -130,7 +130,7 @@ public partial class AwsCodebuildWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PullRequestBuildPolicy block(s) allowed")]
     [TerraformProperty("pull_request_build_policy")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildWebhookPullRequestBuildPolicyBlock>>? PullRequestBuildPolicy { get; set; }
+    public TerraformList<AwsCodebuildWebhookPullRequestBuildPolicyBlock> PullRequestBuildPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for scope_configuration.
@@ -138,7 +138,7 @@ public partial class AwsCodebuildWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScopeConfiguration block(s) allowed")]
     [TerraformProperty("scope_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildWebhookScopeConfigurationBlock>>? ScopeConfiguration { get; set; }
+    public TerraformList<AwsCodebuildWebhookScopeConfigurationBlock> ScopeConfiguration { get; set; } = new();
 
     /// <summary>
     /// The payload_url attribute.

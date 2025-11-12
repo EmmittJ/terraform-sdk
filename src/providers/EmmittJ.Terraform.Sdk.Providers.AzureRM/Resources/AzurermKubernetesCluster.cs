@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for aci_connector_linux in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterAciConnectorLinuxBlock() : TerraformBlock("aci_connector_linux")
 {
 
     /// <summary>
@@ -23,7 +23,7 @@ public partial class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformB
 /// Block type for api_server_access_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterApiServerAccessProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterApiServerAccessProfileBlock() : TerraformBlock("api_server_access_profile")
 {
     /// <summary>
     /// The authorized_ip_ranges attribute.
@@ -52,7 +52,7 @@ public partial class AzurermKubernetesClusterApiServerAccessProfileBlock : Terra
 /// Block type for auto_scaler_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterAutoScalerProfileBlock() : TerraformBlock("auto_scaler_profile")
 {
     /// <summary>
     /// The balance_similar_node_groups attribute.
@@ -200,7 +200,7 @@ public partial class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformB
 /// Block type for azure_active_directory_role_based_access_control in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock() : TerraformBlock("azure_active_directory_role_based_access_control")
 {
     /// <summary>
     /// The admin_group_object_ids attribute.
@@ -229,7 +229,7 @@ public partial class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccess
 /// Block type for bootstrap_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterBootstrapProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterBootstrapProfileBlock() : TerraformBlock("bootstrap_profile")
 {
     /// <summary>
     /// The artifact_source attribute.
@@ -251,7 +251,7 @@ public partial class AzurermKubernetesClusterBootstrapProfileBlock : TerraformBl
 /// Block type for confidential_computing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterConfidentialComputingBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterConfidentialComputingBlock() : TerraformBlock("confidential_computing")
 {
     /// <summary>
     /// The sgx_quote_helper_enabled attribute.
@@ -267,7 +267,7 @@ public partial class AzurermKubernetesClusterConfidentialComputingBlock : Terraf
 /// Block type for default_node_pool in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterDefaultNodePoolBlock() : TerraformBlock("default_node_pool")
 {
     /// <summary>
     /// The auto_scaling_enabled attribute.
@@ -507,7 +507,7 @@ public partial class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlo
 /// Block type for http_proxy_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterHttpProxyConfigBlock() : TerraformBlock("http_proxy_config")
 {
     /// <summary>
     /// The http_proxy attribute.
@@ -543,7 +543,7 @@ public partial class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterIdentityBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -568,7 +568,7 @@ public partial class AzurermKubernetesClusterIdentityBlock : TerraformBlockBase
 /// Block type for ingress_application_gateway in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterIngressApplicationGatewayBlock() : TerraformBlock("ingress_application_gateway")
 {
 
     /// <summary>
@@ -606,7 +606,7 @@ public partial class AzurermKubernetesClusterIngressApplicationGatewayBlock : Te
 /// Block type for key_management_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterKeyManagementServiceBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterKeyManagementServiceBlock() : TerraformBlock("key_management_service")
 {
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -629,7 +629,7 @@ public partial class AzurermKubernetesClusterKeyManagementServiceBlock : Terrafo
 /// Block type for key_vault_secrets_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterKeyVaultSecretsProviderBlock() : TerraformBlock("key_vault_secrets_provider")
 {
 
     /// <summary>
@@ -652,7 +652,7 @@ public partial class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : Terr
 /// Block type for kubelet_identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterKubeletIdentityBlock() : TerraformBlock("kubelet_identity")
 {
     /// <summary>
     /// The client_id attribute.
@@ -681,7 +681,7 @@ public partial class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlo
 /// Block type for linux_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterLinuxProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterLinuxProfileBlock() : TerraformBlock("linux_profile")
 {
     /// <summary>
     /// The admin_username attribute.
@@ -697,7 +697,7 @@ public partial class AzurermKubernetesClusterLinuxProfileBlock : TerraformBlockB
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterMaintenanceWindowBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
 }
 
@@ -705,7 +705,7 @@ public partial class AzurermKubernetesClusterMaintenanceWindowBlock : TerraformB
 /// Block type for maintenance_window_auto_upgrade in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock() : TerraformBlock("maintenance_window_auto_upgrade")
 {
     /// <summary>
     /// The day_of_month attribute.
@@ -779,7 +779,7 @@ public partial class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock :
 /// Block type for maintenance_window_node_os in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock() : TerraformBlock("maintenance_window_node_os")
 {
     /// <summary>
     /// The day_of_month attribute.
@@ -853,7 +853,7 @@ public partial class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : Terr
 /// Block type for microsoft_defender in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterMicrosoftDefenderBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterMicrosoftDefenderBlock() : TerraformBlock("microsoft_defender")
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -869,7 +869,7 @@ public partial class AzurermKubernetesClusterMicrosoftDefenderBlock : TerraformB
 /// Block type for monitor_metrics in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterMonitorMetricsBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterMonitorMetricsBlock() : TerraformBlock("monitor_metrics")
 {
     /// <summary>
     /// The annotations_allowed attribute.
@@ -891,7 +891,7 @@ public partial class AzurermKubernetesClusterMonitorMetricsBlock : TerraformBloc
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterNetworkProfileBlock() : TerraformBlock("network_profile")
 {
     /// <summary>
     /// The dns_service_ip attribute.
@@ -991,7 +991,7 @@ public partial class AzurermKubernetesClusterNetworkProfileBlock : TerraformBloc
 /// Block type for oms_agent in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterOmsAgentBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterOmsAgentBlock() : TerraformBlock("oms_agent")
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -1015,7 +1015,7 @@ public partial class AzurermKubernetesClusterOmsAgentBlock : TerraformBlockBase
 /// Block type for service_mesh_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterServiceMeshProfileBlock() : TerraformBlock("service_mesh_profile")
 {
     /// <summary>
     /// The external_ingress_gateway_enabled attribute.
@@ -1053,7 +1053,7 @@ public partial class AzurermKubernetesClusterServiceMeshProfileBlock : Terraform
 /// Block type for service_principal in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterServicePrincipalBlock() : TerraformBlock("service_principal")
 {
     /// <summary>
     /// The client_id attribute.
@@ -1077,7 +1077,7 @@ public partial class AzurermKubernetesClusterServicePrincipalBlock : TerraformBl
 /// Block type for storage_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterStorageProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterStorageProfileBlock() : TerraformBlock("storage_profile")
 {
     /// <summary>
     /// The blob_driver_enabled attribute.
@@ -1113,7 +1113,7 @@ public partial class AzurermKubernetesClusterStorageProfileBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKubernetesClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -1149,7 +1149,7 @@ public partial class AzurermKubernetesClusterTimeoutsBlock : TerraformBlockBase
 /// Block type for upgrade_override in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterUpgradeOverrideBlock() : TerraformBlock("upgrade_override")
 {
     /// <summary>
     /// The effective_until attribute.
@@ -1172,7 +1172,7 @@ public partial class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlo
 /// Block type for web_app_routing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterWebAppRoutingBlock() : TerraformBlock("web_app_routing")
 {
     /// <summary>
     /// The default_nginx_controller attribute.
@@ -1196,7 +1196,7 @@ public partial class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
 /// Block type for windows_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterWindowsProfileBlock() : TerraformBlock("windows_profile")
 {
     /// <summary>
     /// The admin_password attribute.
@@ -1227,7 +1227,7 @@ public partial class AzurermKubernetesClusterWindowsProfileBlock : TerraformBloc
 /// Block type for workload_autoscaler_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesClusterWorkloadAutoscalerProfileBlock : TerraformBlockBase
+public partial class AzurermKubernetesClusterWorkloadAutoscalerProfileBlock() : TerraformBlock("workload_autoscaler_profile")
 {
     /// <summary>
     /// The keda_enabled attribute.
@@ -1481,7 +1481,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AciConnectorLinux block(s) allowed")]
     [TerraformProperty("aci_connector_linux")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterAciConnectorLinuxBlock>>? AciConnectorLinux { get; set; }
+    public TerraformList<AzurermKubernetesClusterAciConnectorLinuxBlock> AciConnectorLinux { get; set; } = new();
 
     /// <summary>
     /// Block for api_server_access_profile.
@@ -1489,7 +1489,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiServerAccessProfile block(s) allowed")]
     [TerraformProperty("api_server_access_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterApiServerAccessProfileBlock>>? ApiServerAccessProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterApiServerAccessProfileBlock> ApiServerAccessProfile { get; set; } = new();
 
     /// <summary>
     /// Block for auto_scaler_profile.
@@ -1497,7 +1497,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalerProfile block(s) allowed")]
     [TerraformProperty("auto_scaler_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterAutoScalerProfileBlock>>? AutoScalerProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterAutoScalerProfileBlock> AutoScalerProfile { get; set; } = new();
 
     /// <summary>
     /// Block for azure_active_directory_role_based_access_control.
@@ -1505,7 +1505,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectoryRoleBasedAccessControl block(s) allowed")]
     [TerraformProperty("azure_active_directory_role_based_access_control")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock>>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
+    public TerraformList<AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock> AzureActiveDirectoryRoleBasedAccessControl { get; set; } = new();
 
     /// <summary>
     /// Block for bootstrap_profile.
@@ -1513,7 +1513,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootstrapProfile block(s) allowed")]
     [TerraformProperty("bootstrap_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterBootstrapProfileBlock>>? BootstrapProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterBootstrapProfileBlock> BootstrapProfile { get; set; } = new();
 
     /// <summary>
     /// Block for confidential_computing.
@@ -1521,7 +1521,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfidentialComputing block(s) allowed")]
     [TerraformProperty("confidential_computing")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterConfidentialComputingBlock>>? ConfidentialComputing { get; set; }
+    public TerraformList<AzurermKubernetesClusterConfidentialComputingBlock> ConfidentialComputing { get; set; } = new();
 
     /// <summary>
     /// Block for default_node_pool.
@@ -1531,7 +1531,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultNodePool block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultNodePool block(s) allowed")]
     [TerraformProperty("default_node_pool")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterDefaultNodePoolBlock>>? DefaultNodePool { get; set; }
+    public required TerraformList<AzurermKubernetesClusterDefaultNodePoolBlock> DefaultNodePool { get; set; } = new();
 
     /// <summary>
     /// Block for http_proxy_config.
@@ -1539,7 +1539,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpProxyConfig block(s) allowed")]
     [TerraformProperty("http_proxy_config")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterHttpProxyConfigBlock>>? HttpProxyConfig { get; set; }
+    public TerraformList<AzurermKubernetesClusterHttpProxyConfigBlock> HttpProxyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -1547,7 +1547,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermKubernetesClusterIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for ingress_application_gateway.
@@ -1555,7 +1555,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressApplicationGateway block(s) allowed")]
     [TerraformProperty("ingress_application_gateway")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterIngressApplicationGatewayBlock>>? IngressApplicationGateway { get; set; }
+    public TerraformList<AzurermKubernetesClusterIngressApplicationGatewayBlock> IngressApplicationGateway { get; set; } = new();
 
     /// <summary>
     /// Block for key_management_service.
@@ -1563,7 +1563,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyManagementService block(s) allowed")]
     [TerraformProperty("key_management_service")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterKeyManagementServiceBlock>>? KeyManagementService { get; set; }
+    public TerraformList<AzurermKubernetesClusterKeyManagementServiceBlock> KeyManagementService { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_secrets_provider.
@@ -1571,7 +1571,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultSecretsProvider block(s) allowed")]
     [TerraformProperty("key_vault_secrets_provider")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterKeyVaultSecretsProviderBlock>>? KeyVaultSecretsProvider { get; set; }
+    public TerraformList<AzurermKubernetesClusterKeyVaultSecretsProviderBlock> KeyVaultSecretsProvider { get; set; } = new();
 
     /// <summary>
     /// Block for kubelet_identity.
@@ -1579,7 +1579,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletIdentity block(s) allowed")]
     [TerraformProperty("kubelet_identity")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterKubeletIdentityBlock>>? KubeletIdentity { get; set; }
+    public TerraformList<AzurermKubernetesClusterKubeletIdentityBlock> KubeletIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for linux_profile.
@@ -1587,7 +1587,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinuxProfile block(s) allowed")]
     [TerraformProperty("linux_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterLinuxProfileBlock>>? LinuxProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterLinuxProfileBlock> LinuxProfile { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window.
@@ -1595,7 +1595,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<AzurermKubernetesClusterMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window_auto_upgrade.
@@ -1603,7 +1603,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowAutoUpgrade block(s) allowed")]
     [TerraformProperty("maintenance_window_auto_upgrade")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock>>? MaintenanceWindowAutoUpgrade { get; set; }
+    public TerraformList<AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock> MaintenanceWindowAutoUpgrade { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window_node_os.
@@ -1611,7 +1611,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowNodeOs block(s) allowed")]
     [TerraformProperty("maintenance_window_node_os")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowNodeOsBlock>>? MaintenanceWindowNodeOs { get; set; }
+    public TerraformList<AzurermKubernetesClusterMaintenanceWindowNodeOsBlock> MaintenanceWindowNodeOs { get; set; } = new();
 
     /// <summary>
     /// Block for microsoft_defender.
@@ -1619,7 +1619,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MicrosoftDefender block(s) allowed")]
     [TerraformProperty("microsoft_defender")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMicrosoftDefenderBlock>>? MicrosoftDefender { get; set; }
+    public TerraformList<AzurermKubernetesClusterMicrosoftDefenderBlock> MicrosoftDefender { get; set; } = new();
 
     /// <summary>
     /// Block for monitor_metrics.
@@ -1627,7 +1627,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorMetrics block(s) allowed")]
     [TerraformProperty("monitor_metrics")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMonitorMetricsBlock>>? MonitorMetrics { get; set; }
+    public TerraformList<AzurermKubernetesClusterMonitorMetricsBlock> MonitorMetrics { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -1635,7 +1635,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for oms_agent.
@@ -1643,7 +1643,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OmsAgent block(s) allowed")]
     [TerraformProperty("oms_agent")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterOmsAgentBlock>>? OmsAgent { get; set; }
+    public TerraformList<AzurermKubernetesClusterOmsAgentBlock> OmsAgent { get; set; } = new();
 
     /// <summary>
     /// Block for service_mesh_profile.
@@ -1651,7 +1651,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceMeshProfile block(s) allowed")]
     [TerraformProperty("service_mesh_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterServiceMeshProfileBlock>>? ServiceMeshProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterServiceMeshProfileBlock> ServiceMeshProfile { get; set; } = new();
 
     /// <summary>
     /// Block for service_principal.
@@ -1659,7 +1659,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
     [TerraformProperty("service_principal")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterServicePrincipalBlock>>? ServicePrincipal { get; set; }
+    public TerraformList<AzurermKubernetesClusterServicePrincipalBlock> ServicePrincipal { get; set; } = new();
 
     /// <summary>
     /// Block for storage_profile.
@@ -1667,14 +1667,14 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageProfile block(s) allowed")]
     [TerraformProperty("storage_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterStorageProfileBlock>>? StorageProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterStorageProfileBlock> StorageProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKubernetesClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKubernetesClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_override.
@@ -1682,7 +1682,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeOverride block(s) allowed")]
     [TerraformProperty("upgrade_override")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterUpgradeOverrideBlock>>? UpgradeOverride { get; set; }
+    public TerraformList<AzurermKubernetesClusterUpgradeOverrideBlock> UpgradeOverride { get; set; } = new();
 
     /// <summary>
     /// Block for web_app_routing.
@@ -1690,7 +1690,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebAppRouting block(s) allowed")]
     [TerraformProperty("web_app_routing")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterWebAppRoutingBlock>>? WebAppRouting { get; set; }
+    public TerraformList<AzurermKubernetesClusterWebAppRoutingBlock> WebAppRouting { get; set; } = new();
 
     /// <summary>
     /// Block for windows_profile.
@@ -1698,7 +1698,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsProfile block(s) allowed")]
     [TerraformProperty("windows_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterWindowsProfileBlock>>? WindowsProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterWindowsProfileBlock> WindowsProfile { get; set; } = new();
 
     /// <summary>
     /// Block for workload_autoscaler_profile.
@@ -1706,7 +1706,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadAutoscalerProfile block(s) allowed")]
     [TerraformProperty("workload_autoscaler_profile")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterWorkloadAutoscalerProfileBlock>>? WorkloadAutoscalerProfile { get; set; }
+    public TerraformList<AzurermKubernetesClusterWorkloadAutoscalerProfileBlock> WorkloadAutoscalerProfile { get; set; } = new();
 
     /// <summary>
     /// The current_kubernetes_version attribute.

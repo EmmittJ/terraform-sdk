@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for management_cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVmwareenginePrivateCloudManagementClusterBlock : TerraformBlockBase
+public partial class GoogleVmwareenginePrivateCloudManagementClusterBlock() : TerraformBlock("management_cluster")
 {
     /// <summary>
     /// The user-provided identifier of the new Cluster. The identifier must meet the following requirements:
@@ -27,7 +27,7 @@ public partial class GoogleVmwareenginePrivateCloudManagementClusterBlock : Terr
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleVmwareenginePrivateCloudNetworkConfigBlock() : TerraformBlock("network_config")
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ public partial class GoogleVmwareenginePrivateCloudNetworkConfigBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVmwareenginePrivateCloudTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVmwareenginePrivateCloudTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -156,7 +156,7 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagementCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementCluster block(s) allowed")]
     [TerraformProperty("management_cluster")]
-    public partial TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudManagementClusterBlock>>? ManagementCluster { get; set; }
+    public required TerraformList<GoogleVmwareenginePrivateCloudManagementClusterBlock> ManagementCluster { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -166,14 +166,14 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public required TerraformList<GoogleVmwareenginePrivateCloudNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVmwareenginePrivateCloudTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVmwareenginePrivateCloudTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation time of this resource.

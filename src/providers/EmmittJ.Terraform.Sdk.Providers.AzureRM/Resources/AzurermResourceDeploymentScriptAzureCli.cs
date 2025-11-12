@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for container in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourceDeploymentScriptAzureCliContainerBlock : TerraformBlockBase
+public partial class AzurermResourceDeploymentScriptAzureCliContainerBlock() : TerraformBlock("container")
 {
     /// <summary>
     /// The container_group_name attribute.
@@ -21,7 +21,7 @@ public partial class AzurermResourceDeploymentScriptAzureCliContainerBlock : Ter
 /// Block type for environment_variable in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock : TerraformBlockBase
+public partial class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock() : TerraformBlock("environment_variable")
 {
     /// <summary>
     /// The name attribute.
@@ -51,7 +51,7 @@ public partial class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourceDeploymentScriptAzureCliIdentityBlock : TerraformBlockBase
+public partial class AzurermResourceDeploymentScriptAzureCliIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -75,7 +75,7 @@ public partial class AzurermResourceDeploymentScriptAzureCliIdentityBlock : Terr
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock : TerraformBlockBase
+public partial class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The key attribute.
@@ -99,7 +99,7 @@ public partial class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock : TerraformBlockBase
+public partial class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -250,14 +250,14 @@ public partial class AzurermResourceDeploymentScriptAzureCli : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Container block(s) allowed")]
     [TerraformProperty("container")]
-    public partial TerraformList<TerraformBlock<AzurermResourceDeploymentScriptAzureCliContainerBlock>>? Container { get; set; }
+    public TerraformList<AzurermResourceDeploymentScriptAzureCliContainerBlock> Container { get; set; } = new();
 
     /// <summary>
     /// Block for environment_variable.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("environment_variable")]
-    public partial TerraformSet<TerraformBlock<AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock>>? EnvironmentVariable { get; set; }
+    public TerraformSet<AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock> EnvironmentVariable { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -265,7 +265,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermResourceDeploymentScriptAzureCliIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermResourceDeploymentScriptAzureCliIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
@@ -273,14 +273,14 @@ public partial class AzurermResourceDeploymentScriptAzureCli : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
     [TerraformProperty("storage_account")]
-    public partial TerraformList<TerraformBlock<AzurermResourceDeploymentScriptAzureCliStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformList<AzurermResourceDeploymentScriptAzureCliStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermResourceDeploymentScriptAzureCliTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermResourceDeploymentScriptAzureCliTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The outputs attribute.

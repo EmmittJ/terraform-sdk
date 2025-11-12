@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for permitted_public_security_group_rule_range in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock : TerraformBlockBase
+public partial class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock() : TerraformBlock("permitted_public_security_group_rule_range")
 {
     /// <summary>
     /// The max_range attribute.
@@ -62,6 +62,6 @@ public partial class AwsEmrBlockPublicAccessConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("permitted_public_security_group_rule_range")]
-    public partial TerraformList<TerraformBlock<AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock>>? PermittedPublicSecurityGroupRuleRange { get; set; }
+    public TerraformList<AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock> PermittedPublicSecurityGroupRuleRange { get; set; } = new();
 
 }

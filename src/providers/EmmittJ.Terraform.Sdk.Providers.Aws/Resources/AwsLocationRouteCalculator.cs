@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLocationRouteCalculatorTimeoutsBlock : TerraformBlockBase
+public partial class AwsLocationRouteCalculatorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,7 +96,7 @@ public partial class AwsLocationRouteCalculator : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLocationRouteCalculatorTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLocationRouteCalculatorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The calculator_arn attribute.

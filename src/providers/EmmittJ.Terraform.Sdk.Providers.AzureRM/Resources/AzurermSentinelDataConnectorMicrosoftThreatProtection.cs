@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSentinelDataConnectorMicrosoftThreatProtectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSentinelDataConnectorMicrosoftThreatProtectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -75,6 +75,6 @@ public partial class AzurermSentinelDataConnectorMicrosoftThreatProtection : Ter
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSentinelDataConnectorMicrosoftThreatProtectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSentinelDataConnectorMicrosoftThreatProtectionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for service_principal_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock : TerraformBlockBase
+public partial class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock() : TerraformBlock("service_principal_key")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -37,7 +37,7 @@ public partial class AzurermDataFactoryCredentialServicePrincipalServicePrincipa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,13 +138,13 @@ public partial class AzurermDataFactoryCredentialServicePrincipal : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipalKey block(s) allowed")]
     [TerraformProperty("service_principal_key")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>>? ServicePrincipalKey { get; set; }
+    public TerraformList<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock> ServicePrincipalKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock Timeouts { get; set; } = new();
 
 }

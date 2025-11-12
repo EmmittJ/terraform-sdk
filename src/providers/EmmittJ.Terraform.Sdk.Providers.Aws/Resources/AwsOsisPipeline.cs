@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for buffer_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOsisPipelineBufferOptionsBlock : TerraformBlockBase
+public partial class AwsOsisPipelineBufferOptionsBlock() : TerraformBlock("buffer_options")
 {
     /// <summary>
     /// The persistent_buffer_enabled attribute.
@@ -22,7 +22,7 @@ public partial class AwsOsisPipelineBufferOptionsBlock : TerraformBlockBase
 /// Block type for encryption_at_rest_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOsisPipelineEncryptionAtRestOptionsBlock : TerraformBlockBase
+public partial class AwsOsisPipelineEncryptionAtRestOptionsBlock() : TerraformBlock("encryption_at_rest_options")
 {
     /// <summary>
     /// The kms_key_arn attribute.
@@ -38,7 +38,7 @@ public partial class AwsOsisPipelineEncryptionAtRestOptionsBlock : TerraformBloc
 /// Block type for log_publishing_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOsisPipelineLogPublishingOptionsBlock : TerraformBlockBase
+public partial class AwsOsisPipelineLogPublishingOptionsBlock() : TerraformBlock("log_publishing_options")
 {
     /// <summary>
     /// The is_logging_enabled attribute.
@@ -53,7 +53,7 @@ public partial class AwsOsisPipelineLogPublishingOptionsBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOsisPipelineTimeoutsBlock : TerraformBlockBase
+public partial class AwsOsisPipelineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -82,7 +82,7 @@ public partial class AwsOsisPipelineTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOsisPipelineVpcOptionsBlock : TerraformBlockBase
+public partial class AwsOsisPipelineVpcOptionsBlock() : TerraformBlock("vpc_options")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -168,35 +168,35 @@ public partial class AwsOsisPipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("buffer_options")]
-    public partial TerraformList<TerraformBlock<AwsOsisPipelineBufferOptionsBlock>>? BufferOptions { get; set; }
+    public TerraformList<AwsOsisPipelineBufferOptionsBlock> BufferOptions { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_at_rest_options.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("encryption_at_rest_options")]
-    public partial TerraformList<TerraformBlock<AwsOsisPipelineEncryptionAtRestOptionsBlock>>? EncryptionAtRestOptions { get; set; }
+    public TerraformList<AwsOsisPipelineEncryptionAtRestOptionsBlock> EncryptionAtRestOptions { get; set; } = new();
 
     /// <summary>
     /// Block for log_publishing_options.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log_publishing_options")]
-    public partial TerraformList<TerraformBlock<AwsOsisPipelineLogPublishingOptionsBlock>>? LogPublishingOptions { get; set; }
+    public TerraformList<AwsOsisPipelineLogPublishingOptionsBlock> LogPublishingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOsisPipelineTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOsisPipelineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_options.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vpc_options")]
-    public partial TerraformList<TerraformBlock<AwsOsisPipelineVpcOptionsBlock>>? VpcOptions { get; set; }
+    public TerraformList<AwsOsisPipelineVpcOptionsBlock> VpcOptions { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

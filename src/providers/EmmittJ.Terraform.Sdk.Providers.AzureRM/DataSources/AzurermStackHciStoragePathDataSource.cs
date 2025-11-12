@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStackHciStoragePathDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStackHciStoragePathDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermStackHciStoragePathDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStackHciStoragePathDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStackHciStoragePathDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_location_id attribute.

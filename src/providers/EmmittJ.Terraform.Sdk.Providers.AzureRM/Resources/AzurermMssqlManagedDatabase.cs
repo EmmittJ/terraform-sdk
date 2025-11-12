@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for long_term_retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock() : TerraformBlock("long_term_retention_policy")
 {
     /// <summary>
     /// The immutable_backups_enabled attribute.
@@ -49,7 +49,7 @@ public partial class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : T
 /// Block type for point_in_time_restore in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedDatabasePointInTimeRestoreBlock() : TerraformBlock("point_in_time_restore")
 {
     /// <summary>
     /// The restore_point_in_time attribute.
@@ -73,7 +73,7 @@ public partial class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlManagedDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -158,7 +158,7 @@ public partial class AzurermMssqlManagedDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
     [TerraformProperty("long_term_retention_policy")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; }
+    public TerraformList<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock> LongTermRetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for point_in_time_restore.
@@ -166,13 +166,13 @@ public partial class AzurermMssqlManagedDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRestore block(s) allowed")]
     [TerraformProperty("point_in_time_restore")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>>? PointInTimeRestore { get; set; }
+    public TerraformList<AzurermMssqlManagedDatabasePointInTimeRestoreBlock> PointInTimeRestore { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlManagedDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlManagedDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
 }

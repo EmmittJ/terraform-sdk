@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscale in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryReservationAutoscaleBlock : TerraformBlockBase
+public partial class GoogleBigqueryReservationAutoscaleBlock() : TerraformBlock("autoscale")
 {
 
     /// <summary>
@@ -22,7 +22,7 @@ public partial class GoogleBigqueryReservationAutoscaleBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryReservationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryReservationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -135,14 +135,14 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscale block(s) allowed")]
     [TerraformProperty("autoscale")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryReservationAutoscaleBlock>>? Autoscale { get; set; }
+    public TerraformList<GoogleBigqueryReservationAutoscaleBlock> Autoscale { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryReservationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryReservationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The location where the reservation was originally created. This is set only during the

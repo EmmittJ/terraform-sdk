@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for slice in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkSimPolicySliceBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSimPolicySliceBlock() : TerraformBlock("slice")
 {
     /// <summary>
     /// The default_data_network_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermMobileNetworkSimPolicySliceBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMobileNetworkSimPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSimPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -66,7 +66,7 @@ public partial class AzurermMobileNetworkSimPolicyTimeoutsBlock : TerraformBlock
 /// Block type for user_equipment_aggregate_maximum_bit_rate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock() : TerraformBlock("user_equipment_aggregate_maximum_bit_rate")
 {
     /// <summary>
     /// The downlink attribute.
@@ -163,14 +163,14 @@ public partial class AzurermMobileNetworkSimPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Slice is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Slice block(s) required")]
     [TerraformProperty("slice")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkSimPolicySliceBlock>>? Slice { get; set; }
+    public required TerraformList<AzurermMobileNetworkSimPolicySliceBlock> Slice { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMobileNetworkSimPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMobileNetworkSimPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_equipment_aggregate_maximum_bit_rate.
@@ -180,6 +180,6 @@ public partial class AzurermMobileNetworkSimPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UserEquipmentAggregateMaximumBitRate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserEquipmentAggregateMaximumBitRate block(s) allowed")]
     [TerraformProperty("user_equipment_aggregate_maximum_bit_rate")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock>>? UserEquipmentAggregateMaximumBitRate { get; set; }
+    public required TerraformList<AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock> UserEquipmentAggregateMaximumBitRate { get; set; } = new();
 
 }

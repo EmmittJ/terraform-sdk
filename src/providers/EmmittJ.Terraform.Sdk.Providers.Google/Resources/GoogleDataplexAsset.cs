@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for discovery_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexAssetDiscoverySpecBlock : TerraformBlockBase
+public partial class GoogleDataplexAssetDiscoverySpecBlock() : TerraformBlock("discovery_spec")
 {
     /// <summary>
     /// Required. Whether discovery is enabled.
@@ -43,7 +43,7 @@ public partial class GoogleDataplexAssetDiscoverySpecBlock : TerraformBlockBase
 /// Block type for resource_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexAssetResourceSpecBlock : TerraformBlockBase
+public partial class GoogleDataplexAssetResourceSpecBlock() : TerraformBlock("resource_spec")
 {
     /// <summary>
     /// Immutable. Relative name of the cloud resource that contains the data that is being managed within a lake. For example: `projects/{project_number}/buckets/{bucket_id}` `projects/{project_number}/datasets/{dataset_id}`
@@ -73,7 +73,7 @@ public partial class GoogleDataplexAssetResourceSpecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexAssetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexAssetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -186,7 +186,7 @@ public partial class GoogleDataplexAsset : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DiscoverySpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiscoverySpec block(s) allowed")]
     [TerraformProperty("discovery_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexAssetDiscoverySpecBlock>>? DiscoverySpec { get; set; }
+    public required TerraformList<GoogleDataplexAssetDiscoverySpecBlock> DiscoverySpec { get; set; } = new();
 
     /// <summary>
     /// Block for resource_spec.
@@ -196,14 +196,14 @@ public partial class GoogleDataplexAsset : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ResourceSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceSpec block(s) allowed")]
     [TerraformProperty("resource_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexAssetResourceSpecBlock>>? ResourceSpec { get; set; }
+    public required TerraformList<GoogleDataplexAssetResourceSpecBlock> ResourceSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexAssetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexAssetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time when the asset was created.

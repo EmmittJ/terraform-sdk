@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for restore_to_point_in_time in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDocdbClusterRestoreToPointInTimeBlock : TerraformBlockBase
+public partial class AwsDocdbClusterRestoreToPointInTimeBlock() : TerraformBlock("restore_to_point_in_time")
 {
     /// <summary>
     /// The restore_to_time attribute.
@@ -43,7 +43,7 @@ public partial class AwsDocdbClusterRestoreToPointInTimeBlock : TerraformBlockBa
 /// Block type for serverless_v2_scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : TerraformBlockBase
+public partial class AwsDocdbClusterServerlessV2ScalingConfigurationBlock() : TerraformBlock("serverless_v2_scaling_configuration")
 {
     /// <summary>
     /// The max_capacity attribute.
@@ -67,7 +67,7 @@ public partial class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDocdbClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsDocdbClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -339,7 +339,7 @@ public partial class AwsDocdbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreToPointInTime block(s) allowed")]
     [TerraformProperty("restore_to_point_in_time")]
-    public partial TerraformList<TerraformBlock<AwsDocdbClusterRestoreToPointInTimeBlock>>? RestoreToPointInTime { get; set; }
+    public TerraformList<AwsDocdbClusterRestoreToPointInTimeBlock> RestoreToPointInTime { get; set; } = new();
 
     /// <summary>
     /// Block for serverless_v2_scaling_configuration.
@@ -347,14 +347,14 @@ public partial class AwsDocdbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerlessV2ScalingConfiguration block(s) allowed")]
     [TerraformProperty("serverless_v2_scaling_configuration")]
-    public partial TerraformList<TerraformBlock<AwsDocdbClusterServerlessV2ScalingConfigurationBlock>>? ServerlessV2ScalingConfiguration { get; set; }
+    public TerraformList<AwsDocdbClusterServerlessV2ScalingConfigurationBlock> ServerlessV2ScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDocdbClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDocdbClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

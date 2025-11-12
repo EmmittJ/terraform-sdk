@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for accelerators in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlockBase
+public partial class GoogleDataFusionInstanceAcceleratorsBlock() : TerraformBlock("accelerators")
 {
     /// <summary>
     /// The type of an accelator for a CDF instance. Possible values: [&amp;quot;CDC&amp;quot;, &amp;quot;HEALTHCARE&amp;quot;, &amp;quot;CCAI_INSIGHTS&amp;quot;]
@@ -30,7 +30,7 @@ public partial class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlockB
 /// Block type for crypto_key_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataFusionInstanceCryptoKeyConfigBlock : TerraformBlockBase
+public partial class GoogleDataFusionInstanceCryptoKeyConfigBlock() : TerraformBlock("crypto_key_config")
 {
     /// <summary>
     /// The name of the key which is used to encrypt/decrypt customer data. For key in Cloud KMS, the key should be in the format of projects/*/locations/*/keyRings/*/cryptoKeys/*.
@@ -46,7 +46,7 @@ public partial class GoogleDataFusionInstanceCryptoKeyConfigBlock : TerraformBlo
 /// Block type for event_publish_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataFusionInstanceEventPublishConfigBlock : TerraformBlockBase
+public partial class GoogleDataFusionInstanceEventPublishConfigBlock() : TerraformBlock("event_publish_config")
 {
     /// <summary>
     /// Option to enable Event Publishing.
@@ -70,7 +70,7 @@ public partial class GoogleDataFusionInstanceEventPublishConfigBlock : Terraform
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleDataFusionInstanceNetworkConfigBlock() : TerraformBlock("network_config")
 {
     /// <summary>
     /// Optional. Type of connection for establishing private IP connectivity between the Data Fusion customer project VPC and
@@ -104,7 +104,7 @@ public partial class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataFusionInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -284,7 +284,7 @@ public partial class GoogleDataFusionInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("accelerators")]
-    public partial TerraformList<TerraformBlock<GoogleDataFusionInstanceAcceleratorsBlock>>? Accelerators { get; set; }
+    public TerraformList<GoogleDataFusionInstanceAcceleratorsBlock> Accelerators { get; set; } = new();
 
     /// <summary>
     /// Block for crypto_key_config.
@@ -292,7 +292,7 @@ public partial class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CryptoKeyConfig block(s) allowed")]
     [TerraformProperty("crypto_key_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataFusionInstanceCryptoKeyConfigBlock>>? CryptoKeyConfig { get; set; }
+    public TerraformList<GoogleDataFusionInstanceCryptoKeyConfigBlock> CryptoKeyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for event_publish_config.
@@ -300,7 +300,7 @@ public partial class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventPublishConfig block(s) allowed")]
     [TerraformProperty("event_publish_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataFusionInstanceEventPublishConfigBlock>>? EventPublishConfig { get; set; }
+    public TerraformList<GoogleDataFusionInstanceEventPublishConfigBlock> EventPublishConfig { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -308,14 +308,14 @@ public partial class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataFusionInstanceNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public TerraformList<GoogleDataFusionInstanceNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataFusionInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataFusionInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Endpoint on which the REST APIs is accessible.

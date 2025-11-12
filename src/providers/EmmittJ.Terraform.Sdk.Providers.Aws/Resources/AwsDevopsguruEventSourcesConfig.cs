@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_sources in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevopsguruEventSourcesConfigEventSourcesBlock : TerraformBlockBase
+public partial class AwsDevopsguruEventSourcesConfigEventSourcesBlock() : TerraformBlock("event_sources")
 {
 }
 
@@ -31,7 +31,7 @@ public partial class AwsDevopsguruEventSourcesConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_sources")]
-    public partial TerraformList<TerraformBlock<AwsDevopsguruEventSourcesConfigEventSourcesBlock>>? EventSources { get; set; }
+    public TerraformList<AwsDevopsguruEventSourcesConfigEventSourcesBlock> EventSources { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

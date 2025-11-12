@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for hierarchy_structure in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConnectUserHierarchyStructureHierarchyStructureBlock : TerraformBlockBase
+public partial class AwsConnectUserHierarchyStructureHierarchyStructureBlock() : TerraformBlock("hierarchy_structure")
 {
 }
 
@@ -50,6 +50,6 @@ public partial class AwsConnectUserHierarchyStructure : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HierarchyStructure block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HierarchyStructure block(s) allowed")]
     [TerraformProperty("hierarchy_structure")]
-    public partial TerraformList<TerraformBlock<AwsConnectUserHierarchyStructureHierarchyStructureBlock>>? HierarchyStructure { get; set; }
+    public required TerraformList<AwsConnectUserHierarchyStructureHierarchyStructureBlock> HierarchyStructure { get; set; } = new();
 
 }

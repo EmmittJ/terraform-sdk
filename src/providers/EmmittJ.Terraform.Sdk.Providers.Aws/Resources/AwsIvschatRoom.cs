@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for message_review_handler in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlockBase
+public partial class AwsIvschatRoomMessageReviewHandlerBlock() : TerraformBlock("message_review_handler")
 {
     /// <summary>
     /// The fallback_result attribute.
@@ -28,7 +28,7 @@ public partial class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsIvschatRoomTimeoutsBlock : TerraformBlockBase
+public partial class AwsIvschatRoomTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,14 +125,14 @@ public partial class AwsIvschatRoom : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageReviewHandler block(s) allowed")]
     [TerraformProperty("message_review_handler")]
-    public partial TerraformList<TerraformBlock<AwsIvschatRoomMessageReviewHandlerBlock>>? MessageReviewHandler { get; set; }
+    public TerraformList<AwsIvschatRoomMessageReviewHandlerBlock> MessageReviewHandler { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsIvschatRoomTimeoutsBlock>? Timeouts { get; set; }
+    public AwsIvschatRoomTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for exclude_resource_tags in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRbinRuleExcludeResourceTagsBlock : TerraformBlockBase
+public partial class AwsRbinRuleExcludeResourceTagsBlock() : TerraformBlock("exclude_resource_tags")
 {
     /// <summary>
     /// The resource_tag_key attribute.
@@ -29,7 +29,7 @@ public partial class AwsRbinRuleExcludeResourceTagsBlock : TerraformBlockBase
 /// Block type for lock_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRbinRuleLockConfigurationBlock : TerraformBlockBase
+public partial class AwsRbinRuleLockConfigurationBlock() : TerraformBlock("lock_configuration")
 {
 }
 
@@ -37,7 +37,7 @@ public partial class AwsRbinRuleLockConfigurationBlock : TerraformBlockBase
 /// Block type for resource_tags in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRbinRuleResourceTagsBlock : TerraformBlockBase
+public partial class AwsRbinRuleResourceTagsBlock() : TerraformBlock("resource_tags")
 {
     /// <summary>
     /// The resource_tag_key attribute.
@@ -60,7 +60,7 @@ public partial class AwsRbinRuleResourceTagsBlock : TerraformBlockBase
 /// Block type for retention_period in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRbinRuleRetentionPeriodBlock : TerraformBlockBase
+public partial class AwsRbinRuleRetentionPeriodBlock() : TerraformBlock("retention_period")
 {
     /// <summary>
     /// The retention_period_unit attribute.
@@ -84,7 +84,7 @@ public partial class AwsRbinRuleRetentionPeriodBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRbinRuleTimeoutsBlock : TerraformBlockBase
+public partial class AwsRbinRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,7 +161,7 @@ public partial class AwsRbinRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ExcludeResourceTags block(s) allowed")]
     [TerraformProperty("exclude_resource_tags")]
-    public partial TerraformSet<TerraformBlock<AwsRbinRuleExcludeResourceTagsBlock>>? ExcludeResourceTags { get; set; }
+    public TerraformSet<AwsRbinRuleExcludeResourceTagsBlock> ExcludeResourceTags { get; set; } = new();
 
     /// <summary>
     /// Block for lock_configuration.
@@ -169,7 +169,7 @@ public partial class AwsRbinRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LockConfiguration block(s) allowed")]
     [TerraformProperty("lock_configuration")]
-    public partial TerraformList<TerraformBlock<AwsRbinRuleLockConfigurationBlock>>? LockConfiguration { get; set; }
+    public TerraformList<AwsRbinRuleLockConfigurationBlock> LockConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for resource_tags.
@@ -177,7 +177,7 @@ public partial class AwsRbinRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 ResourceTags block(s) allowed")]
     [TerraformProperty("resource_tags")]
-    public partial TerraformSet<TerraformBlock<AwsRbinRuleResourceTagsBlock>>? ResourceTags { get; set; }
+    public TerraformSet<AwsRbinRuleResourceTagsBlock> ResourceTags { get; set; } = new();
 
     /// <summary>
     /// Block for retention_period.
@@ -187,14 +187,14 @@ public partial class AwsRbinRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RetentionPeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPeriod block(s) allowed")]
     [TerraformProperty("retention_period")]
-    public partial TerraformList<TerraformBlock<AwsRbinRuleRetentionPeriodBlock>>? RetentionPeriod { get; set; }
+    public required TerraformList<AwsRbinRuleRetentionPeriodBlock> RetentionPeriod { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRbinRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRbinRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

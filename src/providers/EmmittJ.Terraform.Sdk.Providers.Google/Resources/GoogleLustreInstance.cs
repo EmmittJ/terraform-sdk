@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleLustreInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleLustreInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -143,7 +143,7 @@ public partial class GoogleLustreInstance : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleLustreInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleLustreInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp when the instance was created.

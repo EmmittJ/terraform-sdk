@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageFolderTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageFolderTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,7 +76,7 @@ public partial class GoogleStorageFolder : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageFolderTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageFolderTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp at which this folder was created.

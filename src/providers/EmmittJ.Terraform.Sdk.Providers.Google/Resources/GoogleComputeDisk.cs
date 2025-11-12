@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for async_primary_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeDiskAsyncPrimaryDiskBlock : TerraformBlockBase
+public partial class GoogleComputeDiskAsyncPrimaryDiskBlock() : TerraformBlock("async_primary_disk")
 {
     /// <summary>
     /// Primary disk for asynchronous disk replication.
@@ -22,7 +22,7 @@ public partial class GoogleComputeDiskAsyncPrimaryDiskBlock : TerraformBlockBase
 /// Block type for disk_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeDiskDiskEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeDiskDiskEncryptionKeyBlock() : TerraformBlock("disk_encryption_key")
 {
     /// <summary>
     /// The self link of the encryption key used to encrypt the disk. Also called KmsKeyName
@@ -67,7 +67,7 @@ public partial class GoogleComputeDiskDiskEncryptionKeyBlock : TerraformBlockBas
 /// Block type for guest_os_features in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeDiskGuestOsFeaturesBlock : TerraformBlockBase
+public partial class GoogleComputeDiskGuestOsFeaturesBlock() : TerraformBlock("guest_os_features")
 {
     /// <summary>
     /// The type of supported feature. Read [Enabling guest operating system features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features) to see a list of available options.
@@ -83,7 +83,7 @@ public partial class GoogleComputeDiskGuestOsFeaturesBlock : TerraformBlockBase
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeDiskParamsBlock : TerraformBlockBase
+public partial class GoogleComputeDiskParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// Resource manager tags to be bound to the disk. Tag keys and values have the
@@ -100,7 +100,7 @@ public partial class GoogleComputeDiskParamsBlock : TerraformBlockBase
 /// Block type for source_image_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeDiskSourceImageEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeDiskSourceImageEncryptionKeyBlock() : TerraformBlock("source_image_encryption_key")
 {
     /// <summary>
     /// The self link of the encryption key used to encrypt the disk. Also called KmsKeyName
@@ -136,7 +136,7 @@ public partial class GoogleComputeDiskSourceImageEncryptionKeyBlock : TerraformB
 /// Block type for source_snapshot_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock() : TerraformBlock("source_snapshot_encryption_key")
 {
     /// <summary>
     /// The self link of the encryption key used to encrypt the disk. Also called KmsKeyName
@@ -172,7 +172,7 @@ public partial class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeDiskTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeDiskTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -453,7 +453,7 @@ public partial class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncPrimaryDisk block(s) allowed")]
     [TerraformProperty("async_primary_disk")]
-    public partial TerraformList<TerraformBlock<GoogleComputeDiskAsyncPrimaryDiskBlock>>? AsyncPrimaryDisk { get; set; }
+    public TerraformList<GoogleComputeDiskAsyncPrimaryDiskBlock> AsyncPrimaryDisk { get; set; } = new();
 
     /// <summary>
     /// Block for disk_encryption_key.
@@ -461,14 +461,14 @@ public partial class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskEncryptionKey block(s) allowed")]
     [TerraformProperty("disk_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeDiskDiskEncryptionKeyBlock>>? DiskEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeDiskDiskEncryptionKeyBlock> DiskEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for guest_os_features.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("guest_os_features")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeDiskGuestOsFeaturesBlock>>? GuestOsFeatures { get; set; }
+    public TerraformSet<GoogleComputeDiskGuestOsFeaturesBlock> GuestOsFeatures { get; set; } = new();
 
     /// <summary>
     /// Block for params.
@@ -476,7 +476,7 @@ public partial class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeDiskParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeDiskParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for source_image_encryption_key.
@@ -484,7 +484,7 @@ public partial class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageEncryptionKey block(s) allowed")]
     [TerraformProperty("source_image_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeDiskSourceImageEncryptionKeyBlock>>? SourceImageEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeDiskSourceImageEncryptionKeyBlock> SourceImageEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for source_snapshot_encryption_key.
@@ -492,14 +492,14 @@ public partial class GoogleComputeDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
     [TerraformProperty("source_snapshot_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeDiskSourceSnapshotEncryptionKeyBlock>>? SourceSnapshotEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeDiskSourceSnapshotEncryptionKeyBlock> SourceSnapshotEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeDiskTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeDiskTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

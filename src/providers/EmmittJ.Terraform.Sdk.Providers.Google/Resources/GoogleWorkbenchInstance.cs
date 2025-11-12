@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for gce_setup in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlockBase
+public partial class GoogleWorkbenchInstanceGceSetupBlock() : TerraformBlock("gce_setup")
 {
     /// <summary>
     /// Optional. If true, no external IP will be assigned to this VM instance.
@@ -51,7 +51,7 @@ public partial class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleWorkbenchInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleWorkbenchInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -181,14 +181,14 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GceSetup block(s) allowed")]
     [TerraformProperty("gce_setup")]
-    public partial TerraformList<TerraformBlock<GoogleWorkbenchInstanceGceSetupBlock>>? GceSetup { get; set; }
+    public TerraformList<GoogleWorkbenchInstanceGceSetupBlock> GceSetup { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleWorkbenchInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleWorkbenchInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.

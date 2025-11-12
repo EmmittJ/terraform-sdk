@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHpcCacheBlobNfsTargetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHpcCacheBlobNfsTargetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,6 +129,6 @@ public partial class AzurermHpcCacheBlobNfsTarget : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHpcCacheBlobNfsTargetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHpcCacheBlobNfsTargetTimeoutsBlock Timeouts { get; set; } = new();
 
 }

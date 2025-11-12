@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for pre_provisioning_hook in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotProvisioningTemplatePreProvisioningHookBlock : TerraformBlockBase
+public partial class AwsIotProvisioningTemplatePreProvisioningHookBlock() : TerraformBlock("pre_provisioning_hook")
 {
     /// <summary>
     /// The payload_version attribute.
@@ -114,7 +114,7 @@ public partial class AwsIotProvisioningTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreProvisioningHook block(s) allowed")]
     [TerraformProperty("pre_provisioning_hook")]
-    public partial TerraformList<TerraformBlock<AwsIotProvisioningTemplatePreProvisioningHookBlock>>? PreProvisioningHook { get; set; }
+    public TerraformList<AwsIotProvisioningTemplatePreProvisioningHookBlock> PreProvisioningHook { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

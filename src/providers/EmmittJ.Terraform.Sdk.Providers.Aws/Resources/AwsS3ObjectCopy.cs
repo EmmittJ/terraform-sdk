@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for grant in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsS3ObjectCopyGrantBlock : TerraformBlockBase
+public partial class AwsS3ObjectCopyGrantBlock() : TerraformBlock("grant")
 {
     /// <summary>
     /// The email attribute.
@@ -51,7 +51,7 @@ public partial class AwsS3ObjectCopyGrantBlock : TerraformBlockBase
 /// Block type for override_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3ObjectCopyOverrideProviderBlock : TerraformBlockBase
+public partial class AwsS3ObjectCopyOverrideProviderBlock() : TerraformBlock("override_provider")
 {
 }
 
@@ -360,7 +360,7 @@ public partial class AwsS3ObjectCopy : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("grant")]
-    public partial TerraformSet<TerraformBlock<AwsS3ObjectCopyGrantBlock>>? Grant { get; set; }
+    public TerraformSet<AwsS3ObjectCopyGrantBlock> Grant { get; set; } = new();
 
     /// <summary>
     /// Block for override_provider.
@@ -368,7 +368,7 @@ public partial class AwsS3ObjectCopy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OverrideProvider block(s) allowed")]
     [TerraformProperty("override_provider")]
-    public partial TerraformList<TerraformBlock<AwsS3ObjectCopyOverrideProviderBlock>>? OverrideProvider { get; set; }
+    public TerraformList<AwsS3ObjectCopyOverrideProviderBlock> OverrideProvider { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

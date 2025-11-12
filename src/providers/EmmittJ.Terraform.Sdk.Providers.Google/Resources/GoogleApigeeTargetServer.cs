@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for s_sl_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlockBase
+public partial class GoogleApigeeTargetServerSSlInfoBlock() : TerraformBlock("s_sl_info")
 {
     /// <summary>
     /// The SSL/TLS cipher suites to be used. For programmable proxies, it must be one of the cipher suite names listed in: http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#ciphersuites. For configurable proxies, it must follow the configuration specified in: https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#Cipher-suite-configuration. This setting has no effect for configurable proxies when negotiating TLS 1.3.
@@ -78,7 +78,7 @@ public partial class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeTargetServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -180,13 +180,13 @@ public partial class GoogleApigeeTargetServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SSlInfo block(s) allowed")]
     [TerraformProperty("s_sl_info")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeTargetServerSSlInfoBlock>>? SSlInfo { get; set; }
+    public TerraformList<GoogleApigeeTargetServerSSlInfoBlock> SSlInfo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeTargetServerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeTargetServerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

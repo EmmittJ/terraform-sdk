@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for knowledge_base_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock() : TerraformBlock("knowledge_base_configuration")
 {
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock
 /// Block type for storage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock() : TerraformBlock("storage_configuration")
 {
     /// <summary>
     /// The type attribute.
@@ -38,7 +38,7 @@ public partial class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentKnowledgeBaseTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentKnowledgeBaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -114,21 +114,21 @@ public partial class AwsBedrockagentKnowledgeBase : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("knowledge_base_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock>>? KnowledgeBaseConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock> KnowledgeBaseConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for storage_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentKnowledgeBaseStorageConfigurationBlock>>? StorageConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentKnowledgeBaseStorageConfigurationBlock> StorageConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentKnowledgeBaseTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentKnowledgeBaseTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

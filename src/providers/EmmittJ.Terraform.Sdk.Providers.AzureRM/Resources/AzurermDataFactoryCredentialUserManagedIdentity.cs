@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryCredentialUserManagedIdentityTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryCredentialUserManagedIdentityTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -97,6 +97,6 @@ public partial class AzurermDataFactoryCredentialUserManagedIdentity : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryCredentialUserManagedIdentityTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryCredentialUserManagedIdentityTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for active_directory in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappAccountActiveDirectoryBlock : TerraformBlockBase
+public partial class AzurermNetappAccountActiveDirectoryBlock() : TerraformBlock("active_directory")
 {
     /// <summary>
     /// If enabled, AES encryption will be enabled for SMB communication.
@@ -117,7 +117,7 @@ public partial class AzurermNetappAccountActiveDirectoryBlock : TerraformBlockBa
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermNetappAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -142,7 +142,7 @@ public partial class AzurermNetappAccountIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetappAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetappAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -228,7 +228,7 @@ public partial class AzurermNetappAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectory block(s) allowed")]
     [TerraformProperty("active_directory")]
-    public partial TerraformList<TerraformBlock<AzurermNetappAccountActiveDirectoryBlock>>? ActiveDirectory { get; set; }
+    public TerraformList<AzurermNetappAccountActiveDirectoryBlock> ActiveDirectory { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -236,13 +236,13 @@ public partial class AzurermNetappAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermNetappAccountIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermNetappAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetappAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetappAccountTimeoutsBlock Timeouts { get; set; } = new();
 
 }

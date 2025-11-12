@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The encryption_type attribute.
@@ -28,7 +28,7 @@ public partial class AwsEcrRepositoryCreationTemplateEncryptionConfigurationBloc
 /// Block type for image_tag_mutability_exclusion_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBlock : TerraformBlockBase
+public partial class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBlock() : TerraformBlock("image_tag_mutability_exclusion_filter")
 {
     /// <summary>
     /// The filter attribute.
@@ -135,7 +135,7 @@ public partial class AwsEcrRepositoryCreationTemplate : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for image_tag_mutability_exclusion_filter.
@@ -143,7 +143,7 @@ public partial class AwsEcrRepositoryCreationTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ImageTagMutabilityExclusionFilter block(s) allowed")]
     [TerraformProperty("image_tag_mutability_exclusion_filter")]
-    public partial TerraformList<TerraformBlock<AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBlock>>? ImageTagMutabilityExclusionFilter { get; set; }
+    public TerraformList<AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBlock> ImageTagMutabilityExclusionFilter { get; set; } = new();
 
     /// <summary>
     /// The registry_id attribute.

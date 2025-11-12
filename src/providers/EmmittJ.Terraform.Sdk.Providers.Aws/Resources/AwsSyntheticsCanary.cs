@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for artifact_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSyntheticsCanaryArtifactConfigBlock : TerraformBlockBase
+public partial class AwsSyntheticsCanaryArtifactConfigBlock() : TerraformBlock("artifact_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsSyntheticsCanaryArtifactConfigBlock : TerraformBlockBase
 /// Block type for run_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSyntheticsCanaryRunConfigBlock : TerraformBlockBase
+public partial class AwsSyntheticsCanaryRunConfigBlock() : TerraformBlock("run_config")
 {
     /// <summary>
     /// The active_tracing attribute.
@@ -57,7 +57,7 @@ public partial class AwsSyntheticsCanaryRunConfigBlock : TerraformBlockBase
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSyntheticsCanaryScheduleBlock : TerraformBlockBase
+public partial class AwsSyntheticsCanaryScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The duration_in_seconds attribute.
@@ -80,7 +80,7 @@ public partial class AwsSyntheticsCanaryScheduleBlock : TerraformBlockBase
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlockBase
+public partial class AwsSyntheticsCanaryVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The ipv6_allowed_for_dual_stack attribute.
@@ -246,7 +246,7 @@ public partial class AwsSyntheticsCanary : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ArtifactConfig block(s) allowed")]
     [TerraformProperty("artifact_config")]
-    public partial TerraformList<TerraformBlock<AwsSyntheticsCanaryArtifactConfigBlock>>? ArtifactConfig { get; set; }
+    public TerraformList<AwsSyntheticsCanaryArtifactConfigBlock> ArtifactConfig { get; set; } = new();
 
     /// <summary>
     /// Block for run_config.
@@ -254,7 +254,7 @@ public partial class AwsSyntheticsCanary : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RunConfig block(s) allowed")]
     [TerraformProperty("run_config")]
-    public partial TerraformList<TerraformBlock<AwsSyntheticsCanaryRunConfigBlock>>? RunConfig { get; set; }
+    public TerraformList<AwsSyntheticsCanaryRunConfigBlock> RunConfig { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -264,7 +264,7 @@ public partial class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AwsSyntheticsCanaryScheduleBlock>>? Schedule { get; set; }
+    public required TerraformList<AwsSyntheticsCanaryScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -272,7 +272,7 @@ public partial class AwsSyntheticsCanary : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsSyntheticsCanaryVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsSyntheticsCanaryVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

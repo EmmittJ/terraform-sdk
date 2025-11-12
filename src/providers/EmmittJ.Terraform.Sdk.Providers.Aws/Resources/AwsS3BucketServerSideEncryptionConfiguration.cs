@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsS3BucketServerSideEncryptionConfigurationRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketServerSideEncryptionConfigurationRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The bucket_key_enabled attribute.
@@ -63,6 +63,6 @@ public partial class AwsS3BucketServerSideEncryptionConfiguration : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsS3BucketServerSideEncryptionConfigurationRuleBlock>>? Rule { get; set; }
+    public required TerraformSet<AwsS3BucketServerSideEncryptionConfigurationRuleBlock> Rule { get; set; } = new();
 
 }

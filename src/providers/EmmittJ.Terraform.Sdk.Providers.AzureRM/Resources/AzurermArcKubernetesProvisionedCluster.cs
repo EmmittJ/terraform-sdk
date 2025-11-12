@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_active_directory in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock : TerraformBlockBase
+public partial class AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock() : TerraformBlock("azure_active_directory")
 {
     /// <summary>
     /// The admin_group_object_ids attribute.
@@ -35,7 +35,7 @@ public partial class AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermArcKubernetesProvisionedClusterIdentityBlock : TerraformBlockBase
+public partial class AzurermArcKubernetesProvisionedClusterIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -53,7 +53,7 @@ public partial class AzurermArcKubernetesProvisionedClusterIdentityBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermArcKubernetesProvisionedClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermArcKubernetesProvisionedClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -153,7 +153,7 @@ public partial class AzurermArcKubernetesProvisionedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]
     [TerraformProperty("azure_active_directory")]
-    public partial TerraformList<TerraformBlock<AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock>>? AzureActiveDirectory { get; set; }
+    public TerraformList<AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock> AzureActiveDirectory { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -163,14 +163,14 @@ public partial class AzurermArcKubernetesProvisionedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermArcKubernetesProvisionedClusterIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermArcKubernetesProvisionedClusterIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermArcKubernetesProvisionedClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermArcKubernetesProvisionedClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The agent_version attribute.

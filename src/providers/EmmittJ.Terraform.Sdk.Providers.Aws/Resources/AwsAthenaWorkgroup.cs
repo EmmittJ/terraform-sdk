@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAthenaWorkgroupConfigurationBlock : TerraformBlockBase
+public partial class AwsAthenaWorkgroupConfigurationBlock() : TerraformBlock("configuration")
 {
     /// <summary>
     /// The bytes_scanned_cutoff_per_query attribute.
@@ -118,7 +118,7 @@ public partial class AwsAthenaWorkgroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsAthenaWorkgroupConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsAthenaWorkgroupConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

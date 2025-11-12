@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,6 +126,6 @@ public partial class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformRe
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
 }

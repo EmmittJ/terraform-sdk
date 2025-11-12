@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for host_pool in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualDesktopScalingPlanHostPoolBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopScalingPlanHostPoolBlock() : TerraformBlock("host_pool")
 {
     /// <summary>
     /// The hostpool_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolBlock : TerraformBl
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopScalingPlanScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The days_of_week attribute.
@@ -180,7 +180,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualDesktopScalingPlanTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopScalingPlanTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -294,7 +294,7 @@ public partial class AzurermVirtualDesktopScalingPlan : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("host_pool")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualDesktopScalingPlanHostPoolBlock>>? HostPool { get; set; }
+    public TerraformList<AzurermVirtualDesktopScalingPlanHostPoolBlock> HostPool { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -303,13 +303,13 @@ public partial class AzurermVirtualDesktopScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualDesktopScalingPlanScheduleBlock>>? Schedule { get; set; }
+    public required TerraformList<AzurermVirtualDesktopScalingPlanScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualDesktopScalingPlanTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualDesktopScalingPlanTimeoutsBlock Timeouts { get; set; } = new();
 
 }

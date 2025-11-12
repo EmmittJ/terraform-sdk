@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsIamRoleInlinePolicyBlock : TerraformBlockBase
+public partial class AwsIamRoleInlinePolicyBlock() : TerraformBlock("inline_policy")
 {
     /// <summary>
     /// The name attribute.
@@ -126,7 +126,7 @@ public partial class AwsIamRole : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("inline_policy")]
-    public partial TerraformSet<TerraformBlock<AwsIamRoleInlinePolicyBlock>>? InlinePolicy { get; set; }
+    public TerraformSet<AwsIamRoleInlinePolicyBlock> InlinePolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

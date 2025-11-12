@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoclass in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketAutoclassBlock : TerraformBlockBase
+public partial class GoogleStorageBucketAutoclassBlock() : TerraformBlock("autoclass")
 {
     /// <summary>
     /// While set to true, autoclass automatically transitions objects in your bucket to appropriate storage classes based on each object&#39;s access pattern.
@@ -29,7 +29,7 @@ public partial class GoogleStorageBucketAutoclassBlock : TerraformBlockBase
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketCorsBlock : TerraformBlockBase
+public partial class GoogleStorageBucketCorsBlock() : TerraformBlock("cors")
 {
     /// <summary>
     /// The value, in seconds, to return in the Access-Control-Max-Age header used in preflight responses.
@@ -65,7 +65,7 @@ public partial class GoogleStorageBucketCorsBlock : TerraformBlockBase
 /// Block type for custom_placement_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketCustomPlacementConfigBlock : TerraformBlockBase
+public partial class GoogleStorageBucketCustomPlacementConfigBlock() : TerraformBlock("custom_placement_config")
 {
     /// <summary>
     /// The list of individual regions that comprise a dual-region bucket. See the docs for a list of acceptable regions. Note: If any of the data_locations changes, it will recreate the bucket.
@@ -81,7 +81,7 @@ public partial class GoogleStorageBucketCustomPlacementConfigBlock : TerraformBl
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketEncryptionBlock : TerraformBlockBase
+public partial class GoogleStorageBucketEncryptionBlock() : TerraformBlock("encryption")
 {
     /// <summary>
     /// A Cloud KMS key that will be used to encrypt objects inserted into this bucket, if no encryption method is specified. You must pay attention to whether the crypto key is available in the location that this bucket is created in. See the docs for more details.
@@ -97,7 +97,7 @@ public partial class GoogleStorageBucketEncryptionBlock : TerraformBlockBase
 /// Block type for hierarchical_namespace in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketHierarchicalNamespaceBlock : TerraformBlockBase
+public partial class GoogleStorageBucketHierarchicalNamespaceBlock() : TerraformBlock("hierarchical_namespace")
 {
     /// <summary>
     /// Set this field true to organize bucket with logical file system structure.
@@ -113,7 +113,7 @@ public partial class GoogleStorageBucketHierarchicalNamespaceBlock : TerraformBl
 /// Block type for ip_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketIpFilterBlock : TerraformBlockBase
+public partial class GoogleStorageBucketIpFilterBlock() : TerraformBlock("ip_filter")
 {
     /// <summary>
     /// Whether to allow all service agents to access the bucket regardless of the IP filter configuration.
@@ -143,7 +143,7 @@ public partial class GoogleStorageBucketIpFilterBlock : TerraformBlockBase
 /// Block type for lifecycle_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketLifecycleRuleBlock : TerraformBlockBase
+public partial class GoogleStorageBucketLifecycleRuleBlock() : TerraformBlock("lifecycle_rule")
 {
 }
 
@@ -151,7 +151,7 @@ public partial class GoogleStorageBucketLifecycleRuleBlock : TerraformBlockBase
 /// Block type for logging in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketLoggingBlock : TerraformBlockBase
+public partial class GoogleStorageBucketLoggingBlock() : TerraformBlock("logging")
 {
     /// <summary>
     /// The bucket that will receive log objects.
@@ -174,7 +174,7 @@ public partial class GoogleStorageBucketLoggingBlock : TerraformBlockBase
 /// Block type for retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketRetentionPolicyBlock : TerraformBlockBase
+public partial class GoogleStorageBucketRetentionPolicyBlock() : TerraformBlock("retention_policy")
 {
     /// <summary>
     /// If set to true, the bucket will be locked and permanently restrict edits to the bucket&#39;s retention policy.  Caution: Locking a bucket is an irreversible action.
@@ -197,7 +197,7 @@ public partial class GoogleStorageBucketRetentionPolicyBlock : TerraformBlockBas
 /// Block type for soft_delete_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketSoftDeletePolicyBlock : TerraformBlockBase
+public partial class GoogleStorageBucketSoftDeletePolicyBlock() : TerraformBlock("soft_delete_policy")
 {
 
     /// <summary>
@@ -213,7 +213,7 @@ public partial class GoogleStorageBucketSoftDeletePolicyBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageBucketTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageBucketTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -242,7 +242,7 @@ public partial class GoogleStorageBucketTimeoutsBlock : TerraformBlockBase
 /// Block type for versioning in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketVersioningBlock : TerraformBlockBase
+public partial class GoogleStorageBucketVersioningBlock() : TerraformBlock("versioning")
 {
     /// <summary>
     /// While set to true, versioning is fully enabled for this bucket.
@@ -258,7 +258,7 @@ public partial class GoogleStorageBucketVersioningBlock : TerraformBlockBase
 /// Block type for website in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketWebsiteBlock : TerraformBlockBase
+public partial class GoogleStorageBucketWebsiteBlock() : TerraformBlock("website")
 {
     /// <summary>
     /// Behaves as the bucket&#39;s directory index where missing objects are treated as potential directories.
@@ -385,14 +385,14 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoclass block(s) allowed")]
     [TerraformProperty("autoclass")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketAutoclassBlock>>? Autoclass { get; set; }
+    public TerraformList<GoogleStorageBucketAutoclassBlock> Autoclass { get; set; } = new();
 
     /// <summary>
     /// Block for cors.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cors")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketCorsBlock>>? Cors { get; set; }
+    public TerraformList<GoogleStorageBucketCorsBlock> Cors { get; set; } = new();
 
     /// <summary>
     /// Block for custom_placement_config.
@@ -400,7 +400,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomPlacementConfig block(s) allowed")]
     [TerraformProperty("custom_placement_config")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketCustomPlacementConfigBlock>>? CustomPlacementConfig { get; set; }
+    public TerraformList<GoogleStorageBucketCustomPlacementConfigBlock> CustomPlacementConfig { get; set; } = new();
 
     /// <summary>
     /// Block for encryption.
@@ -408,7 +408,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<GoogleStorageBucketEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for hierarchical_namespace.
@@ -416,7 +416,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HierarchicalNamespace block(s) allowed")]
     [TerraformProperty("hierarchical_namespace")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketHierarchicalNamespaceBlock>>? HierarchicalNamespace { get; set; }
+    public TerraformList<GoogleStorageBucketHierarchicalNamespaceBlock> HierarchicalNamespace { get; set; } = new();
 
     /// <summary>
     /// Block for ip_filter.
@@ -424,7 +424,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpFilter block(s) allowed")]
     [TerraformProperty("ip_filter")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketIpFilterBlock>>? IpFilter { get; set; }
+    public TerraformList<GoogleStorageBucketIpFilterBlock> IpFilter { get; set; } = new();
 
     /// <summary>
     /// Block for lifecycle_rule.
@@ -432,7 +432,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 LifecycleRule block(s) allowed")]
     [TerraformProperty("lifecycle_rule")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketLifecycleRuleBlock>>? LifecycleRule { get; set; }
+    public TerraformList<GoogleStorageBucketLifecycleRuleBlock> LifecycleRule { get; set; } = new();
 
     /// <summary>
     /// Block for logging.
@@ -440,7 +440,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
     [TerraformProperty("logging")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketLoggingBlock>>? Logging { get; set; }
+    public TerraformList<GoogleStorageBucketLoggingBlock> Logging { get; set; } = new();
 
     /// <summary>
     /// Block for retention_policy.
@@ -448,7 +448,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
     [TerraformProperty("retention_policy")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketRetentionPolicyBlock>>? RetentionPolicy { get; set; }
+    public TerraformList<GoogleStorageBucketRetentionPolicyBlock> RetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for soft_delete_policy.
@@ -456,14 +456,14 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftDeletePolicy block(s) allowed")]
     [TerraformProperty("soft_delete_policy")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketSoftDeletePolicyBlock>>? SoftDeletePolicy { get; set; }
+    public TerraformList<GoogleStorageBucketSoftDeletePolicyBlock> SoftDeletePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageBucketTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageBucketTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for versioning.
@@ -471,7 +471,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Versioning block(s) allowed")]
     [TerraformProperty("versioning")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketVersioningBlock>>? Versioning { get; set; }
+    public TerraformList<GoogleStorageBucketVersioningBlock> Versioning { get; set; } = new();
 
     /// <summary>
     /// Block for website.
@@ -479,7 +479,7 @@ public partial class GoogleStorageBucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Website block(s) allowed")]
     [TerraformProperty("website")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketWebsiteBlock>>? Website { get; set; }
+    public TerraformList<GoogleStorageBucketWebsiteBlock> Website { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

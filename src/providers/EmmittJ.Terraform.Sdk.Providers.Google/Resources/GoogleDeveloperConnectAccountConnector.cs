@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for provider_oauth_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock() : TerraformBlock("provider_oauth_config")
 {
     /// <summary>
     /// Required. User selected scopes to apply to the Oauth config
@@ -40,7 +40,7 @@ public partial class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDeveloperConnectAccountConnectorTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDeveloperConnectAccountConnectorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -134,14 +134,14 @@ public partial class GoogleDeveloperConnectAccountConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProviderOauthConfig block(s) allowed")]
     [TerraformProperty("provider_oauth_config")]
-    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock>>? ProviderOauthConfig { get; set; }
+    public TerraformList<GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock> ProviderOauthConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDeveloperConnectAccountConnectorTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDeveloperConnectAccountConnectorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp when the userConnection was created.

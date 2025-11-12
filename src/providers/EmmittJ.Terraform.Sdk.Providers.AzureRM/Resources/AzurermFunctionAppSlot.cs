@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppSlotAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppSlotAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// The additional_login_params attribute.
@@ -78,7 +78,7 @@ public partial class AzurermFunctionAppSlotAuthSettingsBlock : TerraformBlockBas
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermFunctionAppSlotConnectionStringBlock : TerraformBlockBase
+public partial class AzurermFunctionAppSlotConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name attribute.
@@ -110,7 +110,7 @@ public partial class AzurermFunctionAppSlotConnectionStringBlock : TerraformBloc
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppSlotIdentityBlock : TerraformBlockBase
+public partial class AzurermFunctionAppSlotIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -135,7 +135,7 @@ public partial class AzurermFunctionAppSlotIdentityBlock : TerraformBlockBase
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlockBase
+public partial class AzurermFunctionAppSlotSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// The always_on attribute.
@@ -283,7 +283,7 @@ public partial class AzurermFunctionAppSlotSiteConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFunctionAppSlotTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppSlotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -451,14 +451,14 @@ public partial class AzurermFunctionAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppSlotAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermFunctionAppSlotAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermFunctionAppSlotConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermFunctionAppSlotConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -466,7 +466,7 @@ public partial class AzurermFunctionAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppSlotIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermFunctionAppSlotIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -474,14 +474,14 @@ public partial class AzurermFunctionAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppSlotSiteConfigBlock>>? SiteConfig { get; set; }
+    public TerraformList<AzurermFunctionAppSlotSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFunctionAppSlotTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFunctionAppSlotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_hostname attribute.

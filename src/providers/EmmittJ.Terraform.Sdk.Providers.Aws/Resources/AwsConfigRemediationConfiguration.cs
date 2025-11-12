@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for execution_controls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigRemediationConfigurationExecutionControlsBlock : TerraformBlockBase
+public partial class AwsConfigRemediationConfigurationExecutionControlsBlock() : TerraformBlock("execution_controls")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsConfigRemediationConfigurationExecutionControlsBlock : T
 /// Block type for parameter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigRemediationConfigurationParameterBlock : TerraformBlockBase
+public partial class AwsConfigRemediationConfigurationParameterBlock() : TerraformBlock("parameter")
 {
     /// <summary>
     /// The name attribute.
@@ -136,7 +136,7 @@ public partial class AwsConfigRemediationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionControls block(s) allowed")]
     [TerraformProperty("execution_controls")]
-    public partial TerraformList<TerraformBlock<AwsConfigRemediationConfigurationExecutionControlsBlock>>? ExecutionControls { get; set; }
+    public TerraformList<AwsConfigRemediationConfigurationExecutionControlsBlock> ExecutionControls { get; set; } = new();
 
     /// <summary>
     /// Block for parameter.
@@ -144,7 +144,7 @@ public partial class AwsConfigRemediationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(25, ErrorMessage = "Maximum 25 Parameter block(s) allowed")]
     [TerraformProperty("parameter")]
-    public partial TerraformList<TerraformBlock<AwsConfigRemediationConfigurationParameterBlock>>? Parameter { get; set; }
+    public TerraformList<AwsConfigRemediationConfigurationParameterBlock> Parameter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

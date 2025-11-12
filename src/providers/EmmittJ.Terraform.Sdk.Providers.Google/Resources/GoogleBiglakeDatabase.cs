@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for hive_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBiglakeDatabaseHiveOptionsBlock : TerraformBlockBase
+public partial class GoogleBiglakeDatabaseHiveOptionsBlock() : TerraformBlock("hive_options")
 {
     /// <summary>
     /// Cloud Storage folder URI where the database data is stored, starting with &amp;quot;gs://&amp;quot;.
@@ -30,7 +30,7 @@ public partial class GoogleBiglakeDatabaseHiveOptionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBiglakeDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBiglakeDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -104,14 +104,14 @@ public partial class GoogleBiglakeDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HiveOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveOptions block(s) allowed")]
     [TerraformProperty("hive_options")]
-    public partial TerraformList<TerraformBlock<GoogleBiglakeDatabaseHiveOptionsBlock>>? HiveOptions { get; set; }
+    public required TerraformList<GoogleBiglakeDatabaseHiveOptionsBlock> HiveOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBiglakeDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBiglakeDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The creation time of the database. A timestamp in RFC3339

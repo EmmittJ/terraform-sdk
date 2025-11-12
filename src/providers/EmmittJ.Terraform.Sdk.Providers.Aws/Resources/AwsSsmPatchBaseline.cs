@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for approval_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlockBase
+public partial class AwsSsmPatchBaselineApprovalRuleBlock() : TerraformBlock("approval_rule")
 {
     /// <summary>
     /// The approve_after_days attribute.
@@ -42,7 +42,7 @@ public partial class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlockBase
 /// Block type for global_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlockBase
+public partial class AwsSsmPatchBaselineGlobalFilterBlock() : TerraformBlock("global_filter")
 {
     /// <summary>
     /// The key attribute.
@@ -66,7 +66,7 @@ public partial class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlockBase
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmPatchBaselineSourceBlock : TerraformBlockBase
+public partial class AwsSsmPatchBaselineSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The configuration attribute.
@@ -201,7 +201,7 @@ public partial class AwsSsmPatchBaseline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("approval_rule")]
-    public partial TerraformList<TerraformBlock<AwsSsmPatchBaselineApprovalRuleBlock>>? ApprovalRule { get; set; }
+    public TerraformList<AwsSsmPatchBaselineApprovalRuleBlock> ApprovalRule { get; set; } = new();
 
     /// <summary>
     /// Block for global_filter.
@@ -209,7 +209,7 @@ public partial class AwsSsmPatchBaseline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 GlobalFilter block(s) allowed")]
     [TerraformProperty("global_filter")]
-    public partial TerraformList<TerraformBlock<AwsSsmPatchBaselineGlobalFilterBlock>>? GlobalFilter { get; set; }
+    public TerraformList<AwsSsmPatchBaselineGlobalFilterBlock> GlobalFilter { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -217,7 +217,7 @@ public partial class AwsSsmPatchBaseline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AwsSsmPatchBaselineSourceBlock>>? Source { get; set; }
+    public TerraformList<AwsSsmPatchBaselineSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

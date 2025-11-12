@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlockBase
+public partial class AwsEmrReleaseLabelsDataSourceFiltersBlock() : TerraformBlock("filters")
 {
     /// <summary>
     /// The application attribute.
@@ -54,7 +54,7 @@ public partial class AwsEmrReleaseLabelsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filters block(s) allowed")]
     [TerraformProperty("filters")]
-    public partial TerraformList<TerraformBlock<AwsEmrReleaseLabelsDataSourceFiltersBlock>>? Filters { get; set; }
+    public TerraformList<AwsEmrReleaseLabelsDataSourceFiltersBlock> Filters { get; set; } = new();
 
     /// <summary>
     /// The release_labels attribute.

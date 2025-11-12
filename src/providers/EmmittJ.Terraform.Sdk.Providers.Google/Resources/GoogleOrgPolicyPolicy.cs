@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for dry_run_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlockBase
+public partial class GoogleOrgPolicyPolicyDryRunSpecBlock() : TerraformBlock("dry_run_spec")
 {
 
     /// <summary>
@@ -30,7 +30,7 @@ public partial class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlockBase
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOrgPolicyPolicySpecBlock : TerraformBlockBase
+public partial class GoogleOrgPolicyPolicySpecBlock() : TerraformBlock("spec")
 {
 
     /// <summary>
@@ -54,7 +54,7 @@ public partial class GoogleOrgPolicyPolicySpecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOrgPolicyPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOrgPolicyPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -118,7 +118,7 @@ public partial class GoogleOrgPolicyPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DryRunSpec block(s) allowed")]
     [TerraformProperty("dry_run_spec")]
-    public partial TerraformList<TerraformBlock<GoogleOrgPolicyPolicyDryRunSpecBlock>>? DryRunSpec { get; set; }
+    public TerraformList<GoogleOrgPolicyPolicyDryRunSpecBlock> DryRunSpec { get; set; } = new();
 
     /// <summary>
     /// Block for spec.
@@ -126,14 +126,14 @@ public partial class GoogleOrgPolicyPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<GoogleOrgPolicyPolicySpecBlock>>? Spec { get; set; }
+    public TerraformList<GoogleOrgPolicyPolicySpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOrgPolicyPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOrgPolicyPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Optional. An opaque tag indicating the current state of the policy, used for concurrency control. This &#39;etag&#39; is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.

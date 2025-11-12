@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,6 +91,6 @@ public partial class AzurermContainerAppEnvironmentCustomDomain : TerraformResou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
 
 }

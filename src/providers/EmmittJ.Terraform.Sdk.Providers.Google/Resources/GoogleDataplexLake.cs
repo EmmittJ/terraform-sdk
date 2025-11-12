@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metastore in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexLakeMetastoreBlock : TerraformBlockBase
+public partial class GoogleDataplexLakeMetastoreBlock() : TerraformBlock("metastore")
 {
     /// <summary>
     /// Optional. A relative reference to the Dataproc Metastore (https://cloud.google.com/dataproc-metastore/docs) service associated with the lake: `projects/{project_id}/locations/{location_id}/services/{service_id}`
@@ -21,7 +21,7 @@ public partial class GoogleDataplexLakeMetastoreBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexLakeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexLakeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -116,14 +116,14 @@ public partial class GoogleDataplexLake : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastore block(s) allowed")]
     [TerraformProperty("metastore")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexLakeMetastoreBlock>>? Metastore { get; set; }
+    public TerraformList<GoogleDataplexLakeMetastoreBlock> Metastore { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexLakeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexLakeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Aggregated status of the underlying assets of the lake.

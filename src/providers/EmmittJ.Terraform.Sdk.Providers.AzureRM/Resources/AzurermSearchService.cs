@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSearchServiceIdentityBlock : TerraformBlockBase
+public partial class AzurermSearchServiceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermSearchServiceIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSearchServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSearchServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -195,14 +195,14 @@ public partial class AzurermSearchService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermSearchServiceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermSearchServiceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSearchServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSearchServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The customer_managed_key_encryption_compliance_status attribute.

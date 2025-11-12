@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for github_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryGithubConfigurationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryGithubConfigurationBlock() : TerraformBlock("github_configuration")
 {
     /// <summary>
     /// The account_name attribute.
@@ -60,7 +60,7 @@ public partial class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
 /// Block type for global_parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermDataFactoryGlobalParameterBlock : TerraformBlockBase
+public partial class AzurermDataFactoryGlobalParameterBlock() : TerraformBlock("global_parameter")
 {
     /// <summary>
     /// The name attribute.
@@ -92,7 +92,7 @@ public partial class AzurermDataFactoryGlobalParameterBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryIdentityBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -117,7 +117,7 @@ public partial class AzurermDataFactoryIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -153,7 +153,7 @@ public partial class AzurermDataFactoryTimeoutsBlock : TerraformBlockBase
 /// Block type for vsts_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryVstsConfigurationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryVstsConfigurationBlock() : TerraformBlock("vsts_configuration")
 {
     /// <summary>
     /// The account_name attribute.
@@ -301,14 +301,14 @@ public partial class AzurermDataFactory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubConfiguration block(s) allowed")]
     [TerraformProperty("github_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryGithubConfigurationBlock>>? GithubConfiguration { get; set; }
+    public TerraformList<AzurermDataFactoryGithubConfigurationBlock> GithubConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for global_parameter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("global_parameter")]
-    public partial TerraformSet<TerraformBlock<AzurermDataFactoryGlobalParameterBlock>>? GlobalParameter { get; set; }
+    public TerraformSet<AzurermDataFactoryGlobalParameterBlock> GlobalParameter { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -316,14 +316,14 @@ public partial class AzurermDataFactory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermDataFactoryIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vsts_configuration.
@@ -331,6 +331,6 @@ public partial class AzurermDataFactory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VstsConfiguration block(s) allowed")]
     [TerraformProperty("vsts_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryVstsConfigurationBlock>>? VstsConfiguration { get; set; }
+    public TerraformList<AzurermDataFactoryVstsConfigurationBlock> VstsConfiguration { get; set; } = new();
 
 }

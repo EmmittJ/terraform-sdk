@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for data_collection_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBlockBase
+public partial class AzurermOracleCloudVmClusterDataCollectionOptionsBlock() : TerraformBlock("data_collection_options")
 {
     /// <summary>
     /// The diagnostics_events_enabled attribute.
@@ -35,7 +35,7 @@ public partial class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : Ter
 /// Block type for file_system_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : TerraformBlockBase
+public partial class AzurermOracleCloudVmClusterFileSystemConfigurationBlock() : TerraformBlock("file_system_configuration")
 {
     /// <summary>
     /// The mount_point attribute.
@@ -57,7 +57,7 @@ public partial class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOracleCloudVmClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -321,21 +321,21 @@ public partial class AzurermOracleCloudVmCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCollectionOptions block(s) allowed")]
     [TerraformProperty("data_collection_options")]
-    public partial TerraformList<TerraformBlock<AzurermOracleCloudVmClusterDataCollectionOptionsBlock>>? DataCollectionOptions { get; set; }
+    public TerraformList<AzurermOracleCloudVmClusterDataCollectionOptionsBlock> DataCollectionOptions { get; set; } = new();
 
     /// <summary>
     /// Block for file_system_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("file_system_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermOracleCloudVmClusterFileSystemConfigurationBlock>>? FileSystemConfiguration { get; set; }
+    public TerraformList<AzurermOracleCloudVmClusterFileSystemConfigurationBlock> FileSystemConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOracleCloudVmClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOracleCloudVmClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hostname_actual attribute.

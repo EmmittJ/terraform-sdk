@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for expression in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLakeformationLfTagExpressionExpressionBlock : TerraformBlockBase
+public partial class AwsLakeformationLfTagExpressionExpressionBlock() : TerraformBlock("expression")
 {
     /// <summary>
     /// The tag_key attribute.
@@ -69,6 +69,6 @@ public partial class AwsLakeformationLfTagExpression : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("expression")]
-    public partial TerraformSet<TerraformBlock<AwsLakeformationLfTagExpressionExpressionBlock>>? Expression { get; set; }
+    public TerraformSet<AwsLakeformationLfTagExpressionExpressionBlock> Expression { get; set; } = new();
 
 }

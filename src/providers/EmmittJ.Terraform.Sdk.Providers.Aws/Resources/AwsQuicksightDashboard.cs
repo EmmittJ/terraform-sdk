@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dashboard_publish_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDashboardDashboardPublishOptionsBlock : TerraformBlockBase
+public partial class AwsQuicksightDashboardDashboardPublishOptionsBlock() : TerraformBlock("dashboard_publish_options")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsQuicksightDashboardDashboardPublishOptionsBlock : Terraf
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDashboardDefinitionBlock : TerraformBlockBase
+public partial class AwsQuicksightDashboardDefinitionBlock() : TerraformBlock("definition")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsQuicksightDashboardDefinitionBlock : TerraformBlockBase
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDashboardParametersBlock : TerraformBlockBase
+public partial class AwsQuicksightDashboardParametersBlock() : TerraformBlock("parameters")
 {
 }
 
@@ -30,7 +30,7 @@ public partial class AwsQuicksightDashboardParametersBlock : TerraformBlockBase
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightDashboardPermissionsBlock : TerraformBlockBase
+public partial class AwsQuicksightDashboardPermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The actions attribute.
@@ -54,7 +54,7 @@ public partial class AwsQuicksightDashboardPermissionsBlock : TerraformBlockBase
 /// Block type for source_entity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightDashboardSourceEntityBlock : TerraformBlockBase
+public partial class AwsQuicksightDashboardSourceEntityBlock() : TerraformBlock("source_entity")
 {
 }
 
@@ -62,7 +62,7 @@ public partial class AwsQuicksightDashboardSourceEntityBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsQuicksightDashboardTimeoutsBlock : TerraformBlockBase
+public partial class AwsQuicksightDashboardTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,7 +169,7 @@ public partial class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DashboardPublishOptions block(s) allowed")]
     [TerraformProperty("dashboard_publish_options")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDashboardDashboardPublishOptionsBlock>>? DashboardPublishOptions { get; set; }
+    public TerraformList<AwsQuicksightDashboardDashboardPublishOptionsBlock> DashboardPublishOptions { get; set; } = new();
 
     /// <summary>
     /// Block for definition.
@@ -177,7 +177,7 @@ public partial class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDashboardDefinitionBlock>>? Definition { get; set; }
+    public TerraformList<AwsQuicksightDashboardDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// Block for parameters.
@@ -185,7 +185,7 @@ public partial class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     [TerraformProperty("parameters")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDashboardParametersBlock>>? Parameters { get; set; }
+    public TerraformList<AwsQuicksightDashboardParametersBlock> Parameters { get; set; } = new();
 
     /// <summary>
     /// Block for permissions.
@@ -193,7 +193,7 @@ public partial class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     [TerraformProperty("permissions")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightDashboardPermissionsBlock>>? Permissions { get; set; }
+    public TerraformSet<AwsQuicksightDashboardPermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for source_entity.
@@ -201,14 +201,14 @@ public partial class AwsQuicksightDashboard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceEntity block(s) allowed")]
     [TerraformProperty("source_entity")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightDashboardSourceEntityBlock>>? SourceEntity { get; set; }
+    public TerraformList<AwsQuicksightDashboardSourceEntityBlock> SourceEntity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsQuicksightDashboardTimeoutsBlock>? Timeouts { get; set; }
+    public AwsQuicksightDashboardTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

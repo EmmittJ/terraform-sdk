@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRedisCacheDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRedisCacheDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermRedisCacheDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRedisCacheDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRedisCacheDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The access_keys_authentication_enabled attribute.

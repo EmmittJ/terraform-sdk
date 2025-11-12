@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2NetworkInsightsPathDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2NetworkInsightsPathDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AwsEc2NetworkInsightsPathDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2NetworkInsightsPathDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2NetworkInsightsPathDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

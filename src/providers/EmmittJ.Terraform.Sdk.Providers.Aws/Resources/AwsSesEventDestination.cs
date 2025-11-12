@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cloudwatch_destination in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlockBase
+public partial class AwsSesEventDestinationCloudwatchDestinationBlock() : TerraformBlock("cloudwatch_destination")
 {
     /// <summary>
     /// The default_value attribute.
@@ -38,7 +38,7 @@ public partial class AwsSesEventDestinationCloudwatchDestinationBlock : Terrafor
 /// Block type for kinesis_destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesEventDestinationKinesisDestinationBlock : TerraformBlockBase
+public partial class AwsSesEventDestinationKinesisDestinationBlock() : TerraformBlock("kinesis_destination")
 {
     /// <summary>
     /// The role_arn attribute.
@@ -62,7 +62,7 @@ public partial class AwsSesEventDestinationKinesisDestinationBlock : TerraformBl
 /// Block type for sns_destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesEventDestinationSnsDestinationBlock : TerraformBlockBase
+public partial class AwsSesEventDestinationSnsDestinationBlock() : TerraformBlock("sns_destination")
 {
     /// <summary>
     /// The topic_arn attribute.
@@ -134,7 +134,7 @@ public partial class AwsSesEventDestination : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cloudwatch_destination")]
-    public partial TerraformSet<TerraformBlock<AwsSesEventDestinationCloudwatchDestinationBlock>>? CloudwatchDestination { get; set; }
+    public TerraformSet<AwsSesEventDestinationCloudwatchDestinationBlock> CloudwatchDestination { get; set; } = new();
 
     /// <summary>
     /// Block for kinesis_destination.
@@ -142,7 +142,7 @@ public partial class AwsSesEventDestination : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisDestination block(s) allowed")]
     [TerraformProperty("kinesis_destination")]
-    public partial TerraformList<TerraformBlock<AwsSesEventDestinationKinesisDestinationBlock>>? KinesisDestination { get; set; }
+    public TerraformList<AwsSesEventDestinationKinesisDestinationBlock> KinesisDestination { get; set; } = new();
 
     /// <summary>
     /// Block for sns_destination.
@@ -150,7 +150,7 @@ public partial class AwsSesEventDestination : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnsDestination block(s) allowed")]
     [TerraformProperty("sns_destination")]
-    public partial TerraformList<TerraformBlock<AwsSesEventDestinationSnsDestinationBlock>>? SnsDestination { get; set; }
+    public TerraformList<AwsSesEventDestinationSnsDestinationBlock> SnsDestination { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

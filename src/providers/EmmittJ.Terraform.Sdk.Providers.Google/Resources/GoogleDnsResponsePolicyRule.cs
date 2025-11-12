@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for local_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsResponsePolicyRuleLocalDataBlock : TerraformBlockBase
+public partial class GoogleDnsResponsePolicyRuleLocalDataBlock() : TerraformBlock("local_data")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDnsResponsePolicyRuleLocalDataBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDnsResponsePolicyRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,13 +93,13 @@ public partial class GoogleDnsResponsePolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalData block(s) allowed")]
     [TerraformProperty("local_data")]
-    public partial TerraformList<TerraformBlock<GoogleDnsResponsePolicyRuleLocalDataBlock>>? LocalData { get; set; }
+    public TerraformList<GoogleDnsResponsePolicyRuleLocalDataBlock> LocalData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDnsResponsePolicyRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDnsResponsePolicyRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

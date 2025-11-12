@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeHttpsHealthCheckTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeHttpsHealthCheckTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -139,7 +139,7 @@ public partial class GoogleComputeHttpsHealthCheck : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeHttpsHealthCheckTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeHttpsHealthCheckTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

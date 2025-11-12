@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for error_document in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : TerraformBlockBase
+public partial class AwsS3BucketWebsiteConfigurationErrorDocumentBlock() : TerraformBlock("error_document")
 {
     /// <summary>
     /// The key attribute.
@@ -22,7 +22,7 @@ public partial class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : Terrafo
 /// Block type for index_document in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : TerraformBlockBase
+public partial class AwsS3BucketWebsiteConfigurationIndexDocumentBlock() : TerraformBlock("index_document")
 {
     /// <summary>
     /// The suffix attribute.
@@ -38,7 +38,7 @@ public partial class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : Terrafo
 /// Block type for redirect_all_requests_to in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : TerraformBlockBase
+public partial class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock() : TerraformBlock("redirect_all_requests_to")
 {
     /// <summary>
     /// The host_name attribute.
@@ -61,7 +61,7 @@ public partial class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock :
 /// Block type for routing_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketWebsiteConfigurationRoutingRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketWebsiteConfigurationRoutingRuleBlock() : TerraformBlock("routing_rule")
 {
 }
 
@@ -117,7 +117,7 @@ public partial class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorDocument block(s) allowed")]
     [TerraformProperty("error_document")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationErrorDocumentBlock>>? ErrorDocument { get; set; }
+    public TerraformList<AwsS3BucketWebsiteConfigurationErrorDocumentBlock> ErrorDocument { get; set; } = new();
 
     /// <summary>
     /// Block for index_document.
@@ -125,7 +125,7 @@ public partial class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexDocument block(s) allowed")]
     [TerraformProperty("index_document")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationIndexDocumentBlock>>? IndexDocument { get; set; }
+    public TerraformList<AwsS3BucketWebsiteConfigurationIndexDocumentBlock> IndexDocument { get; set; } = new();
 
     /// <summary>
     /// Block for redirect_all_requests_to.
@@ -133,14 +133,14 @@ public partial class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAllRequestsTo block(s) allowed")]
     [TerraformProperty("redirect_all_requests_to")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock>>? RedirectAllRequestsTo { get; set; }
+    public TerraformList<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock> RedirectAllRequestsTo { get; set; } = new();
 
     /// <summary>
     /// Block for routing_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("routing_rule")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRoutingRuleBlock>>? RoutingRule { get; set; }
+    public TerraformList<AwsS3BucketWebsiteConfigurationRoutingRuleBlock> RoutingRule { get; set; } = new();
 
     /// <summary>
     /// The website_domain attribute.

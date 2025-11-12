@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPublicIpPrefixTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPublicIpPrefixTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,7 +132,7 @@ public partial class AzurermPublicIpPrefix : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPublicIpPrefixTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPublicIpPrefixTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ip_prefix attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for end_date in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineLicenseConfigEndDateBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineLicenseConfigEndDateBlock() : TerraformBlock("end_date")
 {
     /// <summary>
     /// Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn&#39;t significant.
@@ -35,7 +35,7 @@ public partial class GoogleDiscoveryEngineLicenseConfigEndDateBlock : TerraformB
 /// Block type for start_date in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineLicenseConfigStartDateBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineLicenseConfigStartDateBlock() : TerraformBlock("start_date")
 {
     /// <summary>
     /// Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn&#39;t significant.
@@ -64,7 +64,7 @@ public partial class GoogleDiscoveryEngineLicenseConfigStartDateBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -174,7 +174,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndDate block(s) allowed")]
     [TerraformProperty("end_date")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineLicenseConfigEndDateBlock>>? EndDate { get; set; }
+    public TerraformList<GoogleDiscoveryEngineLicenseConfigEndDateBlock> EndDate { get; set; } = new();
 
     /// <summary>
     /// Block for start_date.
@@ -184,14 +184,14 @@ public partial class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StartDate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StartDate block(s) allowed")]
     [TerraformProperty("start_date")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineLicenseConfigStartDateBlock>>? StartDate { get; set; }
+    public required TerraformList<GoogleDiscoveryEngineLicenseConfigStartDateBlock> StartDate { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineLicenseConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineLicenseConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique full resource name of the license config. Values are of the format

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBastionHostIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermBastionHostIpConfigurationBlock() : TerraformBlock("ip_configuration")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermBastionHostIpConfigurationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBastionHostTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBastionHostTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -201,14 +201,14 @@ public partial class AzurermBastionHost : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
     [TerraformProperty("ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermBastionHostIpConfigurationBlock>>? IpConfiguration { get; set; }
+    public TerraformList<AzurermBastionHostIpConfigurationBlock> IpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBastionHostTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBastionHostTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dns_name attribute.

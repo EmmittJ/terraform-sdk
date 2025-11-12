@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_port_range in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : TerraformBlockBase
+public partial class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock() : TerraformBlock("destination_port_range")
 {
     /// <summary>
     /// The from_port attribute.
@@ -28,7 +28,7 @@ public partial class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : Te
 /// Block type for source_port_range in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock : TerraformBlockBase
+public partial class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock() : TerraformBlock("source_port_range")
 {
     /// <summary>
     /// The from_port attribute.
@@ -138,7 +138,7 @@ public partial class AwsEc2TrafficMirrorFilterRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationPortRange block(s) allowed")]
     [TerraformProperty("destination_port_range")]
-    public partial TerraformList<TerraformBlock<AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock>>? DestinationPortRange { get; set; }
+    public TerraformList<AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock> DestinationPortRange { get; set; } = new();
 
     /// <summary>
     /// Block for source_port_range.
@@ -146,7 +146,7 @@ public partial class AwsEc2TrafficMirrorFilterRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourcePortRange block(s) allowed")]
     [TerraformProperty("source_port_range")]
-    public partial TerraformList<TerraformBlock<AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock>>? SourcePortRange { get; set; }
+    public TerraformList<AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock> SourcePortRange { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

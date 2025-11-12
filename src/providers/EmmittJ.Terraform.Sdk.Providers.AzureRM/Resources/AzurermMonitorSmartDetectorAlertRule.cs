@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlockBase
+public partial class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock() : TerraformBlock("action_group")
 {
     /// <summary>
     /// The email_subject attribute.
@@ -36,7 +36,7 @@ public partial class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,13 +169,13 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionGroup block(s) allowed")]
     [TerraformProperty("action_group")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock>>? ActionGroup { get; set; }
+    public required TerraformList<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock> ActionGroup { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

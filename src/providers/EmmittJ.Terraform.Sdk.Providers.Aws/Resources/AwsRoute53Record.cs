@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for alias in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53RecordAliasBlock : TerraformBlockBase
+public partial class AwsRoute53RecordAliasBlock() : TerraformBlock("alias")
 {
     /// <summary>
     /// The evaluate_target_health attribute.
@@ -38,7 +38,7 @@ public partial class AwsRoute53RecordAliasBlock : TerraformBlockBase
 /// Block type for cidr_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlockBase
+public partial class AwsRoute53RecordCidrRoutingPolicyBlock() : TerraformBlock("cidr_routing_policy")
 {
     /// <summary>
     /// The collection_id attribute.
@@ -62,7 +62,7 @@ public partial class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlockBase
 /// Block type for failover_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53RecordFailoverRoutingPolicyBlock : TerraformBlockBase
+public partial class AwsRoute53RecordFailoverRoutingPolicyBlock() : TerraformBlock("failover_routing_policy")
 {
     /// <summary>
     /// The type attribute.
@@ -78,7 +78,7 @@ public partial class AwsRoute53RecordFailoverRoutingPolicyBlock : TerraformBlock
 /// Block type for geolocation_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53RecordGeolocationRoutingPolicyBlock : TerraformBlockBase
+public partial class AwsRoute53RecordGeolocationRoutingPolicyBlock() : TerraformBlock("geolocation_routing_policy")
 {
     /// <summary>
     /// The continent attribute.
@@ -107,7 +107,7 @@ public partial class AwsRoute53RecordGeolocationRoutingPolicyBlock : TerraformBl
 /// Block type for geoproximity_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53RecordGeoproximityRoutingPolicyBlock : TerraformBlockBase
+public partial class AwsRoute53RecordGeoproximityRoutingPolicyBlock() : TerraformBlock("geoproximity_routing_policy")
 {
     /// <summary>
     /// The aws_region attribute.
@@ -136,7 +136,7 @@ public partial class AwsRoute53RecordGeoproximityRoutingPolicyBlock : TerraformB
 /// Block type for latency_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53RecordLatencyRoutingPolicyBlock : TerraformBlockBase
+public partial class AwsRoute53RecordLatencyRoutingPolicyBlock() : TerraformBlock("latency_routing_policy")
 {
     /// <summary>
     /// The region attribute.
@@ -152,7 +152,7 @@ public partial class AwsRoute53RecordLatencyRoutingPolicyBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53RecordTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53RecordTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -181,7 +181,7 @@ public partial class AwsRoute53RecordTimeoutsBlock : TerraformBlockBase
 /// Block type for weighted_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53RecordWeightedRoutingPolicyBlock : TerraformBlockBase
+public partial class AwsRoute53RecordWeightedRoutingPolicyBlock() : TerraformBlock("weighted_routing_policy")
 {
     /// <summary>
     /// The weight attribute.
@@ -282,7 +282,7 @@ public partial class AwsRoute53Record : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alias block(s) allowed")]
     [TerraformProperty("alias")]
-    public partial TerraformList<TerraformBlock<AwsRoute53RecordAliasBlock>>? Alias { get; set; }
+    public TerraformList<AwsRoute53RecordAliasBlock> Alias { get; set; } = new();
 
     /// <summary>
     /// Block for cidr_routing_policy.
@@ -290,7 +290,7 @@ public partial class AwsRoute53Record : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrRoutingPolicy block(s) allowed")]
     [TerraformProperty("cidr_routing_policy")]
-    public partial TerraformList<TerraformBlock<AwsRoute53RecordCidrRoutingPolicyBlock>>? CidrRoutingPolicy { get; set; }
+    public TerraformList<AwsRoute53RecordCidrRoutingPolicyBlock> CidrRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for failover_routing_policy.
@@ -298,7 +298,7 @@ public partial class AwsRoute53Record : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FailoverRoutingPolicy block(s) allowed")]
     [TerraformProperty("failover_routing_policy")]
-    public partial TerraformList<TerraformBlock<AwsRoute53RecordFailoverRoutingPolicyBlock>>? FailoverRoutingPolicy { get; set; }
+    public TerraformList<AwsRoute53RecordFailoverRoutingPolicyBlock> FailoverRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for geolocation_routing_policy.
@@ -306,7 +306,7 @@ public partial class AwsRoute53Record : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GeolocationRoutingPolicy block(s) allowed")]
     [TerraformProperty("geolocation_routing_policy")]
-    public partial TerraformList<TerraformBlock<AwsRoute53RecordGeolocationRoutingPolicyBlock>>? GeolocationRoutingPolicy { get; set; }
+    public TerraformList<AwsRoute53RecordGeolocationRoutingPolicyBlock> GeolocationRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for geoproximity_routing_policy.
@@ -314,7 +314,7 @@ public partial class AwsRoute53Record : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GeoproximityRoutingPolicy block(s) allowed")]
     [TerraformProperty("geoproximity_routing_policy")]
-    public partial TerraformList<TerraformBlock<AwsRoute53RecordGeoproximityRoutingPolicyBlock>>? GeoproximityRoutingPolicy { get; set; }
+    public TerraformList<AwsRoute53RecordGeoproximityRoutingPolicyBlock> GeoproximityRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for latency_routing_policy.
@@ -322,14 +322,14 @@ public partial class AwsRoute53Record : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LatencyRoutingPolicy block(s) allowed")]
     [TerraformProperty("latency_routing_policy")]
-    public partial TerraformList<TerraformBlock<AwsRoute53RecordLatencyRoutingPolicyBlock>>? LatencyRoutingPolicy { get; set; }
+    public TerraformList<AwsRoute53RecordLatencyRoutingPolicyBlock> LatencyRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53RecordTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53RecordTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for weighted_routing_policy.
@@ -337,7 +337,7 @@ public partial class AwsRoute53Record : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeightedRoutingPolicy block(s) allowed")]
     [TerraformProperty("weighted_routing_policy")]
-    public partial TerraformList<TerraformBlock<AwsRoute53RecordWeightedRoutingPolicyBlock>>? WeightedRoutingPolicy { get; set; }
+    public TerraformList<AwsRoute53RecordWeightedRoutingPolicyBlock> WeightedRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

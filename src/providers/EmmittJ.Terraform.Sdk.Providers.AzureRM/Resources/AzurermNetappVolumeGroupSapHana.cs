@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetappVolumeGroupSapHanaTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeGroupSapHanaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -42,7 +42,7 @@ public partial class AzurermNetappVolumeGroupSapHanaTimeoutsBlock : TerraformBlo
 /// Block type for volume in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlockBase
+public partial class AzurermNetappVolumeGroupSapHanaVolumeBlock() : TerraformBlock("volume")
 {
     /// <summary>
     /// The capacity_pool_id attribute.
@@ -220,7 +220,7 @@ public partial class AzurermNetappVolumeGroupSapHana : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetappVolumeGroupSapHanaTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetappVolumeGroupSapHanaTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for volume.
@@ -229,6 +229,6 @@ public partial class AzurermNetappVolumeGroupSapHana : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Volume block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Volume block(s) allowed")]
     [TerraformProperty("volume")]
-    public partial TerraformList<TerraformBlock<AzurermNetappVolumeGroupSapHanaVolumeBlock>>? Volume { get; set; }
+    public TerraformList<AzurermNetappVolumeGroupSapHanaVolumeBlock> Volume { get; set; } = new();
 
 }

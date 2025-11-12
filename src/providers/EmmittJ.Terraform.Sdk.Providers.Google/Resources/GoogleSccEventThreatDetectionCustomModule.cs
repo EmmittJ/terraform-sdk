@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -92,7 +92,7 @@ public partial class GoogleSccEventThreatDetectionCustomModule : TerraformResour
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The editor that last updated the custom module

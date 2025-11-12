@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsVpnConnectionDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsVpnConnectionDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -54,7 +54,7 @@ public partial class AwsVpnConnectionDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsVpnConnectionDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsVpnConnectionDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The category attribute.

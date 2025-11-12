@@ -88,13 +88,21 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
             bool hasSet = propertySyntax.AccessorList?.Accessors
                 .Any(a => a.IsKind(SyntaxKind.SetAccessorDeclaration) || a.IsKind(SyntaxKind.InitAccessorDeclaration)) ?? false;
 
+            // Check if the property type is a TerraformBlock
+            bool isBlockType = IsBlockType(member.Type);
+
+            // Check if the property has the 'new' modifier
+            bool hasNewModifier = propertySyntax.Modifiers.Any(m => m.IsKind(SyntaxKind.NewKeyword));
+
             propertiesBuilder.Add(new PropertyToGenerate(
                 Name: member.Name,
                 TerraformName: GetTerraformName(member),
                 TypeName: member.Type.ToDisplayString(),
                 IsRequired: member.IsRequired,
                 IsNullable: member.NullableAnnotation == NullableAnnotation.Annotated,
-                HasSet: hasSet));
+                HasSet: hasSet,
+                IsBlockType: isBlockType,
+                HasNewModifier: hasNewModifier));
         }
 
         var properties = propertiesBuilder.ToImmutable();
@@ -134,28 +142,46 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
     private static bool ShouldReturnReferences(INamedTypeSymbol classSymbol)
     {
         // Check the inheritance chain
-        // Most Terraform constructs can be referenced except Providers
+        // Resources, Data Sources, Ephemeral Resources, and Blocks return references from their getters
+        // Providers return actual values - they're config that can't be referenced in HCL
         var baseType = classSymbol.BaseType;
         while (baseType is not null)
         {
             var name = baseType.Name;
 
-            // Only Providers don't return references
+            // Providers don't return references - they return actual stored values
+            // Provider configuration values cannot be referenced in HCL
+            // Providers are only used via alias selection (provider = aws.west)
             if (name == "TerraformProvider")
                 return false;
 
-            // Resources, DataSources, EphemeralResources, and Blocks all return references
+            // Resources, DataSources, EphemeralResources, and Blocks return references
+            // These can all be referenced in HCL expressions
             if (name == "TerraformResource" ||
                 name == "TerraformDataSource" ||
                 name == "TerraformEphemeralResource" ||
-                name == "TerraformBlockBase")
+                name == "TerraformBlock")
                 return true;
 
             baseType = baseType.BaseType;
         }
 
-        // Default to returning references if we can't determine
-        return true;
+        // Default to not returning references if we can't determine
+        return false;
+    }
+
+    private static bool IsBlockType(ITypeSymbol typeSymbol)
+    {
+        // In Terraform, ALL properties on resources/data sources/blocks return references
+        // when accessed in HCL (e.g., azurerm_redis_cache.example.primary_connection_string)
+        //
+        // The only exception is Providers, which return actual stored values because
+        // provider config is not referenced in HCL.
+        //
+        // This method should return false for everything, meaning "return references"
+        // The class-level ShouldReturnReferences already handles the Provider vs Resource distinction
+
+        return false;
     }
 
     private static IEnumerable<ISymbol> GetAllMembers(INamedTypeSymbol type)
@@ -241,15 +267,20 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
     private static void GenerateProperty(StringBuilder sb, PropertyToGenerate property, bool shouldReturnReferences)
     {
         var requiredModifier = property.IsRequired ? "required " : "";
+        var newModifier = property.HasNewModifier ? "new " : "";
 
         sb.AppendLine($"    /// <summary>");
         sb.AppendLine($"    /// Terraform property: {property.TerraformName}");
         sb.AppendLine($"    /// </summary>");
-        sb.AppendLine($"    public {requiredModifier}partial {property.TypeName} {property.Name}");
+        sb.AppendLine($"    public {requiredModifier}{newModifier}partial {property.TypeName} {property.Name}");
         sb.AppendLine("    {");
 
+        // Determine if THIS property should return a reference
+        // Block properties should return actual values, not references
+        bool propertyReturnsReference = shouldReturnReferences && !property.IsBlockType;
+
         // Generate getter
-        GenerateGetter(sb, property, shouldReturnReferences);
+        GenerateGetter(sb, property, propertyReturnsReference);
 
         // Generate setter (if property has one)
         if (property.HasSet)
@@ -260,9 +291,9 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         sb.AppendLine("    }");
         sb.AppendLine();
 
-        // Generate {Property}Value accessor for properties with setters
+        // Generate {Property}Value accessor for properties with setters that return references
         // This retrieves the stored value (not the reference)
-        if (property.HasSet)
+        if (property.HasSet && propertyReturnsReference)
         {
             GenerateValueAccessor(sb, property);
         }
@@ -353,5 +384,7 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         string TypeName,
         bool IsRequired,
         bool IsNullable,
-        bool HasSet);
+        bool HasSet,
+        bool IsBlockType,
+        bool HasNewModifier);
 }

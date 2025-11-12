@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetappBackupPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetappBackupPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,7 +125,7 @@ public partial class GoogleNetappBackupPolicy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetappBackupPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetappBackupPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The total number of volumes assigned by this backup policy.

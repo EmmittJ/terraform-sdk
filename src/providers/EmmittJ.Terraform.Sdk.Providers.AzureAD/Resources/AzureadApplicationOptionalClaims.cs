@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for access_token in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlockBase
+public partial class AzureadApplicationOptionalClaimsAccessTokenBlock() : TerraformBlock("access_token")
 {
     /// <summary>
     /// List of additional properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim
@@ -43,7 +43,7 @@ public partial class AzureadApplicationOptionalClaimsAccessTokenBlock : Terrafor
 /// Block type for id_token in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlockBase
+public partial class AzureadApplicationOptionalClaimsIdTokenBlock() : TerraformBlock("id_token")
 {
     /// <summary>
     /// List of additional properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim
@@ -80,7 +80,7 @@ public partial class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlo
 /// Block type for saml2_token in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlockBase
+public partial class AzureadApplicationOptionalClaimsSaml2TokenBlock() : TerraformBlock("saml2_token")
 {
     /// <summary>
     /// List of additional properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim
@@ -117,7 +117,7 @@ public partial class AzureadApplicationOptionalClaimsSaml2TokenBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlockBase
+public partial class AzureadApplicationOptionalClaimsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -178,27 +178,27 @@ public partial class AzureadApplicationOptionalClaims : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("access_token")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationOptionalClaimsAccessTokenBlock>>? AccessToken { get; set; }
+    public TerraformList<AzureadApplicationOptionalClaimsAccessTokenBlock> AccessToken { get; set; } = new();
 
     /// <summary>
     /// Block for id_token.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("id_token")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationOptionalClaimsIdTokenBlock>>? IdToken { get; set; }
+    public TerraformList<AzureadApplicationOptionalClaimsIdTokenBlock> IdToken { get; set; } = new();
 
     /// <summary>
     /// Block for saml2_token.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("saml2_token")]
-    public partial TerraformList<TerraformBlock<AzureadApplicationOptionalClaimsSaml2TokenBlock>>? Saml2Token { get; set; }
+    public TerraformList<AzureadApplicationOptionalClaimsSaml2TokenBlock> Saml2Token { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadApplicationOptionalClaimsTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadApplicationOptionalClaimsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

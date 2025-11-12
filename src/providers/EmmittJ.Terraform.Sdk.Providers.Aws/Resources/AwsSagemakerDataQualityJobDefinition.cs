@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_quality_app_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock : TerraformBlockBase
+public partial class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock() : TerraformBlock("data_quality_app_specification")
 {
     /// <summary>
     /// The environment attribute.
@@ -43,7 +43,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecifica
 /// Block type for data_quality_baseline_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock() : TerraformBlock("data_quality_baseline_config")
 {
 }
 
@@ -51,7 +51,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConf
 /// Block type for data_quality_job_input in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock : TerraformBlockBase
+public partial class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock() : TerraformBlock("data_quality_job_input")
 {
 }
 
@@ -59,7 +59,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBloc
 /// Block type for data_quality_job_output_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock() : TerraformBlock("data_quality_job_output_config")
 {
     /// <summary>
     /// The kms_key_id attribute.
@@ -74,7 +74,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputCon
 /// Block type for job_resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDataQualityJobDefinitionJobResourcesBlock : TerraformBlockBase
+public partial class AwsSagemakerDataQualityJobDefinitionJobResourcesBlock() : TerraformBlock("job_resources")
 {
 }
 
@@ -82,7 +82,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionJobResourcesBlock : Ter
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock() : TerraformBlock("network_config")
 {
     /// <summary>
     /// The enable_inter_container_traffic_encryption attribute.
@@ -104,7 +104,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : Te
 /// Block type for stopping_condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock : TerraformBlockBase
+public partial class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock() : TerraformBlock("stopping_condition")
 {
     /// <summary>
     /// The max_runtime_in_seconds attribute.
@@ -176,7 +176,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityAppSpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityAppSpecification block(s) allowed")]
     [TerraformProperty("data_quality_app_specification")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock>>? DataQualityAppSpecification { get; set; }
+    public required TerraformList<AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock> DataQualityAppSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for data_quality_baseline_config.
@@ -184,7 +184,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityBaselineConfig block(s) allowed")]
     [TerraformProperty("data_quality_baseline_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock>>? DataQualityBaselineConfig { get; set; }
+    public TerraformList<AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock> DataQualityBaselineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for data_quality_job_input.
@@ -194,7 +194,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityJobInput block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityJobInput block(s) allowed")]
     [TerraformProperty("data_quality_job_input")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock>>? DataQualityJobInput { get; set; }
+    public required TerraformList<AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock> DataQualityJobInput { get; set; } = new();
 
     /// <summary>
     /// Block for data_quality_job_output_config.
@@ -204,7 +204,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityJobOutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityJobOutputConfig block(s) allowed")]
     [TerraformProperty("data_quality_job_output_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock>>? DataQualityJobOutputConfig { get; set; }
+    public required TerraformList<AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock> DataQualityJobOutputConfig { get; set; } = new();
 
     /// <summary>
     /// Block for job_resources.
@@ -214,7 +214,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 JobResources block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobResources block(s) allowed")]
     [TerraformProperty("job_resources")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionJobResourcesBlock>>? JobResources { get; set; }
+    public required TerraformList<AwsSagemakerDataQualityJobDefinitionJobResourcesBlock> JobResources { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -222,7 +222,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public TerraformList<AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for stopping_condition.
@@ -230,7 +230,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StoppingCondition block(s) allowed")]
     [TerraformProperty("stopping_condition")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock>>? StoppingCondition { get; set; }
+    public TerraformList<AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock> StoppingCondition { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

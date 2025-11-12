@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareDatasetEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleHealthcareDatasetEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// KMS encryption key that is used to secure this dataset and its sub-resources. The key used for
@@ -24,7 +24,7 @@ public partial class GoogleHealthcareDatasetEncryptionSpecBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleHealthcareDatasetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleHealthcareDatasetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -104,14 +104,14 @@ public partial class GoogleHealthcareDataset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareDatasetEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleHealthcareDatasetEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleHealthcareDatasetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleHealthcareDatasetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fully qualified name of this dataset

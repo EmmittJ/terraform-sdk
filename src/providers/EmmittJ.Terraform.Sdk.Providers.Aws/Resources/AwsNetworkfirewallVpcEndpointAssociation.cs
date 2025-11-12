@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for subnet_mapping in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock() : TerraformBlock("subnet_mapping")
 {
     /// <summary>
     /// The ip_address_type attribute.
@@ -29,7 +29,7 @@ public partial class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -98,14 +98,14 @@ public partial class AwsNetworkfirewallVpcEndpointAssociation : TerraformResourc
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("subnet_mapping")]
-    public partial TerraformList<TerraformBlock<AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock>>? SubnetMapping { get; set; }
+    public TerraformList<AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock> SubnetMapping { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The tags_all attribute.

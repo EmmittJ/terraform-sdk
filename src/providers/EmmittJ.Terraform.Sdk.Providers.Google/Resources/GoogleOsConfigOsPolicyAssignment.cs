@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for instance_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock : TerraformBlockBase
+public partial class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock() : TerraformBlock("instance_filter")
 {
     /// <summary>
     /// Target all VMs in the project. If true, no other criteria is permitted.
@@ -21,7 +21,7 @@ public partial class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock : Terra
 /// Block type for os_policies in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlockBase
+public partial class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock() : TerraformBlock("os_policies")
 {
     /// <summary>
     /// This flag determines the OS policy compliance status when none of the resource groups within the policy are applicable for a VM. Set this value to &#39;true&#39; if the policy needs to be reported as compliant even if the policy has nothing to validate or enforce.
@@ -64,7 +64,7 @@ public partial class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : Terraform
 /// Block type for rollout in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOsConfigOsPolicyAssignmentRolloutBlock : TerraformBlockBase
+public partial class GoogleOsConfigOsPolicyAssignmentRolloutBlock() : TerraformBlock("rollout")
 {
     /// <summary>
     /// This determines the minimum duration of time to wait after the configuration changes are applied through the current rollout. A VM continues to count towards the &#39;disruption_budget&#39; at least until this duration of time has passed after configuration changes are applied.
@@ -80,7 +80,7 @@ public partial class GoogleOsConfigOsPolicyAssignmentRolloutBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -167,7 +167,7 @@ public partial class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InstanceFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceFilter block(s) allowed")]
     [TerraformProperty("instance_filter")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock>>? InstanceFilter { get; set; }
+    public required TerraformList<GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock> InstanceFilter { get; set; } = new();
 
     /// <summary>
     /// Block for os_policies.
@@ -176,7 +176,7 @@ public partial class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsPolicies is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsPolicies block(s) required")]
     [TerraformProperty("os_policies")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock>>? OsPolicies { get; set; }
+    public required TerraformList<GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock> OsPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for rollout.
@@ -186,14 +186,14 @@ public partial class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rollout block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rollout block(s) allowed")]
     [TerraformProperty("rollout")]
-    public partial TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentRolloutBlock>>? Rollout { get; set; }
+    public required TerraformList<GoogleOsConfigOsPolicyAssignmentRolloutBlock> Rollout { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOsConfigOsPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOsConfigOsPolicyAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision.

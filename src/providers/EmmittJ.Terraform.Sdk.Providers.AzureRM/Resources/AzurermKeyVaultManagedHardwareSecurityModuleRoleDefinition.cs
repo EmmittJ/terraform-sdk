@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permission in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock : TerraformBlockBase
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock() : TerraformBlock("permission")
 {
     /// <summary>
     /// The actions attribute.
@@ -42,7 +42,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionP
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,14 +125,14 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition 
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("permission")]
-    public partial TerraformList<TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>>? Permission { get; set; }
+    public TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock> Permission { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource_manager_id attribute.

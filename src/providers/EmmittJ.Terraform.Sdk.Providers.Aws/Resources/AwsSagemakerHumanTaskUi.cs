@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ui_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerHumanTaskUiUiTemplateBlock : TerraformBlockBase
+public partial class AwsSagemakerHumanTaskUiUiTemplateBlock() : TerraformBlock("ui_template")
 {
     /// <summary>
     /// The content attribute.
@@ -73,7 +73,7 @@ public partial class AwsSagemakerHumanTaskUi : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UiTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UiTemplate block(s) allowed")]
     [TerraformProperty("ui_template")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerHumanTaskUiUiTemplateBlock>>? UiTemplate { get; set; }
+    public required TerraformList<AwsSagemakerHumanTaskUiUiTemplateBlock> UiTemplate { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

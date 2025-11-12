@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for blue_green_update in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDbInstanceBlueGreenUpdateBlock : TerraformBlockBase
+public partial class AwsDbInstanceBlueGreenUpdateBlock() : TerraformBlock("blue_green_update")
 {
     /// <summary>
     /// The enabled attribute.
@@ -21,7 +21,7 @@ public partial class AwsDbInstanceBlueGreenUpdateBlock : TerraformBlockBase
 /// Block type for restore_to_point_in_time in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDbInstanceRestoreToPointInTimeBlock : TerraformBlockBase
+public partial class AwsDbInstanceRestoreToPointInTimeBlock() : TerraformBlock("restore_to_point_in_time")
 {
     /// <summary>
     /// The restore_time attribute.
@@ -64,7 +64,7 @@ public partial class AwsDbInstanceRestoreToPointInTimeBlock : TerraformBlockBase
 /// Block type for s3_import in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDbInstanceS3ImportBlock : TerraformBlockBase
+public partial class AwsDbInstanceS3ImportBlock() : TerraformBlock("s3_import")
 {
     /// <summary>
     /// The bucket_name attribute.
@@ -111,7 +111,7 @@ public partial class AwsDbInstanceS3ImportBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDbInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AwsDbInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -650,7 +650,7 @@ public partial class AwsDbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlueGreenUpdate block(s) allowed")]
     [TerraformProperty("blue_green_update")]
-    public partial TerraformList<TerraformBlock<AwsDbInstanceBlueGreenUpdateBlock>>? BlueGreenUpdate { get; set; }
+    public TerraformList<AwsDbInstanceBlueGreenUpdateBlock> BlueGreenUpdate { get; set; } = new();
 
     /// <summary>
     /// Block for restore_to_point_in_time.
@@ -658,7 +658,7 @@ public partial class AwsDbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreToPointInTime block(s) allowed")]
     [TerraformProperty("restore_to_point_in_time")]
-    public partial TerraformList<TerraformBlock<AwsDbInstanceRestoreToPointInTimeBlock>>? RestoreToPointInTime { get; set; }
+    public TerraformList<AwsDbInstanceRestoreToPointInTimeBlock> RestoreToPointInTime { get; set; } = new();
 
     /// <summary>
     /// Block for s3_import.
@@ -666,14 +666,14 @@ public partial class AwsDbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Import block(s) allowed")]
     [TerraformProperty("s3_import")]
-    public partial TerraformList<TerraformBlock<AwsDbInstanceS3ImportBlock>>? S3Import { get; set; }
+    public TerraformList<AwsDbInstanceS3ImportBlock> S3Import { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDbInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDbInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The address attribute.

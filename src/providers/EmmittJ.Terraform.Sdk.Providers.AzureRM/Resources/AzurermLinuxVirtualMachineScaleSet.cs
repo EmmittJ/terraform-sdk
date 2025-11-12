@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_capabilities in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlock() : TerraformBlock("additional_capabilities")
 {
     /// <summary>
     /// The ultra_ssd_enabled attribute.
@@ -21,7 +21,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlo
 /// Block type for admin_ssh_key in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock() : TerraformBlock("admin_ssh_key")
 {
     /// <summary>
     /// The public_key attribute.
@@ -45,7 +45,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock : Terraf
 /// Block type for automatic_instance_repair in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock() : TerraformBlock("automatic_instance_repair")
 {
     /// <summary>
     /// The action attribute.
@@ -75,7 +75,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBl
 /// Block type for automatic_os_upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock() : TerraformBlock("automatic_os_upgrade_policy")
 {
     /// <summary>
     /// The disable_automatic_rollback attribute.
@@ -99,7 +99,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyB
 /// Block type for boot_diagnostics in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock() : TerraformBlock("boot_diagnostics")
 {
     /// <summary>
     /// The storage_account_uri attribute.
@@ -114,7 +114,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock : Te
 /// Block type for data_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetDataDiskBlock() : TerraformBlock("data_disk")
 {
     /// <summary>
     /// The caching attribute.
@@ -196,7 +196,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : Terraform
 /// Block type for extension in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetExtensionBlock() : TerraformBlock("extension")
 {
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
@@ -278,7 +278,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetExtensionBlock : Terrafor
 /// Block type for gallery_application in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock() : TerraformBlock("gallery_application")
 {
     /// <summary>
     /// The configuration_blob_uri attribute.
@@ -315,7 +315,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock :
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetIdentityBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -340,7 +340,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetIdentityBlock : Terraform
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock() : TerraformBlock("network_interface")
 {
     /// <summary>
     /// The auxiliary_mode attribute.
@@ -405,7 +405,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : T
 /// Block type for os_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetOsDiskBlock() : TerraformBlock("os_disk")
 {
     /// <summary>
     /// The caching attribute.
@@ -464,7 +464,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBl
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetPlanBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetPlanBlock() : TerraformBlock("plan")
 {
     /// <summary>
     /// The name attribute.
@@ -496,7 +496,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetPlanBlock : TerraformBloc
 /// Block type for rolling_upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock() : TerraformBlock("rolling_upgrade_policy")
 {
     /// <summary>
     /// The cross_zone_upgrades_enabled attribute.
@@ -557,7 +557,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock
 /// Block type for scale_in in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetScaleInBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetScaleInBlock() : TerraformBlock("scale_in")
 {
     /// <summary>
     /// The force_deletion_enabled attribute.
@@ -579,7 +579,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetScaleInBlock : TerraformB
 /// Block type for secret in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetSecretBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetSecretBlock() : TerraformBlock("secret")
 {
     /// <summary>
     /// The key_vault_id attribute.
@@ -595,7 +595,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetSecretBlock : TerraformBl
 /// Block type for source_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock() : TerraformBlock("source_image_reference")
 {
     /// <summary>
     /// The offer attribute.
@@ -635,7 +635,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock
 /// Block type for spot_restore in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock() : TerraformBlock("spot_restore")
 {
     /// <summary>
     /// The enabled attribute.
@@ -657,7 +657,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock : Terraf
 /// Block type for termination_notification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock() : TerraformBlock("termination_notification")
 {
     /// <summary>
     /// The enabled attribute.
@@ -680,7 +680,7 @@ public partial class AzurermLinuxVirtualMachineScaleSetTerminationNotificationBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLinuxVirtualMachineScaleSetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLinuxVirtualMachineScaleSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -992,14 +992,14 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
     [TerraformProperty("additional_capabilities")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlock>>? AdditionalCapabilities { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlock> AdditionalCapabilities { get; set; } = new();
 
     /// <summary>
     /// Block for admin_ssh_key.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("admin_ssh_key")]
-    public partial TerraformSet<TerraformBlock<AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock>>? AdminSshKey { get; set; }
+    public TerraformSet<AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock> AdminSshKey { get; set; } = new();
 
     /// <summary>
     /// Block for automatic_instance_repair.
@@ -1007,7 +1007,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticInstanceRepair block(s) allowed")]
     [TerraformProperty("automatic_instance_repair")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock>>? AutomaticInstanceRepair { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock> AutomaticInstanceRepair { get; set; } = new();
 
     /// <summary>
     /// Block for automatic_os_upgrade_policy.
@@ -1015,7 +1015,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticOsUpgradePolicy block(s) allowed")]
     [TerraformProperty("automatic_os_upgrade_policy")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock>>? AutomaticOsUpgradePolicy { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock> AutomaticOsUpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for boot_diagnostics.
@@ -1023,21 +1023,21 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
     [TerraformProperty("boot_diagnostics")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock>>? BootDiagnostics { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock> BootDiagnostics { get; set; } = new();
 
     /// <summary>
     /// Block for data_disk.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_disk")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetDataDiskBlock>>? DataDisk { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetDataDiskBlock> DataDisk { get; set; } = new();
 
     /// <summary>
     /// Block for extension.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("extension")]
-    public partial TerraformSet<TerraformBlock<AzurermLinuxVirtualMachineScaleSetExtensionBlock>>? Extension { get; set; }
+    public TerraformSet<AzurermLinuxVirtualMachineScaleSetExtensionBlock> Extension { get; set; } = new();
 
     /// <summary>
     /// Block for gallery_application.
@@ -1045,7 +1045,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 GalleryApplication block(s) allowed")]
     [TerraformProperty("gallery_application")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock>>? GalleryApplication { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock> GalleryApplication { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -1053,7 +1053,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
@@ -1062,7 +1062,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterface is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkInterface block(s) required")]
     [TerraformProperty("network_interface")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock>>? NetworkInterface { get; set; }
+    public required TerraformList<AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock> NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for os_disk.
@@ -1072,7 +1072,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
     [TerraformProperty("os_disk")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetOsDiskBlock>>? OsDisk { get; set; }
+    public required TerraformList<AzurermLinuxVirtualMachineScaleSetOsDiskBlock> OsDisk { get; set; } = new();
 
     /// <summary>
     /// Block for plan.
@@ -1080,7 +1080,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetPlanBlock>>? Plan { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetPlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for rolling_upgrade_policy.
@@ -1088,7 +1088,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RollingUpgradePolicy block(s) allowed")]
     [TerraformProperty("rolling_upgrade_policy")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock>>? RollingUpgradePolicy { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock> RollingUpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for scale_in.
@@ -1096,14 +1096,14 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScaleIn block(s) allowed")]
     [TerraformProperty("scale_in")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetScaleInBlock>>? ScaleIn { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetScaleInBlock> ScaleIn { get; set; } = new();
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("secret")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetSecretBlock>>? Secret { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetSecretBlock> Secret { get; set; } = new();
 
     /// <summary>
     /// Block for source_image_reference.
@@ -1111,7 +1111,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
     [TerraformProperty("source_image_reference")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock>>? SourceImageReference { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock> SourceImageReference { get; set; } = new();
 
     /// <summary>
     /// Block for spot_restore.
@@ -1119,7 +1119,7 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpotRestore block(s) allowed")]
     [TerraformProperty("spot_restore")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock>>? SpotRestore { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock> SpotRestore { get; set; } = new();
 
     /// <summary>
     /// Block for termination_notification.
@@ -1127,14 +1127,14 @@ public partial class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
     [TerraformProperty("termination_notification")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock>>? TerminationNotification { get; set; }
+    public TerraformList<AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock> TerminationNotification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLinuxVirtualMachineScaleSetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLinuxVirtualMachineScaleSetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique_id attribute.

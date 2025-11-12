@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for inspect_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionInspectTemplateInspectConfigBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionInspectTemplateInspectConfigBlock() : TerraformBlock("inspect_config")
 {
     /// <summary>
     /// List of options defining data content to scan. If empty, text, images, and other content will be included. Possible values: [&amp;quot;CONTENT_TEXT&amp;quot;, &amp;quot;CONTENT_IMAGE&amp;quot;]
@@ -42,7 +42,7 @@ public partial class GoogleDataLossPreventionInspectTemplateInspectConfigBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataLossPreventionInspectTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionInspectTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,14 +126,14 @@ public partial class GoogleDataLossPreventionInspectTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InspectConfig block(s) allowed")]
     [TerraformProperty("inspect_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionInspectTemplateInspectConfigBlock>>? InspectConfig { get; set; }
+    public TerraformList<GoogleDataLossPreventionInspectTemplateInspectConfigBlock> InspectConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataLossPreventionInspectTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataLossPreventionInspectTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the inspect template. Set by the server.

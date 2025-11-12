@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for frontend_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLbFrontendIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermLbFrontendIpConfigurationBlock() : TerraformBlock("frontend_ip_configuration")
 {
     /// <summary>
     /// The gateway_load_balancer_frontend_ip_configuration_id attribute.
@@ -82,7 +82,7 @@ public partial class AzurermLbFrontendIpConfigurationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLbTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLbTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -201,14 +201,14 @@ public partial class AzurermLb : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("frontend_ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermLbFrontendIpConfigurationBlock>>? FrontendIpConfiguration { get; set; }
+    public TerraformList<AzurermLbFrontendIpConfigurationBlock> FrontendIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLbTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLbTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The private_ip_address attribute.

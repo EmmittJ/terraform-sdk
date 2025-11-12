@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entity_population_mechanism in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleChronicleWatchlistEntityPopulationMechanismBlock : TerraformBlockBase
+public partial class GoogleChronicleWatchlistEntityPopulationMechanismBlock() : TerraformBlock("entity_population_mechanism")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleChronicleWatchlistEntityPopulationMechanismBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlockBase
+public partial class GoogleChronicleWatchlistTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -43,7 +43,7 @@ public partial class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlockBase
 /// Block type for watchlist_user_preferences in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleChronicleWatchlistWatchlistUserPreferencesBlock : TerraformBlockBase
+public partial class GoogleChronicleWatchlistWatchlistUserPreferencesBlock() : TerraformBlock("watchlist_user_preferences")
 {
     /// <summary>
     /// Optional. Whether the watchlist is pinned on the dashboard.
@@ -138,14 +138,14 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntityPopulationMechanism block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntityPopulationMechanism block(s) allowed")]
     [TerraformProperty("entity_population_mechanism")]
-    public partial TerraformList<TerraformBlock<GoogleChronicleWatchlistEntityPopulationMechanismBlock>>? EntityPopulationMechanism { get; set; }
+    public required TerraformList<GoogleChronicleWatchlistEntityPopulationMechanismBlock> EntityPopulationMechanism { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleChronicleWatchlistTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleChronicleWatchlistTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for watchlist_user_preferences.
@@ -153,7 +153,7 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WatchlistUserPreferences block(s) allowed")]
     [TerraformProperty("watchlist_user_preferences")]
-    public partial TerraformList<TerraformBlock<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>>? WatchlistUserPreferences { get; set; }
+    public TerraformList<GoogleChronicleWatchlistWatchlistUserPreferencesBlock> WatchlistUserPreferences { get; set; } = new();
 
     /// <summary>
     /// Output only. Time the watchlist was created.

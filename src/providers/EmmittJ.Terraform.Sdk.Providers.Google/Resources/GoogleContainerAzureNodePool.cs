@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlockBase
+public partial class GoogleContainerAzureNodePoolAutoscalingBlock() : TerraformBlock("autoscaling")
 {
     /// <summary>
     /// Maximum number of nodes in the node pool. Must be &amp;gt;= min_node_count.
@@ -30,7 +30,7 @@ public partial class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlo
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureNodePoolConfigBlock : TerraformBlockBase
+public partial class GoogleContainerAzureNodePoolConfigBlock() : TerraformBlock("config")
 {
     /// <summary>
     /// Optional. The initial labels assigned to nodes of this node pool. An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
@@ -59,7 +59,7 @@ public partial class GoogleContainerAzureNodePoolConfigBlock : TerraformBlockBas
 /// Block type for management in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureNodePoolManagementBlock : TerraformBlockBase
+public partial class GoogleContainerAzureNodePoolManagementBlock() : TerraformBlock("management")
 {
     /// <summary>
     /// Optional. Whether or not the nodes will be automatically repaired.
@@ -74,7 +74,7 @@ public partial class GoogleContainerAzureNodePoolManagementBlock : TerraformBloc
 /// Block type for max_pods_constraint in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAzureNodePoolMaxPodsConstraintBlock : TerraformBlockBase
+public partial class GoogleContainerAzureNodePoolMaxPodsConstraintBlock() : TerraformBlock("max_pods_constraint")
 {
     /// <summary>
     /// The maximum number of pods to schedule on a single node.
@@ -90,7 +90,7 @@ public partial class GoogleContainerAzureNodePoolMaxPodsConstraintBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerAzureNodePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -204,7 +204,7 @@ public partial class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Autoscaling block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscaling block(s) allowed")]
     [TerraformProperty("autoscaling")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureNodePoolAutoscalingBlock>>? Autoscaling { get; set; }
+    public required TerraformList<GoogleContainerAzureNodePoolAutoscalingBlock> Autoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for config.
@@ -214,7 +214,7 @@ public partial class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureNodePoolConfigBlock>>? Config { get; set; }
+    public required TerraformList<GoogleContainerAzureNodePoolConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for management.
@@ -222,7 +222,7 @@ public partial class GoogleContainerAzureNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Management block(s) allowed")]
     [TerraformProperty("management")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureNodePoolManagementBlock>>? Management { get; set; }
+    public TerraformList<GoogleContainerAzureNodePoolManagementBlock> Management { get; set; } = new();
 
     /// <summary>
     /// Block for max_pods_constraint.
@@ -232,14 +232,14 @@ public partial class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaxPodsConstraint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxPodsConstraint block(s) allowed")]
     [TerraformProperty("max_pods_constraint")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAzureNodePoolMaxPodsConstraintBlock>>? MaxPodsConstraint { get; set; }
+    public required TerraformList<GoogleContainerAzureNodePoolMaxPodsConstraintBlock> MaxPodsConstraint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerAzureNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerAzureNodePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this node pool was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for discovery_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlockBase
+public partial class GoogleDataplexZoneDiscoverySpecBlock() : TerraformBlock("discovery_spec")
 {
     /// <summary>
     /// Required. Whether discovery is enabled.
@@ -43,7 +43,7 @@ public partial class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlockBase
 /// Block type for resource_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexZoneResourceSpecBlock : TerraformBlockBase
+public partial class GoogleDataplexZoneResourceSpecBlock() : TerraformBlock("resource_spec")
 {
     /// <summary>
     /// Required. Immutable. The location type of the resources that are allowed to be attached to the assets within this zone. Possible values: LOCATION_TYPE_UNSPECIFIED, SINGLE_REGION, MULTI_REGION
@@ -59,7 +59,7 @@ public partial class GoogleDataplexZoneResourceSpecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexZoneTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexZoneTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -172,7 +172,7 @@ public partial class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DiscoverySpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiscoverySpec block(s) allowed")]
     [TerraformProperty("discovery_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexZoneDiscoverySpecBlock>>? DiscoverySpec { get; set; }
+    public required TerraformList<GoogleDataplexZoneDiscoverySpecBlock> DiscoverySpec { get; set; } = new();
 
     /// <summary>
     /// Block for resource_spec.
@@ -182,14 +182,14 @@ public partial class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ResourceSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceSpec block(s) allowed")]
     [TerraformProperty("resource_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexZoneResourceSpecBlock>>? ResourceSpec { get; set; }
+    public required TerraformList<GoogleDataplexZoneResourceSpecBlock> ResourceSpec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexZoneTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexZoneTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Aggregated status of the underlying assets of the zone.

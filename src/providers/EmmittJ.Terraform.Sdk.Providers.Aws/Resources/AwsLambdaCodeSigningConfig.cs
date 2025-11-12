@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for allowed_publishers in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaCodeSigningConfigAllowedPublishersBlock : TerraformBlockBase
+public partial class AwsLambdaCodeSigningConfigAllowedPublishersBlock() : TerraformBlock("allowed_publishers")
 {
     /// <summary>
     /// The signing_profile_version_arns attribute.
@@ -22,7 +22,7 @@ public partial class AwsLambdaCodeSigningConfigAllowedPublishersBlock : Terrafor
 /// Block type for policies in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaCodeSigningConfigPoliciesBlock : TerraformBlockBase
+public partial class AwsLambdaCodeSigningConfigPoliciesBlock() : TerraformBlock("policies")
 {
     /// <summary>
     /// The untrusted_artifact_on_deployment attribute.
@@ -87,7 +87,7 @@ public partial class AwsLambdaCodeSigningConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AllowedPublishers block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllowedPublishers block(s) allowed")]
     [TerraformProperty("allowed_publishers")]
-    public partial TerraformList<TerraformBlock<AwsLambdaCodeSigningConfigAllowedPublishersBlock>>? AllowedPublishers { get; set; }
+    public required TerraformList<AwsLambdaCodeSigningConfigAllowedPublishersBlock> AllowedPublishers { get; set; } = new();
 
     /// <summary>
     /// Block for policies.
@@ -95,7 +95,7 @@ public partial class AwsLambdaCodeSigningConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Policies block(s) allowed")]
     [TerraformProperty("policies")]
-    public partial TerraformList<TerraformBlock<AwsLambdaCodeSigningConfigPoliciesBlock>>? Policies { get; set; }
+    public TerraformList<AwsLambdaCodeSigningConfigPoliciesBlock> Policies { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

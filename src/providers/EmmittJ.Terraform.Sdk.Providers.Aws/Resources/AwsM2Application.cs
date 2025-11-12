@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsM2ApplicationDefinitionBlock : TerraformBlockBase
+public partial class AwsM2ApplicationDefinitionBlock() : TerraformBlock("definition")
 {
     /// <summary>
     /// The content attribute.
@@ -28,7 +28,7 @@ public partial class AwsM2ApplicationDefinitionBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsM2ApplicationTimeoutsBlock : TerraformBlockBase
+public partial class AwsM2ApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -118,14 +118,14 @@ public partial class AwsM2Application : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AwsM2ApplicationDefinitionBlock>>? Definition { get; set; }
+    public TerraformList<AwsM2ApplicationDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsM2ApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsM2ApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The application_id attribute.

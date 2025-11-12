@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for disk_iops_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxOntapFileSystemDiskIopsConfigurationBlock() : TerraformBlock("disk_iops_configuration")
 {
     /// <summary>
     /// The iops attribute.
@@ -28,7 +28,7 @@ public partial class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxOntapFileSystemTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxOntapFileSystemTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -213,14 +213,14 @@ public partial class AwsFsxOntapFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
     [TerraformProperty("disk_iops_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxOntapFileSystemDiskIopsConfigurationBlock>>? DiskIopsConfiguration { get; set; }
+    public TerraformList<AwsFsxOntapFileSystemDiskIopsConfigurationBlock> DiskIopsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxOntapFileSystemTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxOntapFileSystemTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

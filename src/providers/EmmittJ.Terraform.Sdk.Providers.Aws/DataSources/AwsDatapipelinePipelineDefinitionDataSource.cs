@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter_value in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : TerraformBlockBase
+public partial class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock() : TerraformBlock("parameter_value")
 {
 
 
@@ -48,7 +48,7 @@ public partial class AwsDatapipelinePipelineDefinitionDataSource : TerraformData
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter_value")]
-    public partial TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>>? ParameterValue { get; set; }
+    public TerraformSet<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock> ParameterValue { get; set; } = new();
 
     /// <summary>
     /// The parameter_object attribute.

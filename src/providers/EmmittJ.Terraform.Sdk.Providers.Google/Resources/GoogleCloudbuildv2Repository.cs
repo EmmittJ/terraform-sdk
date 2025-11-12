@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudbuildv2RepositoryTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudbuildv2RepositoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,7 +93,7 @@ public partial class GoogleCloudbuildv2Repository : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudbuildv2RepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudbuildv2RepositoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Server assigned timestamp for when the connection was created.

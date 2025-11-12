@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cookie_synchronization_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock : TerraformBlockBase
+public partial class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock() : TerraformBlock("cookie_synchronization_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurat
 /// Block type for toolbar_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock : TerraformBlockBase
+public partial class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock() : TerraformBlock("toolbar_configuration")
 {
     /// <summary>
     /// The hidden_toolbar_items attribute.
@@ -149,14 +149,14 @@ public partial class AwsWorkspaceswebUserSettings : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cookie_synchronization_configuration")]
-    public partial TerraformList<TerraformBlock<AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock>>? CookieSynchronizationConfiguration { get; set; }
+    public TerraformList<AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock> CookieSynchronizationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for toolbar_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("toolbar_configuration")]
-    public partial TerraformList<TerraformBlock<AwsWorkspaceswebUserSettingsToolbarConfigurationBlock>>? ToolbarConfiguration { get; set; }
+    public TerraformList<AwsWorkspaceswebUserSettingsToolbarConfigurationBlock> ToolbarConfiguration { get; set; } = new();
 
     /// <summary>
     /// The associated_portal_arns attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMysqlFlexibleServerConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,6 +91,6 @@ public partial class AzurermMysqlFlexibleServerConfiguration : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMysqlFlexibleServerConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMysqlFlexibleServerConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

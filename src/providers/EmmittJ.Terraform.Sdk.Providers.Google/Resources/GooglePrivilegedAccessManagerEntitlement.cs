@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for additional_notification_targets in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTargetsBlock : TerraformBlockBase
+public partial class GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTargetsBlock() : TerraformBlock("additional_notification_targets")
 {
     /// <summary>
     /// Optional. Additional email addresses to be notified when a principal(requester) is granted access.
@@ -28,7 +28,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementAdditionalNotificat
 /// Block type for approval_workflow in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlock : TerraformBlockBase
+public partial class GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlock() : TerraformBlock("approval_workflow")
 {
 }
 
@@ -36,7 +36,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlo
 /// Block type for eligible_users in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock : TerraformBlockBase
+public partial class GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock() : TerraformBlock("eligible_users")
 {
     /// <summary>
     /// Users who are being allowed for the operation. Each entry should be a valid v1 IAM Principal Identifier. Format for these is documented at &amp;quot;https://cloud.google.com/iam/docs/principal-identifiers#v1&amp;quot;
@@ -52,7 +52,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock 
 /// Block type for privileged_access in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlock : TerraformBlockBase
+public partial class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlock() : TerraformBlock("privileged_access")
 {
 }
 
@@ -60,7 +60,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlo
 /// Block type for requester_justification_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivilegedAccessManagerEntitlementRequesterJustificationConfigBlock : TerraformBlockBase
+public partial class GooglePrivilegedAccessManagerEntitlementRequesterJustificationConfigBlock() : TerraformBlock("requester_justification_config")
 {
 }
 
@@ -68,7 +68,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementRequesterJustificat
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : TerraformBlockBase
+public partial class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -152,7 +152,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalNotificationTargets block(s) allowed")]
     [TerraformProperty("additional_notification_targets")]
-    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTargetsBlock>>? AdditionalNotificationTargets { get; set; }
+    public TerraformList<GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTargetsBlock> AdditionalNotificationTargets { get; set; } = new();
 
     /// <summary>
     /// Block for approval_workflow.
@@ -160,7 +160,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalWorkflow block(s) allowed")]
     [TerraformProperty("approval_workflow")]
-    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlock>>? ApprovalWorkflow { get; set; }
+    public TerraformList<GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlock> ApprovalWorkflow { get; set; } = new();
 
     /// <summary>
     /// Block for eligible_users.
@@ -169,7 +169,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EligibleUsers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EligibleUsers block(s) required")]
     [TerraformProperty("eligible_users")]
-    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock>>? EligibleUsers { get; set; }
+    public required TerraformList<GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock> EligibleUsers { get; set; } = new();
 
     /// <summary>
     /// Block for privileged_access.
@@ -179,7 +179,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrivilegedAccess block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivilegedAccess block(s) allowed")]
     [TerraformProperty("privileged_access")]
-    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlock>>? PrivilegedAccess { get; set; }
+    public required TerraformList<GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlock> PrivilegedAccess { get; set; } = new();
 
     /// <summary>
     /// Block for requester_justification_config.
@@ -189,14 +189,14 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RequesterJustificationConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequesterJustificationConfig block(s) allowed")]
     [TerraformProperty("requester_justification_config")]
-    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementRequesterJustificationConfigBlock>>? RequesterJustificationConfig { get; set; }
+    public required TerraformList<GooglePrivilegedAccessManagerEntitlementRequesterJustificationConfigBlock> RequesterJustificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePrivilegedAccessManagerEntitlementTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePrivilegedAccessManagerEntitlementTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Create time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

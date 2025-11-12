@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_enable in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBlockBase
+public partial class AwsInspector2OrganizationConfigurationAutoEnableBlock() : TerraformBlock("auto_enable")
 {
     /// <summary>
     /// The code_repository attribute.
@@ -51,7 +51,7 @@ public partial class AwsInspector2OrganizationConfigurationAutoEnableBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsInspector2OrganizationConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsInspector2OrganizationConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -108,14 +108,14 @@ public partial class AwsInspector2OrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AutoEnable block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoEnable block(s) allowed")]
     [TerraformProperty("auto_enable")]
-    public partial TerraformList<TerraformBlock<AwsInspector2OrganizationConfigurationAutoEnableBlock>>? AutoEnable { get; set; }
+    public required TerraformList<AwsInspector2OrganizationConfigurationAutoEnableBlock> AutoEnable { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsInspector2OrganizationConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsInspector2OrganizationConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The max_account_limit_reached attribute.

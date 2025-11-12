@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attestation in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAnalysisOccurrenceAttestationBlock : TerraformBlockBase
+public partial class GoogleContainerAnalysisOccurrenceAttestationBlock() : TerraformBlock("attestation")
 {
     /// <summary>
     /// The serialized payload that is verified by one or
@@ -23,7 +23,7 @@ public partial class GoogleContainerAnalysisOccurrenceAttestationBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerAnalysisOccurrenceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,14 +107,14 @@ public partial class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Attestation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attestation block(s) allowed")]
     [TerraformProperty("attestation")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAnalysisOccurrenceAttestationBlock>>? Attestation { get; set; }
+    public required TerraformList<GoogleContainerAnalysisOccurrenceAttestationBlock> Attestation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerAnalysisOccurrenceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerAnalysisOccurrenceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the repository was created.

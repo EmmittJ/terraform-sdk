@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for quick_connect_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConnectQuickConnectQuickConnectConfigBlock : TerraformBlockBase
+public partial class AwsConnectQuickConnectQuickConnectConfigBlock() : TerraformBlock("quick_connect_config")
 {
     /// <summary>
     /// The quick_connect_type attribute.
@@ -87,7 +87,7 @@ public partial class AwsConnectQuickConnect : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QuickConnectConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuickConnectConfig block(s) allowed")]
     [TerraformProperty("quick_connect_config")]
-    public partial TerraformList<TerraformBlock<AwsConnectQuickConnectQuickConnectConfigBlock>>? QuickConnectConfig { get; set; }
+    public required TerraformList<AwsConnectQuickConnectQuickConnectConfigBlock> QuickConnectConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

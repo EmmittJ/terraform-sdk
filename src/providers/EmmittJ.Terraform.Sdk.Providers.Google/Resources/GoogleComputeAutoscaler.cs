@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeAutoscalerAutoscalingPolicyBlock() : TerraformBlock("autoscaling_policy")
 {
     /// <summary>
     /// The number of seconds that the autoscaler should wait before it
@@ -59,7 +59,7 @@ public partial class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeAutoscalerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeAutoscalerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -150,14 +150,14 @@ public partial class GoogleComputeAutoscaler : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AutoscalingPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingPolicy block(s) allowed")]
     [TerraformProperty("autoscaling_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeAutoscalerAutoscalingPolicyBlock>>? AutoscalingPolicy { get; set; }
+    public required TerraformList<GoogleComputeAutoscalerAutoscalingPolicyBlock> AutoscalingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeAutoscalerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeAutoscalerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

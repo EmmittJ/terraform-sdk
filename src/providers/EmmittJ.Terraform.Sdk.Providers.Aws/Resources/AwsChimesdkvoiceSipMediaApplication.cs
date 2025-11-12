@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoints in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsChimesdkvoiceSipMediaApplicationEndpointsBlock : TerraformBlockBase
+public partial class AwsChimesdkvoiceSipMediaApplicationEndpointsBlock() : TerraformBlock("endpoints")
 {
     /// <summary>
     /// The lambda_arn attribute.
@@ -80,7 +80,7 @@ public partial class AwsChimesdkvoiceSipMediaApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoints block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoints block(s) allowed")]
     [TerraformProperty("endpoints")]
-    public partial TerraformList<TerraformBlock<AwsChimesdkvoiceSipMediaApplicationEndpointsBlock>>? Endpoints { get; set; }
+    public required TerraformList<AwsChimesdkvoiceSipMediaApplicationEndpointsBlock> Endpoints { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

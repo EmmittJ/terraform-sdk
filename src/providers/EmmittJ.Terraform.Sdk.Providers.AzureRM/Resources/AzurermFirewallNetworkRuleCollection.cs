@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlockBase
+public partial class AzurermFirewallNetworkRuleCollectionRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The description attribute.
@@ -80,7 +80,7 @@ public partial class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFirewallNetworkRuleCollectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFirewallNetworkRuleCollectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -176,13 +176,13 @@ public partial class AzurermFirewallNetworkRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallNetworkRuleCollectionRuleBlock>>? Rule { get; set; }
+    public required TerraformList<AzurermFirewallNetworkRuleCollectionRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFirewallNetworkRuleCollectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFirewallNetworkRuleCollectionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

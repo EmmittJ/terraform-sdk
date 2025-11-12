@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for module_link in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationPowershell72ModuleModuleLinkBlock : TerraformBlockBase
+public partial class AzurermAutomationPowershell72ModuleModuleLinkBlock() : TerraformBlock("module_link")
 {
     /// <summary>
     /// The uri attribute.
@@ -22,7 +22,7 @@ public partial class AzurermAutomationPowershell72ModuleModuleLinkBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAutomationPowershell72ModuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAutomationPowershell72ModuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -102,13 +102,13 @@ public partial class AzurermAutomationPowershell72Module : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ModuleLink block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModuleLink block(s) allowed")]
     [TerraformProperty("module_link")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationPowershell72ModuleModuleLinkBlock>>? ModuleLink { get; set; }
+    public required TerraformList<AzurermAutomationPowershell72ModuleModuleLinkBlock> ModuleLink { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAutomationPowershell72ModuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAutomationPowershell72ModuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

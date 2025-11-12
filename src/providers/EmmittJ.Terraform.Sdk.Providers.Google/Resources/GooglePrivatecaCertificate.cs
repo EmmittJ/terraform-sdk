@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCertificateConfigBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateConfigBlock() : TerraformBlock("config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GooglePrivatecaCertificateConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePrivatecaCertificateTimeoutsBlock : TerraformBlockBase
+public partial class GooglePrivatecaCertificateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -142,14 +142,14 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateConfigBlock>>? Config { get; set; }
+    public TerraformList<GooglePrivatecaCertificateConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePrivatecaCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePrivatecaCertificateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Details regarding the revocation of this Certificate. This Certificate is considered revoked if and only if this field is present.

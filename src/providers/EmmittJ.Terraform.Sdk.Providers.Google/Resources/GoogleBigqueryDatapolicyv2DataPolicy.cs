@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data_masking_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock() : TerraformBlock("data_masking_policy")
 {
     /// <summary>
     /// A predefined masking expression.
@@ -39,7 +39,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,14 +149,14 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataMaskingPolicy block(s) allowed")]
     [TerraformProperty("data_masking_policy")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock>>? DataMaskingPolicy { get; set; }
+    public TerraformList<GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock> DataMaskingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Identifier. Resource name of this data policy, in the format of

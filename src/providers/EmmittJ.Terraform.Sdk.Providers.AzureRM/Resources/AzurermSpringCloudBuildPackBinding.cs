@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for launch in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBlockBase
+public partial class AzurermSpringCloudBuildPackBindingLaunchBlock() : TerraformBlock("launch")
 {
     /// <summary>
     /// The properties attribute.
@@ -28,7 +28,7 @@ public partial class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudBuildPackBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -106,13 +106,13 @@ public partial class AzurermSpringCloudBuildPackBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Launch block(s) allowed")]
     [TerraformProperty("launch")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudBuildPackBindingLaunchBlock>>? Launch { get; set; }
+    public TerraformList<AzurermSpringCloudBuildPackBindingLaunchBlock> Launch { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudBuildPackBindingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudBuildPackBindingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

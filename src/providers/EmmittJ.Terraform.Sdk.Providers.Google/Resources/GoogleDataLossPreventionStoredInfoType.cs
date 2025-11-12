@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for dictionary in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionStoredInfoTypeDictionaryBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionStoredInfoTypeDictionaryBlock() : TerraformBlock("dictionary")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDataLossPreventionStoredInfoTypeDictionaryBlock : Ter
 /// Block type for large_custom_dictionary in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock() : TerraformBlock("large_custom_dictionary")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionary
 /// Block type for regex in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionStoredInfoTypeRegexBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionStoredInfoTypeRegexBlock() : TerraformBlock("regex")
 {
     /// <summary>
     /// The index of the submatch to extract as findings. When not specified, the entire match is returned. No more than 3 may be included.
@@ -46,7 +46,7 @@ public partial class GoogleDataLossPreventionStoredInfoTypeRegexBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -130,7 +130,7 @@ public partial class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dictionary block(s) allowed")]
     [TerraformProperty("dictionary")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionStoredInfoTypeDictionaryBlock>>? Dictionary { get; set; }
+    public TerraformList<GoogleDataLossPreventionStoredInfoTypeDictionaryBlock> Dictionary { get; set; } = new();
 
     /// <summary>
     /// Block for large_custom_dictionary.
@@ -138,7 +138,7 @@ public partial class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LargeCustomDictionary block(s) allowed")]
     [TerraformProperty("large_custom_dictionary")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock>>? LargeCustomDictionary { get; set; }
+    public TerraformList<GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock> LargeCustomDictionary { get; set; } = new();
 
     /// <summary>
     /// Block for regex.
@@ -146,14 +146,14 @@ public partial class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Regex block(s) allowed")]
     [TerraformProperty("regex")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionStoredInfoTypeRegexBlock>>? Regex { get; set; }
+    public TerraformList<GoogleDataLossPreventionStoredInfoTypeRegexBlock> Regex { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the info type. Set by the server.

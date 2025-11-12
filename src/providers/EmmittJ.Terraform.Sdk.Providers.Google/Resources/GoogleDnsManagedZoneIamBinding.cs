@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsManagedZoneIamBindingConditionBlock : TerraformBlockBase
+public partial class GoogleDnsManagedZoneIamBindingConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -87,7 +87,7 @@ public partial class GoogleDnsManagedZoneIamBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleDnsManagedZoneIamBindingConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleDnsManagedZoneIamBindingConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_scaling_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGameliftGameServerGroupAutoScalingPolicyBlock : TerraformBlockBase
+public partial class AwsGameliftGameServerGroupAutoScalingPolicyBlock() : TerraformBlock("auto_scaling_policy")
 {
     /// <summary>
     /// The estimated_instance_warmup attribute.
@@ -21,7 +21,7 @@ public partial class AwsGameliftGameServerGroupAutoScalingPolicyBlock : Terrafor
 /// Block type for instance_definition in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGameliftGameServerGroupInstanceDefinitionBlock : TerraformBlockBase
+public partial class AwsGameliftGameServerGroupInstanceDefinitionBlock() : TerraformBlock("instance_definition")
 {
     /// <summary>
     /// The instance_type attribute.
@@ -44,7 +44,7 @@ public partial class AwsGameliftGameServerGroupInstanceDefinitionBlock : Terrafo
 /// Block type for launch_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlockBase
+public partial class AwsGameliftGameServerGroupLaunchTemplateBlock() : TerraformBlock("launch_template")
 {
     /// <summary>
     /// The id attribute.
@@ -73,7 +73,7 @@ public partial class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGameliftGameServerGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsGameliftGameServerGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -188,7 +188,7 @@ public partial class AwsGameliftGameServerGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingPolicy block(s) allowed")]
     [TerraformProperty("auto_scaling_policy")]
-    public partial TerraformList<TerraformBlock<AwsGameliftGameServerGroupAutoScalingPolicyBlock>>? AutoScalingPolicy { get; set; }
+    public TerraformList<AwsGameliftGameServerGroupAutoScalingPolicyBlock> AutoScalingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for instance_definition.
@@ -197,7 +197,7 @@ public partial class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 InstanceDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 InstanceDefinition block(s) allowed")]
     [TerraformProperty("instance_definition")]
-    public partial TerraformSet<TerraformBlock<AwsGameliftGameServerGroupInstanceDefinitionBlock>>? InstanceDefinition { get; set; }
+    public TerraformSet<AwsGameliftGameServerGroupInstanceDefinitionBlock> InstanceDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template.
@@ -207,14 +207,14 @@ public partial class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LaunchTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
     [TerraformProperty("launch_template")]
-    public partial TerraformList<TerraformBlock<AwsGameliftGameServerGroupLaunchTemplateBlock>>? LaunchTemplate { get; set; }
+    public required TerraformList<AwsGameliftGameServerGroupLaunchTemplateBlock> LaunchTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGameliftGameServerGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGameliftGameServerGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

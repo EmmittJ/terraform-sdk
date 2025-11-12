@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlockBase
+public partial class GoogleCloudRunDomainMappingMetadataBlock() : TerraformBlock("metadata")
 {
     /// <summary>
     /// Annotations is a key value map stored with a resource that
@@ -59,7 +59,7 @@ public partial class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlockBa
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunDomainMappingSpecBlock : TerraformBlockBase
+public partial class GoogleCloudRunDomainMappingSpecBlock() : TerraformBlock("spec")
 {
     /// <summary>
     /// The mode of the certificate. Default value: &amp;quot;AUTOMATIC&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;AUTOMATIC&amp;quot;]
@@ -93,7 +93,7 @@ public partial class GoogleCloudRunDomainMappingSpecBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudRunDomainMappingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudRunDomainMappingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -157,7 +157,7 @@ public partial class GoogleCloudRunDomainMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunDomainMappingMetadataBlock>>? Metadata { get; set; }
+    public TerraformList<GoogleCloudRunDomainMappingMetadataBlock> Metadata { get; set; } = new();
 
     /// <summary>
     /// Block for spec.
@@ -167,14 +167,14 @@ public partial class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunDomainMappingSpecBlock>>? Spec { get; set; }
+    public required TerraformList<GoogleCloudRunDomainMappingSpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudRunDomainMappingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudRunDomainMappingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The current status of the DomainMapping.

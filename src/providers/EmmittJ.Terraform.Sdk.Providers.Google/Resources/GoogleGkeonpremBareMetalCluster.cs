@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock() : TerraformBlock("binary_authorization")
 {
     /// <summary>
     /// Mode of operation for binauthz policy evaluation. If unspecified,
@@ -22,7 +22,7 @@ public partial class GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock : T
 /// Block type for cluster_operations in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterClusterOperationsBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterClusterOperationsBlock() : TerraformBlock("cluster_operations")
 {
     /// <summary>
     /// Whether collection of application logs/metrics should be enabled (in addition to system logs/metrics).
@@ -37,7 +37,7 @@ public partial class GoogleGkeonpremBareMetalClusterClusterOperationsBlock : Ter
 /// Block type for control_plane in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterControlPlaneBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterControlPlaneBlock() : TerraformBlock("control_plane")
 {
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleGkeonpremBareMetalClusterControlPlaneBlock : Terrafor
 /// Block type for load_balancer in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterLoadBalancerBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterLoadBalancerBlock() : TerraformBlock("load_balancer")
 {
 }
 
@@ -53,7 +53,7 @@ public partial class GoogleGkeonpremBareMetalClusterLoadBalancerBlock : Terrafor
 /// Block type for maintenance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock() : TerraformBlock("maintenance_config")
 {
     /// <summary>
     /// All IPv4 address from these ranges will be placed into maintenance mode.
@@ -72,7 +72,7 @@ public partial class GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock : Ter
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterNetworkConfigBlock() : TerraformBlock("network_config")
 {
     /// <summary>
     /// Enables the use of advanced Anthos networking features, such as Bundled
@@ -90,7 +90,7 @@ public partial class GoogleGkeonpremBareMetalClusterNetworkConfigBlock : Terrafo
 /// Block type for node_access_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock() : TerraformBlock("node_access_config")
 {
     /// <summary>
     /// LoginUser is the user name used to access node machines.
@@ -106,7 +106,7 @@ public partial class GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock : Terr
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterNodeConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterNodeConfigBlock() : TerraformBlock("node_config")
 {
     /// <summary>
     /// The available runtimes that can be used to run containers in a Bare Metal User Cluster. Possible values: [&amp;quot;CONTAINER_RUNTIME_UNSPECIFIED&amp;quot;, &amp;quot;DOCKER&amp;quot;, &amp;quot;CONTAINERD&amp;quot;]
@@ -129,7 +129,7 @@ public partial class GoogleGkeonpremBareMetalClusterNodeConfigBlock : TerraformB
 /// Block type for os_environment_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock() : TerraformBlock("os_environment_config")
 {
     /// <summary>
     /// Whether the package repo should not be included when initializing
@@ -146,7 +146,7 @@ public partial class GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock : T
 /// Block type for proxy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterProxyBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterProxyBlock() : TerraformBlock("proxy")
 {
     /// <summary>
     /// A list of IPs, hostnames, and domains that should skip the proxy.
@@ -173,7 +173,7 @@ public partial class GoogleGkeonpremBareMetalClusterProxyBlock : TerraformBlockB
 /// Block type for security_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterSecurityConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterSecurityConfigBlock() : TerraformBlock("security_config")
 {
 }
 
@@ -181,7 +181,7 @@ public partial class GoogleGkeonpremBareMetalClusterSecurityConfigBlock : Terraf
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterStorageBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterStorageBlock() : TerraformBlock("storage")
 {
 }
 
@@ -189,7 +189,7 @@ public partial class GoogleGkeonpremBareMetalClusterStorageBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -218,7 +218,7 @@ public partial class GoogleGkeonpremBareMetalClusterTimeoutsBlock : TerraformBlo
 /// Block type for upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremBareMetalClusterUpgradePolicyBlock : TerraformBlockBase
+public partial class GoogleGkeonpremBareMetalClusterUpgradePolicyBlock() : TerraformBlock("upgrade_policy")
 {
     /// <summary>
     /// Specifies which upgrade policy to use. Possible values: [&amp;quot;SERIAL&amp;quot;, &amp;quot;CONCURRENT&amp;quot;]
@@ -317,7 +317,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock> BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for cluster_operations.
@@ -325,7 +325,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterOperations block(s) allowed")]
     [TerraformProperty("cluster_operations")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterClusterOperationsBlock>>? ClusterOperations { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterClusterOperationsBlock> ClusterOperations { get; set; } = new();
 
     /// <summary>
     /// Block for control_plane.
@@ -335,7 +335,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ControlPlane block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     [TerraformProperty("control_plane")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterControlPlaneBlock>>? ControlPlane { get; set; }
+    public required TerraformList<GoogleGkeonpremBareMetalClusterControlPlaneBlock> ControlPlane { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancer.
@@ -345,7 +345,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoadBalancer block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
     [TerraformProperty("load_balancer")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterLoadBalancerBlock>>? LoadBalancer { get; set; }
+    public required TerraformList<GoogleGkeonpremBareMetalClusterLoadBalancerBlock> LoadBalancer { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_config.
@@ -353,7 +353,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceConfig block(s) allowed")]
     [TerraformProperty("maintenance_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock>>? MaintenanceConfig { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock> MaintenanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -363,7 +363,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public required TerraformList<GoogleGkeonpremBareMetalClusterNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_access_config.
@@ -371,7 +371,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeAccessConfig block(s) allowed")]
     [TerraformProperty("node_access_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock>>? NodeAccessConfig { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock> NodeAccessConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_config.
@@ -379,7 +379,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterNodeConfigBlock>>? NodeConfig { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterNodeConfigBlock> NodeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for os_environment_config.
@@ -387,7 +387,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsEnvironmentConfig block(s) allowed")]
     [TerraformProperty("os_environment_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock>>? OsEnvironmentConfig { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock> OsEnvironmentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for proxy.
@@ -395,7 +395,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformProperty("proxy")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterProxyBlock>>? Proxy { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterProxyBlock> Proxy { get; set; } = new();
 
     /// <summary>
     /// Block for security_config.
@@ -403,7 +403,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityConfig block(s) allowed")]
     [TerraformProperty("security_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterSecurityConfigBlock>>? SecurityConfig { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterSecurityConfigBlock> SecurityConfig { get; set; } = new();
 
     /// <summary>
     /// Block for storage.
@@ -413,14 +413,14 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Storage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     [TerraformProperty("storage")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterStorageBlock>>? Storage { get; set; }
+    public required TerraformList<GoogleGkeonpremBareMetalClusterStorageBlock> Storage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeonpremBareMetalClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeonpremBareMetalClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_policy.
@@ -428,7 +428,7 @@ public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
     [TerraformProperty("upgrade_policy")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterUpgradePolicyBlock>>? UpgradePolicy { get; set; }
+    public TerraformList<GoogleGkeonpremBareMetalClusterUpgradePolicyBlock> UpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for image_ids in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrpublicImagesDataSourceImageIdsBlock : TerraformBlockBase
+public partial class AwsEcrpublicImagesDataSourceImageIdsBlock() : TerraformBlock("image_ids")
 {
     /// <summary>
     /// Image digest.
@@ -60,7 +60,7 @@ public partial class AwsEcrpublicImagesDataSource : TerraformDataSource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("image_ids")]
-    public partial TerraformList<TerraformBlock<AwsEcrpublicImagesDataSourceImageIdsBlock>>? ImageIds { get; set; }
+    public TerraformList<AwsEcrpublicImagesDataSourceImageIdsBlock> ImageIds { get; set; } = new();
 
     /// <summary>
     /// The images attribute.

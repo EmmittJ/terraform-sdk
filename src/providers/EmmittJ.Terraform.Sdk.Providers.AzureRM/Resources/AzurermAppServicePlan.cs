@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServicePlanSkuBlock : TerraformBlockBase
+public partial class AzurermAppServicePlanSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -37,7 +37,7 @@ public partial class AzurermAppServicePlanSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServicePlanTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServicePlanTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,14 +175,14 @@ public partial class AzurermAppServicePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermAppServicePlanSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermAppServicePlanSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServicePlanTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServicePlanTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The maximum_number_of_workers attribute.

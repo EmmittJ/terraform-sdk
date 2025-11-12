@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMacie2CustomDataIdentifierTimeoutsBlock : TerraformBlockBase
+public partial class AwsMacie2CustomDataIdentifierTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -108,7 +108,7 @@ public partial class AwsMacie2CustomDataIdentifier : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMacie2CustomDataIdentifierTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMacie2CustomDataIdentifierTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

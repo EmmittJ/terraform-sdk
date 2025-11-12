@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : TerraformBlockBase
+public partial class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock() : TerraformBlock("definition")
 {
     /// <summary>
     /// The description attribute.
@@ -44,7 +44,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -130,13 +130,13 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Definition block(s) allowed")]
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock>>? Definition { get; set; }
+    public TerraformList<AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

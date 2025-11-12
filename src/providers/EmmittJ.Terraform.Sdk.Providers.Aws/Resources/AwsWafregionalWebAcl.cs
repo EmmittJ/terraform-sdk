@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafregionalWebAclDefaultActionBlock : TerraformBlockBase
+public partial class AwsWafregionalWebAclDefaultActionBlock() : TerraformBlock("default_action")
 {
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsWafregionalWebAclDefaultActionBlock : TerraformBlockBase
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafregionalWebAclLoggingConfigurationBlock : TerraformBlockBase
+public partial class AwsWafregionalWebAclLoggingConfigurationBlock() : TerraformBlock("logging_configuration")
 {
     /// <summary>
     /// The log_destination attribute.
@@ -38,7 +38,7 @@ public partial class AwsWafregionalWebAclLoggingConfigurationBlock : TerraformBl
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafregionalWebAclRuleBlock : TerraformBlockBase
+public partial class AwsWafregionalWebAclRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The priority attribute.
@@ -127,7 +127,7 @@ public partial class AwsWafregionalWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAction block(s) allowed")]
     [TerraformProperty("default_action")]
-    public partial TerraformList<TerraformBlock<AwsWafregionalWebAclDefaultActionBlock>>? DefaultAction { get; set; }
+    public required TerraformList<AwsWafregionalWebAclDefaultActionBlock> DefaultAction { get; set; } = new();
 
     /// <summary>
     /// Block for logging_configuration.
@@ -135,14 +135,14 @@ public partial class AwsWafregionalWebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformProperty("logging_configuration")]
-    public partial TerraformList<TerraformBlock<AwsWafregionalWebAclLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
+    public TerraformList<AwsWafregionalWebAclLoggingConfigurationBlock> LoggingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsWafregionalWebAclRuleBlock>>? Rule { get; set; }
+    public TerraformSet<AwsWafregionalWebAclRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPricingProductDataSourceFiltersBlock : TerraformBlockBase
+public partial class AwsPricingProductDataSourceFiltersBlock() : TerraformBlock("filters")
 {
     /// <summary>
     /// The field attribute.
@@ -58,7 +58,7 @@ public partial class AwsPricingProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filters block(s) required")]
     [TerraformProperty("filters")]
-    public partial TerraformList<TerraformBlock<AwsPricingProductDataSourceFiltersBlock>>? Filters { get; set; }
+    public required TerraformList<AwsPricingProductDataSourceFiltersBlock> Filters { get; set; } = new();
 
     /// <summary>
     /// The result attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for output_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlJobStepOutputTargetBlock : TerraformBlockBase
+public partial class AzurermMssqlJobStepOutputTargetBlock() : TerraformBlock("output_target")
 {
     /// <summary>
     /// The job_credential_id attribute.
@@ -44,7 +44,7 @@ public partial class AzurermMssqlJobStepOutputTargetBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlJobStepTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlJobStepTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -181,13 +181,13 @@ public partial class AzurermMssqlJobStep : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputTarget block(s) allowed")]
     [TerraformProperty("output_target")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlJobStepOutputTargetBlock>>? OutputTarget { get; set; }
+    public TerraformList<AzurermMssqlJobStepOutputTargetBlock> OutputTarget { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlJobStepTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlJobStepTimeoutsBlock Timeouts { get; set; } = new();
 
 }

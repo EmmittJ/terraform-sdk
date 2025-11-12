@@ -83,6 +83,14 @@ public abstract class TerraformConstruct : ITerraformSerializable
             if (value == null)
                 continue;
 
+            // Handle TerraformBlock as nested block (not assignment)
+            // Blocks should be written as: blockName { ... } not blockName = { ... }
+            if (value is TerraformBlock block)
+            {
+                WriteNestedBlock(sb, context, terraformName, block);
+                continue;
+            }
+
             TerraformExpression? expression = null;
 
             // Handle TerraformValue<T> via ITerraformValue interface (no reflection!)
@@ -111,6 +119,34 @@ public abstract class TerraformConstruct : ITerraformSerializable
                 var hcl = expression.ToHcl(context);
                 sb.AppendLine($"{context.Indent}{terraformName} = {hcl}");
             }
+        }
+    }
+
+    /// <summary>
+    /// Writes a nested block in HCL block syntax (not assignment syntax).
+    /// Generates: blockName { key = value ... }
+    /// NOT: blockName = { key = value ... }
+    /// </summary>
+    private void WriteNestedBlock(System.Text.StringBuilder sb, ITerraformContext context, string blockName, TerraformBlock block)
+    {
+        var resolveContext = new TerraformResolveContext(context);
+        var mapExpression = block.Resolve(resolveContext);
+
+        if (mapExpression is TerraformMapExpression map)
+        {
+            sb.AppendLine($"{context.Indent}{blockName} {{");
+
+            using (context.PushIndent())
+            {
+                foreach (var kvp in map)
+                {
+                    var key = kvp.Key;
+                    var valueExpr = kvp.Value;
+                    sb.AppendLine($"{context.Indent}{key} = {valueExpr.ToHcl(context)}");
+                }
+            }
+
+            sb.AppendLine($"{context.Indent}}}");
         }
     }
 

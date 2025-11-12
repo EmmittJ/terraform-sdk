@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock() : TerraformBlock("key_vault_key")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -151,13 +151,13 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunction : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultKey block(s) allowed")]
     [TerraformProperty("key_vault_key")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock>>? KeyVaultKey { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock> KeyVaultKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for acl in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageShareDataSourceAclBlock : TerraformBlockBase
+public partial class AzurermStorageShareDataSourceAclBlock() : TerraformBlock("acl")
 {
 
 
@@ -16,7 +16,7 @@ public partial class AzurermStorageShareDataSourceAclBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageShareDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageShareDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -77,14 +77,14 @@ public partial class AzurermStorageShareDataSource : TerraformDataSource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("acl")]
-    public partial TerraformList<TerraformBlock<AzurermStorageShareDataSourceAclBlock>>? Acl { get; set; }
+    public TerraformList<AzurermStorageShareDataSourceAclBlock> Acl { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageShareDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageShareDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The quota attribute.

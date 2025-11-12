@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnGatewayConnectionRoutingBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayConnectionRoutingBlock() : TerraformBlock("routing")
 {
     /// <summary>
     /// The associated_route_table attribute.
@@ -36,7 +36,7 @@ public partial class AzurermVpnGatewayConnectionRoutingBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVpnGatewayConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -72,7 +72,7 @@ public partial class AzurermVpnGatewayConnectionTimeoutsBlock : TerraformBlockBa
 /// Block type for traffic_selector_policy in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock() : TerraformBlock("traffic_selector_policy")
 {
     /// <summary>
     /// The local_address_ranges attribute.
@@ -96,7 +96,7 @@ public partial class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock : Ter
 /// Block type for vpn_link in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayConnectionVpnLinkBlock() : TerraformBlock("vpn_link")
 {
     /// <summary>
     /// The bandwidth_mbps attribute.
@@ -254,21 +254,21 @@ public partial class AzurermVpnGatewayConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformProperty("routing")]
-    public partial TerraformList<TerraformBlock<AzurermVpnGatewayConnectionRoutingBlock>>? Routing { get; set; }
+    public TerraformList<AzurermVpnGatewayConnectionRoutingBlock> Routing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVpnGatewayConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVpnGatewayConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_selector_policy.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("traffic_selector_policy")]
-    public partial TerraformSet<TerraformBlock<AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock>>? TrafficSelectorPolicy { get; set; }
+    public TerraformSet<AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock> TrafficSelectorPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for vpn_link.
@@ -277,6 +277,6 @@ public partial class AzurermVpnGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnLink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpnLink block(s) required")]
     [TerraformProperty("vpn_link")]
-    public partial TerraformList<TerraformBlock<AzurermVpnGatewayConnectionVpnLinkBlock>>? VpnLink { get; set; }
+    public required TerraformList<AzurermVpnGatewayConnectionVpnLinkBlock> VpnLink { get; set; } = new();
 
 }

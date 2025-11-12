@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCognitiveAccountCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The identity_client_id attribute.
@@ -29,7 +29,7 @@ public partial class AzurermCognitiveAccountCustomerManagedKeyBlock : TerraformB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCognitiveAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -54,7 +54,7 @@ public partial class AzurermCognitiveAccountIdentityBlock : TerraformBlockBase
 /// Block type for network_acls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountNetworkAclsBlock() : TerraformBlock("network_acls")
 {
     /// <summary>
     /// The bypass attribute.
@@ -84,7 +84,7 @@ public partial class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlockBas
 /// Block type for network_injection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCognitiveAccountNetworkInjectionBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountNetworkInjectionBlock() : TerraformBlock("network_injection")
 {
     /// <summary>
     /// The scenario attribute.
@@ -108,7 +108,7 @@ public partial class AzurermCognitiveAccountNetworkInjectionBlock : TerraformBlo
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCognitiveAccountStorageBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountStorageBlock() : TerraformBlock("storage")
 {
     /// <summary>
     /// The identity_client_id attribute.
@@ -131,7 +131,7 @@ public partial class AzurermCognitiveAccountStorageBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCognitiveAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -331,7 +331,7 @@ public partial class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermCognitiveAccountCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermCognitiveAccountCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -339,7 +339,7 @@ public partial class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermCognitiveAccountIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermCognitiveAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_acls.
@@ -347,7 +347,7 @@ public partial class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
     [TerraformProperty("network_acls")]
-    public partial TerraformList<TerraformBlock<AzurermCognitiveAccountNetworkAclsBlock>>? NetworkAcls { get; set; }
+    public TerraformList<AzurermCognitiveAccountNetworkAclsBlock> NetworkAcls { get; set; } = new();
 
     /// <summary>
     /// Block for network_injection.
@@ -355,21 +355,21 @@ public partial class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkInjection block(s) allowed")]
     [TerraformProperty("network_injection")]
-    public partial TerraformList<TerraformBlock<AzurermCognitiveAccountNetworkInjectionBlock>>? NetworkInjection { get; set; }
+    public TerraformList<AzurermCognitiveAccountNetworkInjectionBlock> NetworkInjection { get; set; } = new();
 
     /// <summary>
     /// Block for storage.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage")]
-    public partial TerraformList<TerraformBlock<AzurermCognitiveAccountStorageBlock>>? Storage { get; set; }
+    public TerraformList<AzurermCognitiveAccountStorageBlock> Storage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCognitiveAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCognitiveAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

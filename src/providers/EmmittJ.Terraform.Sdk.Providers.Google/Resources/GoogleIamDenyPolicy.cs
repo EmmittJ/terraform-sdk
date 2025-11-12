@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamDenyPolicyRulesBlock : TerraformBlockBase
+public partial class GoogleIamDenyPolicyRulesBlock() : TerraformBlock("rules")
 {
     /// <summary>
     /// The description of the rule.
@@ -21,7 +21,7 @@ public partial class GoogleIamDenyPolicyRulesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamDenyPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamDenyPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,14 +93,14 @@ public partial class GoogleIamDenyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public partial TerraformList<TerraformBlock<GoogleIamDenyPolicyRulesBlock>>? Rules { get; set; }
+    public required TerraformList<GoogleIamDenyPolicyRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamDenyPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamDenyPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hash of the resource. Used internally during updates.

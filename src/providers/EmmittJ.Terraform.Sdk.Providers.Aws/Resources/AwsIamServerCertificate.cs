@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsIamServerCertificateTimeoutsBlock : TerraformBlockBase
+public partial class AwsIamServerCertificateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -96,7 +96,7 @@ public partial class AwsIamServerCertificate : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsIamServerCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public AwsIamServerCertificateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

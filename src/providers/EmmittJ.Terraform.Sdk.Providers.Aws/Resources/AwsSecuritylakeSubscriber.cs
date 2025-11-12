@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for source in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSecuritylakeSubscriberSourceBlock : TerraformBlockBase
+public partial class AwsSecuritylakeSubscriberSourceBlock() : TerraformBlock("source")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsSecuritylakeSubscriberSourceBlock : TerraformBlockBase
 /// Block type for subscriber_identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecuritylakeSubscriberSubscriberIdentityBlock : TerraformBlockBase
+public partial class AwsSecuritylakeSubscriberSubscriberIdentityBlock() : TerraformBlock("subscriber_identity")
 {
     /// <summary>
     /// The external_id attribute.
@@ -38,7 +38,7 @@ public partial class AwsSecuritylakeSubscriberSubscriberIdentityBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSecuritylakeSubscriberTimeoutsBlock : TerraformBlockBase
+public partial class AwsSecuritylakeSubscriberTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -112,21 +112,21 @@ public partial class AwsSecuritylakeSubscriber : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("source")]
-    public partial TerraformSet<TerraformBlock<AwsSecuritylakeSubscriberSourceBlock>>? Source { get; set; }
+    public TerraformSet<AwsSecuritylakeSubscriberSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for subscriber_identity.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("subscriber_identity")]
-    public partial TerraformList<TerraformBlock<AwsSecuritylakeSubscriberSubscriberIdentityBlock>>? SubscriberIdentity { get; set; }
+    public TerraformList<AwsSecuritylakeSubscriberSubscriberIdentityBlock> SubscriberIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSecuritylakeSubscriberTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSecuritylakeSubscriberTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

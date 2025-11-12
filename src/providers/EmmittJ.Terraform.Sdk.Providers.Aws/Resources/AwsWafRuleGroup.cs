@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for activated_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafRuleGroupActivatedRuleBlock : TerraformBlockBase
+public partial class AwsWafRuleGroupActivatedRuleBlock() : TerraformBlock("activated_rule")
 {
     /// <summary>
     /// The priority attribute.
@@ -84,7 +84,7 @@ public partial class AwsWafRuleGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("activated_rule")]
-    public partial TerraformSet<TerraformBlock<AwsWafRuleGroupActivatedRuleBlock>>? ActivatedRule { get; set; }
+    public TerraformSet<AwsWafRuleGroupActivatedRuleBlock> ActivatedRule { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

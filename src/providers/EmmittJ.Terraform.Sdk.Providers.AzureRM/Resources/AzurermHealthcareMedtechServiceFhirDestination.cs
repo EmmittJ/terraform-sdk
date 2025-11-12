@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,6 +107,6 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination : TerraformR
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

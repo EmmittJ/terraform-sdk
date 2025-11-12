@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for guest_identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock() : TerraformBlock("guest_identity")
 {
     /// <summary>
     /// The qualifier attribute.
@@ -30,7 +30,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBloc
 /// Block type for host_identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock() : TerraformBlock("host_identity")
 {
     /// <summary>
     /// The qualifier attribute.
@@ -54,7 +54,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -174,7 +174,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreement : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GuestIdentity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GuestIdentity block(s) allowed")]
     [TerraformProperty("guest_identity")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock>>? GuestIdentity { get; set; }
+    public required TerraformList<AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock> GuestIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for host_identity.
@@ -184,13 +184,13 @@ public partial class AzurermLogicAppIntegrationAccountAgreement : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HostIdentity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HostIdentity block(s) allowed")]
     [TerraformProperty("host_identity")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock>>? HostIdentity { get; set; }
+    public required TerraformList<AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock> HostIdentity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock Timeouts { get; set; } = new();
 
 }

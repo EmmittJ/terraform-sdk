@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for pubsub_configs in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlockBase
+public partial class GoogleSourcerepoRepositoryPubsubConfigsBlock() : TerraformBlock("pubsub_configs")
 {
     /// <summary>
     /// The format of the Cloud Pub/Sub messages.
@@ -42,7 +42,7 @@ public partial class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSourcerepoRepositoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,14 +111,14 @@ public partial class GoogleSourcerepoRepository : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("pubsub_configs")]
-    public partial TerraformSet<TerraformBlock<GoogleSourcerepoRepositoryPubsubConfigsBlock>>? PubsubConfigs { get; set; }
+    public TerraformSet<GoogleSourcerepoRepositoryPubsubConfigsBlock> PubsubConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSourcerepoRepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSourcerepoRepositoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The disk usage of the repo, in bytes.

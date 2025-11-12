@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for fields in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirestoreIndexFieldsBlock : TerraformBlockBase
+public partial class GoogleFirestoreIndexFieldsBlock() : TerraformBlock("fields")
 {
     /// <summary>
     /// Indicates that this field supports operations on arrayValues. Only one of &#39;order&#39;, &#39;arrayConfig&#39;, and
@@ -37,7 +37,7 @@ public partial class GoogleFirestoreIndexFieldsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirestoreIndexTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirestoreIndexTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -136,14 +136,14 @@ public partial class GoogleFirestoreIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fields block(s) required")]
     [TerraformProperty("fields")]
-    public partial TerraformList<TerraformBlock<GoogleFirestoreIndexFieldsBlock>>? Fields { get; set; }
+    public required TerraformList<GoogleFirestoreIndexFieldsBlock> Fields { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirestoreIndexTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirestoreIndexTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A server defined name for this index. Format:

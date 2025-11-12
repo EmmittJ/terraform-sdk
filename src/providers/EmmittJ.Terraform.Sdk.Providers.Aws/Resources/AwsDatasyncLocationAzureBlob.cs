@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for sas_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncLocationAzureBlobSasConfigurationBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationAzureBlobSasConfigurationBlock() : TerraformBlock("sas_configuration")
 {
     /// <summary>
     /// The token attribute.
@@ -107,7 +107,7 @@ public partial class AwsDatasyncLocationAzureBlob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SasConfiguration block(s) allowed")]
     [TerraformProperty("sas_configuration")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncLocationAzureBlobSasConfigurationBlock>>? SasConfiguration { get; set; }
+    public TerraformList<AwsDatasyncLocationAzureBlobSasConfigurationBlock> SasConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for data_flow in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlockBase
+public partial class AzurermMonitorDataCollectionRuleDataFlowBlock() : TerraformBlock("data_flow")
 {
     /// <summary>
     /// The built_in_transform attribute.
@@ -51,7 +51,7 @@ public partial class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBl
 /// Block type for data_sources in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorDataCollectionRuleDataSourcesBlock : TerraformBlockBase
+public partial class AzurermMonitorDataCollectionRuleDataSourcesBlock() : TerraformBlock("data_sources")
 {
 }
 
@@ -59,7 +59,7 @@ public partial class AzurermMonitorDataCollectionRuleDataSourcesBlock : Terrafor
 /// Block type for destinations in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorDataCollectionRuleDestinationsBlock : TerraformBlockBase
+public partial class AzurermMonitorDataCollectionRuleDestinationsBlock() : TerraformBlock("destinations")
 {
 }
 
@@ -67,7 +67,7 @@ public partial class AzurermMonitorDataCollectionRuleDestinationsBlock : Terrafo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlockBase
+public partial class AzurermMonitorDataCollectionRuleIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -92,7 +92,7 @@ public partial class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBl
 /// Block type for stream_declaration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : TerraformBlockBase
+public partial class AzurermMonitorDataCollectionRuleStreamDeclarationBlock() : TerraformBlock("stream_declaration")
 {
     /// <summary>
     /// The stream_name attribute.
@@ -108,7 +108,7 @@ public partial class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorDataCollectionRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -216,7 +216,7 @@ public partial class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFlow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataFlow block(s) required")]
     [TerraformProperty("data_flow")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDataFlowBlock>>? DataFlow { get; set; }
+    public required TerraformList<AzurermMonitorDataCollectionRuleDataFlowBlock> DataFlow { get; set; } = new();
 
     /// <summary>
     /// Block for data_sources.
@@ -224,7 +224,7 @@ public partial class AzurermMonitorDataCollectionRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSources block(s) allowed")]
     [TerraformProperty("data_sources")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDataSourcesBlock>>? DataSources { get; set; }
+    public TerraformList<AzurermMonitorDataCollectionRuleDataSourcesBlock> DataSources { get; set; } = new();
 
     /// <summary>
     /// Block for destinations.
@@ -234,7 +234,7 @@ public partial class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destinations block(s) allowed")]
     [TerraformProperty("destinations")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDestinationsBlock>>? Destinations { get; set; }
+    public required TerraformList<AzurermMonitorDataCollectionRuleDestinationsBlock> Destinations { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -242,21 +242,21 @@ public partial class AzurermMonitorDataCollectionRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMonitorDataCollectionRuleIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for stream_declaration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("stream_declaration")]
-    public partial TerraformSet<TerraformBlock<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>>? StreamDeclaration { get; set; }
+    public TerraformSet<AzurermMonitorDataCollectionRuleStreamDeclarationBlock> StreamDeclaration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorDataCollectionRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorDataCollectionRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The immutable_id attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2ClientVpnNetworkAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2ClientVpnNetworkAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,7 +68,7 @@ public partial class AwsEc2ClientVpnNetworkAssociation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2ClientVpnNetworkAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2ClientVpnNetworkAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The association_id attribute.

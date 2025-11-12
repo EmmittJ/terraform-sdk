@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for auto_accept in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivityGroupAutoAcceptBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityGroupAutoAcceptBlock() : TerraformBlock("auto_accept")
 {
     /// <summary>
     /// A list of project ids or project numbers for which you want to enable auto-accept. The auto-accept setting is applied to spokes being created or updated in these projects.
@@ -22,7 +22,7 @@ public partial class GoogleNetworkConnectivityGroupAutoAcceptBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkConnectivityGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,14 +110,14 @@ public partial class GoogleNetworkConnectivityGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoAccept block(s) allowed")]
     [TerraformProperty("auto_accept")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityGroupAutoAcceptBlock>>? AutoAccept { get; set; }
+    public TerraformList<GoogleNetworkConnectivityGroupAutoAcceptBlock> AutoAccept { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkConnectivityGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkConnectivityGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time the hub was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for actions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSecurityhubAutomationRuleActionsBlock : TerraformBlockBase
+public partial class AwsSecurityhubAutomationRuleActionsBlock() : TerraformBlock("actions")
 {
     /// <summary>
     /// The type attribute.
@@ -21,7 +21,7 @@ public partial class AwsSecurityhubAutomationRuleActionsBlock : TerraformBlockBa
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecurityhubAutomationRuleCriteriaBlock : TerraformBlockBase
+public partial class AwsSecurityhubAutomationRuleCriteriaBlock() : TerraformBlock("criteria")
 {
 }
 
@@ -91,14 +91,14 @@ public partial class AwsSecurityhubAutomationRule : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("actions")]
-    public partial TerraformSet<TerraformBlock<AwsSecurityhubAutomationRuleActionsBlock>>? Actions { get; set; }
+    public TerraformSet<AwsSecurityhubAutomationRuleActionsBlock> Actions { get; set; } = new();
 
     /// <summary>
     /// Block for criteria.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("criteria")]
-    public partial TerraformList<TerraformBlock<AwsSecurityhubAutomationRuleCriteriaBlock>>? Criteria { get; set; }
+    public TerraformList<AwsSecurityhubAutomationRuleCriteriaBlock> Criteria { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

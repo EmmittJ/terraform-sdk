@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for instruction in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxPlaybookInstructionBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPlaybookInstructionBlock() : TerraformBlock("instruction")
 {
     /// <summary>
     /// General guidelines for the playbook. These are unstructured instructions that are not directly part of the goal, e.g. &amp;quot;Always be polite&amp;quot;. It&#39;s valid for this text to be long and used instead of steps altogether.
@@ -21,7 +21,7 @@ public partial class GoogleDialogflowCxPlaybookInstructionBlock : TerraformBlock
 /// Block type for llm_model_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPlaybookLlmModelSettingsBlock() : TerraformBlock("llm_model_settings")
 {
     /// <summary>
     /// The selected LLM model.
@@ -43,7 +43,7 @@ public partial class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxPlaybookTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,7 +129,7 @@ public partial class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Instruction block(s) allowed")]
     [TerraformProperty("instruction")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxPlaybookInstructionBlock>>? Instruction { get; set; }
+    public TerraformList<GoogleDialogflowCxPlaybookInstructionBlock> Instruction { get; set; } = new();
 
     /// <summary>
     /// Block for llm_model_settings.
@@ -137,14 +137,14 @@ public partial class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     [TerraformProperty("llm_model_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxPlaybookLlmModelSettingsBlock>>? LlmModelSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxPlaybookLlmModelSettingsBlock> LlmModelSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxPlaybookTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxPlaybookTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of initial playbook creation.

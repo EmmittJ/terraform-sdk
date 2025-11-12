@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for matching in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCustomerprofilesDomainMatchingBlock : TerraformBlockBase
+public partial class AwsCustomerprofilesDomainMatchingBlock() : TerraformBlock("matching")
 {
     /// <summary>
     /// The enabled attribute.
@@ -22,7 +22,7 @@ public partial class AwsCustomerprofilesDomainMatchingBlock : TerraformBlockBase
 /// Block type for rule_based_matching in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlockBase
+public partial class AwsCustomerprofilesDomainRuleBasedMatchingBlock() : TerraformBlock("rule_based_matching")
 {
     /// <summary>
     /// The enabled attribute.
@@ -129,7 +129,7 @@ public partial class AwsCustomerprofilesDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Matching block(s) allowed")]
     [TerraformProperty("matching")]
-    public partial TerraformList<TerraformBlock<AwsCustomerprofilesDomainMatchingBlock>>? Matching { get; set; }
+    public TerraformList<AwsCustomerprofilesDomainMatchingBlock> Matching { get; set; } = new();
 
     /// <summary>
     /// Block for rule_based_matching.
@@ -137,7 +137,7 @@ public partial class AwsCustomerprofilesDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuleBasedMatching block(s) allowed")]
     [TerraformProperty("rule_based_matching")]
-    public partial TerraformList<TerraformBlock<AwsCustomerprofilesDomainRuleBasedMatchingBlock>>? RuleBasedMatching { get; set; }
+    public TerraformList<AwsCustomerprofilesDomainRuleBasedMatchingBlock> RuleBasedMatching { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

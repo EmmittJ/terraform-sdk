@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for credentials in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementBackendCredentialsBlock : TerraformBlockBase
+public partial class AzurermApiManagementBackendCredentialsBlock() : TerraformBlock("credentials")
 {
     /// <summary>
     /// The certificate attribute.
@@ -35,7 +35,7 @@ public partial class AzurermApiManagementBackendCredentialsBlock : TerraformBloc
 /// Block type for proxy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementBackendProxyBlock : TerraformBlockBase
+public partial class AzurermApiManagementBackendProxyBlock() : TerraformBlock("proxy")
 {
     /// <summary>
     /// The password attribute.
@@ -66,7 +66,7 @@ public partial class AzurermApiManagementBackendProxyBlock : TerraformBlockBase
 /// Block type for service_fabric_cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlockBase
+public partial class AzurermApiManagementBackendServiceFabricClusterBlock() : TerraformBlock("service_fabric_cluster")
 {
     /// <summary>
     /// The client_certificate_id attribute.
@@ -111,7 +111,7 @@ public partial class AzurermApiManagementBackendServiceFabricClusterBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementBackendTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementBackendTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -147,7 +147,7 @@ public partial class AzurermApiManagementBackendTimeoutsBlock : TerraformBlockBa
 /// Block type for tls in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementBackendTlsBlock : TerraformBlockBase
+public partial class AzurermApiManagementBackendTlsBlock() : TerraformBlock("tls")
 {
     /// <summary>
     /// The validate_certificate_chain attribute.
@@ -249,7 +249,7 @@ public partial class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
     [TerraformProperty("credentials")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementBackendCredentialsBlock>>? Credentials { get; set; }
+    public TerraformList<AzurermApiManagementBackendCredentialsBlock> Credentials { get; set; } = new();
 
     /// <summary>
     /// Block for proxy.
@@ -257,7 +257,7 @@ public partial class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformProperty("proxy")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementBackendProxyBlock>>? Proxy { get; set; }
+    public TerraformList<AzurermApiManagementBackendProxyBlock> Proxy { get; set; } = new();
 
     /// <summary>
     /// Block for service_fabric_cluster.
@@ -265,14 +265,14 @@ public partial class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceFabricCluster block(s) allowed")]
     [TerraformProperty("service_fabric_cluster")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementBackendServiceFabricClusterBlock>>? ServiceFabricCluster { get; set; }
+    public TerraformList<AzurermApiManagementBackendServiceFabricClusterBlock> ServiceFabricCluster { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementBackendTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementBackendTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tls.
@@ -280,6 +280,6 @@ public partial class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
     [TerraformProperty("tls")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementBackendTlsBlock>>? Tls { get; set; }
+    public TerraformList<AzurermApiManagementBackendTlsBlock> Tls { get; set; } = new();
 
 }

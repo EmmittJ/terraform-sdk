@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBotChannelAlexaTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBotChannelAlexaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,6 +91,6 @@ public partial class AzurermBotChannelAlexa : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBotChannelAlexaTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBotChannelAlexaTimeoutsBlock Timeouts { get; set; } = new();
 
 }

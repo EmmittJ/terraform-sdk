@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for broker_node_group_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlockBase
+public partial class AwsMskClusterBrokerNodeGroupInfoBlock() : TerraformBlock("broker_node_group_info")
 {
     /// <summary>
     /// The az_distribution attribute.
@@ -45,7 +45,7 @@ public partial class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlockBase
 /// Block type for client_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskClusterClientAuthenticationBlock : TerraformBlockBase
+public partial class AwsMskClusterClientAuthenticationBlock() : TerraformBlock("client_authentication")
 {
     /// <summary>
     /// The unauthenticated attribute.
@@ -60,7 +60,7 @@ public partial class AwsMskClusterClientAuthenticationBlock : TerraformBlockBase
 /// Block type for configuration_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskClusterConfigurationInfoBlock : TerraformBlockBase
+public partial class AwsMskClusterConfigurationInfoBlock() : TerraformBlock("configuration_info")
 {
     /// <summary>
     /// The arn attribute.
@@ -84,7 +84,7 @@ public partial class AwsMskClusterConfigurationInfoBlock : TerraformBlockBase
 /// Block type for encryption_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskClusterEncryptionInfoBlock : TerraformBlockBase
+public partial class AwsMskClusterEncryptionInfoBlock() : TerraformBlock("encryption_info")
 {
     /// <summary>
     /// The encryption_at_rest_kms_key_arn attribute.
@@ -99,7 +99,7 @@ public partial class AwsMskClusterEncryptionInfoBlock : TerraformBlockBase
 /// Block type for logging_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskClusterLoggingInfoBlock : TerraformBlockBase
+public partial class AwsMskClusterLoggingInfoBlock() : TerraformBlock("logging_info")
 {
 }
 
@@ -107,7 +107,7 @@ public partial class AwsMskClusterLoggingInfoBlock : TerraformBlockBase
 /// Block type for open_monitoring in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskClusterOpenMonitoringBlock : TerraformBlockBase
+public partial class AwsMskClusterOpenMonitoringBlock() : TerraformBlock("open_monitoring")
 {
 }
 
@@ -115,7 +115,7 @@ public partial class AwsMskClusterOpenMonitoringBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMskClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsMskClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -224,7 +224,7 @@ public partial class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BrokerNodeGroupInfo block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BrokerNodeGroupInfo block(s) allowed")]
     [TerraformProperty("broker_node_group_info")]
-    public partial TerraformList<TerraformBlock<AwsMskClusterBrokerNodeGroupInfoBlock>>? BrokerNodeGroupInfo { get; set; }
+    public required TerraformList<AwsMskClusterBrokerNodeGroupInfoBlock> BrokerNodeGroupInfo { get; set; } = new();
 
     /// <summary>
     /// Block for client_authentication.
@@ -232,7 +232,7 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthentication block(s) allowed")]
     [TerraformProperty("client_authentication")]
-    public partial TerraformList<TerraformBlock<AwsMskClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; }
+    public TerraformList<AwsMskClusterClientAuthenticationBlock> ClientAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for configuration_info.
@@ -240,7 +240,7 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigurationInfo block(s) allowed")]
     [TerraformProperty("configuration_info")]
-    public partial TerraformList<TerraformBlock<AwsMskClusterConfigurationInfoBlock>>? ConfigurationInfo { get; set; }
+    public TerraformList<AwsMskClusterConfigurationInfoBlock> ConfigurationInfo { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_info.
@@ -248,7 +248,7 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionInfo block(s) allowed")]
     [TerraformProperty("encryption_info")]
-    public partial TerraformList<TerraformBlock<AwsMskClusterEncryptionInfoBlock>>? EncryptionInfo { get; set; }
+    public TerraformList<AwsMskClusterEncryptionInfoBlock> EncryptionInfo { get; set; } = new();
 
     /// <summary>
     /// Block for logging_info.
@@ -256,7 +256,7 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingInfo block(s) allowed")]
     [TerraformProperty("logging_info")]
-    public partial TerraformList<TerraformBlock<AwsMskClusterLoggingInfoBlock>>? LoggingInfo { get; set; }
+    public TerraformList<AwsMskClusterLoggingInfoBlock> LoggingInfo { get; set; } = new();
 
     /// <summary>
     /// Block for open_monitoring.
@@ -264,14 +264,14 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenMonitoring block(s) allowed")]
     [TerraformProperty("open_monitoring")]
-    public partial TerraformList<TerraformBlock<AwsMskClusterOpenMonitoringBlock>>? OpenMonitoring { get; set; }
+    public TerraformList<AwsMskClusterOpenMonitoringBlock> OpenMonitoring { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMskClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMskClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

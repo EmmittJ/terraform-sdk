@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock() : TerraformBlock("custom_rule")
 {
     /// <summary>
     /// The action attribute.
@@ -66,7 +66,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock : Terrafor
 /// Block type for log_scrubbing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock() : TerraformBlock("log_scrubbing")
 {
     /// <summary>
     /// The enabled attribute.
@@ -81,7 +81,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock : Terraf
 /// Block type for managed_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock() : TerraformBlock("managed_rule")
 {
     /// <summary>
     /// The action attribute.
@@ -113,7 +113,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -256,7 +256,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]
     [TerraformProperty("custom_rule")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock>>? CustomRule { get; set; }
+    public TerraformList<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock> CustomRule { get; set; } = new();
 
     /// <summary>
     /// Block for log_scrubbing.
@@ -264,7 +264,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogScrubbing block(s) allowed")]
     [TerraformProperty("log_scrubbing")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock>>? LogScrubbing { get; set; }
+    public TerraformList<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock> LogScrubbing { get; set; } = new();
 
     /// <summary>
     /// Block for managed_rule.
@@ -272,14 +272,14 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ManagedRule block(s) allowed")]
     [TerraformProperty("managed_rule")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock>>? ManagedRule { get; set; }
+    public TerraformList<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock> ManagedRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The frontend_endpoint_ids attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBeyondcorpAppGatewayTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpAppGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -106,7 +106,7 @@ public partial class GoogleBeyondcorpAppGateway : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBeyondcorpAppGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBeyondcorpAppGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A list of connections allocated for the Gateway.

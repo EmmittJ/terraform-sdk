@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesAuthzExtensionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesAuthzExtensionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,7 +161,7 @@ public partial class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesAuthzExtensionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesAuthzExtensionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

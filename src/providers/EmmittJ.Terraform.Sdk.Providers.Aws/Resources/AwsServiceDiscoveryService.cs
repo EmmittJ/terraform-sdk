@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dns_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlockBase
+public partial class AwsServiceDiscoveryServiceDnsConfigBlock() : TerraformBlock("dns_config")
 {
     /// <summary>
     /// The namespace_id attribute.
@@ -29,7 +29,7 @@ public partial class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlockBa
 /// Block type for health_check_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlockBase
+public partial class AwsServiceDiscoveryServiceHealthCheckConfigBlock() : TerraformBlock("health_check_config")
 {
     /// <summary>
     /// The failure_threshold attribute.
@@ -58,7 +58,7 @@ public partial class AwsServiceDiscoveryServiceHealthCheckConfigBlock : Terrafor
 /// Block type for health_check_custom_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock : TerraformBlockBase
+public partial class AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock() : TerraformBlock("health_check_custom_config")
 {
     /// <summary>
     /// The failure_threshold attribute.
@@ -150,7 +150,7 @@ public partial class AwsServiceDiscoveryService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     [TerraformProperty("dns_config")]
-    public partial TerraformList<TerraformBlock<AwsServiceDiscoveryServiceDnsConfigBlock>>? DnsConfig { get; set; }
+    public TerraformList<AwsServiceDiscoveryServiceDnsConfigBlock> DnsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for health_check_config.
@@ -158,7 +158,7 @@ public partial class AwsServiceDiscoveryService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckConfig block(s) allowed")]
     [TerraformProperty("health_check_config")]
-    public partial TerraformList<TerraformBlock<AwsServiceDiscoveryServiceHealthCheckConfigBlock>>? HealthCheckConfig { get; set; }
+    public TerraformList<AwsServiceDiscoveryServiceHealthCheckConfigBlock> HealthCheckConfig { get; set; } = new();
 
     /// <summary>
     /// Block for health_check_custom_config.
@@ -166,7 +166,7 @@ public partial class AwsServiceDiscoveryService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckCustomConfig block(s) allowed")]
     [TerraformProperty("health_check_custom_config")]
-    public partial TerraformList<TerraformBlock<AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock>>? HealthCheckCustomConfig { get; set; }
+    public TerraformList<AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock> HealthCheckCustomConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

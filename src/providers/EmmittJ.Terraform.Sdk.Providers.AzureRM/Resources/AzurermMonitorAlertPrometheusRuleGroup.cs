@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlockBase
+public partial class AzurermMonitorAlertPrometheusRuleGroupRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The alert attribute.
@@ -71,7 +71,7 @@ public partial class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -194,13 +194,13 @@ public partial class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorAlertPrometheusRuleGroupRuleBlock>>? Rule { get; set; }
+    public required TerraformList<AzurermMonitorAlertPrometheusRuleGroupRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

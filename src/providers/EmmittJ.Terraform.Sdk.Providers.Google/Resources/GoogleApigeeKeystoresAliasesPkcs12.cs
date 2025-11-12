@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -100,7 +100,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Chain of certificates under this alias.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRedshiftEventSubscriptionTimeoutsBlock : TerraformBlockBase
+public partial class AwsRedshiftEventSubscriptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,7 +124,7 @@ public partial class AwsRedshiftEventSubscription : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRedshiftEventSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRedshiftEventSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsFisExperimentTemplateActionBlock : TerraformBlockBase
+public partial class AwsFisExperimentTemplateActionBlock() : TerraformBlock("action")
 {
     /// <summary>
     /// The action_id attribute.
@@ -44,7 +44,7 @@ public partial class AwsFisExperimentTemplateActionBlock : TerraformBlockBase
 /// Block type for experiment_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformBlockBase
+public partial class AwsFisExperimentTemplateExperimentOptionsBlock() : TerraformBlock("experiment_options")
 {
     /// <summary>
     /// The account_targeting attribute.
@@ -66,7 +66,7 @@ public partial class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformB
 /// Block type for experiment_report_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFisExperimentTemplateExperimentReportConfigurationBlock : TerraformBlockBase
+public partial class AwsFisExperimentTemplateExperimentReportConfigurationBlock() : TerraformBlock("experiment_report_configuration")
 {
     /// <summary>
     /// The post_experiment_duration attribute.
@@ -88,7 +88,7 @@ public partial class AwsFisExperimentTemplateExperimentReportConfigurationBlock 
 /// Block type for log_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFisExperimentTemplateLogConfigurationBlock : TerraformBlockBase
+public partial class AwsFisExperimentTemplateLogConfigurationBlock() : TerraformBlock("log_configuration")
 {
     /// <summary>
     /// The log_schema_version attribute.
@@ -104,7 +104,7 @@ public partial class AwsFisExperimentTemplateLogConfigurationBlock : TerraformBl
 /// Block type for stop_condition in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsFisExperimentTemplateStopConditionBlock : TerraformBlockBase
+public partial class AwsFisExperimentTemplateStopConditionBlock() : TerraformBlock("stop_condition")
 {
     /// <summary>
     /// The source attribute.
@@ -127,7 +127,7 @@ public partial class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
 /// Block type for target in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsFisExperimentTemplateTargetBlock : TerraformBlockBase
+public partial class AwsFisExperimentTemplateTargetBlock() : TerraformBlock("target")
 {
     /// <summary>
     /// The name attribute.
@@ -173,7 +173,7 @@ public partial class AwsFisExperimentTemplateTargetBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlockBase
+public partial class AwsFisExperimentTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -259,7 +259,7 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     [TerraformProperty("action")]
-    public partial TerraformSet<TerraformBlock<AwsFisExperimentTemplateActionBlock>>? Action { get; set; }
+    public required TerraformSet<AwsFisExperimentTemplateActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for experiment_options.
@@ -267,7 +267,7 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExperimentOptions block(s) allowed")]
     [TerraformProperty("experiment_options")]
-    public partial TerraformList<TerraformBlock<AwsFisExperimentTemplateExperimentOptionsBlock>>? ExperimentOptions { get; set; }
+    public TerraformList<AwsFisExperimentTemplateExperimentOptionsBlock> ExperimentOptions { get; set; } = new();
 
     /// <summary>
     /// Block for experiment_report_configuration.
@@ -275,7 +275,7 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExperimentReportConfiguration block(s) allowed")]
     [TerraformProperty("experiment_report_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFisExperimentTemplateExperimentReportConfigurationBlock>>? ExperimentReportConfiguration { get; set; }
+    public TerraformList<AwsFisExperimentTemplateExperimentReportConfigurationBlock> ExperimentReportConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for log_configuration.
@@ -283,7 +283,7 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
     [TerraformProperty("log_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFisExperimentTemplateLogConfigurationBlock>>? LogConfiguration { get; set; }
+    public TerraformList<AwsFisExperimentTemplateLogConfigurationBlock> LogConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for stop_condition.
@@ -292,20 +292,20 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopCondition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StopCondition block(s) required")]
     [TerraformProperty("stop_condition")]
-    public partial TerraformSet<TerraformBlock<AwsFisExperimentTemplateStopConditionBlock>>? StopCondition { get; set; }
+    public required TerraformSet<AwsFisExperimentTemplateStopConditionBlock> StopCondition { get; set; } = new();
 
     /// <summary>
     /// Block for target.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("target")]
-    public partial TerraformSet<TerraformBlock<AwsFisExperimentTemplateTargetBlock>>? Target { get; set; }
+    public TerraformSet<AwsFisExperimentTemplateTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFisExperimentTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFisExperimentTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
 }

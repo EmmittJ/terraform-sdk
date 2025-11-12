@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageDefaultObjectAccessControlTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,7 +91,7 @@ public partial class GoogleStorageDefaultObjectAccessControl : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageDefaultObjectAccessControlTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageDefaultObjectAccessControlTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The domain associated with the entity.

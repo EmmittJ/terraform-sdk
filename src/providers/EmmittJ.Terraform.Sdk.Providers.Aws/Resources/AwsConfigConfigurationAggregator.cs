@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for account_aggregation_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : TerraformBlockBase
+public partial class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock() : TerraformBlock("account_aggregation_source")
 {
     /// <summary>
     /// The account_ids attribute.
@@ -36,7 +36,7 @@ public partial class AwsConfigConfigurationAggregatorAccountAggregationSourceBlo
 /// Block type for organization_aggregation_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock : TerraformBlockBase
+public partial class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock() : TerraformBlock("organization_aggregation_source")
 {
     /// <summary>
     /// The all_regions attribute.
@@ -114,7 +114,7 @@ public partial class AwsConfigConfigurationAggregator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountAggregationSource block(s) allowed")]
     [TerraformProperty("account_aggregation_source")]
-    public partial TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorAccountAggregationSourceBlock>>? AccountAggregationSource { get; set; }
+    public TerraformList<AwsConfigConfigurationAggregatorAccountAggregationSourceBlock> AccountAggregationSource { get; set; } = new();
 
     /// <summary>
     /// Block for organization_aggregation_source.
@@ -122,7 +122,7 @@ public partial class AwsConfigConfigurationAggregator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrganizationAggregationSource block(s) allowed")]
     [TerraformProperty("organization_aggregation_source")]
-    public partial TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock>>? OrganizationAggregationSource { get; set; }
+    public TerraformList<AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock> OrganizationAggregationSource { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevCenterCatalogDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevCenterCatalogDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermDevCenterCatalogDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevCenterCatalogDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevCenterCatalogDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The catalog_adogit attribute.

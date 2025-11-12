@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for desired_user_created_endpoints in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock() : TerraformBlock("desired_user_created_endpoints")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesired
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,13 +83,13 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : Terr
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("desired_user_created_endpoints")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock>>? DesiredUserCreatedEndpoints { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock> DesiredUserCreatedEndpoints { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

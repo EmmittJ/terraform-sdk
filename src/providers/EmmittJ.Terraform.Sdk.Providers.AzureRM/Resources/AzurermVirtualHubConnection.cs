@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualHubConnectionRoutingBlock : TerraformBlockBase
+public partial class AzurermVirtualHubConnectionRoutingBlock() : TerraformBlock("routing")
 {
     /// <summary>
     /// The associated_route_table_id attribute.
@@ -49,7 +49,7 @@ public partial class AzurermVirtualHubConnectionRoutingBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualHubConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -135,13 +135,13 @@ public partial class AzurermVirtualHubConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformProperty("routing")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualHubConnectionRoutingBlock>>? Routing { get; set; }
+    public TerraformList<AzurermVirtualHubConnectionRoutingBlock> Routing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualHubConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualHubConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

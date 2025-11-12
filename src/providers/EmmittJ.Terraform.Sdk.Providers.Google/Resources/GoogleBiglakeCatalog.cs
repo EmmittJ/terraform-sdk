@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBiglakeCatalogTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBiglakeCatalogTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -69,7 +69,7 @@ public partial class GoogleBiglakeCatalog : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBiglakeCatalogTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBiglakeCatalogTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The creation time of the catalog. A timestamp in RFC3339 UTC

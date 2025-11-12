@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCosmosdbSqlRoleDefinitionPermissionsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbSqlRoleDefinitionPermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The data_actions attribute.
@@ -22,7 +22,7 @@ public partial class AzurermCosmosdbSqlRoleDefinitionPermissionsBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,13 +124,13 @@ public partial class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [TerraformProperty("permissions")]
-    public partial TerraformSet<TerraformBlock<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock>>? Permissions { get; set; }
+    public required TerraformSet<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

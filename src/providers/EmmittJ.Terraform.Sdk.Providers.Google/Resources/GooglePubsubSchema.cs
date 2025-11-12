@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePubsubSchemaTimeoutsBlock : TerraformBlockBase
+public partial class GooglePubsubSchemaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -87,6 +87,6 @@ public partial class GooglePubsubSchema : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePubsubSchemaTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePubsubSchemaTimeoutsBlock Timeouts { get; set; } = new();
 
 }

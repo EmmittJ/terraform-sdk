@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for predictive_scaling_policy_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : TerraformBlockBase
+public partial class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock() : TerraformBlock("predictive_scaling_policy_configuration")
 {
     /// <summary>
     /// The max_capacity_breach_behavior attribute.
@@ -42,7 +42,7 @@ public partial class AwsAppautoscalingPolicyPredictiveScalingPolicyConfiguration
 /// Block type for step_scaling_policy_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : TerraformBlockBase
+public partial class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock() : TerraformBlock("step_scaling_policy_configuration")
 {
     /// <summary>
     /// The adjustment_type attribute.
@@ -78,7 +78,7 @@ public partial class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock 
 /// Block type for target_tracking_scaling_policy_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBlock : TerraformBlockBase
+public partial class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBlock() : TerraformBlock("target_tracking_scaling_policy_configuration")
 {
     /// <summary>
     /// The disable_scale_in attribute.
@@ -180,7 +180,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredictiveScalingPolicyConfiguration block(s) allowed")]
     [TerraformProperty("predictive_scaling_policy_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock>>? PredictiveScalingPolicyConfiguration { get; set; }
+    public TerraformList<AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock> PredictiveScalingPolicyConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for step_scaling_policy_configuration.
@@ -188,7 +188,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StepScalingPolicyConfiguration block(s) allowed")]
     [TerraformProperty("step_scaling_policy_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock>>? StepScalingPolicyConfiguration { get; set; }
+    public TerraformList<AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock> StepScalingPolicyConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for target_tracking_scaling_policy_configuration.
@@ -196,7 +196,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTrackingScalingPolicyConfiguration block(s) allowed")]
     [TerraformProperty("target_tracking_scaling_policy_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBlock>>? TargetTrackingScalingPolicyConfiguration { get; set; }
+    public TerraformList<AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBlock> TargetTrackingScalingPolicyConfiguration { get; set; } = new();
 
     /// <summary>
     /// The alarm_arns attribute.

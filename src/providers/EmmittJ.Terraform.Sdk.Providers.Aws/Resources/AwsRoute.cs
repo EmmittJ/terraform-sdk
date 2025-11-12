@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRouteTimeoutsBlock : TerraformBlockBase
+public partial class AwsRouteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -158,7 +158,7 @@ public partial class AwsRoute : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRouteTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRouteTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The instance_id attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppSlotAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSlotAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
@@ -78,7 +78,7 @@ public partial class AzurermWindowsFunctionAppSlotAuthSettingsBlock : TerraformB
 /// Block type for auth_settings_v2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppSlotAuthSettingsV2Block : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSlotAuthSettingsV2Block() : TerraformBlock("auth_settings_v2")
 {
     /// <summary>
     /// Should the AuthV2 Settings be enabled. Defaults to `false`
@@ -170,7 +170,7 @@ public partial class AzurermWindowsFunctionAppSlotAuthSettingsV2Block : Terrafor
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppSlotBackupBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSlotBackupBlock() : TerraformBlock("backup")
 {
     /// <summary>
     /// Should this backup job be enabled?
@@ -201,7 +201,7 @@ public partial class AzurermWindowsFunctionAppSlotBackupBlock : TerraformBlockBa
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermWindowsFunctionAppSlotConnectionStringBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSlotConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name which should be used for this Connection.
@@ -233,7 +233,7 @@ public partial class AzurermWindowsFunctionAppSlotConnectionStringBlock : Terraf
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppSlotIdentityBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSlotIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -258,7 +258,7 @@ public partial class AzurermWindowsFunctionAppSlotIdentityBlock : TerraformBlock
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsFunctionAppSlotSiteConfigBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSlotSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// If this Windows Web App is Always On enabled. Defaults to `false`.
@@ -472,7 +472,7 @@ public partial class AzurermWindowsFunctionAppSlotSiteConfigBlock : TerraformBlo
 /// Block type for storage_account in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermWindowsFunctionAppSlotStorageAccountBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSlotStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The access_key attribute.
@@ -527,7 +527,7 @@ public partial class AzurermWindowsFunctionAppSlotStorageAccountBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWindowsFunctionAppSlotTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWindowsFunctionAppSlotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -759,7 +759,7 @@ public partial class AzurermWindowsFunctionAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppSlotAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppSlotAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for auth_settings_v2.
@@ -767,7 +767,7 @@ public partial class AzurermWindowsFunctionAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
     [TerraformProperty("auth_settings_v2")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppSlotAuthSettingsV2Block>>? AuthSettingsV2 { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppSlotAuthSettingsV2Block> AuthSettingsV2 { get; set; } = new();
 
     /// <summary>
     /// Block for backup.
@@ -775,14 +775,14 @@ public partial class AzurermWindowsFunctionAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppSlotBackupBlock>>? Backup { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppSlotBackupBlock> Backup { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermWindowsFunctionAppSlotConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermWindowsFunctionAppSlotConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -790,7 +790,7 @@ public partial class AzurermWindowsFunctionAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppSlotIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWindowsFunctionAppSlotIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -800,21 +800,21 @@ public partial class AzurermWindowsFunctionAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsFunctionAppSlotSiteConfigBlock>>? SiteConfig { get; set; }
+    public required TerraformList<AzurermWindowsFunctionAppSlotSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformSet<TerraformBlock<AzurermWindowsFunctionAppSlotStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformSet<AzurermWindowsFunctionAppSlotStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWindowsFunctionAppSlotTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWindowsFunctionAppSlotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The identifier used by App Service to perform domain ownership verification via DNS TXT record.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for managed in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeManagedSslCertificateManagedBlock : TerraformBlockBase
+public partial class GoogleComputeManagedSslCertificateManagedBlock() : TerraformBlock("managed")
 {
     /// <summary>
     /// Domains for which a managed SSL certificate will be valid.  Currently,
@@ -23,7 +23,7 @@ public partial class GoogleComputeManagedSslCertificateManagedBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeManagedSslCertificateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeManagedSslCertificateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,14 +101,14 @@ public partial class GoogleComputeManagedSslCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
     [TerraformProperty("managed")]
-    public partial TerraformList<TerraformBlock<GoogleComputeManagedSslCertificateManagedBlock>>? Managed { get; set; }
+    public TerraformList<GoogleComputeManagedSslCertificateManagedBlock> Managed { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeManagedSslCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeManagedSslCertificateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier for the resource.

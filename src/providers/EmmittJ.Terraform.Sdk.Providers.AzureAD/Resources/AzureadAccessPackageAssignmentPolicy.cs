@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for approval_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : TerraformBlockBase
+public partial class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock() : TerraformBlock("approval_settings")
 {
     /// <summary>
     /// Whether an approval is required
@@ -35,7 +35,7 @@ public partial class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock :
 /// Block type for assignment_review_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock : TerraformBlockBase
+public partial class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock() : TerraformBlock("assignment_review_settings")
 {
     /// <summary>
     /// Whether to show Show reviewer decision helpers. If enabled, system recommendations based on users&#39; access information will be shown to the reviewers. The reviewer will be recommended to approve the review if the user has signed-in at least once during the last 30 days. The reviewer will be recommended to deny the review if the user has not signed-in during the last 30 days
@@ -99,7 +99,7 @@ public partial class AzureadAccessPackageAssignmentPolicyAssignmentReviewSetting
 /// Block type for question in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadAccessPackageAssignmentPolicyQuestionBlock : TerraformBlockBase
+public partial class AzureadAccessPackageAssignmentPolicyQuestionBlock() : TerraformBlock("question")
 {
     /// <summary>
     /// Whether this question is required
@@ -121,7 +121,7 @@ public partial class AzureadAccessPackageAssignmentPolicyQuestionBlock : Terrafo
 /// Block type for requestor_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock : TerraformBlockBase
+public partial class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock() : TerraformBlock("requestor_settings")
 {
     /// <summary>
     /// Whether to accept requests now, when disabled, no new requests can be made using this policy
@@ -143,7 +143,7 @@ public partial class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzureadAccessPackageAssignmentPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -243,7 +243,7 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalSettings block(s) allowed")]
     [TerraformProperty("approval_settings")]
-    public partial TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock>>? ApprovalSettings { get; set; }
+    public TerraformList<AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock> ApprovalSettings { get; set; } = new();
 
     /// <summary>
     /// Block for assignment_review_settings.
@@ -251,14 +251,14 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssignmentReviewSettings block(s) allowed")]
     [TerraformProperty("assignment_review_settings")]
-    public partial TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock>>? AssignmentReviewSettings { get; set; }
+    public TerraformList<AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock> AssignmentReviewSettings { get; set; } = new();
 
     /// <summary>
     /// Block for question.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("question")]
-    public partial TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyQuestionBlock>>? Question { get; set; }
+    public TerraformList<AzureadAccessPackageAssignmentPolicyQuestionBlock> Question { get; set; } = new();
 
     /// <summary>
     /// Block for requestor_settings.
@@ -266,13 +266,13 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestorSettings block(s) allowed")]
     [TerraformProperty("requestor_settings")]
-    public partial TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock>>? RequestorSettings { get; set; }
+    public TerraformList<AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock> RequestorSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadAccessPackageAssignmentPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadAccessPackageAssignmentPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

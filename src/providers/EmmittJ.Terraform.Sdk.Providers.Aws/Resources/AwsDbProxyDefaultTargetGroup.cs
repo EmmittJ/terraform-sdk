@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connection_pool_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBlockBase
+public partial class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock() : TerraformBlock("connection_pool_config")
 {
     /// <summary>
     /// The connection_borrow_timeout attribute.
@@ -49,7 +49,7 @@ public partial class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDbProxyDefaultTargetGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsDbProxyDefaultTargetGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -105,14 +105,14 @@ public partial class AwsDbProxyDefaultTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionPoolConfig block(s) allowed")]
     [TerraformProperty("connection_pool_config")]
-    public partial TerraformList<TerraformBlock<AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock>>? ConnectionPoolConfig { get; set; }
+    public TerraformList<AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock> ConnectionPoolConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDbProxyDefaultTargetGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDbProxyDefaultTargetGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

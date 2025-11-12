@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDxHostedPrivateVirtualInterfaceTimeoutsBlock : TerraformBlockBase
+public partial class AwsDxHostedPrivateVirtualInterfaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,7 +128,7 @@ public partial class AwsDxHostedPrivateVirtualInterface : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDxHostedPrivateVirtualInterfaceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDxHostedPrivateVirtualInterfaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The amazon_side_asn attribute.

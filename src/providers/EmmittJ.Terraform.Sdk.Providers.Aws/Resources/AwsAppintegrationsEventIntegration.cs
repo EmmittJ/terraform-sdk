@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppintegrationsEventIntegrationEventFilterBlock : TerraformBlockBase
+public partial class AwsAppintegrationsEventIntegrationEventFilterBlock() : TerraformBlock("event_filter")
 {
     /// <summary>
     /// The source attribute.
@@ -87,7 +87,7 @@ public partial class AwsAppintegrationsEventIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EventFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventFilter block(s) allowed")]
     [TerraformProperty("event_filter")]
-    public partial TerraformList<TerraformBlock<AwsAppintegrationsEventIntegrationEventFilterBlock>>? EventFilter { get; set; }
+    public required TerraformList<AwsAppintegrationsEventIntegrationEventFilterBlock> EventFilter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

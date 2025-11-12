@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for availability_zone_distribution in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingGroupAvailabilityZoneDistributionBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupAvailabilityZoneDistributionBlock() : TerraformBlock("availability_zone_distribution")
 {
     /// <summary>
     /// The capacity_distribution_strategy attribute.
@@ -21,7 +21,7 @@ public partial class AwsAutoscalingGroupAvailabilityZoneDistributionBlock : Terr
 /// Block type for capacity_reservation_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingGroupCapacityReservationSpecificationBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupCapacityReservationSpecificationBlock() : TerraformBlock("capacity_reservation_specification")
 {
     /// <summary>
     /// The capacity_reservation_preference attribute.
@@ -36,7 +36,7 @@ public partial class AwsAutoscalingGroupCapacityReservationSpecificationBlock : 
 /// Block type for initial_lifecycle_hook in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAutoscalingGroupInitialLifecycleHookBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupInitialLifecycleHookBlock() : TerraformBlock("initial_lifecycle_hook")
 {
     /// <summary>
     /// The default_result attribute.
@@ -95,7 +95,7 @@ public partial class AwsAutoscalingGroupInitialLifecycleHookBlock : TerraformBlo
 /// Block type for instance_maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingGroupInstanceMaintenancePolicyBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupInstanceMaintenancePolicyBlock() : TerraformBlock("instance_maintenance_policy")
 {
     /// <summary>
     /// The max_healthy_percentage attribute.
@@ -119,7 +119,7 @@ public partial class AwsAutoscalingGroupInstanceMaintenancePolicyBlock : Terrafo
 /// Block type for instance_refresh in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingGroupInstanceRefreshBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupInstanceRefreshBlock() : TerraformBlock("instance_refresh")
 {
     /// <summary>
     /// The strategy attribute.
@@ -142,7 +142,7 @@ public partial class AwsAutoscalingGroupInstanceRefreshBlock : TerraformBlockBas
 /// Block type for launch_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingGroupLaunchTemplateBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupLaunchTemplateBlock() : TerraformBlock("launch_template")
 {
     /// <summary>
     /// The id attribute.
@@ -171,7 +171,7 @@ public partial class AwsAutoscalingGroupLaunchTemplateBlock : TerraformBlockBase
 /// Block type for mixed_instances_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingGroupMixedInstancesPolicyBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupMixedInstancesPolicyBlock() : TerraformBlock("mixed_instances_policy")
 {
 }
 
@@ -179,7 +179,7 @@ public partial class AwsAutoscalingGroupMixedInstancesPolicyBlock : TerraformBlo
 /// Block type for tag in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAutoscalingGroupTagBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupTagBlock() : TerraformBlock("tag")
 {
     /// <summary>
     /// The key attribute.
@@ -211,7 +211,7 @@ public partial class AwsAutoscalingGroupTagBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAutoscalingGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -233,7 +233,7 @@ public partial class AwsAutoscalingGroupTimeoutsBlock : TerraformBlockBase
 /// Block type for traffic_source in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAutoscalingGroupTrafficSourceBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupTrafficSourceBlock() : TerraformBlock("traffic_source")
 {
     /// <summary>
     /// The identifier attribute.
@@ -256,7 +256,7 @@ public partial class AwsAutoscalingGroupTrafficSourceBlock : TerraformBlockBase
 /// Block type for warm_pool in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAutoscalingGroupWarmPoolBlock : TerraformBlockBase
+public partial class AwsAutoscalingGroupWarmPoolBlock() : TerraformBlock("warm_pool")
 {
     /// <summary>
     /// The max_group_prepared_capacity attribute.
@@ -530,7 +530,7 @@ public partial class AwsAutoscalingGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AvailabilityZoneDistribution block(s) allowed")]
     [TerraformProperty("availability_zone_distribution")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupAvailabilityZoneDistributionBlock>>? AvailabilityZoneDistribution { get; set; }
+    public TerraformList<AwsAutoscalingGroupAvailabilityZoneDistributionBlock> AvailabilityZoneDistribution { get; set; } = new();
 
     /// <summary>
     /// Block for capacity_reservation_specification.
@@ -538,14 +538,14 @@ public partial class AwsAutoscalingGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityReservationSpecification block(s) allowed")]
     [TerraformProperty("capacity_reservation_specification")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupCapacityReservationSpecificationBlock>>? CapacityReservationSpecification { get; set; }
+    public TerraformList<AwsAutoscalingGroupCapacityReservationSpecificationBlock> CapacityReservationSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for initial_lifecycle_hook.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("initial_lifecycle_hook")]
-    public partial TerraformSet<TerraformBlock<AwsAutoscalingGroupInitialLifecycleHookBlock>>? InitialLifecycleHook { get; set; }
+    public TerraformSet<AwsAutoscalingGroupInitialLifecycleHookBlock> InitialLifecycleHook { get; set; } = new();
 
     /// <summary>
     /// Block for instance_maintenance_policy.
@@ -553,7 +553,7 @@ public partial class AwsAutoscalingGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMaintenancePolicy block(s) allowed")]
     [TerraformProperty("instance_maintenance_policy")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupInstanceMaintenancePolicyBlock>>? InstanceMaintenancePolicy { get; set; }
+    public TerraformList<AwsAutoscalingGroupInstanceMaintenancePolicyBlock> InstanceMaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for instance_refresh.
@@ -561,7 +561,7 @@ public partial class AwsAutoscalingGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceRefresh block(s) allowed")]
     [TerraformProperty("instance_refresh")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupInstanceRefreshBlock>>? InstanceRefresh { get; set; }
+    public TerraformList<AwsAutoscalingGroupInstanceRefreshBlock> InstanceRefresh { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template.
@@ -569,7 +569,7 @@ public partial class AwsAutoscalingGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
     [TerraformProperty("launch_template")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupLaunchTemplateBlock>>? LaunchTemplate { get; set; }
+    public TerraformList<AwsAutoscalingGroupLaunchTemplateBlock> LaunchTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for mixed_instances_policy.
@@ -577,28 +577,28 @@ public partial class AwsAutoscalingGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MixedInstancesPolicy block(s) allowed")]
     [TerraformProperty("mixed_instances_policy")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupMixedInstancesPolicyBlock>>? MixedInstancesPolicy { get; set; }
+    public TerraformList<AwsAutoscalingGroupMixedInstancesPolicyBlock> MixedInstancesPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for tag.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("tag")]
-    public partial TerraformSet<TerraformBlock<AwsAutoscalingGroupTagBlock>>? Tag { get; set; }
+    public TerraformSet<AwsAutoscalingGroupTagBlock> Tag { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAutoscalingGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAutoscalingGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_source.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("traffic_source")]
-    public partial TerraformSet<TerraformBlock<AwsAutoscalingGroupTrafficSourceBlock>>? TrafficSource { get; set; }
+    public TerraformSet<AwsAutoscalingGroupTrafficSourceBlock> TrafficSource { get; set; } = new();
 
     /// <summary>
     /// Block for warm_pool.
@@ -606,7 +606,7 @@ public partial class AwsAutoscalingGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WarmPool block(s) allowed")]
     [TerraformProperty("warm_pool")]
-    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupWarmPoolBlock>>? WarmPool { get; set; }
+    public TerraformList<AwsAutoscalingGroupWarmPoolBlock> WarmPool { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

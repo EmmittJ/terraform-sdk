@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerAccessPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -77,7 +77,7 @@ public partial class GoogleAccessContextManagerAccessPolicy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerAccessPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the AccessPolicy was created in UTC.

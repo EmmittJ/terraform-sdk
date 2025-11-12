@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxWebAppAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
@@ -78,7 +78,7 @@ public partial class AzurermLinuxWebAppAuthSettingsBlock : TerraformBlockBase
 /// Block type for auth_settings_v2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxWebAppAuthSettingsV2Block : TerraformBlockBase
+public partial class AzurermLinuxWebAppAuthSettingsV2Block() : TerraformBlock("auth_settings_v2")
 {
     /// <summary>
     /// Should the AuthV2 Settings be enabled. Defaults to `false`
@@ -170,7 +170,7 @@ public partial class AzurermLinuxWebAppAuthSettingsV2Block : TerraformBlockBase
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxWebAppBackupBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppBackupBlock() : TerraformBlock("backup")
 {
     /// <summary>
     /// Should this backup job be enabled?
@@ -201,7 +201,7 @@ public partial class AzurermLinuxWebAppBackupBlock : TerraformBlockBase
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLinuxWebAppConnectionStringBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name which should be used for this Connection.
@@ -233,7 +233,7 @@ public partial class AzurermLinuxWebAppConnectionStringBlock : TerraformBlockBas
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxWebAppIdentityBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -258,7 +258,7 @@ public partial class AzurermLinuxWebAppIdentityBlock : TerraformBlockBase
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxWebAppLogsBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppLogsBlock() : TerraformBlock("logs")
 {
     /// <summary>
     /// The detailed_error_messages attribute.
@@ -280,7 +280,7 @@ public partial class AzurermLinuxWebAppLogsBlock : TerraformBlockBase
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxWebAppSiteConfigBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// The always_on attribute.
@@ -466,7 +466,7 @@ public partial class AzurermLinuxWebAppSiteConfigBlock : TerraformBlockBase
 /// Block type for sticky_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLinuxWebAppStickySettingsBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppStickySettingsBlock() : TerraformBlock("sticky_settings")
 {
     /// <summary>
     /// The app_setting_names attribute.
@@ -488,7 +488,7 @@ public partial class AzurermLinuxWebAppStickySettingsBlock : TerraformBlockBase
 /// Block type for storage_account in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLinuxWebAppStorageAccountBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The access_key attribute.
@@ -543,7 +543,7 @@ public partial class AzurermLinuxWebAppStorageAccountBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLinuxWebAppTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLinuxWebAppTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -742,7 +742,7 @@ public partial class AzurermLinuxWebApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxWebAppAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermLinuxWebAppAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for auth_settings_v2.
@@ -750,7 +750,7 @@ public partial class AzurermLinuxWebApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
     [TerraformProperty("auth_settings_v2")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxWebAppAuthSettingsV2Block>>? AuthSettingsV2 { get; set; }
+    public TerraformList<AzurermLinuxWebAppAuthSettingsV2Block> AuthSettingsV2 { get; set; } = new();
 
     /// <summary>
     /// Block for backup.
@@ -758,14 +758,14 @@ public partial class AzurermLinuxWebApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxWebAppBackupBlock>>? Backup { get; set; }
+    public TerraformList<AzurermLinuxWebAppBackupBlock> Backup { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermLinuxWebAppConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermLinuxWebAppConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -773,7 +773,7 @@ public partial class AzurermLinuxWebApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxWebAppIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermLinuxWebAppIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for logs.
@@ -781,7 +781,7 @@ public partial class AzurermLinuxWebApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformProperty("logs")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxWebAppLogsBlock>>? Logs { get; set; }
+    public TerraformList<AzurermLinuxWebAppLogsBlock> Logs { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -791,7 +791,7 @@ public partial class AzurermLinuxWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxWebAppSiteConfigBlock>>? SiteConfig { get; set; }
+    public required TerraformList<AzurermLinuxWebAppSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for sticky_settings.
@@ -799,21 +799,21 @@ public partial class AzurermLinuxWebApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StickySettings block(s) allowed")]
     [TerraformProperty("sticky_settings")]
-    public partial TerraformList<TerraformBlock<AzurermLinuxWebAppStickySettingsBlock>>? StickySettings { get; set; }
+    public TerraformList<AzurermLinuxWebAppStickySettingsBlock> StickySettings { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformSet<TerraformBlock<AzurermLinuxWebAppStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformSet<AzurermLinuxWebAppStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLinuxWebAppTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLinuxWebAppTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_domain_verification_id attribute.

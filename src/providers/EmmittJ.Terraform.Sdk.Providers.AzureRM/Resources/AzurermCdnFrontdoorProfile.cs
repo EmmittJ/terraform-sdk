@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorProfileIdentityBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorProfileIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermCdnFrontdoorProfileIdentityBlock : TerraformBlockBas
 /// Block type for log_scrubbing_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCdnFrontdoorProfileLogScrubbingRuleBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorProfileLogScrubbingRuleBlock() : TerraformBlock("log_scrubbing_rule")
 {
     /// <summary>
     /// The match_variable attribute.
@@ -47,7 +47,7 @@ public partial class AzurermCdnFrontdoorProfileLogScrubbingRuleBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorProfileTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,7 +140,7 @@ public partial class AzurermCdnFrontdoorProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorProfileIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermCdnFrontdoorProfileIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for log_scrubbing_rule.
@@ -148,14 +148,14 @@ public partial class AzurermCdnFrontdoorProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 LogScrubbingRule block(s) allowed")]
     [TerraformProperty("log_scrubbing_rule")]
-    public partial TerraformSet<TerraformBlock<AzurermCdnFrontdoorProfileLogScrubbingRuleBlock>>? LogScrubbingRule { get; set; }
+    public TerraformSet<AzurermCdnFrontdoorProfileLogScrubbingRuleBlock> LogScrubbingRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorProfileTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource_guid attribute.

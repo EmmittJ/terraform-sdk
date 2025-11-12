@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for linux in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformBlockBase
+public partial class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock() : TerraformBlock("linux")
 {
     /// <summary>
     /// The classifications_included attribute.
@@ -43,7 +43,7 @@ public partial class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : Te
 /// Block type for post_task in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : TerraformBlockBase
+public partial class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock() : TerraformBlock("post_task")
 {
     /// <summary>
     /// The parameters attribute.
@@ -65,7 +65,7 @@ public partial class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock :
 /// Block type for pre_task in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : TerraformBlockBase
+public partial class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock() : TerraformBlock("pre_task")
 {
     /// <summary>
     /// The parameters attribute.
@@ -87,7 +87,7 @@ public partial class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : 
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : TerraformBlockBase
+public partial class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The advanced_month_days attribute.
@@ -189,7 +189,7 @@ public partial class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock :
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationSoftwareUpdateConfigurationTargetBlock : TerraformBlockBase
+public partial class AzurermAutomationSoftwareUpdateConfigurationTargetBlock() : TerraformBlock("target")
 {
 }
 
@@ -197,7 +197,7 @@ public partial class AzurermAutomationSoftwareUpdateConfigurationTargetBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -233,7 +233,7 @@ public partial class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock :
 /// Block type for windows in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : TerraformBlockBase
+public partial class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock() : TerraformBlock("windows")
 {
     /// <summary>
     /// The classifications_included attribute.
@@ -327,7 +327,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Linux block(s) allowed")]
     [TerraformProperty("linux")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>>? Linux { get; set; }
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock> Linux { get; set; } = new();
 
     /// <summary>
     /// Block for post_task.
@@ -335,7 +335,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostTask block(s) allowed")]
     [TerraformProperty("post_task")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>>? PostTask { get; set; }
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock> PostTask { get; set; } = new();
 
     /// <summary>
     /// Block for pre_task.
@@ -343,7 +343,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreTask block(s) allowed")]
     [TerraformProperty("pre_task")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>>? PreTask { get; set; }
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock> PreTask { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -353,7 +353,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration : TerraformRes
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>>? Schedule { get; set; }
+    public required TerraformList<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -361,14 +361,14 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>>? Target { get; set; }
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for windows.
@@ -376,7 +376,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Windows block(s) allowed")]
     [TerraformProperty("windows")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>>? Windows { get; set; }
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock> Windows { get; set; } = new();
 
     /// <summary>
     /// The error_code attribute.

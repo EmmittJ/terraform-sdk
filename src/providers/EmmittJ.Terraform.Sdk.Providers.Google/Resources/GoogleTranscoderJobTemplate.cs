@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleTranscoderJobTemplateConfigBlock : TerraformBlockBase
+public partial class GoogleTranscoderJobTemplateConfigBlock() : TerraformBlock("config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleTranscoderJobTemplateConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleTranscoderJobTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleTranscoderJobTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,14 +96,14 @@ public partial class GoogleTranscoderJobTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GoogleTranscoderJobTemplateConfigBlock>>? Config { get; set; }
+    public TerraformList<GoogleTranscoderJobTemplateConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleTranscoderJobTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleTranscoderJobTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

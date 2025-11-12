@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2ServiceBinaryAuthorizationBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2ServiceBinaryAuthorizationBlock() : TerraformBlock("binary_authorization")
 {
     /// <summary>
     /// If present, indicates to use Breakglass using this justification. If useDefault is False, then it must be empty. For more information on breakglass, see https://cloud.google.com/binary-authorization/docs/using-breakglass
@@ -35,7 +35,7 @@ public partial class GoogleCloudRunV2ServiceBinaryAuthorizationBlock : Terraform
 /// Block type for build_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2ServiceBuildConfigBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2ServiceBuildConfigBlock() : TerraformBlock("build_config")
 {
     /// <summary>
     /// The base image used to build the function.
@@ -100,7 +100,7 @@ public partial class GoogleCloudRunV2ServiceBuildConfigBlock : TerraformBlockBas
 /// Block type for multi_region_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2ServiceMultiRegionSettingsBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2ServiceMultiRegionSettingsBlock() : TerraformBlock("multi_region_settings")
 {
 
     /// <summary>
@@ -116,7 +116,7 @@ public partial class GoogleCloudRunV2ServiceMultiRegionSettingsBlock : Terraform
 /// Block type for scaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2ServiceScalingBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2ServiceScalingBlock() : TerraformBlock("scaling")
 {
     /// <summary>
     /// Total instance count for the service in manual scaling mode. This number of instances is divided among all revisions with specified traffic based on the percent of traffic they are receiving.
@@ -152,7 +152,7 @@ public partial class GoogleCloudRunV2ServiceScalingBlock : TerraformBlockBase
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2ServiceTemplateBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2ServiceTemplateBlock() : TerraformBlock("template")
 {
     /// <summary>
     /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
@@ -249,7 +249,7 @@ public partial class GoogleCloudRunV2ServiceTemplateBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudRunV2ServiceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2ServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -278,7 +278,7 @@ public partial class GoogleCloudRunV2ServiceTimeoutsBlock : TerraformBlockBase
 /// Block type for traffic in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2ServiceTrafficBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2ServiceTrafficBlock() : TerraformBlock("traffic")
 {
     /// <summary>
     /// Specifies percent of the traffic to this Revision. This defaults to zero if unspecified.
@@ -457,7 +457,7 @@ public partial class GoogleCloudRunV2Service : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2ServiceBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public TerraformList<GoogleCloudRunV2ServiceBinaryAuthorizationBlock> BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for build_config.
@@ -465,7 +465,7 @@ public partial class GoogleCloudRunV2Service : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BuildConfig block(s) allowed")]
     [TerraformProperty("build_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2ServiceBuildConfigBlock>>? BuildConfig { get; set; }
+    public TerraformList<GoogleCloudRunV2ServiceBuildConfigBlock> BuildConfig { get; set; } = new();
 
     /// <summary>
     /// Block for multi_region_settings.
@@ -473,7 +473,7 @@ public partial class GoogleCloudRunV2Service : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiRegionSettings block(s) allowed")]
     [TerraformProperty("multi_region_settings")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2ServiceMultiRegionSettingsBlock>>? MultiRegionSettings { get; set; }
+    public TerraformList<GoogleCloudRunV2ServiceMultiRegionSettingsBlock> MultiRegionSettings { get; set; } = new();
 
     /// <summary>
     /// Block for scaling.
@@ -481,7 +481,7 @@ public partial class GoogleCloudRunV2Service : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scaling block(s) allowed")]
     [TerraformProperty("scaling")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2ServiceScalingBlock>>? Scaling { get; set; }
+    public TerraformList<GoogleCloudRunV2ServiceScalingBlock> Scaling { get; set; } = new();
 
     /// <summary>
     /// Block for template.
@@ -491,21 +491,21 @@ public partial class GoogleCloudRunV2Service : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2ServiceTemplateBlock>>? Template { get; set; }
+    public required TerraformList<GoogleCloudRunV2ServiceTemplateBlock> Template { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudRunV2ServiceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudRunV2ServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("traffic")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2ServiceTrafficBlock>>? Traffic { get; set; }
+    public TerraformList<GoogleCloudRunV2ServiceTrafficBlock> Traffic { get; set; } = new();
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Service does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.

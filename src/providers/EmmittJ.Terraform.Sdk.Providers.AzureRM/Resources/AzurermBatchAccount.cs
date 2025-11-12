@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermBatchAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermBatchAccountIdentityBlock : TerraformBlockBase
 /// Block type for key_vault_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlockBase
+public partial class AzurermBatchAccountKeyVaultReferenceBlock() : TerraformBlock("key_vault_reference")
 {
     /// <summary>
     /// The id attribute.
@@ -55,7 +55,7 @@ public partial class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlockB
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchAccountNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermBatchAccountNetworkProfileBlock() : TerraformBlock("network_profile")
 {
 }
 
@@ -63,7 +63,7 @@ public partial class AzurermBatchAccountNetworkProfileBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBatchAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBatchAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -198,7 +198,7 @@ public partial class AzurermBatchAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermBatchAccountIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermBatchAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_reference.
@@ -206,7 +206,7 @@ public partial class AzurermBatchAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultReference block(s) allowed")]
     [TerraformProperty("key_vault_reference")]
-    public partial TerraformList<TerraformBlock<AzurermBatchAccountKeyVaultReferenceBlock>>? KeyVaultReference { get; set; }
+    public TerraformList<AzurermBatchAccountKeyVaultReferenceBlock> KeyVaultReference { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -214,14 +214,14 @@ public partial class AzurermBatchAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermBatchAccountNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public TerraformList<AzurermBatchAccountNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBatchAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBatchAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The account_endpoint attribute.

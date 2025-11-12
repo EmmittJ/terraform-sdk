@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsQuicksightAccountSubscriptionTimeoutsBlock : TerraformBlockBase
+public partial class AwsQuicksightAccountSubscriptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -196,7 +196,7 @@ public partial class AwsQuicksightAccountSubscription : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsQuicksightAccountSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsQuicksightAccountSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The account_subscription_status attribute.

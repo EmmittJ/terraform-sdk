@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for proto_schema in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigtableSchemaBundleProtoSchemaBlock : TerraformBlockBase
+public partial class GoogleBigtableSchemaBundleProtoSchemaBlock() : TerraformBlock("proto_schema")
 {
     /// <summary>
     /// Base64 encoded content of the file.
@@ -22,7 +22,7 @@ public partial class GoogleBigtableSchemaBundleProtoSchemaBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigtableSchemaBundleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigtableSchemaBundleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -108,14 +108,14 @@ public partial class GoogleBigtableSchemaBundle : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProtoSchema block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtoSchema block(s) allowed")]
     [TerraformProperty("proto_schema")]
-    public partial TerraformList<TerraformBlock<GoogleBigtableSchemaBundleProtoSchemaBlock>>? ProtoSchema { get; set; }
+    public required TerraformList<GoogleBigtableSchemaBundleProtoSchemaBlock> ProtoSchema { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigtableSchemaBundleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigtableSchemaBundleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique name of the requested schema bundle. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/tables/&amp;lt;table&amp;gt;/schemaBundles/&amp;lt;schemaBundleId&amp;gt;&#39;.

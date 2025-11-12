@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleKmsKeyHandleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleKmsKeyHandleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -78,7 +78,7 @@ public partial class GoogleKmsKeyHandle : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleKmsKeyHandleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleKmsKeyHandleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A reference to a Cloud KMS CryptoKey that can be used for CMEK in the requested

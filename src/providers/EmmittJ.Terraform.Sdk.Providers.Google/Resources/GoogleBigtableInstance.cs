@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigtableInstanceClusterBlock : TerraformBlockBase
+public partial class GoogleBigtableInstanceClusterBlock() : TerraformBlock("cluster")
 {
     /// <summary>
     /// The ID of the Cloud Bigtable cluster. Must be 6-30 characters and must only contain hyphens, lowercase letters and numbers.
@@ -58,7 +58,7 @@ public partial class GoogleBigtableInstanceClusterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigtableInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigtableInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -158,14 +158,14 @@ public partial class GoogleBigtableInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cluster")]
-    public partial TerraformList<TerraformBlock<GoogleBigtableInstanceClusterBlock>>? Cluster { get; set; }
+    public TerraformList<GoogleBigtableInstanceClusterBlock> Cluster { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigtableInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigtableInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

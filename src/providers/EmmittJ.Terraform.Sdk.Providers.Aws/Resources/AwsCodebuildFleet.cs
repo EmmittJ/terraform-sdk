@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlockBase
+public partial class AwsCodebuildFleetComputeConfigurationBlock() : TerraformBlock("compute_configuration")
 {
     /// <summary>
     /// The disk attribute.
@@ -49,7 +49,7 @@ public partial class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
 /// Block type for scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlockBase
+public partial class AwsCodebuildFleetScalingConfigurationBlock() : TerraformBlock("scaling_configuration")
 {
 
     /// <summary>
@@ -72,7 +72,7 @@ public partial class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildFleetVpcConfigBlock : TerraformBlockBase
+public partial class AwsCodebuildFleetVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -190,7 +190,7 @@ public partial class AwsCodebuildFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeConfiguration block(s) allowed")]
     [TerraformProperty("compute_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildFleetComputeConfigurationBlock>>? ComputeConfiguration { get; set; }
+    public TerraformList<AwsCodebuildFleetComputeConfigurationBlock> ComputeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_configuration.
@@ -198,14 +198,14 @@ public partial class AwsCodebuildFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfiguration block(s) allowed")]
     [TerraformProperty("scaling_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildFleetScalingConfigurationBlock>>? ScalingConfiguration { get; set; }
+    public TerraformList<AwsCodebuildFleetScalingConfigurationBlock> ScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildFleetVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsCodebuildFleetVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

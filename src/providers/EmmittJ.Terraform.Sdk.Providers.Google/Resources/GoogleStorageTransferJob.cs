@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for event_stream in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageTransferJobEventStreamBlock : TerraformBlockBase
+public partial class GoogleStorageTransferJobEventStreamBlock() : TerraformBlock("event_stream")
 {
     /// <summary>
     /// Specifies the data and time at which Storage Transfer Service stops listening for events from this stream. After this time, any transfers in progress will complete, but no new transfers are initiated
@@ -36,7 +36,7 @@ public partial class GoogleStorageTransferJobEventStreamBlock : TerraformBlockBa
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleStorageTransferJobLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// For transfers with a PosixFilesystem source, this option enables the Cloud Storage transfer logs for this transfer.
@@ -65,7 +65,7 @@ public partial class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlock
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlockBase
+public partial class GoogleStorageTransferJobNotificationConfigBlock() : TerraformBlock("notification_config")
 {
     /// <summary>
     /// Event types for which a notification is desired. If empty, send notifications for all event types. The valid types are &amp;quot;TRANSFER_OPERATION_SUCCESS&amp;quot;, &amp;quot;TRANSFER_OPERATION_FAILED&amp;quot;, &amp;quot;TRANSFER_OPERATION_ABORTED&amp;quot;.
@@ -96,7 +96,7 @@ public partial class GoogleStorageTransferJobNotificationConfigBlock : Terraform
 /// Block type for replication_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageTransferJobReplicationSpecBlock : TerraformBlockBase
+public partial class GoogleStorageTransferJobReplicationSpecBlock() : TerraformBlock("replication_spec")
 {
 }
 
@@ -104,7 +104,7 @@ public partial class GoogleStorageTransferJobReplicationSpecBlock : TerraformBlo
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageTransferJobScheduleBlock : TerraformBlockBase
+public partial class GoogleStorageTransferJobScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// Interval between the start of each scheduled transfer. If unspecified, the default value is 24 hours. This value may not be less than 1 hour. A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
@@ -119,7 +119,7 @@ public partial class GoogleStorageTransferJobScheduleBlock : TerraformBlockBase
 /// Block type for transfer_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageTransferJobTransferSpecBlock : TerraformBlockBase
+public partial class GoogleStorageTransferJobTransferSpecBlock() : TerraformBlock("transfer_spec")
 {
     /// <summary>
     /// Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used.
@@ -196,7 +196,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventStream block(s) allowed")]
     [TerraformProperty("event_stream")]
-    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobEventStreamBlock>>? EventStream { get; set; }
+    public TerraformList<GoogleStorageTransferJobEventStreamBlock> EventStream { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
@@ -204,7 +204,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<GoogleStorageTransferJobLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for notification_config.
@@ -212,7 +212,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformProperty("notification_config")]
-    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobNotificationConfigBlock>>? NotificationConfig { get; set; }
+    public TerraformList<GoogleStorageTransferJobNotificationConfigBlock> NotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for replication_spec.
@@ -220,7 +220,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationSpec block(s) allowed")]
     [TerraformProperty("replication_spec")]
-    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobReplicationSpecBlock>>? ReplicationSpec { get; set; }
+    public TerraformList<GoogleStorageTransferJobReplicationSpecBlock> ReplicationSpec { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -228,7 +228,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<GoogleStorageTransferJobScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for transfer_spec.
@@ -236,7 +236,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TransferSpec block(s) allowed")]
     [TerraformProperty("transfer_spec")]
-    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobTransferSpecBlock>>? TransferSpec { get; set; }
+    public TerraformList<GoogleStorageTransferJobTransferSpecBlock> TransferSpec { get; set; } = new();
 
     /// <summary>
     /// When the Transfer Job was created.

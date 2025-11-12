@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAiFoundryEncryptionBlock : TerraformBlockBase
+public partial class AzurermAiFoundryEncryptionBlock() : TerraformBlock("encryption")
 {
     /// <summary>
     /// The key_id attribute.
@@ -37,7 +37,7 @@ public partial class AzurermAiFoundryEncryptionBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAiFoundryIdentityBlock : TerraformBlockBase
+public partial class AzurermAiFoundryIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -62,7 +62,7 @@ public partial class AzurermAiFoundryIdentityBlock : TerraformBlockBase
 /// Block type for managed_network in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAiFoundryManagedNetworkBlock : TerraformBlockBase
+public partial class AzurermAiFoundryManagedNetworkBlock() : TerraformBlock("managed_network")
 {
     /// <summary>
     /// The isolation_mode attribute.
@@ -77,7 +77,7 @@ public partial class AzurermAiFoundryManagedNetworkBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAiFoundryTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAiFoundryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -228,7 +228,7 @@ public partial class AzurermAiFoundry : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<AzurermAiFoundryEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<AzurermAiFoundryEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -238,7 +238,7 @@ public partial class AzurermAiFoundry : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermAiFoundryIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermAiFoundryIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for managed_network.
@@ -246,14 +246,14 @@ public partial class AzurermAiFoundry : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedNetwork block(s) allowed")]
     [TerraformProperty("managed_network")]
-    public partial TerraformList<TerraformBlock<AzurermAiFoundryManagedNetworkBlock>>? ManagedNetwork { get; set; }
+    public TerraformList<AzurermAiFoundryManagedNetworkBlock> ManagedNetwork { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAiFoundryTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAiFoundryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The discovery_url attribute.

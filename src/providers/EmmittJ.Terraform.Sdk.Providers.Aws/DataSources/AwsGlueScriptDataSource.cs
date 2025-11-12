@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dag_edge in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueScriptDataSourceDagEdgeBlock : TerraformBlockBase
+public partial class AwsGlueScriptDataSourceDagEdgeBlock() : TerraformBlock("dag_edge")
 {
     /// <summary>
     /// The source attribute.
@@ -37,7 +37,7 @@ public partial class AwsGlueScriptDataSourceDagEdgeBlock : TerraformBlockBase
 /// Block type for dag_node in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueScriptDataSourceDagNodeBlock : TerraformBlockBase
+public partial class AwsGlueScriptDataSourceDagNodeBlock() : TerraformBlock("dag_node")
 {
     /// <summary>
     /// The id attribute.
@@ -102,7 +102,7 @@ public partial class AwsGlueScriptDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DagEdge is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DagEdge block(s) required")]
     [TerraformProperty("dag_edge")]
-    public partial TerraformList<TerraformBlock<AwsGlueScriptDataSourceDagEdgeBlock>>? DagEdge { get; set; }
+    public required TerraformList<AwsGlueScriptDataSourceDagEdgeBlock> DagEdge { get; set; } = new();
 
     /// <summary>
     /// Block for dag_node.
@@ -111,7 +111,7 @@ public partial class AwsGlueScriptDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DagNode is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DagNode block(s) required")]
     [TerraformProperty("dag_node")]
-    public partial TerraformList<TerraformBlock<AwsGlueScriptDataSourceDagNodeBlock>>? DagNode { get; set; }
+    public required TerraformList<AwsGlueScriptDataSourceDagNodeBlock> DagNode { get; set; } = new();
 
     /// <summary>
     /// The python_script attribute.

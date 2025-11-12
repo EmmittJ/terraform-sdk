@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock : TerraformBlockBase
+public partial class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -74,7 +74,7 @@ public partial class AzureadServicePrincipalTokenSigningCertificate : TerraformR
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A UUID used to uniquely identify the verify certificate.

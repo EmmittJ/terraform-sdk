@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for code_editor_app_image_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock() : TerraformBlock("code_editor_app_image_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock : T
 /// Block type for jupyter_lab_image_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerAppImageConfigJupyterLabImageConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerAppImageConfigJupyterLabImageConfigBlock() : TerraformBlock("jupyter_lab_image_config")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsSagemakerAppImageConfigJupyterLabImageConfigBlock : Terr
 /// Block type for kernel_gateway_image_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock() : TerraformBlock("kernel_gateway_image_config")
 {
 }
 
@@ -78,7 +78,7 @@ public partial class AwsSagemakerAppImageConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CodeEditorAppImageConfig block(s) allowed")]
     [TerraformProperty("code_editor_app_image_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock>>? CodeEditorAppImageConfig { get; set; }
+    public TerraformList<AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock> CodeEditorAppImageConfig { get; set; } = new();
 
     /// <summary>
     /// Block for jupyter_lab_image_config.
@@ -86,7 +86,7 @@ public partial class AwsSagemakerAppImageConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JupyterLabImageConfig block(s) allowed")]
     [TerraformProperty("jupyter_lab_image_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerAppImageConfigJupyterLabImageConfigBlock>>? JupyterLabImageConfig { get; set; }
+    public TerraformList<AwsSagemakerAppImageConfigJupyterLabImageConfigBlock> JupyterLabImageConfig { get; set; } = new();
 
     /// <summary>
     /// Block for kernel_gateway_image_config.
@@ -94,7 +94,7 @@ public partial class AwsSagemakerAppImageConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KernelGatewayImageConfig block(s) allowed")]
     [TerraformProperty("kernel_gateway_image_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock>>? KernelGatewayImageConfig { get; set; }
+    public TerraformList<AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock> KernelGatewayImageConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

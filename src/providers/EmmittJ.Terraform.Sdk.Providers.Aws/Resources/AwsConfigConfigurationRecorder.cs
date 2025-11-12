@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for recording_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigConfigurationRecorderRecordingGroupBlock : TerraformBlockBase
+public partial class AwsConfigConfigurationRecorderRecordingGroupBlock() : TerraformBlock("recording_group")
 {
     /// <summary>
     /// The all_supported attribute.
@@ -35,7 +35,7 @@ public partial class AwsConfigConfigurationRecorderRecordingGroupBlock : Terrafo
 /// Block type for recording_mode in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigConfigurationRecorderRecordingModeBlock : TerraformBlockBase
+public partial class AwsConfigConfigurationRecorderRecordingModeBlock() : TerraformBlock("recording_mode")
 {
     /// <summary>
     /// The recording_frequency attribute.
@@ -91,7 +91,7 @@ public partial class AwsConfigConfigurationRecorder : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecordingGroup block(s) allowed")]
     [TerraformProperty("recording_group")]
-    public partial TerraformList<TerraformBlock<AwsConfigConfigurationRecorderRecordingGroupBlock>>? RecordingGroup { get; set; }
+    public TerraformList<AwsConfigConfigurationRecorderRecordingGroupBlock> RecordingGroup { get; set; } = new();
 
     /// <summary>
     /// Block for recording_mode.
@@ -99,6 +99,6 @@ public partial class AwsConfigConfigurationRecorder : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecordingMode block(s) allowed")]
     [TerraformProperty("recording_mode")]
-    public partial TerraformList<TerraformBlock<AwsConfigConfigurationRecorderRecordingModeBlock>>? RecordingMode { get; set; }
+    public TerraformList<AwsConfigConfigurationRecorderRecordingModeBlock> RecordingMode { get; set; } = new();
 
 }

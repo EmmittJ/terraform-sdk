@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for diagnostic_storage_account in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : TerraformBlockBase
+public partial class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock() : TerraformBlock("diagnostic_storage_account")
 {
     /// <summary>
     /// The connection_string attribute.
@@ -30,7 +30,7 @@ public partial class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIothubDeviceUpdateInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,13 +123,13 @@ public partial class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticStorageAccount block(s) allowed")]
     [TerraformProperty("diagnostic_storage_account")]
-    public partial TerraformList<TerraformBlock<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>>? DiagnosticStorageAccount { get; set; }
+    public TerraformList<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock> DiagnosticStorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIothubDeviceUpdateInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIothubDeviceUpdateInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for monitor in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppconfigEnvironmentMonitorBlock : TerraformBlockBase
+public partial class AwsAppconfigEnvironmentMonitorBlock() : TerraformBlock("monitor")
 {
     /// <summary>
     /// The alarm_arn attribute.
@@ -76,7 +76,7 @@ public partial class AwsAppconfigEnvironment : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("monitor")]
-    public partial TerraformSet<TerraformBlock<AwsAppconfigEnvironmentMonitorBlock>>? Monitor { get; set; }
+    public TerraformSet<AwsAppconfigEnvironmentMonitorBlock> Monitor { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

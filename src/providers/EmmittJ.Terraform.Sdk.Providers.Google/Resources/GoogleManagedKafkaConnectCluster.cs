@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for capacity_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaConnectClusterCapacityConfigBlock() : TerraformBlock("capacity_config")
 {
     /// <summary>
     /// The memory to provision for the cluster in bytes. The CPU:memory ratio (vCPU:GiB) must be between 1:1 and 1:8. Minimum: 3221225472 (3 GiB).
@@ -30,7 +30,7 @@ public partial class GoogleManagedKafkaConnectClusterCapacityConfigBlock : Terra
 /// Block type for gcp_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleManagedKafkaConnectClusterGcpConfigBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaConnectClusterGcpConfigBlock() : TerraformBlock("gcp_config")
 {
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleManagedKafkaConnectClusterGcpConfigBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaConnectClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,7 +129,7 @@ public partial class GoogleManagedKafkaConnectCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CapacityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityConfig block(s) allowed")]
     [TerraformProperty("capacity_config")]
-    public partial TerraformList<TerraformBlock<GoogleManagedKafkaConnectClusterCapacityConfigBlock>>? CapacityConfig { get; set; }
+    public required TerraformList<GoogleManagedKafkaConnectClusterCapacityConfigBlock> CapacityConfig { get; set; } = new();
 
     /// <summary>
     /// Block for gcp_config.
@@ -139,14 +139,14 @@ public partial class GoogleManagedKafkaConnectCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GcpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcpConfig block(s) allowed")]
     [TerraformProperty("gcp_config")]
-    public partial TerraformList<TerraformBlock<GoogleManagedKafkaConnectClusterGcpConfigBlock>>? GcpConfig { get; set; }
+    public required TerraformList<GoogleManagedKafkaConnectClusterGcpConfigBlock> GcpConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleManagedKafkaConnectClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleManagedKafkaConnectClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the cluster was created.

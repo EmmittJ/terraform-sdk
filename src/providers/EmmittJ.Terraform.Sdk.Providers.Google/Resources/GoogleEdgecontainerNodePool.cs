@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for local_disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock() : TerraformBlock("local_disk_encryption")
 {
     /// <summary>
     /// The Cloud KMS CryptoKey e.g. projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey} to use for protecting node local disks.
@@ -24,7 +24,7 @@ public partial class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : Terra
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEdgecontainerNodePoolNodeConfigBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerNodePoolNodeConfigBlock() : TerraformBlock("node_config")
 {
     /// <summary>
     /// &amp;quot;The Kubernetes node labels&amp;quot;
@@ -39,7 +39,7 @@ public partial class GoogleEdgecontainerNodePoolNodeConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEdgecontainerNodePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -153,7 +153,7 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiskEncryption block(s) allowed")]
     [TerraformProperty("local_disk_encryption")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>>? LocalDiskEncryption { get; set; }
+    public TerraformList<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock> LocalDiskEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for node_config.
@@ -161,14 +161,14 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public partial TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolNodeConfigBlock>>? NodeConfig { get; set; }
+    public TerraformList<GoogleEdgecontainerNodePoolNodeConfigBlock> NodeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEdgecontainerNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEdgecontainerNodePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the node pool was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for source_s3_path in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraThesaurusSourceS3PathBlock : TerraformBlockBase
+public partial class AwsKendraThesaurusSourceS3PathBlock() : TerraformBlock("source_s3_path")
 {
     /// <summary>
     /// The bucket attribute.
@@ -30,7 +30,7 @@ public partial class AwsKendraThesaurusSourceS3PathBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKendraThesaurusTimeoutsBlock : TerraformBlockBase
+public partial class AwsKendraThesaurusTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,14 +132,14 @@ public partial class AwsKendraThesaurus : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceS3Path block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceS3Path block(s) allowed")]
     [TerraformProperty("source_s3_path")]
-    public partial TerraformList<TerraformBlock<AwsKendraThesaurusSourceS3PathBlock>>? SourceS3Path { get; set; }
+    public required TerraformList<AwsKendraThesaurusSourceS3PathBlock> SourceS3Path { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKendraThesaurusTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKendraThesaurusTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

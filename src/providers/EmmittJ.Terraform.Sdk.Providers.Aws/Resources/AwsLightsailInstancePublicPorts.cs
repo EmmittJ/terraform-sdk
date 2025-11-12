@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for port_info in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlockBase
+public partial class AwsLightsailInstancePublicPortsPortInfoBlock() : TerraformBlock("port_info")
 {
     /// <summary>
     /// The cidr_list_aliases attribute.
@@ -94,6 +94,6 @@ public partial class AwsLightsailInstancePublicPorts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortInfo is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PortInfo block(s) required")]
     [TerraformProperty("port_info")]
-    public partial TerraformSet<TerraformBlock<AwsLightsailInstancePublicPortsPortInfoBlock>>? PortInfo { get; set; }
+    public required TerraformSet<AwsLightsailInstancePublicPortsPortInfoBlock> PortInfo { get; set; } = new();
 
 }

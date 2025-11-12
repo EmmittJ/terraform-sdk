@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecurityposturePostureDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecurityposturePostureDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,7 +111,7 @@ public partial class GoogleSecurityposturePostureDeployment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecurityposturePostureDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecurityposturePostureDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the posture deployment was created in UTC.

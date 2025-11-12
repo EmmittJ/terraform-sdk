@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for notification_settings in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlockBase
+public partial class AwsRolesanywhereTrustAnchorNotificationSettingsBlock() : TerraformBlock("notification_settings")
 {
     /// <summary>
     /// The channel attribute.
@@ -43,7 +43,7 @@ public partial class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : Terr
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRolesanywhereTrustAnchorSourceBlock : TerraformBlockBase
+public partial class AwsRolesanywhereTrustAnchorSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The source_type attribute.
@@ -107,7 +107,7 @@ public partial class AwsRolesanywhereTrustAnchor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 NotificationSettings block(s) allowed")]
     [TerraformProperty("notification_settings")]
-    public partial TerraformSet<TerraformBlock<AwsRolesanywhereTrustAnchorNotificationSettingsBlock>>? NotificationSettings { get; set; }
+    public TerraformSet<AwsRolesanywhereTrustAnchorNotificationSettingsBlock> NotificationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -117,7 +117,7 @@ public partial class AwsRolesanywhereTrustAnchor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AwsRolesanywhereTrustAnchorSourceBlock>>? Source { get; set; }
+    public required TerraformList<AwsRolesanywhereTrustAnchorSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

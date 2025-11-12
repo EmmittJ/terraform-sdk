@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for customer_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlockBase
+public partial class GoogleStorageBucketObjectCustomerEncryptionBlock() : TerraformBlock("customer_encryption")
 {
     /// <summary>
     /// The encryption algorithm. Default: AES256
@@ -29,7 +29,7 @@ public partial class GoogleStorageBucketObjectCustomerEncryptionBlock : Terrafor
 /// Block type for retention in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketObjectRetentionBlock : TerraformBlockBase
+public partial class GoogleStorageBucketObjectRetentionBlock() : TerraformBlock("retention")
 {
     /// <summary>
     /// The object retention mode. Supported values include: &amp;quot;Unlocked&amp;quot;, &amp;quot;Locked&amp;quot;.
@@ -53,7 +53,7 @@ public partial class GoogleStorageBucketObjectRetentionBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageBucketObjectTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -229,7 +229,7 @@ public partial class GoogleStorageBucketObject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerEncryption block(s) allowed")]
     [TerraformProperty("customer_encryption")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketObjectCustomerEncryptionBlock>>? CustomerEncryption { get; set; }
+    public TerraformList<GoogleStorageBucketObjectCustomerEncryptionBlock> CustomerEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for retention.
@@ -237,14 +237,14 @@ public partial class GoogleStorageBucketObject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Retention block(s) allowed")]
     [TerraformProperty("retention")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketObjectRetentionBlock>>? Retention { get; set; }
+    public TerraformList<GoogleStorageBucketObjectRetentionBlock> Retention { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageBucketObjectTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageBucketObjectTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Base 64 CRC32 hash of the uploaded data.

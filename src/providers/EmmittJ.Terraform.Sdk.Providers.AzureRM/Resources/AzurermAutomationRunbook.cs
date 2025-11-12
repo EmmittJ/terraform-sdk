@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for draft in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationRunbookDraftBlock : TerraformBlockBase
+public partial class AzurermAutomationRunbookDraftBlock() : TerraformBlock("draft")
 {
 
     /// <summary>
@@ -30,7 +30,7 @@ public partial class AzurermAutomationRunbookDraftBlock : TerraformBlockBase
 /// Block type for publish_content_link in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationRunbookPublishContentLinkBlock : TerraformBlockBase
+public partial class AzurermAutomationRunbookPublishContentLinkBlock() : TerraformBlock("publish_content_link")
 {
     /// <summary>
     /// The uri attribute.
@@ -53,7 +53,7 @@ public partial class AzurermAutomationRunbookPublishContentLinkBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAutomationRunbookTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAutomationRunbookTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -199,7 +199,7 @@ public partial class AzurermAutomationRunbook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Draft block(s) allowed")]
     [TerraformProperty("draft")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationRunbookDraftBlock>>? Draft { get; set; }
+    public TerraformList<AzurermAutomationRunbookDraftBlock> Draft { get; set; } = new();
 
     /// <summary>
     /// Block for publish_content_link.
@@ -207,13 +207,13 @@ public partial class AzurermAutomationRunbook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublishContentLink block(s) allowed")]
     [TerraformProperty("publish_content_link")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationRunbookPublishContentLinkBlock>>? PublishContentLink { get; set; }
+    public TerraformList<AzurermAutomationRunbookPublishContentLinkBlock> PublishContentLink { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAutomationRunbookTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAutomationRunbookTimeoutsBlock Timeouts { get; set; } = new();
 
 }

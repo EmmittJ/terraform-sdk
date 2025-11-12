@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for arguments in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryRoutineArgumentsBlock : TerraformBlockBase
+public partial class GoogleBigqueryRoutineArgumentsBlock() : TerraformBlock("arguments")
 {
     /// <summary>
     /// Defaults to FIXED_TYPE. Default value: &amp;quot;FIXED_TYPE&amp;quot; Possible values: [&amp;quot;FIXED_TYPE&amp;quot;, &amp;quot;ANY_TYPE&amp;quot;]
@@ -48,7 +48,7 @@ public partial class GoogleBigqueryRoutineArgumentsBlock : TerraformBlockBase
 /// Block type for remote_function_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlockBase
+public partial class GoogleBigqueryRoutineRemoteFunctionOptionsBlock() : TerraformBlock("remote_function_options")
 {
     /// <summary>
     /// Fully qualified name of the user-provided connection object which holds
@@ -93,7 +93,7 @@ public partial class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : Terraform
 /// Block type for spark_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlockBase
+public partial class GoogleBigqueryRoutineSparkOptionsBlock() : TerraformBlock("spark_options")
 {
     /// <summary>
     /// Archive files to be extracted into the working directory of each executor. For more information about Apache Spark, see Apache Spark.
@@ -177,7 +177,7 @@ public partial class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryRoutineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -333,7 +333,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("arguments")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryRoutineArgumentsBlock>>? Arguments { get; set; }
+    public TerraformList<GoogleBigqueryRoutineArgumentsBlock> Arguments { get; set; } = new();
 
     /// <summary>
     /// Block for remote_function_options.
@@ -341,7 +341,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteFunctionOptions block(s) allowed")]
     [TerraformProperty("remote_function_options")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryRoutineRemoteFunctionOptionsBlock>>? RemoteFunctionOptions { get; set; }
+    public TerraformList<GoogleBigqueryRoutineRemoteFunctionOptionsBlock> RemoteFunctionOptions { get; set; } = new();
 
     /// <summary>
     /// Block for spark_options.
@@ -349,14 +349,14 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkOptions block(s) allowed")]
     [TerraformProperty("spark_options")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryRoutineSparkOptionsBlock>>? SparkOptions { get; set; }
+    public TerraformList<GoogleBigqueryRoutineSparkOptionsBlock> SparkOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryRoutineTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryRoutineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when this routine was created, in milliseconds since the

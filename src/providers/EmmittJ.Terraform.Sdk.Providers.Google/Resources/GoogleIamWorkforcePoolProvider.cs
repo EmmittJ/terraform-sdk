@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for extended_attributes_oauth2_client in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock() : TerraformBlock("extended_attributes_oauth2_client")
 {
     /// <summary>
     /// Represents the IdP and type of claims that should be fetched.
@@ -46,7 +46,7 @@ public partial class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2Clien
 /// Block type for extra_attributes_oauth2_client in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock() : TerraformBlock("extra_attributes_oauth2_client")
 {
     /// <summary>
     /// Represents the IdP and type of claims that should be fetched.
@@ -90,7 +90,7 @@ public partial class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBl
 /// Block type for oidc in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolProviderOidcBlock() : TerraformBlock("oidc")
 {
     /// <summary>
     /// The client ID. Must match the audience claim of the JWT issued by the identity provider.
@@ -143,7 +143,7 @@ public partial class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlockBas
 /// Block type for saml in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkforcePoolProviderSamlBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolProviderSamlBlock() : TerraformBlock("saml")
 {
     /// <summary>
     /// SAML Identity provider configuration metadata xml doc.
@@ -173,7 +173,7 @@ public partial class GoogleIamWorkforcePoolProviderSamlBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamWorkforcePoolProviderTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolProviderTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -370,7 +370,7 @@ public partial class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtendedAttributesOauth2Client block(s) allowed")]
     [TerraformProperty("extended_attributes_oauth2_client")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock>>? ExtendedAttributesOauth2Client { get; set; }
+    public TerraformList<GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock> ExtendedAttributesOauth2Client { get; set; } = new();
 
     /// <summary>
     /// Block for extra_attributes_oauth2_client.
@@ -378,7 +378,7 @@ public partial class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtraAttributesOauth2Client block(s) allowed")]
     [TerraformProperty("extra_attributes_oauth2_client")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock>>? ExtraAttributesOauth2Client { get; set; }
+    public TerraformList<GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock> ExtraAttributesOauth2Client { get; set; } = new();
 
     /// <summary>
     /// Block for oidc.
@@ -386,7 +386,7 @@ public partial class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
     [TerraformProperty("oidc")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderOidcBlock>>? Oidc { get; set; }
+    public TerraformList<GoogleIamWorkforcePoolProviderOidcBlock> Oidc { get; set; } = new();
 
     /// <summary>
     /// Block for saml.
@@ -394,14 +394,14 @@ public partial class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Saml block(s) allowed")]
     [TerraformProperty("saml")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderSamlBlock>>? Saml { get; set; }
+    public TerraformList<GoogleIamWorkforcePoolProviderSamlBlock> Saml { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamWorkforcePoolProviderTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamWorkforcePoolProviderTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The resource name of the provider.

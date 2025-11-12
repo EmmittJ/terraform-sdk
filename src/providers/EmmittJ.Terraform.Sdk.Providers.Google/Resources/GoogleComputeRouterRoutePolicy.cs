@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for terms in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouterRoutePolicyTermsBlock : TerraformBlockBase
+public partial class GoogleComputeRouterRoutePolicyTermsBlock() : TerraformBlock("terms")
 {
     /// <summary>
     /// The evaluation priority for this term, which must be between 0 (inclusive) and 231 (exclusive), and unique within the list.
@@ -22,7 +22,7 @@ public partial class GoogleComputeRouterRoutePolicyTermsBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRouterRoutePolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRouterRoutePolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -108,14 +108,14 @@ public partial class GoogleComputeRouterRoutePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Terms is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Terms block(s) required")]
     [TerraformProperty("terms")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouterRoutePolicyTermsBlock>>? Terms { get; set; }
+    public required TerraformList<GoogleComputeRouterRoutePolicyTermsBlock> Terms { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRouterRoutePolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRouterRoutePolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used

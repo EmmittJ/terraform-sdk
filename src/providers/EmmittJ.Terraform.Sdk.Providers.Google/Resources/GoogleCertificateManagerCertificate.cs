@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for managed in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCertificateManagerCertificateManagedBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerCertificateManagedBlock() : TerraformBlock("managed")
 {
 
     /// <summary>
@@ -41,7 +41,7 @@ public partial class GoogleCertificateManagerCertificateManagedBlock : Terraform
 /// Block type for self_managed in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerCertificateSelfManagedBlock() : TerraformBlock("self_managed")
 {
     /// <summary>
     /// The certificate chain in PEM-encoded form.
@@ -83,7 +83,7 @@ public partial class GoogleCertificateManagerCertificateSelfManagedBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerCertificateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -191,7 +191,7 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
     [TerraformProperty("managed")]
-    public partial TerraformList<TerraformBlock<GoogleCertificateManagerCertificateManagedBlock>>? Managed { get; set; }
+    public TerraformList<GoogleCertificateManagerCertificateManagedBlock> Managed { get; set; } = new();
 
     /// <summary>
     /// Block for self_managed.
@@ -199,14 +199,14 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManaged block(s) allowed")]
     [TerraformProperty("self_managed")]
-    public partial TerraformList<TerraformBlock<GoogleCertificateManagerCertificateSelfManagedBlock>>? SelfManaged { get; set; }
+    public TerraformList<GoogleCertificateManagerCertificateSelfManagedBlock> SelfManaged { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCertificateManagerCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCertificateManagerCertificateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for config_file in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermNginxConfigurationConfigFileBlock : TerraformBlockBase
+public partial class AzurermNginxConfigurationConfigFileBlock() : TerraformBlock("config_file")
 {
     /// <summary>
     /// The content attribute.
@@ -30,7 +30,7 @@ public partial class AzurermNginxConfigurationConfigFileBlock : TerraformBlockBa
 /// Block type for protected_file in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermNginxConfigurationProtectedFileBlock : TerraformBlockBase
+public partial class AzurermNginxConfigurationProtectedFileBlock() : TerraformBlock("protected_file")
 {
     /// <summary>
     /// The content attribute.
@@ -55,7 +55,7 @@ public partial class AzurermNginxConfigurationProtectedFileBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNginxConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNginxConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,20 +131,20 @@ public partial class AzurermNginxConfiguration : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("config_file")]
-    public partial TerraformSet<TerraformBlock<AzurermNginxConfigurationConfigFileBlock>>? ConfigFile { get; set; }
+    public TerraformSet<AzurermNginxConfigurationConfigFileBlock> ConfigFile { get; set; } = new();
 
     /// <summary>
     /// Block for protected_file.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("protected_file")]
-    public partial TerraformSet<TerraformBlock<AzurermNginxConfigurationProtectedFileBlock>>? ProtectedFile { get; set; }
+    public TerraformSet<AzurermNginxConfigurationProtectedFileBlock> ProtectedFile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNginxConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNginxConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for lex_bot in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConnectBotAssociationDataSourceLexBotBlock : TerraformBlockBase
+public partial class AwsConnectBotAssociationDataSourceLexBotBlock() : TerraformBlock("lex_bot")
 {
     /// <summary>
     /// The lex_region attribute.
@@ -65,6 +65,6 @@ public partial class AwsConnectBotAssociationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LexBot block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LexBot block(s) allowed")]
     [TerraformProperty("lex_bot")]
-    public partial TerraformList<TerraformBlock<AwsConnectBotAssociationDataSourceLexBotBlock>>? LexBot { get; set; }
+    public required TerraformList<AwsConnectBotAssociationDataSourceLexBotBlock> LexBot { get; set; } = new();
 
 }

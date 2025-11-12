@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for application_assignments in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock : TerraformBlockBase
+public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock() : TerraformBlock("application_assignments")
 {
 
 
@@ -58,7 +58,7 @@ public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSource : Terr
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("application_assignments")]
-    public partial TerraformList<TerraformBlock<AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock>>? ApplicationAssignments { get; set; }
+    public TerraformList<AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock> ApplicationAssignments { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

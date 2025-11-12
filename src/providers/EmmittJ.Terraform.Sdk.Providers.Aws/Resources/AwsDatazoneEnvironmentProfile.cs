@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for user_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatazoneEnvironmentProfileUserParametersBlock : TerraformBlockBase
+public partial class AwsDatazoneEnvironmentProfileUserParametersBlock() : TerraformBlock("user_parameters")
 {
     /// <summary>
     /// The name attribute.
@@ -99,7 +99,7 @@ public partial class AwsDatazoneEnvironmentProfile : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("user_parameters")]
-    public partial TerraformList<TerraformBlock<AwsDatazoneEnvironmentProfileUserParametersBlock>>? UserParameters { get; set; }
+    public TerraformList<AwsDatazoneEnvironmentProfileUserParametersBlock> UserParameters { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.

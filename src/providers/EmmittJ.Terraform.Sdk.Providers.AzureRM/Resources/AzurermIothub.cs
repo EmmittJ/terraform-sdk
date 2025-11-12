@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cloud_to_device in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubCloudToDeviceBlock : TerraformBlockBase
+public partial class AzurermIothubCloudToDeviceBlock() : TerraformBlock("cloud_to_device")
 {
     /// <summary>
     /// The default_ttl attribute.
@@ -28,7 +28,7 @@ public partial class AzurermIothubCloudToDeviceBlock : TerraformBlockBase
 /// Block type for fallback_route in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubFallbackRouteBlock : TerraformBlockBase
+public partial class AzurermIothubFallbackRouteBlock() : TerraformBlock("fallback_route")
 {
     /// <summary>
     /// The condition attribute.
@@ -64,7 +64,7 @@ public partial class AzurermIothubFallbackRouteBlock : TerraformBlockBase
 /// Block type for file_upload in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubFileUploadBlock : TerraformBlockBase
+public partial class AzurermIothubFileUploadBlock() : TerraformBlock("file_upload")
 {
     /// <summary>
     /// The authentication_type attribute.
@@ -137,7 +137,7 @@ public partial class AzurermIothubFileUploadBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubIdentityBlock : TerraformBlockBase
+public partial class AzurermIothubIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -162,7 +162,7 @@ public partial class AzurermIothubIdentityBlock : TerraformBlockBase
 /// Block type for network_rule_set in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubNetworkRuleSetBlock : TerraformBlockBase
+public partial class AzurermIothubNetworkRuleSetBlock() : TerraformBlock("network_rule_set")
 {
     /// <summary>
     /// The apply_to_builtin_eventhub_endpoint attribute.
@@ -184,7 +184,7 @@ public partial class AzurermIothubNetworkRuleSetBlock : TerraformBlockBase
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubSkuBlock : TerraformBlockBase
+public partial class AzurermIothubSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -208,7 +208,7 @@ public partial class AzurermIothubSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIothubTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIothubTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -350,7 +350,7 @@ public partial class AzurermIothub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudToDevice block(s) allowed")]
     [TerraformProperty("cloud_to_device")]
-    public partial TerraformList<TerraformBlock<AzurermIothubCloudToDeviceBlock>>? CloudToDevice { get; set; }
+    public TerraformList<AzurermIothubCloudToDeviceBlock> CloudToDevice { get; set; } = new();
 
     /// <summary>
     /// Block for fallback_route.
@@ -358,7 +358,7 @@ public partial class AzurermIothub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FallbackRoute block(s) allowed")]
     [TerraformProperty("fallback_route")]
-    public partial TerraformList<TerraformBlock<AzurermIothubFallbackRouteBlock>>? FallbackRoute { get; set; }
+    public TerraformList<AzurermIothubFallbackRouteBlock> FallbackRoute { get; set; } = new();
 
     /// <summary>
     /// Block for file_upload.
@@ -366,7 +366,7 @@ public partial class AzurermIothub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileUpload block(s) allowed")]
     [TerraformProperty("file_upload")]
-    public partial TerraformList<TerraformBlock<AzurermIothubFileUploadBlock>>? FileUpload { get; set; }
+    public TerraformList<AzurermIothubFileUploadBlock> FileUpload { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -374,14 +374,14 @@ public partial class AzurermIothub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermIothubIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermIothubIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_rule_set.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_rule_set")]
-    public partial TerraformList<TerraformBlock<AzurermIothubNetworkRuleSetBlock>>? NetworkRuleSet { get; set; }
+    public TerraformList<AzurermIothubNetworkRuleSetBlock> NetworkRuleSet { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -391,14 +391,14 @@ public partial class AzurermIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermIothubSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermIothubSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIothubTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIothubTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The event_hub_events_endpoint attribute.

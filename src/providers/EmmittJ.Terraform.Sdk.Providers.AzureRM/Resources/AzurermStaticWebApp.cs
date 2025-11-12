@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for basic_auth in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStaticWebAppBasicAuthBlock : TerraformBlockBase
+public partial class AzurermStaticWebAppBasicAuthBlock() : TerraformBlock("basic_auth")
 {
     /// <summary>
     /// The environments attribute.
@@ -30,7 +30,7 @@ public partial class AzurermStaticWebAppBasicAuthBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStaticWebAppIdentityBlock : TerraformBlockBase
+public partial class AzurermStaticWebAppIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -55,7 +55,7 @@ public partial class AzurermStaticWebAppIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStaticWebAppTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStaticWebAppTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -204,7 +204,7 @@ public partial class AzurermStaticWebApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAuth block(s) allowed")]
     [TerraformProperty("basic_auth")]
-    public partial TerraformList<TerraformBlock<AzurermStaticWebAppBasicAuthBlock>>? BasicAuth { get; set; }
+    public TerraformList<AzurermStaticWebAppBasicAuthBlock> BasicAuth { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -212,14 +212,14 @@ public partial class AzurermStaticWebApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermStaticWebAppIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermStaticWebAppIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStaticWebAppTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStaticWebAppTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The api_key attribute.

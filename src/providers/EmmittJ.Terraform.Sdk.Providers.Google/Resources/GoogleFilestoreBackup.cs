@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFilestoreBackupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFilestoreBackupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,7 +126,7 @@ public partial class GoogleFilestoreBackup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFilestoreBackupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFilestoreBackupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The amount of bytes needed to allocate a full copy of the snapshot content.

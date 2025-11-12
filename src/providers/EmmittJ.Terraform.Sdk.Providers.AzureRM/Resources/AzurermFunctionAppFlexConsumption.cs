@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for always_ready in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppFlexConsumptionAlwaysReadyBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFlexConsumptionAlwaysReadyBlock() : TerraformBlock("always_ready")
 {
     /// <summary>
     /// The instance_count attribute.
@@ -29,7 +29,7 @@ public partial class AzurermFunctionAppFlexConsumptionAlwaysReadyBlock : Terrafo
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFlexConsumptionAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
@@ -101,7 +101,7 @@ public partial class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : Terraf
 /// Block type for auth_settings_v2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlockBase
+public partial class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block() : TerraformBlock("auth_settings_v2")
 {
     /// <summary>
     /// Should the AuthV2 Settings be enabled. Defaults to `false`
@@ -193,7 +193,7 @@ public partial class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : Terr
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermFunctionAppFlexConsumptionConnectionStringBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFlexConsumptionConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name which should be used for this Connection.
@@ -225,7 +225,7 @@ public partial class AzurermFunctionAppFlexConsumptionConnectionStringBlock : Te
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppFlexConsumptionIdentityBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFlexConsumptionIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -250,7 +250,7 @@ public partial class AzurermFunctionAppFlexConsumptionIdentityBlock : TerraformB
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFlexConsumptionSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// The URL of the API definition that describes this Linux Function App.
@@ -442,7 +442,7 @@ public partial class AzurermFunctionAppFlexConsumptionSiteConfigBlock : Terrafor
 /// Block type for sticky_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppFlexConsumptionStickySettingsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFlexConsumptionStickySettingsBlock() : TerraformBlock("sticky_settings")
 {
     /// <summary>
     /// The app_setting_names attribute.
@@ -464,7 +464,7 @@ public partial class AzurermFunctionAppFlexConsumptionStickySettingsBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFunctionAppFlexConsumptionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFlexConsumptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -702,7 +702,7 @@ public partial class AzurermFunctionAppFlexConsumption : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("always_ready")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppFlexConsumptionAlwaysReadyBlock>>? AlwaysReady { get; set; }
+    public TerraformList<AzurermFunctionAppFlexConsumptionAlwaysReadyBlock> AlwaysReady { get; set; } = new();
 
     /// <summary>
     /// Block for auth_settings.
@@ -710,7 +710,7 @@ public partial class AzurermFunctionAppFlexConsumption : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppFlexConsumptionAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermFunctionAppFlexConsumptionAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for auth_settings_v2.
@@ -718,14 +718,14 @@ public partial class AzurermFunctionAppFlexConsumption : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
     [TerraformProperty("auth_settings_v2")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppFlexConsumptionAuthSettingsV2Block>>? AuthSettingsV2 { get; set; }
+    public TerraformList<AzurermFunctionAppFlexConsumptionAuthSettingsV2Block> AuthSettingsV2 { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermFunctionAppFlexConsumptionConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermFunctionAppFlexConsumptionConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -733,7 +733,7 @@ public partial class AzurermFunctionAppFlexConsumption : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppFlexConsumptionIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermFunctionAppFlexConsumptionIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -743,7 +743,7 @@ public partial class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppFlexConsumptionSiteConfigBlock>>? SiteConfig { get; set; }
+    public required TerraformList<AzurermFunctionAppFlexConsumptionSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for sticky_settings.
@@ -751,14 +751,14 @@ public partial class AzurermFunctionAppFlexConsumption : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StickySettings block(s) allowed")]
     [TerraformProperty("sticky_settings")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppFlexConsumptionStickySettingsBlock>>? StickySettings { get; set; }
+    public TerraformList<AzurermFunctionAppFlexConsumptionStickySettingsBlock> StickySettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFunctionAppFlexConsumptionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFunctionAppFlexConsumptionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_domain_verification_id attribute.

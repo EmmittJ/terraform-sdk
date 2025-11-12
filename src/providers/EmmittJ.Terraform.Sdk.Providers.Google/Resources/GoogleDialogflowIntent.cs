@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowIntentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowIntentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -151,7 +151,7 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowIntentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowIntentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Information about all followup intents that have this intent as a direct or indirect parent. We populate this field

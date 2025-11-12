@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComposerUserWorkloadsSecretTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComposerUserWorkloadsSecretTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -89,6 +89,6 @@ public partial class GoogleComposerUserWorkloadsSecret : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComposerUserWorkloadsSecretTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComposerUserWorkloadsSecretTimeoutsBlock Timeouts { get; set; } = new();
 
 }

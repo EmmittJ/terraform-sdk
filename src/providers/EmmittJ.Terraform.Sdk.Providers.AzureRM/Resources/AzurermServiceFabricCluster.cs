@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_active_directory in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterAzureActiveDirectoryBlock() : TerraformBlock("azure_active_directory")
 {
     /// <summary>
     /// The client_application_id attribute.
@@ -38,7 +38,7 @@ public partial class AzurermServiceFabricClusterAzureActiveDirectoryBlock : Terr
 /// Block type for certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterCertificateBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterCertificateBlock() : TerraformBlock("certificate")
 {
     /// <summary>
     /// The thumbprint attribute.
@@ -69,7 +69,7 @@ public partial class AzurermServiceFabricClusterCertificateBlock : TerraformBloc
 /// Block type for certificate_common_names in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterCertificateCommonNamesBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterCertificateCommonNamesBlock() : TerraformBlock("certificate_common_names")
 {
     /// <summary>
     /// The x509_store_name attribute.
@@ -85,7 +85,7 @@ public partial class AzurermServiceFabricClusterCertificateCommonNamesBlock : Te
 /// Block type for client_certificate_common_name in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterClientCertificateCommonNameBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterClientCertificateCommonNameBlock() : TerraformBlock("client_certificate_common_name")
 {
     /// <summary>
     /// The common_name attribute.
@@ -116,7 +116,7 @@ public partial class AzurermServiceFabricClusterClientCertificateCommonNameBlock
 /// Block type for client_certificate_thumbprint in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterClientCertificateThumbprintBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterClientCertificateThumbprintBlock() : TerraformBlock("client_certificate_thumbprint")
 {
     /// <summary>
     /// The is_admin attribute.
@@ -140,7 +140,7 @@ public partial class AzurermServiceFabricClusterClientCertificateThumbprintBlock
 /// Block type for diagnostics_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterDiagnosticsConfigBlock() : TerraformBlock("diagnostics_config")
 {
     /// <summary>
     /// The blob_endpoint attribute.
@@ -188,7 +188,7 @@ public partial class AzurermServiceFabricClusterDiagnosticsConfigBlock : Terrafo
 /// Block type for fabric_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterFabricSettingsBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterFabricSettingsBlock() : TerraformBlock("fabric_settings")
 {
     /// <summary>
     /// The name attribute.
@@ -211,7 +211,7 @@ public partial class AzurermServiceFabricClusterFabricSettingsBlock : TerraformB
 /// Block type for node_type in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterNodeTypeBlock() : TerraformBlock("node_type")
 {
     /// <summary>
     /// The capacities attribute.
@@ -301,7 +301,7 @@ public partial class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlockBa
 /// Block type for reverse_proxy_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterReverseProxyCertificateBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterReverseProxyCertificateBlock() : TerraformBlock("reverse_proxy_certificate")
 {
     /// <summary>
     /// The thumbprint attribute.
@@ -332,7 +332,7 @@ public partial class AzurermServiceFabricClusterReverseProxyCertificateBlock : T
 /// Block type for reverse_proxy_certificate_common_names in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock() : TerraformBlock("reverse_proxy_certificate_common_names")
 {
     /// <summary>
     /// The x509_store_name attribute.
@@ -348,7 +348,7 @@ public partial class AzurermServiceFabricClusterReverseProxyCertificateCommonNam
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -384,7 +384,7 @@ public partial class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlockBa
 /// Block type for upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlockBase
+public partial class AzurermServiceFabricClusterUpgradePolicyBlock() : TerraformBlock("upgrade_policy")
 {
     /// <summary>
     /// The force_restart_enabled attribute.
@@ -551,7 +551,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]
     [TerraformProperty("azure_active_directory")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterAzureActiveDirectoryBlock>>? AzureActiveDirectory { get; set; }
+    public TerraformList<AzurermServiceFabricClusterAzureActiveDirectoryBlock> AzureActiveDirectory { get; set; } = new();
 
     /// <summary>
     /// Block for certificate.
@@ -559,7 +559,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]
     [TerraformProperty("certificate")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterCertificateBlock>>? Certificate { get; set; }
+    public TerraformList<AzurermServiceFabricClusterCertificateBlock> Certificate { get; set; } = new();
 
     /// <summary>
     /// Block for certificate_common_names.
@@ -567,21 +567,21 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateCommonNames block(s) allowed")]
     [TerraformProperty("certificate_common_names")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterCertificateCommonNamesBlock>>? CertificateCommonNames { get; set; }
+    public TerraformList<AzurermServiceFabricClusterCertificateCommonNamesBlock> CertificateCommonNames { get; set; } = new();
 
     /// <summary>
     /// Block for client_certificate_common_name.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("client_certificate_common_name")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterClientCertificateCommonNameBlock>>? ClientCertificateCommonName { get; set; }
+    public TerraformList<AzurermServiceFabricClusterClientCertificateCommonNameBlock> ClientCertificateCommonName { get; set; } = new();
 
     /// <summary>
     /// Block for client_certificate_thumbprint.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("client_certificate_thumbprint")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterClientCertificateThumbprintBlock>>? ClientCertificateThumbprint { get; set; }
+    public TerraformList<AzurermServiceFabricClusterClientCertificateThumbprintBlock> ClientCertificateThumbprint { get; set; } = new();
 
     /// <summary>
     /// Block for diagnostics_config.
@@ -589,14 +589,14 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticsConfig block(s) allowed")]
     [TerraformProperty("diagnostics_config")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterDiagnosticsConfigBlock>>? DiagnosticsConfig { get; set; }
+    public TerraformList<AzurermServiceFabricClusterDiagnosticsConfigBlock> DiagnosticsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for fabric_settings.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("fabric_settings")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterFabricSettingsBlock>>? FabricSettings { get; set; }
+    public TerraformList<AzurermServiceFabricClusterFabricSettingsBlock> FabricSettings { get; set; } = new();
 
     /// <summary>
     /// Block for node_type.
@@ -605,7 +605,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeType block(s) required")]
     [TerraformProperty("node_type")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterNodeTypeBlock>>? NodeType { get; set; }
+    public required TerraformList<AzurermServiceFabricClusterNodeTypeBlock> NodeType { get; set; } = new();
 
     /// <summary>
     /// Block for reverse_proxy_certificate.
@@ -613,7 +613,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificate block(s) allowed")]
     [TerraformProperty("reverse_proxy_certificate")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterReverseProxyCertificateBlock>>? ReverseProxyCertificate { get; set; }
+    public TerraformList<AzurermServiceFabricClusterReverseProxyCertificateBlock> ReverseProxyCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for reverse_proxy_certificate_common_names.
@@ -621,14 +621,14 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificateCommonNames block(s) allowed")]
     [TerraformProperty("reverse_proxy_certificate_common_names")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>>? ReverseProxyCertificateCommonNames { get; set; }
+    public TerraformList<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock> ReverseProxyCertificateCommonNames { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermServiceFabricClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermServiceFabricClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_policy.
@@ -636,7 +636,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
     [TerraformProperty("upgrade_policy")]
-    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterUpgradePolicyBlock>>? UpgradePolicy { get; set; }
+    public TerraformList<AzurermServiceFabricClusterUpgradePolicyBlock> UpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// The cluster_endpoint attribute.

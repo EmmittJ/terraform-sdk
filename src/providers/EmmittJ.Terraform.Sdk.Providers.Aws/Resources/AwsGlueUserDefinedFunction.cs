@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resource_uris in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlockBase
+public partial class AwsGlueUserDefinedFunctionResourceUrisBlock() : TerraformBlock("resource_uris")
 {
     /// <summary>
     /// The resource_type attribute.
@@ -103,7 +103,7 @@ public partial class AwsGlueUserDefinedFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1000, ErrorMessage = "Maximum 1000 ResourceUris block(s) allowed")]
     [TerraformProperty("resource_uris")]
-    public partial TerraformSet<TerraformBlock<AwsGlueUserDefinedFunctionResourceUrisBlock>>? ResourceUris { get; set; }
+    public TerraformSet<AwsGlueUserDefinedFunctionResourceUrisBlock> ResourceUris { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

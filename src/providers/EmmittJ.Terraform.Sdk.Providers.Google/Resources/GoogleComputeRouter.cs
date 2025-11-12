@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bgp in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouterBgpBlock : TerraformBlockBase
+public partial class GoogleComputeRouterBgpBlock() : TerraformBlock("bgp")
 {
     /// <summary>
     /// User-specified flag to indicate which mode to use for advertisement. Default value: &amp;quot;DEFAULT&amp;quot; Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
@@ -72,7 +72,7 @@ public partial class GoogleComputeRouterBgpBlock : TerraformBlockBase
 /// Block type for md5_authentication_keys in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlockBase
+public partial class GoogleComputeRouterMd5AuthenticationKeysBlock() : TerraformBlock("md5_authentication_keys")
 {
     /// <summary>
     /// Value of the key used for MD5 authentication.
@@ -97,7 +97,7 @@ public partial class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBl
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouterParamsBlock : TerraformBlockBase
+public partial class GoogleComputeRouterParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// Resource manager tags to be bound to the router. Tag keys and values have the
@@ -114,7 +114,7 @@ public partial class GoogleComputeRouterParamsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRouterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRouterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -211,7 +211,7 @@ public partial class GoogleComputeRouter : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bgp block(s) allowed")]
     [TerraformProperty("bgp")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouterBgpBlock>>? Bgp { get; set; }
+    public TerraformList<GoogleComputeRouterBgpBlock> Bgp { get; set; } = new();
 
     /// <summary>
     /// Block for md5_authentication_keys.
@@ -219,7 +219,7 @@ public partial class GoogleComputeRouter : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKeys block(s) allowed")]
     [TerraformProperty("md5_authentication_keys")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouterMd5AuthenticationKeysBlock>>? Md5AuthenticationKeys { get; set; }
+    public TerraformList<GoogleComputeRouterMd5AuthenticationKeysBlock> Md5AuthenticationKeys { get; set; } = new();
 
     /// <summary>
     /// Block for params.
@@ -227,14 +227,14 @@ public partial class GoogleComputeRouter : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouterParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeRouterParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRouterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRouterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

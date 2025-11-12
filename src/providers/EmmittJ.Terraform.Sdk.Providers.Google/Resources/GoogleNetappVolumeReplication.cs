@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination_volume_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock() : TerraformBlock("destination_volume_parameters")
 {
     /// <summary>
     /// Description for the destination volume.
@@ -43,7 +43,7 @@ public partial class GoogleNetappVolumeReplicationDestinationVolumeParametersBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeReplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -190,14 +190,14 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationVolumeParameters block(s) allowed")]
     [TerraformProperty("destination_volume_parameters")]
-    public partial TerraformList<TerraformBlock<GoogleNetappVolumeReplicationDestinationVolumeParametersBlock>>? DestinationVolumeParameters { get; set; }
+    public TerraformList<GoogleNetappVolumeReplicationDestinationVolumeParametersBlock> DestinationVolumeParameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetappVolumeReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetappVolumeReplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time of the active directory. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.

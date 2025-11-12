@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxFlowAdvancedSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxFlowAdvancedSettingsBlock() : TerraformBlock("advanced_settings")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDialogflowCxFlowAdvancedSettingsBlock : TerraformBloc
 /// Block type for event_handlers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxFlowEventHandlersBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxFlowEventHandlersBlock() : TerraformBlock("event_handlers")
 {
     /// <summary>
     /// The name of the event to handle.
@@ -46,7 +46,7 @@ public partial class GoogleDialogflowCxFlowEventHandlersBlock : TerraformBlockBa
 /// Block type for knowledge_connector_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock() : TerraformBlock("knowledge_connector_settings")
 {
     /// <summary>
     /// Whether Knowledge Connector is enabled or not.
@@ -78,7 +78,7 @@ public partial class GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock : Ter
 /// Block type for nlu_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxFlowNluSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxFlowNluSettingsBlock() : TerraformBlock("nlu_settings")
 {
     /// <summary>
     /// To filter out false positive results and still get variety in matched natural language inputs for your agent, you can tune the machine learning classification threshold.
@@ -112,7 +112,7 @@ public partial class GoogleDialogflowCxFlowNluSettingsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxFlowTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxFlowTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -141,7 +141,7 @@ public partial class GoogleDialogflowCxFlowTimeoutsBlock : TerraformBlockBase
 /// Block type for transition_routes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxFlowTransitionRoutesBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxFlowTransitionRoutesBlock() : TerraformBlock("transition_routes")
 {
     /// <summary>
     /// The condition to evaluate against form parameters or session parameters.
@@ -256,14 +256,14 @@ public partial class GoogleDialogflowCxFlow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSettings block(s) allowed")]
     [TerraformProperty("advanced_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxFlowAdvancedSettingsBlock>>? AdvancedSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxFlowAdvancedSettingsBlock> AdvancedSettings { get; set; } = new();
 
     /// <summary>
     /// Block for event_handlers.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_handlers")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxFlowEventHandlersBlock>>? EventHandlers { get; set; }
+    public TerraformList<GoogleDialogflowCxFlowEventHandlersBlock> EventHandlers { get; set; } = new();
 
     /// <summary>
     /// Block for knowledge_connector_settings.
@@ -271,7 +271,7 @@ public partial class GoogleDialogflowCxFlow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KnowledgeConnectorSettings block(s) allowed")]
     [TerraformProperty("knowledge_connector_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock>>? KnowledgeConnectorSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock> KnowledgeConnectorSettings { get; set; } = new();
 
     /// <summary>
     /// Block for nlu_settings.
@@ -279,21 +279,21 @@ public partial class GoogleDialogflowCxFlow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NluSettings block(s) allowed")]
     [TerraformProperty("nlu_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxFlowNluSettingsBlock>>? NluSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxFlowNluSettingsBlock> NluSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxFlowTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxFlowTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for transition_routes.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("transition_routes")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxFlowTransitionRoutesBlock>>? TransitionRoutes { get; set; }
+    public TerraformList<GoogleDialogflowCxFlowTransitionRoutesBlock> TransitionRoutes { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the flow.

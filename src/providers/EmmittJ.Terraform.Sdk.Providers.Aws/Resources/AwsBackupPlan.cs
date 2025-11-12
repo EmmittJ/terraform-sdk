@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_backup_setting in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlockBase
+public partial class AwsBackupPlanAdvancedBackupSettingBlock() : TerraformBlock("advanced_backup_setting")
 {
     /// <summary>
     /// The backup_options attribute.
@@ -30,7 +30,7 @@ public partial class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlockBas
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsBackupPlanRuleBlock : TerraformBlockBase
+public partial class AwsBackupPlanRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The completion_window attribute.
@@ -143,7 +143,7 @@ public partial class AwsBackupPlan : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("advanced_backup_setting")]
-    public partial TerraformSet<TerraformBlock<AwsBackupPlanAdvancedBackupSettingBlock>>? AdvancedBackupSetting { get; set; }
+    public TerraformSet<AwsBackupPlanAdvancedBackupSettingBlock> AdvancedBackupSetting { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
@@ -152,7 +152,7 @@ public partial class AwsBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsBackupPlanRuleBlock>>? Rule { get; set; }
+    public required TerraformSet<AwsBackupPlanRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

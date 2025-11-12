@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3tablesTableMetadataBlock : TerraformBlockBase
+public partial class AwsS3tablesTableMetadataBlock() : TerraformBlock("metadata")
 {
 }
 
@@ -77,7 +77,7 @@ public partial class AwsS3tablesTable : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("metadata")]
-    public partial TerraformList<TerraformBlock<AwsS3tablesTableMetadataBlock>>? Metadata { get; set; }
+    public TerraformList<AwsS3tablesTableMetadataBlock> Metadata { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

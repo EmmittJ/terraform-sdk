@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -46,7 +46,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupsDataSource : Terrafor
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The autonomous_database_backups attribute.

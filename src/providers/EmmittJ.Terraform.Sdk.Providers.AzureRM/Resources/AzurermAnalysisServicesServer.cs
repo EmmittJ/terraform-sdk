@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ipv4_firewall_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlockBase
+public partial class AzurermAnalysisServicesServerIpv4FirewallRuleBlock() : TerraformBlock("ipv4_firewall_rule")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAnalysisServicesServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -158,14 +158,14 @@ public partial class AzurermAnalysisServicesServer : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ipv4_firewall_rule")]
-    public partial TerraformSet<TerraformBlock<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>>? Ipv4FirewallRule { get; set; }
+    public TerraformSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock> Ipv4FirewallRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAnalysisServicesServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAnalysisServicesServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The server_full_name attribute.

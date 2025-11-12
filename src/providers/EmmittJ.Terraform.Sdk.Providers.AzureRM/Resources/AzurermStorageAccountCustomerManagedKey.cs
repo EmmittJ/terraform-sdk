@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,6 +117,6 @@ public partial class AzurermStorageAccountCustomerManagedKey : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageAccountCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageAccountCustomerManagedKeyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock : TerraformBlockBase
+public partial class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock() : TerraformBlock("configuration")
 {
     /// <summary>
     /// The assignment_type attribute.
@@ -42,7 +42,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentConfigura
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,13 +123,13 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment : Terraf
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>>? Configuration { get; set; }
+    public required TerraformList<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

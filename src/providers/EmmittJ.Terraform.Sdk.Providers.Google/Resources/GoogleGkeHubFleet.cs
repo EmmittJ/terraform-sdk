@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for default_cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubFleetDefaultClusterConfigBlock : TerraformBlockBase
+public partial class GoogleGkeHubFleetDefaultClusterConfigBlock() : TerraformBlock("default_cluster_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleGkeHubFleetDefaultClusterConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeHubFleetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeHubFleetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -77,14 +77,14 @@ public partial class GoogleGkeHubFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultClusterConfig block(s) allowed")]
     [TerraformProperty("default_cluster_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubFleetDefaultClusterConfigBlock>>? DefaultClusterConfig { get; set; }
+    public TerraformList<GoogleGkeHubFleetDefaultClusterConfigBlock> DefaultClusterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeHubFleetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeHubFleetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time the fleet was created, in RFC3339 text format.

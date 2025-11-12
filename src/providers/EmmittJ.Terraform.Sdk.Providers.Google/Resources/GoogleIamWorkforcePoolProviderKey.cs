@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for key_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolProviderKeyKeyDataBlock() : TerraformBlock("key_data")
 {
 
 
@@ -26,7 +26,7 @@ public partial class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -109,14 +109,14 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeyData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyData block(s) allowed")]
     [TerraformProperty("key_data")]
-    public partial TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>>? KeyData { get; set; }
+    public required TerraformList<GoogleIamWorkforcePoolProviderKeyKeyDataBlock> KeyData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamWorkforcePoolProviderKeyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamWorkforcePoolProviderKeyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time after which the key will be permanently deleted and cannot be recovered.

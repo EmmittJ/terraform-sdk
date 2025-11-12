@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for activation_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlockBase
+public partial class AzurermRoleManagementPolicyActivationRulesBlock() : TerraformBlock("activation_rules")
 {
     /// <summary>
     /// The time after which the an activation can be valid for
@@ -56,7 +56,7 @@ public partial class AzurermRoleManagementPolicyActivationRulesBlock : Terraform
 /// Block type for active_assignment_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBlockBase
+public partial class AzurermRoleManagementPolicyActiveAssignmentRulesBlock() : TerraformBlock("active_assignment_rules")
 {
     /// <summary>
     /// Must the assignment have an expiry date
@@ -99,7 +99,7 @@ public partial class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : Ter
 /// Block type for eligible_assignment_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock : TerraformBlockBase
+public partial class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock() : TerraformBlock("eligible_assignment_rules")
 {
     /// <summary>
     /// Must the assignment have an expiry date
@@ -121,7 +121,7 @@ public partial class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock : T
 /// Block type for notification_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRoleManagementPolicyNotificationRulesBlock : TerraformBlockBase
+public partial class AzurermRoleManagementPolicyNotificationRulesBlock() : TerraformBlock("notification_rules")
 {
 }
 
@@ -129,7 +129,7 @@ public partial class AzurermRoleManagementPolicyNotificationRulesBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRoleManagementPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRoleManagementPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -200,7 +200,7 @@ public partial class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActivationRules block(s) allowed")]
     [TerraformProperty("activation_rules")]
-    public partial TerraformList<TerraformBlock<AzurermRoleManagementPolicyActivationRulesBlock>>? ActivationRules { get; set; }
+    public TerraformList<AzurermRoleManagementPolicyActivationRulesBlock> ActivationRules { get; set; } = new();
 
     /// <summary>
     /// Block for active_assignment_rules.
@@ -208,7 +208,7 @@ public partial class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveAssignmentRules block(s) allowed")]
     [TerraformProperty("active_assignment_rules")]
-    public partial TerraformList<TerraformBlock<AzurermRoleManagementPolicyActiveAssignmentRulesBlock>>? ActiveAssignmentRules { get; set; }
+    public TerraformList<AzurermRoleManagementPolicyActiveAssignmentRulesBlock> ActiveAssignmentRules { get; set; } = new();
 
     /// <summary>
     /// Block for eligible_assignment_rules.
@@ -216,7 +216,7 @@ public partial class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EligibleAssignmentRules block(s) allowed")]
     [TerraformProperty("eligible_assignment_rules")]
-    public partial TerraformList<TerraformBlock<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock>>? EligibleAssignmentRules { get; set; }
+    public TerraformList<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock> EligibleAssignmentRules { get; set; } = new();
 
     /// <summary>
     /// Block for notification_rules.
@@ -224,14 +224,14 @@ public partial class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationRules block(s) allowed")]
     [TerraformProperty("notification_rules")]
-    public partial TerraformList<TerraformBlock<AzurermRoleManagementPolicyNotificationRulesBlock>>? NotificationRules { get; set; }
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlock> NotificationRules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRoleManagementPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRoleManagementPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Description of the policy

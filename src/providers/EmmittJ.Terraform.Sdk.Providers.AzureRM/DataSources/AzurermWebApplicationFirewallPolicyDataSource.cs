@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWebApplicationFirewallPolicyDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWebApplicationFirewallPolicyDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -61,7 +61,7 @@ public partial class AzurermWebApplicationFirewallPolicyDataSource : TerraformDa
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWebApplicationFirewallPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWebApplicationFirewallPolicyDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The location attribute.

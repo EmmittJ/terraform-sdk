@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automatic_resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock() : TerraformBlock("automatic_resources")
 {
     /// <summary>
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If maxReplicaCount is not set, the default value is minReplicaCount. The max allowed replica count is 1000.
@@ -32,7 +32,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesB
 /// Block type for dedicated_resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock() : TerraformBlock("dedicated_resources")
 {
     /// <summary>
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If maxReplicaCount is not set, the default value is minReplicaCount
@@ -55,7 +55,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesB
 /// Block type for deployed_index_auth_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock() : TerraformBlock("deployed_index_auth_config")
 {
 }
 
@@ -63,7 +63,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthCo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -178,7 +178,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticResources block(s) allowed")]
     [TerraformProperty("automatic_resources")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock>>? AutomaticResources { get; set; }
+    public TerraformList<GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock> AutomaticResources { get; set; } = new();
 
     /// <summary>
     /// Block for dedicated_resources.
@@ -186,7 +186,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedResources block(s) allowed")]
     [TerraformProperty("dedicated_resources")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock>>? DedicatedResources { get; set; }
+    public TerraformList<GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock> DedicatedResources { get; set; } = new();
 
     /// <summary>
     /// Block for deployed_index_auth_config.
@@ -194,14 +194,14 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeployedIndexAuthConfig block(s) allowed")]
     [TerraformProperty("deployed_index_auth_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock>>? DeployedIndexAuthConfig { get; set; }
+    public TerraformList<GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock> DeployedIndexAuthConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

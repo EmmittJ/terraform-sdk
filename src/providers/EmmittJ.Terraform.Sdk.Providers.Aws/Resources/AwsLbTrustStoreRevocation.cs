@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLbTrustStoreRevocationTimeoutsBlock : TerraformBlockBase
+public partial class AwsLbTrustStoreRevocationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,7 +76,7 @@ public partial class AwsLbTrustStoreRevocation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLbTrustStoreRevocationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLbTrustStoreRevocationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The revocation_id attribute.

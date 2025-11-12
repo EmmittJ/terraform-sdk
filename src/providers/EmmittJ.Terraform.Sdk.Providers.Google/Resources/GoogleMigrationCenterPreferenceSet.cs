@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMigrationCenterPreferenceSetTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMigrationCenterPreferenceSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class GoogleMigrationCenterPreferenceSetTimeoutsBlock : Terraform
 /// Block type for virtual_machine_preferences in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock : TerraformBlockBase
+public partial class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock() : TerraformBlock("virtual_machine_preferences")
 {
     /// <summary>
     /// Commitment plan to consider when calculating costs for virtual machine insights and recommendations. If you are unsure which value to set, a 3 year commitment plan is often a good value to start with. Possible values: &#39;COMMITMENT_PLAN_UNSPECIFIED&#39;, &#39;COMMITMENT_PLAN_NONE&#39;, &#39;COMMITMENT_PLAN_ONE_YEAR&#39;, &#39;COMMITMENT_PLAN_THREE_YEARS&#39;
@@ -119,7 +119,7 @@ public partial class GoogleMigrationCenterPreferenceSet : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMigrationCenterPreferenceSetTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMigrationCenterPreferenceSetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_machine_preferences.
@@ -127,7 +127,7 @@ public partial class GoogleMigrationCenterPreferenceSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachinePreferences block(s) allowed")]
     [TerraformProperty("virtual_machine_preferences")]
-    public partial TerraformList<TerraformBlock<GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock>>? VirtualMachinePreferences { get; set; }
+    public TerraformList<GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock> VirtualMachinePreferences { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp when the preference set was created.

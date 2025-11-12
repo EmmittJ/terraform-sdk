@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskconnectCustomPluginLocationBlock : TerraformBlockBase
+public partial class AwsMskconnectCustomPluginLocationBlock() : TerraformBlock("location")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsMskconnectCustomPluginLocationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMskconnectCustomPluginTimeoutsBlock : TerraformBlockBase
+public partial class AwsMskconnectCustomPluginTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,14 +101,14 @@ public partial class AwsMskconnectCustomPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Location block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
     [TerraformProperty("location")]
-    public partial TerraformList<TerraformBlock<AwsMskconnectCustomPluginLocationBlock>>? Location { get; set; }
+    public required TerraformList<AwsMskconnectCustomPluginLocationBlock> Location { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMskconnectCustomPluginTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMskconnectCustomPluginTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

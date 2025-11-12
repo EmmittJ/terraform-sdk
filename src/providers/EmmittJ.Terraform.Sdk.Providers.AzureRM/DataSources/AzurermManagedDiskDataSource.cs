@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagedDiskDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagedDiskDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermManagedDiskDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagedDiskDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagedDiskDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The create_option attribute.

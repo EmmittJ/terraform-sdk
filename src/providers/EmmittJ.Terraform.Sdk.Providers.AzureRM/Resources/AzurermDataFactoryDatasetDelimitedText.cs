@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_blob_fs_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock() : TerraformBlock("azure_blob_fs_location")
 {
     /// <summary>
     /// The dynamic_file_system_enabled attribute.
@@ -56,7 +56,7 @@ public partial class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBl
 /// Block type for azure_blob_storage_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock() : TerraformBlock("azure_blob_storage_location")
 {
     /// <summary>
     /// The container attribute.
@@ -107,7 +107,7 @@ public partial class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocat
 /// Block type for http_server_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock() : TerraformBlock("http_server_location")
 {
     /// <summary>
     /// The dynamic_filename_enabled attribute.
@@ -153,7 +153,7 @@ public partial class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlo
 /// Block type for schema_column in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock() : TerraformBlock("schema_column")
 {
     /// <summary>
     /// The description attribute.
@@ -183,7 +183,7 @@ public partial class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -360,7 +360,7 @@ public partial class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobFsLocation block(s) allowed")]
     [TerraformProperty("azure_blob_fs_location")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock>>? AzureBlobFsLocation { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock> AzureBlobFsLocation { get; set; } = new();
 
     /// <summary>
     /// Block for azure_blob_storage_location.
@@ -368,7 +368,7 @@ public partial class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
     [TerraformProperty("azure_blob_storage_location")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock>>? AzureBlobStorageLocation { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock> AzureBlobStorageLocation { get; set; } = new();
 
     /// <summary>
     /// Block for http_server_location.
@@ -376,20 +376,20 @@ public partial class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
     [TerraformProperty("http_server_location")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock>>? HttpServerLocation { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock> HttpServerLocation { get; set; } = new();
 
     /// <summary>
     /// Block for schema_column.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schema_column")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock>>? SchemaColumn { get; set; }
+    public TerraformList<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock> SchemaColumn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock Timeouts { get; set; } = new();
 
 }

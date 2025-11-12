@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for annotator_selector in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : TerraformBlockBase
+public partial class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock() : TerraformBlock("annotator_selector")
 {
     /// <summary>
     /// The issue model to run. If not provided, the most recently deployed topic
@@ -100,7 +100,7 @@ public partial class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -199,14 +199,14 @@ public partial class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnnotatorSelector block(s) allowed")]
     [TerraformProperty("annotator_selector")]
-    public partial TerraformList<TerraformBlock<GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock>>? AnnotatorSelector { get; set; }
+    public TerraformList<GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock> AnnotatorSelector { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this analysis rule was created.

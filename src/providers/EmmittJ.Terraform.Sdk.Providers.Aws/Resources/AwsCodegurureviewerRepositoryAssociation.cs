@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kms_key_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock : TerraformBlockBase
+public partial class AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock() : TerraformBlock("kms_key_details")
 {
     /// <summary>
     /// The encryption_option attribute.
@@ -28,7 +28,7 @@ public partial class AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock 
 /// Block type for repository in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodegurureviewerRepositoryAssociationRepositoryBlock : TerraformBlockBase
+public partial class AwsCodegurureviewerRepositoryAssociationRepositoryBlock() : TerraformBlock("repository")
 {
 }
 
@@ -36,7 +36,7 @@ public partial class AwsCodegurureviewerRepositoryAssociationRepositoryBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCodegurureviewerRepositoryAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsCodegurureviewerRepositoryAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -105,7 +105,7 @@ public partial class AwsCodegurureviewerRepositoryAssociation : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KmsKeyDetails block(s) allowed")]
     [TerraformProperty("kms_key_details")]
-    public partial TerraformList<TerraformBlock<AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock>>? KmsKeyDetails { get; set; }
+    public TerraformList<AwsCodegurureviewerRepositoryAssociationKmsKeyDetailsBlock> KmsKeyDetails { get; set; } = new();
 
     /// <summary>
     /// Block for repository.
@@ -115,14 +115,14 @@ public partial class AwsCodegurureviewerRepositoryAssociation : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Repository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Repository block(s) allowed")]
     [TerraformProperty("repository")]
-    public partial TerraformList<TerraformBlock<AwsCodegurureviewerRepositoryAssociationRepositoryBlock>>? Repository { get; set; }
+    public required TerraformList<AwsCodegurureviewerRepositoryAssociationRepositoryBlock> Repository { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCodegurureviewerRepositoryAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCodegurureviewerRepositoryAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

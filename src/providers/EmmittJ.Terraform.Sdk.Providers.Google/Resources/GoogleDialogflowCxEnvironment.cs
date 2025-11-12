@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class GoogleDialogflowCxEnvironmentTimeoutsBlock : TerraformBlock
 /// Block type for version_configs in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxEnvironmentVersionConfigsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxEnvironmentVersionConfigsBlock() : TerraformBlock("version_configs")
 {
     /// <summary>
     /// Format: projects/{{project}}/locations/{{location}}/agents/{{agent}}/flows/{{flow}}/versions/{{version}}.
@@ -92,7 +92,7 @@ public partial class GoogleDialogflowCxEnvironment : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for version_configs.
@@ -101,7 +101,7 @@ public partial class GoogleDialogflowCxEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionConfigs is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VersionConfigs block(s) required")]
     [TerraformProperty("version_configs")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxEnvironmentVersionConfigsBlock>>? VersionConfigs { get; set; }
+    public required TerraformList<GoogleDialogflowCxEnvironmentVersionConfigsBlock> VersionConfigs { get; set; } = new();
 
     /// <summary>
     /// The name of the environment.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigquery_dataset in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock() : TerraformBlock("bigquery_dataset")
 {
     /// <summary>
     /// Resource name of the dataset source for this listing. e.g. projects/myproject/datasets/123
@@ -22,7 +22,7 @@ public partial class GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock : Ter
 /// Block type for data_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubListingDataProviderBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubListingDataProviderBlock() : TerraformBlock("data_provider")
 {
     /// <summary>
     /// Name of the data provider.
@@ -45,7 +45,7 @@ public partial class GoogleBigqueryAnalyticsHubListingDataProviderBlock : Terraf
 /// Block type for publisher in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubListingPublisherBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubListingPublisherBlock() : TerraformBlock("publisher")
 {
     /// <summary>
     /// Name of the listing publisher.
@@ -68,7 +68,7 @@ public partial class GoogleBigqueryAnalyticsHubListingPublisherBlock : Terraform
 /// Block type for pubsub_topic in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock() : TerraformBlock("pubsub_topic")
 {
     /// <summary>
     /// Region hint on where the data might be published. Data affinity regions are modifiable.
@@ -92,7 +92,7 @@ public partial class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : Terrafo
 /// Block type for restricted_export_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock() : TerraformBlock("restricted_export_config")
 {
     /// <summary>
     /// If true, enable restricted export.
@@ -115,7 +115,7 @@ public partial class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubListingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubListingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -272,7 +272,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryDataset block(s) allowed")]
     [TerraformProperty("bigquery_dataset")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock>>? BigqueryDataset { get; set; }
+    public TerraformList<GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock> BigqueryDataset { get; set; } = new();
 
     /// <summary>
     /// Block for data_provider.
@@ -280,7 +280,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProvider block(s) allowed")]
     [TerraformProperty("data_provider")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingDataProviderBlock>>? DataProvider { get; set; }
+    public TerraformList<GoogleBigqueryAnalyticsHubListingDataProviderBlock> DataProvider { get; set; } = new();
 
     /// <summary>
     /// Block for publisher.
@@ -288,7 +288,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Publisher block(s) allowed")]
     [TerraformProperty("publisher")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingPublisherBlock>>? Publisher { get; set; }
+    public TerraformList<GoogleBigqueryAnalyticsHubListingPublisherBlock> Publisher { get; set; } = new();
 
     /// <summary>
     /// Block for pubsub_topic.
@@ -296,7 +296,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubTopic block(s) allowed")]
     [TerraformProperty("pubsub_topic")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingPubsubTopicBlock>>? PubsubTopic { get; set; }
+    public TerraformList<GoogleBigqueryAnalyticsHubListingPubsubTopicBlock> PubsubTopic { get; set; } = new();
 
     /// <summary>
     /// Block for restricted_export_config.
@@ -304,14 +304,14 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestrictedExportConfig block(s) allowed")]
     [TerraformProperty("restricted_export_config")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock>>? RestrictedExportConfig { get; set; }
+    public TerraformList<GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock> RestrictedExportConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryAnalyticsHubListingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryAnalyticsHubListingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Commercial info contains the information about the commercial data products associated with the listing.

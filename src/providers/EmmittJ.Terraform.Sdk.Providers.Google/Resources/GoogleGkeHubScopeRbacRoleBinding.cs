@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for role in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubScopeRbacRoleBindingRoleBlock : TerraformBlockBase
+public partial class GoogleGkeHubScopeRbacRoleBindingRoleBlock() : TerraformBlock("role")
 {
     /// <summary>
     /// CustomRole is the custom Kubernetes ClusterRole to be used. The custom role format must be allowlisted in the rbacrolebindingactuation feature and RFC 1123 compliant.
@@ -28,7 +28,7 @@ public partial class GoogleGkeHubScopeRbacRoleBindingRoleBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,14 +131,14 @@ public partial class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Role block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Role block(s) allowed")]
     [TerraformProperty("role")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubScopeRbacRoleBindingRoleBlock>>? Role { get; set; }
+    public required TerraformList<GoogleGkeHubScopeRbacRoleBindingRoleBlock> Role { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the RBAC Role Binding was created in UTC.

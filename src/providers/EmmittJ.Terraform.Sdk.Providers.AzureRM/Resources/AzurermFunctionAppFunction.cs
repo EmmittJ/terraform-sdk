@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for file in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppFunctionFileBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFunctionFileBlock() : TerraformBlock("file")
 {
     /// <summary>
     /// The content of the file.
@@ -30,7 +30,7 @@ public partial class AzurermFunctionAppFunctionFileBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppFunctionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,14 +128,14 @@ public partial class AzurermFunctionAppFunction : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("file")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppFunctionFileBlock>>? File { get; set; }
+    public TerraformList<AzurermFunctionAppFunctionFileBlock> File { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFunctionAppFunctionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFunctionAppFunctionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The URL of the configuration JSON.

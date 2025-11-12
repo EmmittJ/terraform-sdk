@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for daily_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlockBase
+public partial class AzurermNetappSnapshotPolicyDailyScheduleBlock() : TerraformBlock("daily_schedule")
 {
     /// <summary>
     /// The hour attribute.
@@ -38,7 +38,7 @@ public partial class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBl
 /// Block type for hourly_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlockBase
+public partial class AzurermNetappSnapshotPolicyHourlyScheduleBlock() : TerraformBlock("hourly_schedule")
 {
     /// <summary>
     /// The minute attribute.
@@ -62,7 +62,7 @@ public partial class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformB
 /// Block type for monthly_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlockBase
+public partial class AzurermNetappSnapshotPolicyMonthlyScheduleBlock() : TerraformBlock("monthly_schedule")
 {
     /// <summary>
     /// The days_of_month attribute.
@@ -102,7 +102,7 @@ public partial class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetappSnapshotPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,7 +138,7 @@ public partial class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlockBa
 /// Block type for weekly_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlockBase
+public partial class AzurermNetappSnapshotPolicyWeeklyScheduleBlock() : TerraformBlock("weekly_schedule")
 {
     /// <summary>
     /// The days_of_week attribute.
@@ -244,7 +244,7 @@ public partial class AzurermNetappSnapshotPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailySchedule block(s) allowed")]
     [TerraformProperty("daily_schedule")]
-    public partial TerraformList<TerraformBlock<AzurermNetappSnapshotPolicyDailyScheduleBlock>>? DailySchedule { get; set; }
+    public TerraformList<AzurermNetappSnapshotPolicyDailyScheduleBlock> DailySchedule { get; set; } = new();
 
     /// <summary>
     /// Block for hourly_schedule.
@@ -252,7 +252,7 @@ public partial class AzurermNetappSnapshotPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourlySchedule block(s) allowed")]
     [TerraformProperty("hourly_schedule")]
-    public partial TerraformList<TerraformBlock<AzurermNetappSnapshotPolicyHourlyScheduleBlock>>? HourlySchedule { get; set; }
+    public TerraformList<AzurermNetappSnapshotPolicyHourlyScheduleBlock> HourlySchedule { get; set; } = new();
 
     /// <summary>
     /// Block for monthly_schedule.
@@ -260,14 +260,14 @@ public partial class AzurermNetappSnapshotPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonthlySchedule block(s) allowed")]
     [TerraformProperty("monthly_schedule")]
-    public partial TerraformList<TerraformBlock<AzurermNetappSnapshotPolicyMonthlyScheduleBlock>>? MonthlySchedule { get; set; }
+    public TerraformList<AzurermNetappSnapshotPolicyMonthlyScheduleBlock> MonthlySchedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetappSnapshotPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetappSnapshotPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for weekly_schedule.
@@ -275,6 +275,6 @@ public partial class AzurermNetappSnapshotPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklySchedule block(s) allowed")]
     [TerraformProperty("weekly_schedule")]
-    public partial TerraformList<TerraformBlock<AzurermNetappSnapshotPolicyWeeklyScheduleBlock>>? WeeklySchedule { get; set; }
+    public TerraformList<AzurermNetappSnapshotPolicyWeeklyScheduleBlock> WeeklySchedule { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for acl_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlockBase
+public partial class AwsAthenaDatabaseAclConfigurationBlock() : TerraformBlock("acl_configuration")
 {
     /// <summary>
     /// The s3_acl_option attribute.
@@ -22,7 +22,7 @@ public partial class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlockBase
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsAthenaDatabaseEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The encryption_option attribute.
@@ -121,7 +121,7 @@ public partial class AwsAthenaDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AclConfiguration block(s) allowed")]
     [TerraformProperty("acl_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAthenaDatabaseAclConfigurationBlock>>? AclConfiguration { get; set; }
+    public TerraformList<AwsAthenaDatabaseAclConfigurationBlock> AclConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_configuration.
@@ -129,6 +129,6 @@ public partial class AwsAthenaDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAthenaDatabaseEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsAthenaDatabaseEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
 }

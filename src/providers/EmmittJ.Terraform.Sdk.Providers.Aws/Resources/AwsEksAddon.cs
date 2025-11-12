@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for pod_identity_association in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEksAddonPodIdentityAssociationBlock : TerraformBlockBase
+public partial class AwsEksAddonPodIdentityAssociationBlock() : TerraformBlock("pod_identity_association")
 {
     /// <summary>
     /// The role_arn attribute.
@@ -30,7 +30,7 @@ public partial class AwsEksAddonPodIdentityAssociationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEksAddonTimeoutsBlock : TerraformBlockBase
+public partial class AwsEksAddonTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -155,14 +155,14 @@ public partial class AwsEksAddon : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("pod_identity_association")]
-    public partial TerraformSet<TerraformBlock<AwsEksAddonPodIdentityAssociationBlock>>? PodIdentityAssociation { get; set; }
+    public TerraformSet<AwsEksAddonPodIdentityAssociationBlock> PodIdentityAssociation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEksAddonTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEksAddonTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

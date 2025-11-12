@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for build_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctions2FunctionBuildConfigBlock : TerraformBlockBase
+public partial class GoogleCloudfunctions2FunctionBuildConfigBlock() : TerraformBlock("build_config")
 {
 
     /// <summary>
@@ -62,7 +62,7 @@ public partial class GoogleCloudfunctions2FunctionBuildConfigBlock : TerraformBl
 /// Block type for event_trigger in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformBlockBase
+public partial class GoogleCloudfunctions2FunctionEventTriggerBlock() : TerraformBlock("event_trigger")
 {
     /// <summary>
     /// Required. The type of event to observe.
@@ -114,7 +114,7 @@ public partial class GoogleCloudfunctions2FunctionEventTriggerBlock : TerraformB
 /// Block type for service_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctions2FunctionServiceConfigBlock : TerraformBlockBase
+public partial class GoogleCloudfunctions2FunctionServiceConfigBlock() : TerraformBlock("service_config")
 {
     /// <summary>
     /// Whether 100% of traffic is routed to the latest revision. Defaults to true.
@@ -222,7 +222,7 @@ public partial class GoogleCloudfunctions2FunctionServiceConfigBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudfunctions2FunctionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudfunctions2FunctionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -320,7 +320,7 @@ public partial class GoogleCloudfunctions2Function : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BuildConfig block(s) allowed")]
     [TerraformProperty("build_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctions2FunctionBuildConfigBlock>>? BuildConfig { get; set; }
+    public TerraformList<GoogleCloudfunctions2FunctionBuildConfigBlock> BuildConfig { get; set; } = new();
 
     /// <summary>
     /// Block for event_trigger.
@@ -328,7 +328,7 @@ public partial class GoogleCloudfunctions2Function : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventTrigger block(s) allowed")]
     [TerraformProperty("event_trigger")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctions2FunctionEventTriggerBlock>>? EventTrigger { get; set; }
+    public TerraformList<GoogleCloudfunctions2FunctionEventTriggerBlock> EventTrigger { get; set; } = new();
 
     /// <summary>
     /// Block for service_config.
@@ -336,14 +336,14 @@ public partial class GoogleCloudfunctions2Function : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceConfig block(s) allowed")]
     [TerraformProperty("service_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctions2FunctionServiceConfigBlock>>? ServiceConfig { get; set; }
+    public TerraformList<GoogleCloudfunctions2FunctionServiceConfigBlock> ServiceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudfunctions2FunctionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudfunctions2FunctionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

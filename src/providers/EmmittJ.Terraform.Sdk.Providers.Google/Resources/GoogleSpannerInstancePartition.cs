@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSpannerInstancePartitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -112,7 +112,7 @@ public partial class GoogleSpannerInstancePartition : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSpannerInstancePartitionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSpannerInstancePartitionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The current instance partition state. Possible values are:

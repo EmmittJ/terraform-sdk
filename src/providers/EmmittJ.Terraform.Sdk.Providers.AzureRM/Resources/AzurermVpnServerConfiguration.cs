@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_active_directory_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock : TerraformBlockBase
+public partial class AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock() : TerraformBlock("azure_active_directory_authentication")
 {
     /// <summary>
     /// The audience attribute.
@@ -38,7 +38,7 @@ public partial class AzurermVpnServerConfigurationAzureActiveDirectoryAuthentica
 /// Block type for client_revoked_certificate in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVpnServerConfigurationClientRevokedCertificateBlock : TerraformBlockBase
+public partial class AzurermVpnServerConfigurationClientRevokedCertificateBlock() : TerraformBlock("client_revoked_certificate")
 {
     /// <summary>
     /// The name attribute.
@@ -62,7 +62,7 @@ public partial class AzurermVpnServerConfigurationClientRevokedCertificateBlock 
 /// Block type for client_root_certificate in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermVpnServerConfigurationClientRootCertificateBlock : TerraformBlockBase
+public partial class AzurermVpnServerConfigurationClientRootCertificateBlock() : TerraformBlock("client_root_certificate")
 {
     /// <summary>
     /// The name attribute.
@@ -86,7 +86,7 @@ public partial class AzurermVpnServerConfigurationClientRootCertificateBlock : T
 /// Block type for ipsec_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlockBase
+public partial class AzurermVpnServerConfigurationIpsecPolicyBlock() : TerraformBlock("ipsec_policy")
 {
     /// <summary>
     /// The dh_group attribute.
@@ -158,7 +158,7 @@ public partial class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBl
 /// Block type for radius in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnServerConfigurationRadiusBlock : TerraformBlockBase
+public partial class AzurermVpnServerConfigurationRadiusBlock() : TerraformBlock("radius")
 {
 }
 
@@ -166,7 +166,7 @@ public partial class AzurermVpnServerConfigurationRadiusBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVpnServerConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVpnServerConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -266,21 +266,21 @@ public partial class AzurermVpnServerConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("azure_active_directory_authentication")]
-    public partial TerraformList<TerraformBlock<AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock>>? AzureActiveDirectoryAuthentication { get; set; }
+    public TerraformList<AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock> AzureActiveDirectoryAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for client_revoked_certificate.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("client_revoked_certificate")]
-    public partial TerraformSet<TerraformBlock<AzurermVpnServerConfigurationClientRevokedCertificateBlock>>? ClientRevokedCertificate { get; set; }
+    public TerraformSet<AzurermVpnServerConfigurationClientRevokedCertificateBlock> ClientRevokedCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for client_root_certificate.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("client_root_certificate")]
-    public partial TerraformSet<TerraformBlock<AzurermVpnServerConfigurationClientRootCertificateBlock>>? ClientRootCertificate { get; set; }
+    public TerraformSet<AzurermVpnServerConfigurationClientRootCertificateBlock> ClientRootCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for ipsec_policy.
@@ -288,7 +288,7 @@ public partial class AzurermVpnServerConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpsecPolicy block(s) allowed")]
     [TerraformProperty("ipsec_policy")]
-    public partial TerraformList<TerraformBlock<AzurermVpnServerConfigurationIpsecPolicyBlock>>? IpsecPolicy { get; set; }
+    public TerraformList<AzurermVpnServerConfigurationIpsecPolicyBlock> IpsecPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for radius.
@@ -296,13 +296,13 @@ public partial class AzurermVpnServerConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Radius block(s) allowed")]
     [TerraformProperty("radius")]
-    public partial TerraformList<TerraformBlock<AzurermVpnServerConfigurationRadiusBlock>>? Radius { get; set; }
+    public TerraformList<AzurermVpnServerConfigurationRadiusBlock> Radius { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVpnServerConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVpnServerConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

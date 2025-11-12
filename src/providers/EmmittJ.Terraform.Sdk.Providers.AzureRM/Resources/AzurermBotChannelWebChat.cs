@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for site in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermBotChannelWebChatSiteBlock : TerraformBlockBase
+public partial class AzurermBotChannelWebChatSiteBlock() : TerraformBlock("site")
 {
     /// <summary>
     /// The endpoint_parameters_enabled attribute.
@@ -43,7 +43,7 @@ public partial class AzurermBotChannelWebChatSiteBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBotChannelWebChatTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,13 +120,13 @@ public partial class AzurermBotChannelWebChat : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("site")]
-    public partial TerraformSet<TerraformBlock<AzurermBotChannelWebChatSiteBlock>>? Site { get; set; }
+    public TerraformSet<AzurermBotChannelWebChatSiteBlock> Site { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBotChannelWebChatTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBotChannelWebChatTimeoutsBlock Timeouts { get; set; } = new();
 
 }

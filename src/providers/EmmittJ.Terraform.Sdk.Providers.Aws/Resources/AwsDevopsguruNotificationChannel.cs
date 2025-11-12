@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevopsguruNotificationChannelFiltersBlock : TerraformBlockBase
+public partial class AwsDevopsguruNotificationChannelFiltersBlock() : TerraformBlock("filters")
 {
     /// <summary>
     /// The message_types attribute.
@@ -28,7 +28,7 @@ public partial class AwsDevopsguruNotificationChannelFiltersBlock : TerraformBlo
 /// Block type for sns in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDevopsguruNotificationChannelSnsBlock : TerraformBlockBase
+public partial class AwsDevopsguruNotificationChannelSnsBlock() : TerraformBlock("sns")
 {
     /// <summary>
     /// The topic_arn attribute.
@@ -61,14 +61,14 @@ public partial class AwsDevopsguruNotificationChannel : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filters")]
-    public partial TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelFiltersBlock>>? Filters { get; set; }
+    public TerraformList<AwsDevopsguruNotificationChannelFiltersBlock> Filters { get; set; } = new();
 
     /// <summary>
     /// Block for sns.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sns")]
-    public partial TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelSnsBlock>>? Sns { get; set; }
+    public TerraformList<AwsDevopsguruNotificationChannelSnsBlock> Sns { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

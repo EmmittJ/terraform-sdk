@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformBlockBase
+public partial class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// The day_of_week attribute.
@@ -35,7 +35,7 @@ public partial class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbPostgresqlClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -248,14 +248,14 @@ public partial class AzurermCosmosdbPostgresqlCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbPostgresqlClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbPostgresqlClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The earliest_restore_time attribute.

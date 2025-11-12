@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameters in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDaxParameterGroupParametersBlock : TerraformBlockBase
+public partial class AwsDaxParameterGroupParametersBlock() : TerraformBlock("parameters")
 {
     /// <summary>
     /// The name attribute.
@@ -69,6 +69,6 @@ public partial class AwsDaxParameterGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameters")]
-    public partial TerraformSet<TerraformBlock<AwsDaxParameterGroupParametersBlock>>? Parameters { get; set; }
+    public TerraformSet<AwsDaxParameterGroupParametersBlock> Parameters { get; set; } = new();
 
 }

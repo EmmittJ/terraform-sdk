@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for default_custom_error_response_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock : TerraformBlockBase
+public partial class GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock() : TerraformBlock("default_custom_error_response_policy")
 {
     /// <summary>
     /// The full or partial URL to the BackendBucket resource that contains the custom error content. Examples are:
@@ -28,7 +28,7 @@ public partial class GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock : 
 /// Block type for default_route_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeUrlMapDefaultRouteActionBlock : TerraformBlockBase
+public partial class GoogleComputeUrlMapDefaultRouteActionBlock() : TerraformBlock("default_route_action")
 {
 }
 
@@ -36,7 +36,7 @@ public partial class GoogleComputeUrlMapDefaultRouteActionBlock : TerraformBlock
 /// Block type for default_url_redirect in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlockBase
+public partial class GoogleComputeUrlMapDefaultUrlRedirectBlock() : TerraformBlock("default_url_redirect")
 {
     /// <summary>
     /// The host that will be used in the redirect response instead of the one that was
@@ -114,7 +114,7 @@ public partial class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
 /// Block type for header_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeUrlMapHeaderActionBlock : TerraformBlockBase
+public partial class GoogleComputeUrlMapHeaderActionBlock() : TerraformBlock("header_action")
 {
     /// <summary>
     /// A list of header names for headers that need to be removed from the request
@@ -138,7 +138,7 @@ public partial class GoogleComputeUrlMapHeaderActionBlock : TerraformBlockBase
 /// Block type for host_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeUrlMapHostRuleBlock : TerraformBlockBase
+public partial class GoogleComputeUrlMapHostRuleBlock() : TerraformBlock("host_rule")
 {
     /// <summary>
     /// An optional description of this resource. Provide this property when you create
@@ -173,7 +173,7 @@ public partial class GoogleComputeUrlMapHostRuleBlock : TerraformBlockBase
 /// Block type for path_matcher in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeUrlMapPathMatcherBlock : TerraformBlockBase
+public partial class GoogleComputeUrlMapPathMatcherBlock() : TerraformBlock("path_matcher")
 {
     /// <summary>
     /// The backend service or backend bucket to use when none of the given paths match.
@@ -204,7 +204,7 @@ public partial class GoogleComputeUrlMapPathMatcherBlock : TerraformBlockBase
 /// Block type for test in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeUrlMapTestBlock : TerraformBlockBase
+public partial class GoogleComputeUrlMapTestBlock() : TerraformBlock("test")
 {
     /// <summary>
     /// Description of this test case.
@@ -264,7 +264,7 @@ public partial class GoogleComputeUrlMapTestBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeUrlMapTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeUrlMapTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -347,7 +347,7 @@ public partial class GoogleComputeUrlMap : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultCustomErrorResponsePolicy block(s) allowed")]
     [TerraformProperty("default_custom_error_response_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock>>? DefaultCustomErrorResponsePolicy { get; set; }
+    public TerraformList<GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock> DefaultCustomErrorResponsePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for default_route_action.
@@ -355,7 +355,7 @@ public partial class GoogleComputeUrlMap : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRouteAction block(s) allowed")]
     [TerraformProperty("default_route_action")]
-    public partial TerraformList<TerraformBlock<GoogleComputeUrlMapDefaultRouteActionBlock>>? DefaultRouteAction { get; set; }
+    public TerraformList<GoogleComputeUrlMapDefaultRouteActionBlock> DefaultRouteAction { get; set; } = new();
 
     /// <summary>
     /// Block for default_url_redirect.
@@ -363,7 +363,7 @@ public partial class GoogleComputeUrlMap : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultUrlRedirect block(s) allowed")]
     [TerraformProperty("default_url_redirect")]
-    public partial TerraformList<TerraformBlock<GoogleComputeUrlMapDefaultUrlRedirectBlock>>? DefaultUrlRedirect { get; set; }
+    public TerraformList<GoogleComputeUrlMapDefaultUrlRedirectBlock> DefaultUrlRedirect { get; set; } = new();
 
     /// <summary>
     /// Block for header_action.
@@ -371,35 +371,35 @@ public partial class GoogleComputeUrlMap : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeaderAction block(s) allowed")]
     [TerraformProperty("header_action")]
-    public partial TerraformList<TerraformBlock<GoogleComputeUrlMapHeaderActionBlock>>? HeaderAction { get; set; }
+    public TerraformList<GoogleComputeUrlMapHeaderActionBlock> HeaderAction { get; set; } = new();
 
     /// <summary>
     /// Block for host_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("host_rule")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeUrlMapHostRuleBlock>>? HostRule { get; set; }
+    public TerraformSet<GoogleComputeUrlMapHostRuleBlock> HostRule { get; set; } = new();
 
     /// <summary>
     /// Block for path_matcher.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("path_matcher")]
-    public partial TerraformList<TerraformBlock<GoogleComputeUrlMapPathMatcherBlock>>? PathMatcher { get; set; }
+    public TerraformList<GoogleComputeUrlMapPathMatcherBlock> PathMatcher { get; set; } = new();
 
     /// <summary>
     /// Block for test.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("test")]
-    public partial TerraformList<TerraformBlock<GoogleComputeUrlMapTestBlock>>? Test { get; set; }
+    public TerraformList<GoogleComputeUrlMapTestBlock> Test { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeUrlMapTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeUrlMapTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDirectoryServiceRadiusSettingsTimeoutsBlock : TerraformBlockBase
+public partial class AwsDirectoryServiceRadiusSettingsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,6 +123,6 @@ public partial class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDirectoryServiceRadiusSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDirectoryServiceRadiusSettingsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

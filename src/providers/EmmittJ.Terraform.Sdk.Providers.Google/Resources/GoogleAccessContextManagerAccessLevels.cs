@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access_levels in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock() : TerraformBlock("access_levels")
 {
     /// <summary>
     /// Description of the AccessLevel and its use. Does not affect behavior.
@@ -39,7 +39,7 @@ public partial class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerAccessLevelsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessLevelsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -94,13 +94,13 @@ public partial class GoogleAccessContextManagerAccessLevels : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("access_levels")]
-    public partial TerraformSet<TerraformBlock<GoogleAccessContextManagerAccessLevelsAccessLevelsBlock>>? AccessLevels { get; set; }
+    public TerraformSet<GoogleAccessContextManagerAccessLevelsAccessLevelsBlock> AccessLevels { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerAccessLevelsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerAccessLevelsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

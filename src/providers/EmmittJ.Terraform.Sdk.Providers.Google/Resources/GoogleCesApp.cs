@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for audio_processing_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppAudioProcessingConfigBlock : TerraformBlockBase
+public partial class GoogleCesAppAudioProcessingConfigBlock() : TerraformBlock("audio_processing_config")
 {
     /// <summary>
     /// The duration of user inactivity (no speech or interaction) before the agent
@@ -23,7 +23,7 @@ public partial class GoogleCesAppAudioProcessingConfigBlock : TerraformBlockBase
 /// Block type for data_store_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppDataStoreSettingsBlock : TerraformBlockBase
+public partial class GoogleCesAppDataStoreSettingsBlock() : TerraformBlock("data_store_settings")
 {
 
 }
@@ -32,7 +32,7 @@ public partial class GoogleCesAppDataStoreSettingsBlock : TerraformBlockBase
 /// Block type for default_channel_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppDefaultChannelProfileBlock : TerraformBlockBase
+public partial class GoogleCesAppDefaultChannelProfileBlock() : TerraformBlock("default_channel_profile")
 {
     /// <summary>
     /// The type of the channel profile.
@@ -77,7 +77,7 @@ public partial class GoogleCesAppDefaultChannelProfileBlock : TerraformBlockBase
 /// Block type for evaluation_metrics_thresholds in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppEvaluationMetricsThresholdsBlock : TerraformBlockBase
+public partial class GoogleCesAppEvaluationMetricsThresholdsBlock() : TerraformBlock("evaluation_metrics_thresholds")
 {
 }
 
@@ -85,7 +85,7 @@ public partial class GoogleCesAppEvaluationMetricsThresholdsBlock : TerraformBlo
 /// Block type for language_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppLanguageSettingsBlock : TerraformBlockBase
+public partial class GoogleCesAppLanguageSettingsBlock() : TerraformBlock("language_settings")
 {
     /// <summary>
     /// The default language code of the app.
@@ -130,7 +130,7 @@ public partial class GoogleCesAppLanguageSettingsBlock : TerraformBlockBase
 /// Block type for logging_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppLoggingSettingsBlock : TerraformBlockBase
+public partial class GoogleCesAppLoggingSettingsBlock() : TerraformBlock("logging_settings")
 {
 }
 
@@ -138,7 +138,7 @@ public partial class GoogleCesAppLoggingSettingsBlock : TerraformBlockBase
 /// Block type for model_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppModelSettingsBlock : TerraformBlockBase
+public partial class GoogleCesAppModelSettingsBlock() : TerraformBlock("model_settings")
 {
     /// <summary>
     /// The LLM model that the agent should use.
@@ -164,7 +164,7 @@ public partial class GoogleCesAppModelSettingsBlock : TerraformBlockBase
 /// Block type for time_zone_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppTimeZoneSettingsBlock : TerraformBlockBase
+public partial class GoogleCesAppTimeZoneSettingsBlock() : TerraformBlock("time_zone_settings")
 {
     /// <summary>
     /// The time zone of the app from the time zone database, e.g., America/Los_Angeles, Europe/Paris.
@@ -179,7 +179,7 @@ public partial class GoogleCesAppTimeZoneSettingsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCesAppTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCesAppTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -208,7 +208,7 @@ public partial class GoogleCesAppTimeoutsBlock : TerraformBlockBase
 /// Block type for variable_declarations in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCesAppVariableDeclarationsBlock : TerraformBlockBase
+public partial class GoogleCesAppVariableDeclarationsBlock() : TerraformBlock("variable_declarations")
 {
     /// <summary>
     /// The description of the variable.
@@ -326,7 +326,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioProcessingConfig block(s) allowed")]
     [TerraformProperty("audio_processing_config")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppAudioProcessingConfigBlock>>? AudioProcessingConfig { get; set; }
+    public TerraformList<GoogleCesAppAudioProcessingConfigBlock> AudioProcessingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for data_store_settings.
@@ -334,7 +334,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataStoreSettings block(s) allowed")]
     [TerraformProperty("data_store_settings")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppDataStoreSettingsBlock>>? DataStoreSettings { get; set; }
+    public TerraformList<GoogleCesAppDataStoreSettingsBlock> DataStoreSettings { get; set; } = new();
 
     /// <summary>
     /// Block for default_channel_profile.
@@ -342,7 +342,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultChannelProfile block(s) allowed")]
     [TerraformProperty("default_channel_profile")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppDefaultChannelProfileBlock>>? DefaultChannelProfile { get; set; }
+    public TerraformList<GoogleCesAppDefaultChannelProfileBlock> DefaultChannelProfile { get; set; } = new();
 
     /// <summary>
     /// Block for evaluation_metrics_thresholds.
@@ -350,7 +350,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EvaluationMetricsThresholds block(s) allowed")]
     [TerraformProperty("evaluation_metrics_thresholds")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppEvaluationMetricsThresholdsBlock>>? EvaluationMetricsThresholds { get; set; }
+    public TerraformList<GoogleCesAppEvaluationMetricsThresholdsBlock> EvaluationMetricsThresholds { get; set; } = new();
 
     /// <summary>
     /// Block for language_settings.
@@ -358,7 +358,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LanguageSettings block(s) allowed")]
     [TerraformProperty("language_settings")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppLanguageSettingsBlock>>? LanguageSettings { get; set; }
+    public TerraformList<GoogleCesAppLanguageSettingsBlock> LanguageSettings { get; set; } = new();
 
     /// <summary>
     /// Block for logging_settings.
@@ -366,7 +366,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingSettings block(s) allowed")]
     [TerraformProperty("logging_settings")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppLoggingSettingsBlock>>? LoggingSettings { get; set; }
+    public TerraformList<GoogleCesAppLoggingSettingsBlock> LoggingSettings { get; set; } = new();
 
     /// <summary>
     /// Block for model_settings.
@@ -374,7 +374,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelSettings block(s) allowed")]
     [TerraformProperty("model_settings")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppModelSettingsBlock>>? ModelSettings { get; set; }
+    public TerraformList<GoogleCesAppModelSettingsBlock> ModelSettings { get; set; } = new();
 
     /// <summary>
     /// Block for time_zone_settings.
@@ -382,21 +382,21 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimeZoneSettings block(s) allowed")]
     [TerraformProperty("time_zone_settings")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppTimeZoneSettingsBlock>>? TimeZoneSettings { get; set; }
+    public TerraformList<GoogleCesAppTimeZoneSettingsBlock> TimeZoneSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCesAppTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCesAppTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for variable_declarations.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("variable_declarations")]
-    public partial TerraformList<TerraformBlock<GoogleCesAppVariableDeclarationsBlock>>? VariableDeclarations { get; set; }
+    public TerraformList<GoogleCesAppVariableDeclarationsBlock> VariableDeclarations { get; set; } = new();
 
     /// <summary>
     /// Timestamp when the app was created.

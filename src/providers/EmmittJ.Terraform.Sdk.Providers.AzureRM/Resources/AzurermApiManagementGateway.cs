@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for location_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementGatewayLocationDataBlock : TerraformBlockBase
+public partial class AzurermApiManagementGatewayLocationDataBlock() : TerraformBlock("location_data")
 {
     /// <summary>
     /// The city attribute.
@@ -43,7 +43,7 @@ public partial class AzurermApiManagementGatewayLocationDataBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,13 +123,13 @@ public partial class AzurermApiManagementGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocationData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocationData block(s) allowed")]
     [TerraformProperty("location_data")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementGatewayLocationDataBlock>>? LocationData { get; set; }
+    public required TerraformList<AzurermApiManagementGatewayLocationDataBlock> LocationData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
 }

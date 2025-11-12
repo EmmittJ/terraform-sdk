@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for subnet in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVpcAccessConnectorSubnetBlock : TerraformBlockBase
+public partial class GoogleVpcAccessConnectorSubnetBlock() : TerraformBlock("subnet")
 {
     /// <summary>
     /// Subnet name (relative, not fully qualified). E.g. if the full subnet selfLink is
@@ -29,7 +29,7 @@ public partial class GoogleVpcAccessConnectorSubnetBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVpcAccessConnectorTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVpcAccessConnectorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -154,14 +154,14 @@ public partial class GoogleVpcAccessConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
     [TerraformProperty("subnet")]
-    public partial TerraformList<TerraformBlock<GoogleVpcAccessConnectorSubnetBlock>>? Subnet { get; set; }
+    public TerraformList<GoogleVpcAccessConnectorSubnetBlock> Subnet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVpcAccessConnectorTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVpcAccessConnectorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// List of projects using the connector.

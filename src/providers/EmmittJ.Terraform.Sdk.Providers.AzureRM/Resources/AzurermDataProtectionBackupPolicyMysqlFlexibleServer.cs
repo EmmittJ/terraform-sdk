@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for default_retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock() : TerraformBlock("default_retention_rule")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefault
 /// Block type for retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock() : TerraformBlock("retention_rule")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetenti
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,20 +119,20 @@ public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : Terr
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
     [TerraformProperty("default_retention_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock>>? DefaultRetentionRule { get; set; }
+    public required TerraformList<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock> DefaultRetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for retention_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("retention_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>>? RetentionRule { get; set; }
+    public TerraformList<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock> RetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

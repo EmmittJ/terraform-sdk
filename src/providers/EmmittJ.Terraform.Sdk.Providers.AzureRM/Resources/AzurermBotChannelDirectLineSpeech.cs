@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBotChannelDirectLineSpeechTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,6 +120,6 @@ public partial class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBotChannelDirectLineSpeechTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBotChannelDirectLineSpeechTimeoutsBlock Timeouts { get; set; } = new();
 
 }

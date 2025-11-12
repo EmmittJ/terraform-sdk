@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDiskEncryptionSetDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDiskEncryptionSetDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermDiskEncryptionSetDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDiskEncryptionSetDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDiskEncryptionSetDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The auto_key_rotation_enabled attribute.

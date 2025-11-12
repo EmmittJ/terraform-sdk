@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for addons_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeAddonsConfigAddonsConfigBlock : TerraformBlockBase
+public partial class GoogleApigeeAddonsConfigAddonsConfigBlock() : TerraformBlock("addons_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApigeeAddonsConfigAddonsConfigBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeAddonsConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -70,13 +70,13 @@ public partial class GoogleApigeeAddonsConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddonsConfig block(s) allowed")]
     [TerraformProperty("addons_config")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeAddonsConfigAddonsConfigBlock>>? AddonsConfig { get; set; }
+    public TerraformList<GoogleApigeeAddonsConfigAddonsConfigBlock> AddonsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeAddonsConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeAddonsConfigTimeoutsBlock Timeouts { get; set; } = new();
 
 }

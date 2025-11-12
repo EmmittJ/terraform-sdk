@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorSecretDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorSecretDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -62,7 +62,7 @@ public partial class AzurermCdnFrontdoorSecretDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorSecretDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorSecretDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cdn_frontdoor_profile_id attribute.

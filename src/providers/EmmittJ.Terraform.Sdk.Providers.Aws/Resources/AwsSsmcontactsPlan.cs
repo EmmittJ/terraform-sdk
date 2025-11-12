@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmcontactsPlanStageBlock : TerraformBlockBase
+public partial class AwsSsmcontactsPlanStageBlock() : TerraformBlock("stage")
 {
     /// <summary>
     /// The duration_in_minutes attribute.
@@ -57,6 +57,6 @@ public partial class AwsSsmcontactsPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stage block(s) required")]
     [TerraformProperty("stage")]
-    public partial TerraformList<TerraformBlock<AwsSsmcontactsPlanStageBlock>>? Stage { get; set; }
+    public required TerraformList<AwsSsmcontactsPlanStageBlock> Stage { get; set; } = new();
 
 }

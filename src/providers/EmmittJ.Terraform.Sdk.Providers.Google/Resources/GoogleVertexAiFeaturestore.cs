@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeaturestoreEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeaturestoreEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key. The key needs to be in the same region as where the compute resource is created.
@@ -22,7 +22,7 @@ public partial class GoogleVertexAiFeaturestoreEncryptionSpecBlock : TerraformBl
 /// Block type for online_serving_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeaturestoreOnlineServingConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeaturestoreOnlineServingConfigBlock() : TerraformBlock("online_serving_config")
 {
     /// <summary>
     /// The number of nodes for each cluster. The number of nodes will not scale automatically but can be scaled manually by providing different values when updating.
@@ -37,7 +37,7 @@ public partial class GoogleVertexAiFeaturestoreOnlineServingConfigBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiFeaturestoreTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeaturestoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,7 +124,7 @@ public partial class GoogleVertexAiFeaturestore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeaturestoreEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleVertexAiFeaturestoreEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for online_serving_config.
@@ -132,14 +132,14 @@ public partial class GoogleVertexAiFeaturestore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnlineServingConfig block(s) allowed")]
     [TerraformProperty("online_serving_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeaturestoreOnlineServingConfigBlock>>? OnlineServingConfig { get; set; }
+    public TerraformList<GoogleVertexAiFeaturestoreOnlineServingConfigBlock> OnlineServingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiFeaturestoreTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiFeaturestoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the featurestore was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

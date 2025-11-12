@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerConnectAttachmentOptionsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerConnectAttachmentOptionsBlock() : TerraformBlock("options")
 {
     /// <summary>
     /// The protocol attribute.
@@ -21,7 +21,7 @@ public partial class AwsNetworkmanagerConnectAttachmentOptionsBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkmanagerConnectAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerConnectAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -102,14 +102,14 @@ public partial class AwsNetworkmanagerConnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Options block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     [TerraformProperty("options")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerConnectAttachmentOptionsBlock>>? Options { get; set; }
+    public required TerraformList<AwsNetworkmanagerConnectAttachmentOptionsBlock> Options { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkmanagerConnectAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkmanagerConnectAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

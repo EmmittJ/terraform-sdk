@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for psc_interface_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock : TerraformBlockBase
+public partial class GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock() : TerraformBlock("psc_interface_config")
 {
     /// <summary>
     /// Fully qualified name of the network attachment that Datastream will connect to.
@@ -28,7 +28,7 @@ public partial class GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDatastreamPrivateConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDatastreamPrivateConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -57,7 +57,7 @@ public partial class GoogleDatastreamPrivateConnectionTimeoutsBlock : TerraformB
 /// Block type for vpc_peering_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : TerraformBlockBase
+public partial class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock() : TerraformBlock("vpc_peering_config")
 {
     /// <summary>
     /// A free subnet for peering. (CIDR of /29)
@@ -149,14 +149,14 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscInterfaceConfig block(s) allowed")]
     [TerraformProperty("psc_interface_config")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock>>? PscInterfaceConfig { get; set; }
+    public TerraformList<GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock> PscInterfaceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDatastreamPrivateConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDatastreamPrivateConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_peering_config.
@@ -164,7 +164,7 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConfig block(s) allowed")]
     [TerraformProperty("vpc_peering_config")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock>>? VpcPeeringConfig { get; set; }
+    public TerraformList<GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock> VpcPeeringConfig { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

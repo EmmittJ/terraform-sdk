@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApihubApiHubInstanceConfigBlock : TerraformBlockBase
+public partial class GoogleApihubApiHubInstanceConfigBlock() : TerraformBlock("config")
 {
     /// <summary>
     /// Optional. The Customer Managed Encryption Key (CMEK) used for data encryption.
@@ -53,7 +53,7 @@ public partial class GoogleApihubApiHubInstanceConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApihubApiHubInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,14 +149,14 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GoogleApihubApiHubInstanceConfigBlock>>? Config { get; set; }
+    public required TerraformList<GoogleApihubApiHubInstanceConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApihubApiHubInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApihubApiHubInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Creation timestamp.

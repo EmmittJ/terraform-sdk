@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for storage_lens_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock : TerraformBlockBase
+public partial class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock() : TerraformBlock("storage_lens_configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -79,7 +79,7 @@ public partial class AwsS3controlStorageLensConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLensConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLensConfiguration block(s) allowed")]
     [TerraformProperty("storage_lens_configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock>>? StorageLensConfiguration { get; set; }
+    public required TerraformList<AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock> StorageLensConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

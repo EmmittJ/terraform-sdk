@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_backup_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceAutomatedBackupConfigBlock() : TerraformBlock("automated_backup_config")
 {
     /// <summary>
     /// How long to keep automated backups before the backups are deleted.
@@ -24,7 +24,7 @@ public partial class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : Terra
 /// Block type for cross_instance_replication_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock() : TerraformBlock("cross_instance_replication_config")
 {
     /// <summary>
     /// The instance role supports the following values:
@@ -45,7 +45,7 @@ public partial class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBloc
 /// Block type for desired_auto_created_endpoints in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock() : TerraformBlock("desired_auto_created_endpoints")
 {
     /// <summary>
     /// Required. The consumer network where the IP address resides, in the form of
@@ -71,7 +71,7 @@ public partial class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock :
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock() : TerraformBlock("desired_psc_auto_connections")
 {
     /// <summary>
     /// Required. The consumer network where the IP address resides, in the form of
@@ -96,7 +96,7 @@ public partial class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : T
 /// Block type for gcs_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstanceGcsSourceBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceGcsSourceBlock() : TerraformBlock("gcs_source")
 {
     /// <summary>
     /// URIs of the GCS objects to import.
@@ -113,7 +113,7 @@ public partial class GoogleMemorystoreInstanceGcsSourceBlock : TerraformBlockBas
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstanceMaintenancePolicyBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceMaintenancePolicyBlock() : TerraformBlock("maintenance_policy")
 {
 
 
@@ -123,7 +123,7 @@ public partial class GoogleMemorystoreInstanceMaintenancePolicyBlock : Terraform
 /// Block type for managed_backup_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstanceManagedBackupSourceBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceManagedBackupSourceBlock() : TerraformBlock("managed_backup_source")
 {
     /// <summary>
     /// Example: &#39;projects/{project}/locations/{location}/backupCollections/{collection}/backups/{backup}&#39;.
@@ -139,7 +139,7 @@ public partial class GoogleMemorystoreInstanceManagedBackupSourceBlock : Terrafo
 /// Block type for persistence_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstancePersistenceConfigBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstancePersistenceConfigBlock() : TerraformBlock("persistence_config")
 {
     /// <summary>
     /// Optional. Current persistence mode. 
@@ -158,7 +158,7 @@ public partial class GoogleMemorystoreInstancePersistenceConfigBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMemorystoreInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -187,7 +187,7 @@ public partial class GoogleMemorystoreInstanceTimeoutsBlock : TerraformBlockBase
 /// Block type for zone_distribution_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMemorystoreInstanceZoneDistributionConfigBlock : TerraformBlockBase
+public partial class GoogleMemorystoreInstanceZoneDistributionConfigBlock() : TerraformBlock("zone_distribution_config")
 {
     /// <summary>
     /// Optional. Current zone distribution mode. Defaults to MULTI_ZONE. 
@@ -366,7 +366,7 @@ public partial class GoogleMemorystoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupConfig block(s) allowed")]
     [TerraformProperty("automated_backup_config")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceAutomatedBackupConfigBlock>>? AutomatedBackupConfig { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceAutomatedBackupConfigBlock> AutomatedBackupConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cross_instance_replication_config.
@@ -374,14 +374,14 @@ public partial class GoogleMemorystoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CrossInstanceReplicationConfig block(s) allowed")]
     [TerraformProperty("cross_instance_replication_config")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock>>? CrossInstanceReplicationConfig { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock> CrossInstanceReplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for desired_auto_created_endpoints.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("desired_auto_created_endpoints")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock>>? DesiredAutoCreatedEndpoints { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock> DesiredAutoCreatedEndpoints { get; set; } = new();
 
     /// <summary>
     /// Block for desired_psc_auto_connections.
@@ -389,7 +389,7 @@ public partial class GoogleMemorystoreInstance : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("desired_psc_auto_connections")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock>>? DesiredPscAutoConnections { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock> DesiredPscAutoConnections { get; set; } = new();
 
     /// <summary>
     /// Block for gcs_source.
@@ -397,7 +397,7 @@ public partial class GoogleMemorystoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsSource block(s) allowed")]
     [TerraformProperty("gcs_source")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceGcsSourceBlock>>? GcsSource { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceGcsSourceBlock> GcsSource { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -405,7 +405,7 @@ public partial class GoogleMemorystoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceMaintenancePolicyBlock> MaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for managed_backup_source.
@@ -413,7 +413,7 @@ public partial class GoogleMemorystoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedBackupSource block(s) allowed")]
     [TerraformProperty("managed_backup_source")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceManagedBackupSourceBlock>>? ManagedBackupSource { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceManagedBackupSourceBlock> ManagedBackupSource { get; set; } = new();
 
     /// <summary>
     /// Block for persistence_config.
@@ -421,14 +421,14 @@ public partial class GoogleMemorystoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
     [TerraformProperty("persistence_config")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstancePersistenceConfigBlock>>? PersistenceConfig { get; set; }
+    public TerraformList<GoogleMemorystoreInstancePersistenceConfigBlock> PersistenceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMemorystoreInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMemorystoreInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for zone_distribution_config.
@@ -436,7 +436,7 @@ public partial class GoogleMemorystoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZoneDistributionConfig block(s) allowed")]
     [TerraformProperty("zone_distribution_config")]
-    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceZoneDistributionConfigBlock>>? ZoneDistributionConfig { get; set; }
+    public TerraformList<GoogleMemorystoreInstanceZoneDistributionConfigBlock> ZoneDistributionConfig { get; set; } = new();
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for admin in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlockBase
+public partial class AzurermKeyVaultCertificateIssuerAdminBlock() : TerraformBlock("admin")
 {
     /// <summary>
     /// The email_address attribute.
@@ -43,7 +43,7 @@ public partial class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultCertificateIssuerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -141,13 +141,13 @@ public partial class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("admin")]
-    public partial TerraformList<TerraformBlock<AzurermKeyVaultCertificateIssuerAdminBlock>>? Admin { get; set; }
+    public TerraformList<AzurermKeyVaultCertificateIssuerAdminBlock> Admin { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKeyVaultCertificateIssuerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKeyVaultCertificateIssuerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

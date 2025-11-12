@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for insights_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsXrayGroupInsightsConfigurationBlock : TerraformBlockBase
+public partial class AwsXrayGroupInsightsConfigurationBlock() : TerraformBlock("insights_configuration")
 {
     /// <summary>
     /// The insights_enabled attribute.
@@ -85,7 +85,7 @@ public partial class AwsXrayGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InsightsConfiguration block(s) allowed")]
     [TerraformProperty("insights_configuration")]
-    public partial TerraformList<TerraformBlock<AwsXrayGroupInsightsConfigurationBlock>>? InsightsConfiguration { get; set; }
+    public TerraformList<AwsXrayGroupInsightsConfigurationBlock> InsightsConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

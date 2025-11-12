@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for integration_runtime in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock() : TerraformBlock("integration_runtime")
 {
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedCustomServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedCustomServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,13 +144,13 @@ public partial class AzurermDataFactoryLinkedCustomService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntegrationRuntime block(s) allowed")]
     [TerraformProperty("integration_runtime")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock>>? IntegrationRuntime { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock> IntegrationRuntime { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedCustomServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedCustomServiceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiContactBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiContactBlock() : TerraformBlock("contact")
 {
     /// <summary>
     /// The email attribute.
@@ -35,7 +35,7 @@ public partial class AzurermApiManagementApiContactBlock : TerraformBlockBase
 /// Block type for import in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiImportBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiImportBlock() : TerraformBlock("import")
 {
     /// <summary>
     /// The content_format attribute.
@@ -59,7 +59,7 @@ public partial class AzurermApiManagementApiImportBlock : TerraformBlockBase
 /// Block type for license in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiLicenseBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiLicenseBlock() : TerraformBlock("license")
 {
     /// <summary>
     /// The name attribute.
@@ -81,7 +81,7 @@ public partial class AzurermApiManagementApiLicenseBlock : TerraformBlockBase
 /// Block type for oauth2_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiOauth2AuthorizationBlock() : TerraformBlock("oauth2_authorization")
 {
     /// <summary>
     /// The authorization_server_name attribute.
@@ -104,7 +104,7 @@ public partial class AzurermApiManagementApiOauth2AuthorizationBlock : Terraform
 /// Block type for openid_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiOpenidAuthenticationBlock() : TerraformBlock("openid_authentication")
 {
     /// <summary>
     /// The bearer_token_sending_methods attribute.
@@ -127,7 +127,7 @@ public partial class AzurermApiManagementApiOpenidAuthenticationBlock : Terrafor
 /// Block type for subscription_key_parameter_names in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock() : TerraformBlock("subscription_key_parameter_names")
 {
     /// <summary>
     /// The header attribute.
@@ -151,7 +151,7 @@ public partial class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementApiTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -329,7 +329,7 @@ public partial class AzurermApiManagementApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Contact block(s) allowed")]
     [TerraformProperty("contact")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiContactBlock>>? Contact { get; set; }
+    public TerraformList<AzurermApiManagementApiContactBlock> Contact { get; set; } = new();
 
     /// <summary>
     /// Block for import.
@@ -337,7 +337,7 @@ public partial class AzurermApiManagementApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
     [TerraformProperty("import")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiImportBlock>>? Import { get; set; }
+    public TerraformList<AzurermApiManagementApiImportBlock> Import { get; set; } = new();
 
     /// <summary>
     /// Block for license.
@@ -345,7 +345,7 @@ public partial class AzurermApiManagementApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 License block(s) allowed")]
     [TerraformProperty("license")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiLicenseBlock>>? License { get; set; }
+    public TerraformList<AzurermApiManagementApiLicenseBlock> License { get; set; } = new();
 
     /// <summary>
     /// Block for oauth2_authorization.
@@ -353,7 +353,7 @@ public partial class AzurermApiManagementApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oauth2Authorization block(s) allowed")]
     [TerraformProperty("oauth2_authorization")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiOauth2AuthorizationBlock>>? Oauth2Authorization { get; set; }
+    public TerraformList<AzurermApiManagementApiOauth2AuthorizationBlock> Oauth2Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for openid_authentication.
@@ -361,7 +361,7 @@ public partial class AzurermApiManagementApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenidAuthentication block(s) allowed")]
     [TerraformProperty("openid_authentication")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiOpenidAuthenticationBlock>>? OpenidAuthentication { get; set; }
+    public TerraformList<AzurermApiManagementApiOpenidAuthenticationBlock> OpenidAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for subscription_key_parameter_names.
@@ -369,14 +369,14 @@ public partial class AzurermApiManagementApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubscriptionKeyParameterNames block(s) allowed")]
     [TerraformProperty("subscription_key_parameter_names")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock>>? SubscriptionKeyParameterNames { get; set; }
+    public TerraformList<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock> SubscriptionKeyParameterNames { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementApiTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementApiTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The is_current attribute.

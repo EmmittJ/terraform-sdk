@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachment_policies in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock() : TerraformBlock("attachment_policies")
 {
     /// <summary>
     /// The condition_logic attribute.
@@ -36,7 +36,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachm
 /// Block type for core_network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock() : TerraformBlock("core_network_configuration")
 {
     /// <summary>
     /// The asn_ranges attribute.
@@ -80,7 +80,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNet
 /// Block type for network_function_groups in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock() : TerraformBlock("network_function_groups")
 {
     /// <summary>
     /// The description attribute.
@@ -111,7 +111,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetwork
 /// Block type for segment_actions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock() : TerraformBlock("segment_actions")
 {
     /// <summary>
     /// The action attribute.
@@ -177,7 +177,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegment
 /// Block type for segments in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock() : TerraformBlock("segments")
 {
     /// <summary>
     /// The allow_filter attribute.
@@ -260,7 +260,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : Terr
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attachment_policies")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock>>? AttachmentPolicies { get; set; }
+    public TerraformList<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock> AttachmentPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for core_network_configuration.
@@ -269,21 +269,21 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CoreNetworkConfiguration block(s) required")]
     [TerraformProperty("core_network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock>>? CoreNetworkConfiguration { get; set; }
+    public required TerraformList<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock> CoreNetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for network_function_groups.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_function_groups")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock>>? NetworkFunctionGroups { get; set; }
+    public TerraformList<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock> NetworkFunctionGroups { get; set; } = new();
 
     /// <summary>
     /// Block for segment_actions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("segment_actions")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock>>? SegmentActions { get; set; }
+    public TerraformList<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock> SegmentActions { get; set; } = new();
 
     /// <summary>
     /// Block for segments.
@@ -292,7 +292,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segments is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Segments block(s) required")]
     [TerraformProperty("segments")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock>>? Segments { get; set; }
+    public required TerraformList<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock> Segments { get; set; } = new();
 
     /// <summary>
     /// The json attribute.

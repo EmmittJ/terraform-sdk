@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock() : TerraformBlock("autoscale_settings")
 {
     /// <summary>
     /// The max_throughput attribute.
@@ -21,7 +21,7 @@ public partial class AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,13 +107,13 @@ public partial class AzurermCosmosdbCassandraKeyspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public TerraformList<AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbCassandraKeyspaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbCassandraKeyspaceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advertised_ip_ranges in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeRouterPeerAdvertisedIpRangesBlock : TerraformBlockBase
+public partial class GoogleComputeRouterPeerAdvertisedIpRangesBlock() : TerraformBlock("advertised_ip_ranges")
 {
     /// <summary>
     /// User-specified description for the IP range.
@@ -30,7 +30,7 @@ public partial class GoogleComputeRouterPeerAdvertisedIpRangesBlock : TerraformB
 /// Block type for bfd in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouterPeerBfdBlock : TerraformBlockBase
+public partial class GoogleComputeRouterPeerBfdBlock() : TerraformBlock("bfd")
 {
     /// <summary>
     /// The minimum interval, in milliseconds, between BFD control packets
@@ -81,7 +81,7 @@ public partial class GoogleComputeRouterPeerBfdBlock : TerraformBlockBase
 /// Block type for custom_learned_ip_ranges in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouterPeerCustomLearnedIpRangesBlock : TerraformBlockBase
+public partial class GoogleComputeRouterPeerCustomLearnedIpRangesBlock() : TerraformBlock("custom_learned_ip_ranges")
 {
     /// <summary>
     /// The IP range to learn. The value must be a
@@ -98,7 +98,7 @@ public partial class GoogleComputeRouterPeerCustomLearnedIpRangesBlock : Terrafo
 /// Block type for md5_authentication_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : TerraformBlockBase
+public partial class GoogleComputeRouterPeerMd5AuthenticationKeyBlock() : TerraformBlock("md5_authentication_key")
 {
     /// <summary>
     /// Value of the key.
@@ -123,7 +123,7 @@ public partial class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRouterPeerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRouterPeerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -381,7 +381,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("advertised_ip_ranges")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeRouterPeerAdvertisedIpRangesBlock>>? AdvertisedIpRanges { get; set; }
+    public TerraformSet<GoogleComputeRouterPeerAdvertisedIpRangesBlock> AdvertisedIpRanges { get; set; } = new();
 
     /// <summary>
     /// Block for bfd.
@@ -389,14 +389,14 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bfd block(s) allowed")]
     [TerraformProperty("bfd")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouterPeerBfdBlock>>? Bfd { get; set; }
+    public TerraformList<GoogleComputeRouterPeerBfdBlock> Bfd { get; set; } = new();
 
     /// <summary>
     /// Block for custom_learned_ip_ranges.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_learned_ip_ranges")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouterPeerCustomLearnedIpRangesBlock>>? CustomLearnedIpRanges { get; set; }
+    public TerraformList<GoogleComputeRouterPeerCustomLearnedIpRangesBlock> CustomLearnedIpRanges { get; set; } = new();
 
     /// <summary>
     /// Block for md5_authentication_key.
@@ -404,14 +404,14 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKey block(s) allowed")]
     [TerraformProperty("md5_authentication_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouterPeerMd5AuthenticationKeyBlock>>? Md5AuthenticationKey { get; set; }
+    public TerraformList<GoogleComputeRouterPeerMd5AuthenticationKeyBlock> Md5AuthenticationKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRouterPeerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRouterPeerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// An internal boolean field for provider use for zero_advertised_route_priority.

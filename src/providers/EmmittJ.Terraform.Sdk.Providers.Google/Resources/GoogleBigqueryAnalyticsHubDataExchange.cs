@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for sharing_environment_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock() : TerraformBlock("sharing_environment_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentCon
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -135,14 +135,14 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SharingEnvironmentConfig block(s) allowed")]
     [TerraformProperty("sharing_environment_config")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock>>? SharingEnvironmentConfig { get; set; }
+    public TerraformList<GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock> SharingEnvironmentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Number of listings contained in the data exchange.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for header_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSecurityPolicyRuleHeaderActionBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyRuleHeaderActionBlock() : TerraformBlock("header_action")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleComputeSecurityPolicyRuleHeaderActionBlock : Terrafor
 /// Block type for match in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSecurityPolicyRuleMatchBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyRuleMatchBlock() : TerraformBlock("match")
 {
     /// <summary>
     /// Preconfigured versioned expression. If this field is specified, config must also be specified.
@@ -30,7 +30,7 @@ public partial class GoogleComputeSecurityPolicyRuleMatchBlock : TerraformBlockB
 /// Block type for preconfigured_waf_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock() : TerraformBlock("preconfigured_waf_config")
 {
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock 
 /// Block type for rate_limit_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock() : TerraformBlock("rate_limit_options")
 {
     /// <summary>
     /// Can only be specified if the action for the rule is &amp;quot;rate_based_ban&amp;quot;.
@@ -97,7 +97,7 @@ public partial class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : Terr
 /// Block type for redirect_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSecurityPolicyRuleRedirectOptionsBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyRuleRedirectOptionsBlock() : TerraformBlock("redirect_options")
 {
     /// <summary>
     /// Target for the redirect action. This is required if the type is EXTERNAL_302 and cannot be specified for GOOGLE_RECAPTCHA.
@@ -119,7 +119,7 @@ public partial class GoogleComputeSecurityPolicyRuleRedirectOptionsBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeSecurityPolicyRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeSecurityPolicyRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -224,7 +224,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeaderAction block(s) allowed")]
     [TerraformProperty("header_action")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleHeaderActionBlock>>? HeaderAction { get; set; }
+    public TerraformList<GoogleComputeSecurityPolicyRuleHeaderActionBlock> HeaderAction { get; set; } = new();
 
     /// <summary>
     /// Block for match.
@@ -232,7 +232,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     [TerraformProperty("match")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleMatchBlock>>? Match { get; set; }
+    public TerraformList<GoogleComputeSecurityPolicyRuleMatchBlock> Match { get; set; } = new();
 
     /// <summary>
     /// Block for preconfigured_waf_config.
@@ -240,7 +240,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreconfiguredWafConfig block(s) allowed")]
     [TerraformProperty("preconfigured_waf_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; }
+    public TerraformList<GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock> PreconfiguredWafConfig { get; set; } = new();
 
     /// <summary>
     /// Block for rate_limit_options.
@@ -248,7 +248,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimitOptions block(s) allowed")]
     [TerraformProperty("rate_limit_options")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; }
+    public TerraformList<GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock> RateLimitOptions { get; set; } = new();
 
     /// <summary>
     /// Block for redirect_options.
@@ -256,13 +256,13 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectOptions block(s) allowed")]
     [TerraformProperty("redirect_options")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleRedirectOptionsBlock>>? RedirectOptions { get; set; }
+    public TerraformList<GoogleComputeSecurityPolicyRuleRedirectOptionsBlock> RedirectOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeSecurityPolicyRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

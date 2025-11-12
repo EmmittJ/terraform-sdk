@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDbSnapshotCopyTimeoutsBlock : TerraformBlockBase
+public partial class AwsDbSnapshotCopyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,7 +124,7 @@ public partial class AwsDbSnapshotCopy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDbSnapshotCopyTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDbSnapshotCopyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocated_storage attribute.

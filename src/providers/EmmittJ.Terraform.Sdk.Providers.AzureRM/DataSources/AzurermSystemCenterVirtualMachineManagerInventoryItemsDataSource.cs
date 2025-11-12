@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The inventory_items attribute.

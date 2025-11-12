@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsElasticacheUserGroupAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsElasticacheUserGroupAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,6 +68,6 @@ public partial class AwsElasticacheUserGroupAssociation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsElasticacheUserGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsElasticacheUserGroupAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

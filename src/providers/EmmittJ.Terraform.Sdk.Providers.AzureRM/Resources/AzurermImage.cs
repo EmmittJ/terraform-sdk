@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for data_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermImageDataDiskBlock : TerraformBlockBase
+public partial class AzurermImageDataDiskBlock() : TerraformBlock("data_disk")
 {
     /// <summary>
     /// The blob_uri attribute.
@@ -64,7 +64,7 @@ public partial class AzurermImageDataDiskBlock : TerraformBlockBase
 /// Block type for os_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermImageOsDiskBlock : TerraformBlockBase
+public partial class AzurermImageOsDiskBlock() : TerraformBlock("os_disk")
 {
     /// <summary>
     /// The blob_uri attribute.
@@ -129,7 +129,7 @@ public partial class AzurermImageOsDiskBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermImageTimeoutsBlock : TerraformBlockBase
+public partial class AzurermImageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -235,7 +235,7 @@ public partial class AzurermImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_disk")]
-    public partial TerraformList<TerraformBlock<AzurermImageDataDiskBlock>>? DataDisk { get; set; }
+    public TerraformList<AzurermImageDataDiskBlock> DataDisk { get; set; } = new();
 
     /// <summary>
     /// Block for os_disk.
@@ -243,13 +243,13 @@ public partial class AzurermImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
     [TerraformProperty("os_disk")]
-    public partial TerraformList<TerraformBlock<AzurermImageOsDiskBlock>>? OsDisk { get; set; }
+    public TerraformList<AzurermImageOsDiskBlock> OsDisk { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermImageTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermImageTimeoutsBlock Timeouts { get; set; } = new();
 
 }

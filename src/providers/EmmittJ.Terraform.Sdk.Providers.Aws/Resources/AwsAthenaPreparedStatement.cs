@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAthenaPreparedStatementTimeoutsBlock : TerraformBlockBase
+public partial class AwsAthenaPreparedStatementTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,6 +90,6 @@ public partial class AwsAthenaPreparedStatement : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAthenaPreparedStatementTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAthenaPreparedStatementTimeoutsBlock Timeouts { get; set; } = new();
 
 }

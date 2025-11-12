@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for snapshot_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataShareSnapshotScheduleBlock : TerraformBlockBase
+public partial class AzurermDataShareSnapshotScheduleBlock() : TerraformBlock("snapshot_schedule")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDataShareSnapshotScheduleBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataShareTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataShareTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,13 +131,13 @@ public partial class AzurermDataShare : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotSchedule block(s) allowed")]
     [TerraformProperty("snapshot_schedule")]
-    public partial TerraformList<TerraformBlock<AzurermDataShareSnapshotScheduleBlock>>? SnapshotSchedule { get; set; }
+    public TerraformList<AzurermDataShareSnapshotScheduleBlock> SnapshotSchedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataShareTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataShareTimeoutsBlock Timeouts { get; set; } = new();
 
 }

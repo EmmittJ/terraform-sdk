@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for connected_repositories in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : TerraformBlockBase
+public partial class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock() : TerraformBlock("connected_repositories")
 {
     /// <summary>
     /// Identifier for the project storing the repository.
@@ -30,7 +30,7 @@ public partial class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesB
 /// Block type for secrets in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlockBase
+public partial class GoogleCloudbuildBitbucketServerConfigSecretsBlock() : TerraformBlock("secrets")
 {
     /// <summary>
     /// The resource name for the admin access token&#39;s secret version.
@@ -63,7 +63,7 @@ public partial class GoogleCloudbuildBitbucketServerConfigSecretsBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -176,7 +176,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connected_repositories")]
-    public partial TerraformSet<TerraformBlock<GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock>>? ConnectedRepositories { get; set; }
+    public TerraformSet<GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock> ConnectedRepositories { get; set; } = new();
 
     /// <summary>
     /// Block for secrets.
@@ -186,14 +186,14 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Secrets block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Secrets block(s) allowed")]
     [TerraformProperty("secrets")]
-    public partial TerraformList<TerraformBlock<GoogleCloudbuildBitbucketServerConfigSecretsBlock>>? Secrets { get; set; }
+    public required TerraformList<GoogleCloudbuildBitbucketServerConfigSecretsBlock> Secrets { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudbuildBitbucketServerConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudbuildBitbucketServerConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name for the config.

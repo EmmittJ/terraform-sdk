@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for tls_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayIntegrationTlsConfigBlock : TerraformBlockBase
+public partial class AwsApiGatewayIntegrationTlsConfigBlock() : TerraformBlock("tls_config")
 {
     /// <summary>
     /// The insecure_skip_verification attribute.
@@ -163,6 +163,6 @@ public partial class AwsApiGatewayIntegration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
     [TerraformProperty("tls_config")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayIntegrationTlsConfigBlock>>? TlsConfig { get; set; }
+    public TerraformList<AwsApiGatewayIntegrationTlsConfigBlock> TlsConfig { get; set; } = new();
 
 }

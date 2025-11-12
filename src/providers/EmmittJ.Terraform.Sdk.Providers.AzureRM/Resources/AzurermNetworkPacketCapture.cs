@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkPacketCaptureFilterBlock : TerraformBlockBase
+public partial class AzurermNetworkPacketCaptureFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The local_ip_address attribute.
@@ -50,7 +50,7 @@ public partial class AzurermNetworkPacketCaptureFilterBlock : TerraformBlockBase
 /// Block type for storage_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlockBase
+public partial class AzurermNetworkPacketCaptureStorageLocationBlock() : TerraformBlock("storage_location")
 {
     /// <summary>
     /// The file_path attribute.
@@ -73,7 +73,7 @@ public partial class AzurermNetworkPacketCaptureStorageLocationBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkPacketCaptureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -174,7 +174,7 @@ public partial class AzurermNetworkPacketCapture : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkPacketCaptureFilterBlock>>? Filter { get; set; }
+    public TerraformList<AzurermNetworkPacketCaptureFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for storage_location.
@@ -184,13 +184,13 @@ public partial class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
     [TerraformProperty("storage_location")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkPacketCaptureStorageLocationBlock>>? StorageLocation { get; set; }
+    public required TerraformList<AzurermNetworkPacketCaptureStorageLocationBlock> StorageLocation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkPacketCaptureTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkPacketCaptureTimeoutsBlock Timeouts { get; set; } = new();
 
 }

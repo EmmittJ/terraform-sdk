@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination_ip_ranges in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock : TerraformBlockBase
+public partial class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock() : TerraformBlock("destination_ip_ranges")
 {
     /// <summary>
     /// The name of an &#39;ExternalAddress&#39; resource.
@@ -28,7 +28,7 @@ public partial class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBloc
 /// Block type for source_ip_ranges in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : TerraformBlockBase
+public partial class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock() : TerraformBlock("source_ip_ranges")
 {
     /// <summary>
     /// A single IP address.
@@ -50,7 +50,7 @@ public partial class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVmwareengineExternalAccessRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -164,7 +164,7 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationIpRanges block(s) required")]
     [TerraformProperty("destination_ip_ranges")]
-    public partial TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock>>? DestinationIpRanges { get; set; }
+    public required TerraformList<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock> DestinationIpRanges { get; set; } = new();
 
     /// <summary>
     /// Block for source_ip_ranges.
@@ -173,14 +173,14 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceIpRanges block(s) required")]
     [TerraformProperty("source_ip_ranges")]
-    public partial TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock>>? SourceIpRanges { get; set; }
+    public required TerraformList<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock> SourceIpRanges { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVmwareengineExternalAccessRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVmwareengineExternalAccessRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation time of this resource.

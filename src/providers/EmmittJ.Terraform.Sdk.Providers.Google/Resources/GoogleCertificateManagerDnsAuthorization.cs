@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCertificateManagerDnsAuthorizationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerDnsAuthorizationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,7 +117,7 @@ public partial class GoogleCertificateManagerDnsAuthorization : TerraformResourc
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCertificateManagerDnsAuthorizationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCertificateManagerDnsAuthorizationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The structure describing the DNS Resource Record that needs to be added

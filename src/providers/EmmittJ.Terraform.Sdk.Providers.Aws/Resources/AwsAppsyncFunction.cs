@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for runtime in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncFunctionRuntimeBlock : TerraformBlockBase
+public partial class AwsAppsyncFunctionRuntimeBlock() : TerraformBlock("runtime")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsAppsyncFunctionRuntimeBlock : TerraformBlockBase
 /// Block type for sync_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncFunctionSyncConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncFunctionSyncConfigBlock() : TerraformBlock("sync_config")
 {
     /// <summary>
     /// The conflict_detection attribute.
@@ -144,7 +144,7 @@ public partial class AwsAppsyncFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Runtime block(s) allowed")]
     [TerraformProperty("runtime")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncFunctionRuntimeBlock>>? Runtime { get; set; }
+    public TerraformList<AwsAppsyncFunctionRuntimeBlock> Runtime { get; set; } = new();
 
     /// <summary>
     /// Block for sync_config.
@@ -152,7 +152,7 @@ public partial class AwsAppsyncFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
     [TerraformProperty("sync_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncFunctionSyncConfigBlock>>? SyncConfig { get; set; }
+    public TerraformList<AwsAppsyncFunctionSyncConfigBlock> SyncConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

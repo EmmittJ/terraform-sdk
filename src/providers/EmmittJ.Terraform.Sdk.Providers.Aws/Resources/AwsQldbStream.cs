@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kinesis_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQldbStreamKinesisConfigurationBlock : TerraformBlockBase
+public partial class AwsQldbStreamKinesisConfigurationBlock() : TerraformBlock("kinesis_configuration")
 {
     /// <summary>
     /// The aggregation_enabled attribute.
@@ -29,7 +29,7 @@ public partial class AwsQldbStreamKinesisConfigurationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsQldbStreamTimeoutsBlock : TerraformBlockBase
+public partial class AwsQldbStreamTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,14 +132,14 @@ public partial class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KinesisConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisConfiguration block(s) allowed")]
     [TerraformProperty("kinesis_configuration")]
-    public partial TerraformList<TerraformBlock<AwsQldbStreamKinesisConfigurationBlock>>? KinesisConfiguration { get; set; }
+    public required TerraformList<AwsQldbStreamKinesisConfigurationBlock> KinesisConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsQldbStreamTimeoutsBlock>? Timeouts { get; set; }
+    public AwsQldbStreamTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

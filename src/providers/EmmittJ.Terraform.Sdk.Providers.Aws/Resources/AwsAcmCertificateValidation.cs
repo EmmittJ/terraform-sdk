@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAcmCertificateValidationTimeoutsBlock : TerraformBlockBase
+public partial class AwsAcmCertificateValidationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -60,6 +60,6 @@ public partial class AwsAcmCertificateValidation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAcmCertificateValidationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAcmCertificateValidationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

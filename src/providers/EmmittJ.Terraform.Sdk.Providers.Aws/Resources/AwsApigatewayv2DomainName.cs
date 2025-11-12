@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for domain_name_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBlockBase
+public partial class AwsApigatewayv2DomainNameDomainNameConfigurationBlock() : TerraformBlock("domain_name_configuration")
 {
     /// <summary>
     /// The certificate_arn attribute.
@@ -54,7 +54,7 @@ public partial class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : Ter
 /// Block type for mutual_tls_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock : TerraformBlockBase
+public partial class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock() : TerraformBlock("mutual_tls_authentication")
 {
     /// <summary>
     /// The truststore_uri attribute.
@@ -77,7 +77,7 @@ public partial class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsApigatewayv2DomainNameTimeoutsBlock : TerraformBlockBase
+public partial class AwsApigatewayv2DomainNameTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,7 +149,7 @@ public partial class AwsApigatewayv2DomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DomainNameConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainNameConfiguration block(s) allowed")]
     [TerraformProperty("domain_name_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApigatewayv2DomainNameDomainNameConfigurationBlock>>? DomainNameConfiguration { get; set; }
+    public required TerraformList<AwsApigatewayv2DomainNameDomainNameConfigurationBlock> DomainNameConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for mutual_tls_authentication.
@@ -157,14 +157,14 @@ public partial class AwsApigatewayv2DomainName : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MutualTlsAuthentication block(s) allowed")]
     [TerraformProperty("mutual_tls_authentication")]
-    public partial TerraformList<TerraformBlock<AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock>>? MutualTlsAuthentication { get; set; }
+    public TerraformList<AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock> MutualTlsAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsApigatewayv2DomainNameTimeoutsBlock>? Timeouts { get; set; }
+    public AwsApigatewayv2DomainNameTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The api_mapping_selection_expression attribute.

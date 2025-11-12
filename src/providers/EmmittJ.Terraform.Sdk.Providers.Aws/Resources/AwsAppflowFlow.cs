@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_flow_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppflowFlowDestinationFlowConfigBlock : TerraformBlockBase
+public partial class AwsAppflowFlowDestinationFlowConfigBlock() : TerraformBlock("destination_flow_config")
 {
     /// <summary>
     /// The api_version attribute.
@@ -36,7 +36,7 @@ public partial class AwsAppflowFlowDestinationFlowConfigBlock : TerraformBlockBa
 /// Block type for metadata_catalog_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppflowFlowMetadataCatalogConfigBlock : TerraformBlockBase
+public partial class AwsAppflowFlowMetadataCatalogConfigBlock() : TerraformBlock("metadata_catalog_config")
 {
 }
 
@@ -44,7 +44,7 @@ public partial class AwsAppflowFlowMetadataCatalogConfigBlock : TerraformBlockBa
 /// Block type for source_flow_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppflowFlowSourceFlowConfigBlock : TerraformBlockBase
+public partial class AwsAppflowFlowSourceFlowConfigBlock() : TerraformBlock("source_flow_config")
 {
     /// <summary>
     /// The api_version attribute.
@@ -74,7 +74,7 @@ public partial class AwsAppflowFlowSourceFlowConfigBlock : TerraformBlockBase
 /// Block type for task in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppflowFlowTaskBlock : TerraformBlockBase
+public partial class AwsAppflowFlowTaskBlock() : TerraformBlock("task")
 {
     /// <summary>
     /// The destination_field attribute.
@@ -111,7 +111,7 @@ public partial class AwsAppflowFlowTaskBlock : TerraformBlockBase
 /// Block type for trigger_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppflowFlowTriggerConfigBlock : TerraformBlockBase
+public partial class AwsAppflowFlowTriggerConfigBlock() : TerraformBlock("trigger_config")
 {
     /// <summary>
     /// The trigger_type attribute.
@@ -190,7 +190,7 @@ public partial class AwsAppflowFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFlowConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationFlowConfig block(s) required")]
     [TerraformProperty("destination_flow_config")]
-    public partial TerraformList<TerraformBlock<AwsAppflowFlowDestinationFlowConfigBlock>>? DestinationFlowConfig { get; set; }
+    public required TerraformList<AwsAppflowFlowDestinationFlowConfigBlock> DestinationFlowConfig { get; set; } = new();
 
     /// <summary>
     /// Block for metadata_catalog_config.
@@ -198,7 +198,7 @@ public partial class AwsAppflowFlow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataCatalogConfig block(s) allowed")]
     [TerraformProperty("metadata_catalog_config")]
-    public partial TerraformList<TerraformBlock<AwsAppflowFlowMetadataCatalogConfigBlock>>? MetadataCatalogConfig { get; set; }
+    public TerraformList<AwsAppflowFlowMetadataCatalogConfigBlock> MetadataCatalogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for source_flow_config.
@@ -208,7 +208,7 @@ public partial class AwsAppflowFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceFlowConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceFlowConfig block(s) allowed")]
     [TerraformProperty("source_flow_config")]
-    public partial TerraformList<TerraformBlock<AwsAppflowFlowSourceFlowConfigBlock>>? SourceFlowConfig { get; set; }
+    public required TerraformList<AwsAppflowFlowSourceFlowConfigBlock> SourceFlowConfig { get; set; } = new();
 
     /// <summary>
     /// Block for task.
@@ -217,7 +217,7 @@ public partial class AwsAppflowFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Task is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Task block(s) required")]
     [TerraformProperty("task")]
-    public partial TerraformSet<TerraformBlock<AwsAppflowFlowTaskBlock>>? Task { get; set; }
+    public required TerraformSet<AwsAppflowFlowTaskBlock> Task { get; set; } = new();
 
     /// <summary>
     /// Block for trigger_config.
@@ -227,7 +227,7 @@ public partial class AwsAppflowFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TriggerConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TriggerConfig block(s) allowed")]
     [TerraformProperty("trigger_config")]
-    public partial TerraformList<TerraformBlock<AwsAppflowFlowTriggerConfigBlock>>? TriggerConfig { get; set; }
+    public required TerraformList<AwsAppflowFlowTriggerConfigBlock> TriggerConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

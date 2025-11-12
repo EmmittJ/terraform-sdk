@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for log_delivery_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlockBase
+public partial class AwsElasticacheClusterLogDeliveryConfigurationBlock() : TerraformBlock("log_delivery_configuration")
 {
     /// <summary>
     /// The destination attribute.
@@ -46,7 +46,7 @@ public partial class AwsElasticacheClusterLogDeliveryConfigurationBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsElasticacheClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsElasticacheClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -305,14 +305,14 @@ public partial class AwsElasticacheCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 LogDeliveryConfiguration block(s) allowed")]
     [TerraformProperty("log_delivery_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsElasticacheClusterLogDeliveryConfigurationBlock>>? LogDeliveryConfiguration { get; set; }
+    public TerraformSet<AwsElasticacheClusterLogDeliveryConfigurationBlock> LogDeliveryConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsElasticacheClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsElasticacheClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

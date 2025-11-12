@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for private_link_access in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock : TerraformBlockBase
+public partial class AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock() : TerraformBlock("private_link_access")
 {
     /// <summary>
     /// The endpoint_resource_id attribute.
@@ -29,7 +29,7 @@ public partial class AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageAccountNetworkRulesTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountNetworkRulesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,13 +119,13 @@ public partial class AzurermStorageAccountNetworkRules : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("private_link_access")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock>>? PrivateLinkAccess { get; set; }
+    public TerraformList<AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock> PrivateLinkAccess { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageAccountNetworkRulesTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageAccountNetworkRulesTimeoutsBlock Timeouts { get; set; } = new();
 
 }

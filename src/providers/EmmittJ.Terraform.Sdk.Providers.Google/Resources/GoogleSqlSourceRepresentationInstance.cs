@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSqlSourceRepresentationInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSqlSourceRepresentationInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -134,6 +134,6 @@ public partial class GoogleSqlSourceRepresentationInstance : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSqlSourceRepresentationInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSqlSourceRepresentationInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

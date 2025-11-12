@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrRepositoryEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsEcrRepositoryEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The encryption_type attribute.
@@ -28,7 +28,7 @@ public partial class AwsEcrRepositoryEncryptionConfigurationBlock : TerraformBlo
 /// Block type for image_scanning_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrRepositoryImageScanningConfigurationBlock : TerraformBlockBase
+public partial class AwsEcrRepositoryImageScanningConfigurationBlock() : TerraformBlock("image_scanning_configuration")
 {
     /// <summary>
     /// The scan_on_push attribute.
@@ -44,7 +44,7 @@ public partial class AwsEcrRepositoryImageScanningConfigurationBlock : Terraform
 /// Block type for image_tag_mutability_exclusion_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformBlockBase
+public partial class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock() : TerraformBlock("image_tag_mutability_exclusion_filter")
 {
     /// <summary>
     /// The filter attribute.
@@ -68,7 +68,7 @@ public partial class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEcrRepositoryTimeoutsBlock : TerraformBlockBase
+public partial class AwsEcrRepositoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -144,7 +144,7 @@ public partial class AwsEcrRepository : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcrRepositoryEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsEcrRepositoryEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for image_scanning_configuration.
@@ -152,7 +152,7 @@ public partial class AwsEcrRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
     [TerraformProperty("image_scanning_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcrRepositoryImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; }
+    public TerraformList<AwsEcrRepositoryImageScanningConfigurationBlock> ImageScanningConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for image_tag_mutability_exclusion_filter.
@@ -160,14 +160,14 @@ public partial class AwsEcrRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ImageTagMutabilityExclusionFilter block(s) allowed")]
     [TerraformProperty("image_tag_mutability_exclusion_filter")]
-    public partial TerraformList<TerraformBlock<AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock>>? ImageTagMutabilityExclusionFilter { get; set; }
+    public TerraformList<AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock> ImageTagMutabilityExclusionFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEcrRepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEcrRepositoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

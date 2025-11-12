@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for request in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBlockBase
+public partial class AzurermApplicationInsightsStandardWebTestRequestBlock() : TerraformBlock("request")
 {
     /// <summary>
     /// The body attribute.
@@ -50,7 +50,7 @@ public partial class AzurermApplicationInsightsStandardWebTestRequestBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApplicationInsightsStandardWebTestTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -86,7 +86,7 @@ public partial class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : Te
 /// Block type for validation_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : TerraformBlockBase
+public partial class AzurermApplicationInsightsStandardWebTestValidationRulesBlock() : TerraformBlock("validation_rules")
 {
     /// <summary>
     /// The expected_status_code attribute.
@@ -218,14 +218,14 @@ public partial class AzurermApplicationInsightsStandardWebTest : TerraformResour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Request block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
     [TerraformProperty("request")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationInsightsStandardWebTestRequestBlock>>? Request { get; set; }
+    public required TerraformList<AzurermApplicationInsightsStandardWebTestRequestBlock> Request { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApplicationInsightsStandardWebTestTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApplicationInsightsStandardWebTestTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for validation_rules.
@@ -233,7 +233,7 @@ public partial class AzurermApplicationInsightsStandardWebTest : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValidationRules block(s) allowed")]
     [TerraformProperty("validation_rules")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationInsightsStandardWebTestValidationRulesBlock>>? ValidationRules { get; set; }
+    public TerraformList<AzurermApplicationInsightsStandardWebTestValidationRulesBlock> ValidationRules { get; set; } = new();
 
     /// <summary>
     /// The synthetic_monitor_id attribute.

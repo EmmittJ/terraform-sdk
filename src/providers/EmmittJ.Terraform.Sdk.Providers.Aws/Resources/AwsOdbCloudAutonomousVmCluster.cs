@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlockBase
+public partial class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// The days of the week when maintenance can be performed.
@@ -57,7 +57,7 @@ public partial class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsOdbCloudAutonomousVmClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -218,14 +218,14 @@ public partial class AwsOdbCloudAutonomousVmCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOdbCloudAutonomousVmClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOdbCloudAutonomousVmClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

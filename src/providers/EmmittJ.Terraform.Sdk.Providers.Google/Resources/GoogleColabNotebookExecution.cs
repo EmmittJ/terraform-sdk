@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for dataform_repository_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabNotebookExecutionDataformRepositorySourceBlock : TerraformBlockBase
+public partial class GoogleColabNotebookExecutionDataformRepositorySourceBlock() : TerraformBlock("dataform_repository_source")
 {
     /// <summary>
     /// The commit SHA to read repository with. If unset, the file will be read at HEAD.
@@ -29,7 +29,7 @@ public partial class GoogleColabNotebookExecutionDataformRepositorySourceBlock :
 /// Block type for direct_notebook_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabNotebookExecutionDirectNotebookSourceBlock : TerraformBlockBase
+public partial class GoogleColabNotebookExecutionDirectNotebookSourceBlock() : TerraformBlock("direct_notebook_source")
 {
     /// <summary>
     /// The base64-encoded contents of the input notebook file.
@@ -45,7 +45,7 @@ public partial class GoogleColabNotebookExecutionDirectNotebookSourceBlock : Ter
 /// Block type for gcs_notebook_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleColabNotebookExecutionGcsNotebookSourceBlock : TerraformBlockBase
+public partial class GoogleColabNotebookExecutionGcsNotebookSourceBlock() : TerraformBlock("gcs_notebook_source")
 {
     /// <summary>
     /// The version of the Cloud Storage object to read. If unset, the current version of the object is read. See https://cloud.google.com/storage/docs/metadata#generation-number.
@@ -68,7 +68,7 @@ public partial class GoogleColabNotebookExecutionGcsNotebookSourceBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleColabNotebookExecutionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleColabNotebookExecutionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,7 +175,7 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataformRepositorySource block(s) allowed")]
     [TerraformProperty("dataform_repository_source")]
-    public partial TerraformList<TerraformBlock<GoogleColabNotebookExecutionDataformRepositorySourceBlock>>? DataformRepositorySource { get; set; }
+    public TerraformList<GoogleColabNotebookExecutionDataformRepositorySourceBlock> DataformRepositorySource { get; set; } = new();
 
     /// <summary>
     /// Block for direct_notebook_source.
@@ -183,7 +183,7 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectNotebookSource block(s) allowed")]
     [TerraformProperty("direct_notebook_source")]
-    public partial TerraformList<TerraformBlock<GoogleColabNotebookExecutionDirectNotebookSourceBlock>>? DirectNotebookSource { get; set; }
+    public TerraformList<GoogleColabNotebookExecutionDirectNotebookSourceBlock> DirectNotebookSource { get; set; } = new();
 
     /// <summary>
     /// Block for gcs_notebook_source.
@@ -191,13 +191,13 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsNotebookSource block(s) allowed")]
     [TerraformProperty("gcs_notebook_source")]
-    public partial TerraformList<TerraformBlock<GoogleColabNotebookExecutionGcsNotebookSourceBlock>>? GcsNotebookSource { get; set; }
+    public TerraformList<GoogleColabNotebookExecutionGcsNotebookSourceBlock> GcsNotebookSource { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleColabNotebookExecutionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleColabNotebookExecutionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for storage_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConnectInstanceStorageConfigStorageConfigBlock : TerraformBlockBase
+public partial class AwsConnectInstanceStorageConfigStorageConfigBlock() : TerraformBlock("storage_config")
 {
     /// <summary>
     /// The storage_type attribute.
@@ -66,7 +66,7 @@ public partial class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
     [TerraformProperty("storage_config")]
-    public partial TerraformList<TerraformBlock<AwsConnectInstanceStorageConfigStorageConfigBlock>>? StorageConfig { get; set; }
+    public required TerraformList<AwsConnectInstanceStorageConfigStorageConfigBlock> StorageConfig { get; set; } = new();
 
     /// <summary>
     /// The association_id attribute.

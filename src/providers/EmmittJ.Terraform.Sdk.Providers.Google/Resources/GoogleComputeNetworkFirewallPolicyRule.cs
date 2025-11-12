@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for match in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkFirewallPolicyRuleMatchBlock() : TerraformBlock("match")
 {
     /// <summary>
     /// Address groups which should be matched against the traffic destination. Maximum number of destination address groups is 10.
@@ -84,7 +84,7 @@ public partial class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : Terrafor
 /// Block type for target_secure_tags in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock() : TerraformBlock("target_secure_tags")
 {
     /// <summary>
     /// Name of the secure tag, created with TagManager&#39;s TagValue API.
@@ -100,7 +100,7 @@ public partial class GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -248,21 +248,21 @@ public partial class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Match block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     [TerraformProperty("match")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNetworkFirewallPolicyRuleMatchBlock>>? Match { get; set; }
+    public required TerraformList<GoogleComputeNetworkFirewallPolicyRuleMatchBlock> Match { get; set; } = new();
 
     /// <summary>
     /// Block for target_secure_tags.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("target_secure_tags")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock>>? TargetSecureTags { get; set; }
+    public TerraformList<GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock> TargetSecureTags { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

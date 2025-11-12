@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for account_recovery_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolAccountRecoverySettingBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolAccountRecoverySettingBlock() : TerraformBlock("account_recovery_setting")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsCognitoUserPoolAccountRecoverySettingBlock : TerraformBl
 /// Block type for admin_create_user_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolAdminCreateUserConfigBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolAdminCreateUserConfigBlock() : TerraformBlock("admin_create_user_config")
 {
     /// <summary>
     /// The allow_admin_create_user_only attribute.
@@ -29,7 +29,7 @@ public partial class AwsCognitoUserPoolAdminCreateUserConfigBlock : TerraformBlo
 /// Block type for device_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolDeviceConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolDeviceConfigurationBlock() : TerraformBlock("device_configuration")
 {
     /// <summary>
     /// The challenge_required_on_new_device attribute.
@@ -51,7 +51,7 @@ public partial class AwsCognitoUserPoolDeviceConfigurationBlock : TerraformBlock
 /// Block type for email_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolEmailConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolEmailConfigurationBlock() : TerraformBlock("email_configuration")
 {
     /// <summary>
     /// The configuration_set attribute.
@@ -94,7 +94,7 @@ public partial class AwsCognitoUserPoolEmailConfigurationBlock : TerraformBlockB
 /// Block type for email_mfa_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolEmailMfaConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolEmailMfaConfigurationBlock() : TerraformBlock("email_mfa_configuration")
 {
     /// <summary>
     /// The message attribute.
@@ -116,7 +116,7 @@ public partial class AwsCognitoUserPoolEmailMfaConfigurationBlock : TerraformBlo
 /// Block type for lambda_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolLambdaConfigBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolLambdaConfigBlock() : TerraformBlock("lambda_config")
 {
     /// <summary>
     /// The create_auth_challenge attribute.
@@ -201,7 +201,7 @@ public partial class AwsCognitoUserPoolLambdaConfigBlock : TerraformBlockBase
 /// Block type for password_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolPasswordPolicyBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolPasswordPolicyBlock() : TerraformBlock("password_policy")
 {
     /// <summary>
     /// The minimum_length attribute.
@@ -258,7 +258,7 @@ public partial class AwsCognitoUserPoolPasswordPolicyBlock : TerraformBlockBase
 /// Block type for schema in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCognitoUserPoolSchemaBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolSchemaBlock() : TerraformBlock("schema")
 {
     /// <summary>
     /// The attribute_data_type attribute.
@@ -303,7 +303,7 @@ public partial class AwsCognitoUserPoolSchemaBlock : TerraformBlockBase
 /// Block type for sign_in_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolSignInPolicyBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolSignInPolicyBlock() : TerraformBlock("sign_in_policy")
 {
     /// <summary>
     /// The allowed_first_auth_factors attribute.
@@ -318,7 +318,7 @@ public partial class AwsCognitoUserPoolSignInPolicyBlock : TerraformBlockBase
 /// Block type for sms_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolSmsConfigurationBlock() : TerraformBlock("sms_configuration")
 {
     /// <summary>
     /// The external_id attribute.
@@ -349,7 +349,7 @@ public partial class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlockBas
 /// Block type for software_token_mfa_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock() : TerraformBlock("software_token_mfa_configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -365,7 +365,7 @@ public partial class AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock : Terr
 /// Block type for user_attribute_update_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolUserAttributeUpdateSettingsBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolUserAttributeUpdateSettingsBlock() : TerraformBlock("user_attribute_update_settings")
 {
     /// <summary>
     /// The attributes_require_verification_before_update attribute.
@@ -381,7 +381,7 @@ public partial class AwsCognitoUserPoolUserAttributeUpdateSettingsBlock : Terraf
 /// Block type for user_pool_add_ons in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolUserPoolAddOnsBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolUserPoolAddOnsBlock() : TerraformBlock("user_pool_add_ons")
 {
     /// <summary>
     /// The advanced_security_mode attribute.
@@ -397,7 +397,7 @@ public partial class AwsCognitoUserPoolUserPoolAddOnsBlock : TerraformBlockBase
 /// Block type for username_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolUsernameConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolUsernameConfigurationBlock() : TerraformBlock("username_configuration")
 {
     /// <summary>
     /// The case_sensitive attribute.
@@ -412,7 +412,7 @@ public partial class AwsCognitoUserPoolUsernameConfigurationBlock : TerraformBlo
 /// Block type for verification_message_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolVerificationMessageTemplateBlock() : TerraformBlock("verification_message_template")
 {
     /// <summary>
     /// The default_email_option attribute.
@@ -462,7 +462,7 @@ public partial class AwsCognitoUserPoolVerificationMessageTemplateBlock : Terraf
 /// Block type for web_authn_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCognitoUserPoolWebAuthnConfigurationBlock : TerraformBlockBase
+public partial class AwsCognitoUserPoolWebAuthnConfigurationBlock() : TerraformBlock("web_authn_configuration")
 {
     /// <summary>
     /// The relying_party_id attribute.
@@ -602,7 +602,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountRecoverySetting block(s) allowed")]
     [TerraformProperty("account_recovery_setting")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolAccountRecoverySettingBlock>>? AccountRecoverySetting { get; set; }
+    public TerraformList<AwsCognitoUserPoolAccountRecoverySettingBlock> AccountRecoverySetting { get; set; } = new();
 
     /// <summary>
     /// Block for admin_create_user_config.
@@ -610,7 +610,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminCreateUserConfig block(s) allowed")]
     [TerraformProperty("admin_create_user_config")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolAdminCreateUserConfigBlock>>? AdminCreateUserConfig { get; set; }
+    public TerraformList<AwsCognitoUserPoolAdminCreateUserConfigBlock> AdminCreateUserConfig { get; set; } = new();
 
     /// <summary>
     /// Block for device_configuration.
@@ -618,7 +618,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeviceConfiguration block(s) allowed")]
     [TerraformProperty("device_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolDeviceConfigurationBlock>>? DeviceConfiguration { get; set; }
+    public TerraformList<AwsCognitoUserPoolDeviceConfigurationBlock> DeviceConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for email_configuration.
@@ -626,7 +626,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EmailConfiguration block(s) allowed")]
     [TerraformProperty("email_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolEmailConfigurationBlock>>? EmailConfiguration { get; set; }
+    public TerraformList<AwsCognitoUserPoolEmailConfigurationBlock> EmailConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for email_mfa_configuration.
@@ -634,7 +634,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EmailMfaConfiguration block(s) allowed")]
     [TerraformProperty("email_mfa_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolEmailMfaConfigurationBlock>>? EmailMfaConfiguration { get; set; }
+    public TerraformList<AwsCognitoUserPoolEmailMfaConfigurationBlock> EmailMfaConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for lambda_config.
@@ -642,7 +642,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LambdaConfig block(s) allowed")]
     [TerraformProperty("lambda_config")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolLambdaConfigBlock>>? LambdaConfig { get; set; }
+    public TerraformList<AwsCognitoUserPoolLambdaConfigBlock> LambdaConfig { get; set; } = new();
 
     /// <summary>
     /// Block for password_policy.
@@ -650,7 +650,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PasswordPolicy block(s) allowed")]
     [TerraformProperty("password_policy")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolPasswordPolicyBlock>>? PasswordPolicy { get; set; }
+    public TerraformList<AwsCognitoUserPoolPasswordPolicyBlock> PasswordPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for schema.
@@ -658,7 +658,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Schema block(s) allowed")]
     [TerraformProperty("schema")]
-    public partial TerraformSet<TerraformBlock<AwsCognitoUserPoolSchemaBlock>>? Schema { get; set; }
+    public TerraformSet<AwsCognitoUserPoolSchemaBlock> Schema { get; set; } = new();
 
     /// <summary>
     /// Block for sign_in_policy.
@@ -666,7 +666,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignInPolicy block(s) allowed")]
     [TerraformProperty("sign_in_policy")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolSignInPolicyBlock>>? SignInPolicy { get; set; }
+    public TerraformList<AwsCognitoUserPoolSignInPolicyBlock> SignInPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for sms_configuration.
@@ -674,7 +674,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmsConfiguration block(s) allowed")]
     [TerraformProperty("sms_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolSmsConfigurationBlock>>? SmsConfiguration { get; set; }
+    public TerraformList<AwsCognitoUserPoolSmsConfigurationBlock> SmsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for software_token_mfa_configuration.
@@ -682,7 +682,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareTokenMfaConfiguration block(s) allowed")]
     [TerraformProperty("software_token_mfa_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock>>? SoftwareTokenMfaConfiguration { get; set; }
+    public TerraformList<AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock> SoftwareTokenMfaConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for user_attribute_update_settings.
@@ -690,7 +690,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserAttributeUpdateSettings block(s) allowed")]
     [TerraformProperty("user_attribute_update_settings")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolUserAttributeUpdateSettingsBlock>>? UserAttributeUpdateSettings { get; set; }
+    public TerraformList<AwsCognitoUserPoolUserAttributeUpdateSettingsBlock> UserAttributeUpdateSettings { get; set; } = new();
 
     /// <summary>
     /// Block for user_pool_add_ons.
@@ -698,7 +698,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserPoolAddOns block(s) allowed")]
     [TerraformProperty("user_pool_add_ons")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolUserPoolAddOnsBlock>>? UserPoolAddOns { get; set; }
+    public TerraformList<AwsCognitoUserPoolUserPoolAddOnsBlock> UserPoolAddOns { get; set; } = new();
 
     /// <summary>
     /// Block for username_configuration.
@@ -706,7 +706,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UsernameConfiguration block(s) allowed")]
     [TerraformProperty("username_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolUsernameConfigurationBlock>>? UsernameConfiguration { get; set; }
+    public TerraformList<AwsCognitoUserPoolUsernameConfigurationBlock> UsernameConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for verification_message_template.
@@ -714,7 +714,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VerificationMessageTemplate block(s) allowed")]
     [TerraformProperty("verification_message_template")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolVerificationMessageTemplateBlock>>? VerificationMessageTemplate { get; set; }
+    public TerraformList<AwsCognitoUserPoolVerificationMessageTemplateBlock> VerificationMessageTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for web_authn_configuration.
@@ -722,7 +722,7 @@ public partial class AwsCognitoUserPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebAuthnConfiguration block(s) allowed")]
     [TerraformProperty("web_authn_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCognitoUserPoolWebAuthnConfigurationBlock>>? WebAuthnConfiguration { get; set; }
+    public TerraformList<AwsCognitoUserPoolWebAuthnConfigurationBlock> WebAuthnConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

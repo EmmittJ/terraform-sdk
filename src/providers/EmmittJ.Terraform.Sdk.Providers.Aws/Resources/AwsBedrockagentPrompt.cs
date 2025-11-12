@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for variant in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentPromptVariantBlock : TerraformBlockBase
+public partial class AwsBedrockagentPromptVariantBlock() : TerraformBlock("variant")
 {
     /// <summary>
     /// The additional_model_request_fields attribute.
@@ -97,7 +97,7 @@ public partial class AwsBedrockagentPrompt : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("variant")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentPromptVariantBlock>>? Variant { get; set; }
+    public TerraformList<AwsBedrockagentPromptVariantBlock> Variant { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

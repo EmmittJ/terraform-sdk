@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for scale_unit in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlockBase
+public partial class AzurermStackHciDeploymentSettingScaleUnitBlock() : TerraformBlock("scale_unit")
 {
     /// <summary>
     /// The active_directory_organizational_unit_path attribute.
@@ -137,7 +137,7 @@ public partial class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStackHciDeploymentSettingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStackHciDeploymentSettingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -210,13 +210,13 @@ public partial class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUnit is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScaleUnit block(s) required")]
     [TerraformProperty("scale_unit")]
-    public partial TerraformList<TerraformBlock<AzurermStackHciDeploymentSettingScaleUnitBlock>>? ScaleUnit { get; set; }
+    public required TerraformList<AzurermStackHciDeploymentSettingScaleUnitBlock> ScaleUnit { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStackHciDeploymentSettingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStackHciDeploymentSettingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

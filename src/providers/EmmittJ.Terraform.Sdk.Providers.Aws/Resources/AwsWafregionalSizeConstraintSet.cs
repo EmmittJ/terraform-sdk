@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for size_constraints in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafregionalSizeConstraintSetSizeConstraintsBlock : TerraformBlockBase
+public partial class AwsWafregionalSizeConstraintSetSizeConstraintsBlock() : TerraformBlock("size_constraints")
 {
     /// <summary>
     /// The comparison_operator attribute.
@@ -70,7 +70,7 @@ public partial class AwsWafregionalSizeConstraintSet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("size_constraints")]
-    public partial TerraformSet<TerraformBlock<AwsWafregionalSizeConstraintSetSizeConstraintsBlock>>? SizeConstraints { get; set; }
+    public TerraformSet<AwsWafregionalSizeConstraintSetSizeConstraintsBlock> SizeConstraints { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

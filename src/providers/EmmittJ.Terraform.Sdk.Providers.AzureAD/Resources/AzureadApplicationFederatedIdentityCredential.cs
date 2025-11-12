@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : TerraformBlockBase
+public partial class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -106,7 +106,7 @@ public partial class AzureadApplicationFederatedIdentityCredential : TerraformRe
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadApplicationFederatedIdentityCredentialTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadApplicationFederatedIdentityCredentialTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A UUID used to uniquely identify this federated identity credential

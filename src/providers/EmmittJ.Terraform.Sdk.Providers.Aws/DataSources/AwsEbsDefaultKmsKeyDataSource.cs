@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEbsDefaultKmsKeyDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEbsDefaultKmsKeyDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -45,7 +45,7 @@ public partial class AwsEbsDefaultKmsKeyDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEbsDefaultKmsKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEbsDefaultKmsKeyDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The key_arn attribute.

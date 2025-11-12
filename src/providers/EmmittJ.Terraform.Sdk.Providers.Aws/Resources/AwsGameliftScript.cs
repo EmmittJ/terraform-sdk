@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for storage_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGameliftScriptStorageLocationBlock : TerraformBlockBase
+public partial class AwsGameliftScriptStorageLocationBlock() : TerraformBlock("storage_location")
 {
     /// <summary>
     /// The bucket attribute.
@@ -107,7 +107,7 @@ public partial class AwsGameliftScript : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
     [TerraformProperty("storage_location")]
-    public partial TerraformList<TerraformBlock<AwsGameliftScriptStorageLocationBlock>>? StorageLocation { get; set; }
+    public TerraformList<AwsGameliftScriptStorageLocationBlock> StorageLocation { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

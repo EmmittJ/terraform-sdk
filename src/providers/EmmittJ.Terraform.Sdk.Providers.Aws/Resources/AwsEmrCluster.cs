@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_termination_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrClusterAutoTerminationPolicyBlock : TerraformBlockBase
+public partial class AwsEmrClusterAutoTerminationPolicyBlock() : TerraformBlock("auto_termination_policy")
 {
     /// <summary>
     /// The idle_timeout attribute.
@@ -21,7 +21,7 @@ public partial class AwsEmrClusterAutoTerminationPolicyBlock : TerraformBlockBas
 /// Block type for bootstrap_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrClusterBootstrapActionBlock : TerraformBlockBase
+public partial class AwsEmrClusterBootstrapActionBlock() : TerraformBlock("bootstrap_action")
 {
     /// <summary>
     /// The args attribute.
@@ -52,7 +52,7 @@ public partial class AwsEmrClusterBootstrapActionBlock : TerraformBlockBase
 /// Block type for core_instance_fleet in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlockBase
+public partial class AwsEmrClusterCoreInstanceFleetBlock() : TerraformBlock("core_instance_fleet")
 {
 
     /// <summary>
@@ -84,7 +84,7 @@ public partial class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlockBase
 /// Block type for core_instance_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlockBase
+public partial class AwsEmrClusterCoreInstanceGroupBlock() : TerraformBlock("core_instance_group")
 {
     /// <summary>
     /// The autoscaling_policy attribute.
@@ -129,7 +129,7 @@ public partial class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlockBase
 /// Block type for ec2_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrClusterEc2AttributesBlock : TerraformBlockBase
+public partial class AwsEmrClusterEc2AttributesBlock() : TerraformBlock("ec2_attributes")
 {
     /// <summary>
     /// The additional_master_security_groups attribute.
@@ -201,7 +201,7 @@ public partial class AwsEmrClusterEc2AttributesBlock : TerraformBlockBase
 /// Block type for kerberos_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrClusterKerberosAttributesBlock : TerraformBlockBase
+public partial class AwsEmrClusterKerberosAttributesBlock() : TerraformBlock("kerberos_attributes")
 {
     /// <summary>
     /// The ad_domain_join_password attribute.
@@ -246,7 +246,7 @@ public partial class AwsEmrClusterKerberosAttributesBlock : TerraformBlockBase
 /// Block type for master_instance_fleet in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlockBase
+public partial class AwsEmrClusterMasterInstanceFleetBlock() : TerraformBlock("master_instance_fleet")
 {
 
     /// <summary>
@@ -278,7 +278,7 @@ public partial class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlockBase
 /// Block type for master_instance_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlockBase
+public partial class AwsEmrClusterMasterInstanceGroupBlock() : TerraformBlock("master_instance_group")
 {
     /// <summary>
     /// The bid_price attribute.
@@ -520,14 +520,14 @@ public partial class AwsEmrCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoTerminationPolicy block(s) allowed")]
     [TerraformProperty("auto_termination_policy")]
-    public partial TerraformList<TerraformBlock<AwsEmrClusterAutoTerminationPolicyBlock>>? AutoTerminationPolicy { get; set; }
+    public TerraformList<AwsEmrClusterAutoTerminationPolicyBlock> AutoTerminationPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for bootstrap_action.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("bootstrap_action")]
-    public partial TerraformList<TerraformBlock<AwsEmrClusterBootstrapActionBlock>>? BootstrapAction { get; set; }
+    public TerraformList<AwsEmrClusterBootstrapActionBlock> BootstrapAction { get; set; } = new();
 
     /// <summary>
     /// Block for core_instance_fleet.
@@ -535,7 +535,7 @@ public partial class AwsEmrCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoreInstanceFleet block(s) allowed")]
     [TerraformProperty("core_instance_fleet")]
-    public partial TerraformList<TerraformBlock<AwsEmrClusterCoreInstanceFleetBlock>>? CoreInstanceFleet { get; set; }
+    public TerraformList<AwsEmrClusterCoreInstanceFleetBlock> CoreInstanceFleet { get; set; } = new();
 
     /// <summary>
     /// Block for core_instance_group.
@@ -543,7 +543,7 @@ public partial class AwsEmrCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoreInstanceGroup block(s) allowed")]
     [TerraformProperty("core_instance_group")]
-    public partial TerraformList<TerraformBlock<AwsEmrClusterCoreInstanceGroupBlock>>? CoreInstanceGroup { get; set; }
+    public TerraformList<AwsEmrClusterCoreInstanceGroupBlock> CoreInstanceGroup { get; set; } = new();
 
     /// <summary>
     /// Block for ec2_attributes.
@@ -551,7 +551,7 @@ public partial class AwsEmrCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ec2Attributes block(s) allowed")]
     [TerraformProperty("ec2_attributes")]
-    public partial TerraformList<TerraformBlock<AwsEmrClusterEc2AttributesBlock>>? Ec2Attributes { get; set; }
+    public TerraformList<AwsEmrClusterEc2AttributesBlock> Ec2Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for kerberos_attributes.
@@ -559,7 +559,7 @@ public partial class AwsEmrCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KerberosAttributes block(s) allowed")]
     [TerraformProperty("kerberos_attributes")]
-    public partial TerraformList<TerraformBlock<AwsEmrClusterKerberosAttributesBlock>>? KerberosAttributes { get; set; }
+    public TerraformList<AwsEmrClusterKerberosAttributesBlock> KerberosAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for master_instance_fleet.
@@ -567,7 +567,7 @@ public partial class AwsEmrCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MasterInstanceFleet block(s) allowed")]
     [TerraformProperty("master_instance_fleet")]
-    public partial TerraformList<TerraformBlock<AwsEmrClusterMasterInstanceFleetBlock>>? MasterInstanceFleet { get; set; }
+    public TerraformList<AwsEmrClusterMasterInstanceFleetBlock> MasterInstanceFleet { get; set; } = new();
 
     /// <summary>
     /// Block for master_instance_group.
@@ -575,7 +575,7 @@ public partial class AwsEmrCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MasterInstanceGroup block(s) allowed")]
     [TerraformProperty("master_instance_group")]
-    public partial TerraformList<TerraformBlock<AwsEmrClusterMasterInstanceGroupBlock>>? MasterInstanceGroup { get; set; }
+    public TerraformList<AwsEmrClusterMasterInstanceGroupBlock> MasterInstanceGroup { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

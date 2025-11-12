@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for member_definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerWorkteamMemberDefinitionBlock : TerraformBlockBase
+public partial class AwsSagemakerWorkteamMemberDefinitionBlock() : TerraformBlock("member_definition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsSagemakerWorkteamMemberDefinitionBlock : TerraformBlockB
 /// Block type for notification_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerWorkteamNotificationConfigurationBlock : TerraformBlockBase
+public partial class AwsSagemakerWorkteamNotificationConfigurationBlock() : TerraformBlock("notification_configuration")
 {
     /// <summary>
     /// The notification_topic_arn attribute.
@@ -29,7 +29,7 @@ public partial class AwsSagemakerWorkteamNotificationConfigurationBlock : Terraf
 /// Block type for worker_access_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerWorkteamWorkerAccessConfigurationBlock : TerraformBlockBase
+public partial class AwsSagemakerWorkteamWorkerAccessConfigurationBlock() : TerraformBlock("worker_access_configuration")
 {
 }
 
@@ -102,7 +102,7 @@ public partial class AwsSagemakerWorkteam : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MemberDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 MemberDefinition block(s) allowed")]
     [TerraformProperty("member_definition")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerWorkteamMemberDefinitionBlock>>? MemberDefinition { get; set; }
+    public required TerraformList<AwsSagemakerWorkteamMemberDefinitionBlock> MemberDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for notification_configuration.
@@ -110,7 +110,7 @@ public partial class AwsSagemakerWorkteam : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfiguration block(s) allowed")]
     [TerraformProperty("notification_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerWorkteamNotificationConfigurationBlock>>? NotificationConfiguration { get; set; }
+    public TerraformList<AwsSagemakerWorkteamNotificationConfigurationBlock> NotificationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for worker_access_configuration.
@@ -118,7 +118,7 @@ public partial class AwsSagemakerWorkteam : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerAccessConfiguration block(s) allowed")]
     [TerraformProperty("worker_access_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerWorkteamWorkerAccessConfigurationBlock>>? WorkerAccessConfiguration { get; set; }
+    public TerraformList<AwsSagemakerWorkteamWorkerAccessConfigurationBlock> WorkerAccessConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

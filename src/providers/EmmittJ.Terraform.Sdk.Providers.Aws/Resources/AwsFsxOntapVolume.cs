@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for aggregate_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxOntapVolumeAggregateConfigurationBlock() : TerraformBlock("aggregate_configuration")
 {
     /// <summary>
     /// The aggregates attribute.
@@ -29,7 +29,7 @@ public partial class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlo
 /// Block type for snaplock_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxOntapVolumeSnaplockConfigurationBlock() : TerraformBlock("snaplock_configuration")
 {
     /// <summary>
     /// The audit_log_volume attribute.
@@ -66,7 +66,7 @@ public partial class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBloc
 /// Block type for tiering_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlockBase
+public partial class AwsFsxOntapVolumeTieringPolicyBlock() : TerraformBlock("tiering_policy")
 {
     /// <summary>
     /// The cooling_period attribute.
@@ -88,7 +88,7 @@ public partial class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxOntapVolumeTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxOntapVolumeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -264,7 +264,7 @@ public partial class AwsFsxOntapVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AggregateConfiguration block(s) allowed")]
     [TerraformProperty("aggregate_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxOntapVolumeAggregateConfigurationBlock>>? AggregateConfiguration { get; set; }
+    public TerraformList<AwsFsxOntapVolumeAggregateConfigurationBlock> AggregateConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for snaplock_configuration.
@@ -272,7 +272,7 @@ public partial class AwsFsxOntapVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnaplockConfiguration block(s) allowed")]
     [TerraformProperty("snaplock_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxOntapVolumeSnaplockConfigurationBlock>>? SnaplockConfiguration { get; set; }
+    public TerraformList<AwsFsxOntapVolumeSnaplockConfigurationBlock> SnaplockConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for tiering_policy.
@@ -280,14 +280,14 @@ public partial class AwsFsxOntapVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
     [TerraformProperty("tiering_policy")]
-    public partial TerraformList<TerraformBlock<AwsFsxOntapVolumeTieringPolicyBlock>>? TieringPolicy { get; set; }
+    public TerraformList<AwsFsxOntapVolumeTieringPolicyBlock> TieringPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxOntapVolumeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxOntapVolumeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDocumentAiProcessorTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDocumentAiProcessorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,7 +83,7 @@ public partial class GoogleDocumentAiProcessor : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDocumentAiProcessorTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDocumentAiProcessorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the processor.

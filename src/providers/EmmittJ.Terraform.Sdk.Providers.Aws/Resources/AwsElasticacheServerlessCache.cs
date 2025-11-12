@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cache_usage_limits in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticacheServerlessCacheCacheUsageLimitsBlock : TerraformBlockBase
+public partial class AwsElasticacheServerlessCacheCacheUsageLimitsBlock() : TerraformBlock("cache_usage_limits")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsElasticacheServerlessCacheCacheUsageLimitsBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsElasticacheServerlessCacheTimeoutsBlock : TerraformBlockBase
+public partial class AwsElasticacheServerlessCacheTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -146,14 +146,14 @@ public partial class AwsElasticacheServerlessCache : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cache_usage_limits")]
-    public partial TerraformList<TerraformBlock<AwsElasticacheServerlessCacheCacheUsageLimitsBlock>>? CacheUsageLimits { get; set; }
+    public TerraformList<AwsElasticacheServerlessCacheCacheUsageLimitsBlock> CacheUsageLimits { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsElasticacheServerlessCacheTimeoutsBlock>? Timeouts { get; set; }
+    public AwsElasticacheServerlessCacheTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

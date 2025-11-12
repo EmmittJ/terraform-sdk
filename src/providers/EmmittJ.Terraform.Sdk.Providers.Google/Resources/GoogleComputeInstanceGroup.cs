@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for named_port in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupNamedPortBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupNamedPortBlock() : TerraformBlock("named_port")
 {
     /// <summary>
     /// The name which the port will be mapped to.
@@ -30,7 +30,7 @@ public partial class GoogleComputeInstanceGroupNamedPortBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeInstanceGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,14 +119,14 @@ public partial class GoogleComputeInstanceGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("named_port")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupNamedPortBlock>>? NamedPort { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupNamedPortBlock> NamedPort { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeInstanceGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeInstanceGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The URI of the created resource.

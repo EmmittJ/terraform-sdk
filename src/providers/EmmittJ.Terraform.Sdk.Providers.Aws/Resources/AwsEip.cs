@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEipTimeoutsBlock : TerraformBlockBase
+public partial class AwsEipTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -136,7 +136,7 @@ public partial class AwsEip : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEipTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEipTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocation_id attribute.

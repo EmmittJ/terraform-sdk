@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareWorkspaceSettingsBlock : TerraformBlockBase
+public partial class GoogleHealthcareWorkspaceSettingsBlock() : TerraformBlock("settings")
 {
     /// <summary>
     /// Project IDs for data projects hosted in a workspace.
@@ -22,7 +22,7 @@ public partial class GoogleHealthcareWorkspaceSettingsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleHealthcareWorkspaceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleHealthcareWorkspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -100,14 +100,14 @@ public partial class GoogleHealthcareWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Settings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     [TerraformProperty("settings")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareWorkspaceSettingsBlock>>? Settings { get; set; }
+    public required TerraformList<GoogleHealthcareWorkspaceSettingsBlock> Settings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleHealthcareWorkspaceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleHealthcareWorkspaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

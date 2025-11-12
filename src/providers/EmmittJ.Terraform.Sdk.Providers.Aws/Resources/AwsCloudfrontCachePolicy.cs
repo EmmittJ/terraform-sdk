@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameters_in_cache_key_and_forwarded_to_origin in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock : TerraformBlockBase
+public partial class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock() : TerraformBlock("parameters_in_cache_key_and_forwarded_to_origin")
 {
     /// <summary>
     /// The enable_accept_encoding_brotli attribute.
@@ -85,7 +85,7 @@ public partial class AwsCloudfrontCachePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ParametersInCacheKeyAndForwardedToOrigin block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParametersInCacheKeyAndForwardedToOrigin block(s) allowed")]
     [TerraformProperty("parameters_in_cache_key_and_forwarded_to_origin")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>>? ParametersInCacheKeyAndForwardedToOrigin { get; set; }
+    public required TerraformList<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock> ParametersInCacheKeyAndForwardedToOrigin { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

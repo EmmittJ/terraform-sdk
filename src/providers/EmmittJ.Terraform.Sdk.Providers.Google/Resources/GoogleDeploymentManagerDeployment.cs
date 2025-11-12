@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for labels in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlockBase
+public partial class GoogleDeploymentManagerDeploymentLabelsBlock() : TerraformBlock("labels")
 {
     /// <summary>
     /// Key for label.
@@ -28,7 +28,7 @@ public partial class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlo
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDeploymentManagerDeploymentTargetBlock : TerraformBlockBase
+public partial class GoogleDeploymentManagerDeploymentTargetBlock() : TerraformBlock("target")
 {
 }
 
@@ -36,7 +36,7 @@ public partial class GoogleDeploymentManagerDeploymentTargetBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDeploymentManagerDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -142,7 +142,7 @@ public partial class GoogleDeploymentManagerDeployment : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("labels")]
-    public partial TerraformSet<TerraformBlock<GoogleDeploymentManagerDeploymentLabelsBlock>>? Labels { get; set; }
+    public TerraformSet<GoogleDeploymentManagerDeploymentLabelsBlock> Labels { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -152,14 +152,14 @@ public partial class GoogleDeploymentManagerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<GoogleDeploymentManagerDeploymentTargetBlock>>? Target { get; set; }
+    public required TerraformList<GoogleDeploymentManagerDeploymentTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDeploymentManagerDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDeploymentManagerDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Unique identifier for deployment. Output only.

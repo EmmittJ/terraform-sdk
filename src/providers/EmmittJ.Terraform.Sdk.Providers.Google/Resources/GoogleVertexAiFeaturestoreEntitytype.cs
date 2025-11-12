@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for monitoring_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlock() : TerraformBlock("monitoring_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiFeaturestoreEntitytypeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeaturestoreEntitytypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,14 +95,14 @@ public partial class GoogleVertexAiFeaturestoreEntitytype : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfig block(s) allowed")]
     [TerraformProperty("monitoring_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlock>>? MonitoringConfig { get; set; }
+    public TerraformList<GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlock> MonitoringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiFeaturestoreEntitytypeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiFeaturestoreEntitytypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the featurestore was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

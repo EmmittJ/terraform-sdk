@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : Te
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The admin_object_ids attribute.

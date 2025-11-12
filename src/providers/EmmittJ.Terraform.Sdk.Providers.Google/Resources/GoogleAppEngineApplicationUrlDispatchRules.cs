@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for dispatch_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock : TerraformBlockBase
+public partial class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock() : TerraformBlock("dispatch_rules")
 {
     /// <summary>
     /// Domain name to match against. The wildcard &amp;quot;*&amp;quot; is supported if specified before a period: &amp;quot;*.&amp;quot;.
@@ -40,7 +40,7 @@ public partial class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,13 +96,13 @@ public partial class GoogleAppEngineApplicationUrlDispatchRules : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DispatchRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DispatchRules block(s) required")]
     [TerraformProperty("dispatch_rules")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock>>? DispatchRules { get; set; }
+    public required TerraformList<GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock> DispatchRules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock Timeouts { get; set; } = new();
 
 }

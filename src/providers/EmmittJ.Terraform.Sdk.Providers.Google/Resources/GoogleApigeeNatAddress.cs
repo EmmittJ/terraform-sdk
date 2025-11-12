@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeNatAddressTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeNatAddressTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,7 +76,7 @@ public partial class GoogleApigeeNatAddress : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeNatAddressTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeNatAddressTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocated NAT IP address.

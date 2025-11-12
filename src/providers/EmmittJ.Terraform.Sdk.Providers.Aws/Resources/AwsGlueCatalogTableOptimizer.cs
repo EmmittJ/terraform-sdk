@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueCatalogTableOptimizerConfigurationBlock : TerraformBlockBase
+public partial class AwsGlueCatalogTableOptimizerConfigurationBlock() : TerraformBlock("configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -79,6 +79,6 @@ public partial class AwsGlueCatalogTableOptimizer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsGlueCatalogTableOptimizerConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsGlueCatalogTableOptimizerConfigurationBlock> Configuration { get; set; } = new();
 
 }

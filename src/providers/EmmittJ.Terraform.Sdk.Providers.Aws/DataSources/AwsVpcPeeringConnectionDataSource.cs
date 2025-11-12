@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsVpcPeeringConnectionDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpcPeeringConnectionDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpcPeeringConnectionDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -118,14 +118,14 @@ public partial class AwsVpcPeeringConnectionDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsVpcPeeringConnectionDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsVpcPeeringConnectionDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpcPeeringConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpcPeeringConnectionDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The accepter attribute.

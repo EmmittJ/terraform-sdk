@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSecurityGroupRuleTimeoutsBlock : TerraformBlockBase
+public partial class AwsSecurityGroupRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,7 +127,7 @@ public partial class AwsSecurityGroupRule : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSecurityGroupRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSecurityGroupRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The security_group_rule_id attribute.

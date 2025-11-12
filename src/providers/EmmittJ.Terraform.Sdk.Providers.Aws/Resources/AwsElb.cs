@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElbAccessLogsBlock : TerraformBlockBase
+public partial class AwsElbAccessLogsBlock() : TerraformBlock("access_logs")
 {
     /// <summary>
     /// The bucket attribute.
@@ -43,7 +43,7 @@ public partial class AwsElbAccessLogsBlock : TerraformBlockBase
 /// Block type for health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElbHealthCheckBlock : TerraformBlockBase
+public partial class AwsElbHealthCheckBlock() : TerraformBlock("health_check")
 {
     /// <summary>
     /// The healthy_threshold attribute.
@@ -91,7 +91,7 @@ public partial class AwsElbHealthCheckBlock : TerraformBlockBase
 /// Block type for listener in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsElbListenerBlock : TerraformBlockBase
+public partial class AwsElbListenerBlock() : TerraformBlock("listener")
 {
     /// <summary>
     /// The instance_port attribute.
@@ -138,7 +138,7 @@ public partial class AwsElbListenerBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsElbTimeoutsBlock : TerraformBlockBase
+public partial class AwsElbTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -291,7 +291,7 @@ public partial class AwsElb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
     [TerraformProperty("access_logs")]
-    public partial TerraformList<TerraformBlock<AwsElbAccessLogsBlock>>? AccessLogs { get; set; }
+    public TerraformList<AwsElbAccessLogsBlock> AccessLogs { get; set; } = new();
 
     /// <summary>
     /// Block for health_check.
@@ -299,7 +299,7 @@ public partial class AwsElb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheck block(s) allowed")]
     [TerraformProperty("health_check")]
-    public partial TerraformList<TerraformBlock<AwsElbHealthCheckBlock>>? HealthCheck { get; set; }
+    public TerraformList<AwsElbHealthCheckBlock> HealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for listener.
@@ -308,14 +308,14 @@ public partial class AwsElb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Listener is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Listener block(s) required")]
     [TerraformProperty("listener")]
-    public partial TerraformSet<TerraformBlock<AwsElbListenerBlock>>? Listener { get; set; }
+    public required TerraformSet<AwsElbListenerBlock> Listener { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsElbTimeoutsBlock>? Timeouts { get; set; }
+    public AwsElbTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

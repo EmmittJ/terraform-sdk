@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraDataSourceConfigurationBlock : TerraformBlockBase
+public partial class AwsKendraDataSourceConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsKendraDataSourceConfigurationBlock : TerraformBlockBase
 /// Block type for custom_document_enrichment_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock : TerraformBlockBase
+public partial class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock() : TerraformBlock("custom_document_enrichment_configuration")
 {
     /// <summary>
     /// The role_arn attribute.
@@ -29,7 +29,7 @@ public partial class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKendraDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsKendraDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -150,7 +150,7 @@ public partial class AwsKendraDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsKendraDataSourceConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsKendraDataSourceConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for custom_document_enrichment_configuration.
@@ -158,14 +158,14 @@ public partial class AwsKendraDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDocumentEnrichmentConfiguration block(s) allowed")]
     [TerraformProperty("custom_document_enrichment_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock>>? CustomDocumentEnrichmentConfiguration { get; set; }
+    public TerraformList<AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock> CustomDocumentEnrichmentConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKendraDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKendraDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

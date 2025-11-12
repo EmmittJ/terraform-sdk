@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_https_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock : TerraformBlockBase
+public partial class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock() : TerraformBlock("custom_https_configuration")
 {
     /// <summary>
     /// The azure_key_vault_certificate_secret_name attribute.
@@ -45,7 +45,7 @@ public partial class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigur
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -116,13 +116,13 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHttpsConfiguration block(s) allowed")]
     [TerraformProperty("custom_https_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>>? CustomHttpsConfiguration { get; set; }
+    public TerraformList<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock> CustomHttpsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

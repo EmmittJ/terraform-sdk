@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for dataset in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourceGroupCostManagementViewDatasetBlock : TerraformBlockBase
+public partial class AzurermResourceGroupCostManagementViewDatasetBlock() : TerraformBlock("dataset")
 {
     /// <summary>
     /// The granularity attribute.
@@ -22,7 +22,7 @@ public partial class AzurermResourceGroupCostManagementViewDatasetBlock : Terraf
 /// Block type for kpi in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourceGroupCostManagementViewKpiBlock : TerraformBlockBase
+public partial class AzurermResourceGroupCostManagementViewKpiBlock() : TerraformBlock("kpi")
 {
     /// <summary>
     /// The type attribute.
@@ -38,7 +38,7 @@ public partial class AzurermResourceGroupCostManagementViewKpiBlock : TerraformB
 /// Block type for pivot in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourceGroupCostManagementViewPivotBlock : TerraformBlockBase
+public partial class AzurermResourceGroupCostManagementViewPivotBlock() : TerraformBlock("pivot")
 {
     /// <summary>
     /// The name attribute.
@@ -62,7 +62,7 @@ public partial class AzurermResourceGroupCostManagementViewPivotBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermResourceGroupCostManagementViewTimeoutsBlock : TerraformBlockBase
+public partial class AzurermResourceGroupCostManagementViewTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,27 +175,27 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Dataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
     [TerraformProperty("dataset")]
-    public partial TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewDatasetBlock>>? Dataset { get; set; }
+    public required TerraformList<AzurermResourceGroupCostManagementViewDatasetBlock> Dataset { get; set; } = new();
 
     /// <summary>
     /// Block for kpi.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kpi")]
-    public partial TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewKpiBlock>>? Kpi { get; set; }
+    public TerraformList<AzurermResourceGroupCostManagementViewKpiBlock> Kpi { get; set; } = new();
 
     /// <summary>
     /// Block for pivot.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("pivot")]
-    public partial TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewPivotBlock>>? Pivot { get; set; }
+    public TerraformList<AzurermResourceGroupCostManagementViewPivotBlock> Pivot { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermResourceGroupCostManagementViewTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermResourceGroupCostManagementViewTimeoutsBlock Timeouts { get; set; } = new();
 
 }

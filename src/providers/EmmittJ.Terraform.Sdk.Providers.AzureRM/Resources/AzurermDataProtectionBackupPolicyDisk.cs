@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock() : TerraformBlock("retention_rule")
 {
     /// <summary>
     /// The duration attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyDiskTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyDiskTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,13 +123,13 @@ public partial class AzurermDataProtectionBackupPolicyDisk : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("retention_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock>>? RetentionRule { get; set; }
+    public TerraformList<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock> RetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataProtectionBackupPolicyDiskTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataProtectionBackupPolicyDiskTimeoutsBlock Timeouts { get; set; } = new();
 
 }

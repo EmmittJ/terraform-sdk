@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterSpecBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterSpecBlock() : TerraformBlock("spec")
 {
     /// <summary>
     /// A list of AccessLevel resource names that allow resources within
@@ -50,7 +50,7 @@ public partial class GoogleAccessContextManagerServicePerimeterSpecBlock : Terra
 /// Block type for status in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterStatusBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterStatusBlock() : TerraformBlock("status")
 {
     /// <summary>
     /// A list of AccessLevel resource names that allow resources within
@@ -94,7 +94,7 @@ public partial class GoogleAccessContextManagerServicePerimeterStatusBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimeterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimeterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -214,7 +214,7 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterSpecBlock>>? Spec { get; set; }
+    public TerraformList<GoogleAccessContextManagerServicePerimeterSpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// Block for status.
@@ -222,14 +222,14 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Status block(s) allowed")]
     [TerraformProperty("status")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterStatusBlock>>? Status { get; set; }
+    public TerraformList<GoogleAccessContextManagerServicePerimeterStatusBlock> Status { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerServicePerimeterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerServicePerimeterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the AccessPolicy was created in UTC.

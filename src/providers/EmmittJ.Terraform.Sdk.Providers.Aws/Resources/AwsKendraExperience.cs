@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraExperienceConfigurationBlock : TerraformBlockBase
+public partial class AwsKendraExperienceConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsKendraExperienceConfigurationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKendraExperienceTimeoutsBlock : TerraformBlockBase
+public partial class AwsKendraExperienceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -100,14 +100,14 @@ public partial class AwsKendraExperience : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsKendraExperienceConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsKendraExperienceConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKendraExperienceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKendraExperienceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

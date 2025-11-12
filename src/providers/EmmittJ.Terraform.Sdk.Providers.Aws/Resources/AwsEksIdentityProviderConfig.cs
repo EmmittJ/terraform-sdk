@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for oidc in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEksIdentityProviderConfigOidcBlock : TerraformBlockBase
+public partial class AwsEksIdentityProviderConfigOidcBlock() : TerraformBlock("oidc")
 {
     /// <summary>
     /// The client_id attribute.
@@ -73,7 +73,7 @@ public partial class AwsEksIdentityProviderConfigOidcBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEksIdentityProviderConfigTimeoutsBlock : TerraformBlockBase
+public partial class AwsEksIdentityProviderConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -145,14 +145,14 @@ public partial class AwsEksIdentityProviderConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Oidc block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
     [TerraformProperty("oidc")]
-    public partial TerraformList<TerraformBlock<AwsEksIdentityProviderConfigOidcBlock>>? Oidc { get; set; }
+    public required TerraformList<AwsEksIdentityProviderConfigOidcBlock> Oidc { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEksIdentityProviderConfigTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEksIdentityProviderConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

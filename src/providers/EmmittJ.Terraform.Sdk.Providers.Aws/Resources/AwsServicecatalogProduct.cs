@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for provisioning_artifact_parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsServicecatalogProductProvisioningArtifactParametersBlock : TerraformBlockBase
+public partial class AwsServicecatalogProductProvisioningArtifactParametersBlock() : TerraformBlock("provisioning_artifact_parameters")
 {
     /// <summary>
     /// The description attribute.
@@ -56,7 +56,7 @@ public partial class AwsServicecatalogProductProvisioningArtifactParametersBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsServicecatalogProductTimeoutsBlock : TerraformBlockBase
+public partial class AwsServicecatalogProductTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -200,14 +200,14 @@ public partial class AwsServicecatalogProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProvisioningArtifactParameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProvisioningArtifactParameters block(s) allowed")]
     [TerraformProperty("provisioning_artifact_parameters")]
-    public partial TerraformList<TerraformBlock<AwsServicecatalogProductProvisioningArtifactParametersBlock>>? ProvisioningArtifactParameters { get; set; }
+    public required TerraformList<AwsServicecatalogProductProvisioningArtifactParametersBlock> ProvisioningArtifactParameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsServicecatalogProductTimeoutsBlock>? Timeouts { get; set; }
+    public AwsServicecatalogProductTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

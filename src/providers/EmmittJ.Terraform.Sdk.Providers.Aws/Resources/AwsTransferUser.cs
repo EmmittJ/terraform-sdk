@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for home_directory_mappings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferUserHomeDirectoryMappingsBlock : TerraformBlockBase
+public partial class AwsTransferUserHomeDirectoryMappingsBlock() : TerraformBlock("home_directory_mappings")
 {
     /// <summary>
     /// The entry attribute.
@@ -30,7 +30,7 @@ public partial class AwsTransferUserHomeDirectoryMappingsBlock : TerraformBlockB
 /// Block type for posix_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferUserPosixProfileBlock : TerraformBlockBase
+public partial class AwsTransferUserPosixProfileBlock() : TerraformBlock("posix_profile")
 {
     /// <summary>
     /// The gid attribute.
@@ -61,7 +61,7 @@ public partial class AwsTransferUserPosixProfileBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsTransferUserTimeoutsBlock : TerraformBlockBase
+public partial class AwsTransferUserTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -160,7 +160,7 @@ public partial class AwsTransferUser : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("home_directory_mappings")]
-    public partial TerraformList<TerraformBlock<AwsTransferUserHomeDirectoryMappingsBlock>>? HomeDirectoryMappings { get; set; }
+    public TerraformList<AwsTransferUserHomeDirectoryMappingsBlock> HomeDirectoryMappings { get; set; } = new();
 
     /// <summary>
     /// Block for posix_profile.
@@ -168,14 +168,14 @@ public partial class AwsTransferUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixProfile block(s) allowed")]
     [TerraformProperty("posix_profile")]
-    public partial TerraformList<TerraformBlock<AwsTransferUserPosixProfileBlock>>? PosixProfile { get; set; }
+    public TerraformList<AwsTransferUserPosixProfileBlock> PosixProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsTransferUserTimeoutsBlock>? Timeouts { get; set; }
+    public AwsTransferUserTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

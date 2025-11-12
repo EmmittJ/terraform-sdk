@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsNeptuneParameterGroupParameterBlock : TerraformBlockBase
+public partial class AwsNeptuneParameterGroupParameterBlock() : TerraformBlock("parameter")
 {
     /// <summary>
     /// The apply_method attribute.
@@ -104,7 +104,7 @@ public partial class AwsNeptuneParameterGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter")]
-    public partial TerraformSet<TerraformBlock<AwsNeptuneParameterGroupParameterBlock>>? Parameter { get; set; }
+    public TerraformSet<AwsNeptuneParameterGroupParameterBlock> Parameter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

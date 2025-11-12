@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for add_header_action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlockBase
+public partial class AwsSesReceiptRuleAddHeaderActionBlock() : TerraformBlock("add_header_action")
 {
     /// <summary>
     /// The header_name attribute.
@@ -38,7 +38,7 @@ public partial class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlockBase
 /// Block type for bounce_action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesReceiptRuleBounceActionBlock : TerraformBlockBase
+public partial class AwsSesReceiptRuleBounceActionBlock() : TerraformBlock("bounce_action")
 {
     /// <summary>
     /// The message attribute.
@@ -92,7 +92,7 @@ public partial class AwsSesReceiptRuleBounceActionBlock : TerraformBlockBase
 /// Block type for lambda_action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesReceiptRuleLambdaActionBlock : TerraformBlockBase
+public partial class AwsSesReceiptRuleLambdaActionBlock() : TerraformBlock("lambda_action")
 {
     /// <summary>
     /// The function_arn attribute.
@@ -130,7 +130,7 @@ public partial class AwsSesReceiptRuleLambdaActionBlock : TerraformBlockBase
 /// Block type for s3_action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesReceiptRuleS3ActionBlock : TerraformBlockBase
+public partial class AwsSesReceiptRuleS3ActionBlock() : TerraformBlock("s3_action")
 {
     /// <summary>
     /// The bucket_name attribute.
@@ -182,7 +182,7 @@ public partial class AwsSesReceiptRuleS3ActionBlock : TerraformBlockBase
 /// Block type for sns_action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesReceiptRuleSnsActionBlock : TerraformBlockBase
+public partial class AwsSesReceiptRuleSnsActionBlock() : TerraformBlock("sns_action")
 {
     /// <summary>
     /// The encoding attribute.
@@ -213,7 +213,7 @@ public partial class AwsSesReceiptRuleSnsActionBlock : TerraformBlockBase
 /// Block type for stop_action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesReceiptRuleStopActionBlock : TerraformBlockBase
+public partial class AwsSesReceiptRuleStopActionBlock() : TerraformBlock("stop_action")
 {
     /// <summary>
     /// The position attribute.
@@ -244,7 +244,7 @@ public partial class AwsSesReceiptRuleStopActionBlock : TerraformBlockBase
 /// Block type for workmail_action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSesReceiptRuleWorkmailActionBlock : TerraformBlockBase
+public partial class AwsSesReceiptRuleWorkmailActionBlock() : TerraformBlock("workmail_action")
 {
     /// <summary>
     /// The organization_arn attribute.
@@ -350,49 +350,49 @@ public partial class AwsSesReceiptRule : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("add_header_action")]
-    public partial TerraformSet<TerraformBlock<AwsSesReceiptRuleAddHeaderActionBlock>>? AddHeaderAction { get; set; }
+    public TerraformSet<AwsSesReceiptRuleAddHeaderActionBlock> AddHeaderAction { get; set; } = new();
 
     /// <summary>
     /// Block for bounce_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("bounce_action")]
-    public partial TerraformSet<TerraformBlock<AwsSesReceiptRuleBounceActionBlock>>? BounceAction { get; set; }
+    public TerraformSet<AwsSesReceiptRuleBounceActionBlock> BounceAction { get; set; } = new();
 
     /// <summary>
     /// Block for lambda_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("lambda_action")]
-    public partial TerraformSet<TerraformBlock<AwsSesReceiptRuleLambdaActionBlock>>? LambdaAction { get; set; }
+    public TerraformSet<AwsSesReceiptRuleLambdaActionBlock> LambdaAction { get; set; } = new();
 
     /// <summary>
     /// Block for s3_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("s3_action")]
-    public partial TerraformSet<TerraformBlock<AwsSesReceiptRuleS3ActionBlock>>? S3Action { get; set; }
+    public TerraformSet<AwsSesReceiptRuleS3ActionBlock> S3Action { get; set; } = new();
 
     /// <summary>
     /// Block for sns_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("sns_action")]
-    public partial TerraformSet<TerraformBlock<AwsSesReceiptRuleSnsActionBlock>>? SnsAction { get; set; }
+    public TerraformSet<AwsSesReceiptRuleSnsActionBlock> SnsAction { get; set; } = new();
 
     /// <summary>
     /// Block for stop_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("stop_action")]
-    public partial TerraformSet<TerraformBlock<AwsSesReceiptRuleStopActionBlock>>? StopAction { get; set; }
+    public TerraformSet<AwsSesReceiptRuleStopActionBlock> StopAction { get; set; } = new();
 
     /// <summary>
     /// Block for workmail_action.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("workmail_action")]
-    public partial TerraformSet<TerraformBlock<AwsSesReceiptRuleWorkmailActionBlock>>? WorkmailAction { get; set; }
+    public TerraformSet<AwsSesReceiptRuleWorkmailActionBlock> WorkmailAction { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

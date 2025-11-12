@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationOptInConditionBlock : TerraformBlockBase
+public partial class AwsLakeformationOptInConditionBlock() : TerraformBlock("condition")
 {
 
 }
@@ -15,7 +15,7 @@ public partial class AwsLakeformationOptInConditionBlock : TerraformBlockBase
 /// Block type for principal in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationOptInPrincipalBlock : TerraformBlockBase
+public partial class AwsLakeformationOptInPrincipalBlock() : TerraformBlock("principal")
 {
     /// <summary>
     /// The data_lake_principal_identifier attribute.
@@ -31,7 +31,7 @@ public partial class AwsLakeformationOptInPrincipalBlock : TerraformBlockBase
 /// Block type for resource_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationOptInResourceDataBlock : TerraformBlockBase
+public partial class AwsLakeformationOptInResourceDataBlock() : TerraformBlock("resource_data")
 {
 }
 
@@ -56,21 +56,21 @@ public partial class AwsLakeformationOptIn : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationOptInConditionBlock>>? Condition { get; set; }
+    public TerraformList<AwsLakeformationOptInConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for principal.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("principal")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationOptInPrincipalBlock>>? Principal { get; set; }
+    public TerraformList<AwsLakeformationOptInPrincipalBlock> Principal { get; set; } = new();
 
     /// <summary>
     /// Block for resource_data.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resource_data")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationOptInResourceDataBlock>>? ResourceData { get; set; }
+    public TerraformList<AwsLakeformationOptInResourceDataBlock> ResourceData { get; set; } = new();
 
     /// <summary>
     /// The last_modified attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for job_target in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlockBase
+public partial class AzurermMssqlJobTargetGroupJobTargetBlock() : TerraformBlock("job_target")
 {
     /// <summary>
     /// The database_name attribute.
@@ -51,7 +51,7 @@ public partial class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlJobTargetGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,13 +120,13 @@ public partial class AzurermMssqlJobTargetGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("job_target")]
-    public partial TerraformSet<TerraformBlock<AzurermMssqlJobTargetGroupJobTargetBlock>>? JobTarget { get; set; }
+    public TerraformSet<AzurermMssqlJobTargetGroupJobTargetBlock> JobTarget { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlJobTargetGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlJobTargetGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

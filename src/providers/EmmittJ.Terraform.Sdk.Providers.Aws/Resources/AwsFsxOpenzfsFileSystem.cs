@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for disk_iops_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock() : TerraformBlock("disk_iops_configuration")
 {
     /// <summary>
     /// The iops attribute.
@@ -28,7 +28,7 @@ public partial class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock : Terrafo
 /// Block type for root_volume_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock() : TerraformBlock("root_volume_configuration")
 {
     /// <summary>
     /// The copy_tags_to_snapshots attribute.
@@ -64,7 +64,7 @@ public partial class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxOpenzfsFileSystemTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsFileSystemTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -269,7 +269,7 @@ public partial class AwsFsxOpenzfsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
     [TerraformProperty("disk_iops_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock>>? DiskIopsConfiguration { get; set; }
+    public TerraformList<AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock> DiskIopsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for root_volume_configuration.
@@ -277,14 +277,14 @@ public partial class AwsFsxOpenzfsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootVolumeConfiguration block(s) allowed")]
     [TerraformProperty("root_volume_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock>>? RootVolumeConfiguration { get; set; }
+    public TerraformList<AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock> RootVolumeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxOpenzfsFileSystemTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxOpenzfsFileSystemTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,6 +90,6 @@ public partial class AzurermCosmosdbMongoUserDefinition : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbMongoUserDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbMongoUserDefinitionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

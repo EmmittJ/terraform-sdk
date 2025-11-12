@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for restore_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlockBase
+public partial class GoogleGkeBackupRestorePlanRestoreConfigBlock() : TerraformBlock("restore_config")
 {
     /// <summary>
     /// If True, restore all namespaced resources in the Backup.
@@ -66,7 +66,7 @@ public partial class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeBackupRestorePlanTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeBackupRestorePlanTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -176,14 +176,14 @@ public partial class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RestoreConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreConfig block(s) allowed")]
     [TerraformProperty("restore_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeBackupRestorePlanRestoreConfigBlock>>? RestoreConfig { get; set; }
+    public required TerraformList<GoogleGkeBackupRestorePlanRestoreConfigBlock> RestoreConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeBackupRestorePlanTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeBackupRestorePlanTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

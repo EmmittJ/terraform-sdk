@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIothubDeviceUpdateAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermIothubDeviceUpdateAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermIothubDeviceUpdateAccountIdentityBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIothubDeviceUpdateAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIothubDeviceUpdateAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,14 +131,14 @@ public partial class AzurermIothubDeviceUpdateAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermIothubDeviceUpdateAccountIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermIothubDeviceUpdateAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIothubDeviceUpdateAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIothubDeviceUpdateAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The host_name attribute.

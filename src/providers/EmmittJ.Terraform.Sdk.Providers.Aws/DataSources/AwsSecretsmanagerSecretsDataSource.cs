@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSecretsmanagerSecretsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsSecretsmanagerSecretsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -54,7 +54,7 @@ public partial class AwsSecretsmanagerSecretsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsSecretsmanagerSecretsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsSecretsmanagerSecretsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arns attribute.

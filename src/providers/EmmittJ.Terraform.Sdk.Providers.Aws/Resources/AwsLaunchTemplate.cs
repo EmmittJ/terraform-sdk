@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for block_device_mappings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateBlockDeviceMappingsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateBlockDeviceMappingsBlock() : TerraformBlock("block_device_mappings")
 {
     /// <summary>
     /// The device_name attribute.
@@ -35,7 +35,7 @@ public partial class AwsLaunchTemplateBlockDeviceMappingsBlock : TerraformBlockB
 /// Block type for capacity_reservation_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateCapacityReservationSpecificationBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateCapacityReservationSpecificationBlock() : TerraformBlock("capacity_reservation_specification")
 {
     /// <summary>
     /// The capacity_reservation_preference attribute.
@@ -50,7 +50,7 @@ public partial class AwsLaunchTemplateCapacityReservationSpecificationBlock : Te
 /// Block type for cpu_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateCpuOptionsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateCpuOptionsBlock() : TerraformBlock("cpu_options")
 {
     /// <summary>
     /// The amd_sev_snp attribute.
@@ -79,7 +79,7 @@ public partial class AwsLaunchTemplateCpuOptionsBlock : TerraformBlockBase
 /// Block type for credit_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateCreditSpecificationBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateCreditSpecificationBlock() : TerraformBlock("credit_specification")
 {
     /// <summary>
     /// The cpu_credits attribute.
@@ -94,7 +94,7 @@ public partial class AwsLaunchTemplateCreditSpecificationBlock : TerraformBlockB
 /// Block type for enclave_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateEnclaveOptionsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateEnclaveOptionsBlock() : TerraformBlock("enclave_options")
 {
     /// <summary>
     /// The enabled attribute.
@@ -109,7 +109,7 @@ public partial class AwsLaunchTemplateEnclaveOptionsBlock : TerraformBlockBase
 /// Block type for hibernation_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateHibernationOptionsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateHibernationOptionsBlock() : TerraformBlock("hibernation_options")
 {
     /// <summary>
     /// The configured attribute.
@@ -125,7 +125,7 @@ public partial class AwsLaunchTemplateHibernationOptionsBlock : TerraformBlockBa
 /// Block type for iam_instance_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateIamInstanceProfileBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateIamInstanceProfileBlock() : TerraformBlock("iam_instance_profile")
 {
     /// <summary>
     /// The arn attribute.
@@ -147,7 +147,7 @@ public partial class AwsLaunchTemplateIamInstanceProfileBlock : TerraformBlockBa
 /// Block type for instance_market_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateInstanceMarketOptionsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateInstanceMarketOptionsBlock() : TerraformBlock("instance_market_options")
 {
     /// <summary>
     /// The market_type attribute.
@@ -162,7 +162,7 @@ public partial class AwsLaunchTemplateInstanceMarketOptionsBlock : TerraformBloc
 /// Block type for instance_requirements in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateInstanceRequirementsBlock() : TerraformBlock("instance_requirements")
 {
     /// <summary>
     /// The accelerator_manufacturers attribute.
@@ -275,7 +275,7 @@ public partial class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
 /// Block type for license_specification in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLaunchTemplateLicenseSpecificationBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateLicenseSpecificationBlock() : TerraformBlock("license_specification")
 {
     /// <summary>
     /// The license_configuration_arn attribute.
@@ -291,7 +291,7 @@ public partial class AwsLaunchTemplateLicenseSpecificationBlock : TerraformBlock
 /// Block type for maintenance_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateMaintenanceOptionsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateMaintenanceOptionsBlock() : TerraformBlock("maintenance_options")
 {
     /// <summary>
     /// The auto_recovery attribute.
@@ -306,7 +306,7 @@ public partial class AwsLaunchTemplateMaintenanceOptionsBlock : TerraformBlockBa
 /// Block type for metadata_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateMetadataOptionsBlock() : TerraformBlock("metadata_options")
 {
     /// <summary>
     /// The http_endpoint attribute.
@@ -349,7 +349,7 @@ public partial class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlockBase
 /// Block type for monitoring in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateMonitoringBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateMonitoringBlock() : TerraformBlock("monitoring")
 {
     /// <summary>
     /// The enabled attribute.
@@ -364,7 +364,7 @@ public partial class AwsLaunchTemplateMonitoringBlock : TerraformBlockBase
 /// Block type for network_interfaces in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateNetworkInterfacesBlock() : TerraformBlock("network_interfaces")
 {
     /// <summary>
     /// The associate_carrier_ip_address attribute.
@@ -512,7 +512,7 @@ public partial class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlockBas
 /// Block type for placement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplatePlacementBlock : TerraformBlockBase
+public partial class AwsLaunchTemplatePlacementBlock() : TerraformBlock("placement")
 {
     /// <summary>
     /// The affinity attribute.
@@ -583,7 +583,7 @@ public partial class AwsLaunchTemplatePlacementBlock : TerraformBlockBase
 /// Block type for private_dns_name_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplatePrivateDnsNameOptionsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplatePrivateDnsNameOptionsBlock() : TerraformBlock("private_dns_name_options")
 {
     /// <summary>
     /// The enable_resource_name_dns_a_record attribute.
@@ -612,7 +612,7 @@ public partial class AwsLaunchTemplatePrivateDnsNameOptionsBlock : TerraformBloc
 /// Block type for tag_specifications in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLaunchTemplateTagSpecificationsBlock : TerraformBlockBase
+public partial class AwsLaunchTemplateTagSpecificationsBlock() : TerraformBlock("tag_specifications")
 {
     /// <summary>
     /// The resource_type attribute.
@@ -792,7 +792,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("block_device_mappings")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateBlockDeviceMappingsBlock>>? BlockDeviceMappings { get; set; }
+    public TerraformList<AwsLaunchTemplateBlockDeviceMappingsBlock> BlockDeviceMappings { get; set; } = new();
 
     /// <summary>
     /// Block for capacity_reservation_specification.
@@ -800,7 +800,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityReservationSpecification block(s) allowed")]
     [TerraformProperty("capacity_reservation_specification")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateCapacityReservationSpecificationBlock>>? CapacityReservationSpecification { get; set; }
+    public TerraformList<AwsLaunchTemplateCapacityReservationSpecificationBlock> CapacityReservationSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for cpu_options.
@@ -808,7 +808,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CpuOptions block(s) allowed")]
     [TerraformProperty("cpu_options")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateCpuOptionsBlock>>? CpuOptions { get; set; }
+    public TerraformList<AwsLaunchTemplateCpuOptionsBlock> CpuOptions { get; set; } = new();
 
     /// <summary>
     /// Block for credit_specification.
@@ -816,7 +816,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreditSpecification block(s) allowed")]
     [TerraformProperty("credit_specification")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateCreditSpecificationBlock>>? CreditSpecification { get; set; }
+    public TerraformList<AwsLaunchTemplateCreditSpecificationBlock> CreditSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for enclave_options.
@@ -824,7 +824,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnclaveOptions block(s) allowed")]
     [TerraformProperty("enclave_options")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateEnclaveOptionsBlock>>? EnclaveOptions { get; set; }
+    public TerraformList<AwsLaunchTemplateEnclaveOptionsBlock> EnclaveOptions { get; set; } = new();
 
     /// <summary>
     /// Block for hibernation_options.
@@ -832,7 +832,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HibernationOptions block(s) allowed")]
     [TerraformProperty("hibernation_options")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateHibernationOptionsBlock>>? HibernationOptions { get; set; }
+    public TerraformList<AwsLaunchTemplateHibernationOptionsBlock> HibernationOptions { get; set; } = new();
 
     /// <summary>
     /// Block for iam_instance_profile.
@@ -840,7 +840,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IamInstanceProfile block(s) allowed")]
     [TerraformProperty("iam_instance_profile")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateIamInstanceProfileBlock>>? IamInstanceProfile { get; set; }
+    public TerraformList<AwsLaunchTemplateIamInstanceProfileBlock> IamInstanceProfile { get; set; } = new();
 
     /// <summary>
     /// Block for instance_market_options.
@@ -848,7 +848,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMarketOptions block(s) allowed")]
     [TerraformProperty("instance_market_options")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateInstanceMarketOptionsBlock>>? InstanceMarketOptions { get; set; }
+    public TerraformList<AwsLaunchTemplateInstanceMarketOptionsBlock> InstanceMarketOptions { get; set; } = new();
 
     /// <summary>
     /// Block for instance_requirements.
@@ -856,14 +856,14 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceRequirements block(s) allowed")]
     [TerraformProperty("instance_requirements")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateInstanceRequirementsBlock>>? InstanceRequirements { get; set; }
+    public TerraformList<AwsLaunchTemplateInstanceRequirementsBlock> InstanceRequirements { get; set; } = new();
 
     /// <summary>
     /// Block for license_specification.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("license_specification")]
-    public partial TerraformSet<TerraformBlock<AwsLaunchTemplateLicenseSpecificationBlock>>? LicenseSpecification { get; set; }
+    public TerraformSet<AwsLaunchTemplateLicenseSpecificationBlock> LicenseSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_options.
@@ -871,7 +871,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceOptions block(s) allowed")]
     [TerraformProperty("maintenance_options")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateMaintenanceOptionsBlock>>? MaintenanceOptions { get; set; }
+    public TerraformList<AwsLaunchTemplateMaintenanceOptionsBlock> MaintenanceOptions { get; set; } = new();
 
     /// <summary>
     /// Block for metadata_options.
@@ -879,7 +879,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataOptions block(s) allowed")]
     [TerraformProperty("metadata_options")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateMetadataOptionsBlock>>? MetadataOptions { get; set; }
+    public TerraformList<AwsLaunchTemplateMetadataOptionsBlock> MetadataOptions { get; set; } = new();
 
     /// <summary>
     /// Block for monitoring.
@@ -887,14 +887,14 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
     [TerraformProperty("monitoring")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateMonitoringBlock>>? Monitoring { get; set; }
+    public TerraformList<AwsLaunchTemplateMonitoringBlock> Monitoring { get; set; } = new();
 
     /// <summary>
     /// Block for network_interfaces.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_interfaces")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateNetworkInterfacesBlock>>? NetworkInterfaces { get; set; }
+    public TerraformList<AwsLaunchTemplateNetworkInterfacesBlock> NetworkInterfaces { get; set; } = new();
 
     /// <summary>
     /// Block for placement.
@@ -902,7 +902,7 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
     [TerraformProperty("placement")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplatePlacementBlock>>? Placement { get; set; }
+    public TerraformList<AwsLaunchTemplatePlacementBlock> Placement { get; set; } = new();
 
     /// <summary>
     /// Block for private_dns_name_options.
@@ -910,14 +910,14 @@ public partial class AwsLaunchTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateDnsNameOptions block(s) allowed")]
     [TerraformProperty("private_dns_name_options")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplatePrivateDnsNameOptionsBlock>>? PrivateDnsNameOptions { get; set; }
+    public TerraformList<AwsLaunchTemplatePrivateDnsNameOptionsBlock> PrivateDnsNameOptions { get; set; } = new();
 
     /// <summary>
     /// Block for tag_specifications.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tag_specifications")]
-    public partial TerraformList<TerraformBlock<AwsLaunchTemplateTagSpecificationsBlock>>? TagSpecifications { get; set; }
+    public TerraformList<AwsLaunchTemplateTagSpecificationsBlock> TagSpecifications { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

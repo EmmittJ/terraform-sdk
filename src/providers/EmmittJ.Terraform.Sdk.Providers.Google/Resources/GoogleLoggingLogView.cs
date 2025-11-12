@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleLoggingLogViewTimeoutsBlock : TerraformBlockBase
+public partial class GoogleLoggingLogViewTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,7 +96,7 @@ public partial class GoogleLoggingLogView : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleLoggingLogViewTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleLoggingLogViewTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The creation timestamp of the view.

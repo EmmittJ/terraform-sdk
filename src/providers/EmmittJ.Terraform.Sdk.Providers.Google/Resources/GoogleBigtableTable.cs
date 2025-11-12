@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_backup_policy in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBlockBase
+public partial class GoogleBigtableTableAutomatedBackupPolicyBlock() : TerraformBlock("automated_backup_policy")
 {
     /// <summary>
     /// How frequently automated backups should occur.
@@ -28,7 +28,7 @@ public partial class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBl
 /// Block type for column_family in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleBigtableTableColumnFamilyBlock : TerraformBlockBase
+public partial class GoogleBigtableTableColumnFamilyBlock() : TerraformBlock("column_family")
 {
     /// <summary>
     /// The name of the column family.
@@ -51,7 +51,7 @@ public partial class GoogleBigtableTableColumnFamilyBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigtableTableTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigtableTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,20 +148,20 @@ public partial class GoogleBigtableTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupPolicy block(s) allowed")]
     [TerraformProperty("automated_backup_policy")]
-    public partial TerraformSet<TerraformBlock<GoogleBigtableTableAutomatedBackupPolicyBlock>>? AutomatedBackupPolicy { get; set; }
+    public TerraformSet<GoogleBigtableTableAutomatedBackupPolicyBlock> AutomatedBackupPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for column_family.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("column_family")]
-    public partial TerraformSet<TerraformBlock<GoogleBigtableTableColumnFamilyBlock>>? ColumnFamily { get; set; }
+    public TerraformSet<GoogleBigtableTableColumnFamilyBlock> ColumnFamily { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigtableTableTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigtableTableTimeoutsBlock Timeouts { get; set; } = new();
 
 }

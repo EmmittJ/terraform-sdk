@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for trace_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApprunnerObservabilityConfigurationTraceConfigurationBlock : TerraformBlockBase
+public partial class AwsApprunnerObservabilityConfigurationTraceConfigurationBlock() : TerraformBlock("trace_configuration")
 {
     /// <summary>
     /// The vendor attribute.
@@ -69,7 +69,7 @@ public partial class AwsApprunnerObservabilityConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TraceConfiguration block(s) allowed")]
     [TerraformProperty("trace_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApprunnerObservabilityConfigurationTraceConfigurationBlock>>? TraceConfiguration { get; set; }
+    public TerraformList<AwsApprunnerObservabilityConfigurationTraceConfigurationBlock> TraceConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

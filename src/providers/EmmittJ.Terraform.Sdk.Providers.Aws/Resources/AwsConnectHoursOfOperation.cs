@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for config in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsConnectHoursOfOperationConfigBlock : TerraformBlockBase
+public partial class AwsConnectHoursOfOperationConfigBlock() : TerraformBlock("config")
 {
     /// <summary>
     /// The day attribute.
@@ -94,7 +94,7 @@ public partial class AwsConnectHoursOfOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [TerraformProperty("config")]
-    public partial TerraformSet<TerraformBlock<AwsConnectHoursOfOperationConfigBlock>>? Config { get; set; }
+    public required TerraformSet<AwsConnectHoursOfOperationConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

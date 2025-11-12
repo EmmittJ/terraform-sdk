@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for bgp_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayBgpSettingsBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayBgpSettingsBlock() : TerraformBlock("bgp_settings")
 {
     /// <summary>
     /// The asn attribute.
@@ -28,7 +28,7 @@ public partial class AzurermVirtualNetworkGatewayBgpSettingsBlock : TerraformBlo
 /// Block type for custom_route in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayCustomRouteBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayCustomRouteBlock() : TerraformBlock("custom_route")
 {
     /// <summary>
     /// The address_prefixes attribute.
@@ -43,7 +43,7 @@ public partial class AzurermVirtualNetworkGatewayCustomRouteBlock : TerraformBlo
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayIpConfigurationBlock() : TerraformBlock("ip_configuration")
 {
     /// <summary>
     /// The name attribute.
@@ -80,7 +80,7 @@ public partial class AzurermVirtualNetworkGatewayIpConfigurationBlock : Terrafor
 /// Block type for policy_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayPolicyGroupBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayPolicyGroupBlock() : TerraformBlock("policy_group")
 {
     /// <summary>
     /// The is_default attribute.
@@ -110,7 +110,7 @@ public partial class AzurermVirtualNetworkGatewayPolicyGroupBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,7 +146,7 @@ public partial class AzurermVirtualNetworkGatewayTimeoutsBlock : TerraformBlockB
 /// Block type for vpn_client_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock() : TerraformBlock("vpn_client_configuration")
 {
     /// <summary>
     /// The aad_audience attribute.
@@ -361,7 +361,7 @@ public partial class AzurermVirtualNetworkGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
     [TerraformProperty("bgp_settings")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayBgpSettingsBlock>>? BgpSettings { get; set; }
+    public TerraformList<AzurermVirtualNetworkGatewayBgpSettingsBlock> BgpSettings { get; set; } = new();
 
     /// <summary>
     /// Block for custom_route.
@@ -369,7 +369,7 @@ public partial class AzurermVirtualNetworkGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomRoute block(s) allowed")]
     [TerraformProperty("custom_route")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayCustomRouteBlock>>? CustomRoute { get; set; }
+    public TerraformList<AzurermVirtualNetworkGatewayCustomRouteBlock> CustomRoute { get; set; } = new();
 
     /// <summary>
     /// Block for ip_configuration.
@@ -379,21 +379,21 @@ public partial class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 IpConfiguration block(s) allowed")]
     [TerraformProperty("ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayIpConfigurationBlock>>? IpConfiguration { get; set; }
+    public required TerraformList<AzurermVirtualNetworkGatewayIpConfigurationBlock> IpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for policy_group.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("policy_group")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayPolicyGroupBlock>>? PolicyGroup { get; set; }
+    public TerraformList<AzurermVirtualNetworkGatewayPolicyGroupBlock> PolicyGroup { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualNetworkGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualNetworkGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpn_client_configuration.
@@ -401,6 +401,6 @@ public partial class AzurermVirtualNetworkGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpnClientConfiguration block(s) allowed")]
     [TerraformProperty("vpn_client_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayVpnClientConfigurationBlock>>? VpnClientConfiguration { get; set; }
+    public TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlock> VpnClientConfiguration { get; set; } = new();
 
 }

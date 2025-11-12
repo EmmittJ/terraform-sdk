@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for feature_tags in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadServicePrincipalFeatureTagsBlock : TerraformBlockBase
+public partial class AzureadServicePrincipalFeatureTagsBlock() : TerraformBlock("feature_tags")
 {
     /// <summary>
     /// Whether this service principal represents a custom SAML application
@@ -43,7 +43,7 @@ public partial class AzureadServicePrincipalFeatureTagsBlock : TerraformBlockBas
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzureadServicePrincipalFeaturesBlock : TerraformBlockBase
+public partial class AzureadServicePrincipalFeaturesBlock() : TerraformBlock("features")
 {
     /// <summary>
     /// Whether this service principal represents a custom SAML application
@@ -79,7 +79,7 @@ public partial class AzureadServicePrincipalFeaturesBlock : TerraformBlockBase
 /// Block type for saml_single_sign_on in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadServicePrincipalSamlSingleSignOnBlock : TerraformBlockBase
+public partial class AzureadServicePrincipalSamlSingleSignOnBlock() : TerraformBlock("saml_single_sign_on")
 {
     /// <summary>
     /// The relative URI the service provider would redirect to after completion of the single sign-on flow
@@ -94,7 +94,7 @@ public partial class AzureadServicePrincipalSamlSingleSignOnBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadServicePrincipalTimeoutsBlock : TerraformBlockBase
+public partial class AzureadServicePrincipalTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -233,7 +233,7 @@ public partial class AzureadServicePrincipal : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("feature_tags")]
-    public partial TerraformList<TerraformBlock<AzureadServicePrincipalFeatureTagsBlock>>? FeatureTags { get; set; }
+    public TerraformList<AzureadServicePrincipalFeatureTagsBlock> FeatureTags { get; set; } = new();
 
     /// <summary>
     /// Block for features.
@@ -241,7 +241,7 @@ public partial class AzureadServicePrincipal : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("features")]
-    public partial TerraformList<TerraformBlock<AzureadServicePrincipalFeaturesBlock>>? Features { get; set; }
+    public TerraformList<AzureadServicePrincipalFeaturesBlock> Features { get; set; } = new();
 
     /// <summary>
     /// Block for saml_single_sign_on.
@@ -249,14 +249,14 @@ public partial class AzureadServicePrincipal : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlSingleSignOn block(s) allowed")]
     [TerraformProperty("saml_single_sign_on")]
-    public partial TerraformList<TerraformBlock<AzureadServicePrincipalSamlSingleSignOnBlock>>? SamlSingleSignOn { get; set; }
+    public TerraformList<AzureadServicePrincipalSamlSingleSignOnBlock> SamlSingleSignOn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadServicePrincipalTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadServicePrincipalTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Mapping of app role names to UUIDs

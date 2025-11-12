@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermQumuloFileSystemTimeoutsBlock : TerraformBlockBase
+public partial class AzurermQumuloFileSystemTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -151,6 +151,6 @@ public partial class AzurermQumuloFileSystem : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermQumuloFileSystemTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermQumuloFileSystemTimeoutsBlock Timeouts { get; set; } = new();
 
 }

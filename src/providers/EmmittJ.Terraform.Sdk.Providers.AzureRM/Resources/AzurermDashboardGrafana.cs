@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_monitor_workspace_integrations in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock : TerraformBlockBase
+public partial class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock() : TerraformBlock("azure_monitor_workspace_integrations")
 {
     /// <summary>
     /// The resource_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDashboardGrafanaIdentityBlock : TerraformBlockBase
+public partial class AzurermDashboardGrafanaIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -47,7 +47,7 @@ public partial class AzurermDashboardGrafanaIdentityBlock : TerraformBlockBase
 /// Block type for smtp in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDashboardGrafanaSmtpBlock : TerraformBlockBase
+public partial class AzurermDashboardGrafanaSmtpBlock() : TerraformBlock("smtp")
 {
     /// <summary>
     /// The enabled attribute.
@@ -116,7 +116,7 @@ public partial class AzurermDashboardGrafanaSmtpBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDashboardGrafanaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -251,7 +251,7 @@ public partial class AzurermDashboardGrafana : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("azure_monitor_workspace_integrations")]
-    public partial TerraformList<TerraformBlock<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock>>? AzureMonitorWorkspaceIntegrations { get; set; }
+    public TerraformList<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock> AzureMonitorWorkspaceIntegrations { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -259,7 +259,7 @@ public partial class AzurermDashboardGrafana : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDashboardGrafanaIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermDashboardGrafanaIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for smtp.
@@ -267,14 +267,14 @@ public partial class AzurermDashboardGrafana : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Smtp block(s) allowed")]
     [TerraformProperty("smtp")]
-    public partial TerraformList<TerraformBlock<AzurermDashboardGrafanaSmtpBlock>>? Smtp { get; set; }
+    public TerraformList<AzurermDashboardGrafanaSmtpBlock> Smtp { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDashboardGrafanaTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDashboardGrafanaTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

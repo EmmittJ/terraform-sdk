@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermFirewallIpConfigurationBlock() : TerraformBlock("ip_configuration")
 {
     /// <summary>
     /// The name attribute.
@@ -37,7 +37,7 @@ public partial class AzurermFirewallIpConfigurationBlock : TerraformBlockBase
 /// Block type for management_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallManagementIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermFirewallManagementIpConfigurationBlock() : TerraformBlock("management_ip_configuration")
 {
     /// <summary>
     /// The name attribute.
@@ -70,7 +70,7 @@ public partial class AzurermFirewallManagementIpConfigurationBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFirewallTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFirewallTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -106,7 +106,7 @@ public partial class AzurermFirewallTimeoutsBlock : TerraformBlockBase
 /// Block type for virtual_hub in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallVirtualHubBlock : TerraformBlockBase
+public partial class AzurermFirewallVirtualHubBlock() : TerraformBlock("virtual_hub")
 {
 
 
@@ -238,7 +238,7 @@ public partial class AzurermFirewall : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallIpConfigurationBlock>>? IpConfiguration { get; set; }
+    public TerraformList<AzurermFirewallIpConfigurationBlock> IpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for management_ip_configuration.
@@ -246,14 +246,14 @@ public partial class AzurermFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementIpConfiguration block(s) allowed")]
     [TerraformProperty("management_ip_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallManagementIpConfigurationBlock>>? ManagementIpConfiguration { get; set; }
+    public TerraformList<AzurermFirewallManagementIpConfigurationBlock> ManagementIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFirewallTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFirewallTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_hub.
@@ -261,6 +261,6 @@ public partial class AzurermFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualHub block(s) allowed")]
     [TerraformProperty("virtual_hub")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallVirtualHubBlock>>? VirtualHub { get; set; }
+    public TerraformList<AzurermFirewallVirtualHubBlock> VirtualHub { get; set; } = new();
 
 }

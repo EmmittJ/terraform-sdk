@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for restrictions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApikeysKeyRestrictionsBlock : TerraformBlockBase
+public partial class GoogleApikeysKeyRestrictionsBlock() : TerraformBlock("restrictions")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApikeysKeyRestrictionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApikeysKeyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApikeysKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,14 +91,14 @@ public partial class GoogleApikeysKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restrictions block(s) allowed")]
     [TerraformProperty("restrictions")]
-    public partial TerraformList<TerraformBlock<GoogleApikeysKeyRestrictionsBlock>>? Restrictions { get; set; }
+    public TerraformList<GoogleApikeysKeyRestrictionsBlock> Restrictions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApikeysKeyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApikeysKeyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. An encrypted and signed value held by this key. This field can be accessed only through the `GetKeyString` method.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for multiplex_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlockBase
+public partial class AwsMedialiveMultiplexMultiplexSettingsBlock() : TerraformBlock("multiplex_settings")
 {
     /// <summary>
     /// The maximum_video_buffer_delay_milliseconds attribute.
@@ -44,7 +44,7 @@ public partial class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMedialiveMultiplexTimeoutsBlock : TerraformBlockBase
+public partial class AwsMedialiveMultiplexTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -136,14 +136,14 @@ public partial class AwsMedialiveMultiplex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiplexSettings block(s) allowed")]
     [TerraformProperty("multiplex_settings")]
-    public partial TerraformList<TerraformBlock<AwsMedialiveMultiplexMultiplexSettingsBlock>>? MultiplexSettings { get; set; }
+    public TerraformList<AwsMedialiveMultiplexMultiplexSettingsBlock> MultiplexSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMedialiveMultiplexTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMedialiveMultiplexTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

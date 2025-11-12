@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermMonitorMetricAlertActionBlock : TerraformBlockBase
+public partial class AzurermMonitorMetricAlertActionBlock() : TerraformBlock("action")
 {
     /// <summary>
     /// The action_group_id attribute.
@@ -29,7 +29,7 @@ public partial class AzurermMonitorMetricAlertActionBlock : TerraformBlockBase
 /// Block type for application_insights_web_test_location_availability_criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock : TerraformBlockBase
+public partial class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock() : TerraformBlock("application_insights_web_test_location_availability_criteria")
 {
     /// <summary>
     /// The component_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermMonitorMetricAlertApplicationInsightsWebTestLocation
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlockBase
+public partial class AzurermMonitorMetricAlertCriteriaBlock() : TerraformBlock("criteria")
 {
     /// <summary>
     /// The aggregation attribute.
@@ -116,7 +116,7 @@ public partial class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlockBase
 /// Block type for dynamic_criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlockBase
+public partial class AzurermMonitorMetricAlertDynamicCriteriaBlock() : TerraformBlock("dynamic_criteria")
 {
     /// <summary>
     /// The aggregation attribute.
@@ -192,7 +192,7 @@ public partial class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorMetricAlertTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -333,7 +333,7 @@ public partial class AzurermMonitorMetricAlert : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("action")]
-    public partial TerraformSet<TerraformBlock<AzurermMonitorMetricAlertActionBlock>>? Action { get; set; }
+    public TerraformSet<AzurermMonitorMetricAlertActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for application_insights_web_test_location_availability_criteria.
@@ -341,14 +341,14 @@ public partial class AzurermMonitorMetricAlert : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationInsightsWebTestLocationAvailabilityCriteria block(s) allowed")]
     [TerraformProperty("application_insights_web_test_location_availability_criteria")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock>>? ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; }
+    public TerraformList<AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock> ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; } = new();
 
     /// <summary>
     /// Block for criteria.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("criteria")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorMetricAlertCriteriaBlock>>? Criteria { get; set; }
+    public TerraformList<AzurermMonitorMetricAlertCriteriaBlock> Criteria { get; set; } = new();
 
     /// <summary>
     /// Block for dynamic_criteria.
@@ -356,13 +356,13 @@ public partial class AzurermMonitorMetricAlert : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamicCriteria block(s) allowed")]
     [TerraformProperty("dynamic_criteria")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorMetricAlertDynamicCriteriaBlock>>? DynamicCriteria { get; set; }
+    public TerraformList<AzurermMonitorMetricAlertDynamicCriteriaBlock> DynamicCriteria { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorMetricAlertTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorMetricAlertTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for admission_whitelist_patterns in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock : TerraformBlockBase
+public partial class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock() : TerraformBlock("admission_whitelist_patterns")
 {
     /// <summary>
     /// An image name pattern to whitelist, in the form
@@ -25,7 +25,7 @@ public partial class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBl
 /// Block type for cluster_admission_rules in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : TerraformBlockBase
+public partial class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock() : TerraformBlock("cluster_admission_rules")
 {
     /// <summary>
     /// The cluster attribute.
@@ -72,7 +72,7 @@ public partial class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock :
 /// Block type for default_admission_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : TerraformBlockBase
+public partial class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock() : TerraformBlock("default_admission_rule")
 {
     /// <summary>
     /// The action when a pod creation is denied by the admission rule. Possible values: [&amp;quot;ENFORCED_BLOCK_AND_AUDIT_LOG&amp;quot;, &amp;quot;DRYRUN_AUDIT_LOG_ONLY&amp;quot;]
@@ -111,7 +111,7 @@ public partial class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBinaryAuthorizationPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBinaryAuthorizationPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -181,14 +181,14 @@ public partial class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("admission_whitelist_patterns")]
-    public partial TerraformList<TerraformBlock<GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock>>? AdmissionWhitelistPatterns { get; set; }
+    public TerraformList<GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock> AdmissionWhitelistPatterns { get; set; } = new();
 
     /// <summary>
     /// Block for cluster_admission_rules.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cluster_admission_rules")]
-    public partial TerraformSet<TerraformBlock<GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock>>? ClusterAdmissionRules { get; set; }
+    public TerraformSet<GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock> ClusterAdmissionRules { get; set; } = new();
 
     /// <summary>
     /// Block for default_admission_rule.
@@ -198,13 +198,13 @@ public partial class GoogleBinaryAuthorizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAdmissionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAdmissionRule block(s) allowed")]
     [TerraformProperty("default_admission_rule")]
-    public partial TerraformList<TerraformBlock<GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock>>? DefaultAdmissionRule { get; set; }
+    public required TerraformList<GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock> DefaultAdmissionRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBinaryAuthorizationPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBinaryAuthorizationPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

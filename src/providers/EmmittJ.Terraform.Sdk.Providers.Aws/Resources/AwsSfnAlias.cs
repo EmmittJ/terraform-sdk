@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for routing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSfnAliasRoutingConfigurationBlock : TerraformBlockBase
+public partial class AwsSfnAliasRoutingConfigurationBlock() : TerraformBlock("routing_configuration")
 {
     /// <summary>
     /// The state_machine_version_arn attribute.
@@ -30,7 +30,7 @@ public partial class AwsSfnAliasRoutingConfigurationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSfnAliasTimeoutsBlock : TerraformBlockBase
+public partial class AwsSfnAliasTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,14 +101,14 @@ public partial class AwsSfnAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingConfiguration block(s) required")]
     [TerraformProperty("routing_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSfnAliasRoutingConfigurationBlock>>? RoutingConfiguration { get; set; }
+    public required TerraformList<AwsSfnAliasRoutingConfigurationBlock> RoutingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSfnAliasTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSfnAliasTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

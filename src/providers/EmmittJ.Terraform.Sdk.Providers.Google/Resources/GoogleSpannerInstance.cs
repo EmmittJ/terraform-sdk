@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSpannerInstanceAutoscalingConfigBlock : TerraformBlockBase
+public partial class GoogleSpannerInstanceAutoscalingConfigBlock() : TerraformBlock("autoscaling_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleSpannerInstanceAutoscalingConfigBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSpannerInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSpannerInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -162,14 +162,14 @@ public partial class GoogleSpannerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingConfig block(s) allowed")]
     [TerraformProperty("autoscaling_config")]
-    public partial TerraformList<TerraformBlock<GoogleSpannerInstanceAutoscalingConfigBlock>>? AutoscalingConfig { get; set; }
+    public TerraformList<GoogleSpannerInstanceAutoscalingConfigBlock> AutoscalingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSpannerInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSpannerInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

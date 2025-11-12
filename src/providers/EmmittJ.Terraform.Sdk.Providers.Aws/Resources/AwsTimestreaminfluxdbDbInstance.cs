@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for log_delivery_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock : TerraformBlockBase
+public partial class AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock() : TerraformBlock("log_delivery_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsTimestreaminfluxdbDbInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AwsTimestreaminfluxdbDbInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -203,14 +203,14 @@ public partial class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log_delivery_configuration")]
-    public partial TerraformList<TerraformBlock<AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock>>? LogDeliveryConfiguration { get; set; }
+    public TerraformList<AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock> LogDeliveryConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsTimestreaminfluxdbDbInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsTimestreaminfluxdbDbInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

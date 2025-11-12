@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for delegation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSubnetDelegationBlock : TerraformBlockBase
+public partial class AzurermSubnetDelegationBlock() : TerraformBlock("delegation")
 {
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermSubnetDelegationBlock : TerraformBlockBase
 /// Block type for ip_address_pool in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSubnetIpAddressPoolBlock : TerraformBlockBase
+public partial class AzurermSubnetIpAddressPoolBlock() : TerraformBlock("ip_address_pool")
 {
 
     /// <summary>
@@ -47,7 +47,7 @@ public partial class AzurermSubnetIpAddressPoolBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSubnetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSubnetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -174,7 +174,7 @@ public partial class AzurermSubnet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("delegation")]
-    public partial TerraformList<TerraformBlock<AzurermSubnetDelegationBlock>>? Delegation { get; set; }
+    public TerraformList<AzurermSubnetDelegationBlock> Delegation { get; set; } = new();
 
     /// <summary>
     /// Block for ip_address_pool.
@@ -182,13 +182,13 @@ public partial class AzurermSubnet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpAddressPool block(s) allowed")]
     [TerraformProperty("ip_address_pool")]
-    public partial TerraformList<TerraformBlock<AzurermSubnetIpAddressPoolBlock>>? IpAddressPool { get; set; }
+    public TerraformList<AzurermSubnetIpAddressPoolBlock> IpAddressPool { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSubnetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSubnetTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamOauthClientCredentialTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -103,7 +103,7 @@ public partial class GoogleIamOauthClientCredential : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamOauthClientCredentialTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamOauthClientCredentialTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The system-generated OAuth client secret.

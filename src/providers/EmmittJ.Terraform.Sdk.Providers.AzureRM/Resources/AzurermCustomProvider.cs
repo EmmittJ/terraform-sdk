@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCustomProviderActionBlock : TerraformBlockBase
+public partial class AzurermCustomProviderActionBlock() : TerraformBlock("action")
 {
     /// <summary>
     /// The endpoint attribute.
@@ -30,7 +30,7 @@ public partial class AzurermCustomProviderActionBlock : TerraformBlockBase
 /// Block type for resource_type in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCustomProviderResourceTypeBlock : TerraformBlockBase
+public partial class AzurermCustomProviderResourceTypeBlock() : TerraformBlock("resource_type")
 {
     /// <summary>
     /// The endpoint attribute.
@@ -61,7 +61,7 @@ public partial class AzurermCustomProviderResourceTypeBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCustomProviderTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCustomProviderTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -97,7 +97,7 @@ public partial class AzurermCustomProviderTimeoutsBlock : TerraformBlockBase
 /// Block type for validation in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermCustomProviderValidationBlock : TerraformBlockBase
+public partial class AzurermCustomProviderValidationBlock() : TerraformBlock("validation")
 {
     /// <summary>
     /// The specification attribute.
@@ -161,27 +161,27 @@ public partial class AzurermCustomProvider : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("action")]
-    public partial TerraformSet<TerraformBlock<AzurermCustomProviderActionBlock>>? Action { get; set; }
+    public TerraformSet<AzurermCustomProviderActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for resource_type.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("resource_type")]
-    public partial TerraformSet<TerraformBlock<AzurermCustomProviderResourceTypeBlock>>? ResourceType { get; set; }
+    public TerraformSet<AzurermCustomProviderResourceTypeBlock> ResourceType { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCustomProviderTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCustomProviderTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for validation.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("validation")]
-    public partial TerraformSet<TerraformBlock<AzurermCustomProviderValidationBlock>>? Validation { get; set; }
+    public TerraformSet<AzurermCustomProviderValidationBlock> Validation { get; set; } = new();
 
 }

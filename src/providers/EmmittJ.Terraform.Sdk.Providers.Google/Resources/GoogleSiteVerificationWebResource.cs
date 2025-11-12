@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for site in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlockBase
+public partial class GoogleSiteVerificationWebResourceSiteBlock() : TerraformBlock("site")
 {
     /// <summary>
     /// The site identifier. If the type is set to SITE, the identifier is a URL. If the type is
@@ -31,7 +31,7 @@ public partial class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSiteVerificationWebResourceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSiteVerificationWebResourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,14 +83,14 @@ public partial class GoogleSiteVerificationWebResource : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Site block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Site block(s) allowed")]
     [TerraformProperty("site")]
-    public partial TerraformList<TerraformBlock<GoogleSiteVerificationWebResourceSiteBlock>>? Site { get; set; }
+    public required TerraformList<GoogleSiteVerificationWebResourceSiteBlock> Site { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSiteVerificationWebResourceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSiteVerificationWebResourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The email addresses of all direct, verified owners of this exact property. Indirect owners —

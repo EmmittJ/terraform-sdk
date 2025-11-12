@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for serve in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirebaseAppHostingDomainServeBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingDomainServeBlock() : TerraformBlock("serve")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleFirebaseAppHostingDomainServeBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseAppHostingDomainTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -94,14 +94,14 @@ public partial class GoogleFirebaseAppHostingDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serve block(s) allowed")]
     [TerraformProperty("serve")]
-    public partial TerraformList<TerraformBlock<GoogleFirebaseAppHostingDomainServeBlock>>? Serve { get; set; }
+    public TerraformList<GoogleFirebaseAppHostingDomainServeBlock> Serve { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseAppHostingDomainTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseAppHostingDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time at which the domain was created.

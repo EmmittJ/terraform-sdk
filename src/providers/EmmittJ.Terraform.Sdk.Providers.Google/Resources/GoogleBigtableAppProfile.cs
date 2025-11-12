@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data_boost_isolation_read_only in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : TerraformBlockBase
+public partial class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock() : TerraformBlock("data_boost_isolation_read_only")
 {
     /// <summary>
     /// The Compute Billing Owner for this Data Boost App Profile. Possible values: [&amp;quot;HOST_PAYS&amp;quot;]
@@ -22,7 +22,7 @@ public partial class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : T
 /// Block type for single_cluster_routing in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigtableAppProfileSingleClusterRoutingBlock : TerraformBlockBase
+public partial class GoogleBigtableAppProfileSingleClusterRoutingBlock() : TerraformBlock("single_cluster_routing")
 {
     /// <summary>
     /// If true, CheckAndMutateRow and ReadModifyWriteRow requests are allowed by this app profile.
@@ -46,7 +46,7 @@ public partial class GoogleBigtableAppProfileSingleClusterRoutingBlock : Terrafo
 /// Block type for standard_isolation in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigtableAppProfileStandardIsolationBlock : TerraformBlockBase
+public partial class GoogleBigtableAppProfileStandardIsolationBlock() : TerraformBlock("standard_isolation")
 {
     /// <summary>
     /// The priority of requests sent using this app profile. Possible values: [&amp;quot;PRIORITY_LOW&amp;quot;, &amp;quot;PRIORITY_MEDIUM&amp;quot;, &amp;quot;PRIORITY_HIGH&amp;quot;]
@@ -62,7 +62,7 @@ public partial class GoogleBigtableAppProfileStandardIsolationBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigtableAppProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,7 +169,7 @@ public partial class GoogleBigtableAppProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataBoostIsolationReadOnly block(s) allowed")]
     [TerraformProperty("data_boost_isolation_read_only")]
-    public partial TerraformList<TerraformBlock<GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock>>? DataBoostIsolationReadOnly { get; set; }
+    public TerraformList<GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock> DataBoostIsolationReadOnly { get; set; } = new();
 
     /// <summary>
     /// Block for single_cluster_routing.
@@ -177,7 +177,7 @@ public partial class GoogleBigtableAppProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleClusterRouting block(s) allowed")]
     [TerraformProperty("single_cluster_routing")]
-    public partial TerraformList<TerraformBlock<GoogleBigtableAppProfileSingleClusterRoutingBlock>>? SingleClusterRouting { get; set; }
+    public TerraformList<GoogleBigtableAppProfileSingleClusterRoutingBlock> SingleClusterRouting { get; set; } = new();
 
     /// <summary>
     /// Block for standard_isolation.
@@ -185,14 +185,14 @@ public partial class GoogleBigtableAppProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StandardIsolation block(s) allowed")]
     [TerraformProperty("standard_isolation")]
-    public partial TerraformList<TerraformBlock<GoogleBigtableAppProfileStandardIsolationBlock>>? StandardIsolation { get; set; }
+    public TerraformList<GoogleBigtableAppProfileStandardIsolationBlock> StandardIsolation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigtableAppProfileTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigtableAppProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique name of the requested app profile. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/appProfiles/&amp;lt;appProfileId&amp;gt;&#39;.

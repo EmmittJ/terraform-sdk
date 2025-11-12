@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for tunnel1_log_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpnConnectionTunnel1LogOptionsBlock : TerraformBlockBase
+public partial class AwsVpnConnectionTunnel1LogOptionsBlock() : TerraformBlock("tunnel1_log_options")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsVpnConnectionTunnel1LogOptionsBlock : TerraformBlockBase
 /// Block type for tunnel2_log_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpnConnectionTunnel2LogOptionsBlock : TerraformBlockBase
+public partial class AwsVpnConnectionTunnel2LogOptionsBlock() : TerraformBlock("tunnel2_log_options")
 {
 }
 
@@ -428,7 +428,7 @@ public partial class AwsVpnConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tunnel1LogOptions block(s) allowed")]
     [TerraformProperty("tunnel1_log_options")]
-    public partial TerraformList<TerraformBlock<AwsVpnConnectionTunnel1LogOptionsBlock>>? Tunnel1LogOptions { get; set; }
+    public TerraformList<AwsVpnConnectionTunnel1LogOptionsBlock> Tunnel1LogOptions { get; set; } = new();
 
     /// <summary>
     /// Block for tunnel2_log_options.
@@ -436,7 +436,7 @@ public partial class AwsVpnConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tunnel2LogOptions block(s) allowed")]
     [TerraformProperty("tunnel2_log_options")]
-    public partial TerraformList<TerraformBlock<AwsVpnConnectionTunnel2LogOptionsBlock>>? Tunnel2LogOptions { get; set; }
+    public TerraformList<AwsVpnConnectionTunnel2LogOptionsBlock> Tunnel2LogOptions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

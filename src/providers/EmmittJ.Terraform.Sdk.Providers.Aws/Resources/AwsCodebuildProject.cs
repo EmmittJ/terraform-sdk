@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for artifacts in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildProjectArtifactsBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectArtifactsBlock() : TerraformBlock("artifacts")
 {
     /// <summary>
     /// The artifact_identifier attribute.
@@ -85,7 +85,7 @@ public partial class AwsCodebuildProjectArtifactsBlock : TerraformBlockBase
 /// Block type for build_batch_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectBuildBatchConfigBlock() : TerraformBlock("build_batch_config")
 {
     /// <summary>
     /// The combine_artifacts attribute.
@@ -115,7 +115,7 @@ public partial class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlockBa
 /// Block type for cache in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildProjectCacheBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectCacheBlock() : TerraformBlock("cache")
 {
     /// <summary>
     /// The location attribute.
@@ -144,7 +144,7 @@ public partial class AwsCodebuildProjectCacheBlock : TerraformBlockBase
 /// Block type for environment in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildProjectEnvironmentBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectEnvironmentBlock() : TerraformBlock("environment")
 {
     /// <summary>
     /// The certificate attribute.
@@ -197,7 +197,7 @@ public partial class AwsCodebuildProjectEnvironmentBlock : TerraformBlockBase
 /// Block type for file_system_locations in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectFileSystemLocationsBlock() : TerraformBlock("file_system_locations")
 {
     /// <summary>
     /// The identifier attribute.
@@ -240,7 +240,7 @@ public partial class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBloc
 /// Block type for logs_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildProjectLogsConfigBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectLogsConfigBlock() : TerraformBlock("logs_config")
 {
 }
 
@@ -248,7 +248,7 @@ public partial class AwsCodebuildProjectLogsConfigBlock : TerraformBlockBase
 /// Block type for secondary_artifacts in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectSecondaryArtifactsBlock() : TerraformBlock("secondary_artifacts")
 {
     /// <summary>
     /// The artifact_identifier attribute.
@@ -328,7 +328,7 @@ public partial class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
 /// Block type for secondary_source_version in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectSecondarySourceVersionBlock() : TerraformBlock("secondary_source_version")
 {
     /// <summary>
     /// The source_identifier attribute.
@@ -352,7 +352,7 @@ public partial class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformB
 /// Block type for secondary_sources in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectSecondarySourcesBlock() : TerraformBlock("secondary_sources")
 {
     /// <summary>
     /// The buildspec attribute.
@@ -411,7 +411,7 @@ public partial class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlockBa
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildProjectSourceBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The buildspec attribute.
@@ -462,7 +462,7 @@ public partial class AwsCodebuildProjectSourceBlock : TerraformBlockBase
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodebuildProjectVpcConfigBlock : TerraformBlockBase
+public partial class AwsCodebuildProjectVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -622,7 +622,7 @@ public partial class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Artifacts block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Artifacts block(s) allowed")]
     [TerraformProperty("artifacts")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildProjectArtifactsBlock>>? Artifacts { get; set; }
+    public required TerraformList<AwsCodebuildProjectArtifactsBlock> Artifacts { get; set; } = new();
 
     /// <summary>
     /// Block for build_batch_config.
@@ -630,7 +630,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BuildBatchConfig block(s) allowed")]
     [TerraformProperty("build_batch_config")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildProjectBuildBatchConfigBlock>>? BuildBatchConfig { get; set; }
+    public TerraformList<AwsCodebuildProjectBuildBatchConfigBlock> BuildBatchConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cache.
@@ -638,7 +638,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cache block(s) allowed")]
     [TerraformProperty("cache")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildProjectCacheBlock>>? Cache { get; set; }
+    public TerraformList<AwsCodebuildProjectCacheBlock> Cache { get; set; } = new();
 
     /// <summary>
     /// Block for environment.
@@ -648,14 +648,14 @@ public partial class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Environment block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Environment block(s) allowed")]
     [TerraformProperty("environment")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildProjectEnvironmentBlock>>? Environment { get; set; }
+    public required TerraformList<AwsCodebuildProjectEnvironmentBlock> Environment { get; set; } = new();
 
     /// <summary>
     /// Block for file_system_locations.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("file_system_locations")]
-    public partial TerraformSet<TerraformBlock<AwsCodebuildProjectFileSystemLocationsBlock>>? FileSystemLocations { get; set; }
+    public TerraformSet<AwsCodebuildProjectFileSystemLocationsBlock> FileSystemLocations { get; set; } = new();
 
     /// <summary>
     /// Block for logs_config.
@@ -663,7 +663,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogsConfig block(s) allowed")]
     [TerraformProperty("logs_config")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildProjectLogsConfigBlock>>? LogsConfig { get; set; }
+    public TerraformList<AwsCodebuildProjectLogsConfigBlock> LogsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_artifacts.
@@ -671,7 +671,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondaryArtifacts block(s) allowed")]
     [TerraformProperty("secondary_artifacts")]
-    public partial TerraformSet<TerraformBlock<AwsCodebuildProjectSecondaryArtifactsBlock>>? SecondaryArtifacts { get; set; }
+    public TerraformSet<AwsCodebuildProjectSecondaryArtifactsBlock> SecondaryArtifacts { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_source_version.
@@ -679,7 +679,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondarySourceVersion block(s) allowed")]
     [TerraformProperty("secondary_source_version")]
-    public partial TerraformSet<TerraformBlock<AwsCodebuildProjectSecondarySourceVersionBlock>>? SecondarySourceVersion { get; set; }
+    public TerraformSet<AwsCodebuildProjectSecondarySourceVersionBlock> SecondarySourceVersion { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_sources.
@@ -687,7 +687,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondarySources block(s) allowed")]
     [TerraformProperty("secondary_sources")]
-    public partial TerraformSet<TerraformBlock<AwsCodebuildProjectSecondarySourcesBlock>>? SecondarySources { get; set; }
+    public TerraformSet<AwsCodebuildProjectSecondarySourcesBlock> SecondarySources { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -697,7 +697,7 @@ public partial class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildProjectSourceBlock>>? Source { get; set; }
+    public required TerraformList<AwsCodebuildProjectSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -705,7 +705,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsCodebuildProjectVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsCodebuildProjectVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

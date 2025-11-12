@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFirebaseAppHostingBuildSourceBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingBuildSourceBlock() : TerraformBlock("source")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleFirebaseAppHostingBuildSourceBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseAppHostingBuildTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppHostingBuildTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,14 +125,14 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<GoogleFirebaseAppHostingBuildSourceBlock>>? Source { get; set; }
+    public required TerraformList<GoogleFirebaseAppHostingBuildSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseAppHostingBuildTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseAppHostingBuildTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The location of the [Cloud Build

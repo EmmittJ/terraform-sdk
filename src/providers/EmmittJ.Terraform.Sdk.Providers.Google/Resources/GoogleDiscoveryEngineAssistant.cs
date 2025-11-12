@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for customer_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineAssistantCustomerPolicyBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineAssistantCustomerPolicyBlock() : TerraformBlock("customer_policy")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDiscoveryEngineAssistantCustomerPolicyBlock : Terrafo
 /// Block type for generation_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineAssistantGenerationConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineAssistantGenerationConfigBlock() : TerraformBlock("generation_config")
 {
     /// <summary>
     /// The default language to use for the generation of the assistant response.
@@ -31,7 +31,7 @@ public partial class GoogleDiscoveryEngineAssistantGenerationConfigBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineAssistantTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -145,7 +145,7 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerPolicy block(s) allowed")]
     [TerraformProperty("customer_policy")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineAssistantCustomerPolicyBlock>>? CustomerPolicy { get; set; }
+    public TerraformList<GoogleDiscoveryEngineAssistantCustomerPolicyBlock> CustomerPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for generation_config.
@@ -153,14 +153,14 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenerationConfig block(s) allowed")]
     [TerraformProperty("generation_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineAssistantGenerationConfigBlock>>? GenerationConfig { get; set; }
+    public TerraformList<GoogleDiscoveryEngineAssistantGenerationConfigBlock> GenerationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineAssistantTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineAssistantTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Resource name of the assistant.

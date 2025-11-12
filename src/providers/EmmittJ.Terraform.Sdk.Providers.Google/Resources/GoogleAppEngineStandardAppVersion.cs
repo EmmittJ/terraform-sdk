@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automatic_scaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionAutomaticScalingBlock() : TerraformBlock("automatic_scaling")
 {
     /// <summary>
     /// Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.
@@ -53,7 +53,7 @@ public partial class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : Te
 /// Block type for basic_scaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionBasicScalingBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionBasicScalingBlock() : TerraformBlock("basic_scaling")
 {
     /// <summary>
     /// Duration of time after the last request that an instance must wait before the instance is shut down.
@@ -77,7 +77,7 @@ public partial class GoogleAppEngineStandardAppVersionBasicScalingBlock : Terraf
 /// Block type for deployment in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionDeploymentBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionDeploymentBlock() : TerraformBlock("deployment")
 {
 }
 
@@ -85,7 +85,7 @@ public partial class GoogleAppEngineStandardAppVersionDeploymentBlock : Terrafor
 /// Block type for entrypoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionEntrypointBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionEntrypointBlock() : TerraformBlock("entrypoint")
 {
     /// <summary>
     /// The format should be a shell command that can be fed to bash -c.
@@ -101,7 +101,7 @@ public partial class GoogleAppEngineStandardAppVersionEntrypointBlock : Terrafor
 /// Block type for handlers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionHandlersBlock() : TerraformBlock("handlers")
 {
     /// <summary>
     /// Actions to take when the user is not logged in. Possible values: [&amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot;, &amp;quot;AUTH_FAIL_ACTION_UNAUTHORIZED&amp;quot;]
@@ -145,7 +145,7 @@ public partial class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformB
 /// Block type for libraries in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionLibrariesBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionLibrariesBlock() : TerraformBlock("libraries")
 {
     /// <summary>
     /// Name of the library. Example &amp;quot;django&amp;quot;.
@@ -167,7 +167,7 @@ public partial class GoogleAppEngineStandardAppVersionLibrariesBlock : Terraform
 /// Block type for manual_scaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionManualScalingBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionManualScalingBlock() : TerraformBlock("manual_scaling")
 {
     /// <summary>
     /// Number of instances to assign to the service at the start.
@@ -186,7 +186,7 @@ public partial class GoogleAppEngineStandardAppVersionManualScalingBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -215,7 +215,7 @@ public partial class GoogleAppEngineStandardAppVersionTimeoutsBlock : TerraformB
 /// Block type for vpc_access_connector in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock : TerraformBlockBase
+public partial class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock() : TerraformBlock("vpc_access_connector")
 {
     /// <summary>
     /// The egress setting for the connector, controlling what traffic is diverted through it.
@@ -355,7 +355,7 @@ public partial class GoogleAppEngineStandardAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticScaling block(s) allowed")]
     [TerraformProperty("automatic_scaling")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionAutomaticScalingBlock>>? AutomaticScaling { get; set; }
+    public TerraformList<GoogleAppEngineStandardAppVersionAutomaticScalingBlock> AutomaticScaling { get; set; } = new();
 
     /// <summary>
     /// Block for basic_scaling.
@@ -363,7 +363,7 @@ public partial class GoogleAppEngineStandardAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicScaling block(s) allowed")]
     [TerraformProperty("basic_scaling")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionBasicScalingBlock>>? BasicScaling { get; set; }
+    public TerraformList<GoogleAppEngineStandardAppVersionBasicScalingBlock> BasicScaling { get; set; } = new();
 
     /// <summary>
     /// Block for deployment.
@@ -373,7 +373,7 @@ public partial class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Deployment block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deployment block(s) allowed")]
     [TerraformProperty("deployment")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionDeploymentBlock>>? Deployment { get; set; }
+    public required TerraformList<GoogleAppEngineStandardAppVersionDeploymentBlock> Deployment { get; set; } = new();
 
     /// <summary>
     /// Block for entrypoint.
@@ -383,21 +383,21 @@ public partial class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entrypoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Entrypoint block(s) allowed")]
     [TerraformProperty("entrypoint")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionEntrypointBlock>>? Entrypoint { get; set; }
+    public required TerraformList<GoogleAppEngineStandardAppVersionEntrypointBlock> Entrypoint { get; set; } = new();
 
     /// <summary>
     /// Block for handlers.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("handlers")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionHandlersBlock>>? Handlers { get; set; }
+    public TerraformList<GoogleAppEngineStandardAppVersionHandlersBlock> Handlers { get; set; } = new();
 
     /// <summary>
     /// Block for libraries.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("libraries")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionLibrariesBlock>>? Libraries { get; set; }
+    public TerraformList<GoogleAppEngineStandardAppVersionLibrariesBlock> Libraries { get; set; } = new();
 
     /// <summary>
     /// Block for manual_scaling.
@@ -405,14 +405,14 @@ public partial class GoogleAppEngineStandardAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualScaling block(s) allowed")]
     [TerraformProperty("manual_scaling")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionManualScalingBlock>>? ManualScaling { get; set; }
+    public TerraformList<GoogleAppEngineStandardAppVersionManualScalingBlock> ManualScaling { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAppEngineStandardAppVersionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAppEngineStandardAppVersionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_access_connector.
@@ -420,7 +420,7 @@ public partial class GoogleAppEngineStandardAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcAccessConnector block(s) allowed")]
     [TerraformProperty("vpc_access_connector")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock>>? VpcAccessConnector { get; set; }
+    public TerraformList<GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock> VpcAccessConnector { get; set; } = new();
 
     /// <summary>
     /// Full path to the Version resource in the API. Example, &amp;quot;v1&amp;quot;.

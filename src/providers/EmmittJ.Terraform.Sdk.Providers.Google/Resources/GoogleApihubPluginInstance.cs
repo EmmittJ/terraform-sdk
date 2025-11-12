@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for actions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApihubPluginInstanceActionsBlock : TerraformBlockBase
+public partial class GoogleApihubPluginInstanceActionsBlock() : TerraformBlock("actions")
 {
     /// <summary>
     /// This should map to one of the action id specified
@@ -41,7 +41,7 @@ public partial class GoogleApihubPluginInstanceActionsBlock : TerraformBlockBase
 /// Block type for auth_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApihubPluginInstanceAuthConfigBlock : TerraformBlockBase
+public partial class GoogleApihubPluginInstanceAuthConfigBlock() : TerraformBlock("auth_config")
 {
     /// <summary>
     /// Possible values:
@@ -63,7 +63,7 @@ public partial class GoogleApihubPluginInstanceAuthConfigBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApihubPluginInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApihubPluginInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,7 +165,7 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("actions")]
-    public partial TerraformList<TerraformBlock<GoogleApihubPluginInstanceActionsBlock>>? Actions { get; set; }
+    public TerraformList<GoogleApihubPluginInstanceActionsBlock> Actions { get; set; } = new();
 
     /// <summary>
     /// Block for auth_config.
@@ -173,14 +173,14 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthConfig block(s) allowed")]
     [TerraformProperty("auth_config")]
-    public partial TerraformList<TerraformBlock<GoogleApihubPluginInstanceAuthConfigBlock>>? AuthConfig { get; set; }
+    public TerraformList<GoogleApihubPluginInstanceAuthConfigBlock> AuthConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApihubPluginInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApihubPluginInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp indicating when the plugin instance was created.

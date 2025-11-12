@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for task_restart_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaConnectorTaskRestartPolicyBlock() : TerraformBlock("task_restart_policy")
 {
     /// <summary>
     /// The maximum amount of time to wait before retrying a failed task. This sets an upper bound for the backoff delay.
@@ -30,7 +30,7 @@ public partial class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaConnectorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -116,14 +116,14 @@ public partial class GoogleManagedKafkaConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskRestartPolicy block(s) allowed")]
     [TerraformProperty("task_restart_policy")]
-    public partial TerraformList<TerraformBlock<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>>? TaskRestartPolicy { get; set; }
+    public TerraformList<GoogleManagedKafkaConnectorTaskRestartPolicyBlock> TaskRestartPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleManagedKafkaConnectorTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleManagedKafkaConnectorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the connector. The &#39;connector&#39; segment is used when connecting directly to the connect cluster. Structured like: &#39;projects/PROJECT_ID/locations/LOCATION/connectClusters/CONNECT_CLUSTER/connectors/CONNECTOR_ID&#39;.

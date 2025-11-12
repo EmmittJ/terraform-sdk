@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLogicAppStandardConnectionStringBlock : TerraformBlockBase
+public partial class AzurermLogicAppStandardConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermLogicAppStandardConnectionStringBlock : TerraformBlo
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppStandardIdentityBlock : TerraformBlockBase
+public partial class AzurermLogicAppStandardIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -63,7 +63,7 @@ public partial class AzurermLogicAppStandardIdentityBlock : TerraformBlockBase
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogicAppStandardSiteConfigBlock : TerraformBlockBase
+public partial class AzurermLogicAppStandardSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// The always_on attribute.
@@ -199,7 +199,7 @@ public partial class AzurermLogicAppStandardSiteConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppStandardTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppStandardTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -406,7 +406,7 @@ public partial class AzurermLogicAppStandard : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermLogicAppStandardConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermLogicAppStandardConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -414,7 +414,7 @@ public partial class AzurermLogicAppStandard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppStandardIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermLogicAppStandardIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -422,14 +422,14 @@ public partial class AzurermLogicAppStandard : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermLogicAppStandardSiteConfigBlock>>? SiteConfig { get; set; }
+    public TerraformList<AzurermLogicAppStandardSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppStandardTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppStandardTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_domain_verification_id attribute.

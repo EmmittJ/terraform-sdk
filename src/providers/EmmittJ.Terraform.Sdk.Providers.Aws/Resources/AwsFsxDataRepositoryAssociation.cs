@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxDataRepositoryAssociationS3Block : TerraformBlockBase
+public partial class AwsFsxDataRepositoryAssociationS3Block() : TerraformBlock("s3")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsFsxDataRepositoryAssociationS3Block : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxDataRepositoryAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxDataRepositoryAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,14 +128,14 @@ public partial class AwsFsxDataRepositoryAssociation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3 block(s) allowed")]
     [TerraformProperty("s3")]
-    public partial TerraformList<TerraformBlock<AwsFsxDataRepositoryAssociationS3Block>>? S3 { get; set; }
+    public TerraformList<AwsFsxDataRepositoryAssociationS3Block> S3 { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxDataRepositoryAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxDataRepositoryAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

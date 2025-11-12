@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_read_cache_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock() : TerraformBlock("data_read_cache_configuration")
 {
     /// <summary>
     /// The size attribute.
@@ -29,7 +29,7 @@ public partial class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : Ter
 /// Block type for log_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxLustreFileSystemLogConfigurationBlock() : TerraformBlock("log_configuration")
 {
     /// <summary>
     /// The destination attribute.
@@ -51,7 +51,7 @@ public partial class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBloc
 /// Block type for metadata_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxLustreFileSystemMetadataConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxLustreFileSystemMetadataConfigurationBlock() : TerraformBlock("metadata_configuration")
 {
     /// <summary>
     /// The iops attribute.
@@ -73,7 +73,7 @@ public partial class AwsFsxLustreFileSystemMetadataConfigurationBlock : Terrafor
 /// Block type for root_squash_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxLustreFileSystemRootSquashConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxLustreFileSystemRootSquashConfigurationBlock() : TerraformBlock("root_squash_configuration")
 {
     /// <summary>
     /// The no_squash_nids attribute.
@@ -95,7 +95,7 @@ public partial class AwsFsxLustreFileSystemRootSquashConfigurationBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxLustreFileSystemTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -326,7 +326,7 @@ public partial class AwsFsxLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataReadCacheConfiguration block(s) allowed")]
     [TerraformProperty("data_read_cache_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxLustreFileSystemDataReadCacheConfigurationBlock>>? DataReadCacheConfiguration { get; set; }
+    public TerraformList<AwsFsxLustreFileSystemDataReadCacheConfigurationBlock> DataReadCacheConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for log_configuration.
@@ -334,7 +334,7 @@ public partial class AwsFsxLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
     [TerraformProperty("log_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxLustreFileSystemLogConfigurationBlock>>? LogConfiguration { get; set; }
+    public TerraformList<AwsFsxLustreFileSystemLogConfigurationBlock> LogConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for metadata_configuration.
@@ -342,7 +342,7 @@ public partial class AwsFsxLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataConfiguration block(s) allowed")]
     [TerraformProperty("metadata_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxLustreFileSystemMetadataConfigurationBlock>>? MetadataConfiguration { get; set; }
+    public TerraformList<AwsFsxLustreFileSystemMetadataConfigurationBlock> MetadataConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for root_squash_configuration.
@@ -350,14 +350,14 @@ public partial class AwsFsxLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootSquashConfiguration block(s) allowed")]
     [TerraformProperty("root_squash_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxLustreFileSystemRootSquashConfigurationBlock>>? RootSquashConfiguration { get; set; }
+    public TerraformList<AwsFsxLustreFileSystemRootSquashConfigurationBlock> RootSquashConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxLustreFileSystemTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxLustreFileSystemTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

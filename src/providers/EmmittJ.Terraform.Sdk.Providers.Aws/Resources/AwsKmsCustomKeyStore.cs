@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKmsCustomKeyStoreTimeoutsBlock : TerraformBlockBase
+public partial class AwsKmsCustomKeyStoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsKmsCustomKeyStoreTimeoutsBlock : TerraformBlockBase
 /// Block type for xks_proxy_authentication_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : TerraformBlockBase
+public partial class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock() : TerraformBlock("xks_proxy_authentication_credential")
 {
     /// <summary>
     /// The access_key_id attribute.
@@ -148,7 +148,7 @@ public partial class AwsKmsCustomKeyStore : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKmsCustomKeyStoreTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKmsCustomKeyStoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for xks_proxy_authentication_credential.
@@ -156,6 +156,6 @@ public partial class AwsKmsCustomKeyStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 XksProxyAuthenticationCredential block(s) allowed")]
     [TerraformProperty("xks_proxy_authentication_credential")]
-    public partial TerraformList<TerraformBlock<AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock>>? XksProxyAuthenticationCredential { get; set; }
+    public TerraformList<AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock> XksProxyAuthenticationCredential { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for maintenance_start_time in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlockBase
+public partial class AwsStoragegatewayGatewayMaintenanceStartTimeBlock() : TerraformBlock("maintenance_start_time")
 {
     /// <summary>
     /// The day_of_month attribute.
@@ -43,7 +43,7 @@ public partial class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : Terrafo
 /// Block type for smb_active_directory_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : TerraformBlockBase
+public partial class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock() : TerraformBlock("smb_active_directory_settings")
 {
 
     /// <summary>
@@ -97,7 +97,7 @@ public partial class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsStoragegatewayGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AwsStoragegatewayGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -252,7 +252,7 @@ public partial class AwsStoragegatewayGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceStartTime block(s) allowed")]
     [TerraformProperty("maintenance_start_time")]
-    public partial TerraformList<TerraformBlock<AwsStoragegatewayGatewayMaintenanceStartTimeBlock>>? MaintenanceStartTime { get; set; }
+    public TerraformList<AwsStoragegatewayGatewayMaintenanceStartTimeBlock> MaintenanceStartTime { get; set; } = new();
 
     /// <summary>
     /// Block for smb_active_directory_settings.
@@ -260,14 +260,14 @@ public partial class AwsStoragegatewayGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmbActiveDirectorySettings block(s) allowed")]
     [TerraformProperty("smb_active_directory_settings")]
-    public partial TerraformList<TerraformBlock<AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock>>? SmbActiveDirectorySettings { get; set; }
+    public TerraformList<AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock> SmbActiveDirectorySettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsStoragegatewayGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AwsStoragegatewayGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

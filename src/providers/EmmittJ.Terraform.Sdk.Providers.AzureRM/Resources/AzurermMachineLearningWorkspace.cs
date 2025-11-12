@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlockBase
+public partial class AzurermMachineLearningWorkspaceEncryptionBlock() : TerraformBlock("encryption")
 {
     /// <summary>
     /// The key_id attribute.
@@ -37,7 +37,7 @@ public partial class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformB
 /// Block type for feature_store in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningWorkspaceFeatureStoreBlock : TerraformBlockBase
+public partial class AzurermMachineLearningWorkspaceFeatureStoreBlock() : TerraformBlock("feature_store")
 {
     /// <summary>
     /// The computer_spark_runtime_version attribute.
@@ -66,7 +66,7 @@ public partial class AzurermMachineLearningWorkspaceFeatureStoreBlock : Terrafor
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlockBase
+public partial class AzurermMachineLearningWorkspaceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -91,7 +91,7 @@ public partial class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlo
 /// Block type for managed_network in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningWorkspaceManagedNetworkBlock : TerraformBlockBase
+public partial class AzurermMachineLearningWorkspaceManagedNetworkBlock() : TerraformBlock("managed_network")
 {
     /// <summary>
     /// The isolation_mode attribute.
@@ -113,7 +113,7 @@ public partial class AzurermMachineLearningWorkspaceManagedNetworkBlock : Terraf
 /// Block type for serverless_compute in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningWorkspaceServerlessComputeBlock : TerraformBlockBase
+public partial class AzurermMachineLearningWorkspaceServerlessComputeBlock() : TerraformBlock("serverless_compute")
 {
     /// <summary>
     /// The public_ip_enabled attribute.
@@ -135,7 +135,7 @@ public partial class AzurermMachineLearningWorkspaceServerlessComputeBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMachineLearningWorkspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -322,7 +322,7 @@ public partial class AzurermMachineLearningWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<AzurermMachineLearningWorkspaceEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for feature_store.
@@ -330,7 +330,7 @@ public partial class AzurermMachineLearningWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureStore block(s) allowed")]
     [TerraformProperty("feature_store")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceFeatureStoreBlock>>? FeatureStore { get; set; }
+    public TerraformList<AzurermMachineLearningWorkspaceFeatureStoreBlock> FeatureStore { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -340,7 +340,7 @@ public partial class AzurermMachineLearningWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermMachineLearningWorkspaceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for managed_network.
@@ -348,7 +348,7 @@ public partial class AzurermMachineLearningWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedNetwork block(s) allowed")]
     [TerraformProperty("managed_network")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceManagedNetworkBlock>>? ManagedNetwork { get; set; }
+    public TerraformList<AzurermMachineLearningWorkspaceManagedNetworkBlock> ManagedNetwork { get; set; } = new();
 
     /// <summary>
     /// Block for serverless_compute.
@@ -356,14 +356,14 @@ public partial class AzurermMachineLearningWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerlessCompute block(s) allowed")]
     [TerraformProperty("serverless_compute")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceServerlessComputeBlock>>? ServerlessCompute { get; set; }
+    public TerraformList<AzurermMachineLearningWorkspaceServerlessComputeBlock> ServerlessCompute { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMachineLearningWorkspaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMachineLearningWorkspaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The discovery_url attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for policy_definition_group in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock : TerraformBlockBase
+public partial class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock() : TerraformBlock("policy_definition_group")
 {
     /// <summary>
     /// The additional_metadata_resource_id attribute.
@@ -50,7 +50,7 @@ public partial class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGr
 /// Block type for policy_definition_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceBlock : TerraformBlockBase
+public partial class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceBlock() : TerraformBlock("policy_definition_reference")
 {
     /// <summary>
     /// The parameter_values attribute.
@@ -94,7 +94,7 @@ public partial class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionRe
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -201,7 +201,7 @@ public partial class AzurermManagementGroupPolicySetDefinition : TerraformResour
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("policy_definition_group")]
-    public partial TerraformSet<TerraformBlock<AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock>>? PolicyDefinitionGroup { get; set; }
+    public TerraformSet<AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock> PolicyDefinitionGroup { get; set; } = new();
 
     /// <summary>
     /// Block for policy_definition_reference.
@@ -210,13 +210,13 @@ public partial class AzurermManagementGroupPolicySetDefinition : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicyDefinitionReference block(s) required")]
     [TerraformProperty("policy_definition_reference")]
-    public partial TerraformList<TerraformBlock<AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceBlock>>? PolicyDefinitionReference { get; set; }
+    public required TerraformList<AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceBlock> PolicyDefinitionReference { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagementGroupPolicySetDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagementGroupPolicySetDefinitionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

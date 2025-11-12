@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for group_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlockBase
+public partial class GoogleCloudIdentityGroupGroupKeyBlock() : TerraformBlock("group_key")
 {
     /// <summary>
     /// The ID of the entity.
@@ -44,7 +44,7 @@ public partial class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudIdentityGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,14 +148,14 @@ public partial class GoogleCloudIdentityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
     [TerraformProperty("group_key")]
-    public partial TerraformList<TerraformBlock<GoogleCloudIdentityGroupGroupKeyBlock>>? GroupKey { get; set; }
+    public required TerraformList<GoogleCloudIdentityGroupGroupKeyBlock> GroupKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudIdentityGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudIdentityGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Additional group keys associated with the Group

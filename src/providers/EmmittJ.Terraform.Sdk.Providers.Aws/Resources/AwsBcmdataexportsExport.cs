@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for export in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBcmdataexportsExportExportBlock : TerraformBlockBase
+public partial class AwsBcmdataexportsExportExportBlock() : TerraformBlock("export")
 {
     /// <summary>
     /// The description attribute.
@@ -30,7 +30,7 @@ public partial class AwsBcmdataexportsExportExportBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBcmdataexportsExportTimeoutsBlock : TerraformBlockBase
+public partial class AwsBcmdataexportsExportTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -69,14 +69,14 @@ public partial class AwsBcmdataexportsExport : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("export")]
-    public partial TerraformList<TerraformBlock<AwsBcmdataexportsExportExportBlock>>? Export { get; set; }
+    public TerraformList<AwsBcmdataexportsExportExportBlock> Export { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBcmdataexportsExportTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBcmdataexportsExportTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

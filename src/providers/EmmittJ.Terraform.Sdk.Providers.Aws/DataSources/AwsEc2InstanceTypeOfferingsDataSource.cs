@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2InstanceTypeOfferingsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2InstanceTypeOfferingsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsEc2InstanceTypeOfferingsDataSourceFilterBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2InstanceTypeOfferingsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2InstanceTypeOfferingsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -76,14 +76,14 @@ public partial class AwsEc2InstanceTypeOfferingsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2InstanceTypeOfferingsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2InstanceTypeOfferingsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2InstanceTypeOfferingsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2InstanceTypeOfferingsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The instance_types attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaserulesReleaseTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaserulesReleaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,7 +68,7 @@ public partial class GoogleFirebaserulesRelease : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaserulesReleaseTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaserulesReleaseTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Time the release was created.

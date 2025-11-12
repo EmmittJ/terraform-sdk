@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_bgp_addresses in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock() : TerraformBlock("custom_bgp_addresses")
 {
     /// <summary>
     /// The primary attribute.
@@ -29,7 +29,7 @@ public partial class AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlo
 /// Block type for ipsec_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock() : TerraformBlock("ipsec_policy")
 {
     /// <summary>
     /// The dh_group attribute.
@@ -99,7 +99,7 @@ public partial class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -135,7 +135,7 @@ public partial class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock : Terra
 /// Block type for traffic_selector_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock() : TerraformBlock("traffic_selector_policy")
 {
     /// <summary>
     /// The local_address_cidrs attribute.
@@ -337,7 +337,7 @@ public partial class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomBgpAddresses block(s) allowed")]
     [TerraformProperty("custom_bgp_addresses")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock>>? CustomBgpAddresses { get; set; }
+    public TerraformList<AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock> CustomBgpAddresses { get; set; } = new();
 
     /// <summary>
     /// Block for ipsec_policy.
@@ -345,20 +345,20 @@ public partial class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpsecPolicy block(s) allowed")]
     [TerraformProperty("ipsec_policy")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock>>? IpsecPolicy { get; set; }
+    public TerraformList<AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock> IpsecPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualNetworkGatewayConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualNetworkGatewayConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_selector_policy.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("traffic_selector_policy")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock>>? TrafficSelectorPolicy { get; set; }
+    public TerraformList<AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock> TrafficSelectorPolicy { get; set; } = new();
 
 }

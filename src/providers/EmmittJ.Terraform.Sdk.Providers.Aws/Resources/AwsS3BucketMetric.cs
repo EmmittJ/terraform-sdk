@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketMetricFilterBlock : TerraformBlockBase
+public partial class AwsS3BucketMetricFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The access_point attribute.
@@ -77,6 +77,6 @@ public partial class AwsS3BucketMetric : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketMetricFilterBlock>>? Filter { get; set; }
+    public TerraformList<AwsS3BucketMetricFilterBlock> Filter { get; set; } = new();
 
 }

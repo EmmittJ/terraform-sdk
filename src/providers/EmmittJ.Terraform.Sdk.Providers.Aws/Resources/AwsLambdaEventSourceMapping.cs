@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for amazon_managed_kafka_event_source_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock() : TerraformBlock("amazon_managed_kafka_event_source_config")
 {
     /// <summary>
     /// The consumer_group_id attribute.
@@ -21,7 +21,7 @@ public partial class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceCon
 /// Block type for destination_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingDestinationConfigBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingDestinationConfigBlock() : TerraformBlock("destination_config")
 {
 }
 
@@ -29,7 +29,7 @@ public partial class AwsLambdaEventSourceMappingDestinationConfigBlock : Terrafo
 /// Block type for document_db_event_source_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock() : TerraformBlock("document_db_event_source_config")
 {
     /// <summary>
     /// The collection_name attribute.
@@ -59,7 +59,7 @@ public partial class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock
 /// Block type for filter_criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingFilterCriteriaBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingFilterCriteriaBlock() : TerraformBlock("filter_criteria")
 {
 }
 
@@ -67,7 +67,7 @@ public partial class AwsLambdaEventSourceMappingFilterCriteriaBlock : TerraformB
 /// Block type for metrics_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingMetricsConfigBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingMetricsConfigBlock() : TerraformBlock("metrics_config")
 {
     /// <summary>
     /// The metrics attribute.
@@ -83,7 +83,7 @@ public partial class AwsLambdaEventSourceMappingMetricsConfigBlock : TerraformBl
 /// Block type for provisioned_poller_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock() : TerraformBlock("provisioned_poller_config")
 {
     /// <summary>
     /// The maximum_pollers attribute.
@@ -105,7 +105,7 @@ public partial class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock : T
 /// Block type for scaling_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingScalingConfigBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingScalingConfigBlock() : TerraformBlock("scaling_config")
 {
     /// <summary>
     /// The maximum_concurrency attribute.
@@ -120,7 +120,7 @@ public partial class AwsLambdaEventSourceMappingScalingConfigBlock : TerraformBl
 /// Block type for self_managed_event_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingSelfManagedEventSourceBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingSelfManagedEventSourceBlock() : TerraformBlock("self_managed_event_source")
 {
     /// <summary>
     /// The endpoints attribute.
@@ -136,7 +136,7 @@ public partial class AwsLambdaEventSourceMappingSelfManagedEventSourceBlock : Te
 /// Block type for self_managed_kafka_event_source_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock() : TerraformBlock("self_managed_kafka_event_source_config")
 {
     /// <summary>
     /// The consumer_group_id attribute.
@@ -151,7 +151,7 @@ public partial class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfi
 /// Block type for source_access_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock : TerraformBlockBase
+public partial class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock() : TerraformBlock("source_access_configuration")
 {
     /// <summary>
     /// The type attribute.
@@ -328,7 +328,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AmazonManagedKafkaEventSourceConfig block(s) allowed")]
     [TerraformProperty("amazon_managed_kafka_event_source_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock>>? AmazonManagedKafkaEventSourceConfig { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock> AmazonManagedKafkaEventSourceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for destination_config.
@@ -336,7 +336,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfig block(s) allowed")]
     [TerraformProperty("destination_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingDestinationConfigBlock>>? DestinationConfig { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingDestinationConfigBlock> DestinationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for document_db_event_source_config.
@@ -344,7 +344,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DocumentDbEventSourceConfig block(s) allowed")]
     [TerraformProperty("document_db_event_source_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock>>? DocumentDbEventSourceConfig { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock> DocumentDbEventSourceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for filter_criteria.
@@ -352,7 +352,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterCriteria block(s) allowed")]
     [TerraformProperty("filter_criteria")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingFilterCriteriaBlock>>? FilterCriteria { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingFilterCriteriaBlock> FilterCriteria { get; set; } = new();
 
     /// <summary>
     /// Block for metrics_config.
@@ -360,7 +360,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricsConfig block(s) allowed")]
     [TerraformProperty("metrics_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingMetricsConfigBlock>>? MetricsConfig { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingMetricsConfigBlock> MetricsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for provisioned_poller_config.
@@ -368,7 +368,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProvisionedPollerConfig block(s) allowed")]
     [TerraformProperty("provisioned_poller_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingProvisionedPollerConfigBlock>>? ProvisionedPollerConfig { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingProvisionedPollerConfigBlock> ProvisionedPollerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_config.
@@ -376,7 +376,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
     [TerraformProperty("scaling_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingScalingConfigBlock>>? ScalingConfig { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingScalingConfigBlock> ScalingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for self_managed_event_source.
@@ -384,7 +384,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManagedEventSource block(s) allowed")]
     [TerraformProperty("self_managed_event_source")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingSelfManagedEventSourceBlock>>? SelfManagedEventSource { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingSelfManagedEventSourceBlock> SelfManagedEventSource { get; set; } = new();
 
     /// <summary>
     /// Block for self_managed_kafka_event_source_config.
@@ -392,7 +392,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManagedKafkaEventSourceConfig block(s) allowed")]
     [TerraformProperty("self_managed_kafka_event_source_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock>>? SelfManagedKafkaEventSourceConfig { get; set; }
+    public TerraformList<AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock> SelfManagedKafkaEventSourceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for source_access_configuration.
@@ -400,7 +400,7 @@ public partial class AwsLambdaEventSourceMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(22, ErrorMessage = "Maximum 22 SourceAccessConfiguration block(s) allowed")]
     [TerraformProperty("source_access_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsLambdaEventSourceMappingSourceAccessConfigurationBlock>>? SourceAccessConfiguration { get; set; }
+    public TerraformSet<AwsLambdaEventSourceMappingSourceAccessConfigurationBlock> SourceAccessConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

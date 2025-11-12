@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -104,6 +104,6 @@ public partial class AzurermApiConnection : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

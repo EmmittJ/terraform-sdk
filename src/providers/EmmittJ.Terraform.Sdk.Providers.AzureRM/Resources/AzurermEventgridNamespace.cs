@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridNamespaceIdentityBlock : TerraformBlockBase
+public partial class AzurermEventgridNamespaceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermEventgridNamespaceIdentityBlock : TerraformBlockBase
 /// Block type for inbound_ip_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBlockBase
+public partial class AzurermEventgridNamespaceInboundIpRuleBlock() : TerraformBlock("inbound_ip_rule")
 {
     /// <summary>
     /// The action attribute.
@@ -54,7 +54,7 @@ public partial class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventgridNamespaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,7 +90,7 @@ public partial class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlockBase
 /// Block type for topic_spaces_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformBlockBase
+public partial class AzurermEventgridNamespaceTopicSpacesConfigurationBlock() : TerraformBlock("topic_spaces_configuration")
 {
     /// <summary>
     /// The alternative_authentication_name_source attribute.
@@ -197,7 +197,7 @@ public partial class AzurermEventgridNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridNamespaceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermEventgridNamespaceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for inbound_ip_rule.
@@ -205,20 +205,20 @@ public partial class AzurermEventgridNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(128, ErrorMessage = "Maximum 128 InboundIpRule block(s) allowed")]
     [TerraformProperty("inbound_ip_rule")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridNamespaceInboundIpRuleBlock>>? InboundIpRule { get; set; }
+    public TerraformList<AzurermEventgridNamespaceInboundIpRuleBlock> InboundIpRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventgridNamespaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventgridNamespaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for topic_spaces_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topic_spaces_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>>? TopicSpacesConfiguration { get; set; }
+    public TerraformList<AzurermEventgridNamespaceTopicSpacesConfigurationBlock> TopicSpacesConfiguration { get; set; } = new();
 
 }

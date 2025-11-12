@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOracleDatabaseOdbNetworkTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseOdbNetworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -113,7 +113,7 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOracleDatabaseOdbNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOracleDatabaseOdbNetworkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The date and time that the OdbNetwork was created.

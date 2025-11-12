@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for routing_strategy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGameliftAliasRoutingStrategyBlock : TerraformBlockBase
+public partial class AwsGameliftAliasRoutingStrategyBlock() : TerraformBlock("routing_strategy")
 {
     /// <summary>
     /// The fleet_id attribute.
@@ -93,7 +93,7 @@ public partial class AwsGameliftAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingStrategy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingStrategy block(s) allowed")]
     [TerraformProperty("routing_strategy")]
-    public partial TerraformList<TerraformBlock<AwsGameliftAliasRoutingStrategyBlock>>? RoutingStrategy { get; set; }
+    public required TerraformList<AwsGameliftAliasRoutingStrategyBlock> RoutingStrategy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

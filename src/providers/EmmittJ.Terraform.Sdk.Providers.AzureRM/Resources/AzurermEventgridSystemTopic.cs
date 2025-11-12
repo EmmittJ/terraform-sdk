@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridSystemTopicIdentityBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermEventgridSystemTopicIdentityBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventgridSystemTopicTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventgridSystemTopicTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,14 +140,14 @@ public partial class AzurermEventgridSystemTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridSystemTopicIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermEventgridSystemTopicIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventgridSystemTopicTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventgridSystemTopicTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The metric_arm_resource_id attribute.

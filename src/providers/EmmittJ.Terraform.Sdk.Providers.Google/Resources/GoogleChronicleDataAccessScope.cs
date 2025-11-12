@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allowed_data_access_labels in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : TerraformBlockBase
+public partial class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock() : TerraformBlock("allowed_data_access_labels")
 {
     /// <summary>
     /// The asset namespace configured in the forwarder
@@ -37,7 +37,7 @@ public partial class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock 
 /// Block type for denied_data_access_labels in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : TerraformBlockBase
+public partial class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock() : TerraformBlock("denied_data_access_labels")
 {
     /// <summary>
     /// The asset namespace configured in the forwarder
@@ -68,7 +68,7 @@ public partial class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleChronicleDataAccessScopeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -168,21 +168,21 @@ public partial class GoogleChronicleDataAccessScope : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("allowed_data_access_labels")]
-    public partial TerraformList<TerraformBlock<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>>? AllowedDataAccessLabels { get; set; }
+    public TerraformList<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock> AllowedDataAccessLabels { get; set; } = new();
 
     /// <summary>
     /// Block for denied_data_access_labels.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("denied_data_access_labels")]
-    public partial TerraformList<TerraformBlock<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>>? DeniedDataAccessLabels { get; set; }
+    public TerraformList<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock> DeniedDataAccessLabels { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleChronicleDataAccessScopeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleChronicleDataAccessScopeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The user who created the data access scope.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for password_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSqlUserPasswordPolicyBlock : TerraformBlockBase
+public partial class GoogleSqlUserPasswordPolicyBlock() : TerraformBlock("password_policy")
 {
     /// <summary>
     /// Number of failed attempts allowed before the user get locked.
@@ -43,7 +43,7 @@ public partial class GoogleSqlUserPasswordPolicyBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSqlUserTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSqlUserTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,14 +161,14 @@ public partial class GoogleSqlUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PasswordPolicy block(s) allowed")]
     [TerraformProperty("password_policy")]
-    public partial TerraformList<TerraformBlock<GoogleSqlUserPasswordPolicyBlock>>? PasswordPolicy { get; set; }
+    public TerraformList<GoogleSqlUserPasswordPolicyBlock> PasswordPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSqlUserTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSqlUserTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The sql_server_user_details attribute.

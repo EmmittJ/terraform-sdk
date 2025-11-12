@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for exclude_map in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFmsPolicyExcludeMapBlock : TerraformBlockBase
+public partial class AwsFmsPolicyExcludeMapBlock() : TerraformBlock("exclude_map")
 {
     /// <summary>
     /// The account attribute.
@@ -28,7 +28,7 @@ public partial class AwsFmsPolicyExcludeMapBlock : TerraformBlockBase
 /// Block type for include_map in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFmsPolicyIncludeMapBlock : TerraformBlockBase
+public partial class AwsFmsPolicyIncludeMapBlock() : TerraformBlock("include_map")
 {
     /// <summary>
     /// The account attribute.
@@ -50,7 +50,7 @@ public partial class AwsFmsPolicyIncludeMapBlock : TerraformBlockBase
 /// Block type for security_service_policy_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlockBase
+public partial class AwsFmsPolicySecurityServicePolicyDataBlock() : TerraformBlock("security_service_policy_data")
 {
     /// <summary>
     /// The managed_service_data attribute.
@@ -192,7 +192,7 @@ public partial class AwsFmsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeMap block(s) allowed")]
     [TerraformProperty("exclude_map")]
-    public partial TerraformList<TerraformBlock<AwsFmsPolicyExcludeMapBlock>>? ExcludeMap { get; set; }
+    public TerraformList<AwsFmsPolicyExcludeMapBlock> ExcludeMap { get; set; } = new();
 
     /// <summary>
     /// Block for include_map.
@@ -200,7 +200,7 @@ public partial class AwsFmsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeMap block(s) allowed")]
     [TerraformProperty("include_map")]
-    public partial TerraformList<TerraformBlock<AwsFmsPolicyIncludeMapBlock>>? IncludeMap { get; set; }
+    public TerraformList<AwsFmsPolicyIncludeMapBlock> IncludeMap { get; set; } = new();
 
     /// <summary>
     /// Block for security_service_policy_data.
@@ -210,7 +210,7 @@ public partial class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecurityServicePolicyData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityServicePolicyData block(s) allowed")]
     [TerraformProperty("security_service_policy_data")]
-    public partial TerraformList<TerraformBlock<AwsFmsPolicySecurityServicePolicyDataBlock>>? SecurityServicePolicyData { get; set; }
+    public required TerraformList<AwsFmsPolicySecurityServicePolicyDataBlock> SecurityServicePolicyData { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

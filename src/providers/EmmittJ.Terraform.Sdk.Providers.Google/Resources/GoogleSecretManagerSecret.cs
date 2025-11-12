@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for replication in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecretManagerSecretReplicationBlock : TerraformBlockBase
+public partial class GoogleSecretManagerSecretReplicationBlock() : TerraformBlock("replication")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleSecretManagerSecretReplicationBlock : TerraformBlockB
 /// Block type for rotation in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecretManagerSecretRotationBlock : TerraformBlockBase
+public partial class GoogleSecretManagerSecretRotationBlock() : TerraformBlock("rotation")
 {
     /// <summary>
     /// Timestamp in UTC at which the Secret is scheduled to rotate.
@@ -38,7 +38,7 @@ public partial class GoogleSecretManagerSecretRotationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecretManagerSecretTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecretManagerSecretTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -67,7 +67,7 @@ public partial class GoogleSecretManagerSecretTimeoutsBlock : TerraformBlockBase
 /// Block type for topics in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecretManagerSecretTopicsBlock : TerraformBlockBase
+public partial class GoogleSecretManagerSecretTopicsBlock() : TerraformBlock("topics")
 {
     /// <summary>
     /// The resource name of the Pub/Sub topic that will be published to, in the following format: projects/*/topics/*.
@@ -228,7 +228,7 @@ public partial class GoogleSecretManagerSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Replication block(s) allowed")]
     [TerraformProperty("replication")]
-    public partial TerraformList<TerraformBlock<GoogleSecretManagerSecretReplicationBlock>>? Replication { get; set; }
+    public required TerraformList<GoogleSecretManagerSecretReplicationBlock> Replication { get; set; } = new();
 
     /// <summary>
     /// Block for rotation.
@@ -236,21 +236,21 @@ public partial class GoogleSecretManagerSecret : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rotation block(s) allowed")]
     [TerraformProperty("rotation")]
-    public partial TerraformList<TerraformBlock<GoogleSecretManagerSecretRotationBlock>>? Rotation { get; set; }
+    public TerraformList<GoogleSecretManagerSecretRotationBlock> Rotation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecretManagerSecretTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecretManagerSecretTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for topics.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topics")]
-    public partial TerraformList<TerraformBlock<GoogleSecretManagerSecretTopicsBlock>>? Topics { get; set; }
+    public TerraformList<GoogleSecretManagerSecretTopicsBlock> Topics { get; set; } = new();
 
     /// <summary>
     /// The time at which the Secret was created.

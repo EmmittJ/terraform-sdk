@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cognito_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerWorkforceCognitoConfigBlock() : TerraformBlock("cognito_config")
 {
     /// <summary>
     /// The client_id attribute.
@@ -30,7 +30,7 @@ public partial class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlockBas
 /// Block type for oidc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerWorkforceOidcConfigBlock() : TerraformBlock("oidc_config")
 {
     /// <summary>
     /// The authentication_request_extra_params attribute.
@@ -116,7 +116,7 @@ public partial class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlockBase
 /// Block type for source_ip_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerWorkforceSourceIpConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerWorkforceSourceIpConfigBlock() : TerraformBlock("source_ip_config")
 {
     /// <summary>
     /// The cidrs attribute.
@@ -132,7 +132,7 @@ public partial class AwsSagemakerWorkforceSourceIpConfigBlock : TerraformBlockBa
 /// Block type for workforce_vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerWorkforceWorkforceVpcConfigBlock() : TerraformBlock("workforce_vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -196,7 +196,7 @@ public partial class AwsSagemakerWorkforce : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CognitoConfig block(s) allowed")]
     [TerraformProperty("cognito_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerWorkforceCognitoConfigBlock>>? CognitoConfig { get; set; }
+    public TerraformList<AwsSagemakerWorkforceCognitoConfigBlock> CognitoConfig { get; set; } = new();
 
     /// <summary>
     /// Block for oidc_config.
@@ -204,7 +204,7 @@ public partial class AwsSagemakerWorkforce : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcConfig block(s) allowed")]
     [TerraformProperty("oidc_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerWorkforceOidcConfigBlock>>? OidcConfig { get; set; }
+    public TerraformList<AwsSagemakerWorkforceOidcConfigBlock> OidcConfig { get; set; } = new();
 
     /// <summary>
     /// Block for source_ip_config.
@@ -212,7 +212,7 @@ public partial class AwsSagemakerWorkforce : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceIpConfig block(s) allowed")]
     [TerraformProperty("source_ip_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerWorkforceSourceIpConfigBlock>>? SourceIpConfig { get; set; }
+    public TerraformList<AwsSagemakerWorkforceSourceIpConfigBlock> SourceIpConfig { get; set; } = new();
 
     /// <summary>
     /// Block for workforce_vpc_config.
@@ -220,7 +220,7 @@ public partial class AwsSagemakerWorkforce : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkforceVpcConfig block(s) allowed")]
     [TerraformProperty("workforce_vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerWorkforceWorkforceVpcConfigBlock>>? WorkforceVpcConfig { get; set; }
+    public TerraformList<AwsSagemakerWorkforceWorkforceVpcConfigBlock> WorkforceVpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

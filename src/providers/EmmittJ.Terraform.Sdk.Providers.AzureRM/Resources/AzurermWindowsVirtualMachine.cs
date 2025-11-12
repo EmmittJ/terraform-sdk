@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_capabilities in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock() : TerraformBlock("additional_capabilities")
 {
     /// <summary>
     /// The hibernation_enabled attribute.
@@ -28,7 +28,7 @@ public partial class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock : T
 /// Block type for additional_unattend_content in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock() : TerraformBlock("additional_unattend_content")
 {
     /// <summary>
     /// The content attribute.
@@ -52,7 +52,7 @@ public partial class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock 
 /// Block type for boot_diagnostics in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineBootDiagnosticsBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineBootDiagnosticsBlock() : TerraformBlock("boot_diagnostics")
 {
     /// <summary>
     /// The storage_account_uri attribute.
@@ -67,7 +67,7 @@ public partial class AzurermWindowsVirtualMachineBootDiagnosticsBlock : Terrafor
 /// Block type for gallery_application in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineGalleryApplicationBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineGalleryApplicationBlock() : TerraformBlock("gallery_application")
 {
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
@@ -118,7 +118,7 @@ public partial class AzurermWindowsVirtualMachineGalleryApplicationBlock : Terra
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineIdentityBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -143,7 +143,7 @@ public partial class AzurermWindowsVirtualMachineIdentityBlock : TerraformBlockB
 /// Block type for os_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineOsDiskBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineOsDiskBlock() : TerraformBlock("os_disk")
 {
     /// <summary>
     /// The caching attribute.
@@ -209,7 +209,7 @@ public partial class AzurermWindowsVirtualMachineOsDiskBlock : TerraformBlockBas
 /// Block type for os_image_notification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineOsImageNotificationBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineOsImageNotificationBlock() : TerraformBlock("os_image_notification")
 {
     /// <summary>
     /// The timeout attribute.
@@ -224,7 +224,7 @@ public partial class AzurermWindowsVirtualMachineOsImageNotificationBlock : Terr
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachinePlanBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachinePlanBlock() : TerraformBlock("plan")
 {
     /// <summary>
     /// The name attribute.
@@ -256,7 +256,7 @@ public partial class AzurermWindowsVirtualMachinePlanBlock : TerraformBlockBase
 /// Block type for secret in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineSecretBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineSecretBlock() : TerraformBlock("secret")
 {
     /// <summary>
     /// The key_vault_id attribute.
@@ -272,7 +272,7 @@ public partial class AzurermWindowsVirtualMachineSecretBlock : TerraformBlockBas
 /// Block type for source_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineSourceImageReferenceBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineSourceImageReferenceBlock() : TerraformBlock("source_image_reference")
 {
     /// <summary>
     /// The offer attribute.
@@ -312,7 +312,7 @@ public partial class AzurermWindowsVirtualMachineSourceImageReferenceBlock : Ter
 /// Block type for termination_notification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsVirtualMachineTerminationNotificationBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineTerminationNotificationBlock() : TerraformBlock("termination_notification")
 {
     /// <summary>
     /// The enabled attribute.
@@ -335,7 +335,7 @@ public partial class AzurermWindowsVirtualMachineTerminationNotificationBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWindowsVirtualMachineTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -371,7 +371,7 @@ public partial class AzurermWindowsVirtualMachineTimeoutsBlock : TerraformBlockB
 /// Block type for winrm_listener in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermWindowsVirtualMachineWinrmListenerBlock : TerraformBlockBase
+public partial class AzurermWindowsVirtualMachineWinrmListenerBlock() : TerraformBlock("winrm_listener")
 {
     /// <summary>
     /// The certificate_url attribute.
@@ -714,14 +714,14 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
     [TerraformProperty("additional_capabilities")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock>>? AdditionalCapabilities { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock> AdditionalCapabilities { get; set; } = new();
 
     /// <summary>
     /// Block for additional_unattend_content.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("additional_unattend_content")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock>>? AdditionalUnattendContent { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock> AdditionalUnattendContent { get; set; } = new();
 
     /// <summary>
     /// Block for boot_diagnostics.
@@ -729,7 +729,7 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
     [TerraformProperty("boot_diagnostics")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineBootDiagnosticsBlock>>? BootDiagnostics { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineBootDiagnosticsBlock> BootDiagnostics { get; set; } = new();
 
     /// <summary>
     /// Block for gallery_application.
@@ -737,7 +737,7 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 GalleryApplication block(s) allowed")]
     [TerraformProperty("gallery_application")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineGalleryApplicationBlock>>? GalleryApplication { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineGalleryApplicationBlock> GalleryApplication { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -745,7 +745,7 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for os_disk.
@@ -755,7 +755,7 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
     [TerraformProperty("os_disk")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineOsDiskBlock>>? OsDisk { get; set; }
+    public required TerraformList<AzurermWindowsVirtualMachineOsDiskBlock> OsDisk { get; set; } = new();
 
     /// <summary>
     /// Block for os_image_notification.
@@ -763,7 +763,7 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsImageNotification block(s) allowed")]
     [TerraformProperty("os_image_notification")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineOsImageNotificationBlock>>? OsImageNotification { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineOsImageNotificationBlock> OsImageNotification { get; set; } = new();
 
     /// <summary>
     /// Block for plan.
@@ -771,14 +771,14 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachinePlanBlock>>? Plan { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachinePlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("secret")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineSecretBlock>>? Secret { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineSecretBlock> Secret { get; set; } = new();
 
     /// <summary>
     /// Block for source_image_reference.
@@ -786,7 +786,7 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
     [TerraformProperty("source_image_reference")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineSourceImageReferenceBlock>>? SourceImageReference { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineSourceImageReferenceBlock> SourceImageReference { get; set; } = new();
 
     /// <summary>
     /// Block for termination_notification.
@@ -794,21 +794,21 @@ public partial class AzurermWindowsVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
     [TerraformProperty("termination_notification")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsVirtualMachineTerminationNotificationBlock>>? TerminationNotification { get; set; }
+    public TerraformList<AzurermWindowsVirtualMachineTerminationNotificationBlock> TerminationNotification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWindowsVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWindowsVirtualMachineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for winrm_listener.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("winrm_listener")]
-    public partial TerraformSet<TerraformBlock<AzurermWindowsVirtualMachineWinrmListenerBlock>>? WinrmListener { get; set; }
+    public TerraformSet<AzurermWindowsVirtualMachineWinrmListenerBlock> WinrmListener { get; set; } = new();
 
     /// <summary>
     /// The private_ip_address attribute.

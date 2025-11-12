@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeOrganizationPropertiesBlock : TerraformBlockBase
+public partial class GoogleApigeeOrganizationPropertiesBlock() : TerraformBlock("properties")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApigeeOrganizationPropertiesBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeOrganizationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,14 +169,14 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeOrganizationPropertiesBlock>>? Properties { get; set; }
+    public TerraformList<GoogleApigeeOrganizationPropertiesBlock> Properties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeOrganizationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeOrganizationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Project ID of the Apigee Tenant Project.

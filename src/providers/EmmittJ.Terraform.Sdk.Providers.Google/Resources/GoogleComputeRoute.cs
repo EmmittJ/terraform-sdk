@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouteParamsBlock : TerraformBlockBase
+public partial class GoogleComputeRouteParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// Resource manager tags to be bound to the route. Tag keys and values have the
@@ -26,7 +26,7 @@ public partial class GoogleComputeRouteParamsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRouteTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRouteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -201,14 +201,14 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouteParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeRouteParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRouteTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRouteTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The as_paths attribute.

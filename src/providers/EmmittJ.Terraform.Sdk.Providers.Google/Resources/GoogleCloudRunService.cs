@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunServiceMetadataBlock : TerraformBlockBase
+public partial class GoogleCloudRunServiceMetadataBlock() : TerraformBlock("metadata")
 {
     /// <summary>
     /// Annotations is a key value map stored with a resource that
@@ -74,7 +74,7 @@ public partial class GoogleCloudRunServiceMetadataBlock : TerraformBlockBase
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunServiceTemplateBlock : TerraformBlockBase
+public partial class GoogleCloudRunServiceTemplateBlock() : TerraformBlock("template")
 {
 }
 
@@ -82,7 +82,7 @@ public partial class GoogleCloudRunServiceTemplateBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudRunServiceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudRunServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,7 +111,7 @@ public partial class GoogleCloudRunServiceTimeoutsBlock : TerraformBlockBase
 /// Block type for traffic in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunServiceTrafficBlock : TerraformBlockBase
+public partial class GoogleCloudRunServiceTrafficBlock() : TerraformBlock("traffic")
 {
     /// <summary>
     /// LatestRevision may be optionally provided to indicate that the latest ready
@@ -208,7 +208,7 @@ public partial class GoogleCloudRunService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunServiceMetadataBlock>>? Metadata { get; set; }
+    public TerraformList<GoogleCloudRunServiceMetadataBlock> Metadata { get; set; } = new();
 
     /// <summary>
     /// Block for template.
@@ -216,21 +216,21 @@ public partial class GoogleCloudRunService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunServiceTemplateBlock>>? Template { get; set; }
+    public TerraformList<GoogleCloudRunServiceTemplateBlock> Template { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudRunServiceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudRunServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("traffic")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunServiceTrafficBlock>>? Traffic { get; set; }
+    public TerraformList<GoogleCloudRunServiceTrafficBlock> Traffic { get; set; } = new();
 
     /// <summary>
     /// The current status of the Service.

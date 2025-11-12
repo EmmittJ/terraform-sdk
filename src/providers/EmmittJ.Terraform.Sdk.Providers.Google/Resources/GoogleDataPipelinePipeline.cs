@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for schedule_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataPipelinePipelineScheduleInfoBlock : TerraformBlockBase
+public partial class GoogleDataPipelinePipelineScheduleInfoBlock() : TerraformBlock("schedule_info")
 {
 
     /// <summary>
@@ -29,7 +29,7 @@ public partial class GoogleDataPipelinePipelineScheduleInfoBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataPipelinePipelineTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataPipelinePipelineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -58,7 +58,7 @@ public partial class GoogleDataPipelinePipelineTimeoutsBlock : TerraformBlockBas
 /// Block type for workload in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataPipelinePipelineWorkloadBlock : TerraformBlockBase
+public partial class GoogleDataPipelinePipelineWorkloadBlock() : TerraformBlock("workload")
 {
 }
 
@@ -150,14 +150,14 @@ public partial class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleInfo block(s) allowed")]
     [TerraformProperty("schedule_info")]
-    public partial TerraformList<TerraformBlock<GoogleDataPipelinePipelineScheduleInfoBlock>>? ScheduleInfo { get; set; }
+    public TerraformList<GoogleDataPipelinePipelineScheduleInfoBlock> ScheduleInfo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataPipelinePipelineTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataPipelinePipelineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workload.
@@ -165,7 +165,7 @@ public partial class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Workload block(s) allowed")]
     [TerraformProperty("workload")]
-    public partial TerraformList<TerraformBlock<GoogleDataPipelinePipelineWorkloadBlock>>? Workload { get; set; }
+    public TerraformList<GoogleDataPipelinePipelineWorkloadBlock> Workload { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the pipeline was initially created. Set by the Data Pipelines service.

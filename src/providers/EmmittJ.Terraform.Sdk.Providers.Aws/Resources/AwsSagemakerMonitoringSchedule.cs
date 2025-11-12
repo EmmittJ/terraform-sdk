@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for monitoring_schedule_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock() : TerraformBlock("monitoring_schedule_config")
 {
     /// <summary>
     /// The monitoring_job_definition_name attribute.
@@ -79,7 +79,7 @@ public partial class AwsSagemakerMonitoringSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitoringScheduleConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringScheduleConfig block(s) allowed")]
     [TerraformProperty("monitoring_schedule_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock>>? MonitoringScheduleConfig { get; set; }
+    public required TerraformList<AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock> MonitoringScheduleConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

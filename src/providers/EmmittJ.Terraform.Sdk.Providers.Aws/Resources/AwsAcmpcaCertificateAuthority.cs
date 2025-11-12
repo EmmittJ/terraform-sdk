@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for certificate_authority_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock : TerraformBlockBase
+public partial class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock() : TerraformBlock("certificate_authority_configuration")
 {
     /// <summary>
     /// The key_algorithm attribute.
@@ -30,7 +30,7 @@ public partial class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurat
 /// Block type for revocation_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock : TerraformBlockBase
+public partial class AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock() : TerraformBlock("revocation_configuration")
 {
 }
 
@@ -38,7 +38,7 @@ public partial class AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAcmpcaCertificateAuthorityTimeoutsBlock : TerraformBlockBase
+public partial class AwsAcmpcaCertificateAuthorityTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -130,7 +130,7 @@ public partial class AwsAcmpcaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfiguration block(s) allowed")]
     [TerraformProperty("certificate_authority_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock>>? CertificateAuthorityConfiguration { get; set; }
+    public required TerraformList<AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock> CertificateAuthorityConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for revocation_configuration.
@@ -138,14 +138,14 @@ public partial class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RevocationConfiguration block(s) allowed")]
     [TerraformProperty("revocation_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock>>? RevocationConfiguration { get; set; }
+    public TerraformList<AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock> RevocationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAcmpcaCertificateAuthorityTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAcmpcaCertificateAuthorityTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for protocol in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncLocationFsxOntapFileSystemProtocolBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationFsxOntapFileSystemProtocolBlock() : TerraformBlock("protocol")
 {
 }
 
@@ -79,7 +79,7 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Protocol block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protocol block(s) allowed")]
     [TerraformProperty("protocol")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncLocationFsxOntapFileSystemProtocolBlock>>? Protocol { get; set; }
+    public required TerraformList<AwsDatasyncLocationFsxOntapFileSystemProtocolBlock> Protocol { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

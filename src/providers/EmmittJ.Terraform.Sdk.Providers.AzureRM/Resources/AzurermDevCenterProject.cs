@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevCenterProjectIdentityBlock : TerraformBlockBase
+public partial class AzurermDevCenterProjectIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermDevCenterProjectIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevCenterProjectTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevCenterProjectTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -139,14 +139,14 @@ public partial class AzurermDevCenterProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDevCenterProjectIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermDevCenterProjectIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevCenterProjectTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevCenterProjectTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dev_center_uri attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementIdentityProviderTwitterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementIdentityProviderTwitterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,6 +91,6 @@ public partial class AzurermApiManagementIdentityProviderTwitter : TerraformReso
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementIdentityProviderTwitterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementIdentityProviderTwitterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

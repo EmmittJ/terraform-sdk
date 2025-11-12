@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for restore_to_point_in_time in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRdsClusterRestoreToPointInTimeBlock : TerraformBlockBase
+public partial class AwsRdsClusterRestoreToPointInTimeBlock() : TerraformBlock("restore_to_point_in_time")
 {
     /// <summary>
     /// The restore_to_time attribute.
@@ -49,7 +49,7 @@ public partial class AwsRdsClusterRestoreToPointInTimeBlock : TerraformBlockBase
 /// Block type for s3_import in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRdsClusterS3ImportBlock : TerraformBlockBase
+public partial class AwsRdsClusterS3ImportBlock() : TerraformBlock("s3_import")
 {
     /// <summary>
     /// The bucket_name attribute.
@@ -96,7 +96,7 @@ public partial class AwsRdsClusterS3ImportBlock : TerraformBlockBase
 /// Block type for scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRdsClusterScalingConfigurationBlock : TerraformBlockBase
+public partial class AwsRdsClusterScalingConfigurationBlock() : TerraformBlock("scaling_configuration")
 {
     /// <summary>
     /// The auto_pause attribute.
@@ -146,7 +146,7 @@ public partial class AwsRdsClusterScalingConfigurationBlock : TerraformBlockBase
 /// Block type for serverlessv2_scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRdsClusterServerlessv2ScalingConfigurationBlock : TerraformBlockBase
+public partial class AwsRdsClusterServerlessv2ScalingConfigurationBlock() : TerraformBlock("serverlessv2_scaling_configuration")
 {
     /// <summary>
     /// The max_capacity attribute.
@@ -177,7 +177,7 @@ public partial class AwsRdsClusterServerlessv2ScalingConfigurationBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRdsClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsRdsClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -660,7 +660,7 @@ public partial class AwsRdsCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreToPointInTime block(s) allowed")]
     [TerraformProperty("restore_to_point_in_time")]
-    public partial TerraformList<TerraformBlock<AwsRdsClusterRestoreToPointInTimeBlock>>? RestoreToPointInTime { get; set; }
+    public TerraformList<AwsRdsClusterRestoreToPointInTimeBlock> RestoreToPointInTime { get; set; } = new();
 
     /// <summary>
     /// Block for s3_import.
@@ -668,7 +668,7 @@ public partial class AwsRdsCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Import block(s) allowed")]
     [TerraformProperty("s3_import")]
-    public partial TerraformList<TerraformBlock<AwsRdsClusterS3ImportBlock>>? S3Import { get; set; }
+    public TerraformList<AwsRdsClusterS3ImportBlock> S3Import { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_configuration.
@@ -676,7 +676,7 @@ public partial class AwsRdsCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfiguration block(s) allowed")]
     [TerraformProperty("scaling_configuration")]
-    public partial TerraformList<TerraformBlock<AwsRdsClusterScalingConfigurationBlock>>? ScalingConfiguration { get; set; }
+    public TerraformList<AwsRdsClusterScalingConfigurationBlock> ScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for serverlessv2_scaling_configuration.
@@ -684,14 +684,14 @@ public partial class AwsRdsCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serverlessv2ScalingConfiguration block(s) allowed")]
     [TerraformProperty("serverlessv2_scaling_configuration")]
-    public partial TerraformList<TerraformBlock<AwsRdsClusterServerlessv2ScalingConfigurationBlock>>? Serverlessv2ScalingConfiguration { get; set; }
+    public TerraformList<AwsRdsClusterServerlessv2ScalingConfigurationBlock> Serverlessv2ScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRdsClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRdsClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

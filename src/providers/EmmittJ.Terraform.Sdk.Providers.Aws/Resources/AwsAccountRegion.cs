@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAccountRegionTimeoutsBlock : TerraformBlockBase
+public partial class AwsAccountRegionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,7 +68,7 @@ public partial class AwsAccountRegion : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAccountRegionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAccountRegionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The opt_status attribute.

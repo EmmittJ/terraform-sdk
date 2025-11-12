@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleProjectDefaultServiceAccountsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -77,7 +77,7 @@ public partial class GoogleProjectDefaultServiceAccounts : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleProjectDefaultServiceAccountsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleProjectDefaultServiceAccountsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Service Accounts changed by this resource. It is used for revert the action on the destroy.

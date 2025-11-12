@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,7 +96,7 @@ public partial class AwsVpclatticeServiceNetworkVpcAssociation : TerraformResour
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

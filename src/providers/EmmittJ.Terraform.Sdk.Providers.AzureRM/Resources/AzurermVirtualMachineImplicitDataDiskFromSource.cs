@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -121,6 +121,6 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

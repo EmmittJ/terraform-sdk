@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceCustomHostnameBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,7 +90,7 @@ public partial class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceCustomHostnameBindingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceCustomHostnameBindingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The virtual_ip attribute.

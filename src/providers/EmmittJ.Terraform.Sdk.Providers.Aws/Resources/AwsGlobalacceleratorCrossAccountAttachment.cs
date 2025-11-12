@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resource in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock() : TerraformBlock("resource")
 {
     /// <summary>
     /// The cidr_block attribute.
@@ -67,7 +67,7 @@ public partial class AwsGlobalacceleratorCrossAccountAttachment : TerraformResou
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("resource")]
-    public partial TerraformSet<TerraformBlock<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock>>? Resource { get; set; }
+    public TerraformSet<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock> Resource { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

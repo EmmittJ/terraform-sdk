@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNewRelicMonitorIdentityBlock : TerraformBlockBase
+public partial class AzurermNewRelicMonitorIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -24,7 +24,7 @@ public partial class AzurermNewRelicMonitorIdentityBlock : TerraformBlockBase
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNewRelicMonitorPlanBlock : TerraformBlockBase
+public partial class AzurermNewRelicMonitorPlanBlock() : TerraformBlock("plan")
 {
     /// <summary>
     /// The billing_cycle attribute.
@@ -61,7 +61,7 @@ public partial class AzurermNewRelicMonitorPlanBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNewRelicMonitorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNewRelicMonitorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,7 +90,7 @@ public partial class AzurermNewRelicMonitorTimeoutsBlock : TerraformBlockBase
 /// Block type for user in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNewRelicMonitorUserBlock : TerraformBlockBase
+public partial class AzurermNewRelicMonitorUserBlock() : TerraformBlock("user")
 {
     /// <summary>
     /// The email attribute.
@@ -215,7 +215,7 @@ public partial class AzurermNewRelicMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermNewRelicMonitorIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermNewRelicMonitorIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for plan.
@@ -225,14 +225,14 @@ public partial class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformList<TerraformBlock<AzurermNewRelicMonitorPlanBlock>>? Plan { get; set; }
+    public required TerraformList<AzurermNewRelicMonitorPlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNewRelicMonitorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNewRelicMonitorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user.
@@ -242,6 +242,6 @@ public partial class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
     [TerraformProperty("user")]
-    public partial TerraformList<TerraformBlock<AzurermNewRelicMonitorUserBlock>>? User { get; set; }
+    public required TerraformList<AzurermNewRelicMonitorUserBlock> User { get; set; } = new();
 
 }

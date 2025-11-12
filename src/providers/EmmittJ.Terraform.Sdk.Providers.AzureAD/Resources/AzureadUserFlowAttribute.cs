@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadUserFlowAttributeTimeoutsBlock : TerraformBlockBase
+public partial class AzureadUserFlowAttributeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,7 +83,7 @@ public partial class AzureadUserFlowAttribute : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadUserFlowAttributeTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadUserFlowAttributeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The type of the user flow attribute

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entities in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlockBase
+public partial class GoogleDialogflowEntityTypeEntitiesBlock() : TerraformBlock("entities")
 {
     /// <summary>
     /// A collection of value synonyms. For example, if the entity type is vegetable, and value is scallions, a synonym
@@ -38,7 +38,7 @@ public partial class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowEntityTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -118,14 +118,14 @@ public partial class GoogleDialogflowEntityType : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("entities")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowEntityTypeEntitiesBlock>>? Entities { get; set; }
+    public TerraformList<GoogleDialogflowEntityTypeEntitiesBlock> Entities { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowEntityTypeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowEntityTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the entity type.

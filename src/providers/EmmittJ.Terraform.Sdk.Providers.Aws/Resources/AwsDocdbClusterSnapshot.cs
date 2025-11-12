@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDocdbClusterSnapshotTimeoutsBlock : TerraformBlockBase
+public partial class AwsDocdbClusterSnapshotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -61,7 +61,7 @@ public partial class AwsDocdbClusterSnapshot : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDocdbClusterSnapshotTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDocdbClusterSnapshotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The availability_zones attribute.

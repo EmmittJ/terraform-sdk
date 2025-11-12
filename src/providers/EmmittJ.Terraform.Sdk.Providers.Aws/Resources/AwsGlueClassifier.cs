@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for csv_classifier in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueClassifierCsvClassifierBlock : TerraformBlockBase
+public partial class AwsGlueClassifierCsvClassifierBlock() : TerraformBlock("csv_classifier")
 {
     /// <summary>
     /// The allow_single_column attribute.
@@ -77,7 +77,7 @@ public partial class AwsGlueClassifierCsvClassifierBlock : TerraformBlockBase
 /// Block type for grok_classifier in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueClassifierGrokClassifierBlock : TerraformBlockBase
+public partial class AwsGlueClassifierGrokClassifierBlock() : TerraformBlock("grok_classifier")
 {
     /// <summary>
     /// The classification attribute.
@@ -108,7 +108,7 @@ public partial class AwsGlueClassifierGrokClassifierBlock : TerraformBlockBase
 /// Block type for json_classifier in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueClassifierJsonClassifierBlock : TerraformBlockBase
+public partial class AwsGlueClassifierJsonClassifierBlock() : TerraformBlock("json_classifier")
 {
     /// <summary>
     /// The json_path attribute.
@@ -124,7 +124,7 @@ public partial class AwsGlueClassifierJsonClassifierBlock : TerraformBlockBase
 /// Block type for xml_classifier in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueClassifierXmlClassifierBlock : TerraformBlockBase
+public partial class AwsGlueClassifierXmlClassifierBlock() : TerraformBlock("xml_classifier")
 {
     /// <summary>
     /// The classification attribute.
@@ -182,7 +182,7 @@ public partial class AwsGlueClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CsvClassifier block(s) allowed")]
     [TerraformProperty("csv_classifier")]
-    public partial TerraformList<TerraformBlock<AwsGlueClassifierCsvClassifierBlock>>? CsvClassifier { get; set; }
+    public TerraformList<AwsGlueClassifierCsvClassifierBlock> CsvClassifier { get; set; } = new();
 
     /// <summary>
     /// Block for grok_classifier.
@@ -190,7 +190,7 @@ public partial class AwsGlueClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrokClassifier block(s) allowed")]
     [TerraformProperty("grok_classifier")]
-    public partial TerraformList<TerraformBlock<AwsGlueClassifierGrokClassifierBlock>>? GrokClassifier { get; set; }
+    public TerraformList<AwsGlueClassifierGrokClassifierBlock> GrokClassifier { get; set; } = new();
 
     /// <summary>
     /// Block for json_classifier.
@@ -198,7 +198,7 @@ public partial class AwsGlueClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JsonClassifier block(s) allowed")]
     [TerraformProperty("json_classifier")]
-    public partial TerraformList<TerraformBlock<AwsGlueClassifierJsonClassifierBlock>>? JsonClassifier { get; set; }
+    public TerraformList<AwsGlueClassifierJsonClassifierBlock> JsonClassifier { get; set; } = new();
 
     /// <summary>
     /// Block for xml_classifier.
@@ -206,6 +206,6 @@ public partial class AwsGlueClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 XmlClassifier block(s) allowed")]
     [TerraformProperty("xml_classifier")]
-    public partial TerraformList<TerraformBlock<AwsGlueClassifierXmlClassifierBlock>>? XmlClassifier { get; set; }
+    public TerraformList<AwsGlueClassifierXmlClassifierBlock> XmlClassifier { get; set; } = new();
 
 }

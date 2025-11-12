@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for output_data_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockCustomModelOutputDataConfigBlock : TerraformBlockBase
+public partial class AwsBedrockCustomModelOutputDataConfigBlock() : TerraformBlock("output_data_config")
 {
     /// <summary>
     /// The s3_uri attribute.
@@ -22,7 +22,7 @@ public partial class AwsBedrockCustomModelOutputDataConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockCustomModelTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockCustomModelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -44,7 +44,7 @@ public partial class AwsBedrockCustomModelTimeoutsBlock : TerraformBlockBase
 /// Block type for training_data_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockCustomModelTrainingDataConfigBlock : TerraformBlockBase
+public partial class AwsBedrockCustomModelTrainingDataConfigBlock() : TerraformBlock("training_data_config")
 {
     /// <summary>
     /// The s3_uri attribute.
@@ -60,7 +60,7 @@ public partial class AwsBedrockCustomModelTrainingDataConfigBlock : TerraformBlo
 /// Block type for validation_data_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockCustomModelValidationDataConfigBlock : TerraformBlockBase
+public partial class AwsBedrockCustomModelValidationDataConfigBlock() : TerraformBlock("validation_data_config")
 {
 }
 
@@ -68,7 +68,7 @@ public partial class AwsBedrockCustomModelValidationDataConfigBlock : TerraformB
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockCustomModelVpcConfigBlock : TerraformBlockBase
+public partial class AwsBedrockCustomModelVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -170,35 +170,35 @@ public partial class AwsBedrockCustomModel : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("output_data_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockCustomModelOutputDataConfigBlock>>? OutputDataConfig { get; set; }
+    public TerraformList<AwsBedrockCustomModelOutputDataConfigBlock> OutputDataConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockCustomModelTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockCustomModelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for training_data_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("training_data_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockCustomModelTrainingDataConfigBlock>>? TrainingDataConfig { get; set; }
+    public TerraformList<AwsBedrockCustomModelTrainingDataConfigBlock> TrainingDataConfig { get; set; } = new();
 
     /// <summary>
     /// Block for validation_data_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("validation_data_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockCustomModelValidationDataConfigBlock>>? ValidationDataConfig { get; set; }
+    public TerraformList<AwsBedrockCustomModelValidationDataConfigBlock> ValidationDataConfig { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockCustomModelVpcConfigBlock>>? VpcConfig { get; set; }
+    public TerraformList<AwsBedrockCustomModelVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The custom_model_arn attribute.

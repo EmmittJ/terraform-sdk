@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBlockBase
+public partial class AzurermWebApplicationFirewallPolicyCustomRulesBlock() : TerraformBlock("custom_rules")
 {
     /// <summary>
     /// The action attribute.
@@ -73,7 +73,7 @@ public partial class AzurermWebApplicationFirewallPolicyCustomRulesBlock : Terra
 /// Block type for managed_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebApplicationFirewallPolicyManagedRulesBlock : TerraformBlockBase
+public partial class AzurermWebApplicationFirewallPolicyManagedRulesBlock() : TerraformBlock("managed_rules")
 {
 }
 
@@ -81,7 +81,7 @@ public partial class AzurermWebApplicationFirewallPolicyManagedRulesBlock : Terr
 /// Block type for policy_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : TerraformBlockBase
+public partial class AzurermWebApplicationFirewallPolicyPolicySettingsBlock() : TerraformBlock("policy_settings")
 {
     /// <summary>
     /// The enabled attribute.
@@ -152,7 +152,7 @@ public partial class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWebApplicationFirewallPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWebApplicationFirewallPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -237,7 +237,7 @@ public partial class AzurermWebApplicationFirewallPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_rules")]
-    public partial TerraformList<TerraformBlock<AzurermWebApplicationFirewallPolicyCustomRulesBlock>>? CustomRules { get; set; }
+    public TerraformList<AzurermWebApplicationFirewallPolicyCustomRulesBlock> CustomRules { get; set; } = new();
 
     /// <summary>
     /// Block for managed_rules.
@@ -247,7 +247,7 @@ public partial class AzurermWebApplicationFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagedRules block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedRules block(s) allowed")]
     [TerraformProperty("managed_rules")]
-    public partial TerraformList<TerraformBlock<AzurermWebApplicationFirewallPolicyManagedRulesBlock>>? ManagedRules { get; set; }
+    public required TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlock> ManagedRules { get; set; } = new();
 
     /// <summary>
     /// Block for policy_settings.
@@ -255,14 +255,14 @@ public partial class AzurermWebApplicationFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PolicySettings block(s) allowed")]
     [TerraformProperty("policy_settings")]
-    public partial TerraformList<TerraformBlock<AzurermWebApplicationFirewallPolicyPolicySettingsBlock>>? PolicySettings { get; set; }
+    public TerraformList<AzurermWebApplicationFirewallPolicyPolicySettingsBlock> PolicySettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWebApplicationFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWebApplicationFirewallPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The http_listener_ids attribute.

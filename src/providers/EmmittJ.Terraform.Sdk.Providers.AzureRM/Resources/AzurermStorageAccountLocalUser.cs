@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permission_scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlockBase
+public partial class AzurermStorageAccountLocalUserPermissionScopeBlock() : TerraformBlock("permission_scope")
 {
     /// <summary>
     /// The resource_name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermStorageAccountLocalUserPermissionScopeBlock : Terraf
 /// Block type for ssh_authorized_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBlockBase
+public partial class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock() : TerraformBlock("ssh_authorized_key")
 {
     /// <summary>
     /// The description attribute.
@@ -53,7 +53,7 @@ public partial class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountLocalUserTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -143,21 +143,21 @@ public partial class AzurermStorageAccountLocalUser : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("permission_scope")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountLocalUserPermissionScopeBlock>>? PermissionScope { get; set; }
+    public TerraformList<AzurermStorageAccountLocalUserPermissionScopeBlock> PermissionScope { get; set; } = new();
 
     /// <summary>
     /// Block for ssh_authorized_key.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ssh_authorized_key")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>>? SshAuthorizedKey { get; set; }
+    public TerraformList<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock> SshAuthorizedKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageAccountLocalUserTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageAccountLocalUserTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The password attribute.

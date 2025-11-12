@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for integration_runtime in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSynapseLinkedServiceIntegrationRuntimeBlock : TerraformBlockBase
+public partial class AzurermSynapseLinkedServiceIntegrationRuntimeBlock() : TerraformBlock("integration_runtime")
 {
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermSynapseLinkedServiceIntegrationRuntimeBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSynapseLinkedServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSynapseLinkedServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,13 +144,13 @@ public partial class AzurermSynapseLinkedService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntegrationRuntime block(s) allowed")]
     [TerraformProperty("integration_runtime")]
-    public partial TerraformList<TerraformBlock<AzurermSynapseLinkedServiceIntegrationRuntimeBlock>>? IntegrationRuntime { get; set; }
+    public TerraformList<AzurermSynapseLinkedServiceIntegrationRuntimeBlock> IntegrationRuntime { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSynapseLinkedServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSynapseLinkedServiceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

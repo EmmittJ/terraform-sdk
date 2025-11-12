@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkManagerScopeBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerScopeBlock() : TerraformBlock("scope")
 {
     /// <summary>
     /// The management_group_ids attribute.
@@ -28,7 +28,7 @@ public partial class AzurermNetworkManagerScopeBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkManagerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkManagerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -130,14 +130,14 @@ public partial class AzurermNetworkManager : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Scope block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scope block(s) allowed")]
     [TerraformProperty("scope")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkManagerScopeBlock>>? Scope { get; set; }
+    public required TerraformList<AzurermNetworkManagerScopeBlock> Scope { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkManagerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkManagerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cross_tenant_scopes attribute.

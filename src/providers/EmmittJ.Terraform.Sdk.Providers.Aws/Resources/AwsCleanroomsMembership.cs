@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_result_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCleanroomsMembershipDefaultResultConfigurationBlock : TerraformBlockBase
+public partial class AwsCleanroomsMembershipDefaultResultConfigurationBlock() : TerraformBlock("default_result_configuration")
 {
     /// <summary>
     /// The role_arn attribute.
@@ -21,7 +21,7 @@ public partial class AwsCleanroomsMembershipDefaultResultConfigurationBlock : Te
 /// Block type for payment_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCleanroomsMembershipPaymentConfigurationBlock : TerraformBlockBase
+public partial class AwsCleanroomsMembershipPaymentConfigurationBlock() : TerraformBlock("payment_configuration")
 {
 }
 
@@ -69,14 +69,14 @@ public partial class AwsCleanroomsMembership : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("default_result_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCleanroomsMembershipDefaultResultConfigurationBlock>>? DefaultResultConfiguration { get; set; }
+    public TerraformList<AwsCleanroomsMembershipDefaultResultConfigurationBlock> DefaultResultConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for payment_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("payment_configuration")]
-    public partial TerraformList<TerraformBlock<AwsCleanroomsMembershipPaymentConfigurationBlock>>? PaymentConfiguration { get; set; }
+    public TerraformList<AwsCleanroomsMembershipPaymentConfigurationBlock> PaymentConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

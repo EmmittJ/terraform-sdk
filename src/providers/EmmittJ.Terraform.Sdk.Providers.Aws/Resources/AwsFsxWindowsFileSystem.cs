@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for audit_log_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxWindowsFileSystemAuditLogConfigurationBlock() : TerraformBlock("audit_log_configuration")
 {
     /// <summary>
     /// The audit_log_destination attribute.
@@ -35,7 +35,7 @@ public partial class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : Terrafo
 /// Block type for disk_iops_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock() : TerraformBlock("disk_iops_configuration")
 {
     /// <summary>
     /// The iops attribute.
@@ -57,7 +57,7 @@ public partial class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock : Terrafo
 /// Block type for self_managed_active_directory in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformBlockBase
+public partial class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock() : TerraformBlock("self_managed_active_directory")
 {
     /// <summary>
     /// The dns_ips attribute.
@@ -111,7 +111,7 @@ public partial class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxWindowsFileSystemTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxWindowsFileSystemTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -301,7 +301,7 @@ public partial class AwsFsxWindowsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuditLogConfiguration block(s) allowed")]
     [TerraformProperty("audit_log_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxWindowsFileSystemAuditLogConfigurationBlock>>? AuditLogConfiguration { get; set; }
+    public TerraformList<AwsFsxWindowsFileSystemAuditLogConfigurationBlock> AuditLogConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for disk_iops_configuration.
@@ -309,7 +309,7 @@ public partial class AwsFsxWindowsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
     [TerraformProperty("disk_iops_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxWindowsFileSystemDiskIopsConfigurationBlock>>? DiskIopsConfiguration { get; set; }
+    public TerraformList<AwsFsxWindowsFileSystemDiskIopsConfigurationBlock> DiskIopsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for self_managed_active_directory.
@@ -317,14 +317,14 @@ public partial class AwsFsxWindowsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManagedActiveDirectory block(s) allowed")]
     [TerraformProperty("self_managed_active_directory")]
-    public partial TerraformList<TerraformBlock<AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock>>? SelfManagedActiveDirectory { get; set; }
+    public TerraformList<AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock> SelfManagedActiveDirectory { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxWindowsFileSystemTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxWindowsFileSystemTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

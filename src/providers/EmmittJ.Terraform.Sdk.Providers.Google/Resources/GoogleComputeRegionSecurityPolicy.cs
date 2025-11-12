@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_options_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock() : TerraformBlock("advanced_options_config")
 {
     /// <summary>
     /// JSON body parsing. Supported values include: &amp;quot;DISABLED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;STANDARD_WITH_GRAPHQL&amp;quot;. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;STANDARD_WITH_GRAPHQL&amp;quot;]
@@ -35,7 +35,7 @@ public partial class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock
 /// Block type for ddos_protection_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock() : TerraformBlock("ddos_protection_config")
 {
     /// <summary>
     /// Google Cloud Armor offers the following options to help protect systems against DDoS attacks:
@@ -54,7 +54,7 @@ public partial class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock 
 /// Block type for rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyRulesBlock() : TerraformBlock("rules")
 {
     /// <summary>
     /// The Action to perform when the rule is matched. The following are the valid actions:
@@ -104,7 +104,7 @@ public partial class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,7 +133,7 @@ public partial class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformB
 /// Block type for user_defined_fields in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock() : TerraformBlock("user_defined_fields")
 {
     /// <summary>
     /// The base relative to which &#39;offset&#39; is measured. Possible values are:
@@ -244,7 +244,7 @@ public partial class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedOptionsConfig block(s) allowed")]
     [TerraformProperty("advanced_options_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock>>? AdvancedOptionsConfig { get; set; }
+    public TerraformList<GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock> AdvancedOptionsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for ddos_protection_config.
@@ -252,28 +252,28 @@ public partial class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionConfig block(s) allowed")]
     [TerraformProperty("ddos_protection_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock>>? DdosProtectionConfig { get; set; }
+    public TerraformList<GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock> DdosProtectionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for rules.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rules")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRulesBlock>>? Rules { get; set; }
+    public TerraformList<GoogleComputeRegionSecurityPolicyRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRegionSecurityPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRegionSecurityPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_defined_fields.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("user_defined_fields")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock>>? UserDefinedFields { get; set; }
+    public TerraformList<GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock> UserDefinedFields { get; set; } = new();
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authorization in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlockBase
+public partial class AzurermLighthouseDefinitionAuthorizationBlock() : TerraformBlock("authorization")
 {
     /// <summary>
     /// The delegated_role_definition_ids attribute.
@@ -44,7 +44,7 @@ public partial class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBl
 /// Block type for eligible_authorization in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBlockBase
+public partial class AzurermLighthouseDefinitionEligibleAuthorizationBlock() : TerraformBlock("eligible_authorization")
 {
     /// <summary>
     /// The principal_display_name attribute.
@@ -75,7 +75,7 @@ public partial class AzurermLighthouseDefinitionEligibleAuthorizationBlock : Ter
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLighthouseDefinitionPlanBlock : TerraformBlockBase
+public partial class AzurermLighthouseDefinitionPlanBlock() : TerraformBlock("plan")
 {
     /// <summary>
     /// The name attribute.
@@ -115,7 +115,7 @@ public partial class AzurermLighthouseDefinitionPlanBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLighthouseDefinitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -209,14 +209,14 @@ public partial class AzurermLighthouseDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authorization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [TerraformProperty("authorization")]
-    public partial TerraformSet<TerraformBlock<AzurermLighthouseDefinitionAuthorizationBlock>>? Authorization { get; set; }
+    public required TerraformSet<AzurermLighthouseDefinitionAuthorizationBlock> Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for eligible_authorization.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("eligible_authorization")]
-    public partial TerraformSet<TerraformBlock<AzurermLighthouseDefinitionEligibleAuthorizationBlock>>? EligibleAuthorization { get; set; }
+    public TerraformSet<AzurermLighthouseDefinitionEligibleAuthorizationBlock> EligibleAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for plan.
@@ -224,13 +224,13 @@ public partial class AzurermLighthouseDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public partial TerraformList<TerraformBlock<AzurermLighthouseDefinitionPlanBlock>>? Plan { get; set; }
+    public TerraformList<AzurermLighthouseDefinitionPlanBlock> Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLighthouseDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLighthouseDefinitionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

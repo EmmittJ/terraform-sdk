@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azuread_based_service_principal in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : TerraformBlockBase
+public partial class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock() : TerraformBlock("azuread_based_service_principal")
 {
     /// <summary>
     /// The ledger_role_name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock 
 /// Block type for certificate_based_security_principal in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : TerraformBlockBase
+public partial class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock() : TerraformBlock("certificate_based_security_principal")
 {
     /// <summary>
     /// The ledger_role_name attribute.
@@ -62,7 +62,7 @@ public partial class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermConfidentialLedgerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -157,21 +157,21 @@ public partial class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureadBasedServicePrincipal is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AzureadBasedServicePrincipal block(s) required")]
     [TerraformProperty("azuread_based_service_principal")]
-    public partial TerraformList<TerraformBlock<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock>>? AzureadBasedServicePrincipal { get; set; }
+    public required TerraformList<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock> AzureadBasedServicePrincipal { get; set; } = new();
 
     /// <summary>
     /// Block for certificate_based_security_principal.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("certificate_based_security_principal")]
-    public partial TerraformList<TerraformBlock<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock>>? CertificateBasedSecurityPrincipal { get; set; }
+    public TerraformList<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock> CertificateBasedSecurityPrincipal { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermConfidentialLedgerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermConfidentialLedgerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The identity_service_endpoint attribute.

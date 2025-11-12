@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSynapseWorkspaceAadAdminTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSynapseWorkspaceAadAdminTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,6 +91,6 @@ public partial class AzurermSynapseWorkspaceAadAdmin : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSynapseWorkspaceAadAdminTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSynapseWorkspaceAadAdminTimeoutsBlock Timeouts { get; set; } = new();
 
 }

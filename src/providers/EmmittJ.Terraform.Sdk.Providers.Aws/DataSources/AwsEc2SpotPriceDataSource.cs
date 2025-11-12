@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2SpotPriceDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsEc2SpotPriceDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsEc2SpotPriceDataSourceFilterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2SpotPriceDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2SpotPriceDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -83,14 +83,14 @@ public partial class AwsEc2SpotPriceDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsEc2SpotPriceDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsEc2SpotPriceDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2SpotPriceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2SpotPriceDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The spot_price attribute.

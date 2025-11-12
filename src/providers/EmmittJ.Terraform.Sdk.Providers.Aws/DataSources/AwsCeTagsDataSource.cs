@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCeTagsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsCeTagsDataSourceFilterBlock() : TerraformBlock("filter")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsCeTagsDataSourceFilterBlock : TerraformBlockBase
 /// Block type for sort_by in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCeTagsDataSourceSortByBlock : TerraformBlockBase
+public partial class AwsCeTagsDataSourceSortByBlock() : TerraformBlock("sort_by")
 {
     /// <summary>
     /// The key attribute.
@@ -36,7 +36,7 @@ public partial class AwsCeTagsDataSourceSortByBlock : TerraformBlockBase
 /// Block type for time_period in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlockBase
+public partial class AwsCeTagsDataSourceTimePeriodBlock() : TerraformBlock("time_period")
 {
     /// <summary>
     /// The end attribute.
@@ -93,14 +93,14 @@ public partial class AwsCeTagsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AwsCeTagsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformList<AwsCeTagsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for sort_by.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sort_by")]
-    public partial TerraformList<TerraformBlock<AwsCeTagsDataSourceSortByBlock>>? SortBy { get; set; }
+    public TerraformList<AwsCeTagsDataSourceSortByBlock> SortBy { get; set; } = new();
 
     /// <summary>
     /// Block for time_period.
@@ -110,7 +110,7 @@ public partial class AwsCeTagsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
     [TerraformProperty("time_period")]
-    public partial TerraformList<TerraformBlock<AwsCeTagsDataSourceTimePeriodBlock>>? TimePeriod { get; set; }
+    public required TerraformList<AwsCeTagsDataSourceTimePeriodBlock> TimePeriod { get; set; } = new();
 
     /// <summary>
     /// The tags attribute.

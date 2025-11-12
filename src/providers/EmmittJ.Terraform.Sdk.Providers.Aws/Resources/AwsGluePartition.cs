@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for storage_descriptor in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGluePartitionStorageDescriptorBlock : TerraformBlockBase
+public partial class AwsGluePartitionStorageDescriptorBlock() : TerraformBlock("storage_descriptor")
 {
     /// <summary>
     /// The additional_locations attribute.
@@ -141,7 +141,7 @@ public partial class AwsGluePartition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageDescriptor block(s) allowed")]
     [TerraformProperty("storage_descriptor")]
-    public partial TerraformList<TerraformBlock<AwsGluePartitionStorageDescriptorBlock>>? StorageDescriptor { get; set; }
+    public TerraformList<AwsGluePartitionStorageDescriptorBlock> StorageDescriptor { get; set; } = new();
 
     /// <summary>
     /// The creation_time attribute.

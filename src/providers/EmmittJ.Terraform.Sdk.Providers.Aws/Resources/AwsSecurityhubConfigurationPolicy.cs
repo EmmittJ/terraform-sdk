@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : TerraformBlockBase
+public partial class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock() : TerraformBlock("configuration_policy")
 {
     /// <summary>
     /// The enabled_standard_arns attribute.
@@ -72,7 +72,7 @@ public partial class AwsSecurityhubConfigurationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConfigurationPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigurationPolicy block(s) allowed")]
     [TerraformProperty("configuration_policy")]
-    public partial TerraformList<TerraformBlock<AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock>>? ConfigurationPolicy { get; set; }
+    public required TerraformList<AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock> ConfigurationPolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

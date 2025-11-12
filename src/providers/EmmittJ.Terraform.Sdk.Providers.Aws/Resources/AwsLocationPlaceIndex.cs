@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_source_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLocationPlaceIndexDataSourceConfigurationBlock : TerraformBlockBase
+public partial class AwsLocationPlaceIndexDataSourceConfigurationBlock() : TerraformBlock("data_source_configuration")
 {
     /// <summary>
     /// The intended_use attribute.
@@ -84,7 +84,7 @@ public partial class AwsLocationPlaceIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSourceConfiguration block(s) allowed")]
     [TerraformProperty("data_source_configuration")]
-    public partial TerraformList<TerraformBlock<AwsLocationPlaceIndexDataSourceConfigurationBlock>>? DataSourceConfiguration { get; set; }
+    public TerraformList<AwsLocationPlaceIndexDataSourceConfigurationBlock> DataSourceConfiguration { get; set; } = new();
 
     /// <summary>
     /// The create_time attribute.

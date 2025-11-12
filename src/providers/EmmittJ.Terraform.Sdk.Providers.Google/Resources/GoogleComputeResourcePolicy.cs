@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for disk_consistency_group_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock() : TerraformBlock("disk_consistency_group_policy")
 {
     /// <summary>
     /// Enable disk consistency on the resource policy.
@@ -22,7 +22,7 @@ public partial class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock 
 /// Block type for group_placement_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeResourcePolicyGroupPlacementPolicyBlock() : TerraformBlock("group_placement_policy")
 {
     /// <summary>
     /// The number of availability domains instances will be spread across. If two instances are in different
@@ -64,7 +64,7 @@ public partial class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : Terr
 /// Block type for instance_schedule_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformBlockBase
+public partial class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock() : TerraformBlock("instance_schedule_policy")
 {
     /// <summary>
     /// The expiration time of the schedule. The timestamp is an RFC3339 string.
@@ -95,7 +95,7 @@ public partial class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : Te
 /// Block type for snapshot_schedule_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock : TerraformBlockBase
+public partial class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock() : TerraformBlock("snapshot_schedule_policy")
 {
 }
 
@@ -103,7 +103,7 @@ public partial class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeResourcePolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,7 +132,7 @@ public partial class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlockBa
 /// Block type for workload_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeResourcePolicyWorkloadPolicyBlock() : TerraformBlock("workload_policy")
 {
     /// <summary>
     /// The accelerator topology. This field can be set only when the workload policy type is HIGH_THROUGHPUT
@@ -218,7 +218,7 @@ public partial class GoogleComputeResourcePolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskConsistencyGroupPolicy block(s) allowed")]
     [TerraformProperty("disk_consistency_group_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock>>? DiskConsistencyGroupPolicy { get; set; }
+    public TerraformList<GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock> DiskConsistencyGroupPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for group_placement_policy.
@@ -226,7 +226,7 @@ public partial class GoogleComputeResourcePolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupPlacementPolicy block(s) allowed")]
     [TerraformProperty("group_placement_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeResourcePolicyGroupPlacementPolicyBlock>>? GroupPlacementPolicy { get; set; }
+    public TerraformList<GoogleComputeResourcePolicyGroupPlacementPolicyBlock> GroupPlacementPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for instance_schedule_policy.
@@ -234,7 +234,7 @@ public partial class GoogleComputeResourcePolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceSchedulePolicy block(s) allowed")]
     [TerraformProperty("instance_schedule_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeResourcePolicyInstanceSchedulePolicyBlock>>? InstanceSchedulePolicy { get; set; }
+    public TerraformList<GoogleComputeResourcePolicyInstanceSchedulePolicyBlock> InstanceSchedulePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for snapshot_schedule_policy.
@@ -242,14 +242,14 @@ public partial class GoogleComputeResourcePolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotSchedulePolicy block(s) allowed")]
     [TerraformProperty("snapshot_schedule_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeResourcePolicySnapshotSchedulePolicyBlock>>? SnapshotSchedulePolicy { get; set; }
+    public TerraformList<GoogleComputeResourcePolicySnapshotSchedulePolicyBlock> SnapshotSchedulePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeResourcePolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeResourcePolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workload_policy.
@@ -257,7 +257,7 @@ public partial class GoogleComputeResourcePolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadPolicy block(s) allowed")]
     [TerraformProperty("workload_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeResourcePolicyWorkloadPolicyBlock>>? WorkloadPolicy { get; set; }
+    public TerraformList<GoogleComputeResourcePolicyWorkloadPolicyBlock> WorkloadPolicy { get; set; } = new();
 
     /// <summary>
     /// The self_link attribute.

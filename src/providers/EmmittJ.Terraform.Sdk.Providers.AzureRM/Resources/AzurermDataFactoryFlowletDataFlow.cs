@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sink in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlockBase
+public partial class AzurermDataFactoryFlowletDataFlowSinkBlock() : TerraformBlock("sink")
 {
     /// <summary>
     /// The description attribute.
@@ -29,7 +29,7 @@ public partial class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlockBase
+public partial class AzurermDataFactoryFlowletDataFlowSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The description attribute.
@@ -52,7 +52,7 @@ public partial class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryFlowletDataFlowTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -88,7 +88,7 @@ public partial class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformB
 /// Block type for transformation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryFlowletDataFlowTransformationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryFlowletDataFlowTransformationBlock() : TerraformBlock("transformation")
 {
     /// <summary>
     /// The description attribute.
@@ -179,27 +179,27 @@ public partial class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sink")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowSinkBlock>>? Sink { get; set; }
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlock> Sink { get; set; } = new();
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowSourceBlock>>? Source { get; set; }
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryFlowletDataFlowTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryFlowletDataFlowTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for transformation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("transformation")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowTransformationBlock>>? Transformation { get; set; }
+    public TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlock> Transformation { get; set; } = new();
 
 }

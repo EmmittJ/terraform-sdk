@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for organization_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock : TerraformBlockBase
+public partial class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock() : TerraformBlock("organization_configuration")
 {
     /// <summary>
     /// The configuration_type attribute.
@@ -22,7 +22,7 @@ public partial class AwsSecurityhubOrganizationConfigurationOrganizationConfigur
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsSecurityhubOrganizationConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -92,13 +92,13 @@ public partial class AwsSecurityhubOrganizationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrganizationConfiguration block(s) allowed")]
     [TerraformProperty("organization_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock>>? OrganizationConfiguration { get; set; }
+    public TerraformList<AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock> OrganizationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSecurityhubOrganizationConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSecurityhubOrganizationConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

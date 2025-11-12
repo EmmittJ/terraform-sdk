@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attribute in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDynamodbTableAttributeBlock : TerraformBlockBase
+public partial class AwsDynamodbTableAttributeBlock() : TerraformBlock("attribute")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsDynamodbTableAttributeBlock : TerraformBlockBase
 /// Block type for global_secondary_index in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlockBase
+public partial class AwsDynamodbTableGlobalSecondaryIndexBlock() : TerraformBlock("global_secondary_index")
 {
     /// <summary>
     /// The hash_key attribute.
@@ -90,7 +90,7 @@ public partial class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlockB
 /// Block type for import_table in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDynamodbTableImportTableBlock : TerraformBlockBase
+public partial class AwsDynamodbTableImportTableBlock() : TerraformBlock("import_table")
 {
     /// <summary>
     /// The input_compression_type attribute.
@@ -113,7 +113,7 @@ public partial class AwsDynamodbTableImportTableBlock : TerraformBlockBase
 /// Block type for local_secondary_index in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlockBase
+public partial class AwsDynamodbTableLocalSecondaryIndexBlock() : TerraformBlock("local_secondary_index")
 {
     /// <summary>
     /// The name attribute.
@@ -152,7 +152,7 @@ public partial class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlockBa
 /// Block type for on_demand_throughput in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlockBase
+public partial class AwsDynamodbTableOnDemandThroughputBlock() : TerraformBlock("on_demand_throughput")
 {
     /// <summary>
     /// The max_read_request_units attribute.
@@ -174,7 +174,7 @@ public partial class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlockBas
 /// Block type for point_in_time_recovery in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlockBase
+public partial class AwsDynamodbTablePointInTimeRecoveryBlock() : TerraformBlock("point_in_time_recovery")
 {
     /// <summary>
     /// The enabled attribute.
@@ -197,7 +197,7 @@ public partial class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlockBa
 /// Block type for replica in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDynamodbTableReplicaBlock : TerraformBlockBase
+public partial class AwsDynamodbTableReplicaBlock() : TerraformBlock("replica")
 {
 
     /// <summary>
@@ -251,7 +251,7 @@ public partial class AwsDynamodbTableReplicaBlock : TerraformBlockBase
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlockBase
+public partial class AwsDynamodbTableServerSideEncryptionBlock() : TerraformBlock("server_side_encryption")
 {
     /// <summary>
     /// The enabled attribute.
@@ -274,7 +274,7 @@ public partial class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDynamodbTableTimeoutsBlock : TerraformBlockBase
+public partial class AwsDynamodbTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -303,7 +303,7 @@ public partial class AwsDynamodbTableTimeoutsBlock : TerraformBlockBase
 /// Block type for ttl in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDynamodbTableTtlBlock : TerraformBlockBase
+public partial class AwsDynamodbTableTtlBlock() : TerraformBlock("ttl")
 {
     /// <summary>
     /// The attribute_name attribute.
@@ -325,7 +325,7 @@ public partial class AwsDynamodbTableTtlBlock : TerraformBlockBase
 /// Block type for warm_throughput in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDynamodbTableWarmThroughputBlock : TerraformBlockBase
+public partial class AwsDynamodbTableWarmThroughputBlock() : TerraformBlock("warm_throughput")
 {
     /// <summary>
     /// The read_units_per_second attribute.
@@ -485,14 +485,14 @@ public partial class AwsDynamodbTable : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("attribute")]
-    public partial TerraformSet<TerraformBlock<AwsDynamodbTableAttributeBlock>>? Attribute { get; set; }
+    public TerraformSet<AwsDynamodbTableAttributeBlock> Attribute { get; set; } = new();
 
     /// <summary>
     /// Block for global_secondary_index.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("global_secondary_index")]
-    public partial TerraformSet<TerraformBlock<AwsDynamodbTableGlobalSecondaryIndexBlock>>? GlobalSecondaryIndex { get; set; }
+    public TerraformSet<AwsDynamodbTableGlobalSecondaryIndexBlock> GlobalSecondaryIndex { get; set; } = new();
 
     /// <summary>
     /// Block for import_table.
@@ -500,14 +500,14 @@ public partial class AwsDynamodbTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImportTable block(s) allowed")]
     [TerraformProperty("import_table")]
-    public partial TerraformList<TerraformBlock<AwsDynamodbTableImportTableBlock>>? ImportTable { get; set; }
+    public TerraformList<AwsDynamodbTableImportTableBlock> ImportTable { get; set; } = new();
 
     /// <summary>
     /// Block for local_secondary_index.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("local_secondary_index")]
-    public partial TerraformSet<TerraformBlock<AwsDynamodbTableLocalSecondaryIndexBlock>>? LocalSecondaryIndex { get; set; }
+    public TerraformSet<AwsDynamodbTableLocalSecondaryIndexBlock> LocalSecondaryIndex { get; set; } = new();
 
     /// <summary>
     /// Block for on_demand_throughput.
@@ -515,7 +515,7 @@ public partial class AwsDynamodbTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDemandThroughput block(s) allowed")]
     [TerraformProperty("on_demand_throughput")]
-    public partial TerraformList<TerraformBlock<AwsDynamodbTableOnDemandThroughputBlock>>? OnDemandThroughput { get; set; }
+    public TerraformList<AwsDynamodbTableOnDemandThroughputBlock> OnDemandThroughput { get; set; } = new();
 
     /// <summary>
     /// Block for point_in_time_recovery.
@@ -523,14 +523,14 @@ public partial class AwsDynamodbTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRecovery block(s) allowed")]
     [TerraformProperty("point_in_time_recovery")]
-    public partial TerraformList<TerraformBlock<AwsDynamodbTablePointInTimeRecoveryBlock>>? PointInTimeRecovery { get; set; }
+    public TerraformList<AwsDynamodbTablePointInTimeRecoveryBlock> PointInTimeRecovery { get; set; } = new();
 
     /// <summary>
     /// Block for replica.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("replica")]
-    public partial TerraformSet<TerraformBlock<AwsDynamodbTableReplicaBlock>>? Replica { get; set; }
+    public TerraformSet<AwsDynamodbTableReplicaBlock> Replica { get; set; } = new();
 
     /// <summary>
     /// Block for server_side_encryption.
@@ -538,14 +538,14 @@ public partial class AwsDynamodbTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     [TerraformProperty("server_side_encryption")]
-    public partial TerraformList<TerraformBlock<AwsDynamodbTableServerSideEncryptionBlock>>? ServerSideEncryption { get; set; }
+    public TerraformList<AwsDynamodbTableServerSideEncryptionBlock> ServerSideEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDynamodbTableTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDynamodbTableTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for ttl.
@@ -553,7 +553,7 @@ public partial class AwsDynamodbTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ttl block(s) allowed")]
     [TerraformProperty("ttl")]
-    public partial TerraformList<TerraformBlock<AwsDynamodbTableTtlBlock>>? Ttl { get; set; }
+    public TerraformList<AwsDynamodbTableTtlBlock> Ttl { get; set; } = new();
 
     /// <summary>
     /// Block for warm_throughput.
@@ -561,7 +561,7 @@ public partial class AwsDynamodbTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WarmThroughput block(s) allowed")]
     [TerraformProperty("warm_throughput")]
-    public partial TerraformList<TerraformBlock<AwsDynamodbTableWarmThroughputBlock>>? WarmThroughput { get; set; }
+    public TerraformList<AwsDynamodbTableWarmThroughputBlock> WarmThroughput { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

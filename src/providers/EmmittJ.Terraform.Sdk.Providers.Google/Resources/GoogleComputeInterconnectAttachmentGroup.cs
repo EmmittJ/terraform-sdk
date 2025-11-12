@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attachments in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock : TerraformBlockBase
+public partial class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock() : TerraformBlock("attachments")
 {
     /// <summary>
     /// The attachment attribute.
@@ -29,7 +29,7 @@ public partial class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock : 
 /// Block type for intent in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInterconnectAttachmentGroupIntentBlock : TerraformBlockBase
+public partial class GoogleComputeInterconnectAttachmentGroupIntentBlock() : TerraformBlock("intent")
 {
     /// <summary>
     /// Which SLA the user intends this group to support. Possible values: [&amp;quot;PRODUCTION_NON_CRITICAL&amp;quot;, &amp;quot;PRODUCTION_CRITICAL&amp;quot;, &amp;quot;NO_SLA&amp;quot;, &amp;quot;AVAILABILITY_SLA_UNSPECIFIED&amp;quot;]
@@ -44,7 +44,7 @@ public partial class GoogleComputeInterconnectAttachmentGroupIntentBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,7 +126,7 @@ public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResourc
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("attachments")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeInterconnectAttachmentGroupAttachmentsBlock>>? Attachments { get; set; }
+    public TerraformSet<GoogleComputeInterconnectAttachmentGroupAttachmentsBlock> Attachments { get; set; } = new();
 
     /// <summary>
     /// Block for intent.
@@ -136,14 +136,14 @@ public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Intent block(s) allowed")]
     [TerraformProperty("intent")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInterconnectAttachmentGroupIntentBlock>>? Intent { get; set; }
+    public required TerraformList<GoogleComputeInterconnectAttachmentGroupIntentBlock> Intent { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeInterconnectAttachmentGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeInterconnectAttachmentGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The redundancy this group is configured to support. The way a

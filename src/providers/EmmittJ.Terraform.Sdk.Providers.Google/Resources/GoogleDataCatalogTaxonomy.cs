@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataCatalogTaxonomyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataCatalogTaxonomyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,7 +95,7 @@ public partial class GoogleDataCatalogTaxonomy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataCatalogTaxonomyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataCatalogTaxonomyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Resource name of this taxonomy, whose format is:

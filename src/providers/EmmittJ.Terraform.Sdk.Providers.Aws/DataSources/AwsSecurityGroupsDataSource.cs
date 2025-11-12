@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSecurityGroupsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsSecurityGroupsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsSecurityGroupsDataSourceFilterBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSecurityGroupsDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsSecurityGroupsDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -76,14 +76,14 @@ public partial class AwsSecurityGroupsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsSecurityGroupsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsSecurityGroupsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSecurityGroupsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSecurityGroupsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arns attribute.

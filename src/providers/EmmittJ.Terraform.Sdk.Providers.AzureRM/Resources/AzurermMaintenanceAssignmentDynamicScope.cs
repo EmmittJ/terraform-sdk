@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBlockBase
+public partial class AzurermMaintenanceAssignmentDynamicScopeFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The locations attribute.
@@ -49,7 +49,7 @@ public partial class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -122,13 +122,13 @@ public partial class AzurermMaintenanceAssignmentDynamicScope : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AzurermMaintenanceAssignmentDynamicScopeFilterBlock>>? Filter { get; set; }
+    public required TerraformList<AzurermMaintenanceAssignmentDynamicScopeFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3controlObjectLambdaAccessPointConfigurationBlock : TerraformBlockBase
+public partial class AwsS3controlObjectLambdaAccessPointConfigurationBlock() : TerraformBlock("configuration")
 {
     /// <summary>
     /// The allowed_features attribute.
@@ -79,7 +79,7 @@ public partial class AwsS3controlObjectLambdaAccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsS3controlObjectLambdaAccessPointConfigurationBlock>>? Configuration { get; set; }
+    public required TerraformList<AwsS3controlObjectLambdaAccessPointConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// The alias attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for linked_interconnect_attachments in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock() : TerraformBlock("linked_interconnect_attachments")
 {
     /// <summary>
     /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
@@ -38,7 +38,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachments
 /// Block type for linked_producer_vpc_network in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock() : TerraformBlock("linked_producer_vpc_network")
 {
     /// <summary>
     /// IP ranges encompassing the subnets to be excluded from peering.
@@ -77,7 +77,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock
 /// Block type for linked_router_appliance_instances in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock() : TerraformBlock("linked_router_appliance_instances")
 {
     /// <summary>
     /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
@@ -101,7 +101,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstance
 /// Block type for linked_vpc_network in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock() : TerraformBlock("linked_vpc_network")
 {
     /// <summary>
     /// IP ranges encompassing the subnets to be excluded from peering.
@@ -131,7 +131,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : Terra
 /// Block type for linked_vpn_tunnels in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock() : TerraformBlock("linked_vpn_tunnels")
 {
     /// <summary>
     /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
@@ -163,7 +163,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivitySpokeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -266,7 +266,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedInterconnectAttachments block(s) allowed")]
     [TerraformProperty("linked_interconnect_attachments")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>>? LinkedInterconnectAttachments { get; set; }
+    public TerraformList<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock> LinkedInterconnectAttachments { get; set; } = new();
 
     /// <summary>
     /// Block for linked_producer_vpc_network.
@@ -274,7 +274,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedProducerVpcNetwork block(s) allowed")]
     [TerraformProperty("linked_producer_vpc_network")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>>? LinkedProducerVpcNetwork { get; set; }
+    public TerraformList<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock> LinkedProducerVpcNetwork { get; set; } = new();
 
     /// <summary>
     /// Block for linked_router_appliance_instances.
@@ -282,7 +282,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedRouterApplianceInstances block(s) allowed")]
     [TerraformProperty("linked_router_appliance_instances")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>>? LinkedRouterApplianceInstances { get; set; }
+    public TerraformList<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock> LinkedRouterApplianceInstances { get; set; } = new();
 
     /// <summary>
     /// Block for linked_vpc_network.
@@ -290,7 +290,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpcNetwork block(s) allowed")]
     [TerraformProperty("linked_vpc_network")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>>? LinkedVpcNetwork { get; set; }
+    public TerraformList<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock> LinkedVpcNetwork { get; set; } = new();
 
     /// <summary>
     /// Block for linked_vpn_tunnels.
@@ -298,14 +298,14 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpnTunnels block(s) allowed")]
     [TerraformProperty("linked_vpn_tunnels")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>>? LinkedVpnTunnels { get; set; }
+    public TerraformList<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock> LinkedVpnTunnels { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkConnectivitySpokeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkConnectivitySpokeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time the spoke was created.

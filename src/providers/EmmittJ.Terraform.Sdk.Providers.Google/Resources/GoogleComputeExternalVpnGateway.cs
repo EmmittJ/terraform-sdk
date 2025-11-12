@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeExternalVpnGatewayInterfaceBlock : TerraformBlockBase
+public partial class GoogleComputeExternalVpnGatewayInterfaceBlock() : TerraformBlock("interface")
 {
     /// <summary>
     /// The numeric ID for this interface. Allowed values are based on the redundancy type
@@ -47,7 +47,7 @@ public partial class GoogleComputeExternalVpnGatewayInterfaceBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeExternalVpnGatewayTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeExternalVpnGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,14 +138,14 @@ public partial class GoogleComputeExternalVpnGateway : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("interface")]
-    public partial TerraformList<TerraformBlock<GoogleComputeExternalVpnGatewayInterfaceBlock>>? Interface { get; set; }
+    public TerraformList<GoogleComputeExternalVpnGatewayInterfaceBlock> Interface { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeExternalVpnGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeExternalVpnGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

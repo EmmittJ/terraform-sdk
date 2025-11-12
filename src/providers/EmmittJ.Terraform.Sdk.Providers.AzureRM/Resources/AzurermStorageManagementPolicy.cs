@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageManagementPolicyRuleBlock : TerraformBlockBase
+public partial class AzurermStorageManagementPolicyRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The enabled attribute.
@@ -30,7 +30,7 @@ public partial class AzurermStorageManagementPolicyRuleBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageManagementPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageManagementPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,13 +91,13 @@ public partial class AzurermStorageManagementPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AzurermStorageManagementPolicyRuleBlock>>? Rule { get; set; }
+    public TerraformList<AzurermStorageManagementPolicyRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageManagementPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageManagementPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

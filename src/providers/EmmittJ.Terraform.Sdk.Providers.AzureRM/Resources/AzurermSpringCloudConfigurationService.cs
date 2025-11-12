@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for repository in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBlockBase
+public partial class AzurermSpringCloudConfigurationServiceRepositoryBlock() : TerraformBlock("repository")
 {
     /// <summary>
     /// The ca_certificate_id attribute.
@@ -102,7 +102,7 @@ public partial class AzurermSpringCloudConfigurationServiceRepositoryBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudConfigurationServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -185,13 +185,13 @@ public partial class AzurermSpringCloudConfigurationService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("repository")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudConfigurationServiceRepositoryBlock>>? Repository { get; set; }
+    public TerraformList<AzurermSpringCloudConfigurationServiceRepositoryBlock> Repository { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudConfigurationServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudConfigurationServiceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

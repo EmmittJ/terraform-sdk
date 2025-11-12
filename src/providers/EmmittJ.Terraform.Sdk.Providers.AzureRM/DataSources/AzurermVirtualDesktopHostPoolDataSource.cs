@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSour
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_rdp_properties attribute.

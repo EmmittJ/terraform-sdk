@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for report_delivery_channel in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlockBase
+public partial class AwsBackupReportPlanReportDeliveryChannelBlock() : TerraformBlock("report_delivery_channel")
 {
     /// <summary>
     /// The formats attribute.
@@ -36,7 +36,7 @@ public partial class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBl
 /// Block type for report_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBackupReportPlanReportSettingBlock : TerraformBlockBase
+public partial class AwsBackupReportPlanReportSettingBlock() : TerraformBlock("report_setting")
 {
     /// <summary>
     /// The accounts attribute.
@@ -144,7 +144,7 @@ public partial class AwsBackupReportPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReportDeliveryChannel block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReportDeliveryChannel block(s) allowed")]
     [TerraformProperty("report_delivery_channel")]
-    public partial TerraformList<TerraformBlock<AwsBackupReportPlanReportDeliveryChannelBlock>>? ReportDeliveryChannel { get; set; }
+    public required TerraformList<AwsBackupReportPlanReportDeliveryChannelBlock> ReportDeliveryChannel { get; set; } = new();
 
     /// <summary>
     /// Block for report_setting.
@@ -154,7 +154,7 @@ public partial class AwsBackupReportPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReportSetting block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReportSetting block(s) allowed")]
     [TerraformProperty("report_setting")]
-    public partial TerraformList<TerraformBlock<AwsBackupReportPlanReportSettingBlock>>? ReportSetting { get; set; }
+    public required TerraformList<AwsBackupReportPlanReportSettingBlock> ReportSetting { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

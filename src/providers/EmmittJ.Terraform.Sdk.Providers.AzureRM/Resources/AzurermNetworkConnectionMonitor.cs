@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for endpoint in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlockBase
+public partial class AzurermNetworkConnectionMonitorEndpointBlock() : TerraformBlock("endpoint")
 {
     /// <summary>
     /// The address attribute.
@@ -64,7 +64,7 @@ public partial class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlo
 /// Block type for test_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBlockBase
+public partial class AzurermNetworkConnectionMonitorTestConfigurationBlock() : TerraformBlock("test_configuration")
 {
     /// <summary>
     /// The name attribute.
@@ -102,7 +102,7 @@ public partial class AzurermNetworkConnectionMonitorTestConfigurationBlock : Ter
 /// Block type for test_group in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlockBase
+public partial class AzurermNetworkConnectionMonitorTestGroupBlock() : TerraformBlock("test_group")
 {
     /// <summary>
     /// The destination_endpoints attribute.
@@ -149,7 +149,7 @@ public partial class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkConnectionMonitorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -250,7 +250,7 @@ public partial class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
     [TerraformProperty("endpoint")]
-    public partial TerraformSet<TerraformBlock<AzurermNetworkConnectionMonitorEndpointBlock>>? Endpoint { get; set; }
+    public required TerraformSet<AzurermNetworkConnectionMonitorEndpointBlock> Endpoint { get; set; } = new();
 
     /// <summary>
     /// Block for test_configuration.
@@ -259,7 +259,7 @@ public partial class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TestConfiguration block(s) required")]
     [TerraformProperty("test_configuration")]
-    public partial TerraformSet<TerraformBlock<AzurermNetworkConnectionMonitorTestConfigurationBlock>>? TestConfiguration { get; set; }
+    public required TerraformSet<AzurermNetworkConnectionMonitorTestConfigurationBlock> TestConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for test_group.
@@ -268,13 +268,13 @@ public partial class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TestGroup block(s) required")]
     [TerraformProperty("test_group")]
-    public partial TerraformSet<TerraformBlock<AzurermNetworkConnectionMonitorTestGroupBlock>>? TestGroup { get; set; }
+    public required TerraformSet<AzurermNetworkConnectionMonitorTestGroupBlock> TestGroup { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkConnectionMonitorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkConnectionMonitorTimeoutsBlock Timeouts { get; set; } = new();
 
 }

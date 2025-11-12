@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBlockBase
+public partial class AzurermDataShareDatasetBlobStorageStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDataShareDatasetBlobStorageStorageAccountBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataShareDatasetBlobStorageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,14 +126,14 @@ public partial class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageAccount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
     [TerraformProperty("storage_account")]
-    public partial TerraformList<TerraformBlock<AzurermDataShareDatasetBlobStorageStorageAccountBlock>>? StorageAccount { get; set; }
+    public required TerraformList<AzurermDataShareDatasetBlobStorageStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataShareDatasetBlobStorageTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataShareDatasetBlobStorageTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The display_name attribute.

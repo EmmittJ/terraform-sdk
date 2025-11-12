@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermElasticSanSkuBlock : TerraformBlockBase
+public partial class AzurermElasticSanSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermElasticSanSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermElasticSanTimeoutsBlock : TerraformBlockBase
+public partial class AzurermElasticSanTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -139,14 +139,14 @@ public partial class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermElasticSanSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermElasticSanSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermElasticSanTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermElasticSanTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The total_iops attribute.

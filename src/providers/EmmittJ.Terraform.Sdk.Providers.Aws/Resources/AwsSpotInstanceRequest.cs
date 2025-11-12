@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity_reservation_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestCapacityReservationSpecificationBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestCapacityReservationSpecificationBlock() : TerraformBlock("capacity_reservation_specification")
 {
     /// <summary>
     /// The capacity_reservation_preference attribute.
@@ -21,7 +21,7 @@ public partial class AwsSpotInstanceRequestCapacityReservationSpecificationBlock
 /// Block type for cpu_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestCpuOptionsBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestCpuOptionsBlock() : TerraformBlock("cpu_options")
 {
     /// <summary>
     /// The amd_sev_snp attribute.
@@ -50,7 +50,7 @@ public partial class AwsSpotInstanceRequestCpuOptionsBlock : TerraformBlockBase
 /// Block type for credit_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestCreditSpecificationBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestCreditSpecificationBlock() : TerraformBlock("credit_specification")
 {
     /// <summary>
     /// The cpu_credits attribute.
@@ -65,7 +65,7 @@ public partial class AwsSpotInstanceRequestCreditSpecificationBlock : TerraformB
 /// Block type for ebs_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestEbsBlockDeviceBlock() : TerraformBlock("ebs_block_device")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -152,7 +152,7 @@ public partial class AwsSpotInstanceRequestEbsBlockDeviceBlock : TerraformBlockB
 /// Block type for enclave_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestEnclaveOptionsBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestEnclaveOptionsBlock() : TerraformBlock("enclave_options")
 {
     /// <summary>
     /// The enabled attribute.
@@ -167,7 +167,7 @@ public partial class AwsSpotInstanceRequestEnclaveOptionsBlock : TerraformBlockB
 /// Block type for ephemeral_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSpotInstanceRequestEphemeralBlockDeviceBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestEphemeralBlockDeviceBlock() : TerraformBlock("ephemeral_block_device")
 {
     /// <summary>
     /// The device_name attribute.
@@ -197,7 +197,7 @@ public partial class AwsSpotInstanceRequestEphemeralBlockDeviceBlock : Terraform
 /// Block type for launch_template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestLaunchTemplateBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestLaunchTemplateBlock() : TerraformBlock("launch_template")
 {
     /// <summary>
     /// The id attribute.
@@ -226,7 +226,7 @@ public partial class AwsSpotInstanceRequestLaunchTemplateBlock : TerraformBlockB
 /// Block type for maintenance_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestMaintenanceOptionsBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestMaintenanceOptionsBlock() : TerraformBlock("maintenance_options")
 {
     /// <summary>
     /// The auto_recovery attribute.
@@ -241,7 +241,7 @@ public partial class AwsSpotInstanceRequestMaintenanceOptionsBlock : TerraformBl
 /// Block type for metadata_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestMetadataOptionsBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestMetadataOptionsBlock() : TerraformBlock("metadata_options")
 {
     /// <summary>
     /// The http_endpoint attribute.
@@ -285,7 +285,7 @@ public partial class AwsSpotInstanceRequestMetadataOptionsBlock : TerraformBlock
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsSpotInstanceRequestNetworkInterfaceBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestNetworkInterfaceBlock() : TerraformBlock("network_interface")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -317,7 +317,7 @@ public partial class AwsSpotInstanceRequestNetworkInterfaceBlock : TerraformBloc
 /// Block type for private_dns_name_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestPrivateDnsNameOptionsBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestPrivateDnsNameOptionsBlock() : TerraformBlock("private_dns_name_options")
 {
     /// <summary>
     /// The enable_resource_name_dns_a_record attribute.
@@ -346,7 +346,7 @@ public partial class AwsSpotInstanceRequestPrivateDnsNameOptionsBlock : Terrafor
 /// Block type for root_block_device in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestRootBlockDeviceBlock() : TerraformBlock("root_block_device")
 {
     /// <summary>
     /// The delete_on_termination attribute.
@@ -419,7 +419,7 @@ public partial class AwsSpotInstanceRequestRootBlockDeviceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSpotInstanceRequestTimeoutsBlock : TerraformBlockBase
+public partial class AwsSpotInstanceRequestTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -768,7 +768,7 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityReservationSpecification block(s) allowed")]
     [TerraformProperty("capacity_reservation_specification")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestCapacityReservationSpecificationBlock>>? CapacityReservationSpecification { get; set; }
+    public TerraformList<AwsSpotInstanceRequestCapacityReservationSpecificationBlock> CapacityReservationSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for cpu_options.
@@ -776,7 +776,7 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CpuOptions block(s) allowed")]
     [TerraformProperty("cpu_options")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestCpuOptionsBlock>>? CpuOptions { get; set; }
+    public TerraformList<AwsSpotInstanceRequestCpuOptionsBlock> CpuOptions { get; set; } = new();
 
     /// <summary>
     /// Block for credit_specification.
@@ -784,14 +784,14 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreditSpecification block(s) allowed")]
     [TerraformProperty("credit_specification")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestCreditSpecificationBlock>>? CreditSpecification { get; set; }
+    public TerraformList<AwsSpotInstanceRequestCreditSpecificationBlock> CreditSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for ebs_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsSpotInstanceRequestEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
+    public TerraformSet<AwsSpotInstanceRequestEbsBlockDeviceBlock> EbsBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for enclave_options.
@@ -799,14 +799,14 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnclaveOptions block(s) allowed")]
     [TerraformProperty("enclave_options")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestEnclaveOptionsBlock>>? EnclaveOptions { get; set; }
+    public TerraformList<AwsSpotInstanceRequestEnclaveOptionsBlock> EnclaveOptions { get; set; } = new();
 
     /// <summary>
     /// Block for ephemeral_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ephemeral_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsSpotInstanceRequestEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
+    public TerraformSet<AwsSpotInstanceRequestEphemeralBlockDeviceBlock> EphemeralBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template.
@@ -814,7 +814,7 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
     [TerraformProperty("launch_template")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestLaunchTemplateBlock>>? LaunchTemplate { get; set; }
+    public TerraformList<AwsSpotInstanceRequestLaunchTemplateBlock> LaunchTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_options.
@@ -822,7 +822,7 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceOptions block(s) allowed")]
     [TerraformProperty("maintenance_options")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestMaintenanceOptionsBlock>>? MaintenanceOptions { get; set; }
+    public TerraformList<AwsSpotInstanceRequestMaintenanceOptionsBlock> MaintenanceOptions { get; set; } = new();
 
     /// <summary>
     /// Block for metadata_options.
@@ -830,7 +830,7 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataOptions block(s) allowed")]
     [TerraformProperty("metadata_options")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestMetadataOptionsBlock>>? MetadataOptions { get; set; }
+    public TerraformList<AwsSpotInstanceRequestMetadataOptionsBlock> MetadataOptions { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
@@ -838,7 +838,7 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("network_interface")]
-    public partial TerraformSet<TerraformBlock<AwsSpotInstanceRequestNetworkInterfaceBlock>>? NetworkInterface { get; set; }
+    public TerraformSet<AwsSpotInstanceRequestNetworkInterfaceBlock> NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for private_dns_name_options.
@@ -846,7 +846,7 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateDnsNameOptions block(s) allowed")]
     [TerraformProperty("private_dns_name_options")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestPrivateDnsNameOptionsBlock>>? PrivateDnsNameOptions { get; set; }
+    public TerraformList<AwsSpotInstanceRequestPrivateDnsNameOptionsBlock> PrivateDnsNameOptions { get; set; } = new();
 
     /// <summary>
     /// Block for root_block_device.
@@ -854,14 +854,14 @@ public partial class AwsSpotInstanceRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootBlockDevice block(s) allowed")]
     [TerraformProperty("root_block_device")]
-    public partial TerraformList<TerraformBlock<AwsSpotInstanceRequestRootBlockDeviceBlock>>? RootBlockDevice { get; set; }
+    public TerraformList<AwsSpotInstanceRequestRootBlockDeviceBlock> RootBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSpotInstanceRequestTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSpotInstanceRequestTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

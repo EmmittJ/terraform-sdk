@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for request in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiOperationRequestBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiOperationRequestBlock() : TerraformBlock("request")
 {
     /// <summary>
     /// The description attribute.
@@ -21,7 +21,7 @@ public partial class AzurermApiManagementApiOperationRequestBlock : TerraformBlo
 /// Block type for response in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiOperationResponseBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiOperationResponseBlock() : TerraformBlock("response")
 {
     /// <summary>
     /// The description attribute.
@@ -44,7 +44,7 @@ public partial class AzurermApiManagementApiOperationResponseBlock : TerraformBl
 /// Block type for template_parameter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiOperationTemplateParameterBlock() : TerraformBlock("template_parameter")
 {
     /// <summary>
     /// The default_value attribute.
@@ -111,7 +111,7 @@ public partial class AzurermApiManagementApiOperationTemplateParameterBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementApiOperationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -229,27 +229,27 @@ public partial class AzurermApiManagementApiOperation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
     [TerraformProperty("request")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiOperationRequestBlock>>? Request { get; set; }
+    public TerraformList<AzurermApiManagementApiOperationRequestBlock> Request { get; set; } = new();
 
     /// <summary>
     /// Block for response.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("response")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiOperationResponseBlock>>? Response { get; set; }
+    public TerraformList<AzurermApiManagementApiOperationResponseBlock> Response { get; set; } = new();
 
     /// <summary>
     /// Block for template_parameter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("template_parameter")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementApiOperationTemplateParameterBlock>>? TemplateParameter { get; set; }
+    public TerraformList<AzurermApiManagementApiOperationTemplateParameterBlock> TemplateParameter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementApiOperationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementApiOperationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

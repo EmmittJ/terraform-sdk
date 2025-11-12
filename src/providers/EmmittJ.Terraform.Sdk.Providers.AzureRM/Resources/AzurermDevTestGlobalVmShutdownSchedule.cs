@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for notification_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : TerraformBlockBase
+public partial class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock() : TerraformBlock("notification_settings")
 {
     /// <summary>
     /// The email attribute.
@@ -43,7 +43,7 @@ public partial class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,13 +146,13 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NotificationSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationSettings block(s) allowed")]
     [TerraformProperty("notification_settings")]
-    public partial TerraformList<TerraformBlock<AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock>>? NotificationSettings { get; set; }
+    public required TerraformList<AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock> NotificationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for certificate_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBlockBase
+public partial class AwsAmplifyDomainAssociationCertificateSettingsBlock() : TerraformBlock("certificate_settings")
 {
 
     /// <summary>
@@ -30,7 +30,7 @@ public partial class AwsAmplifyDomainAssociationCertificateSettingsBlock : Terra
 /// Block type for sub_domain in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlockBase
+public partial class AwsAmplifyDomainAssociationSubDomainBlock() : TerraformBlock("sub_domain")
 {
     /// <summary>
     /// The branch_name attribute.
@@ -112,7 +112,7 @@ public partial class AwsAmplifyDomainAssociation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateSettings block(s) allowed")]
     [TerraformProperty("certificate_settings")]
-    public partial TerraformList<TerraformBlock<AwsAmplifyDomainAssociationCertificateSettingsBlock>>? CertificateSettings { get; set; }
+    public TerraformList<AwsAmplifyDomainAssociationCertificateSettingsBlock> CertificateSettings { get; set; } = new();
 
     /// <summary>
     /// Block for sub_domain.
@@ -121,7 +121,7 @@ public partial class AwsAmplifyDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubDomain is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SubDomain block(s) required")]
     [TerraformProperty("sub_domain")]
-    public partial TerraformSet<TerraformBlock<AwsAmplifyDomainAssociationSubDomainBlock>>? SubDomain { get; set; }
+    public required TerraformSet<AwsAmplifyDomainAssociationSubDomainBlock> SubDomain { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

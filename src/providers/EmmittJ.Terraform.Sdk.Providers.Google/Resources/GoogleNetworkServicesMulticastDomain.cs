@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for connection_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesMulticastDomainConnectionConfigBlock() : TerraformBlock("connection_config")
 {
     /// <summary>
     /// The VPC connection type.
@@ -35,7 +35,7 @@ public partial class GoogleNetworkServicesMulticastDomainConnectionConfigBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesMulticastDomainTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesMulticastDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -147,14 +147,14 @@ public partial class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionConfig block(s) allowed")]
     [TerraformProperty("connection_config")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesMulticastDomainConnectionConfigBlock>>? ConnectionConfig { get; set; }
+    public required TerraformList<GoogleNetworkServicesMulticastDomainConnectionConfigBlock> ConnectionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesMulticastDomainTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesMulticastDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// [Output only] The timestamp when the multicast domain was created.

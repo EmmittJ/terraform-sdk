@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for health_probe in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorOriginGroupHealthProbeBlock() : TerraformBlock("health_probe")
 {
     /// <summary>
     /// The interval_in_seconds attribute.
@@ -44,7 +44,7 @@ public partial class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformB
 /// Block type for load_balancing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock() : TerraformBlock("load_balancing")
 {
     /// <summary>
     /// The additional_latency_in_milliseconds attribute.
@@ -73,7 +73,7 @@ public partial class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorOriginGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -158,7 +158,7 @@ public partial class AzurermCdnFrontdoorOriginGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthProbe block(s) allowed")]
     [TerraformProperty("health_probe")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>>? HealthProbe { get; set; }
+    public TerraformList<AzurermCdnFrontdoorOriginGroupHealthProbeBlock> HealthProbe { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancing.
@@ -168,13 +168,13 @@ public partial class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancing block(s) allowed")]
     [TerraformProperty("load_balancing")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock>>? LoadBalancing { get; set; }
+    public required TerraformList<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock> LoadBalancing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorOriginGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorOriginGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

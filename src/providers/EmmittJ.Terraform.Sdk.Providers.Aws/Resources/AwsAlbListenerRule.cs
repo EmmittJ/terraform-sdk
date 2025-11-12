@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAlbListenerRuleActionBlock : TerraformBlockBase
+public partial class AwsAlbListenerRuleActionBlock() : TerraformBlock("action")
 {
     /// <summary>
     /// The order attribute.
@@ -36,7 +36,7 @@ public partial class AwsAlbListenerRuleActionBlock : TerraformBlockBase
 /// Block type for condition in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAlbListenerRuleConditionBlock : TerraformBlockBase
+public partial class AwsAlbListenerRuleConditionBlock() : TerraformBlock("condition")
 {
 }
 
@@ -44,7 +44,7 @@ public partial class AwsAlbListenerRuleConditionBlock : TerraformBlockBase
 /// Block type for transform in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAlbListenerRuleTransformBlock : TerraformBlockBase
+public partial class AwsAlbListenerRuleTransformBlock() : TerraformBlock("transform")
 {
     /// <summary>
     /// The type attribute.
@@ -116,7 +116,7 @@ public partial class AwsAlbListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AwsAlbListenerRuleActionBlock>>? Action { get; set; }
+    public required TerraformList<AwsAlbListenerRuleActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for condition.
@@ -125,7 +125,7 @@ public partial class AwsAlbListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Condition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Condition block(s) required")]
     [TerraformProperty("condition")]
-    public partial TerraformSet<TerraformBlock<AwsAlbListenerRuleConditionBlock>>? Condition { get; set; }
+    public required TerraformSet<AwsAlbListenerRuleConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for transform.
@@ -133,7 +133,7 @@ public partial class AwsAlbListenerRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Transform block(s) allowed")]
     [TerraformProperty("transform")]
-    public partial TerraformSet<TerraformBlock<AwsAlbListenerRuleTransformBlock>>? Transform { get; set; }
+    public TerraformSet<AwsAlbListenerRuleTransformBlock> Transform { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

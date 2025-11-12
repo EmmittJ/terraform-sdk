@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backfill_all in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamStreamBackfillAllBlock : TerraformBlockBase
+public partial class GoogleDatastreamStreamBackfillAllBlock() : TerraformBlock("backfill_all")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDatastreamStreamBackfillAllBlock : TerraformBlockBase
 /// Block type for backfill_none in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamStreamBackfillNoneBlock : TerraformBlockBase
+public partial class GoogleDatastreamStreamBackfillNoneBlock() : TerraformBlock("backfill_none")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class GoogleDatastreamStreamBackfillNoneBlock : TerraformBlockBas
 /// Block type for destination_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamStreamDestinationConfigBlock : TerraformBlockBase
+public partial class GoogleDatastreamStreamDestinationConfigBlock() : TerraformBlock("destination_config")
 {
     /// <summary>
     /// Destination connection profile resource. Format: projects/{project}/locations/{location}/connectionProfiles/{name}
@@ -38,7 +38,7 @@ public partial class GoogleDatastreamStreamDestinationConfigBlock : TerraformBlo
 /// Block type for source_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatastreamStreamSourceConfigBlock : TerraformBlockBase
+public partial class GoogleDatastreamStreamSourceConfigBlock() : TerraformBlock("source_config")
 {
     /// <summary>
     /// Source connection profile resource. Format: projects/{project}/locations/{location}/connectionProfiles/{name}
@@ -54,7 +54,7 @@ public partial class GoogleDatastreamStreamSourceConfigBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDatastreamStreamTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDatastreamStreamTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -168,7 +168,7 @@ public partial class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackfillAll block(s) allowed")]
     [TerraformProperty("backfill_all")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamStreamBackfillAllBlock>>? BackfillAll { get; set; }
+    public TerraformList<GoogleDatastreamStreamBackfillAllBlock> BackfillAll { get; set; } = new();
 
     /// <summary>
     /// Block for backfill_none.
@@ -176,7 +176,7 @@ public partial class GoogleDatastreamStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackfillNone block(s) allowed")]
     [TerraformProperty("backfill_none")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamStreamBackfillNoneBlock>>? BackfillNone { get; set; }
+    public TerraformList<GoogleDatastreamStreamBackfillNoneBlock> BackfillNone { get; set; } = new();
 
     /// <summary>
     /// Block for destination_config.
@@ -186,7 +186,7 @@ public partial class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfig block(s) allowed")]
     [TerraformProperty("destination_config")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamStreamDestinationConfigBlock>>? DestinationConfig { get; set; }
+    public required TerraformList<GoogleDatastreamStreamDestinationConfigBlock> DestinationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for source_config.
@@ -196,14 +196,14 @@ public partial class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceConfig block(s) allowed")]
     [TerraformProperty("source_config")]
-    public partial TerraformList<TerraformBlock<GoogleDatastreamStreamSourceConfigBlock>>? SourceConfig { get; set; }
+    public required TerraformList<GoogleDatastreamStreamSourceConfigBlock> SourceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDatastreamStreamTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDatastreamStreamTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcGoogleApiSourceLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleEventarcGoogleApiSourceLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// The minimum severity of logs that will be sent to Stackdriver/Platform
@@ -22,7 +22,7 @@ public partial class GoogleEventarcGoogleApiSourceLoggingConfigBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEventarcGoogleApiSourceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEventarcGoogleApiSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -142,14 +142,14 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcGoogleApiSourceLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<GoogleEventarcGoogleApiSourceLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEventarcGoogleApiSourceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEventarcGoogleApiSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation time.

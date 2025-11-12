@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for magnetic_store_write_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock : TerraformBlockBase
+public partial class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock() : TerraformBlock("magnetic_store_write_properties")
 {
     /// <summary>
     /// The enable_magnetic_store_writes attribute.
@@ -21,7 +21,7 @@ public partial class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock : 
 /// Block type for retention_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamwriteTableRetentionPropertiesBlock : TerraformBlockBase
+public partial class AwsTimestreamwriteTableRetentionPropertiesBlock() : TerraformBlock("retention_properties")
 {
     /// <summary>
     /// The magnetic_store_retention_period_in_days attribute.
@@ -45,7 +45,7 @@ public partial class AwsTimestreamwriteTableRetentionPropertiesBlock : Terraform
 /// Block type for schema in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTimestreamwriteTableSchemaBlock : TerraformBlockBase
+public partial class AwsTimestreamwriteTableSchemaBlock() : TerraformBlock("schema")
 {
 }
 
@@ -109,7 +109,7 @@ public partial class AwsTimestreamwriteTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MagneticStoreWriteProperties block(s) allowed")]
     [TerraformProperty("magnetic_store_write_properties")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock>>? MagneticStoreWriteProperties { get; set; }
+    public TerraformList<AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock> MagneticStoreWriteProperties { get; set; } = new();
 
     /// <summary>
     /// Block for retention_properties.
@@ -117,7 +117,7 @@ public partial class AwsTimestreamwriteTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionProperties block(s) allowed")]
     [TerraformProperty("retention_properties")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamwriteTableRetentionPropertiesBlock>>? RetentionProperties { get; set; }
+    public TerraformList<AwsTimestreamwriteTableRetentionPropertiesBlock> RetentionProperties { get; set; } = new();
 
     /// <summary>
     /// Block for schema.
@@ -125,7 +125,7 @@ public partial class AwsTimestreamwriteTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schema block(s) allowed")]
     [TerraformProperty("schema")]
-    public partial TerraformList<TerraformBlock<AwsTimestreamwriteTableSchemaBlock>>? Schema { get; set; }
+    public TerraformList<AwsTimestreamwriteTableSchemaBlock> Schema { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dkim_signing_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlockBase
+public partial class AwsSesv2EmailIdentityDkimSigningAttributesBlock() : TerraformBlock("dkim_signing_attributes")
 {
 
     /// <summary>
@@ -95,7 +95,7 @@ public partial class AwsSesv2EmailIdentity : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DkimSigningAttributes block(s) allowed")]
     [TerraformProperty("dkim_signing_attributes")]
-    public partial TerraformList<TerraformBlock<AwsSesv2EmailIdentityDkimSigningAttributesBlock>>? DkimSigningAttributes { get; set; }
+    public TerraformList<AwsSesv2EmailIdentityDkimSigningAttributesBlock> DkimSigningAttributes { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

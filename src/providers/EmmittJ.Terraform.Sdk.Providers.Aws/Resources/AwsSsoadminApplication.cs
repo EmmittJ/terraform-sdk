@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for portal_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsoadminApplicationPortalOptionsBlock : TerraformBlockBase
+public partial class AwsSsoadminApplicationPortalOptionsBlock() : TerraformBlock("portal_options")
 {
     /// <summary>
     /// The visibility attribute.
@@ -90,7 +90,7 @@ public partial class AwsSsoadminApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("portal_options")]
-    public partial TerraformList<TerraformBlock<AwsSsoadminApplicationPortalOptionsBlock>>? PortalOptions { get; set; }
+    public TerraformList<AwsSsoadminApplicationPortalOptionsBlock> PortalOptions { get; set; } = new();
 
     /// <summary>
     /// The application_account attribute.

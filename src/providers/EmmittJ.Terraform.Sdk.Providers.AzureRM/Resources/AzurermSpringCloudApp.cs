@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_persistent_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlockBase
+public partial class AzurermSpringCloudAppCustomPersistentDiskBlock() : TerraformBlock("custom_persistent_disk")
 {
     /// <summary>
     /// The mount_options attribute.
@@ -52,7 +52,7 @@ public partial class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudAppIdentityBlock : TerraformBlockBase
+public partial class AzurermSpringCloudAppIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -77,7 +77,7 @@ public partial class AzurermSpringCloudAppIdentityBlock : TerraformBlockBase
 /// Block type for ingress_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudAppIngressSettingsBlock() : TerraformBlock("ingress_settings")
 {
     /// <summary>
     /// The backend_protocol attribute.
@@ -120,7 +120,7 @@ public partial class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlockB
 /// Block type for persistent_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlockBase
+public partial class AzurermSpringCloudAppPersistentDiskBlock() : TerraformBlock("persistent_disk")
 {
     /// <summary>
     /// The mount_path attribute.
@@ -143,7 +143,7 @@ public partial class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudAppTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudAppTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -256,7 +256,7 @@ public partial class AzurermSpringCloudApp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_persistent_disk")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudAppCustomPersistentDiskBlock>>? CustomPersistentDisk { get; set; }
+    public TerraformList<AzurermSpringCloudAppCustomPersistentDiskBlock> CustomPersistentDisk { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -264,7 +264,7 @@ public partial class AzurermSpringCloudApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudAppIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermSpringCloudAppIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for ingress_settings.
@@ -272,7 +272,7 @@ public partial class AzurermSpringCloudApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressSettings block(s) allowed")]
     [TerraformProperty("ingress_settings")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudAppIngressSettingsBlock>>? IngressSettings { get; set; }
+    public TerraformList<AzurermSpringCloudAppIngressSettingsBlock> IngressSettings { get; set; } = new();
 
     /// <summary>
     /// Block for persistent_disk.
@@ -280,14 +280,14 @@ public partial class AzurermSpringCloudApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistentDisk block(s) allowed")]
     [TerraformProperty("persistent_disk")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudAppPersistentDiskBlock>>? PersistentDisk { get; set; }
+    public TerraformList<AzurermSpringCloudAppPersistentDiskBlock> PersistentDisk { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudAppTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudAppTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for preferred_tables in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryBiReservationPreferredTablesBlock : TerraformBlockBase
+public partial class GoogleBigqueryBiReservationPreferredTablesBlock() : TerraformBlock("preferred_tables")
 {
     /// <summary>
     /// The ID of the dataset in the above project.
@@ -35,7 +35,7 @@ public partial class GoogleBigqueryBiReservationPreferredTablesBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryBiReservationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryBiReservationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -103,14 +103,14 @@ public partial class GoogleBigqueryBiReservation : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("preferred_tables")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryBiReservationPreferredTablesBlock>>? PreferredTables { get; set; }
+    public TerraformList<GoogleBigqueryBiReservationPreferredTablesBlock> PreferredTables { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryBiReservationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryBiReservationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the singleton BI reservation. Reservation names have the form &#39;projects/{projectId}/locations/{locationId}/biReservation&#39;.

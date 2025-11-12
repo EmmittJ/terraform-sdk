@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceSettingsMetadataBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceSettingsMetadataBlock() : TerraformBlock("metadata")
 {
     /// <summary>
     /// A metadata key/value items map. The total size of all keys and values must be less than 512KB
@@ -21,7 +21,7 @@ public partial class GoogleComputeInstanceSettingsMetadataBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeInstanceSettingsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceSettingsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -84,14 +84,14 @@ public partial class GoogleComputeInstanceSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceSettingsMetadataBlock>>? Metadata { get; set; }
+    public TerraformList<GoogleComputeInstanceSettingsMetadataBlock> Metadata { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeInstanceSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeInstanceSettingsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used

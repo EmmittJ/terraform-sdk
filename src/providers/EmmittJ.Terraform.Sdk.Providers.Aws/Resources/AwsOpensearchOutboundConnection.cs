@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connection_properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOpensearchOutboundConnectionConnectionPropertiesBlock : TerraformBlockBase
+public partial class AwsOpensearchOutboundConnectionConnectionPropertiesBlock() : TerraformBlock("connection_properties")
 {
 
 }
@@ -15,7 +15,7 @@ public partial class AwsOpensearchOutboundConnectionConnectionPropertiesBlock : 
 /// Block type for local_domain_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBlockBase
+public partial class AwsOpensearchOutboundConnectionLocalDomainInfoBlock() : TerraformBlock("local_domain_info")
 {
     /// <summary>
     /// The domain_name attribute.
@@ -47,7 +47,7 @@ public partial class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : Terra
 /// Block type for remote_domain_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlockBase
+public partial class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock() : TerraformBlock("remote_domain_info")
 {
     /// <summary>
     /// The domain_name attribute.
@@ -79,7 +79,7 @@ public partial class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOpensearchOutboundConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AwsOpensearchOutboundConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,7 +149,7 @@ public partial class AwsOpensearchOutboundConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionProperties block(s) allowed")]
     [TerraformProperty("connection_properties")]
-    public partial TerraformList<TerraformBlock<AwsOpensearchOutboundConnectionConnectionPropertiesBlock>>? ConnectionProperties { get; set; }
+    public TerraformList<AwsOpensearchOutboundConnectionConnectionPropertiesBlock> ConnectionProperties { get; set; } = new();
 
     /// <summary>
     /// Block for local_domain_info.
@@ -159,7 +159,7 @@ public partial class AwsOpensearchOutboundConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocalDomainInfo block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDomainInfo block(s) allowed")]
     [TerraformProperty("local_domain_info")]
-    public partial TerraformList<TerraformBlock<AwsOpensearchOutboundConnectionLocalDomainInfoBlock>>? LocalDomainInfo { get; set; }
+    public required TerraformList<AwsOpensearchOutboundConnectionLocalDomainInfoBlock> LocalDomainInfo { get; set; } = new();
 
     /// <summary>
     /// Block for remote_domain_info.
@@ -169,14 +169,14 @@ public partial class AwsOpensearchOutboundConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RemoteDomainInfo block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteDomainInfo block(s) allowed")]
     [TerraformProperty("remote_domain_info")]
-    public partial TerraformList<TerraformBlock<AwsOpensearchOutboundConnectionRemoteDomainInfoBlock>>? RemoteDomainInfo { get; set; }
+    public required TerraformList<AwsOpensearchOutboundConnectionRemoteDomainInfoBlock> RemoteDomainInfo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOpensearchOutboundConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOpensearchOutboundConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The connection_status attribute.

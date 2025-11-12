@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for device_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock() : TerraformBlock("device_policy")
 {
     /// <summary>
     /// A list of allowed device management levels.
@@ -52,7 +52,7 @@ public partial class GoogleAccessContextManagerAccessLevelConditionDevicePolicyB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -74,7 +74,7 @@ public partial class GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock
 /// Block type for vpc_network_sources in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBlock() : TerraformBlock("vpc_network_sources")
 {
 }
 
@@ -168,21 +168,21 @@ public partial class GoogleAccessContextManagerAccessLevelCondition : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DevicePolicy block(s) allowed")]
     [TerraformProperty("device_policy")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock>>? DevicePolicy { get; set; }
+    public TerraformList<GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock> DevicePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_network_sources.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vpc_network_sources")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBlock>>? VpcNetworkSources { get; set; }
+    public TerraformList<GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBlock> VpcNetworkSources { get; set; } = new();
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.

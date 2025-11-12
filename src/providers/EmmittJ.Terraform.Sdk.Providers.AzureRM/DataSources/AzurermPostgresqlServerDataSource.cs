@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPostgresqlServerDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPostgresqlServerDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -55,7 +55,7 @@ public partial class AzurermPostgresqlServerDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPostgresqlServerDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPostgresqlServerDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The administrator_login attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_privacy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsBotDataPrivacyBlock : TerraformBlockBase
+public partial class AwsLexv2modelsBotDataPrivacyBlock() : TerraformBlock("data_privacy")
 {
     /// <summary>
     /// The child_directed attribute.
@@ -22,7 +22,7 @@ public partial class AwsLexv2modelsBotDataPrivacyBlock : TerraformBlockBase
 /// Block type for members in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsBotMembersBlock : TerraformBlockBase
+public partial class AwsLexv2modelsBotMembersBlock() : TerraformBlock("members")
 {
     /// <summary>
     /// The alias_id attribute.
@@ -70,7 +70,7 @@ public partial class AwsLexv2modelsBotMembersBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLexv2modelsBotTimeoutsBlock : TerraformBlockBase
+public partial class AwsLexv2modelsBotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -168,21 +168,21 @@ public partial class AwsLexv2modelsBot : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_privacy")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsBotDataPrivacyBlock>>? DataPrivacy { get; set; }
+    public TerraformList<AwsLexv2modelsBotDataPrivacyBlock> DataPrivacy { get; set; } = new();
 
     /// <summary>
     /// Block for members.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("members")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsBotMembersBlock>>? Members { get; set; }
+    public TerraformList<AwsLexv2modelsBotMembersBlock> Members { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLexv2modelsBotTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLexv2modelsBotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

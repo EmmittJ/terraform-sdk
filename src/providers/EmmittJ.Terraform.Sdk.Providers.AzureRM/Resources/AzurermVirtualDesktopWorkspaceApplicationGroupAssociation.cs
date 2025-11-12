@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,6 +68,6 @@ public partial class AzurermVirtualDesktopWorkspaceApplicationGroupAssociation :
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermGraphServicesAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermGraphServicesAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,7 +90,7 @@ public partial class AzurermGraphServicesAccount : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermGraphServicesAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermGraphServicesAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The billing_plan_id attribute.

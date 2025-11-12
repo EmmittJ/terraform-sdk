@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseCloudVmClusterPropertiesBlock() : TerraformBlock("properties")
 {
     /// <summary>
     /// OCI Cluster name.
@@ -144,7 +144,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -303,14 +303,14 @@ public partial class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public partial TerraformList<TerraformBlock<GoogleOracleDatabaseCloudVmClusterPropertiesBlock>>? Properties { get; set; }
+    public TerraformList<GoogleOracleDatabaseCloudVmClusterPropertiesBlock> Properties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOracleDatabaseCloudVmClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOracleDatabaseCloudVmClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The date and time that the VM cluster was created.

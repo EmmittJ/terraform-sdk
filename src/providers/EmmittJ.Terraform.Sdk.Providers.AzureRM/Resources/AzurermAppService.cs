@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermAppServiceAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// The additional_login_params attribute.
@@ -78,7 +78,7 @@ public partial class AzurermAppServiceAuthSettingsBlock : TerraformBlockBase
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceBackupBlock : TerraformBlockBase
+public partial class AzurermAppServiceBackupBlock() : TerraformBlock("backup")
 {
     /// <summary>
     /// The enabled attribute.
@@ -109,7 +109,7 @@ public partial class AzurermAppServiceBackupBlock : TerraformBlockBase
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermAppServiceConnectionStringBlock : TerraformBlockBase
+public partial class AzurermAppServiceConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name attribute.
@@ -141,7 +141,7 @@ public partial class AzurermAppServiceConnectionStringBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceIdentityBlock : TerraformBlockBase
+public partial class AzurermAppServiceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -166,7 +166,7 @@ public partial class AzurermAppServiceIdentityBlock : TerraformBlockBase
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceLogsBlock : TerraformBlockBase
+public partial class AzurermAppServiceLogsBlock() : TerraformBlock("logs")
 {
     /// <summary>
     /// The detailed_error_messages_enabled attribute.
@@ -188,7 +188,7 @@ public partial class AzurermAppServiceLogsBlock : TerraformBlockBase
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceSiteConfigBlock : TerraformBlockBase
+public partial class AzurermAppServiceSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// The acr_use_managed_identity_credentials attribute.
@@ -406,7 +406,7 @@ public partial class AzurermAppServiceSiteConfigBlock : TerraformBlockBase
 /// Block type for source_control in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceSourceControlBlock : TerraformBlockBase
+public partial class AzurermAppServiceSourceControlBlock() : TerraformBlock("source_control")
 {
     /// <summary>
     /// The branch attribute.
@@ -449,7 +449,7 @@ public partial class AzurermAppServiceSourceControlBlock : TerraformBlockBase
 /// Block type for storage_account in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermAppServiceStorageAccountBlock : TerraformBlockBase
+public partial class AzurermAppServiceStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The access_key attribute.
@@ -504,7 +504,7 @@ public partial class AzurermAppServiceStorageAccountBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -648,7 +648,7 @@ public partial class AzurermAppService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermAppServiceAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for backup.
@@ -656,14 +656,14 @@ public partial class AzurermAppService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceBackupBlock>>? Backup { get; set; }
+    public TerraformList<AzurermAppServiceBackupBlock> Backup { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermAppServiceConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermAppServiceConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -671,7 +671,7 @@ public partial class AzurermAppService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermAppServiceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for logs.
@@ -679,7 +679,7 @@ public partial class AzurermAppService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformProperty("logs")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceLogsBlock>>? Logs { get; set; }
+    public TerraformList<AzurermAppServiceLogsBlock> Logs { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -687,7 +687,7 @@ public partial class AzurermAppService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceSiteConfigBlock>>? SiteConfig { get; set; }
+    public TerraformList<AzurermAppServiceSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for source_control.
@@ -695,21 +695,21 @@ public partial class AzurermAppService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControl block(s) allowed")]
     [TerraformProperty("source_control")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceSourceControlBlock>>? SourceControl { get; set; }
+    public TerraformList<AzurermAppServiceSourceControlBlock> SourceControl { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformSet<TerraformBlock<AzurermAppServiceStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformSet<AzurermAppServiceStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_domain_verification_id attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareHl7V2StoreNotificationConfigBlock : TerraformBlockBase
+public partial class GoogleHealthcareHl7V2StoreNotificationConfigBlock() : TerraformBlock("notification_config")
 {
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -27,7 +27,7 @@ public partial class GoogleHealthcareHl7V2StoreNotificationConfigBlock : Terrafo
 /// Block type for notification_configs in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareHl7V2StoreNotificationConfigsBlock : TerraformBlockBase
+public partial class GoogleHealthcareHl7V2StoreNotificationConfigsBlock() : TerraformBlock("notification_configs")
 {
     /// <summary>
     /// Restricts notifications sent for messages matching a filter. If this is empty, all messages
@@ -67,7 +67,7 @@ public partial class GoogleHealthcareHl7V2StoreNotificationConfigsBlock : Terraf
 /// Block type for parser_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleHealthcareHl7V2StoreParserConfigBlock : TerraformBlockBase
+public partial class GoogleHealthcareHl7V2StoreParserConfigBlock() : TerraformBlock("parser_config")
 {
     /// <summary>
     /// Determines whether messages with no header are allowed.
@@ -106,7 +106,7 @@ public partial class GoogleHealthcareHl7V2StoreParserConfigBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleHealthcareHl7V2StoreTimeoutsBlock : TerraformBlockBase
+public partial class GoogleHealthcareHl7V2StoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -202,14 +202,14 @@ public partial class GoogleHealthcareHl7V2Store : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformProperty("notification_config")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreNotificationConfigBlock>>? NotificationConfig { get; set; }
+    public TerraformList<GoogleHealthcareHl7V2StoreNotificationConfigBlock> NotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for notification_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("notification_configs")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreNotificationConfigsBlock>>? NotificationConfigs { get; set; }
+    public TerraformList<GoogleHealthcareHl7V2StoreNotificationConfigsBlock> NotificationConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for parser_config.
@@ -217,14 +217,14 @@ public partial class GoogleHealthcareHl7V2Store : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParserConfig block(s) allowed")]
     [TerraformProperty("parser_config")]
-    public partial TerraformList<TerraformBlock<GoogleHealthcareHl7V2StoreParserConfigBlock>>? ParserConfig { get; set; }
+    public TerraformList<GoogleHealthcareHl7V2StoreParserConfigBlock> ParserConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleHealthcareHl7V2StoreTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleHealthcareHl7V2StoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

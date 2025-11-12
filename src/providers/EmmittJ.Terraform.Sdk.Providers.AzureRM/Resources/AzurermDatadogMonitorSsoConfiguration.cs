@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -97,7 +97,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDatadogMonitorSsoConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDatadogMonitorSsoConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The login_url attribute.

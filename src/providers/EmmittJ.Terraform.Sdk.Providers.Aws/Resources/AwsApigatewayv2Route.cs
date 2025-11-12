@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for request_parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlockBase
+public partial class AwsApigatewayv2RouteRequestParameterBlock() : TerraformBlock("request_parameter")
 {
     /// <summary>
     /// The request_parameter_key attribute.
@@ -133,6 +133,6 @@ public partial class AwsApigatewayv2Route : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("request_parameter")]
-    public partial TerraformSet<TerraformBlock<AwsApigatewayv2RouteRequestParameterBlock>>? RequestParameter { get; set; }
+    public TerraformSet<AwsApigatewayv2RouteRequestParameterBlock> RequestParameter { get; set; } = new();
 
 }

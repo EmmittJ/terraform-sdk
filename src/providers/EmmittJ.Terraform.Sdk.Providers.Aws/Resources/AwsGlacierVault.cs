@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for notification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlacierVaultNotificationBlock : TerraformBlockBase
+public partial class AwsGlacierVaultNotificationBlock() : TerraformBlock("notification")
 {
     /// <summary>
     /// The events attribute.
@@ -85,7 +85,7 @@ public partial class AwsGlacierVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notification block(s) allowed")]
     [TerraformProperty("notification")]
-    public partial TerraformList<TerraformBlock<AwsGlacierVaultNotificationBlock>>? Notification { get; set; }
+    public TerraformList<AwsGlacierVaultNotificationBlock> Notification { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

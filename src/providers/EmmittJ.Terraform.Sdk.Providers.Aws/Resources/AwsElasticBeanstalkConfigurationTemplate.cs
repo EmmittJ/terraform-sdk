@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for setting in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsElasticBeanstalkConfigurationTemplateSettingBlock : TerraformBlockBase
+public partial class AwsElasticBeanstalkConfigurationTemplateSettingBlock() : TerraformBlock("setting")
 {
     /// <summary>
     /// The name attribute.
@@ -106,6 +106,6 @@ public partial class AwsElasticBeanstalkConfigurationTemplate : TerraformResourc
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("setting")]
-    public partial TerraformSet<TerraformBlock<AwsElasticBeanstalkConfigurationTemplateSettingBlock>>? Setting { get; set; }
+    public TerraformSet<AwsElasticBeanstalkConfigurationTemplateSettingBlock> Setting { get; set; } = new();
 
 }

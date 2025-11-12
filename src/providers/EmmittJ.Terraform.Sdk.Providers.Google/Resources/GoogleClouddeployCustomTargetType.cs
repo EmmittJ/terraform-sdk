@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for custom_actions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployCustomTargetTypeCustomActionsBlock : TerraformBlockBase
+public partial class GoogleClouddeployCustomTargetTypeCustomActionsBlock() : TerraformBlock("custom_actions")
 {
     /// <summary>
     /// The Skaffold custom action responsible for deploy operations.
@@ -29,7 +29,7 @@ public partial class GoogleClouddeployCustomTargetTypeCustomActionsBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleClouddeployCustomTargetTypeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleClouddeployCustomTargetTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,14 +127,14 @@ public partial class GoogleClouddeployCustomTargetType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomActions block(s) allowed")]
     [TerraformProperty("custom_actions")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployCustomTargetTypeCustomActionsBlock>>? CustomActions { get; set; }
+    public TerraformList<GoogleClouddeployCustomTargetTypeCustomActionsBlock> CustomActions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleClouddeployCustomTargetTypeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleClouddeployCustomTargetTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time at which the &#39;CustomTargetType&#39; was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRamResourceShareAccepterTimeoutsBlock : TerraformBlockBase
+public partial class AwsRamResourceShareAccepterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -60,7 +60,7 @@ public partial class AwsRamResourceShareAccepter : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRamResourceShareAccepterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRamResourceShareAccepterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The invitation_arn attribute.

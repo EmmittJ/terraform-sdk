@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocWorkflowTemplateEncryptionConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocWorkflowTemplateEncryptionConfigBlock() : TerraformBlock("encryption_config")
 {
     /// <summary>
     /// Optional. The Cloud KMS key name to use for encryption.
@@ -21,7 +21,7 @@ public partial class GoogleDataprocWorkflowTemplateEncryptionConfigBlock : Terra
 /// Block type for jobs in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlockBase
+public partial class GoogleDataprocWorkflowTemplateJobsBlock() : TerraformBlock("jobs")
 {
     /// <summary>
     /// Optional. The labels to associate with this job. Label keys must be between 1 and 63 characters long, and must conform to the following regular expression: p{Ll}p{Lo}{0,62} Label values must be between 1 and 63 characters long, and must conform to the following regular expression: [p{Ll}p{Lo}p{N}_-]{0,63} No more than 32 labels can be associated with a given job.
@@ -51,7 +51,7 @@ public partial class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlockBas
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlockBase
+public partial class GoogleDataprocWorkflowTemplateParametersBlock() : TerraformBlock("parameters")
 {
     /// <summary>
     /// Optional. Brief description of the parameter. Must not exceed 1024 characters.
@@ -82,7 +82,7 @@ public partial class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBl
 /// Block type for placement in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocWorkflowTemplatePlacementBlock : TerraformBlockBase
+public partial class GoogleDataprocWorkflowTemplatePlacementBlock() : TerraformBlock("placement")
 {
 }
 
@@ -90,7 +90,7 @@ public partial class GoogleDataprocWorkflowTemplatePlacementBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocWorkflowTemplateTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocWorkflowTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -186,7 +186,7 @@ public partial class GoogleDataprocWorkflowTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocWorkflowTemplateEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public TerraformList<GoogleDataprocWorkflowTemplateEncryptionConfigBlock> EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for jobs.
@@ -195,14 +195,14 @@ public partial class GoogleDataprocWorkflowTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Jobs is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Jobs block(s) required")]
     [TerraformProperty("jobs")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocWorkflowTemplateJobsBlock>>? Jobs { get; set; }
+    public required TerraformList<GoogleDataprocWorkflowTemplateJobsBlock> Jobs { get; set; } = new();
 
     /// <summary>
     /// Block for parameters.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("parameters")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocWorkflowTemplateParametersBlock>>? Parameters { get; set; }
+    public TerraformList<GoogleDataprocWorkflowTemplateParametersBlock> Parameters { get; set; } = new();
 
     /// <summary>
     /// Block for placement.
@@ -212,14 +212,14 @@ public partial class GoogleDataprocWorkflowTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Placement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
     [TerraformProperty("placement")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocWorkflowTemplatePlacementBlock>>? Placement { get; set; }
+    public required TerraformList<GoogleDataprocWorkflowTemplatePlacementBlock> Placement { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocWorkflowTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocWorkflowTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time template was created.

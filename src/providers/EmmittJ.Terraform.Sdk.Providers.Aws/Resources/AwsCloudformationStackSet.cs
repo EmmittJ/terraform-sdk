@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_deployment in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudformationStackSetAutoDeploymentBlock : TerraformBlockBase
+public partial class AwsCloudformationStackSetAutoDeploymentBlock() : TerraformBlock("auto_deployment")
 {
     /// <summary>
     /// The enabled attribute.
@@ -28,7 +28,7 @@ public partial class AwsCloudformationStackSetAutoDeploymentBlock : TerraformBlo
 /// Block type for managed_execution in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudformationStackSetManagedExecutionBlock : TerraformBlockBase
+public partial class AwsCloudformationStackSetManagedExecutionBlock() : TerraformBlock("managed_execution")
 {
     /// <summary>
     /// The active attribute.
@@ -43,7 +43,7 @@ public partial class AwsCloudformationStackSetManagedExecutionBlock : TerraformB
 /// Block type for operation_preferences in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlockBase
+public partial class AwsCloudformationStackSetOperationPreferencesBlock() : TerraformBlock("operation_preferences")
 {
     /// <summary>
     /// The failure_tolerance_count attribute.
@@ -93,7 +93,7 @@ public partial class AwsCloudformationStackSetOperationPreferencesBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCloudformationStackSetTimeoutsBlock : TerraformBlockBase
+public partial class AwsCloudformationStackSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The update attribute.
@@ -219,7 +219,7 @@ public partial class AwsCloudformationStackSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoDeployment block(s) allowed")]
     [TerraformProperty("auto_deployment")]
-    public partial TerraformList<TerraformBlock<AwsCloudformationStackSetAutoDeploymentBlock>>? AutoDeployment { get; set; }
+    public TerraformList<AwsCloudformationStackSetAutoDeploymentBlock> AutoDeployment { get; set; } = new();
 
     /// <summary>
     /// Block for managed_execution.
@@ -227,7 +227,7 @@ public partial class AwsCloudformationStackSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedExecution block(s) allowed")]
     [TerraformProperty("managed_execution")]
-    public partial TerraformList<TerraformBlock<AwsCloudformationStackSetManagedExecutionBlock>>? ManagedExecution { get; set; }
+    public TerraformList<AwsCloudformationStackSetManagedExecutionBlock> ManagedExecution { get; set; } = new();
 
     /// <summary>
     /// Block for operation_preferences.
@@ -235,14 +235,14 @@ public partial class AwsCloudformationStackSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationPreferences block(s) allowed")]
     [TerraformProperty("operation_preferences")]
-    public partial TerraformList<TerraformBlock<AwsCloudformationStackSetOperationPreferencesBlock>>? OperationPreferences { get; set; }
+    public TerraformList<AwsCloudformationStackSetOperationPreferencesBlock> OperationPreferences { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCloudformationStackSetTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCloudformationStackSetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for addon_node in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterAddonNodeBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterAddonNodeBlock() : TerraformBlock("addon_node")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterAddonNodeBlock : Terraform
 /// Block type for anti_affinity_groups in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock() : TerraformBlock("anti_affinity_groups")
 {
     /// <summary>
     /// Spread nodes across at least three physical hosts (requires at least three
@@ -32,7 +32,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock : 
 /// Block type for authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterAuthorizationBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterAuthorizationBlock() : TerraformBlock("authorization")
 {
 }
 
@@ -40,7 +40,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterAuthorizationBlock : Terra
 /// Block type for auto_repair_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock() : TerraformBlock("auto_repair_config")
 {
     /// <summary>
     /// Whether auto repair is enabled.
@@ -56,7 +56,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock : Te
 /// Block type for control_plane_node in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock() : TerraformBlock("control_plane_node")
 {
     /// <summary>
     /// The number of vCPUs for the control-plane node of the admin cluster.
@@ -85,7 +85,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock : Te
 /// Block type for load_balancer in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock() : TerraformBlock("load_balancer")
 {
 }
 
@@ -93,7 +93,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock : Terraf
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock() : TerraformBlock("network_config")
 {
     /// <summary>
     /// All pods in the cluster are assigned an RFC1918 IPv4 address from these ranges.
@@ -127,7 +127,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock : Terra
 /// Block type for platform_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock() : TerraformBlock("platform_config")
 {
 
 
@@ -149,7 +149,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : Terr
 /// Block type for private_registry_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock() : TerraformBlock("private_registry_config")
 {
     /// <summary>
     /// The registry address.
@@ -171,7 +171,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock
 /// Block type for proxy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterProxyBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterProxyBlock() : TerraformBlock("proxy")
 {
     /// <summary>
     /// A comma-separated list of IP addresses, IP address ranges,
@@ -195,7 +195,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterProxyBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -224,7 +224,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterTimeoutsBlock : TerraformB
 /// Block type for vcenter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareAdminClusterVcenterBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareAdminClusterVcenterBlock() : TerraformBlock("vcenter")
 {
     /// <summary>
     /// The vCenter IP address.
@@ -390,7 +390,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddonNode block(s) allowed")]
     [TerraformProperty("addon_node")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAddonNodeBlock>>? AddonNode { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterAddonNodeBlock> AddonNode { get; set; } = new();
 
     /// <summary>
     /// Block for anti_affinity_groups.
@@ -398,7 +398,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AntiAffinityGroups block(s) allowed")]
     [TerraformProperty("anti_affinity_groups")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock>>? AntiAffinityGroups { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock> AntiAffinityGroups { get; set; } = new();
 
     /// <summary>
     /// Block for authorization.
@@ -406,7 +406,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAuthorizationBlock>>? Authorization { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterAuthorizationBlock> Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for auto_repair_config.
@@ -414,7 +414,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoRepairConfig block(s) allowed")]
     [TerraformProperty("auto_repair_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock>>? AutoRepairConfig { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock> AutoRepairConfig { get; set; } = new();
 
     /// <summary>
     /// Block for control_plane_node.
@@ -422,7 +422,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneNode block(s) allowed")]
     [TerraformProperty("control_plane_node")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock>>? ControlPlaneNode { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock> ControlPlaneNode { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancer.
@@ -430,7 +430,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
     [TerraformProperty("load_balancer")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock>>? LoadBalancer { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock> LoadBalancer { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -440,7 +440,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public required TerraformList<GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for platform_config.
@@ -448,7 +448,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PlatformConfig block(s) allowed")]
     [TerraformProperty("platform_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock>>? PlatformConfig { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock> PlatformConfig { get; set; } = new();
 
     /// <summary>
     /// Block for private_registry_config.
@@ -456,7 +456,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateRegistryConfig block(s) allowed")]
     [TerraformProperty("private_registry_config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock>>? PrivateRegistryConfig { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock> PrivateRegistryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for proxy.
@@ -464,14 +464,14 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformProperty("proxy")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterProxyBlock>>? Proxy { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterProxyBlock> Proxy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeonpremVmwareAdminClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeonpremVmwareAdminClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vcenter.
@@ -479,7 +479,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vcenter block(s) allowed")]
     [TerraformProperty("vcenter")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterVcenterBlock>>? Vcenter { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareAdminClusterVcenterBlock> Vcenter { get; set; } = new();
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.

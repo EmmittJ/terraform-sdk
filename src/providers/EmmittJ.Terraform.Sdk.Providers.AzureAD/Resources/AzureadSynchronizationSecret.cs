@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadSynchronizationSecretCredentialBlock : TerraformBlockBase
+public partial class AzureadSynchronizationSecretCredentialBlock() : TerraformBlock("credential")
 {
     /// <summary>
     /// Name for this key-value pair.
@@ -30,7 +30,7 @@ public partial class AzureadSynchronizationSecretCredentialBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadSynchronizationSecretTimeoutsBlock : TerraformBlockBase
+public partial class AzureadSynchronizationSecretTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,13 +91,13 @@ public partial class AzureadSynchronizationSecret : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("credential")]
-    public partial TerraformList<TerraformBlock<AzureadSynchronizationSecretCredentialBlock>>? Credential { get; set; }
+    public TerraformList<AzureadSynchronizationSecretCredentialBlock> Credential { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadSynchronizationSecretTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadSynchronizationSecretTimeoutsBlock Timeouts { get; set; } = new();
 
 }

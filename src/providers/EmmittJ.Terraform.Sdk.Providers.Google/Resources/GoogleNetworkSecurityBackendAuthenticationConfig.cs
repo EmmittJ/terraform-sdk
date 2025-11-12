@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,7 +117,7 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfig : Terrafor
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the BackendAuthenticationConfig was created in UTC.

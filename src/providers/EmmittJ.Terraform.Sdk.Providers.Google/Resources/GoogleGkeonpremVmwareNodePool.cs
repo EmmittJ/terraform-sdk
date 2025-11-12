@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareNodePoolConfigBlock() : TerraformBlock("config")
 {
     /// <summary>
     /// VMware disk size to be used during creation.
@@ -78,7 +78,7 @@ public partial class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlockBa
 /// Block type for node_pool_autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock() : TerraformBlock("node_pool_autoscaling")
 {
     /// <summary>
     /// Maximum number of replicas in the NodePool.
@@ -102,7 +102,7 @@ public partial class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeonpremVmwareNodePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -215,7 +215,7 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareNodePoolConfigBlock>>? Config { get; set; }
+    public required TerraformList<GoogleGkeonpremVmwareNodePoolConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for node_pool_autoscaling.
@@ -223,14 +223,14 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolAutoscaling block(s) allowed")]
     [TerraformProperty("node_pool_autoscaling")]
-    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock>>? NodePoolAutoscaling { get; set; }
+    public TerraformList<GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock> NodePoolAutoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeonpremVmwareNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeonpremVmwareNodePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for physical_connection_requirements in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlockBase
+public partial class AwsGlueConnectionPhysicalConnectionRequirementsBlock() : TerraformBlock("physical_connection_requirements")
 {
     /// <summary>
     /// The availability_zone attribute.
@@ -125,7 +125,7 @@ public partial class AwsGlueConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhysicalConnectionRequirements block(s) allowed")]
     [TerraformProperty("physical_connection_requirements")]
-    public partial TerraformList<TerraformBlock<AwsGlueConnectionPhysicalConnectionRequirementsBlock>>? PhysicalConnectionRequirements { get; set; }
+    public TerraformList<AwsGlueConnectionPhysicalConnectionRequirementsBlock> PhysicalConnectionRequirements { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

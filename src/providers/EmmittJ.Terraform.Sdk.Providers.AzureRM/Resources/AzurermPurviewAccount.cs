@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPurviewAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermPurviewAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermPurviewAccountIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPurviewAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPurviewAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,14 +140,14 @@ public partial class AzurermPurviewAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermPurviewAccountIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermPurviewAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPurviewAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPurviewAccountTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The atlas_kafka_endpoint_primary_connection_string attribute.

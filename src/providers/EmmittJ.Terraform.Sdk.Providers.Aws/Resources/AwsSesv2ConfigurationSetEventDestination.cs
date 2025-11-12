@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock : TerraformBlockBase
+public partial class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock() : TerraformBlock("event_destination")
 {
     /// <summary>
     /// The enabled attribute.
@@ -73,6 +73,6 @@ public partial class AwsSesv2ConfigurationSetEventDestination : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EventDestination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventDestination block(s) allowed")]
     [TerraformProperty("event_destination")]
-    public partial TerraformList<TerraformBlock<AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock>>? EventDestination { get; set; }
+    public required TerraformList<AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock> EventDestination { get; set; } = new();
 
 }

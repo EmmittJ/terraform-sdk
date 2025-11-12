@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for destination_nat in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock() : TerraformBlock("destination_nat")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
 /// Block type for dns_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock() : TerraformBlock("dns_settings")
 {
 
     /// <summary>
@@ -53,7 +53,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock() : TerraformBlock("network_profile")
 {
     /// <summary>
     /// The egress_nat_ip_address_ids attribute.
@@ -85,7 +85,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -192,7 +192,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("destination_nat")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock>>? DestinationNat { get; set; }
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock> DestinationNat { get; set; } = new();
 
     /// <summary>
     /// Block for dns_settings.
@@ -200,7 +200,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
     [TerraformProperty("dns_settings")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock>>? DnsSettings { get; set; }
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock> DnsSettings { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -210,14 +210,14 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public required TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock> NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The panorama attribute.

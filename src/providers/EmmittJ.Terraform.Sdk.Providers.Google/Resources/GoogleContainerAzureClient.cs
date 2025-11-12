@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerAzureClientTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerAzureClientTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -84,7 +84,7 @@ public partial class GoogleContainerAzureClient : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerAzureClientTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerAzureClientTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The PEM encoded x509 certificate.

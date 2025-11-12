@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AwsFsxOntapStorageVirtualMachineDataSource : TerraformDataS
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The active_directory_configuration attribute.

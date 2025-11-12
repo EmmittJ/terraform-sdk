@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlockBase
+public partial class AzurermRecoveryServicesVaultEncryptionBlock() : TerraformBlock("encryption")
 {
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
@@ -44,7 +44,7 @@ public partial class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBloc
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlockBase
+public partial class AzurermRecoveryServicesVaultIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -69,7 +69,7 @@ public partial class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlockB
 /// Block type for monitoring in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRecoveryServicesVaultMonitoringBlock : TerraformBlockBase
+public partial class AzurermRecoveryServicesVaultMonitoringBlock() : TerraformBlock("monitoring")
 {
     /// <summary>
     /// The alerts_for_all_job_failures_enabled attribute.
@@ -91,7 +91,7 @@ public partial class AzurermRecoveryServicesVaultMonitoringBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRecoveryServicesVaultTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRecoveryServicesVaultTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -227,7 +227,7 @@ public partial class AzurermRecoveryServicesVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<AzurermRecoveryServicesVaultEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<AzurermRecoveryServicesVaultEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -235,7 +235,7 @@ public partial class AzurermRecoveryServicesVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermRecoveryServicesVaultIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermRecoveryServicesVaultIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for monitoring.
@@ -243,13 +243,13 @@ public partial class AzurermRecoveryServicesVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
     [TerraformProperty("monitoring")]
-    public partial TerraformList<TerraformBlock<AzurermRecoveryServicesVaultMonitoringBlock>>? Monitoring { get; set; }
+    public TerraformList<AzurermRecoveryServicesVaultMonitoringBlock> Monitoring { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRecoveryServicesVaultTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRecoveryServicesVaultTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_space_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDomainDefaultSpaceSettingsBlock : TerraformBlockBase
+public partial class AwsSagemakerDomainDefaultSpaceSettingsBlock() : TerraformBlock("default_space_settings")
 {
     /// <summary>
     /// The execution_role attribute.
@@ -29,7 +29,7 @@ public partial class AwsSagemakerDomainDefaultSpaceSettingsBlock : TerraformBloc
 /// Block type for default_user_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDomainDefaultUserSettingsBlock : TerraformBlockBase
+public partial class AwsSagemakerDomainDefaultUserSettingsBlock() : TerraformBlock("default_user_settings")
 {
     /// <summary>
     /// The auto_mount_home_efs attribute.
@@ -73,7 +73,7 @@ public partial class AwsSagemakerDomainDefaultUserSettingsBlock : TerraformBlock
 /// Block type for domain_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDomainDomainSettingsBlock : TerraformBlockBase
+public partial class AwsSagemakerDomainDomainSettingsBlock() : TerraformBlock("domain_settings")
 {
     /// <summary>
     /// The execution_role_identity_config attribute.
@@ -95,7 +95,7 @@ public partial class AwsSagemakerDomainDomainSettingsBlock : TerraformBlockBase
 /// Block type for retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDomainRetentionPolicyBlock : TerraformBlockBase
+public partial class AwsSagemakerDomainRetentionPolicyBlock() : TerraformBlock("retention_policy")
 {
     /// <summary>
     /// The home_efs_file_system attribute.
@@ -210,7 +210,7 @@ public partial class AwsSagemakerDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultSpaceSettings block(s) allowed")]
     [TerraformProperty("default_space_settings")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDomainDefaultSpaceSettingsBlock>>? DefaultSpaceSettings { get; set; }
+    public TerraformList<AwsSagemakerDomainDefaultSpaceSettingsBlock> DefaultSpaceSettings { get; set; } = new();
 
     /// <summary>
     /// Block for default_user_settings.
@@ -220,7 +220,7 @@ public partial class AwsSagemakerDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultUserSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultUserSettings block(s) allowed")]
     [TerraformProperty("default_user_settings")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDomainDefaultUserSettingsBlock>>? DefaultUserSettings { get; set; }
+    public required TerraformList<AwsSagemakerDomainDefaultUserSettingsBlock> DefaultUserSettings { get; set; } = new();
 
     /// <summary>
     /// Block for domain_settings.
@@ -228,7 +228,7 @@ public partial class AwsSagemakerDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainSettings block(s) allowed")]
     [TerraformProperty("domain_settings")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDomainDomainSettingsBlock>>? DomainSettings { get; set; }
+    public TerraformList<AwsSagemakerDomainDomainSettingsBlock> DomainSettings { get; set; } = new();
 
     /// <summary>
     /// Block for retention_policy.
@@ -236,7 +236,7 @@ public partial class AwsSagemakerDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
     [TerraformProperty("retention_policy")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDomainRetentionPolicyBlock>>? RetentionPolicy { get; set; }
+    public TerraformList<AwsSagemakerDomainRetentionPolicyBlock> RetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

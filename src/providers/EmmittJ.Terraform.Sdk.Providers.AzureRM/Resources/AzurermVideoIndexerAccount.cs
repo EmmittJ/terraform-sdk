@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVideoIndexerAccountIdentityBlock : TerraformBlockBase
+public partial class AzurermVideoIndexerAccountIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermVideoIndexerAccountIdentityBlock : TerraformBlockBas
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVideoIndexerAccountStorageBlock : TerraformBlockBase
+public partial class AzurermVideoIndexerAccountStorageBlock() : TerraformBlock("storage")
 {
     /// <summary>
     /// The storage_account_id attribute.
@@ -54,7 +54,7 @@ public partial class AzurermVideoIndexerAccountStorageBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVideoIndexerAccountTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVideoIndexerAccountTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,7 +149,7 @@ public partial class AzurermVideoIndexerAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermVideoIndexerAccountIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermVideoIndexerAccountIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for storage.
@@ -159,13 +159,13 @@ public partial class AzurermVideoIndexerAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Storage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     [TerraformProperty("storage")]
-    public partial TerraformList<TerraformBlock<AzurermVideoIndexerAccountStorageBlock>>? Storage { get; set; }
+    public required TerraformList<AzurermVideoIndexerAccountStorageBlock> Storage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVideoIndexerAccountTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVideoIndexerAccountTimeoutsBlock Timeouts { get; set; } = new();
 
 }

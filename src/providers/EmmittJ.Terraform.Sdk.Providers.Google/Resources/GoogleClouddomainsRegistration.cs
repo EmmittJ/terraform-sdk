@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for contact_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddomainsRegistrationContactSettingsBlock : TerraformBlockBase
+public partial class GoogleClouddomainsRegistrationContactSettingsBlock() : TerraformBlock("contact_settings")
 {
     /// <summary>
     /// Required. Privacy setting for the contacts associated with the Registration.
@@ -23,7 +23,7 @@ public partial class GoogleClouddomainsRegistrationContactSettingsBlock : Terraf
 /// Block type for dns_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddomainsRegistrationDnsSettingsBlock : TerraformBlockBase
+public partial class GoogleClouddomainsRegistrationDnsSettingsBlock() : TerraformBlock("dns_settings")
 {
 }
 
@@ -31,7 +31,7 @@ public partial class GoogleClouddomainsRegistrationDnsSettingsBlock : TerraformB
 /// Block type for management_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBlockBase
+public partial class GoogleClouddomainsRegistrationManagementSettingsBlock() : TerraformBlock("management_settings")
 {
     /// <summary>
     /// The desired renewal method for this Registration. The actual renewalMethod is automatically updated to reflect this choice.
@@ -61,7 +61,7 @@ public partial class GoogleClouddomainsRegistrationManagementSettingsBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleClouddomainsRegistrationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -90,7 +90,7 @@ public partial class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBloc
 /// Block type for yearly_price in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddomainsRegistrationYearlyPriceBlock : TerraformBlockBase
+public partial class GoogleClouddomainsRegistrationYearlyPriceBlock() : TerraformBlock("yearly_price")
 {
     /// <summary>
     /// The three-letter currency code defined in ISO 4217.
@@ -180,7 +180,7 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContactSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContactSettings block(s) allowed")]
     [TerraformProperty("contact_settings")]
-    public partial TerraformList<TerraformBlock<GoogleClouddomainsRegistrationContactSettingsBlock>>? ContactSettings { get; set; }
+    public required TerraformList<GoogleClouddomainsRegistrationContactSettingsBlock> ContactSettings { get; set; } = new();
 
     /// <summary>
     /// Block for dns_settings.
@@ -188,7 +188,7 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
     [TerraformProperty("dns_settings")]
-    public partial TerraformList<TerraformBlock<GoogleClouddomainsRegistrationDnsSettingsBlock>>? DnsSettings { get; set; }
+    public TerraformList<GoogleClouddomainsRegistrationDnsSettingsBlock> DnsSettings { get; set; } = new();
 
     /// <summary>
     /// Block for management_settings.
@@ -196,14 +196,14 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementSettings block(s) allowed")]
     [TerraformProperty("management_settings")]
-    public partial TerraformList<TerraformBlock<GoogleClouddomainsRegistrationManagementSettingsBlock>>? ManagementSettings { get; set; }
+    public TerraformList<GoogleClouddomainsRegistrationManagementSettingsBlock> ManagementSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleClouddomainsRegistrationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleClouddomainsRegistrationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for yearly_price.
@@ -213,7 +213,7 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 YearlyPrice block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 YearlyPrice block(s) allowed")]
     [TerraformProperty("yearly_price")]
-    public partial TerraformList<TerraformBlock<GoogleClouddomainsRegistrationYearlyPriceBlock>>? YearlyPrice { get; set; }
+    public required TerraformList<GoogleClouddomainsRegistrationYearlyPriceBlock> YearlyPrice { get; set; } = new();
 
     /// <summary>
     /// Output only. Time at which the automation was created.

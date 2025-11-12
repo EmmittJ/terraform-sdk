@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiIndexEndpointEncryptionSpecBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexEndpointEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;. The key needs to be in the same region as where the compute resource is created.
@@ -22,7 +22,7 @@ public partial class GoogleVertexAiIndexEndpointEncryptionSpecBlock : TerraformB
 /// Block type for private_service_connect_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock() : TerraformBlock("private_service_connect_config")
 {
     /// <summary>
     /// If set to true, the IndexEndpoint is created without private service access.
@@ -45,7 +45,7 @@ public partial class GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiIndexEndpointTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiIndexEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,7 +149,7 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GoogleVertexAiIndexEndpointEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for private_service_connect_config.
@@ -157,14 +157,14 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnectConfig block(s) allowed")]
     [TerraformProperty("private_service_connect_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock>>? PrivateServiceConnectConfig { get; set; }
+    public TerraformList<GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock> PrivateServiceConnectConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiIndexEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiIndexEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadDirectoryObjectDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzureadDirectoryObjectDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -46,7 +46,7 @@ public partial class AzureadDirectoryObjectDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadDirectoryObjectDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadDirectoryObjectDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The OData type of the Directory Object

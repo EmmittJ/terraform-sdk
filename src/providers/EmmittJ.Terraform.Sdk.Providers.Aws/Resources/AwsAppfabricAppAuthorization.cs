@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppfabricAppAuthorizationCredentialBlock : TerraformBlockBase
+public partial class AwsAppfabricAppAuthorizationCredentialBlock() : TerraformBlock("credential")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsAppfabricAppAuthorizationCredentialBlock : TerraformBloc
 /// Block type for tenant in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlockBase
+public partial class AwsAppfabricAppAuthorizationTenantBlock() : TerraformBlock("tenant")
 {
     /// <summary>
     /// The tenant_display_name attribute.
@@ -38,7 +38,7 @@ public partial class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAppfabricAppAuthorizationTimeoutsBlock : TerraformBlockBase
+public partial class AwsAppfabricAppAuthorizationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -115,21 +115,21 @@ public partial class AwsAppfabricAppAuthorization : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("credential")]
-    public partial TerraformList<TerraformBlock<AwsAppfabricAppAuthorizationCredentialBlock>>? Credential { get; set; }
+    public TerraformList<AwsAppfabricAppAuthorizationCredentialBlock> Credential { get; set; } = new();
 
     /// <summary>
     /// Block for tenant.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tenant")]
-    public partial TerraformList<TerraformBlock<AwsAppfabricAppAuthorizationTenantBlock>>? Tenant { get; set; }
+    public TerraformList<AwsAppfabricAppAuthorizationTenantBlock> Tenant { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAppfabricAppAuthorizationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAppfabricAppAuthorizationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

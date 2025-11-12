@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for enabled_tool in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlockBase
+public partial class GoogleGeminiCodeToolsSettingEnabledToolBlock() : TerraformBlock("enabled_tool")
 {
     /// <summary>
     /// Link to the Dev Connect Account Connector that holds the user credentials.
@@ -45,7 +45,7 @@ public partial class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGeminiCodeToolsSettingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGeminiCodeToolsSettingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,14 +126,14 @@ public partial class GoogleGeminiCodeToolsSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledTool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnabledTool block(s) required")]
     [TerraformProperty("enabled_tool")]
-    public partial TerraformList<TerraformBlock<GoogleGeminiCodeToolsSettingEnabledToolBlock>>? EnabledTool { get; set; }
+    public required TerraformList<GoogleGeminiCodeToolsSettingEnabledToolBlock> EnabledTool { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGeminiCodeToolsSettingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGeminiCodeToolsSettingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time stamp.

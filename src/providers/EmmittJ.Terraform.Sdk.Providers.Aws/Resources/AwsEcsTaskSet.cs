@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity_provider_strategy in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlockBase
+public partial class AwsEcsTaskSetCapacityProviderStrategyBlock() : TerraformBlock("capacity_provider_strategy")
 {
     /// <summary>
     /// The base attribute.
@@ -37,7 +37,7 @@ public partial class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlock
 /// Block type for load_balancer in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsTaskSetLoadBalancerBlock : TerraformBlockBase
+public partial class AwsEcsTaskSetLoadBalancerBlock() : TerraformBlock("load_balancer")
 {
     /// <summary>
     /// The container_name attribute.
@@ -74,7 +74,7 @@ public partial class AwsEcsTaskSetLoadBalancerBlock : TerraformBlockBase
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskSetNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsEcsTaskSetNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The assign_public_ip attribute.
@@ -104,7 +104,7 @@ public partial class AwsEcsTaskSetNetworkConfigurationBlock : TerraformBlockBase
 /// Block type for scale in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskSetScaleBlock : TerraformBlockBase
+public partial class AwsEcsTaskSetScaleBlock() : TerraformBlock("scale")
 {
     /// <summary>
     /// The unit attribute.
@@ -126,7 +126,7 @@ public partial class AwsEcsTaskSetScaleBlock : TerraformBlockBase
 /// Block type for service_registries in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlockBase
+public partial class AwsEcsTaskSetServiceRegistriesBlock() : TerraformBlock("service_registries")
 {
     /// <summary>
     /// The container_name attribute.
@@ -268,14 +268,14 @@ public partial class AwsEcsTaskSet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("capacity_provider_strategy")]
-    public partial TerraformSet<TerraformBlock<AwsEcsTaskSetCapacityProviderStrategyBlock>>? CapacityProviderStrategy { get; set; }
+    public TerraformSet<AwsEcsTaskSetCapacityProviderStrategyBlock> CapacityProviderStrategy { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancer.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("load_balancer")]
-    public partial TerraformSet<TerraformBlock<AwsEcsTaskSetLoadBalancerBlock>>? LoadBalancer { get; set; }
+    public TerraformSet<AwsEcsTaskSetLoadBalancerBlock> LoadBalancer { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
@@ -283,7 +283,7 @@ public partial class AwsEcsTaskSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskSetNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public TerraformList<AwsEcsTaskSetNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for scale.
@@ -291,7 +291,7 @@ public partial class AwsEcsTaskSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scale block(s) allowed")]
     [TerraformProperty("scale")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskSetScaleBlock>>? Scale { get; set; }
+    public TerraformList<AwsEcsTaskSetScaleBlock> Scale { get; set; } = new();
 
     /// <summary>
     /// Block for service_registries.
@@ -299,7 +299,7 @@ public partial class AwsEcsTaskSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceRegistries block(s) allowed")]
     [TerraformProperty("service_registries")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskSetServiceRegistriesBlock>>? ServiceRegistries { get; set; }
+    public TerraformList<AwsEcsTaskSetServiceRegistriesBlock> ServiceRegistries { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

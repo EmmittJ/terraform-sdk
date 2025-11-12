@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for assessment_reports_destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : TerraformBlockBase
+public partial class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock() : TerraformBlock("assessment_reports_destination")
 {
     /// <summary>
     /// The destination attribute.
@@ -30,7 +30,7 @@ public partial class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock 
 /// Block type for roles in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAuditmanagerAssessmentRolesBlock : TerraformBlockBase
+public partial class AwsAuditmanagerAssessmentRolesBlock() : TerraformBlock("roles")
 {
     /// <summary>
     /// The role_arn attribute.
@@ -54,7 +54,7 @@ public partial class AwsAuditmanagerAssessmentRolesBlock : TerraformBlockBase
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAuditmanagerAssessmentScopeBlock : TerraformBlockBase
+public partial class AwsAuditmanagerAssessmentScopeBlock() : TerraformBlock("scope")
 {
 }
 
@@ -109,21 +109,21 @@ public partial class AwsAuditmanagerAssessment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("assessment_reports_destination")]
-    public partial TerraformList<TerraformBlock<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>>? AssessmentReportsDestination { get; set; }
+    public TerraformList<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock> AssessmentReportsDestination { get; set; } = new();
 
     /// <summary>
     /// Block for roles.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("roles")]
-    public partial TerraformSet<TerraformBlock<AwsAuditmanagerAssessmentRolesBlock>>? Roles { get; set; }
+    public TerraformSet<AwsAuditmanagerAssessmentRolesBlock> Roles { get; set; } = new();
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scope")]
-    public partial TerraformList<TerraformBlock<AwsAuditmanagerAssessmentScopeBlock>>? Scope { get; set; }
+    public TerraformList<AwsAuditmanagerAssessmentScopeBlock> Scope { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

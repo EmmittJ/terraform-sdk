@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlockBase
+public partial class AwsApigatewayv2ApiCorsConfigurationBlock() : TerraformBlock("cors_configuration")
 {
     /// <summary>
     /// The allow_credentials attribute.
@@ -189,7 +189,7 @@ public partial class AwsApigatewayv2Api : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfiguration block(s) allowed")]
     [TerraformProperty("cors_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApigatewayv2ApiCorsConfigurationBlock>>? CorsConfiguration { get; set; }
+    public TerraformList<AwsApigatewayv2ApiCorsConfigurationBlock> CorsConfiguration { get; set; } = new();
 
     /// <summary>
     /// The api_endpoint attribute.

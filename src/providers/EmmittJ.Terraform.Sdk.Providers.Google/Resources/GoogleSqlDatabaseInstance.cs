@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for clone in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlockBase
+public partial class GoogleSqlDatabaseInstanceCloneBlock() : TerraformBlock("clone")
 {
     /// <summary>
     /// The name of the allocated ip range for the private ip CloudSQL instance. For example: &amp;quot;google-managed-services-default&amp;quot;. If set, the cloned instance ip will be created in the allocated range. The range name must comply with [RFC 1035](https://tools.ietf.org/html/rfc1035). Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
@@ -57,7 +57,7 @@ public partial class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlockBase
 /// Block type for point_in_time_restore_context in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : TerraformBlockBase
+public partial class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock() : TerraformBlock("point_in_time_restore_context")
 {
     /// <summary>
     /// The name of the allocated IP range for the internal IP Cloud SQL instance. For example: &amp;quot;google-managed-services-default&amp;quot;. If you set this, then Cloud SQL creates the IP address for the cloned instance in the allocated range. This range must comply with [RFC 1035](https://tools.ietf.org/html/rfc1035) standards. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
@@ -101,7 +101,7 @@ public partial class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : T
 /// Block type for replica_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlockBase
+public partial class GoogleSqlDatabaseInstanceReplicaConfigurationBlock() : TerraformBlock("replica_configuration")
 {
     /// <summary>
     /// PEM representation of the trusted CA&#39;s x509 certificate.
@@ -193,7 +193,7 @@ public partial class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : Terraf
 /// Block type for replication_cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSqlDatabaseInstanceReplicationClusterBlock : TerraformBlockBase
+public partial class GoogleSqlDatabaseInstanceReplicationClusterBlock() : TerraformBlock("replication_cluster")
 {
 
     /// <summary>
@@ -216,7 +216,7 @@ public partial class GoogleSqlDatabaseInstanceReplicationClusterBlock : Terrafor
 /// Block type for restore_backup_context in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlockBase
+public partial class GoogleSqlDatabaseInstanceRestoreBackupContextBlock() : TerraformBlock("restore_backup_context")
 {
     /// <summary>
     /// The ID of the backup run to restore from.
@@ -246,7 +246,7 @@ public partial class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : Terraf
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlockBase
+public partial class GoogleSqlDatabaseInstanceSettingsBlock() : TerraformBlock("settings")
 {
     /// <summary>
     /// This specifies when the instance should be active. Can be either ALWAYS, NEVER or ON_DEMAND.
@@ -383,7 +383,7 @@ public partial class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSqlDatabaseInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSqlDatabaseInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -530,7 +530,7 @@ public partial class GoogleSqlDatabaseInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Clone block(s) allowed")]
     [TerraformProperty("clone")]
-    public partial TerraformList<TerraformBlock<GoogleSqlDatabaseInstanceCloneBlock>>? Clone { get; set; }
+    public TerraformList<GoogleSqlDatabaseInstanceCloneBlock> Clone { get; set; } = new();
 
     /// <summary>
     /// Block for point_in_time_restore_context.
@@ -538,7 +538,7 @@ public partial class GoogleSqlDatabaseInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRestoreContext block(s) allowed")]
     [TerraformProperty("point_in_time_restore_context")]
-    public partial TerraformList<TerraformBlock<GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock>>? PointInTimeRestoreContext { get; set; }
+    public TerraformList<GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock> PointInTimeRestoreContext { get; set; } = new();
 
     /// <summary>
     /// Block for replica_configuration.
@@ -546,7 +546,7 @@ public partial class GoogleSqlDatabaseInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicaConfiguration block(s) allowed")]
     [TerraformProperty("replica_configuration")]
-    public partial TerraformList<TerraformBlock<GoogleSqlDatabaseInstanceReplicaConfigurationBlock>>? ReplicaConfiguration { get; set; }
+    public TerraformList<GoogleSqlDatabaseInstanceReplicaConfigurationBlock> ReplicaConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for replication_cluster.
@@ -554,7 +554,7 @@ public partial class GoogleSqlDatabaseInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationCluster block(s) allowed")]
     [TerraformProperty("replication_cluster")]
-    public partial TerraformList<TerraformBlock<GoogleSqlDatabaseInstanceReplicationClusterBlock>>? ReplicationCluster { get; set; }
+    public TerraformList<GoogleSqlDatabaseInstanceReplicationClusterBlock> ReplicationCluster { get; set; } = new();
 
     /// <summary>
     /// Block for restore_backup_context.
@@ -562,7 +562,7 @@ public partial class GoogleSqlDatabaseInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreBackupContext block(s) allowed")]
     [TerraformProperty("restore_backup_context")]
-    public partial TerraformList<TerraformBlock<GoogleSqlDatabaseInstanceRestoreBackupContextBlock>>? RestoreBackupContext { get; set; }
+    public TerraformList<GoogleSqlDatabaseInstanceRestoreBackupContextBlock> RestoreBackupContext { get; set; } = new();
 
     /// <summary>
     /// Block for settings.
@@ -570,14 +570,14 @@ public partial class GoogleSqlDatabaseInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     [TerraformProperty("settings")]
-    public partial TerraformList<TerraformBlock<GoogleSqlDatabaseInstanceSettingsBlock>>? Settings { get; set; }
+    public TerraformList<GoogleSqlDatabaseInstanceSettingsBlock> Settings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSqlDatabaseInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSqlDatabaseInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Available Maintenance versions.

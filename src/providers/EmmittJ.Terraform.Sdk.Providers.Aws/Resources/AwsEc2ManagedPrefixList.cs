@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for entry in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2ManagedPrefixListEntryBlock : TerraformBlockBase
+public partial class AwsEc2ManagedPrefixListEntryBlock() : TerraformBlock("entry")
 {
     /// <summary>
     /// The cidr attribute.
@@ -91,7 +91,7 @@ public partial class AwsEc2ManagedPrefixList : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("entry")]
-    public partial TerraformSet<TerraformBlock<AwsEc2ManagedPrefixListEntryBlock>>? Entry { get; set; }
+    public TerraformSet<AwsEc2ManagedPrefixListEntryBlock> Entry { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

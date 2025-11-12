@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,7 +76,7 @@ public partial class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformRe
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The domain_controller_ip_addresses attribute.

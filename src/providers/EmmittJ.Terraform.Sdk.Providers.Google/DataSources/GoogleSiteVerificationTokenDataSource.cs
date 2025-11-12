@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSiteVerificationTokenDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSiteVerificationTokenDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -64,7 +64,7 @@ public partial class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSiteVerificationTokenDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSiteVerificationTokenDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The returned token for use in subsequent verification steps.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for multi_select_observation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock : TerraformBlockBase
+public partial class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock() : TerraformBlock("multi_select_observation")
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservat
 /// Block type for prioritized_exclude_observation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock : TerraformBlockBase
+public partial class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock() : TerraformBlock("prioritized_exclude_observation")
 {
 
     /// <summary>
@@ -63,7 +63,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeO
 /// Block type for single_select_observation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock : TerraformBlockBase
+public partial class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock() : TerraformBlock("single_select_observation")
 {
 
     /// <summary>
@@ -89,7 +89,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObserva
 /// Block type for threshold_observation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock : TerraformBlockBase
+public partial class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock() : TerraformBlock("threshold_observation")
 {
 
 
@@ -116,7 +116,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservatio
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -209,35 +209,35 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResourc
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("multi_select_observation")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>>? MultiSelectObservation { get; set; }
+    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock> MultiSelectObservation { get; set; } = new();
 
     /// <summary>
     /// Block for prioritized_exclude_observation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("prioritized_exclude_observation")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock>>? PrioritizedExcludeObservation { get; set; }
+    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock> PrioritizedExcludeObservation { get; set; } = new();
 
     /// <summary>
     /// Block for single_select_observation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("single_select_observation")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock>>? SingleSelectObservation { get; set; }
+    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock> SingleSelectObservation { get; set; } = new();
 
     /// <summary>
     /// Block for threshold_observation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("threshold_observation")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock>>? ThresholdObservation { get; set; }
+    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock> ThresholdObservation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The anomaly_settings_version attribute.

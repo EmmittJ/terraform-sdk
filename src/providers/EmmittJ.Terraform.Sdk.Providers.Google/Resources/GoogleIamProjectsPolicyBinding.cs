@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamProjectsPolicyBindingConditionBlock : TerraformBlockBase
+public partial class GoogleIamProjectsPolicyBindingConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
@@ -42,7 +42,7 @@ public partial class GoogleIamProjectsPolicyBindingConditionBlock : TerraformBlo
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamProjectsPolicyBindingTargetBlock : TerraformBlockBase
+public partial class GoogleIamProjectsPolicyBindingTargetBlock() : TerraformBlock("target")
 {
     /// <summary>
     /// Required. Immutable. Full Resource Name of the principal set used for principal access boundary policy bindings.
@@ -63,7 +63,7 @@ public partial class GoogleIamProjectsPolicyBindingTargetBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamProjectsPolicyBindingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamProjectsPolicyBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -169,7 +169,7 @@ public partial class GoogleIamProjectsPolicyBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleIamProjectsPolicyBindingConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleIamProjectsPolicyBindingConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -179,14 +179,14 @@ public partial class GoogleIamProjectsPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<GoogleIamProjectsPolicyBindingTargetBlock>>? Target { get; set; }
+    public required TerraformList<GoogleIamProjectsPolicyBindingTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamProjectsPolicyBindingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamProjectsPolicyBindingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time when the policy binding was created.

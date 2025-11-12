@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for scope in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCognitoResourceServerScopeBlock : TerraformBlockBase
+public partial class AwsCognitoResourceServerScopeBlock() : TerraformBlock("scope")
 {
     /// <summary>
     /// The scope_description attribute.
@@ -80,7 +80,7 @@ public partial class AwsCognitoResourceServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Scope block(s) allowed")]
     [TerraformProperty("scope")]
-    public partial TerraformSet<TerraformBlock<AwsCognitoResourceServerScopeBlock>>? Scope { get; set; }
+    public TerraformSet<AwsCognitoResourceServerScopeBlock> Scope { get; set; } = new();
 
     /// <summary>
     /// The scope_identifiers attribute.

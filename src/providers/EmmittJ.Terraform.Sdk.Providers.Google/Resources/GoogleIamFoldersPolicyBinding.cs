@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlockBase
+public partial class GoogleIamFoldersPolicyBindingConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
@@ -42,7 +42,7 @@ public partial class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBloc
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIamFoldersPolicyBindingTargetBlock : TerraformBlockBase
+public partial class GoogleIamFoldersPolicyBindingTargetBlock() : TerraformBlock("target")
 {
     /// <summary>
     /// Required. Immutable. Full Resource Name of the principal set used for principal access boundary policy bindings.
@@ -60,7 +60,7 @@ public partial class GoogleIamFoldersPolicyBindingTargetBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamFoldersPolicyBindingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamFoldersPolicyBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -167,7 +167,7 @@ public partial class GoogleIamFoldersPolicyBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleIamFoldersPolicyBindingConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleIamFoldersPolicyBindingConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -177,14 +177,14 @@ public partial class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<GoogleIamFoldersPolicyBindingTargetBlock>>? Target { get; set; }
+    public required TerraformList<GoogleIamFoldersPolicyBindingTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamFoldersPolicyBindingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamFoldersPolicyBindingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time when the policy binding was created.

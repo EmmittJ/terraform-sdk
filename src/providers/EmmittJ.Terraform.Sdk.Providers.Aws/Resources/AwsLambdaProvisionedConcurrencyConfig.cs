@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock : TerraformBlockBase
+public partial class AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,6 +83,6 @@ public partial class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock Timeouts { get; set; } = new();
 
 }

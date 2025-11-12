@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for agent_descriptor in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : TerraformBlockBase
+public partial class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock() : TerraformBlock("agent_descriptor")
 {
     /// <summary>
     /// The alias_arn attribute.
@@ -22,7 +22,7 @@ public partial class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentAgentCollaboratorTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentAgentCollaboratorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -113,14 +113,14 @@ public partial class AwsBedrockagentAgentCollaborator : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("agent_descriptor")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentAgentCollaboratorAgentDescriptorBlock>>? AgentDescriptor { get; set; }
+    public TerraformList<AwsBedrockagentAgentCollaboratorAgentDescriptorBlock> AgentDescriptor { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentAgentCollaboratorTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentAgentCollaboratorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The collaborator_id attribute.

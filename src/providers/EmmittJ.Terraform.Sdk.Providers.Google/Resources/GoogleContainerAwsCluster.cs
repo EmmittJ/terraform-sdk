@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsClusterAuthorizationBlock : TerraformBlockBase
+public partial class GoogleContainerAwsClusterAuthorizationBlock() : TerraformBlock("authorization")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleContainerAwsClusterAuthorizationBlock : TerraformBloc
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsClusterBinaryAuthorizationBlock : TerraformBlockBase
+public partial class GoogleContainerAwsClusterBinaryAuthorizationBlock() : TerraformBlock("binary_authorization")
 {
     /// <summary>
     /// Mode of operation for Binary Authorization policy evaluation. Possible values: DISABLED, PROJECT_SINGLETON_POLICY_ENFORCE
@@ -29,7 +29,7 @@ public partial class GoogleContainerAwsClusterBinaryAuthorizationBlock : Terrafo
 /// Block type for control_plane in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlockBase
+public partial class GoogleContainerAwsClusterControlPlaneBlock() : TerraformBlock("control_plane")
 {
     /// <summary>
     /// The name of the AWS IAM instance pofile to assign to each control plane replica.
@@ -82,7 +82,7 @@ public partial class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
 /// Block type for fleet in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsClusterFleetBlock : TerraformBlockBase
+public partial class GoogleContainerAwsClusterFleetBlock() : TerraformBlock("fleet")
 {
 
     /// <summary>
@@ -98,7 +98,7 @@ public partial class GoogleContainerAwsClusterFleetBlock : TerraformBlockBase
 /// Block type for networking in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerAwsClusterNetworkingBlock : TerraformBlockBase
+public partial class GoogleContainerAwsClusterNetworkingBlock() : TerraformBlock("networking")
 {
     /// <summary>
     /// Disable the per node pool subnet security group rules on the control plane security group. When set to true, you must also provide one or more security groups that ensure node pools are able to send requests to the control plane on TCP/443 and TCP/8132. Failure to do so may result in unavailable node pools.
@@ -137,7 +137,7 @@ public partial class GoogleContainerAwsClusterNetworkingBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerAwsClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerAwsClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -235,7 +235,7 @@ public partial class GoogleContainerAwsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsClusterAuthorizationBlock>>? Authorization { get; set; }
+    public required TerraformList<GoogleContainerAwsClusterAuthorizationBlock> Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for binary_authorization.
@@ -243,7 +243,7 @@ public partial class GoogleContainerAwsCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsClusterBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public TerraformList<GoogleContainerAwsClusterBinaryAuthorizationBlock> BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for control_plane.
@@ -253,7 +253,7 @@ public partial class GoogleContainerAwsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ControlPlane block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     [TerraformProperty("control_plane")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsClusterControlPlaneBlock>>? ControlPlane { get; set; }
+    public required TerraformList<GoogleContainerAwsClusterControlPlaneBlock> ControlPlane { get; set; } = new();
 
     /// <summary>
     /// Block for fleet.
@@ -263,7 +263,7 @@ public partial class GoogleContainerAwsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformProperty("fleet")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsClusterFleetBlock>>? Fleet { get; set; }
+    public required TerraformList<GoogleContainerAwsClusterFleetBlock> Fleet { get; set; } = new();
 
     /// <summary>
     /// Block for networking.
@@ -273,14 +273,14 @@ public partial class GoogleContainerAwsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
     [TerraformProperty("networking")]
-    public partial TerraformList<TerraformBlock<GoogleContainerAwsClusterNetworkingBlock>>? Networking { get; set; }
+    public required TerraformList<GoogleContainerAwsClusterNetworkingBlock> Networking { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerAwsClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerAwsClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this cluster was created.

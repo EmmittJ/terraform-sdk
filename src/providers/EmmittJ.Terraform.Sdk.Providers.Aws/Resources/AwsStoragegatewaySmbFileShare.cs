@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cache_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsStoragegatewaySmbFileShareCacheAttributesBlock : TerraformBlockBase
+public partial class AwsStoragegatewaySmbFileShareCacheAttributesBlock() : TerraformBlock("cache_attributes")
 {
     /// <summary>
     /// The cache_stale_timeout_in_seconds attribute.
@@ -21,7 +21,7 @@ public partial class AwsStoragegatewaySmbFileShareCacheAttributesBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsStoragegatewaySmbFileShareTimeoutsBlock : TerraformBlockBase
+public partial class AwsStoragegatewaySmbFileShareTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -254,14 +254,14 @@ public partial class AwsStoragegatewaySmbFileShare : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheAttributes block(s) allowed")]
     [TerraformProperty("cache_attributes")]
-    public partial TerraformList<TerraformBlock<AwsStoragegatewaySmbFileShareCacheAttributesBlock>>? CacheAttributes { get; set; }
+    public TerraformList<AwsStoragegatewaySmbFileShareCacheAttributesBlock> CacheAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsStoragegatewaySmbFileShareTimeoutsBlock>? Timeouts { get; set; }
+    public AwsStoragegatewaySmbFileShareTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

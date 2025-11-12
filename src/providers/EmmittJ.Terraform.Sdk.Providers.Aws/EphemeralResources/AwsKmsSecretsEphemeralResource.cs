@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for secret in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlockBase
+public partial class AwsKmsSecretsEphemeralResourceSecretBlock() : TerraformBlock("secret")
 {
     /// <summary>
     /// The context attribute.
@@ -76,7 +76,7 @@ public partial class AwsKmsSecretsEphemeralResource : TerraformEphemeralResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("secret")]
-    public partial TerraformSet<TerraformBlock<AwsKmsSecretsEphemeralResourceSecretBlock>>? Secret { get; set; }
+    public TerraformSet<AwsKmsSecretsEphemeralResourceSecretBlock> Secret { get; set; } = new();
 
     /// <summary>
     /// The plaintext attribute.

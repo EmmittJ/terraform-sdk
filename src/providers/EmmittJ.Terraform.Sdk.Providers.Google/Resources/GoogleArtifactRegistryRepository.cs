@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cleanup_policies in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlockBase
+public partial class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock() : TerraformBlock("cleanup_policies")
 {
     /// <summary>
     /// Policy action. Possible values: [&amp;quot;DELETE&amp;quot;, &amp;quot;KEEP&amp;quot;]
@@ -29,7 +29,7 @@ public partial class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : Terr
 /// Block type for docker_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleArtifactRegistryRepositoryDockerConfigBlock : TerraformBlockBase
+public partial class GoogleArtifactRegistryRepositoryDockerConfigBlock() : TerraformBlock("docker_config")
 {
     /// <summary>
     /// The repository which enabled this flag prevents all tags from being modified, moved or deleted. This does not prevent tags from being created.
@@ -44,7 +44,7 @@ public partial class GoogleArtifactRegistryRepositoryDockerConfigBlock : Terrafo
 /// Block type for maven_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleArtifactRegistryRepositoryMavenConfigBlock : TerraformBlockBase
+public partial class GoogleArtifactRegistryRepositoryMavenConfigBlock() : TerraformBlock("maven_config")
 {
     /// <summary>
     /// The repository with this flag will allow publishing the same
@@ -67,7 +67,7 @@ public partial class GoogleArtifactRegistryRepositoryMavenConfigBlock : Terrafor
 /// Block type for remote_repository_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : TerraformBlockBase
+public partial class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock() : TerraformBlock("remote_repository_config")
 {
     /// <summary>
     /// The description of the remote source.
@@ -90,7 +90,7 @@ public partial class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlockBase
+public partial class GoogleArtifactRegistryRepositoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,7 +119,7 @@ public partial class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBl
 /// Block type for virtual_repository_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock : TerraformBlockBase
+public partial class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock() : TerraformBlock("virtual_repository_config")
 {
 }
 
@@ -127,7 +127,7 @@ public partial class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBloc
 /// Block type for vulnerability_scanning_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : TerraformBlockBase
+public partial class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock() : TerraformBlock("vulnerability_scanning_config")
 {
     /// <summary>
     /// This configures whether vulnerability scanning is automatically performed for artifacts pushed to this repository. Possible values: [&amp;quot;INHERITED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
@@ -248,7 +248,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cleanup_policies")]
-    public partial TerraformSet<TerraformBlock<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>>? CleanupPolicies { get; set; }
+    public TerraformSet<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock> CleanupPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for docker_config.
@@ -256,7 +256,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerConfig block(s) allowed")]
     [TerraformProperty("docker_config")]
-    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryDockerConfigBlock>>? DockerConfig { get; set; }
+    public TerraformList<GoogleArtifactRegistryRepositoryDockerConfigBlock> DockerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for maven_config.
@@ -264,7 +264,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MavenConfig block(s) allowed")]
     [TerraformProperty("maven_config")]
-    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryMavenConfigBlock>>? MavenConfig { get; set; }
+    public TerraformList<GoogleArtifactRegistryRepositoryMavenConfigBlock> MavenConfig { get; set; } = new();
 
     /// <summary>
     /// Block for remote_repository_config.
@@ -272,14 +272,14 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteRepositoryConfig block(s) allowed")]
     [TerraformProperty("remote_repository_config")]
-    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>>? RemoteRepositoryConfig { get; set; }
+    public TerraformList<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock> RemoteRepositoryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleArtifactRegistryRepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleArtifactRegistryRepositoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_repository_config.
@@ -287,7 +287,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualRepositoryConfig block(s) allowed")]
     [TerraformProperty("virtual_repository_config")]
-    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>>? VirtualRepositoryConfig { get; set; }
+    public TerraformList<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock> VirtualRepositoryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for vulnerability_scanning_config.
@@ -295,7 +295,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VulnerabilityScanningConfig block(s) allowed")]
     [TerraformProperty("vulnerability_scanning_config")]
-    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>>? VulnerabilityScanningConfig { get; set; }
+    public TerraformList<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock> VulnerabilityScanningConfig { get; set; } = new();
 
     /// <summary>
     /// The time when the repository was created.

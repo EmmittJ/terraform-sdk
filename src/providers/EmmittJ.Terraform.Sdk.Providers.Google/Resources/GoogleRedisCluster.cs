@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_backup_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterAutomatedBackupConfigBlock : TerraformBlockBase
+public partial class GoogleRedisClusterAutomatedBackupConfigBlock() : TerraformBlock("automated_backup_config")
 {
     /// <summary>
     /// How long to keep automated backups before the backups are deleted.
@@ -24,7 +24,7 @@ public partial class GoogleRedisClusterAutomatedBackupConfigBlock : TerraformBlo
 /// Block type for cross_cluster_replication_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterCrossClusterReplicationConfigBlock : TerraformBlockBase
+public partial class GoogleRedisClusterCrossClusterReplicationConfigBlock() : TerraformBlock("cross_cluster_replication_config")
 {
     /// <summary>
     /// The role of the cluster in cross cluster replication. Supported values are:
@@ -49,7 +49,7 @@ public partial class GoogleRedisClusterCrossClusterReplicationConfigBlock : Terr
 /// Block type for gcs_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterGcsSourceBlock : TerraformBlockBase
+public partial class GoogleRedisClusterGcsSourceBlock() : TerraformBlock("gcs_source")
 {
     /// <summary>
     /// URIs of the GCS objects to import. Example: gs://bucket1/object1, gs://bucket2/folder2/object2
@@ -65,7 +65,7 @@ public partial class GoogleRedisClusterGcsSourceBlock : TerraformBlockBase
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterMaintenancePolicyBlock : TerraformBlockBase
+public partial class GoogleRedisClusterMaintenancePolicyBlock() : TerraformBlock("maintenance_policy")
 {
 
 
@@ -75,7 +75,7 @@ public partial class GoogleRedisClusterMaintenancePolicyBlock : TerraformBlockBa
 /// Block type for managed_backup_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterManagedBackupSourceBlock : TerraformBlockBase
+public partial class GoogleRedisClusterManagedBackupSourceBlock() : TerraformBlock("managed_backup_source")
 {
     /// <summary>
     /// Example: &#39;projects/{project}/locations/{location}/backupCollections/{collection}/backups/{backup}&#39;.
@@ -91,7 +91,7 @@ public partial class GoogleRedisClusterManagedBackupSourceBlock : TerraformBlock
 /// Block type for persistence_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterPersistenceConfigBlock : TerraformBlockBase
+public partial class GoogleRedisClusterPersistenceConfigBlock() : TerraformBlock("persistence_config")
 {
     /// <summary>
     /// Optional. Controls whether Persistence features are enabled. If not provided, the existing value will be used.
@@ -110,7 +110,7 @@ public partial class GoogleRedisClusterPersistenceConfigBlock : TerraformBlockBa
 /// Block type for psc_configs in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterPscConfigsBlock : TerraformBlockBase
+public partial class GoogleRedisClusterPscConfigsBlock() : TerraformBlock("psc_configs")
 {
     /// <summary>
     /// Required. The consumer network where the network address of
@@ -128,7 +128,7 @@ public partial class GoogleRedisClusterPscConfigsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleRedisClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleRedisClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -157,7 +157,7 @@ public partial class GoogleRedisClusterTimeoutsBlock : TerraformBlockBase
 /// Block type for zone_distribution_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleRedisClusterZoneDistributionConfigBlock : TerraformBlockBase
+public partial class GoogleRedisClusterZoneDistributionConfigBlock() : TerraformBlock("zone_distribution_config")
 {
     /// <summary>
     /// Immutable. The mode for zone distribution for Memorystore Redis cluster.
@@ -292,7 +292,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupConfig block(s) allowed")]
     [TerraformProperty("automated_backup_config")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterAutomatedBackupConfigBlock>>? AutomatedBackupConfig { get; set; }
+    public TerraformList<GoogleRedisClusterAutomatedBackupConfigBlock> AutomatedBackupConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cross_cluster_replication_config.
@@ -300,7 +300,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CrossClusterReplicationConfig block(s) allowed")]
     [TerraformProperty("cross_cluster_replication_config")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterCrossClusterReplicationConfigBlock>>? CrossClusterReplicationConfig { get; set; }
+    public TerraformList<GoogleRedisClusterCrossClusterReplicationConfigBlock> CrossClusterReplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for gcs_source.
@@ -308,7 +308,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsSource block(s) allowed")]
     [TerraformProperty("gcs_source")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterGcsSourceBlock>>? GcsSource { get; set; }
+    public TerraformList<GoogleRedisClusterGcsSourceBlock> GcsSource { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -316,7 +316,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public TerraformList<GoogleRedisClusterMaintenancePolicyBlock> MaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for managed_backup_source.
@@ -324,7 +324,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedBackupSource block(s) allowed")]
     [TerraformProperty("managed_backup_source")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterManagedBackupSourceBlock>>? ManagedBackupSource { get; set; }
+    public TerraformList<GoogleRedisClusterManagedBackupSourceBlock> ManagedBackupSource { get; set; } = new();
 
     /// <summary>
     /// Block for persistence_config.
@@ -332,21 +332,21 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
     [TerraformProperty("persistence_config")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterPersistenceConfigBlock>>? PersistenceConfig { get; set; }
+    public TerraformList<GoogleRedisClusterPersistenceConfigBlock> PersistenceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for psc_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("psc_configs")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterPscConfigsBlock>>? PscConfigs { get; set; }
+    public TerraformList<GoogleRedisClusterPscConfigsBlock> PscConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleRedisClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleRedisClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for zone_distribution_config.
@@ -354,7 +354,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZoneDistributionConfig block(s) allowed")]
     [TerraformProperty("zone_distribution_config")]
-    public partial TerraformList<TerraformBlock<GoogleRedisClusterZoneDistributionConfigBlock>>? ZoneDistributionConfig { get; set; }
+    public TerraformList<GoogleRedisClusterZoneDistributionConfigBlock> ZoneDistributionConfig { get; set; } = new();
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.

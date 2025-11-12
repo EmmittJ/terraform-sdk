@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudformationTypeLoggingConfigBlock : TerraformBlockBase
+public partial class AwsCloudformationTypeLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// The log_group_name attribute.
@@ -86,7 +86,7 @@ public partial class AwsCloudformationType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudformationTypeLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<AwsCloudformationTypeLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

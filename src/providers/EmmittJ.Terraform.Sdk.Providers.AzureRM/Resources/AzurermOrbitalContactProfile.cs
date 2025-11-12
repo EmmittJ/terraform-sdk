@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for links in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermOrbitalContactProfileLinksBlock : TerraformBlockBase
+public partial class AzurermOrbitalContactProfileLinksBlock() : TerraformBlock("links")
 {
     /// <summary>
     /// The direction attribute.
@@ -38,7 +38,7 @@ public partial class AzurermOrbitalContactProfileLinksBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOrbitalContactProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -164,13 +164,13 @@ public partial class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
     [TerraformProperty("links")]
-    public partial TerraformList<TerraformBlock<AzurermOrbitalContactProfileLinksBlock>>? Links { get; set; }
+    public required TerraformList<AzurermOrbitalContactProfileLinksBlock> Links { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOrbitalContactProfileTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOrbitalContactProfileTimeoutsBlock Timeouts { get; set; } = new();
 
 }

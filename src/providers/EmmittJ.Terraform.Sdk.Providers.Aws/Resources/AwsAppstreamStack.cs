@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_endpoints in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppstreamStackAccessEndpointsBlock : TerraformBlockBase
+public partial class AwsAppstreamStackAccessEndpointsBlock() : TerraformBlock("access_endpoints")
 {
     /// <summary>
     /// The endpoint_type attribute.
@@ -29,7 +29,7 @@ public partial class AwsAppstreamStackAccessEndpointsBlock : TerraformBlockBase
 /// Block type for application_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamStackApplicationSettingsBlock : TerraformBlockBase
+public partial class AwsAppstreamStackApplicationSettingsBlock() : TerraformBlock("application_settings")
 {
     /// <summary>
     /// The enabled attribute.
@@ -52,7 +52,7 @@ public partial class AwsAppstreamStackApplicationSettingsBlock : TerraformBlockB
 /// Block type for storage_connectors in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppstreamStackStorageConnectorsBlock : TerraformBlockBase
+public partial class AwsAppstreamStackStorageConnectorsBlock() : TerraformBlock("storage_connectors")
 {
     /// <summary>
     /// The connector_type attribute.
@@ -82,7 +82,7 @@ public partial class AwsAppstreamStackStorageConnectorsBlock : TerraformBlockBas
 /// Block type for streaming_experience_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppstreamStackStreamingExperienceSettingsBlock : TerraformBlockBase
+public partial class AwsAppstreamStackStreamingExperienceSettingsBlock() : TerraformBlock("streaming_experience_settings")
 {
     /// <summary>
     /// The preferred_protocol attribute.
@@ -97,7 +97,7 @@ public partial class AwsAppstreamStackStreamingExperienceSettingsBlock : Terrafo
 /// Block type for user_settings in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAppstreamStackUserSettingsBlock : TerraformBlockBase
+public partial class AwsAppstreamStackUserSettingsBlock() : TerraformBlock("user_settings")
 {
     /// <summary>
     /// The action attribute.
@@ -204,7 +204,7 @@ public partial class AwsAppstreamStack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 AccessEndpoints block(s) allowed")]
     [TerraformProperty("access_endpoints")]
-    public partial TerraformSet<TerraformBlock<AwsAppstreamStackAccessEndpointsBlock>>? AccessEndpoints { get; set; }
+    public TerraformSet<AwsAppstreamStackAccessEndpointsBlock> AccessEndpoints { get; set; } = new();
 
     /// <summary>
     /// Block for application_settings.
@@ -212,14 +212,14 @@ public partial class AwsAppstreamStack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSettings block(s) allowed")]
     [TerraformProperty("application_settings")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamStackApplicationSettingsBlock>>? ApplicationSettings { get; set; }
+    public TerraformList<AwsAppstreamStackApplicationSettingsBlock> ApplicationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for storage_connectors.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("storage_connectors")]
-    public partial TerraformSet<TerraformBlock<AwsAppstreamStackStorageConnectorsBlock>>? StorageConnectors { get; set; }
+    public TerraformSet<AwsAppstreamStackStorageConnectorsBlock> StorageConnectors { get; set; } = new();
 
     /// <summary>
     /// Block for streaming_experience_settings.
@@ -227,14 +227,14 @@ public partial class AwsAppstreamStack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingExperienceSettings block(s) allowed")]
     [TerraformProperty("streaming_experience_settings")]
-    public partial TerraformList<TerraformBlock<AwsAppstreamStackStreamingExperienceSettingsBlock>>? StreamingExperienceSettings { get; set; }
+    public TerraformList<AwsAppstreamStackStreamingExperienceSettingsBlock> StreamingExperienceSettings { get; set; } = new();
 
     /// <summary>
     /// Block for user_settings.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("user_settings")]
-    public partial TerraformSet<TerraformBlock<AwsAppstreamStackUserSettingsBlock>>? UserSettings { get; set; }
+    public TerraformSet<AwsAppstreamStackUserSettingsBlock> UserSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

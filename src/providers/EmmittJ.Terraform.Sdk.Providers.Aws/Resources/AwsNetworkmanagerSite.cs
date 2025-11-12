@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkmanagerSiteLocationBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerSiteLocationBlock() : TerraformBlock("location")
 {
     /// <summary>
     /// The address attribute.
@@ -35,7 +35,7 @@ public partial class AwsNetworkmanagerSiteLocationBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsNetworkmanagerSiteTimeoutsBlock : TerraformBlockBase
+public partial class AwsNetworkmanagerSiteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -112,14 +112,14 @@ public partial class AwsNetworkmanagerSite : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
     [TerraformProperty("location")]
-    public partial TerraformList<TerraformBlock<AwsNetworkmanagerSiteLocationBlock>>? Location { get; set; }
+    public TerraformList<AwsNetworkmanagerSiteLocationBlock> Location { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsNetworkmanagerSiteTimeoutsBlock>? Timeouts { get; set; }
+    public AwsNetworkmanagerSiteTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for role_mapping in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBlockBase
+public partial class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock() : TerraformBlock("role_mapping")
 {
     /// <summary>
     /// The ambiguous_role_resolution attribute.
@@ -77,6 +77,6 @@ public partial class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("role_mapping")]
-    public partial TerraformSet<TerraformBlock<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>>? RoleMapping { get; set; }
+    public TerraformSet<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock> RoleMapping { get; set; } = new();
 
 }

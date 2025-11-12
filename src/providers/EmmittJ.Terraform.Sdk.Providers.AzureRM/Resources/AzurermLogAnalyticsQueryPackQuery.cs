@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogAnalyticsQueryPackQueryTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogAnalyticsQueryPackQueryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,6 +132,6 @@ public partial class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogAnalyticsQueryPackQueryTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogAnalyticsQueryPackQueryTimeoutsBlock Timeouts { get; set; } = new();
 
 }

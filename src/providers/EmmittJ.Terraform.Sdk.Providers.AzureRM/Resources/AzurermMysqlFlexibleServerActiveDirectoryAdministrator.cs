@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -99,6 +99,6 @@ public partial class AzurermMysqlFlexibleServerActiveDirectoryAdministrator : Te
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock Timeouts { get; set; } = new();
 
 }

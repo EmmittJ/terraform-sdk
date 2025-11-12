@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleKmsKeyRingIamBindingConditionBlock : TerraformBlockBase
+public partial class GoogleKmsKeyRingIamBindingConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -80,7 +80,7 @@ public partial class GoogleKmsKeyRingIamBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleKmsKeyRingIamBindingConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleKmsKeyRingIamBindingConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

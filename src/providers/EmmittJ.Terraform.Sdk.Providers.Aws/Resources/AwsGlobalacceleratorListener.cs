@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for port_range in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGlobalacceleratorListenerPortRangeBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorListenerPortRangeBlock() : TerraformBlock("port_range")
 {
     /// <summary>
     /// The from_port attribute.
@@ -28,7 +28,7 @@ public partial class AwsGlobalacceleratorListenerPortRangeBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGlobalacceleratorListenerTimeoutsBlock : TerraformBlockBase
+public partial class AwsGlobalacceleratorListenerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,14 +101,14 @@ public partial class AwsGlobalacceleratorListener : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PortRange block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PortRange block(s) allowed")]
     [TerraformProperty("port_range")]
-    public partial TerraformSet<TerraformBlock<AwsGlobalacceleratorListenerPortRangeBlock>>? PortRange { get; set; }
+    public required TerraformSet<AwsGlobalacceleratorListenerPortRangeBlock> PortRange { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGlobalacceleratorListenerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGlobalacceleratorListenerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

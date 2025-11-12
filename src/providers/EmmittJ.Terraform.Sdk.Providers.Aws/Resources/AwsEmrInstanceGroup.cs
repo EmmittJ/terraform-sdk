@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ebs_config in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlockBase
+public partial class AwsEmrInstanceGroupEbsConfigBlock() : TerraformBlock("ebs_config")
 {
     /// <summary>
     /// The iops attribute.
@@ -126,7 +126,7 @@ public partial class AwsEmrInstanceGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_config")]
-    public partial TerraformSet<TerraformBlock<AwsEmrInstanceGroupEbsConfigBlock>>? EbsConfig { get; set; }
+    public TerraformSet<AwsEmrInstanceGroupEbsConfigBlock> EbsConfig { get; set; } = new();
 
     /// <summary>
     /// The running_instance_count attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleChronicleDataAccessLabelTimeoutsBlock : TerraformBlockBase
+public partial class GoogleChronicleDataAccessLabelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,7 +101,7 @@ public partial class GoogleChronicleDataAccessLabel : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleChronicleDataAccessLabelTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleChronicleDataAccessLabelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The user who created the data access label.

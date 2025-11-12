@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeFirewallPolicyWithRulesRuleBlock : TerraformBlockBase
+public partial class GoogleComputeFirewallPolicyWithRulesRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The Action to perform when the client connection triggers the rule. Can currently be either
@@ -110,7 +110,7 @@ public partial class GoogleComputeFirewallPolicyWithRulesRuleBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeFirewallPolicyWithRulesTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeFirewallPolicyWithRulesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -183,14 +183,14 @@ public partial class GoogleComputeFirewallPolicyWithRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<GoogleComputeFirewallPolicyWithRulesRuleBlock>>? Rule { get; set; }
+    public required TerraformList<GoogleComputeFirewallPolicyWithRulesRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeFirewallPolicyWithRulesTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeFirewallPolicyWithRulesTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

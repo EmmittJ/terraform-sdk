@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for segment_configurations in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlockBase
+public partial class AwsFinspaceKxDataviewSegmentConfigurationsBlock() : TerraformBlock("segment_configurations")
 {
     /// <summary>
     /// The db_paths attribute.
@@ -37,7 +37,7 @@ public partial class AwsFinspaceKxDataviewSegmentConfigurationsBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFinspaceKxDataviewTimeoutsBlock : TerraformBlockBase
+public partial class AwsFinspaceKxDataviewTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -172,14 +172,14 @@ public partial class AwsFinspaceKxDataview : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("segment_configurations")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxDataviewSegmentConfigurationsBlock>>? SegmentConfigurations { get; set; }
+    public TerraformList<AwsFinspaceKxDataviewSegmentConfigurationsBlock> SegmentConfigurations { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFinspaceKxDataviewTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFinspaceKxDataviewTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

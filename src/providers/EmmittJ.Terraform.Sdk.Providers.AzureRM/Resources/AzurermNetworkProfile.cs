@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for container_network_interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkProfileContainerNetworkInterfaceBlock : TerraformBlockBase
+public partial class AzurermNetworkProfileContainerNetworkInterfaceBlock() : TerraformBlock("container_network_interface")
 {
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermNetworkProfileContainerNetworkInterfaceBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkProfileTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,14 +110,14 @@ public partial class AzurermNetworkProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContainerNetworkInterface block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerNetworkInterface block(s) allowed")]
     [TerraformProperty("container_network_interface")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkProfileContainerNetworkInterfaceBlock>>? ContainerNetworkInterface { get; set; }
+    public required TerraformList<AzurermNetworkProfileContainerNetworkInterfaceBlock> ContainerNetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkProfileTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The container_network_interface_ids attribute.

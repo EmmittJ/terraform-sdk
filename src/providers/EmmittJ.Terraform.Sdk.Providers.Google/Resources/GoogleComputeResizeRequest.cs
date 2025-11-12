@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for requested_run_duration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeResizeRequestRequestedRunDurationBlock : TerraformBlockBase
+public partial class GoogleComputeResizeRequestRequestedRunDurationBlock() : TerraformBlock("requested_run_duration")
 {
     /// <summary>
     /// Span of time that&#39;s a fraction of a second at nanosecond resolution. Durations less than one second are represented with a 0 seconds field and a positive nanos field. Must be from 0 to 999,999,999 inclusive.
@@ -29,7 +29,7 @@ public partial class GoogleComputeResizeRequestRequestedRunDurationBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeResizeRequestTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeResizeRequestTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,14 +115,14 @@ public partial class GoogleComputeResizeRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestedRunDuration block(s) allowed")]
     [TerraformProperty("requested_run_duration")]
-    public partial TerraformList<TerraformBlock<GoogleComputeResizeRequestRequestedRunDurationBlock>>? RequestedRunDuration { get; set; }
+    public TerraformList<GoogleComputeResizeRequestRequestedRunDurationBlock> RequestedRunDuration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeResizeRequestTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeResizeRequestTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation timestamp for this resize request in RFC3339 text format.

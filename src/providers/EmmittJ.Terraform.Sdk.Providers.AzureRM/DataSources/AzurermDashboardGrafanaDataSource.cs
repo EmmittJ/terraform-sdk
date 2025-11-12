@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformBlockBase
+public partial class AzurermDashboardGrafanaDataSourceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDashboardGrafanaDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDashboardGrafanaDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -81,14 +81,14 @@ public partial class AzurermDashboardGrafanaDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDashboardGrafanaDataSourceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermDashboardGrafanaDataSourceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDashboardGrafanaDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDashboardGrafanaDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The api_key_enabled attribute.

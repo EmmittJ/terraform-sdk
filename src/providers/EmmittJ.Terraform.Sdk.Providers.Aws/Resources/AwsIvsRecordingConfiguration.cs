@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIvsRecordingConfigurationDestinationConfigurationBlock : TerraformBlockBase
+public partial class AwsIvsRecordingConfigurationDestinationConfigurationBlock() : TerraformBlock("destination_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsIvsRecordingConfigurationDestinationConfigurationBlock :
 /// Block type for thumbnail_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIvsRecordingConfigurationThumbnailConfigurationBlock : TerraformBlockBase
+public partial class AwsIvsRecordingConfigurationThumbnailConfigurationBlock() : TerraformBlock("thumbnail_configuration")
 {
     /// <summary>
     /// The recording_mode attribute.
@@ -36,7 +36,7 @@ public partial class AwsIvsRecordingConfigurationThumbnailConfigurationBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsIvsRecordingConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsIvsRecordingConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -114,7 +114,7 @@ public partial class AwsIvsRecordingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfiguration block(s) allowed")]
     [TerraformProperty("destination_configuration")]
-    public partial TerraformList<TerraformBlock<AwsIvsRecordingConfigurationDestinationConfigurationBlock>>? DestinationConfiguration { get; set; }
+    public required TerraformList<AwsIvsRecordingConfigurationDestinationConfigurationBlock> DestinationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for thumbnail_configuration.
@@ -122,14 +122,14 @@ public partial class AwsIvsRecordingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThumbnailConfiguration block(s) allowed")]
     [TerraformProperty("thumbnail_configuration")]
-    public partial TerraformList<TerraformBlock<AwsIvsRecordingConfigurationThumbnailConfigurationBlock>>? ThumbnailConfiguration { get; set; }
+    public TerraformList<AwsIvsRecordingConfigurationThumbnailConfigurationBlock> ThumbnailConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsIvsRecordingConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsIvsRecordingConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightRefreshScheduleScheduleBlock : TerraformBlockBase
+public partial class AwsQuicksightRefreshScheduleScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The refresh_type attribute.
@@ -69,7 +69,7 @@ public partial class AwsQuicksightRefreshSchedule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightRefreshScheduleScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AwsQuicksightRefreshScheduleScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

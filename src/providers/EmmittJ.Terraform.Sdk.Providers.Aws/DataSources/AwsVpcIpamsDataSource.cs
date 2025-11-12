@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsVpcIpamsDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsVpcIpamsDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -54,7 +54,7 @@ public partial class AwsVpcIpamsDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsVpcIpamsDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsVpcIpamsDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The ipams attribute.

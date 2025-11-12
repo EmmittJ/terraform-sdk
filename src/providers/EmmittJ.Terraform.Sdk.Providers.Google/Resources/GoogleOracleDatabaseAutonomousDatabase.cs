@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock() : TerraformBlock("properties")
 {
 
 
@@ -200,7 +200,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -353,14 +353,14 @@ public partial class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Properties block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public partial TerraformList<TerraformBlock<GoogleOracleDatabaseAutonomousDatabasePropertiesBlock>>? Properties { get; set; }
+    public required TerraformList<GoogleOracleDatabaseAutonomousDatabasePropertiesBlock> Properties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The date and time that the Autonomous Database was created.

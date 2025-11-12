@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketObjectLockConfigurationRuleBlock : TerraformBlockBase
+public partial class AwsS3BucketObjectLockConfigurationRuleBlock() : TerraformBlock("rule")
 {
 }
 
@@ -69,6 +69,6 @@ public partial class AwsS3BucketObjectLockConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rule block(s) allowed")]
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketObjectLockConfigurationRuleBlock>>? Rule { get; set; }
+    public TerraformList<AwsS3BucketObjectLockConfigurationRuleBlock> Rule { get; set; } = new();
 
 }

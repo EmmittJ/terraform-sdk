@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningComputeClusterIdentityBlock : TerraformBlockBase
+public partial class AzurermMachineLearningComputeClusterIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermMachineLearningComputeClusterIdentityBlock : Terrafo
 /// Block type for scale_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformBlockBase
+public partial class AzurermMachineLearningComputeClusterScaleSettingsBlock() : TerraformBlock("scale_settings")
 {
     /// <summary>
     /// The max_node_count attribute.
@@ -63,7 +63,7 @@ public partial class AzurermMachineLearningComputeClusterScaleSettingsBlock : Te
 /// Block type for ssh in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMachineLearningComputeClusterSshBlock : TerraformBlockBase
+public partial class AzurermMachineLearningComputeClusterSshBlock() : TerraformBlock("ssh")
 {
     /// <summary>
     /// The admin_password attribute.
@@ -93,7 +93,7 @@ public partial class AzurermMachineLearningComputeClusterSshBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMachineLearningComputeClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -230,7 +230,7 @@ public partial class AzurermMachineLearningComputeCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeClusterIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMachineLearningComputeClusterIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for scale_settings.
@@ -240,7 +240,7 @@ public partial class AzurermMachineLearningComputeCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScaleSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScaleSettings block(s) allowed")]
     [TerraformProperty("scale_settings")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeClusterScaleSettingsBlock>>? ScaleSettings { get; set; }
+    public required TerraformList<AzurermMachineLearningComputeClusterScaleSettingsBlock> ScaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for ssh.
@@ -248,13 +248,13 @@ public partial class AzurermMachineLearningComputeCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssh block(s) allowed")]
     [TerraformProperty("ssh")]
-    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeClusterSshBlock>>? Ssh { get; set; }
+    public TerraformList<AzurermMachineLearningComputeClusterSshBlock> Ssh { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMachineLearningComputeClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMachineLearningComputeClusterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

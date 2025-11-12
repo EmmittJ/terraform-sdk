@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareServiceAuthenticationConfigurationBlock : TerraformBlockBase
+public partial class AzurermHealthcareServiceAuthenticationConfigurationBlock() : TerraformBlock("authentication_configuration")
 {
     /// <summary>
     /// The audience attribute.
@@ -35,7 +35,7 @@ public partial class AzurermHealthcareServiceAuthenticationConfigurationBlock : 
 /// Block type for cors_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlockBase
+public partial class AzurermHealthcareServiceCorsConfigurationBlock() : TerraformBlock("cors_configuration")
 {
     /// <summary>
     /// The allow_credentials attribute.
@@ -78,7 +78,7 @@ public partial class AzurermHealthcareServiceCorsConfigurationBlock : TerraformB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHealthcareServiceIdentityBlock : TerraformBlockBase
+public partial class AzurermHealthcareServiceIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -96,7 +96,7 @@ public partial class AzurermHealthcareServiceIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHealthcareServiceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHealthcareServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -224,7 +224,7 @@ public partial class AzurermHealthcareService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationConfiguration block(s) allowed")]
     [TerraformProperty("authentication_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareServiceAuthenticationConfigurationBlock>>? AuthenticationConfiguration { get; set; }
+    public TerraformList<AzurermHealthcareServiceAuthenticationConfigurationBlock> AuthenticationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for cors_configuration.
@@ -232,7 +232,7 @@ public partial class AzurermHealthcareService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfiguration block(s) allowed")]
     [TerraformProperty("cors_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareServiceCorsConfigurationBlock>>? CorsConfiguration { get; set; }
+    public TerraformList<AzurermHealthcareServiceCorsConfigurationBlock> CorsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -240,13 +240,13 @@ public partial class AzurermHealthcareService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermHealthcareServiceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermHealthcareServiceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHealthcareServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHealthcareServiceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

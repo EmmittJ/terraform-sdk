@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDynamodbContributorInsightsTimeoutsBlock : TerraformBlockBase
+public partial class AwsDynamodbContributorInsightsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -74,6 +74,6 @@ public partial class AwsDynamodbContributorInsights : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDynamodbContributorInsightsTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDynamodbContributorInsightsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for subject in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformBlockBase
+public partial class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock() : TerraformBlock("subject")
 {
     /// <summary>
     /// Common name of the organization. Maximum length is 64 characters.
@@ -63,7 +63,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : Te
 /// Block type for subject_alternative_dns_names in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock : TerraformBlockBase
+public partial class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock() : TerraformBlock("subject_alternative_dns_names")
 {
     /// <summary>
     /// Subject Alternative Name
@@ -78,7 +78,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativ
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -177,7 +177,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subject block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subject block(s) allowed")]
     [TerraformProperty("subject")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock>>? Subject { get; set; }
+    public required TerraformList<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock> Subject { get; set; } = new();
 
     /// <summary>
     /// Block for subject_alternative_dns_names.
@@ -185,14 +185,14 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectAlternativeDnsNames block(s) allowed")]
     [TerraformProperty("subject_alternative_dns_names")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock>>? SubjectAlternativeDnsNames { get; set; }
+    public TerraformList<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock> SubjectAlternativeDnsNames { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Chain of certificates under this alias.

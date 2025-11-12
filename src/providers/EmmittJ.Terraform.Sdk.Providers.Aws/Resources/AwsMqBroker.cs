@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMqBrokerConfigurationBlock : TerraformBlockBase
+public partial class AwsMqBrokerConfigurationBlock() : TerraformBlock("configuration")
 {
     /// <summary>
     /// The id attribute.
@@ -28,7 +28,7 @@ public partial class AwsMqBrokerConfigurationBlock : TerraformBlockBase
 /// Block type for encryption_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMqBrokerEncryptionOptionsBlock : TerraformBlockBase
+public partial class AwsMqBrokerEncryptionOptionsBlock() : TerraformBlock("encryption_options")
 {
     /// <summary>
     /// The kms_key_id attribute.
@@ -50,7 +50,7 @@ public partial class AwsMqBrokerEncryptionOptionsBlock : TerraformBlockBase
 /// Block type for ldap_server_metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMqBrokerLdapServerMetadataBlock : TerraformBlockBase
+public partial class AwsMqBrokerLdapServerMetadataBlock() : TerraformBlock("ldap_server_metadata")
 {
     /// <summary>
     /// The hosts attribute.
@@ -135,7 +135,7 @@ public partial class AwsMqBrokerLdapServerMetadataBlock : TerraformBlockBase
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMqBrokerLogsBlock : TerraformBlockBase
+public partial class AwsMqBrokerLogsBlock() : TerraformBlock("logs")
 {
     /// <summary>
     /// The audit attribute.
@@ -157,7 +157,7 @@ public partial class AwsMqBrokerLogsBlock : TerraformBlockBase
 /// Block type for maintenance_window_start_time in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlockBase
+public partial class AwsMqBrokerMaintenanceWindowStartTimeBlock() : TerraformBlock("maintenance_window_start_time")
 {
     /// <summary>
     /// The day_of_week attribute.
@@ -189,7 +189,7 @@ public partial class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMqBrokerTimeoutsBlock : TerraformBlockBase
+public partial class AwsMqBrokerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -218,7 +218,7 @@ public partial class AwsMqBrokerTimeoutsBlock : TerraformBlockBase
 /// Block type for user in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMqBrokerUserBlock : TerraformBlockBase
+public partial class AwsMqBrokerUserBlock() : TerraformBlock("user")
 {
     /// <summary>
     /// The console_access attribute.
@@ -405,7 +405,7 @@ public partial class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsMqBrokerConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsMqBrokerConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_options.
@@ -413,7 +413,7 @@ public partial class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionOptions block(s) allowed")]
     [TerraformProperty("encryption_options")]
-    public partial TerraformList<TerraformBlock<AwsMqBrokerEncryptionOptionsBlock>>? EncryptionOptions { get; set; }
+    public TerraformList<AwsMqBrokerEncryptionOptionsBlock> EncryptionOptions { get; set; } = new();
 
     /// <summary>
     /// Block for ldap_server_metadata.
@@ -421,7 +421,7 @@ public partial class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LdapServerMetadata block(s) allowed")]
     [TerraformProperty("ldap_server_metadata")]
-    public partial TerraformList<TerraformBlock<AwsMqBrokerLdapServerMetadataBlock>>? LdapServerMetadata { get; set; }
+    public TerraformList<AwsMqBrokerLdapServerMetadataBlock> LdapServerMetadata { get; set; } = new();
 
     /// <summary>
     /// Block for logs.
@@ -429,7 +429,7 @@ public partial class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformProperty("logs")]
-    public partial TerraformList<TerraformBlock<AwsMqBrokerLogsBlock>>? Logs { get; set; }
+    public TerraformList<AwsMqBrokerLogsBlock> Logs { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window_start_time.
@@ -437,14 +437,14 @@ public partial class AwsMqBroker : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowStartTime block(s) allowed")]
     [TerraformProperty("maintenance_window_start_time")]
-    public partial TerraformList<TerraformBlock<AwsMqBrokerMaintenanceWindowStartTimeBlock>>? MaintenanceWindowStartTime { get; set; }
+    public TerraformList<AwsMqBrokerMaintenanceWindowStartTimeBlock> MaintenanceWindowStartTime { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMqBrokerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMqBrokerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user.
@@ -453,7 +453,7 @@ public partial class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [TerraformProperty("user")]
-    public partial TerraformSet<TerraformBlock<AwsMqBrokerUserBlock>>? User { get; set; }
+    public required TerraformSet<AwsMqBrokerUserBlock> User { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

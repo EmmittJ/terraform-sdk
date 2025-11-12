@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentFlowDefinitionBlock : TerraformBlockBase
+public partial class AwsBedrockagentFlowDefinitionBlock() : TerraformBlock("definition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsBedrockagentFlowDefinitionBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentFlowTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentFlowTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -97,14 +97,14 @@ public partial class AwsBedrockagentFlow : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentFlowDefinitionBlock>>? Definition { get; set; }
+    public TerraformList<AwsBedrockagentFlowDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentFlowTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentFlowTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

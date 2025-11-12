@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirestoreUserCredsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirestoreUserCredsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -73,7 +73,7 @@ public partial class GoogleFirestoreUserCreds : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirestoreUserCredsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirestoreUserCredsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp at which these user creds were created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAvailabilityZoneDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsAvailabilityZoneDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AwsAvailabilityZoneDataSourceFilterBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAvailabilityZoneDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsAvailabilityZoneDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -97,14 +97,14 @@ public partial class AwsAvailabilityZoneDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsAvailabilityZoneDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsAvailabilityZoneDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAvailabilityZoneDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAvailabilityZoneDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The group_long_name attribute.

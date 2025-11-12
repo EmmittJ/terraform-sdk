@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpclatticeTargetGroupConfigBlock : TerraformBlockBase
+public partial class AwsVpclatticeTargetGroupConfigBlock() : TerraformBlock("config")
 {
     /// <summary>
     /// The ip_address_type attribute.
@@ -56,7 +56,7 @@ public partial class AwsVpclatticeTargetGroupConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpclatticeTargetGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpclatticeTargetGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -141,14 +141,14 @@ public partial class AwsVpclatticeTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<AwsVpclatticeTargetGroupConfigBlock>>? Config { get; set; }
+    public TerraformList<AwsVpclatticeTargetGroupConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpclatticeTargetGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpclatticeTargetGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

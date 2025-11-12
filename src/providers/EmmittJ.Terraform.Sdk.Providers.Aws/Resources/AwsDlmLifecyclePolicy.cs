@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for policy_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlockBase
+public partial class AwsDlmLifecyclePolicyPolicyDetailsBlock() : TerraformBlock("policy_details")
 {
     /// <summary>
     /// The copy_tags attribute.
@@ -156,7 +156,7 @@ public partial class AwsDlmLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicyDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PolicyDetails block(s) allowed")]
     [TerraformProperty("policy_details")]
-    public partial TerraformList<TerraformBlock<AwsDlmLifecyclePolicyPolicyDetailsBlock>>? PolicyDetails { get; set; }
+    public required TerraformList<AwsDlmLifecyclePolicyPolicyDetailsBlock> PolicyDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLocationGeofenceCollectionTimeoutsBlock : TerraformBlockBase
+public partial class AwsLocationGeofenceCollectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,7 +95,7 @@ public partial class AwsLocationGeofenceCollection : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLocationGeofenceCollectionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLocationGeofenceCollectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The collection_arn attribute.

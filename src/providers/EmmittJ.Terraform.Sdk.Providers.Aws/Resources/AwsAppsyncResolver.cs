@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for caching_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncResolverCachingConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncResolverCachingConfigBlock() : TerraformBlock("caching_config")
 {
     /// <summary>
     /// The caching_keys attribute.
@@ -28,7 +28,7 @@ public partial class AwsAppsyncResolverCachingConfigBlock : TerraformBlockBase
 /// Block type for pipeline_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncResolverPipelineConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncResolverPipelineConfigBlock() : TerraformBlock("pipeline_config")
 {
     /// <summary>
     /// The functions attribute.
@@ -43,7 +43,7 @@ public partial class AwsAppsyncResolverPipelineConfigBlock : TerraformBlockBase
 /// Block type for runtime in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncResolverRuntimeBlock : TerraformBlockBase
+public partial class AwsAppsyncResolverRuntimeBlock() : TerraformBlock("runtime")
 {
     /// <summary>
     /// The name attribute.
@@ -67,7 +67,7 @@ public partial class AwsAppsyncResolverRuntimeBlock : TerraformBlockBase
 /// Block type for sync_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncResolverSyncConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncResolverSyncConfigBlock() : TerraformBlock("sync_config")
 {
     /// <summary>
     /// The conflict_detection attribute.
@@ -181,7 +181,7 @@ public partial class AwsAppsyncResolver : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CachingConfig block(s) allowed")]
     [TerraformProperty("caching_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncResolverCachingConfigBlock>>? CachingConfig { get; set; }
+    public TerraformList<AwsAppsyncResolverCachingConfigBlock> CachingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for pipeline_config.
@@ -189,7 +189,7 @@ public partial class AwsAppsyncResolver : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineConfig block(s) allowed")]
     [TerraformProperty("pipeline_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncResolverPipelineConfigBlock>>? PipelineConfig { get; set; }
+    public TerraformList<AwsAppsyncResolverPipelineConfigBlock> PipelineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for runtime.
@@ -197,7 +197,7 @@ public partial class AwsAppsyncResolver : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Runtime block(s) allowed")]
     [TerraformProperty("runtime")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncResolverRuntimeBlock>>? Runtime { get; set; }
+    public TerraformList<AwsAppsyncResolverRuntimeBlock> Runtime { get; set; } = new();
 
     /// <summary>
     /// Block for sync_config.
@@ -205,7 +205,7 @@ public partial class AwsAppsyncResolver : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
     [TerraformProperty("sync_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncResolverSyncConfigBlock>>? SyncConfig { get; set; }
+    public TerraformList<AwsAppsyncResolverSyncConfigBlock> SyncConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

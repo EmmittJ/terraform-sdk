@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerNodePoolAutoscalingBlock : TerraformBlockBase
+public partial class GoogleContainerNodePoolAutoscalingBlock() : TerraformBlock("autoscaling")
 {
     /// <summary>
     /// Location policy specifies the algorithm used when scaling-up the node pool. &amp;quot;BALANCED&amp;quot; - Is a best effort policy that aims to balance the sizes of available zones. &amp;quot;ANY&amp;quot; - Instructs the cluster autoscaler to prioritize utilization of unused reservations, and reduces preemption risk for Spot VMs.
@@ -49,7 +49,7 @@ public partial class GoogleContainerNodePoolAutoscalingBlock : TerraformBlockBas
 /// Block type for management in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerNodePoolManagementBlock : TerraformBlockBase
+public partial class GoogleContainerNodePoolManagementBlock() : TerraformBlock("management")
 {
     /// <summary>
     /// Whether the nodes will be automatically repaired. Enabled by default.
@@ -71,7 +71,7 @@ public partial class GoogleContainerNodePoolManagementBlock : TerraformBlockBase
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerNodePoolNetworkConfigBlock : TerraformBlockBase
+public partial class GoogleContainerNodePoolNetworkConfigBlock() : TerraformBlock("network_config")
 {
     /// <summary>
     /// Whether to create a new range for pod IPs in this node pool. Defaults are provided for pod_range and pod_ipv4_cidr_block if they are not specified.
@@ -108,7 +108,7 @@ public partial class GoogleContainerNodePoolNetworkConfigBlock : TerraformBlockB
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerNodePoolNodeConfigBlock : TerraformBlockBase
+public partial class GoogleContainerNodePoolNodeConfigBlock() : TerraformBlock("node_config")
 {
     /// <summary>
     /// The Customer Managed Encryption Key used to encrypt the boot disk attached to each node in the node pool.
@@ -278,7 +278,7 @@ public partial class GoogleContainerNodePoolNodeConfigBlock : TerraformBlockBase
 /// Block type for placement_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerNodePoolPlacementPolicyBlock : TerraformBlockBase
+public partial class GoogleContainerNodePoolPlacementPolicyBlock() : TerraformBlock("placement_policy")
 {
     /// <summary>
     /// If set, refers to the name of a custom resource policy supplied by the user. The resource policy must be in the same project and region as the node pool. If not found, InvalidArgument error is returned.
@@ -308,7 +308,7 @@ public partial class GoogleContainerNodePoolPlacementPolicyBlock : TerraformBloc
 /// Block type for queued_provisioning in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerNodePoolQueuedProvisioningBlock : TerraformBlockBase
+public partial class GoogleContainerNodePoolQueuedProvisioningBlock() : TerraformBlock("queued_provisioning")
 {
     /// <summary>
     /// Whether nodes in this node pool are obtainable solely through the ProvisioningRequest API
@@ -324,7 +324,7 @@ public partial class GoogleContainerNodePoolQueuedProvisioningBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleContainerNodePoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleContainerNodePoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -353,7 +353,7 @@ public partial class GoogleContainerNodePoolTimeoutsBlock : TerraformBlockBase
 /// Block type for upgrade_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleContainerNodePoolUpgradeSettingsBlock : TerraformBlockBase
+public partial class GoogleContainerNodePoolUpgradeSettingsBlock() : TerraformBlock("upgrade_settings")
 {
     /// <summary>
     /// The number of additional nodes that can be added to the node pool during an upgrade. Increasing max_surge raises the number of nodes that can be upgraded simultaneously. Can be set to 0 or greater.
@@ -472,7 +472,7 @@ public partial class GoogleContainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscaling block(s) allowed")]
     [TerraformProperty("autoscaling")]
-    public partial TerraformList<TerraformBlock<GoogleContainerNodePoolAutoscalingBlock>>? Autoscaling { get; set; }
+    public TerraformList<GoogleContainerNodePoolAutoscalingBlock> Autoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for management.
@@ -480,7 +480,7 @@ public partial class GoogleContainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Management block(s) allowed")]
     [TerraformProperty("management")]
-    public partial TerraformList<TerraformBlock<GoogleContainerNodePoolManagementBlock>>? Management { get; set; }
+    public TerraformList<GoogleContainerNodePoolManagementBlock> Management { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -488,7 +488,7 @@ public partial class GoogleContainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerNodePoolNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public TerraformList<GoogleContainerNodePoolNetworkConfigBlock> NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_config.
@@ -496,7 +496,7 @@ public partial class GoogleContainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public partial TerraformList<TerraformBlock<GoogleContainerNodePoolNodeConfigBlock>>? NodeConfig { get; set; }
+    public TerraformList<GoogleContainerNodePoolNodeConfigBlock> NodeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for placement_policy.
@@ -504,7 +504,7 @@ public partial class GoogleContainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PlacementPolicy block(s) allowed")]
     [TerraformProperty("placement_policy")]
-    public partial TerraformList<TerraformBlock<GoogleContainerNodePoolPlacementPolicyBlock>>? PlacementPolicy { get; set; }
+    public TerraformList<GoogleContainerNodePoolPlacementPolicyBlock> PlacementPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for queued_provisioning.
@@ -512,14 +512,14 @@ public partial class GoogleContainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueuedProvisioning block(s) allowed")]
     [TerraformProperty("queued_provisioning")]
-    public partial TerraformList<TerraformBlock<GoogleContainerNodePoolQueuedProvisioningBlock>>? QueuedProvisioning { get; set; }
+    public TerraformList<GoogleContainerNodePoolQueuedProvisioningBlock> QueuedProvisioning { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleContainerNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleContainerNodePoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_settings.
@@ -527,7 +527,7 @@ public partial class GoogleContainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeSettings block(s) allowed")]
     [TerraformProperty("upgrade_settings")]
-    public partial TerraformList<TerraformBlock<GoogleContainerNodePoolUpgradeSettingsBlock>>? UpgradeSettings { get; set; }
+    public TerraformList<GoogleContainerNodePoolUpgradeSettingsBlock> UpgradeSettings { get; set; } = new();
 
     /// <summary>
     /// The resource URLs of the managed instance groups associated with this node pool.

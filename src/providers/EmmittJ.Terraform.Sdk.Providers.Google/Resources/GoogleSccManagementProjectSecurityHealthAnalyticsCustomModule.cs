@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for custom_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleCustomConfigBlock : TerraformBlockBase
+public partial class GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleCustomConfigBlock() : TerraformBlock("custom_config")
 {
     /// <summary>
     /// Text that describes the vulnerability or misconfiguration that the custom
@@ -41,7 +41,7 @@ public partial class GoogleSccManagementProjectSecurityHealthAnalyticsCustomModu
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -121,14 +121,14 @@ public partial class GoogleSccManagementProjectSecurityHealthAnalyticsCustomModu
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomConfig block(s) allowed")]
     [TerraformProperty("custom_config")]
-    public partial TerraformList<TerraformBlock<GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleCustomConfigBlock>>? CustomConfig { get; set; }
+    public TerraformList<GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleCustomConfigBlock> CustomConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// If empty, indicates that the custom module was created in the organization,folder,

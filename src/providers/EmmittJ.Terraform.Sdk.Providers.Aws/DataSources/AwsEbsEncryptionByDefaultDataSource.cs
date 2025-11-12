@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEbsEncryptionByDefaultDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEbsEncryptionByDefaultDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -45,7 +45,7 @@ public partial class AwsEbsEncryptionByDefaultDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEbsEncryptionByDefaultDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEbsEncryptionByDefaultDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The enabled attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for certificate_authority_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock() : TerraformBlock("certificate_authority_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfigCertificat
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -134,14 +134,14 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfig block(s) allowed")]
     [TerraformProperty("certificate_authority_config")]
-    public partial TerraformList<TerraformBlock<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock>>? CertificateAuthorityConfig { get; set; }
+    public required TerraformList<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock> CertificateAuthorityConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation timestamp of a CertificateIssuanceConfig. Timestamp is in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,

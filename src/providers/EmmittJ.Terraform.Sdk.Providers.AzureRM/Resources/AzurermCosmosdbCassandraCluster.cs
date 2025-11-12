@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlockBase
+public partial class AzurermCosmosdbCassandraClusterIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -24,7 +24,7 @@ public partial class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbCassandraClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,13 +175,13 @@ public partial class AzurermCosmosdbCassandraCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbCassandraClusterIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermCosmosdbCassandraClusterIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbCassandraClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbCassandraClusterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

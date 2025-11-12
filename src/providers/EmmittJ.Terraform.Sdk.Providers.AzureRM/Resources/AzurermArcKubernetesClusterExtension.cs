@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermArcKubernetesClusterExtensionIdentityBlock : TerraformBlockBase
+public partial class AzurermArcKubernetesClusterExtensionIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -24,7 +24,7 @@ public partial class AzurermArcKubernetesClusterExtensionIdentityBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermArcKubernetesClusterExtensionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -147,14 +147,14 @@ public partial class AzurermArcKubernetesClusterExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermArcKubernetesClusterExtensionIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermArcKubernetesClusterExtensionIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermArcKubernetesClusterExtensionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermArcKubernetesClusterExtensionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The current_version attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlockBase
+public partial class AwsApiGatewayDocumentationPartLocationBlock() : TerraformBlock("location")
 {
     /// <summary>
     /// The method attribute.
@@ -94,7 +94,7 @@ public partial class AwsApiGatewayDocumentationPart : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Location block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
     [TerraformProperty("location")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayDocumentationPartLocationBlock>>? Location { get; set; }
+    public required TerraformList<AwsApiGatewayDocumentationPartLocationBlock> Location { get; set; } = new();
 
     /// <summary>
     /// The documentation_part_id attribute.

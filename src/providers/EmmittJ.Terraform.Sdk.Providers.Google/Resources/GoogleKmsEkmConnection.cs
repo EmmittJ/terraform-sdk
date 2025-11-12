@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for service_resolvers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlockBase
+public partial class GoogleKmsEkmConnectionServiceResolversBlock() : TerraformBlock("service_resolvers")
 {
     /// <summary>
     /// Optional. The filter applied to the endpoints of the resolved service. If no filter is specified, all endpoints will be considered. An endpoint will be chosen arbitrarily from the filtered list for each request. For endpoint filter syntax and examples, see https://cloud.google.com/service-directory/docs/reference/rpc/google.cloud.servicedirectory.v1#resolveservicerequest.
@@ -37,7 +37,7 @@ public partial class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleKmsEkmConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,14 +131,14 @@ public partial class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResolvers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceResolvers block(s) required")]
     [TerraformProperty("service_resolvers")]
-    public partial TerraformList<TerraformBlock<GoogleKmsEkmConnectionServiceResolversBlock>>? ServiceResolvers { get; set; }
+    public required TerraformList<GoogleKmsEkmConnectionServiceResolversBlock> ServiceResolvers { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleKmsEkmConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleKmsEkmConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which the EkmConnection was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for log in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlockBase
+public partial class AzurermDatadogMonitorTagRuleLogBlock() : TerraformBlock("log")
 {
     /// <summary>
     /// The aad_log_enabled attribute.
@@ -35,7 +35,7 @@ public partial class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlockBase
 /// Block type for metric in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDatadogMonitorTagRuleMetricBlock : TerraformBlockBase
+public partial class AzurermDatadogMonitorTagRuleMetricBlock() : TerraformBlock("metric")
 {
 }
 
@@ -43,7 +43,7 @@ public partial class AzurermDatadogMonitorTagRuleMetricBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDatadogMonitorTagRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,20 +111,20 @@ public partial class AzurermDatadogMonitorTagRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log")]
-    public partial TerraformList<TerraformBlock<AzurermDatadogMonitorTagRuleLogBlock>>? Log { get; set; }
+    public TerraformList<AzurermDatadogMonitorTagRuleLogBlock> Log { get; set; } = new();
 
     /// <summary>
     /// Block for metric.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("metric")]
-    public partial TerraformList<TerraformBlock<AzurermDatadogMonitorTagRuleMetricBlock>>? Metric { get; set; }
+    public TerraformList<AzurermDatadogMonitorTagRuleMetricBlock> Metric { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDatadogMonitorTagRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDatadogMonitorTagRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

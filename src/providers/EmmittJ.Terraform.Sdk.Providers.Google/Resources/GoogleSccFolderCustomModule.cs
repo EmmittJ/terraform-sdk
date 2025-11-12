@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for custom_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlockBase
+public partial class GoogleSccFolderCustomModuleCustomConfigBlock() : TerraformBlock("custom_config")
 {
     /// <summary>
     /// Text that describes the vulnerability or misconfiguration that the custom
@@ -41,7 +41,7 @@ public partial class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccFolderCustomModuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccFolderCustomModuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,14 +119,14 @@ public partial class GoogleSccFolderCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CustomConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomConfig block(s) allowed")]
     [TerraformProperty("custom_config")]
-    public partial TerraformList<TerraformBlock<GoogleSccFolderCustomModuleCustomConfigBlock>>? CustomConfig { get; set; }
+    public required TerraformList<GoogleSccFolderCustomModuleCustomConfigBlock> CustomConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccFolderCustomModuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccFolderCustomModuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// If empty, indicates that the custom module was created in the organization, folder,

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rules in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWorkspacesIpGroupRulesBlock : TerraformBlockBase
+public partial class AwsWorkspacesIpGroupRulesBlock() : TerraformBlock("rules")
 {
     /// <summary>
     /// The description attribute.
@@ -82,6 +82,6 @@ public partial class AwsWorkspacesIpGroup : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rules")]
-    public partial TerraformSet<TerraformBlock<AwsWorkspacesIpGroupRulesBlock>>? Rules { get; set; }
+    public TerraformSet<AwsWorkspacesIpGroupRulesBlock> Rules { get; set; } = new();
 
 }

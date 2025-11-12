@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDxGatewayAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsDxGatewayAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,7 +95,7 @@ public partial class AwsDxGatewayAssociation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDxGatewayAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDxGatewayAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The associated_gateway_type attribute.

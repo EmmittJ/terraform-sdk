@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_table in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueDataQualityRulesetTargetTableBlock : TerraformBlockBase
+public partial class AwsGlueDataQualityRulesetTargetTableBlock() : TerraformBlock("target_table")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -100,7 +100,7 @@ public partial class AwsGlueDataQualityRuleset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTable block(s) allowed")]
     [TerraformProperty("target_table")]
-    public partial TerraformList<TerraformBlock<AwsGlueDataQualityRulesetTargetTableBlock>>? TargetTable { get; set; }
+    public TerraformList<AwsGlueDataQualityRulesetTargetTableBlock> TargetTable { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppmeshVirtualServiceSpecBlock : TerraformBlockBase
+public partial class AwsAppmeshVirtualServiceSpecBlock() : TerraformBlock("spec")
 {
 }
 
@@ -79,7 +79,7 @@ public partial class AwsAppmeshVirtualService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public partial TerraformList<TerraformBlock<AwsAppmeshVirtualServiceSpecBlock>>? Spec { get; set; }
+    public required TerraformList<AwsAppmeshVirtualServiceSpecBlock> Spec { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

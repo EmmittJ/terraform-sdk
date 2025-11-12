@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for file_shares in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFilestoreInstanceFileSharesBlock : TerraformBlockBase
+public partial class GoogleFilestoreInstanceFileSharesBlock() : TerraformBlock("file_shares")
 {
     /// <summary>
     /// File share capacity in GiB. This must be at least 1024 GiB
@@ -40,7 +40,7 @@ public partial class GoogleFilestoreInstanceFileSharesBlock : TerraformBlockBase
 /// Block type for initial_replication in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFilestoreInstanceInitialReplicationBlock : TerraformBlockBase
+public partial class GoogleFilestoreInstanceInitialReplicationBlock() : TerraformBlock("initial_replication")
 {
     /// <summary>
     /// The replication role. Default value: &amp;quot;STANDBY&amp;quot; Possible values: [&amp;quot;ROLE_UNSPECIFIED&amp;quot;, &amp;quot;ACTIVE&amp;quot;, &amp;quot;STANDBY&amp;quot;]
@@ -55,7 +55,7 @@ public partial class GoogleFilestoreInstanceInitialReplicationBlock : TerraformB
 /// Block type for networks in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFilestoreInstanceNetworksBlock : TerraformBlockBase
+public partial class GoogleFilestoreInstanceNetworksBlock() : TerraformBlock("networks")
 {
     /// <summary>
     /// The network connect mode of the Filestore instance.
@@ -99,7 +99,7 @@ public partial class GoogleFilestoreInstanceNetworksBlock : TerraformBlockBase
 /// Block type for performance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleFilestoreInstancePerformanceConfigBlock : TerraformBlockBase
+public partial class GoogleFilestoreInstancePerformanceConfigBlock() : TerraformBlock("performance_config")
 {
 }
 
@@ -107,7 +107,7 @@ public partial class GoogleFilestoreInstancePerformanceConfigBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFilestoreInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFilestoreInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -260,7 +260,7 @@ public partial class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FileShares block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileShares block(s) allowed")]
     [TerraformProperty("file_shares")]
-    public partial TerraformList<TerraformBlock<GoogleFilestoreInstanceFileSharesBlock>>? FileShares { get; set; }
+    public required TerraformList<GoogleFilestoreInstanceFileSharesBlock> FileShares { get; set; } = new();
 
     /// <summary>
     /// Block for initial_replication.
@@ -268,7 +268,7 @@ public partial class GoogleFilestoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialReplication block(s) allowed")]
     [TerraformProperty("initial_replication")]
-    public partial TerraformList<TerraformBlock<GoogleFilestoreInstanceInitialReplicationBlock>>? InitialReplication { get; set; }
+    public TerraformList<GoogleFilestoreInstanceInitialReplicationBlock> InitialReplication { get; set; } = new();
 
     /// <summary>
     /// Block for networks.
@@ -277,7 +277,7 @@ public partial class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Networks is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networks block(s) required")]
     [TerraformProperty("networks")]
-    public partial TerraformList<TerraformBlock<GoogleFilestoreInstanceNetworksBlock>>? Networks { get; set; }
+    public required TerraformList<GoogleFilestoreInstanceNetworksBlock> Networks { get; set; } = new();
 
     /// <summary>
     /// Block for performance_config.
@@ -285,14 +285,14 @@ public partial class GoogleFilestoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerformanceConfig block(s) allowed")]
     [TerraformProperty("performance_config")]
-    public partial TerraformList<TerraformBlock<GoogleFilestoreInstancePerformanceConfigBlock>>? PerformanceConfig { get; set; }
+    public TerraformList<GoogleFilestoreInstancePerformanceConfigBlock> PerformanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFilestoreInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFilestoreInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

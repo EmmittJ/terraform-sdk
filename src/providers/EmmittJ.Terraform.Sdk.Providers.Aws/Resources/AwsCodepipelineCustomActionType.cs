@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration_property in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : TerraformBlockBase
+public partial class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock() : TerraformBlock("configuration_property")
 {
     /// <summary>
     /// The description attribute.
@@ -67,7 +67,7 @@ public partial class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock :
 /// Block type for input_artifact_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : TerraformBlockBase
+public partial class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock() : TerraformBlock("input_artifact_details")
 {
     /// <summary>
     /// The maximum_count attribute.
@@ -91,7 +91,7 @@ public partial class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : 
 /// Block type for output_artifact_details in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock : TerraformBlockBase
+public partial class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock() : TerraformBlock("output_artifact_details")
 {
     /// <summary>
     /// The maximum_count attribute.
@@ -115,7 +115,7 @@ public partial class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock :
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodepipelineCustomActionTypeSettingsBlock : TerraformBlockBase
+public partial class AwsCodepipelineCustomActionTypeSettingsBlock() : TerraformBlock("settings")
 {
     /// <summary>
     /// The entity_url_template attribute.
@@ -215,7 +215,7 @@ public partial class AwsCodepipelineCustomActionType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ConfigurationProperty block(s) allowed")]
     [TerraformProperty("configuration_property")]
-    public partial TerraformList<TerraformBlock<AwsCodepipelineCustomActionTypeConfigurationPropertyBlock>>? ConfigurationProperty { get; set; }
+    public TerraformList<AwsCodepipelineCustomActionTypeConfigurationPropertyBlock> ConfigurationProperty { get; set; } = new();
 
     /// <summary>
     /// Block for input_artifact_details.
@@ -225,7 +225,7 @@ public partial class AwsCodepipelineCustomActionType : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputArtifactDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputArtifactDetails block(s) allowed")]
     [TerraformProperty("input_artifact_details")]
-    public partial TerraformList<TerraformBlock<AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock>>? InputArtifactDetails { get; set; }
+    public required TerraformList<AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock> InputArtifactDetails { get; set; } = new();
 
     /// <summary>
     /// Block for output_artifact_details.
@@ -235,7 +235,7 @@ public partial class AwsCodepipelineCustomActionType : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OutputArtifactDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputArtifactDetails block(s) allowed")]
     [TerraformProperty("output_artifact_details")]
-    public partial TerraformList<TerraformBlock<AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock>>? OutputArtifactDetails { get; set; }
+    public required TerraformList<AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock> OutputArtifactDetails { get; set; } = new();
 
     /// <summary>
     /// Block for settings.
@@ -243,7 +243,7 @@ public partial class AwsCodepipelineCustomActionType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     [TerraformProperty("settings")]
-    public partial TerraformList<TerraformBlock<AwsCodepipelineCustomActionTypeSettingsBlock>>? Settings { get; set; }
+    public TerraformList<AwsCodepipelineCustomActionTypeSettingsBlock> Settings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

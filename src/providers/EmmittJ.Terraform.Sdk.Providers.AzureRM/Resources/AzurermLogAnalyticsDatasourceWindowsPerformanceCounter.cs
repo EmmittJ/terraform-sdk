@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,6 +115,6 @@ public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : Te
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock Timeouts { get; set; } = new();
 
 }

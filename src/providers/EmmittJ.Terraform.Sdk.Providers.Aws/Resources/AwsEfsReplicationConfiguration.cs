@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlockBase
+public partial class AwsEfsReplicationConfigurationDestinationBlock() : TerraformBlock("destination")
 {
     /// <summary>
     /// The availability_zone_name attribute.
@@ -43,7 +43,7 @@ public partial class AwsEfsReplicationConfigurationDestinationBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEfsReplicationConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsEfsReplicationConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -101,14 +101,14 @@ public partial class AwsEfsReplicationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<AwsEfsReplicationConfigurationDestinationBlock>>? Destination { get; set; }
+    public required TerraformList<AwsEfsReplicationConfigurationDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEfsReplicationConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEfsReplicationConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation_time attribute.

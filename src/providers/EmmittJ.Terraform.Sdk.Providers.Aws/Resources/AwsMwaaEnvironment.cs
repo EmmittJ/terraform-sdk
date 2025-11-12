@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMwaaEnvironmentLoggingConfigurationBlock : TerraformBlockBase
+public partial class AwsMwaaEnvironmentLoggingConfigurationBlock() : TerraformBlock("logging_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsMwaaEnvironmentLoggingConfigurationBlock : TerraformBloc
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMwaaEnvironmentNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsMwaaEnvironmentNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -38,7 +38,7 @@ public partial class AwsMwaaEnvironmentNetworkConfigurationBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMwaaEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsMwaaEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -272,7 +272,7 @@ public partial class AwsMwaaEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformProperty("logging_configuration")]
-    public partial TerraformList<TerraformBlock<AwsMwaaEnvironmentLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
+    public TerraformList<AwsMwaaEnvironmentLoggingConfigurationBlock> LoggingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
@@ -282,14 +282,14 @@ public partial class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsMwaaEnvironmentNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public required TerraformList<AwsMwaaEnvironmentNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMwaaEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMwaaEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

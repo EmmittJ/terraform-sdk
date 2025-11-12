@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for container_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrcontainersVirtualClusterContainerProviderBlock : TerraformBlockBase
+public partial class AwsEmrcontainersVirtualClusterContainerProviderBlock() : TerraformBlock("container_provider")
 {
     /// <summary>
     /// The id attribute.
@@ -30,7 +30,7 @@ public partial class AwsEmrcontainersVirtualClusterContainerProviderBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEmrcontainersVirtualClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsEmrcontainersVirtualClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -95,14 +95,14 @@ public partial class AwsEmrcontainersVirtualCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContainerProvider block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerProvider block(s) allowed")]
     [TerraformProperty("container_provider")]
-    public partial TerraformList<TerraformBlock<AwsEmrcontainersVirtualClusterContainerProviderBlock>>? ContainerProvider { get; set; }
+    public required TerraformList<AwsEmrcontainersVirtualClusterContainerProviderBlock> ContainerProvider { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEmrcontainersVirtualClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEmrcontainersVirtualClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

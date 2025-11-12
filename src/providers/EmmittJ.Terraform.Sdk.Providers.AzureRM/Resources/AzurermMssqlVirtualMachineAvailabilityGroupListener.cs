@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for load_balancer_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock() : TerraformBlock("load_balancer_configuration")
 {
     /// <summary>
     /// The load_balancer_id attribute.
@@ -54,7 +54,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBala
 /// Block type for multi_subnet_ip_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock() : TerraformBlock("multi_subnet_ip_configuration")
 {
     /// <summary>
     /// The private_ip_address attribute.
@@ -86,7 +86,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSub
 /// Block type for replica in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock() : TerraformBlock("replica")
 {
     /// <summary>
     /// The commit attribute.
@@ -134,7 +134,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -212,14 +212,14 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener : Terra
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerConfiguration block(s) allowed")]
     [TerraformProperty("load_balancer_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock>>? LoadBalancerConfiguration { get; set; }
+    public TerraformList<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock> LoadBalancerConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for multi_subnet_ip_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("multi_subnet_ip_configuration")]
-    public partial TerraformSet<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock>>? MultiSubnetIpConfiguration { get; set; }
+    public TerraformSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock> MultiSubnetIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for replica.
@@ -228,13 +228,13 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replica is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replica block(s) required")]
     [TerraformProperty("replica")]
-    public partial TerraformSet<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock>>? Replica { get; set; }
+    public required TerraformSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock> Replica { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

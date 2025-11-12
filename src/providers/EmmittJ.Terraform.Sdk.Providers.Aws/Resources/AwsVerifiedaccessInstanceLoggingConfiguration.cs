@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock() : TerraformBlock("access_logs")
 {
     /// <summary>
     /// The include_trust_context attribute.
@@ -64,6 +64,6 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration : TerraformRe
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessLogs block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
     [TerraformProperty("access_logs")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock>>? AccessLogs { get; set; }
+    public required TerraformList<AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock> AccessLogs { get; set; } = new();
 
 }

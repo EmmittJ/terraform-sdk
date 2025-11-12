@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for oauth2_provider_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock() : TerraformBlock("oauth2_provider_config")
 {
 }
 
@@ -47,7 +47,7 @@ public partial class AwsBedrockagentcoreOauth2CredentialProvider : TerraformReso
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("oauth2_provider_config")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock>>? Oauth2ProviderConfig { get; set; }
+    public TerraformList<AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock> Oauth2ProviderConfig { get; set; } = new();
 
     /// <summary>
     /// The client_secret_arn attribute.

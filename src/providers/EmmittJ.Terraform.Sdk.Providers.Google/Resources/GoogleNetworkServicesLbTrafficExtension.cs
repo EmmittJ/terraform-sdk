@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for extension_chains in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock() : TerraformBlock("extension_chains")
 {
     /// <summary>
     /// The name for this extension chain. The name is logged as part of the HTTP request logs.
@@ -25,7 +25,7 @@ public partial class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,14 +133,14 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionChains is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExtensionChains block(s) required")]
     [TerraformProperty("extension_chains")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock>>? ExtensionChains { get; set; }
+    public required TerraformList<GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock> ExtensionChains { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

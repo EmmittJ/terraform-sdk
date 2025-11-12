@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ingress_vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock : TerraformBlockBase
+public partial class AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock() : TerraformBlock("ingress_vpc_configuration")
 {
     /// <summary>
     /// The vpc_endpoint_id attribute.
@@ -86,7 +86,7 @@ public partial class AwsApprunnerVpcIngressConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IngressVpcConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressVpcConfiguration block(s) allowed")]
     [TerraformProperty("ingress_vpc_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock>>? IngressVpcConfiguration { get; set; }
+    public required TerraformList<AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock> IngressVpcConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

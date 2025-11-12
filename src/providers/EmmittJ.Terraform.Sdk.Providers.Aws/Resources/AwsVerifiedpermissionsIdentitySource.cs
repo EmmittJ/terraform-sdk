@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedpermissionsIdentitySourceConfigurationBlock : TerraformBlockBase
+public partial class AwsVerifiedpermissionsIdentitySourceConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -46,7 +46,7 @@ public partial class AwsVerifiedpermissionsIdentitySource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedpermissionsIdentitySourceConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsVerifiedpermissionsIdentitySourceConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

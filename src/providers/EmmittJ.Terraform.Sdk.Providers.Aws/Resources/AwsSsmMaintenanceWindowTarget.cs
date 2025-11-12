@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for targets in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmMaintenanceWindowTargetTargetsBlock : TerraformBlockBase
+public partial class AwsSsmMaintenanceWindowTargetTargetsBlock() : TerraformBlock("targets")
 {
     /// <summary>
     /// The key attribute.
@@ -95,6 +95,6 @@ public partial class AwsSsmMaintenanceWindowTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Targets block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Targets block(s) allowed")]
     [TerraformProperty("targets")]
-    public partial TerraformList<TerraformBlock<AwsSsmMaintenanceWindowTargetTargetsBlock>>? Targets { get; set; }
+    public required TerraformList<AwsSsmMaintenanceWindowTargetTargetsBlock> Targets { get; set; } = new();
 
 }

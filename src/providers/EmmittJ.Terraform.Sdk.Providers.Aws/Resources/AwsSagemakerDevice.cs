@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for device in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerDeviceDeviceBlock : TerraformBlockBase
+public partial class AwsSagemakerDeviceDeviceBlock() : TerraformBlock("device")
 {
     /// <summary>
     /// The description attribute.
@@ -72,7 +72,7 @@ public partial class AwsSagemakerDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Device block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Device block(s) allowed")]
     [TerraformProperty("device")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerDeviceDeviceBlock>>? Device { get; set; }
+    public required TerraformList<AwsSagemakerDeviceDeviceBlock> Device { get; set; } = new();
 
     /// <summary>
     /// The agent_version attribute.

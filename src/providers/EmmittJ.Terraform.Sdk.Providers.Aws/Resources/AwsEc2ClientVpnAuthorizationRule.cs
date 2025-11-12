@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock : TerraformBlockBase
+public partial class AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -89,6 +89,6 @@ public partial class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

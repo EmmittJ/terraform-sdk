@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for basic in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerAccessLevelBasicBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessLevelBasicBlock() : TerraformBlock("basic")
 {
     /// <summary>
     /// How the conditions list should be combined to determine if a request
@@ -25,7 +25,7 @@ public partial class GoogleAccessContextManagerAccessLevelBasicBlock : Terraform
 /// Block type for custom in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerAccessLevelCustomBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessLevelCustomBlock() : TerraformBlock("custom")
 {
 }
 
@@ -33,7 +33,7 @@ public partial class GoogleAccessContextManagerAccessLevelCustomBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerAccessLevelTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerAccessLevelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,7 +115,7 @@ public partial class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Basic block(s) allowed")]
     [TerraformProperty("basic")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelBasicBlock>>? Basic { get; set; }
+    public TerraformList<GoogleAccessContextManagerAccessLevelBasicBlock> Basic { get; set; } = new();
 
     /// <summary>
     /// Block for custom.
@@ -123,13 +123,13 @@ public partial class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Custom block(s) allowed")]
     [TerraformProperty("custom")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelCustomBlock>>? Custom { get; set; }
+    public TerraformList<GoogleAccessContextManagerAccessLevelCustomBlock> Custom { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerAccessLevelTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerAccessLevelTimeoutsBlock Timeouts { get; set; } = new();
 
 }

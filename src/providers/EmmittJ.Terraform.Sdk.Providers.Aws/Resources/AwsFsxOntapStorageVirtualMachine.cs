@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for active_directory_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlock() : TerraformBlock("active_directory_configuration")
 {
     /// <summary>
     /// The netbios_name attribute.
@@ -21,7 +21,7 @@ public partial class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfiguratio
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxOntapStorageVirtualMachineTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxOntapStorageVirtualMachineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,14 +120,14 @@ public partial class AwsFsxOntapStorageVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectoryConfiguration block(s) allowed")]
     [TerraformProperty("active_directory_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlock>>? ActiveDirectoryConfiguration { get; set; }
+    public TerraformList<AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlock> ActiveDirectoryConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxOntapStorageVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxOntapStorageVirtualMachineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

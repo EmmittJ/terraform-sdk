@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeNetworkParamsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// Resource manager tags to be bound to the network. Tag keys and values have the
@@ -23,7 +23,7 @@ public partial class GoogleComputeNetworkParamsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNetworkTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -201,14 +201,14 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeNetworkParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeNetworkParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNetworkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The gateway address for default routing out of the network. This value

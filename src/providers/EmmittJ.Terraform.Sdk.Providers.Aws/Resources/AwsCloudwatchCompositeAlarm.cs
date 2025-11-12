@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for actions_suppressor in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlockBase
+public partial class AwsCloudwatchCompositeAlarmActionsSuppressorBlock() : TerraformBlock("actions_suppressor")
 {
     /// <summary>
     /// The alarm attribute.
@@ -129,7 +129,7 @@ public partial class AwsCloudwatchCompositeAlarm : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionsSuppressor block(s) allowed")]
     [TerraformProperty("actions_suppressor")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchCompositeAlarmActionsSuppressorBlock>>? ActionsSuppressor { get; set; }
+    public TerraformList<AwsCloudwatchCompositeAlarmActionsSuppressorBlock> ActionsSuppressor { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

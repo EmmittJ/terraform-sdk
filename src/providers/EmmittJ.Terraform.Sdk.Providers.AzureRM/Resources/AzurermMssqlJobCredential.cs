@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlJobCredentialTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -104,6 +104,6 @@ public partial class AzurermMssqlJobCredential : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlJobCredentialTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlJobCredentialTimeoutsBlock Timeouts { get; set; } = new();
 
 }

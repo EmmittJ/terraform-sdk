@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for security_policies in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock() : TerraformBlock("security_policies")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -87,13 +87,13 @@ public partial class AzurermCdnFrontdoorSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecurityPolicies block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPolicies block(s) allowed")]
     [TerraformProperty("security_policies")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock>>? SecurityPolicies { get; set; }
+    public required TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock> SecurityPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

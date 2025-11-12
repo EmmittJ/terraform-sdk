@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataCatalogPolicyTagTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataCatalogPolicyTagTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -89,7 +89,7 @@ public partial class GoogleDataCatalogPolicyTag : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataCatalogPolicyTagTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataCatalogPolicyTagTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Resource names of child policy tags of this policy tag.

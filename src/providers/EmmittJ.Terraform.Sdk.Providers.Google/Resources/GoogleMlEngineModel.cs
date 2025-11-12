@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for default_version in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleMlEngineModelDefaultVersionBlock : TerraformBlockBase
+public partial class GoogleMlEngineModelDefaultVersionBlock() : TerraformBlock("default_version")
 {
     /// <summary>
     /// The name specified for the version when it was created.
@@ -22,7 +22,7 @@ public partial class GoogleMlEngineModelDefaultVersionBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMlEngineModelTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMlEngineModelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,14 +125,14 @@ public partial class GoogleMlEngineModel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultVersion block(s) allowed")]
     [TerraformProperty("default_version")]
-    public partial TerraformList<TerraformBlock<GoogleMlEngineModelDefaultVersionBlock>>? DefaultVersion { get; set; }
+    public TerraformList<GoogleMlEngineModelDefaultVersionBlock> DefaultVersion { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMlEngineModelTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMlEngineModelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

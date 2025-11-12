@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for generic_web_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock() : TerraformBlock("generic_web_service")
 {
     /// <summary>
     /// Specifies a list of allowed custom CA certificates (in DER format) for
@@ -96,7 +96,7 @@ public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock : Terraform
 /// Block type for service_directory in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxWebhookServiceDirectoryBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxWebhookServiceDirectoryBlock() : TerraformBlock("service_directory")
 {
     /// <summary>
     /// The name of Service Directory service.
@@ -112,7 +112,7 @@ public partial class GoogleDialogflowCxWebhookServiceDirectoryBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxWebhookTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxWebhookTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -211,7 +211,7 @@ public partial class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenericWebService block(s) allowed")]
     [TerraformProperty("generic_web_service")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxWebhookGenericWebServiceBlock>>? GenericWebService { get; set; }
+    public TerraformList<GoogleDialogflowCxWebhookGenericWebServiceBlock> GenericWebService { get; set; } = new();
 
     /// <summary>
     /// Block for service_directory.
@@ -219,14 +219,14 @@ public partial class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDirectory block(s) allowed")]
     [TerraformProperty("service_directory")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxWebhookServiceDirectoryBlock>>? ServiceDirectory { get; set; }
+    public TerraformList<GoogleDialogflowCxWebhookServiceDirectoryBlock> ServiceDirectory { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxWebhookTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxWebhookTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the webhook.

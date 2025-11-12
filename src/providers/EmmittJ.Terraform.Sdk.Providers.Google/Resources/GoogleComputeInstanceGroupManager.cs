@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for all_instances_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerAllInstancesConfigBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerAllInstancesConfigBlock() : TerraformBlock("all_instances_config")
 {
     /// <summary>
     /// The label key-value pairs that you want to patch onto the instance,
@@ -28,7 +28,7 @@ public partial class GoogleComputeInstanceGroupManagerAllInstancesConfigBlock : 
 /// Block type for auto_healing_policies in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock() : TerraformBlock("auto_healing_policies")
 {
     /// <summary>
     /// The health check resource that signals autohealing.
@@ -52,7 +52,7 @@ public partial class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock :
 /// Block type for instance_lifecycle_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock() : TerraformBlock("instance_lifecycle_policy")
 {
     /// <summary>
     /// Default behavior for all instance or health check failures.
@@ -74,7 +74,7 @@ public partial class GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlo
 /// Block type for named_port in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerNamedPortBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerNamedPortBlock() : TerraformBlock("named_port")
 {
     /// <summary>
     /// The name of the port.
@@ -98,7 +98,7 @@ public partial class GoogleComputeInstanceGroupManagerNamedPortBlock : Terraform
 /// Block type for resource_policies in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerResourcePoliciesBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerResourcePoliciesBlock() : TerraformBlock("resource_policies")
 {
     /// <summary>
     /// The URL of the workload policy that is specified for this managed instance group. It can be a full or partial URL.
@@ -113,7 +113,7 @@ public partial class GoogleComputeInstanceGroupManagerResourcePoliciesBlock : Te
 /// Block type for standby_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerStandbyPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerStandbyPolicyBlock() : TerraformBlock("standby_policy")
 {
     /// <summary>
     /// Specifies the number of seconds that the MIG should wait to suspend or stop a VM after that VM was created. The initial delay gives the initialization script the time to prepare your VM for a quick scale out. The value of initial delay must be between 0 and 3600 seconds. The default value is 0.
@@ -135,7 +135,7 @@ public partial class GoogleComputeInstanceGroupManagerStandbyPolicyBlock : Terra
 /// Block type for stateful_disk in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerStatefulDiskBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerStatefulDiskBlock() : TerraformBlock("stateful_disk")
 {
     /// <summary>
     /// A value that prescribes what should happen to the stateful disk when the VM instance is deleted. The available options are NEVER and ON_PERMANENT_INSTANCE_DELETION. NEVER - detach the disk when the VM is deleted, but do not delete the disk. ON_PERMANENT_INSTANCE_DELETION will delete the stateful disk when the VM is permanently deleted from the instance group. The default is NEVER.
@@ -158,7 +158,7 @@ public partial class GoogleComputeInstanceGroupManagerStatefulDiskBlock : Terraf
 /// Block type for stateful_external_ip in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerStatefulExternalIpBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerStatefulExternalIpBlock() : TerraformBlock("stateful_external_ip")
 {
     /// <summary>
     /// A value that prescribes what should happen to an associated static Address resource when a VM instance is permanently deleted. The available options are NEVER and ON_PERMANENT_INSTANCE_DELETION. NEVER - detach the IP when the VM is deleted, but do not delete the address resource. ON_PERMANENT_INSTANCE_DELETION will delete the stateful address when the VM is permanently deleted from the instance group. The default is NEVER.
@@ -180,7 +180,7 @@ public partial class GoogleComputeInstanceGroupManagerStatefulExternalIpBlock : 
 /// Block type for stateful_internal_ip in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerStatefulInternalIpBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerStatefulInternalIpBlock() : TerraformBlock("stateful_internal_ip")
 {
     /// <summary>
     /// A value that prescribes what should happen to an associated static Address resource when a VM instance is permanently deleted. The available options are NEVER and ON_PERMANENT_INSTANCE_DELETION. NEVER - detach the IP when the VM is deleted, but do not delete the address resource. ON_PERMANENT_INSTANCE_DELETION will delete the stateful address when the VM is permanently deleted from the instance group. The default is NEVER.
@@ -202,7 +202,7 @@ public partial class GoogleComputeInstanceGroupManagerStatefulInternalIpBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -231,7 +231,7 @@ public partial class GoogleComputeInstanceGroupManagerTimeoutsBlock : TerraformB
 /// Block type for update_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerUpdatePolicyBlock() : TerraformBlock("update_policy")
 {
     /// <summary>
     /// Specifies a fixed number of VM instances. This must be a positive integer. Conflicts with max_surge_percent. Both cannot be 0
@@ -297,7 +297,7 @@ public partial class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : Terraf
 /// Block type for version in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeInstanceGroupManagerVersionBlock : TerraformBlockBase
+public partial class GoogleComputeInstanceGroupManagerVersionBlock() : TerraformBlock("version")
 {
     /// <summary>
     /// The full URL to an instance template from which all new instances of this version will be created.
@@ -425,7 +425,7 @@ public partial class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllInstancesConfig block(s) allowed")]
     [TerraformProperty("all_instances_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerAllInstancesConfigBlock>>? AllInstancesConfig { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupManagerAllInstancesConfigBlock> AllInstancesConfig { get; set; } = new();
 
     /// <summary>
     /// Block for auto_healing_policies.
@@ -433,7 +433,7 @@ public partial class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoHealingPolicies block(s) allowed")]
     [TerraformProperty("auto_healing_policies")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock>>? AutoHealingPolicies { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock> AutoHealingPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for instance_lifecycle_policy.
@@ -441,14 +441,14 @@ public partial class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceLifecyclePolicy block(s) allowed")]
     [TerraformProperty("instance_lifecycle_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock>>? InstanceLifecyclePolicy { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock> InstanceLifecyclePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for named_port.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("named_port")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeInstanceGroupManagerNamedPortBlock>>? NamedPort { get; set; }
+    public TerraformSet<GoogleComputeInstanceGroupManagerNamedPortBlock> NamedPort { get; set; } = new();
 
     /// <summary>
     /// Block for resource_policies.
@@ -456,7 +456,7 @@ public partial class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourcePolicies block(s) allowed")]
     [TerraformProperty("resource_policies")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerResourcePoliciesBlock>>? ResourcePolicies { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupManagerResourcePoliciesBlock> ResourcePolicies { get; set; } = new();
 
     /// <summary>
     /// Block for standby_policy.
@@ -464,35 +464,35 @@ public partial class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StandbyPolicy block(s) allowed")]
     [TerraformProperty("standby_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerStandbyPolicyBlock>>? StandbyPolicy { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupManagerStandbyPolicyBlock> StandbyPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for stateful_disk.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("stateful_disk")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeInstanceGroupManagerStatefulDiskBlock>>? StatefulDisk { get; set; }
+    public TerraformSet<GoogleComputeInstanceGroupManagerStatefulDiskBlock> StatefulDisk { get; set; } = new();
 
     /// <summary>
     /// Block for stateful_external_ip.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("stateful_external_ip")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerStatefulExternalIpBlock>>? StatefulExternalIp { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupManagerStatefulExternalIpBlock> StatefulExternalIp { get; set; } = new();
 
     /// <summary>
     /// Block for stateful_internal_ip.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("stateful_internal_ip")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerStatefulInternalIpBlock>>? StatefulInternalIp { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupManagerStatefulInternalIpBlock> StatefulInternalIp { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeInstanceGroupManagerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeInstanceGroupManagerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for update_policy.
@@ -500,7 +500,7 @@ public partial class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdatePolicy block(s) allowed")]
     [TerraformProperty("update_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerUpdatePolicyBlock>>? UpdatePolicy { get; set; }
+    public TerraformList<GoogleComputeInstanceGroupManagerUpdatePolicyBlock> UpdatePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for version.
@@ -509,7 +509,7 @@ public partial class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Version block(s) required")]
     [TerraformProperty("version")]
-    public partial TerraformList<TerraformBlock<GoogleComputeInstanceGroupManagerVersionBlock>>? Version { get; set; }
+    public required TerraformList<GoogleComputeInstanceGroupManagerVersionBlock> Version { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_resources in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlockBase
+public partial class AwsBatchComputeEnvironmentComputeResourcesBlock() : TerraformBlock("compute_resources")
 {
     /// <summary>
     /// The allocation_strategy attribute.
@@ -122,7 +122,7 @@ public partial class AwsBatchComputeEnvironmentComputeResourcesBlock : Terraform
 /// Block type for eks_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchComputeEnvironmentEksConfigurationBlock : TerraformBlockBase
+public partial class AwsBatchComputeEnvironmentEksConfigurationBlock() : TerraformBlock("eks_configuration")
 {
     /// <summary>
     /// The eks_cluster_arn attribute.
@@ -146,7 +146,7 @@ public partial class AwsBatchComputeEnvironmentEksConfigurationBlock : Terraform
 /// Block type for update_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBatchComputeEnvironmentUpdatePolicyBlock : TerraformBlockBase
+public partial class AwsBatchComputeEnvironmentUpdatePolicyBlock() : TerraformBlock("update_policy")
 {
     /// <summary>
     /// The job_execution_timeout_minutes attribute.
@@ -244,7 +244,7 @@ public partial class AwsBatchComputeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeResources block(s) allowed")]
     [TerraformProperty("compute_resources")]
-    public partial TerraformList<TerraformBlock<AwsBatchComputeEnvironmentComputeResourcesBlock>>? ComputeResources { get; set; }
+    public TerraformList<AwsBatchComputeEnvironmentComputeResourcesBlock> ComputeResources { get; set; } = new();
 
     /// <summary>
     /// Block for eks_configuration.
@@ -252,7 +252,7 @@ public partial class AwsBatchComputeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EksConfiguration block(s) allowed")]
     [TerraformProperty("eks_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBatchComputeEnvironmentEksConfigurationBlock>>? EksConfiguration { get; set; }
+    public TerraformList<AwsBatchComputeEnvironmentEksConfigurationBlock> EksConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for update_policy.
@@ -260,7 +260,7 @@ public partial class AwsBatchComputeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdatePolicy block(s) allowed")]
     [TerraformProperty("update_policy")]
-    public partial TerraformList<TerraformBlock<AwsBatchComputeEnvironmentUpdatePolicyBlock>>? UpdatePolicy { get; set; }
+    public TerraformList<AwsBatchComputeEnvironmentUpdatePolicyBlock> UpdatePolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

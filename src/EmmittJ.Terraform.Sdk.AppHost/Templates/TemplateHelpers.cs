@@ -71,6 +71,10 @@ public static class TemplateHelpers
         // - Property is not a collection (collections can't be required in C#)
         bool useRequiredKeyword = property.IsRequired && !property.IsCollection;
 
+        // Check if property name conflicts with TerraformMap<object> methods
+        // TerraformBlock inherits from TerraformMap<object>, which has an Add(string, object) method
+        bool needsNewKeyword = property.Name == "Add";
+
         return new
         {
             property.Name,
@@ -87,6 +91,7 @@ public static class TemplateHelpers
             SetterValue = GetSetterValue(property), // NOT escaped - goes in code
             UseRequiredKeyword = useRequiredKeyword,
             UseNullable = !useRequiredKeyword, // If not required, make it nullable
+            NeedsNewKeyword = needsNewKeyword, // Add 'new' keyword if property name conflicts with inherited member
             IsArgument = isArgument, // Arguments can be set (includes Required, Optional, Optional+Computed)
             IsComputedAttribute = isComputedAttribute, // Pure computed attributes (read-only)
             IsRequiredArgument = isRequiredArgument,
@@ -114,8 +119,12 @@ public static class TemplateHelpers
         // - Single blocks with MinItems = 1 should be required
         // - List/Set blocks with MinItems = 1 should be required (must have at least 1 item)
         bool isRequired = block.MinItems == 1;
-        bool useRequiredKeyword = isRequired && block.NestingMode == "single";
-        bool useNullable = !useRequiredKeyword;
+
+        // All blocks (single and collections) should be non-nullable with initialization
+        // This eliminates null checks and makes the API cleaner
+        bool useRequiredKeyword = isRequired;
+        bool useNullable = false; // No blocks are nullable - all have = new() initializers
+        bool useInitializer = true; // All blocks get = new() or = new("label") initializer
 
         if (isRequired && block.NestingMode != "single")
         {
@@ -123,15 +132,22 @@ public static class TemplateHelpers
             validationAttributes.Insert(0, $"[System.ComponentModel.DataAnnotations.Required(ErrorMessage = \"{block.Name} is required\")]");
         }
 
-        // Wrap block type in TerraformBlock<T> or collection wrapper
+        // Wrap block type in collection wrapper (or use direct for single blocks)
         string blockPropertyType = block.NestingMode switch
         {
-            "single" => $"TerraformBlock<{block.ClassName}>",
-            "list" => $"TerraformList<TerraformBlock<{block.ClassName}>>",
-            "set" => $"TerraformSet<TerraformBlock<{block.ClassName}>>",
-            "map" => $"TerraformMap<TerraformBlock<{block.ClassName}>>",
-            _ => $"TerraformBlock<{block.ClassName}>"
+            "single" => block.ClassName,
+            "list" => $"TerraformList<{block.ClassName}>",
+            "set" => $"TerraformSet<{block.ClassName}>",
+            "map" => $"TerraformMap<{block.ClassName}>",
+            _ => block.ClassName
         };
+
+        // Check if block property name conflicts with TerraformMap<object> methods
+        bool needsNewKeyword = block.Name == "Add";
+
+        // Single blocks need blockLabel parameter in constructor: new("label")
+        // Collection blocks use parameterless constructor: new()
+        bool useBlockLabelInInitializer = block.NestingMode == "single";
 
         return new
         {
@@ -147,6 +163,9 @@ public static class TemplateHelpers
             IsRequired = isRequired,
             UseRequiredKeyword = useRequiredKeyword,
             UseNullable = useNullable,
+            UseInitializer = useInitializer,
+            UseBlockLabelInInitializer = useBlockLabelInInitializer,
+            NeedsNewKeyword = needsNewKeyword,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,
             Properties = block.Properties.Select(PreparePropertyForTemplate).ToList()

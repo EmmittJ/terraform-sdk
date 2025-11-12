@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for enrolled_services in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock : TerraformBlockBase
+public partial class GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock() : TerraformBlock("enrolled_services")
 {
     /// <summary>
     /// The product for which Access Approval will be enrolled. Allowed values are listed (case-sensitive):
@@ -39,7 +39,7 @@ public partial class GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleOrganizationAccessApprovalSettingsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleOrganizationAccessApprovalSettingsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -113,14 +113,14 @@ public partial class GoogleOrganizationAccessApprovalSettings : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrolledServices is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnrolledServices block(s) required")]
     [TerraformProperty("enrolled_services")]
-    public partial TerraformSet<TerraformBlock<GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock>>? EnrolledServices { get; set; }
+    public required TerraformSet<GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock> EnrolledServices { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleOrganizationAccessApprovalSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleOrganizationAccessApprovalSettingsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// This field will always be unset for the organization since organizations do not have ancestors.

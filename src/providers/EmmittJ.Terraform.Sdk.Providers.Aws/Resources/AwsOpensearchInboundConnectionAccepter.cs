@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOpensearchInboundConnectionAccepterTimeoutsBlock : TerraformBlockBase
+public partial class AwsOpensearchInboundConnectionAccepterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -60,7 +60,7 @@ public partial class AwsOpensearchInboundConnectionAccepter : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOpensearchInboundConnectionAccepterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOpensearchInboundConnectionAccepterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The connection_status attribute.

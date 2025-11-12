@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlockBase
+public partial class AwsSsmincidentsReplicationSetRegionBlock() : TerraformBlock("region")
 {
     /// <summary>
     /// The kms_key_arn attribute.
@@ -32,7 +32,7 @@ public partial class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlockBa
 /// Block type for regions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlockBase
+public partial class AwsSsmincidentsReplicationSetRegionsBlock() : TerraformBlock("regions")
 {
     /// <summary>
     /// The kms_key_arn attribute.
@@ -57,7 +57,7 @@ public partial class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSsmincidentsReplicationSetTimeoutsBlock : TerraformBlockBase
+public partial class AwsSsmincidentsReplicationSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -118,21 +118,21 @@ public partial class AwsSsmincidentsReplicationSet : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("region")]
-    public partial TerraformSet<TerraformBlock<AwsSsmincidentsReplicationSetRegionBlock>>? Region { get; set; }
+    public TerraformSet<AwsSsmincidentsReplicationSetRegionBlock> Region { get; set; } = new();
 
     /// <summary>
     /// Block for regions.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("regions")]
-    public partial TerraformSet<TerraformBlock<AwsSsmincidentsReplicationSetRegionsBlock>>? Regions { get; set; }
+    public TerraformSet<AwsSsmincidentsReplicationSetRegionsBlock> Regions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSsmincidentsReplicationSetTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSsmincidentsReplicationSetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for scoped_access_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsBlock() : TerraformBlock("scoped_access_settings")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessS
 /// Block type for session_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock() : TerraformBlock("session_settings")
 {
     /// <summary>
     /// Optional. How long a user is allowed to take between actions before a new access token must be issued. Only set for Google Cloud apps.
@@ -57,7 +57,7 @@ public partial class GoogleAccessContextManagerGcpUserAccessBindingSessionSettin
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,7 +127,7 @@ public partial class GoogleAccessContextManagerGcpUserAccessBinding : TerraformR
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scoped_access_settings")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsBlock>>? ScopedAccessSettings { get; set; }
+    public TerraformList<GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsBlock> ScopedAccessSettings { get; set; } = new();
 
     /// <summary>
     /// Block for session_settings.
@@ -135,14 +135,14 @@ public partial class GoogleAccessContextManagerGcpUserAccessBinding : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SessionSettings block(s) allowed")]
     [TerraformProperty("session_settings")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock>>? SessionSettings { get; set; }
+    public TerraformList<GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock> SessionSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Immutable. Assigned by the server during creation. The last segment has an arbitrary length and has only URI unreserved characters (as defined by RFC 3986 Section 2.3). Should not be specified by the client during creation. Example: &amp;quot;organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N&amp;quot;

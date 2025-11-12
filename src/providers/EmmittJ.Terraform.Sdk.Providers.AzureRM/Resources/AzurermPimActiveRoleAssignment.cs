@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPimActiveRoleAssignmentScheduleBlock : TerraformBlockBase
+public partial class AzurermPimActiveRoleAssignmentScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The start date/time of the role assignment
@@ -21,7 +21,7 @@ public partial class AzurermPimActiveRoleAssignmentScheduleBlock : TerraformBloc
 /// Block type for ticket in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPimActiveRoleAssignmentTicketBlock : TerraformBlockBase
+public partial class AzurermPimActiveRoleAssignmentTicketBlock() : TerraformBlock("ticket")
 {
     /// <summary>
     /// User-supplied ticket number to be included with the request
@@ -43,7 +43,7 @@ public partial class AzurermPimActiveRoleAssignmentTicketBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPimActiveRoleAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPimActiveRoleAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -122,7 +122,7 @@ public partial class AzurermPimActiveRoleAssignment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermPimActiveRoleAssignmentScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AzurermPimActiveRoleAssignmentScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for ticket.
@@ -130,14 +130,14 @@ public partial class AzurermPimActiveRoleAssignment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ticket block(s) allowed")]
     [TerraformProperty("ticket")]
-    public partial TerraformList<TerraformBlock<AzurermPimActiveRoleAssignmentTicketBlock>>? Ticket { get; set; }
+    public TerraformList<AzurermPimActiveRoleAssignmentTicketBlock> Ticket { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPimActiveRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPimActiveRoleAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Type of principal to which the role will be assigned

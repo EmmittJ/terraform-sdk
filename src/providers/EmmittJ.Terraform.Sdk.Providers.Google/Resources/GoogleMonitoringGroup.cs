@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleMonitoringGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleMonitoringGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,7 +95,7 @@ public partial class GoogleMonitoringGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleMonitoringGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleMonitoringGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// A unique identifier for this group. The format is

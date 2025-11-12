@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeAppGroupAttributesBlock : TerraformBlockBase
+public partial class GoogleApigeeAppGroupAttributesBlock() : TerraformBlock("attributes")
 {
     /// <summary>
     /// Key of the attribute
@@ -28,7 +28,7 @@ public partial class GoogleApigeeAppGroupAttributesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeAppGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,14 +119,14 @@ public partial class GoogleApigeeAppGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attributes")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeAppGroupAttributesBlock>>? Attributes { get; set; }
+    public TerraformList<GoogleApigeeAppGroupAttributesBlock> Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeAppGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeAppGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Internal identifier that cannot be edited

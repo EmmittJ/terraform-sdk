@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSecurityhubStandardsSubscriptionTimeoutsBlock : TerraformBlockBase
+public partial class AwsSecurityhubStandardsSubscriptionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -60,6 +60,6 @@ public partial class AwsSecurityhubStandardsSubscription : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSecurityhubStandardsSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSecurityhubStandardsSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

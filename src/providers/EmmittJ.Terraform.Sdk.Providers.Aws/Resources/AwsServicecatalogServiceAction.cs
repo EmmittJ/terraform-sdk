@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlockBase
+public partial class AwsServicecatalogServiceActionDefinitionBlock() : TerraformBlock("definition")
 {
     /// <summary>
     /// The assume_role attribute.
@@ -51,7 +51,7 @@ public partial class AwsServicecatalogServiceActionDefinitionBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlockBase
+public partial class AwsServicecatalogServiceActionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -137,13 +137,13 @@ public partial class AwsServicecatalogServiceAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Definition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AwsServicecatalogServiceActionDefinitionBlock>>? Definition { get; set; }
+    public required TerraformList<AwsServicecatalogServiceActionDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsServicecatalogServiceActionTimeoutsBlock>? Timeouts { get; set; }
+    public AwsServicecatalogServiceActionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

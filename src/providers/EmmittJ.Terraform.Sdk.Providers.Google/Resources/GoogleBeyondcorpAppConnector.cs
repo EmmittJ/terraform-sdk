@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for principal_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBeyondcorpAppConnectorPrincipalInfoBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpAppConnectorPrincipalInfoBlock() : TerraformBlock("principal_info")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleBeyondcorpAppConnectorPrincipalInfoBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBeyondcorpAppConnectorTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpAppConnectorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -104,14 +104,14 @@ public partial class GoogleBeyondcorpAppConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrincipalInfo block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrincipalInfo block(s) allowed")]
     [TerraformProperty("principal_info")]
-    public partial TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectorPrincipalInfoBlock>>? PrincipalInfo { get; set; }
+    public required TerraformList<GoogleBeyondcorpAppConnectorPrincipalInfoBlock> PrincipalInfo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBeyondcorpAppConnectorTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBeyondcorpAppConnectorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAadb2cDirectoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -112,7 +112,7 @@ public partial class AzurermAadb2cDirectory : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAadb2cDirectoryTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAadb2cDirectoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.

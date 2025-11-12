@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for signing_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : TerraformBlockBase
+public partial class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock() : TerraformBlock("signing_attributes")
 {
     /// <summary>
     /// The algorithm attribute.
@@ -38,7 +38,7 @@ public partial class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53domainsDelegationSignerRecordTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53domainsDelegationSignerRecordTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -78,14 +78,14 @@ public partial class AwsRoute53domainsDelegationSignerRecord : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("signing_attributes")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock>>? SigningAttributes { get; set; }
+    public TerraformList<AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock> SigningAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53domainsDelegationSignerRecordTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53domainsDelegationSignerRecordTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dnssec_key_id attribute.

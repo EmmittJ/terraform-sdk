@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCognitiveAccountRaiBlocklistTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCognitiveAccountRaiBlocklistTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,6 +82,6 @@ public partial class AzurermCognitiveAccountRaiBlocklist : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCognitiveAccountRaiBlocklistTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCognitiveAccountRaiBlocklistTimeoutsBlock Timeouts { get; set; } = new();
 
 }

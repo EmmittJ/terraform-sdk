@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMysqlFlexibleServerCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The geo_backup_key_vault_key_id attribute.
@@ -49,7 +49,7 @@ public partial class AzurermMysqlFlexibleServerCustomerManagedKeyBlock : Terrafo
 /// Block type for high_availability in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMysqlFlexibleServerHighAvailabilityBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerHighAvailabilityBlock() : TerraformBlock("high_availability")
 {
     /// <summary>
     /// The mode attribute.
@@ -72,7 +72,7 @@ public partial class AzurermMysqlFlexibleServerHighAvailabilityBlock : Terraform
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMysqlFlexibleServerIdentityBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -96,7 +96,7 @@ public partial class AzurermMysqlFlexibleServerIdentityBlock : TerraformBlockBas
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMysqlFlexibleServerMaintenanceWindowBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// The day_of_week attribute.
@@ -125,7 +125,7 @@ public partial class AzurermMysqlFlexibleServerMaintenanceWindowBlock : Terrafor
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMysqlFlexibleServerStorageBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerStorageBlock() : TerraformBlock("storage")
 {
     /// <summary>
     /// The auto_grow_enabled attribute.
@@ -168,7 +168,7 @@ public partial class AzurermMysqlFlexibleServerStorageBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMysqlFlexibleServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMysqlFlexibleServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -366,7 +366,7 @@ public partial class AzurermMysqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermMysqlFlexibleServerCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermMysqlFlexibleServerCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for high_availability.
@@ -374,7 +374,7 @@ public partial class AzurermMysqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighAvailability block(s) allowed")]
     [TerraformProperty("high_availability")]
-    public partial TerraformList<TerraformBlock<AzurermMysqlFlexibleServerHighAvailabilityBlock>>? HighAvailability { get; set; }
+    public TerraformList<AzurermMysqlFlexibleServerHighAvailabilityBlock> HighAvailability { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -382,7 +382,7 @@ public partial class AzurermMysqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMysqlFlexibleServerIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMysqlFlexibleServerIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window.
@@ -390,7 +390,7 @@ public partial class AzurermMysqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<AzurermMysqlFlexibleServerMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<AzurermMysqlFlexibleServerMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for storage.
@@ -398,14 +398,14 @@ public partial class AzurermMysqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     [TerraformProperty("storage")]
-    public partial TerraformList<TerraformBlock<AzurermMysqlFlexibleServerStorageBlock>>? Storage { get; set; }
+    public TerraformList<AzurermMysqlFlexibleServerStorageBlock> Storage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMysqlFlexibleServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMysqlFlexibleServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

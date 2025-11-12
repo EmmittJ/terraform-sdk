@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for preferred_member_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : TerraformBlockBase
+public partial class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock() : TerraformBlock("preferred_member_key")
 {
     /// <summary>
     /// The ID of the entity.
@@ -44,7 +44,7 @@ public partial class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock :
 /// Block type for roles in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleCloudIdentityGroupMembershipRolesBlock : TerraformBlockBase
+public partial class GoogleCloudIdentityGroupMembershipRolesBlock() : TerraformBlock("roles")
 {
     /// <summary>
     /// The name of the MembershipRole. Must be one of OWNER, MANAGER, MEMBER. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;MANAGER&amp;quot;, &amp;quot;MEMBER&amp;quot;]
@@ -60,7 +60,7 @@ public partial class GoogleCloudIdentityGroupMembershipRolesBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudIdentityGroupMembershipTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,7 +123,7 @@ public partial class GoogleCloudIdentityGroupMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreferredMemberKey block(s) allowed")]
     [TerraformProperty("preferred_member_key")]
-    public partial TerraformList<TerraformBlock<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>>? PreferredMemberKey { get; set; }
+    public TerraformList<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock> PreferredMemberKey { get; set; } = new();
 
     /// <summary>
     /// Block for roles.
@@ -132,14 +132,14 @@ public partial class GoogleCloudIdentityGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [TerraformProperty("roles")]
-    public partial TerraformSet<TerraformBlock<GoogleCloudIdentityGroupMembershipRolesBlock>>? Roles { get; set; }
+    public required TerraformSet<GoogleCloudIdentityGroupMembershipRolesBlock> Roles { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudIdentityGroupMembershipTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudIdentityGroupMembershipTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the Membership was created.

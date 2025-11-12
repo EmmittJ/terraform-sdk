@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeBackupBackupChannelTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeBackupBackupChannelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -105,7 +105,7 @@ public partial class GoogleGkeBackupBackupChannel : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeBackupBackupChannelTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeBackupBackupChannelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The project_id where Backups are allowed to be stored.

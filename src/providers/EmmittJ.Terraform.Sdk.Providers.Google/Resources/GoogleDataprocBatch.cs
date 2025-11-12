@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for environment_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocBatchEnvironmentConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocBatchEnvironmentConfigBlock() : TerraformBlock("environment_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDataprocBatchEnvironmentConfigBlock : TerraformBlockB
 /// Block type for pyspark_batch in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocBatchPysparkBatchBlock : TerraformBlockBase
+public partial class GoogleDataprocBatchPysparkBatchBlock() : TerraformBlock("pyspark_batch")
 {
     /// <summary>
     /// HCFS URIs of archives to be extracted into the working directory of each executor.
@@ -67,7 +67,7 @@ public partial class GoogleDataprocBatchPysparkBatchBlock : TerraformBlockBase
 /// Block type for runtime_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocBatchRuntimeConfigBlock() : TerraformBlock("runtime_config")
 {
     /// <summary>
     /// Optional. Cohort identifier. Identifies families of the workloads having the same shape, e.g. daily ETL jobs.
@@ -104,7 +104,7 @@ public partial class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlockBase
 /// Block type for spark_batch in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocBatchSparkBatchBlock : TerraformBlockBase
+public partial class GoogleDataprocBatchSparkBatchBlock() : TerraformBlock("spark_batch")
 {
     /// <summary>
     /// HCFS URIs of archives to be extracted into the working directory of each executor.
@@ -157,7 +157,7 @@ public partial class GoogleDataprocBatchSparkBatchBlock : TerraformBlockBase
 /// Block type for spark_r_batch in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocBatchSparkRBatchBlock : TerraformBlockBase
+public partial class GoogleDataprocBatchSparkRBatchBlock() : TerraformBlock("spark_r_batch")
 {
     /// <summary>
     /// HCFS URIs of archives to be extracted into the working directory of each executor.
@@ -195,7 +195,7 @@ public partial class GoogleDataprocBatchSparkRBatchBlock : TerraformBlockBase
 /// Block type for spark_sql_batch in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlockBase
+public partial class GoogleDataprocBatchSparkSqlBatchBlock() : TerraformBlock("spark_sql_batch")
 {
     /// <summary>
     /// HCFS URIs of jar files to be added to the Spark CLASSPATH.
@@ -224,7 +224,7 @@ public partial class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocBatchTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocBatchTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -305,7 +305,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnvironmentConfig block(s) allowed")]
     [TerraformProperty("environment_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocBatchEnvironmentConfigBlock>>? EnvironmentConfig { get; set; }
+    public TerraformList<GoogleDataprocBatchEnvironmentConfigBlock> EnvironmentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for pyspark_batch.
@@ -313,7 +313,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PysparkBatch block(s) allowed")]
     [TerraformProperty("pyspark_batch")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocBatchPysparkBatchBlock>>? PysparkBatch { get; set; }
+    public TerraformList<GoogleDataprocBatchPysparkBatchBlock> PysparkBatch { get; set; } = new();
 
     /// <summary>
     /// Block for runtime_config.
@@ -321,7 +321,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfig block(s) allowed")]
     [TerraformProperty("runtime_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocBatchRuntimeConfigBlock>>? RuntimeConfig { get; set; }
+    public TerraformList<GoogleDataprocBatchRuntimeConfigBlock> RuntimeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spark_batch.
@@ -329,7 +329,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkBatch block(s) allowed")]
     [TerraformProperty("spark_batch")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocBatchSparkBatchBlock>>? SparkBatch { get; set; }
+    public TerraformList<GoogleDataprocBatchSparkBatchBlock> SparkBatch { get; set; } = new();
 
     /// <summary>
     /// Block for spark_r_batch.
@@ -337,7 +337,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkRBatch block(s) allowed")]
     [TerraformProperty("spark_r_batch")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocBatchSparkRBatchBlock>>? SparkRBatch { get; set; }
+    public TerraformList<GoogleDataprocBatchSparkRBatchBlock> SparkRBatch { get; set; } = new();
 
     /// <summary>
     /// Block for spark_sql_batch.
@@ -345,14 +345,14 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkSqlBatch block(s) allowed")]
     [TerraformProperty("spark_sql_batch")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocBatchSparkSqlBatchBlock>>? SparkSqlBatch { get; set; }
+    public TerraformList<GoogleDataprocBatchSparkSqlBatchBlock> SparkSqlBatch { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocBatchTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocBatchTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the batch was created.

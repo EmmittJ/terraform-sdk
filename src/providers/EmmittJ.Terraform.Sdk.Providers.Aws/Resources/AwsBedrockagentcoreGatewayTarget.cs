@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for credential_provider_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBlock() : TerraformBlock("credential_provider_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigura
 /// Block type for target_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock() : TerraformBlock("target_configuration")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentcoreGatewayTargetTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreGatewayTargetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -91,21 +91,21 @@ public partial class AwsBedrockagentcoreGatewayTarget : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("credential_provider_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBlock>>? CredentialProviderConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBlock> CredentialProviderConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for target_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("target_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock>>? TargetConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock> TargetConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentcoreGatewayTargetTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentcoreGatewayTargetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The target_id attribute.

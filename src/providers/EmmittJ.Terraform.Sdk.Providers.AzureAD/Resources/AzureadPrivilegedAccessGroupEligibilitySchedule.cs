@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadPrivilegedAccessGroupEligibilityScheduleTimeoutsBlock : TerraformBlockBase
+public partial class AzureadPrivilegedAccessGroupEligibilityScheduleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,7 +132,7 @@ public partial class AzureadPrivilegedAccessGroupEligibilitySchedule : Terraform
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadPrivilegedAccessGroupEligibilityScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadPrivilegedAccessGroupEligibilityScheduleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The status of the schedule

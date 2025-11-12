@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadDirectoryRolesDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzureadDirectoryRolesDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -38,7 +38,7 @@ public partial class AzureadDirectoryRolesDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadDirectoryRolesDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadDirectoryRolesDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object IDs of the roles

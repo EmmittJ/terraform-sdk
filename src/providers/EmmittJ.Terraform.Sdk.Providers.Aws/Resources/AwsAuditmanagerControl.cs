@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for control_mapping_sources in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlockBase
+public partial class AwsAuditmanagerControlControlMappingSourcesBlock() : TerraformBlock("control_mapping_sources")
 {
     /// <summary>
     /// The source_description attribute.
@@ -127,7 +127,7 @@ public partial class AwsAuditmanagerControl : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("control_mapping_sources")]
-    public partial TerraformSet<TerraformBlock<AwsAuditmanagerControlControlMappingSourcesBlock>>? ControlMappingSources { get; set; }
+    public TerraformSet<AwsAuditmanagerControlControlMappingSourcesBlock> ControlMappingSources { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

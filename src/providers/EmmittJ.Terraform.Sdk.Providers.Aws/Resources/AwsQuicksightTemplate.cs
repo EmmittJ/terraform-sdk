@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightTemplateDefinitionBlock : TerraformBlockBase
+public partial class AwsQuicksightTemplateDefinitionBlock() : TerraformBlock("definition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsQuicksightTemplateDefinitionBlock : TerraformBlockBase
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightTemplatePermissionsBlock : TerraformBlockBase
+public partial class AwsQuicksightTemplatePermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The actions attribute.
@@ -38,7 +38,7 @@ public partial class AwsQuicksightTemplatePermissionsBlock : TerraformBlockBase
 /// Block type for source_entity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightTemplateSourceEntityBlock : TerraformBlockBase
+public partial class AwsQuicksightTemplateSourceEntityBlock() : TerraformBlock("source_entity")
 {
 }
 
@@ -46,7 +46,7 @@ public partial class AwsQuicksightTemplateSourceEntityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsQuicksightTemplateTimeoutsBlock : TerraformBlockBase
+public partial class AwsQuicksightTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,7 +146,7 @@ public partial class AwsQuicksightTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     [TerraformProperty("definition")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightTemplateDefinitionBlock>>? Definition { get; set; }
+    public TerraformList<AwsQuicksightTemplateDefinitionBlock> Definition { get; set; } = new();
 
     /// <summary>
     /// Block for permissions.
@@ -154,7 +154,7 @@ public partial class AwsQuicksightTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     [TerraformProperty("permissions")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightTemplatePermissionsBlock>>? Permissions { get; set; }
+    public TerraformSet<AwsQuicksightTemplatePermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for source_entity.
@@ -162,14 +162,14 @@ public partial class AwsQuicksightTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceEntity block(s) allowed")]
     [TerraformProperty("source_entity")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightTemplateSourceEntityBlock>>? SourceEntity { get; set; }
+    public TerraformList<AwsQuicksightTemplateSourceEntityBlock> SourceEntity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsQuicksightTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public AwsQuicksightTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

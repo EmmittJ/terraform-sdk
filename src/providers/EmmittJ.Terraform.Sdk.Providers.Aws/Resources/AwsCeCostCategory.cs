@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCeCostCategoryRuleBlock : TerraformBlockBase
+public partial class AwsCeCostCategoryRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The type attribute.
@@ -28,7 +28,7 @@ public partial class AwsCeCostCategoryRuleBlock : TerraformBlockBase
 /// Block type for split_charge_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlockBase
+public partial class AwsCeCostCategorySplitChargeRuleBlock() : TerraformBlock("split_charge_rule")
 {
     /// <summary>
     /// The method attribute.
@@ -124,14 +124,14 @@ public partial class AwsCeCostCategory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformProperty("rule")]
-    public partial TerraformList<TerraformBlock<AwsCeCostCategoryRuleBlock>>? Rule { get; set; }
+    public required TerraformList<AwsCeCostCategoryRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for split_charge_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("split_charge_rule")]
-    public partial TerraformSet<TerraformBlock<AwsCeCostCategorySplitChargeRuleBlock>>? SplitChargeRule { get; set; }
+    public TerraformSet<AwsCeCostCategorySplitChargeRuleBlock> SplitChargeRule { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

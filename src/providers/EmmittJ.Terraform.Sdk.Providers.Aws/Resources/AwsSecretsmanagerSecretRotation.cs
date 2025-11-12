@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rotation_rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlockBase
+public partial class AwsSecretsmanagerSecretRotationRotationRulesBlock() : TerraformBlock("rotation_rules")
 {
     /// <summary>
     /// The automatically_after_days attribute.
@@ -85,7 +85,7 @@ public partial class AwsSecretsmanagerSecretRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RotationRules block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationRules block(s) allowed")]
     [TerraformProperty("rotation_rules")]
-    public partial TerraformList<TerraformBlock<AwsSecretsmanagerSecretRotationRotationRulesBlock>>? RotationRules { get; set; }
+    public required TerraformList<AwsSecretsmanagerSecretRotationRotationRulesBlock> RotationRules { get; set; } = new();
 
     /// <summary>
     /// The rotation_enabled attribute.

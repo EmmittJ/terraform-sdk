@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for reservation_plan_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlockBase
+public partial class AwsMediaConvertQueueReservationPlanSettingsBlock() : TerraformBlock("reservation_plan_settings")
 {
     /// <summary>
     /// The commitment attribute.
@@ -114,7 +114,7 @@ public partial class AwsMediaConvertQueue : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationPlanSettings block(s) allowed")]
     [TerraformProperty("reservation_plan_settings")]
-    public partial TerraformList<TerraformBlock<AwsMediaConvertQueueReservationPlanSettingsBlock>>? ReservationPlanSettings { get; set; }
+    public TerraformList<AwsMediaConvertQueueReservationPlanSettingsBlock> ReservationPlanSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

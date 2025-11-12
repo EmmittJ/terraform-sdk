@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for policy_detail in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsImagebuilderLifecyclePolicyPolicyDetailBlock : TerraformBlockBase
+public partial class AwsImagebuilderLifecyclePolicyPolicyDetailBlock() : TerraformBlock("policy_detail")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsImagebuilderLifecyclePolicyPolicyDetailBlock : Terraform
 /// Block type for resource_selection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsImagebuilderLifecyclePolicyResourceSelectionBlock : TerraformBlockBase
+public partial class AwsImagebuilderLifecyclePolicyResourceSelectionBlock() : TerraformBlock("resource_selection")
 {
     /// <summary>
     /// The tag_map attribute.
@@ -91,14 +91,14 @@ public partial class AwsImagebuilderLifecyclePolicy : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("policy_detail")]
-    public partial TerraformSet<TerraformBlock<AwsImagebuilderLifecyclePolicyPolicyDetailBlock>>? PolicyDetail { get; set; }
+    public TerraformSet<AwsImagebuilderLifecyclePolicyPolicyDetailBlock> PolicyDetail { get; set; } = new();
 
     /// <summary>
     /// Block for resource_selection.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resource_selection")]
-    public partial TerraformList<TerraformBlock<AwsImagebuilderLifecyclePolicyResourceSelectionBlock>>? ResourceSelection { get; set; }
+    public TerraformList<AwsImagebuilderLifecyclePolicyResourceSelectionBlock> ResourceSelection { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

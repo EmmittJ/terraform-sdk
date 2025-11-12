@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parallelism_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerPipelineParallelismConfigurationBlock : TerraformBlockBase
+public partial class AwsSagemakerPipelineParallelismConfigurationBlock() : TerraformBlock("parallelism_configuration")
 {
     /// <summary>
     /// The max_parallel_execution_steps attribute.
@@ -22,7 +22,7 @@ public partial class AwsSagemakerPipelineParallelismConfigurationBlock : Terrafo
 /// Block type for pipeline_definition_s3_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBlockBase
+public partial class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock() : TerraformBlock("pipeline_definition_s3_location")
 {
     /// <summary>
     /// The bucket attribute.
@@ -130,7 +130,7 @@ public partial class AwsSagemakerPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParallelismConfiguration block(s) allowed")]
     [TerraformProperty("parallelism_configuration")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerPipelineParallelismConfigurationBlock>>? ParallelismConfiguration { get; set; }
+    public TerraformList<AwsSagemakerPipelineParallelismConfigurationBlock> ParallelismConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for pipeline_definition_s3_location.
@@ -138,7 +138,7 @@ public partial class AwsSagemakerPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineDefinitionS3Location block(s) allowed")]
     [TerraformProperty("pipeline_definition_s3_location")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>>? PipelineDefinitionS3Location { get; set; }
+    public TerraformList<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock> PipelineDefinitionS3Location { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

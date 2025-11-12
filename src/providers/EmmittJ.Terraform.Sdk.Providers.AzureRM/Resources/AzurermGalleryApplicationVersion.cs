@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for manage_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlockBase
+public partial class AzurermGalleryApplicationVersionManageActionBlock() : TerraformBlock("manage_action")
 {
     /// <summary>
     /// The install attribute.
@@ -37,7 +37,7 @@ public partial class AzurermGalleryApplicationVersionManageActionBlock : Terrafo
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermGalleryApplicationVersionSourceBlock : TerraformBlockBase
+public partial class AzurermGalleryApplicationVersionSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The default_configuration_link attribute.
@@ -60,7 +60,7 @@ public partial class AzurermGalleryApplicationVersionSourceBlock : TerraformBloc
 /// Block type for target_region in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlockBase
+public partial class AzurermGalleryApplicationVersionTargetRegionBlock() : TerraformBlock("target_region")
 {
     /// <summary>
     /// The exclude_from_latest attribute.
@@ -98,7 +98,7 @@ public partial class AzurermGalleryApplicationVersionTargetRegionBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermGalleryApplicationVersionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -221,7 +221,7 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManageAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManageAction block(s) allowed")]
     [TerraformProperty("manage_action")]
-    public partial TerraformList<TerraformBlock<AzurermGalleryApplicationVersionManageActionBlock>>? ManageAction { get; set; }
+    public required TerraformList<AzurermGalleryApplicationVersionManageActionBlock> ManageAction { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -231,7 +231,7 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermGalleryApplicationVersionSourceBlock>>? Source { get; set; }
+    public required TerraformList<AzurermGalleryApplicationVersionSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for target_region.
@@ -240,13 +240,13 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRegion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRegion block(s) required")]
     [TerraformProperty("target_region")]
-    public partial TerraformList<TerraformBlock<AzurermGalleryApplicationVersionTargetRegionBlock>>? TargetRegion { get; set; }
+    public required TerraformList<AzurermGalleryApplicationVersionTargetRegionBlock> TargetRegion { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermGalleryApplicationVersionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermGalleryApplicationVersionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

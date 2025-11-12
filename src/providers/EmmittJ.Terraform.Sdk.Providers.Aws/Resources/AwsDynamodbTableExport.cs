@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for incremental_export_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDynamodbTableExportIncrementalExportSpecificationBlock : TerraformBlockBase
+public partial class AwsDynamodbTableExportIncrementalExportSpecificationBlock() : TerraformBlock("incremental_export_specification")
 {
     /// <summary>
     /// The export_from_time attribute.
@@ -35,7 +35,7 @@ public partial class AwsDynamodbTableExportIncrementalExportSpecificationBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDynamodbTableExportTimeoutsBlock : TerraformBlockBase
+public partial class AwsDynamodbTableExportTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,14 +148,14 @@ public partial class AwsDynamodbTableExport : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncrementalExportSpecification block(s) allowed")]
     [TerraformProperty("incremental_export_specification")]
-    public partial TerraformList<TerraformBlock<AwsDynamodbTableExportIncrementalExportSpecificationBlock>>? IncrementalExportSpecification { get; set; }
+    public TerraformList<AwsDynamodbTableExportIncrementalExportSpecificationBlock> IncrementalExportSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDynamodbTableExportTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDynamodbTableExportTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

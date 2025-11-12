@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_control_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketAclAccessControlPolicyBlock : TerraformBlockBase
+public partial class AwsS3BucketAclAccessControlPolicyBlock() : TerraformBlock("access_control_policy")
 {
 }
 
@@ -62,6 +62,6 @@ public partial class AwsS3BucketAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControlPolicy block(s) allowed")]
     [TerraformProperty("access_control_policy")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketAclAccessControlPolicyBlock>>? AccessControlPolicy { get; set; }
+    public TerraformList<AwsS3BucketAclAccessControlPolicyBlock> AccessControlPolicy { get; set; } = new();
 
 }

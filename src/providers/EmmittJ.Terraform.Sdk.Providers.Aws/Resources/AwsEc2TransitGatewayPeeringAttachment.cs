@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2TransitGatewayPeeringAttachmentOptionsBlock : TerraformBlockBase
+public partial class AwsEc2TransitGatewayPeeringAttachmentOptionsBlock() : TerraformBlock("options")
 {
     /// <summary>
     /// The dynamic_routing attribute.
@@ -92,7 +92,7 @@ public partial class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     [TerraformProperty("options")]
-    public partial TerraformList<TerraformBlock<AwsEc2TransitGatewayPeeringAttachmentOptionsBlock>>? Options { get; set; }
+    public TerraformList<AwsEc2TransitGatewayPeeringAttachmentOptionsBlock> Options { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

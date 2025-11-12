@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for actions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueTriggerActionsBlock : TerraformBlockBase
+public partial class AwsGlueTriggerActionsBlock() : TerraformBlock("actions")
 {
     /// <summary>
     /// The arguments attribute.
@@ -49,7 +49,7 @@ public partial class AwsGlueTriggerActionsBlock : TerraformBlockBase
 /// Block type for event_batching_condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlockBase
+public partial class AwsGlueTriggerEventBatchingConditionBlock() : TerraformBlock("event_batching_condition")
 {
     /// <summary>
     /// The batch_size attribute.
@@ -72,7 +72,7 @@ public partial class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlockB
 /// Block type for predicate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueTriggerPredicateBlock : TerraformBlockBase
+public partial class AwsGlueTriggerPredicateBlock() : TerraformBlock("predicate")
 {
     /// <summary>
     /// The logical attribute.
@@ -87,7 +87,7 @@ public partial class AwsGlueTriggerPredicateBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGlueTriggerTimeoutsBlock : TerraformBlockBase
+public partial class AwsGlueTriggerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -208,14 +208,14 @@ public partial class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
     [TerraformProperty("actions")]
-    public partial TerraformList<TerraformBlock<AwsGlueTriggerActionsBlock>>? Actions { get; set; }
+    public required TerraformList<AwsGlueTriggerActionsBlock> Actions { get; set; } = new();
 
     /// <summary>
     /// Block for event_batching_condition.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_batching_condition")]
-    public partial TerraformList<TerraformBlock<AwsGlueTriggerEventBatchingConditionBlock>>? EventBatchingCondition { get; set; }
+    public TerraformList<AwsGlueTriggerEventBatchingConditionBlock> EventBatchingCondition { get; set; } = new();
 
     /// <summary>
     /// Block for predicate.
@@ -223,14 +223,14 @@ public partial class AwsGlueTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Predicate block(s) allowed")]
     [TerraformProperty("predicate")]
-    public partial TerraformList<TerraformBlock<AwsGlueTriggerPredicateBlock>>? Predicate { get; set; }
+    public TerraformList<AwsGlueTriggerPredicateBlock> Predicate { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGlueTriggerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGlueTriggerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

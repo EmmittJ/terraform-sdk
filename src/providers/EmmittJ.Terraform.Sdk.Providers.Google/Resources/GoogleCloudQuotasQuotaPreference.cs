@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for quota_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlockBase
+public partial class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock() : TerraformBlock("quota_config")
 {
     /// <summary>
     /// The annotations map for clients to store small amounts of arbitrary data. Do not put PII or other sensitive information here. See https://google.aip.dev/128#annotations.
@@ -35,7 +35,7 @@ public partial class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudQuotasQuotaPreferenceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudQuotasQuotaPreferenceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,14 +148,14 @@ public partial class GoogleCloudQuotasQuotaPreference : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QuotaConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuotaConfig block(s) allowed")]
     [TerraformProperty("quota_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock>>? QuotaConfig { get; set; }
+    public required TerraformList<GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock> QuotaConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudQuotasQuotaPreferenceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudQuotasQuotaPreferenceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time stamp.

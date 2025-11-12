@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kms_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock() : TerraformBlock("kms_configuration")
 {
     /// <summary>
     /// The key_type attribute.
@@ -53,6 +53,6 @@ public partial class AwsBedrockagentcoreTokenVaultCmk : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kms_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock>>? KmsConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock> KmsConfiguration { get; set; } = new();
 
 }

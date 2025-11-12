@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for long_term_backup_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock : TerraformBlockBase
+public partial class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock() : TerraformBlock("long_term_backup_schedule")
 {
     /// <summary>
     /// The enabled attribute.
@@ -46,7 +46,7 @@ public partial class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOracleAutonomousDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -272,13 +272,13 @@ public partial class AzurermOracleAutonomousDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermBackupSchedule block(s) allowed")]
     [TerraformProperty("long_term_backup_schedule")]
-    public partial TerraformList<TerraformBlock<AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock>>? LongTermBackupSchedule { get; set; }
+    public TerraformList<AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock> LongTermBackupSchedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOracleAutonomousDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOracleAutonomousDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for alarms in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceAlarmsBlock : TerraformBlockBase
+public partial class AwsEcsServiceAlarmsBlock() : TerraformBlock("alarms")
 {
     /// <summary>
     /// The alarm_names attribute.
@@ -38,7 +38,7 @@ public partial class AwsEcsServiceAlarmsBlock : TerraformBlockBase
 /// Block type for capacity_provider_strategy in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsServiceCapacityProviderStrategyBlock : TerraformBlockBase
+public partial class AwsEcsServiceCapacityProviderStrategyBlock() : TerraformBlock("capacity_provider_strategy")
 {
     /// <summary>
     /// The base attribute.
@@ -68,7 +68,7 @@ public partial class AwsEcsServiceCapacityProviderStrategyBlock : TerraformBlock
 /// Block type for deployment_circuit_breaker in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceDeploymentCircuitBreakerBlock : TerraformBlockBase
+public partial class AwsEcsServiceDeploymentCircuitBreakerBlock() : TerraformBlock("deployment_circuit_breaker")
 {
     /// <summary>
     /// The enable attribute.
@@ -92,7 +92,7 @@ public partial class AwsEcsServiceDeploymentCircuitBreakerBlock : TerraformBlock
 /// Block type for deployment_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceDeploymentConfigurationBlock : TerraformBlockBase
+public partial class AwsEcsServiceDeploymentConfigurationBlock() : TerraformBlock("deployment_configuration")
 {
     /// <summary>
     /// The bake_time_in_minutes attribute.
@@ -114,7 +114,7 @@ public partial class AwsEcsServiceDeploymentConfigurationBlock : TerraformBlockB
 /// Block type for deployment_controller in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceDeploymentControllerBlock : TerraformBlockBase
+public partial class AwsEcsServiceDeploymentControllerBlock() : TerraformBlock("deployment_controller")
 {
     /// <summary>
     /// The type attribute.
@@ -129,7 +129,7 @@ public partial class AwsEcsServiceDeploymentControllerBlock : TerraformBlockBase
 /// Block type for load_balancer in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsServiceLoadBalancerBlock : TerraformBlockBase
+public partial class AwsEcsServiceLoadBalancerBlock() : TerraformBlock("load_balancer")
 {
     /// <summary>
     /// The container_name attribute.
@@ -167,7 +167,7 @@ public partial class AwsEcsServiceLoadBalancerBlock : TerraformBlockBase
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsEcsServiceNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The assign_public_ip attribute.
@@ -197,7 +197,7 @@ public partial class AwsEcsServiceNetworkConfigurationBlock : TerraformBlockBase
 /// Block type for ordered_placement_strategy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceOrderedPlacementStrategyBlock : TerraformBlockBase
+public partial class AwsEcsServiceOrderedPlacementStrategyBlock() : TerraformBlock("ordered_placement_strategy")
 {
     /// <summary>
     /// The field attribute.
@@ -220,7 +220,7 @@ public partial class AwsEcsServiceOrderedPlacementStrategyBlock : TerraformBlock
 /// Block type for placement_constraints in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsServicePlacementConstraintsBlock : TerraformBlockBase
+public partial class AwsEcsServicePlacementConstraintsBlock() : TerraformBlock("placement_constraints")
 {
     /// <summary>
     /// The expression attribute.
@@ -243,7 +243,7 @@ public partial class AwsEcsServicePlacementConstraintsBlock : TerraformBlockBase
 /// Block type for service_connect_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceServiceConnectConfigurationBlock : TerraformBlockBase
+public partial class AwsEcsServiceServiceConnectConfigurationBlock() : TerraformBlock("service_connect_configuration")
 {
     /// <summary>
     /// The enabled attribute.
@@ -266,7 +266,7 @@ public partial class AwsEcsServiceServiceConnectConfigurationBlock : TerraformBl
 /// Block type for service_registries in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceServiceRegistriesBlock : TerraformBlockBase
+public partial class AwsEcsServiceServiceRegistriesBlock() : TerraformBlock("service_registries")
 {
     /// <summary>
     /// The container_name attribute.
@@ -303,7 +303,7 @@ public partial class AwsEcsServiceServiceRegistriesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEcsServiceTimeoutsBlock : TerraformBlockBase
+public partial class AwsEcsServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -332,7 +332,7 @@ public partial class AwsEcsServiceTimeoutsBlock : TerraformBlockBase
 /// Block type for volume_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsServiceVolumeConfigurationBlock : TerraformBlockBase
+public partial class AwsEcsServiceVolumeConfigurationBlock() : TerraformBlock("volume_configuration")
 {
     /// <summary>
     /// The name attribute.
@@ -348,7 +348,7 @@ public partial class AwsEcsServiceVolumeConfigurationBlock : TerraformBlockBase
 /// Block type for vpc_lattice_configurations in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlockBase
+public partial class AwsEcsServiceVpcLatticeConfigurationsBlock() : TerraformBlock("vpc_lattice_configurations")
 {
     /// <summary>
     /// The port_name attribute.
@@ -561,14 +561,14 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alarms block(s) allowed")]
     [TerraformProperty("alarms")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceAlarmsBlock>>? Alarms { get; set; }
+    public TerraformList<AwsEcsServiceAlarmsBlock> Alarms { get; set; } = new();
 
     /// <summary>
     /// Block for capacity_provider_strategy.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("capacity_provider_strategy")]
-    public partial TerraformSet<TerraformBlock<AwsEcsServiceCapacityProviderStrategyBlock>>? CapacityProviderStrategy { get; set; }
+    public TerraformSet<AwsEcsServiceCapacityProviderStrategyBlock> CapacityProviderStrategy { get; set; } = new();
 
     /// <summary>
     /// Block for deployment_circuit_breaker.
@@ -576,7 +576,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentCircuitBreaker block(s) allowed")]
     [TerraformProperty("deployment_circuit_breaker")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceDeploymentCircuitBreakerBlock>>? DeploymentCircuitBreaker { get; set; }
+    public TerraformList<AwsEcsServiceDeploymentCircuitBreakerBlock> DeploymentCircuitBreaker { get; set; } = new();
 
     /// <summary>
     /// Block for deployment_configuration.
@@ -584,7 +584,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentConfiguration block(s) allowed")]
     [TerraformProperty("deployment_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceDeploymentConfigurationBlock>>? DeploymentConfiguration { get; set; }
+    public TerraformList<AwsEcsServiceDeploymentConfigurationBlock> DeploymentConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for deployment_controller.
@@ -592,14 +592,14 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentController block(s) allowed")]
     [TerraformProperty("deployment_controller")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceDeploymentControllerBlock>>? DeploymentController { get; set; }
+    public TerraformList<AwsEcsServiceDeploymentControllerBlock> DeploymentController { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancer.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("load_balancer")]
-    public partial TerraformSet<TerraformBlock<AwsEcsServiceLoadBalancerBlock>>? LoadBalancer { get; set; }
+    public TerraformSet<AwsEcsServiceLoadBalancerBlock> LoadBalancer { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
@@ -607,7 +607,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public TerraformList<AwsEcsServiceNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for ordered_placement_strategy.
@@ -615,7 +615,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 OrderedPlacementStrategy block(s) allowed")]
     [TerraformProperty("ordered_placement_strategy")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceOrderedPlacementStrategyBlock>>? OrderedPlacementStrategy { get; set; }
+    public TerraformList<AwsEcsServiceOrderedPlacementStrategyBlock> OrderedPlacementStrategy { get; set; } = new();
 
     /// <summary>
     /// Block for placement_constraints.
@@ -623,7 +623,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
     [TerraformProperty("placement_constraints")]
-    public partial TerraformSet<TerraformBlock<AwsEcsServicePlacementConstraintsBlock>>? PlacementConstraints { get; set; }
+    public TerraformSet<AwsEcsServicePlacementConstraintsBlock> PlacementConstraints { get; set; } = new();
 
     /// <summary>
     /// Block for service_connect_configuration.
@@ -631,7 +631,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceConnectConfiguration block(s) allowed")]
     [TerraformProperty("service_connect_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceServiceConnectConfigurationBlock>>? ServiceConnectConfiguration { get; set; }
+    public TerraformList<AwsEcsServiceServiceConnectConfigurationBlock> ServiceConnectConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for service_registries.
@@ -639,14 +639,14 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceRegistries block(s) allowed")]
     [TerraformProperty("service_registries")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceServiceRegistriesBlock>>? ServiceRegistries { get; set; }
+    public TerraformList<AwsEcsServiceServiceRegistriesBlock> ServiceRegistries { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEcsServiceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEcsServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for volume_configuration.
@@ -654,14 +654,14 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VolumeConfiguration block(s) allowed")]
     [TerraformProperty("volume_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcsServiceVolumeConfigurationBlock>>? VolumeConfiguration { get; set; }
+    public TerraformList<AwsEcsServiceVolumeConfigurationBlock> VolumeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_lattice_configurations.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("vpc_lattice_configurations")]
-    public partial TerraformSet<TerraformBlock<AwsEcsServiceVpcLatticeConfigurationsBlock>>? VpcLatticeConfigurations { get; set; }
+    public TerraformSet<AwsEcsServiceVpcLatticeConfigurationsBlock> VpcLatticeConfigurations { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

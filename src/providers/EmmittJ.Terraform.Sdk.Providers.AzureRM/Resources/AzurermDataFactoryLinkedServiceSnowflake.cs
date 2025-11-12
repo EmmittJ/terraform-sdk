@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_password in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock() : TerraformBlock("key_vault_password")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceSnowflakeTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceSnowflakeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,13 +144,13 @@ public partial class AzurermDataFactoryLinkedServiceSnowflake : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
     [TerraformProperty("key_vault_password")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock>>? KeyVaultPassword { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock> KeyVaultPassword { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedServiceSnowflakeTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedServiceSnowflakeTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for client_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskServerlessClusterClientAuthenticationBlock : TerraformBlockBase
+public partial class AwsMskServerlessClusterClientAuthenticationBlock() : TerraformBlock("client_authentication")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsMskServerlessClusterClientAuthenticationBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMskServerlessClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsMskServerlessClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -36,7 +36,7 @@ public partial class AwsMskServerlessClusterTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMskServerlessClusterVpcConfigBlock : TerraformBlockBase
+public partial class AwsMskServerlessClusterVpcConfigBlock() : TerraformBlock("vpc_config")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -109,14 +109,14 @@ public partial class AwsMskServerlessCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClientAuthentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthentication block(s) allowed")]
     [TerraformProperty("client_authentication")]
-    public partial TerraformList<TerraformBlock<AwsMskServerlessClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; }
+    public required TerraformList<AwsMskServerlessClusterClientAuthenticationBlock> ClientAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMskServerlessClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMskServerlessClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -125,7 +125,7 @@ public partial class AwsMskServerlessCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfig block(s) required")]
     [TerraformProperty("vpc_config")]
-    public partial TerraformList<TerraformBlock<AwsMskServerlessClusterVpcConfigBlock>>? VpcConfig { get; set; }
+    public required TerraformList<AwsMskServerlessClusterVpcConfigBlock> VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for dapr in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppDaprBlock : TerraformBlockBase
+public partial class AzurermContainerAppDaprBlock() : TerraformBlock("dapr")
 {
     /// <summary>
     /// The Dapr Application Identifier.
@@ -36,7 +36,7 @@ public partial class AzurermContainerAppDaprBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppIdentityBlock : TerraformBlockBase
+public partial class AzurermContainerAppIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -61,7 +61,7 @@ public partial class AzurermContainerAppIdentityBlock : TerraformBlockBase
 /// Block type for ingress in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppIngressBlock : TerraformBlockBase
+public partial class AzurermContainerAppIngressBlock() : TerraformBlock("ingress")
 {
     /// <summary>
     /// Should this ingress allow insecure connections?
@@ -114,7 +114,7 @@ public partial class AzurermContainerAppIngressBlock : TerraformBlockBase
 /// Block type for registry in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppRegistryBlock : TerraformBlockBase
+public partial class AzurermContainerAppRegistryBlock() : TerraformBlock("registry")
 {
     /// <summary>
     /// ID of the System or User Managed Identity used to pull images from the Container Registry
@@ -151,7 +151,7 @@ public partial class AzurermContainerAppRegistryBlock : TerraformBlockBase
 /// Block type for secret in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermContainerAppSecretBlock : TerraformBlockBase
+public partial class AzurermContainerAppSecretBlock() : TerraformBlock("secret")
 {
     /// <summary>
     /// The identity to use for accessing key vault reference.
@@ -188,7 +188,7 @@ public partial class AzurermContainerAppSecretBlock : TerraformBlockBase
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerAppTemplateBlock : TerraformBlockBase
+public partial class AzurermContainerAppTemplateBlock() : TerraformBlock("template")
 {
     /// <summary>
     /// The maximum number of replicas for this container.
@@ -224,7 +224,7 @@ public partial class AzurermContainerAppTemplateBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerAppTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerAppTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -332,7 +332,7 @@ public partial class AzurermContainerApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dapr block(s) allowed")]
     [TerraformProperty("dapr")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppDaprBlock>>? Dapr { get; set; }
+    public TerraformList<AzurermContainerAppDaprBlock> Dapr { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -340,7 +340,7 @@ public partial class AzurermContainerApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermContainerAppIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for ingress.
@@ -348,21 +348,21 @@ public partial class AzurermContainerApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ingress block(s) allowed")]
     [TerraformProperty("ingress")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppIngressBlock>>? Ingress { get; set; }
+    public TerraformList<AzurermContainerAppIngressBlock> Ingress { get; set; } = new();
 
     /// <summary>
     /// Block for registry.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("registry")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppRegistryBlock>>? Registry { get; set; }
+    public TerraformList<AzurermContainerAppRegistryBlock> Registry { get; set; } = new();
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("secret")]
-    public partial TerraformSet<TerraformBlock<AzurermContainerAppSecretBlock>>? Secret { get; set; }
+    public TerraformSet<AzurermContainerAppSecretBlock> Secret { get; set; } = new();
 
     /// <summary>
     /// Block for template.
@@ -372,14 +372,14 @@ public partial class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public partial TerraformList<TerraformBlock<AzurermContainerAppTemplateBlock>>? Template { get; set; }
+    public required TerraformList<AzurermContainerAppTemplateBlock> Template { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerAppTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerAppTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ID of the Custom Domain Verification for this Container App.

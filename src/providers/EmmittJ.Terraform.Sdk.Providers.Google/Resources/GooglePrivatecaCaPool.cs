@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCaPoolEncryptionSpecBlock : TerraformBlockBase
+public partial class GooglePrivatecaCaPoolEncryptionSpecBlock() : TerraformBlock("encryption_spec")
 {
     /// <summary>
     /// The resource name for an existing Cloud KMS key in the format
@@ -22,7 +22,7 @@ public partial class GooglePrivatecaCaPoolEncryptionSpecBlock : TerraformBlockBa
 /// Block type for issuance_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlockBase
+public partial class GooglePrivatecaCaPoolIssuancePolicyBlock() : TerraformBlock("issuance_policy")
 {
     /// <summary>
     /// The duration to backdate all certificates issued from this CaPool. If not set, the
@@ -49,7 +49,7 @@ public partial class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlockBa
 /// Block type for publishing_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlockBase
+public partial class GooglePrivatecaCaPoolPublishingOptionsBlock() : TerraformBlock("publishing_options")
 {
     /// <summary>
     /// Specifies the encoding format of each CertificateAuthority&#39;s CA
@@ -87,7 +87,7 @@ public partial class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlockBase
+public partial class GooglePrivatecaCaPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -181,7 +181,7 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCaPoolEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public TerraformList<GooglePrivatecaCaPoolEncryptionSpecBlock> EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for issuance_policy.
@@ -189,7 +189,7 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IssuancePolicy block(s) allowed")]
     [TerraformProperty("issuance_policy")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCaPoolIssuancePolicyBlock>>? IssuancePolicy { get; set; }
+    public TerraformList<GooglePrivatecaCaPoolIssuancePolicyBlock> IssuancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for publishing_options.
@@ -197,14 +197,14 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublishingOptions block(s) allowed")]
     [TerraformProperty("publishing_options")]
-    public partial TerraformList<TerraformBlock<GooglePrivatecaCaPoolPublishingOptionsBlock>>? PublishingOptions { get; set; }
+    public TerraformList<GooglePrivatecaCaPoolPublishingOptionsBlock> PublishingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePrivatecaCaPoolTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePrivatecaCaPoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlockBase
+public partial class AzurermFunctionAppConnectionAuthenticationBlock() : TerraformBlock("authentication")
 {
     /// <summary>
     /// The certificate attribute.
@@ -64,7 +64,7 @@ public partial class AzurermFunctionAppConnectionAuthenticationBlock : Terraform
 /// Block type for secret_store in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFunctionAppConnectionSecretStoreBlock : TerraformBlockBase
+public partial class AzurermFunctionAppConnectionSecretStoreBlock() : TerraformBlock("secret_store")
 {
     /// <summary>
     /// The key_vault_id attribute.
@@ -80,7 +80,7 @@ public partial class AzurermFunctionAppConnectionSecretStoreBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFunctionAppConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -175,7 +175,7 @@ public partial class AzurermFunctionAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     [TerraformProperty("authentication")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppConnectionAuthenticationBlock>>? Authentication { get; set; }
+    public required TerraformList<AzurermFunctionAppConnectionAuthenticationBlock> Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for secret_store.
@@ -183,13 +183,13 @@ public partial class AzurermFunctionAppConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
     [TerraformProperty("secret_store")]
-    public partial TerraformList<TerraformBlock<AzurermFunctionAppConnectionSecretStoreBlock>>? SecretStore { get; set; }
+    public TerraformList<AzurermFunctionAppConnectionSecretStoreBlock> SecretStore { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFunctionAppConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFunctionAppConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

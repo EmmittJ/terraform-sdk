@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsVpcSecurityGroupRulesDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsVpcSecurityGroupRulesDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -54,7 +54,7 @@ public partial class AwsVpcSecurityGroupRulesDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsVpcSecurityGroupRulesDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsVpcSecurityGroupRulesDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

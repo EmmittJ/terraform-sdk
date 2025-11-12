@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53ZoneTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53ZoneTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsRoute53ZoneTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsRoute53ZoneVpcBlock : TerraformBlockBase
+public partial class AwsRoute53ZoneVpcBlock() : TerraformBlock("vpc")
 {
     /// <summary>
     /// The vpc_id attribute.
@@ -118,14 +118,14 @@ public partial class AwsRoute53Zone : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53ZoneTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53ZoneTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("vpc")]
-    public partial TerraformSet<TerraformBlock<AwsRoute53ZoneVpcBlock>>? Vpc { get; set; }
+    public TerraformSet<AwsRoute53ZoneVpcBlock> Vpc { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

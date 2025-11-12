@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for override_provider in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3ObjectOverrideProviderBlock : TerraformBlockBase
+public partial class AwsS3ObjectOverrideProviderBlock() : TerraformBlock("override_provider")
 {
 }
 
@@ -224,7 +224,7 @@ public partial class AwsS3Object : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OverrideProvider block(s) allowed")]
     [TerraformProperty("override_provider")]
-    public partial TerraformList<TerraformBlock<AwsS3ObjectOverrideProviderBlock>>? OverrideProvider { get; set; }
+    public TerraformList<AwsS3ObjectOverrideProviderBlock> OverrideProvider { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

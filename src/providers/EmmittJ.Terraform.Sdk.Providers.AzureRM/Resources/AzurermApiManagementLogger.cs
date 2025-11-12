@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for application_insights in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlockBase
+public partial class AzurermApiManagementLoggerApplicationInsightsBlock() : TerraformBlock("application_insights")
 {
     /// <summary>
     /// The connection_string attribute.
@@ -28,7 +28,7 @@ public partial class AzurermApiManagementLoggerApplicationInsightsBlock : Terraf
 /// Block type for eventhub in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementLoggerEventhubBlock : TerraformBlockBase
+public partial class AzurermApiManagementLoggerEventhubBlock() : TerraformBlock("eventhub")
 {
     /// <summary>
     /// The connection_string attribute.
@@ -65,7 +65,7 @@ public partial class AzurermApiManagementLoggerEventhubBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementLoggerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,7 +165,7 @@ public partial class AzurermApiManagementLogger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationInsights block(s) allowed")]
     [TerraformProperty("application_insights")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementLoggerApplicationInsightsBlock>>? ApplicationInsights { get; set; }
+    public TerraformList<AzurermApiManagementLoggerApplicationInsightsBlock> ApplicationInsights { get; set; } = new();
 
     /// <summary>
     /// Block for eventhub.
@@ -173,13 +173,13 @@ public partial class AzurermApiManagementLogger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Eventhub block(s) allowed")]
     [TerraformProperty("eventhub")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementLoggerEventhubBlock>>? Eventhub { get; set; }
+    public TerraformList<AzurermApiManagementLoggerEventhubBlock> Eventhub { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementLoggerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementLoggerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

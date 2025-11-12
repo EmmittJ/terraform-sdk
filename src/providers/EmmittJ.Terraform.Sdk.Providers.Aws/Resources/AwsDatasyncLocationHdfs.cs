@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for name_node in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationHdfsNameNodeBlock() : TerraformBlock("name_node")
 {
     /// <summary>
     /// The hostname attribute.
@@ -30,7 +30,7 @@ public partial class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlockBase
 /// Block type for qop_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncLocationHdfsQopConfigurationBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationHdfsQopConfigurationBlock() : TerraformBlock("qop_configuration")
 {
     /// <summary>
     /// The data_transfer_protection attribute.
@@ -178,7 +178,7 @@ public partial class AwsDatasyncLocationHdfs : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NameNode is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NameNode block(s) required")]
     [TerraformProperty("name_node")]
-    public partial TerraformSet<TerraformBlock<AwsDatasyncLocationHdfsNameNodeBlock>>? NameNode { get; set; }
+    public required TerraformSet<AwsDatasyncLocationHdfsNameNodeBlock> NameNode { get; set; } = new();
 
     /// <summary>
     /// Block for qop_configuration.
@@ -186,7 +186,7 @@ public partial class AwsDatasyncLocationHdfs : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QopConfiguration block(s) allowed")]
     [TerraformProperty("qop_configuration")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncLocationHdfsQopConfigurationBlock>>? QopConfiguration { get; set; }
+    public TerraformList<AwsDatasyncLocationHdfsQopConfigurationBlock> QopConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

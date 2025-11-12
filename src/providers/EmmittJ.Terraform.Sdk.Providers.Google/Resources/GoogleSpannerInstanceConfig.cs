@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for replicas in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlockBase
+public partial class GoogleSpannerInstanceConfigReplicasBlock() : TerraformBlock("replicas")
 {
     /// <summary>
     /// If true, this location is designated as the default leader location where
@@ -38,7 +38,7 @@ public partial class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSpannerInstanceConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,14 +131,14 @@ public partial class GoogleSpannerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replicas is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replicas block(s) required")]
     [TerraformProperty("replicas")]
-    public partial TerraformSet<TerraformBlock<GoogleSpannerInstanceConfigReplicasBlock>>? Replicas { get; set; }
+    public required TerraformSet<GoogleSpannerInstanceConfigReplicasBlock> Replicas { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSpannerInstanceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSpannerInstanceConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Whether this instance config is a Google or User Managed Configuration.

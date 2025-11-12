@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncApiEventConfigBlock : TerraformBlockBase
+public partial class AwsAppsyncApiEventConfigBlock() : TerraformBlock("event_config")
 {
 }
 
@@ -53,7 +53,7 @@ public partial class AwsAppsyncApi : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_config")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncApiEventConfigBlock>>? EventConfig { get; set; }
+    public TerraformList<AwsAppsyncApiEventConfigBlock> EventConfig { get; set; } = new();
 
     /// <summary>
     /// The api_arn attribute.

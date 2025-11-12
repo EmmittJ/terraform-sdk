@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbCassandraTableAutoscaleSettingsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbCassandraTableAutoscaleSettingsBlock() : TerraformBlock("autoscale_settings")
 {
     /// <summary>
     /// The max_throughput attribute.
@@ -21,7 +21,7 @@ public partial class AzurermCosmosdbCassandraTableAutoscaleSettingsBlock : Terra
 /// Block type for schema in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCosmosdbCassandraTableSchemaBlock : TerraformBlockBase
+public partial class AzurermCosmosdbCassandraTableSchemaBlock() : TerraformBlock("schema")
 {
 }
 
@@ -29,7 +29,7 @@ public partial class AzurermCosmosdbCassandraTableSchemaBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCosmosdbCassandraTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -121,7 +121,7 @@ public partial class AzurermCosmosdbCassandraTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public TerraformList<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for schema.
@@ -131,13 +131,13 @@ public partial class AzurermCosmosdbCassandraTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schema block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schema block(s) allowed")]
     [TerraformProperty("schema")]
-    public partial TerraformList<TerraformBlock<AzurermCosmosdbCassandraTableSchemaBlock>>? Schema { get; set; }
+    public required TerraformList<AzurermCosmosdbCassandraTableSchemaBlock> Schema { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCosmosdbCassandraTableTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCosmosdbCassandraTableTimeoutsBlock Timeouts { get; set; } = new();
 
 }

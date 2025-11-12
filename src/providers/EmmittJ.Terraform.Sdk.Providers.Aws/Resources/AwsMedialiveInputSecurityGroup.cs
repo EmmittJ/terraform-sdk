@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMedialiveInputSecurityGroupTimeoutsBlock : TerraformBlockBase
+public partial class AwsMedialiveInputSecurityGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsMedialiveInputSecurityGroupTimeoutsBlock : TerraformBloc
 /// Block type for whitelist_rules in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMedialiveInputSecurityGroupWhitelistRulesBlock : TerraformBlockBase
+public partial class AwsMedialiveInputSecurityGroupWhitelistRulesBlock() : TerraformBlock("whitelist_rules")
 {
     /// <summary>
     /// The cidr attribute.
@@ -90,7 +90,7 @@ public partial class AwsMedialiveInputSecurityGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMedialiveInputSecurityGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMedialiveInputSecurityGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for whitelist_rules.
@@ -99,7 +99,7 @@ public partial class AwsMedialiveInputSecurityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WhitelistRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WhitelistRules block(s) required")]
     [TerraformProperty("whitelist_rules")]
-    public partial TerraformSet<TerraformBlock<AwsMedialiveInputSecurityGroupWhitelistRulesBlock>>? WhitelistRules { get; set; }
+    public required TerraformSet<AwsMedialiveInputSecurityGroupWhitelistRulesBlock> WhitelistRules { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

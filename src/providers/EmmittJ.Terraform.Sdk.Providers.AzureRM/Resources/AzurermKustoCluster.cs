@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKustoClusterIdentityBlock : TerraformBlockBase
+public partial class AzurermKustoClusterIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermKustoClusterIdentityBlock : TerraformBlockBase
 /// Block type for language_extension in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKustoClusterLanguageExtensionBlock : TerraformBlockBase
+public partial class AzurermKustoClusterLanguageExtensionBlock() : TerraformBlock("language_extension")
 {
     /// <summary>
     /// The image attribute.
@@ -56,7 +56,7 @@ public partial class AzurermKustoClusterLanguageExtensionBlock : TerraformBlockB
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlockBase
+public partial class AzurermKustoClusterLanguageExtensionsBlock() : TerraformBlock("language_extensions")
 {
     /// <summary>
     /// The image attribute.
@@ -80,7 +80,7 @@ public partial class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
 /// Block type for optimized_auto_scale in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlockBase
+public partial class AzurermKustoClusterOptimizedAutoScaleBlock() : TerraformBlock("optimized_auto_scale")
 {
     /// <summary>
     /// The maximum_instances attribute.
@@ -104,7 +104,7 @@ public partial class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKustoClusterSkuBlock : TerraformBlockBase
+public partial class AzurermKustoClusterSkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -127,7 +127,7 @@ public partial class AzurermKustoClusterSkuBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKustoClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKustoClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -164,7 +164,7 @@ public partial class AzurermKustoClusterTimeoutsBlock : TerraformBlockBase
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBlockBase
+public partial class AzurermKustoClusterVirtualNetworkConfigurationBlock() : TerraformBlock("virtual_network_configuration")
 {
     /// <summary>
     /// The data_management_public_ip_id attribute.
@@ -330,14 +330,14 @@ public partial class AzurermKustoCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermKustoClusterIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermKustoClusterIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for language_extension.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("language_extension")]
-    public partial TerraformList<TerraformBlock<AzurermKustoClusterLanguageExtensionBlock>>? LanguageExtension { get; set; }
+    public TerraformList<AzurermKustoClusterLanguageExtensionBlock> LanguageExtension { get; set; } = new();
 
     /// <summary>
     /// Block for language_extensions.
@@ -345,7 +345,7 @@ public partial class AzurermKustoCluster : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("language_extensions")]
-    public partial TerraformList<TerraformBlock<AzurermKustoClusterLanguageExtensionsBlock>>? LanguageExtensions { get; set; }
+    public TerraformList<AzurermKustoClusterLanguageExtensionsBlock> LanguageExtensions { get; set; } = new();
 
     /// <summary>
     /// Block for optimized_auto_scale.
@@ -353,7 +353,7 @@ public partial class AzurermKustoCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OptimizedAutoScale block(s) allowed")]
     [TerraformProperty("optimized_auto_scale")]
-    public partial TerraformList<TerraformBlock<AzurermKustoClusterOptimizedAutoScaleBlock>>? OptimizedAutoScale { get; set; }
+    public TerraformList<AzurermKustoClusterOptimizedAutoScaleBlock> OptimizedAutoScale { get; set; } = new();
 
     /// <summary>
     /// Block for sku.
@@ -363,14 +363,14 @@ public partial class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermKustoClusterSkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermKustoClusterSkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKustoClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKustoClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_network_configuration.
@@ -379,7 +379,7 @@ public partial class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("virtual_network_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermKustoClusterVirtualNetworkConfigurationBlock>>? VirtualNetworkConfiguration { get; set; }
+    public TerraformList<AzurermKustoClusterVirtualNetworkConfigurationBlock> VirtualNetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// The data_ingestion_uri attribute.

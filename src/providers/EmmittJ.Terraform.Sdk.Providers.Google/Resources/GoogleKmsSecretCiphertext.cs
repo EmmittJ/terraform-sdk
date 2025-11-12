@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleKmsSecretCiphertextTimeoutsBlock : TerraformBlockBase
+public partial class GoogleKmsSecretCiphertextTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -69,7 +69,7 @@ public partial class GoogleKmsSecretCiphertext : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleKmsSecretCiphertextTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleKmsSecretCiphertextTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Contains the result of encrypting the provided plaintext, encoded in base64.

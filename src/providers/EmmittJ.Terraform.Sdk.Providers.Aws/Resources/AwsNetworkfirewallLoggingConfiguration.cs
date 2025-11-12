@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock() : TerraformBlock("logging_configuration")
 {
 }
 
@@ -57,6 +57,6 @@ public partial class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoggingConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformProperty("logging_configuration")]
-    public partial TerraformList<TerraformBlock<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
+    public required TerraformList<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock> LoggingConfiguration { get; set; } = new();
 
 }

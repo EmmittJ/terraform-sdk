@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSnapshotEncryptionSettingsBlock : TerraformBlockBase
+public partial class AzurermSnapshotEncryptionSettingsBlock() : TerraformBlock("encryption_settings")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermSnapshotEncryptionSettingsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSnapshotTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSnapshotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -164,14 +164,14 @@ public partial class AzurermSnapshot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSettings block(s) allowed")]
     [TerraformProperty("encryption_settings")]
-    public partial TerraformList<TerraformBlock<AzurermSnapshotEncryptionSettingsBlock>>? EncryptionSettings { get; set; }
+    public TerraformList<AzurermSnapshotEncryptionSettingsBlock> EncryptionSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSnapshotTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSnapshotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The trusted_launch_enabled attribute.

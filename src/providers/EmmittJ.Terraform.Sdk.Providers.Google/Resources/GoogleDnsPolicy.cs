@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for alternative_name_server_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsPolicyAlternativeNameServerConfigBlock : TerraformBlockBase
+public partial class GoogleDnsPolicyAlternativeNameServerConfigBlock() : TerraformBlock("alternative_name_server_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDnsPolicyAlternativeNameServerConfigBlock : Terraform
 /// Block type for dns64_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsPolicyDns64ConfigBlock : TerraformBlockBase
+public partial class GoogleDnsPolicyDns64ConfigBlock() : TerraformBlock("dns64_config")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class GoogleDnsPolicyDns64ConfigBlock : TerraformBlockBase
 /// Block type for networks in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleDnsPolicyNetworksBlock : TerraformBlockBase
+public partial class GoogleDnsPolicyNetworksBlock() : TerraformBlock("networks")
 {
     /// <summary>
     /// The id or fully qualified URL of the VPC network to forward queries to.
@@ -40,7 +40,7 @@ public partial class GoogleDnsPolicyNetworksBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDnsPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDnsPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,7 +128,7 @@ public partial class GoogleDnsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlternativeNameServerConfig block(s) allowed")]
     [TerraformProperty("alternative_name_server_config")]
-    public partial TerraformList<TerraformBlock<GoogleDnsPolicyAlternativeNameServerConfigBlock>>? AlternativeNameServerConfig { get; set; }
+    public TerraformList<GoogleDnsPolicyAlternativeNameServerConfigBlock> AlternativeNameServerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for dns64_config.
@@ -136,20 +136,20 @@ public partial class GoogleDnsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns64Config block(s) allowed")]
     [TerraformProperty("dns64_config")]
-    public partial TerraformList<TerraformBlock<GoogleDnsPolicyDns64ConfigBlock>>? Dns64Config { get; set; }
+    public TerraformList<GoogleDnsPolicyDns64ConfigBlock> Dns64Config { get; set; } = new();
 
     /// <summary>
     /// Block for networks.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("networks")]
-    public partial TerraformSet<TerraformBlock<GoogleDnsPolicyNetworksBlock>>? Networks { get; set; }
+    public TerraformSet<GoogleDnsPolicyNetworksBlock> Networks { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDnsPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDnsPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementAuthorizationServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -42,7 +42,7 @@ public partial class AzurermApiManagementAuthorizationServerTimeoutsBlock : Terr
 /// Block type for token_body_parameter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : TerraformBlockBase
+public partial class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock() : TerraformBlock("token_body_parameter")
 {
     /// <summary>
     /// The name attribute.
@@ -218,13 +218,13 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementAuthorizationServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementAuthorizationServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for token_body_parameter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("token_body_parameter")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>>? TokenBodyParameter { get; set; }
+    public TerraformList<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock> TokenBodyParameter { get; set; } = new();
 
 }

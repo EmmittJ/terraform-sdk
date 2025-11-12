@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOracleResourceAnchorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOracleResourceAnchorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,7 +82,7 @@ public partial class AzurermOracleResourceAnchor : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOracleResourceAnchorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOracleResourceAnchorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The linked_compartment_id attribute.

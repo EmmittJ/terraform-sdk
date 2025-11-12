@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for install_patches in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMaintenanceConfigurationInstallPatchesBlock : TerraformBlockBase
+public partial class AzurermMaintenanceConfigurationInstallPatchesBlock() : TerraformBlock("install_patches")
 {
     /// <summary>
     /// The reboot attribute.
@@ -21,7 +21,7 @@ public partial class AzurermMaintenanceConfigurationInstallPatchesBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMaintenanceConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -57,7 +57,7 @@ public partial class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlo
 /// Block type for window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMaintenanceConfigurationWindowBlock : TerraformBlockBase
+public partial class AzurermMaintenanceConfigurationWindowBlock() : TerraformBlock("window")
 {
     /// <summary>
     /// The duration attribute.
@@ -181,14 +181,14 @@ public partial class AzurermMaintenanceConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstallPatches block(s) allowed")]
     [TerraformProperty("install_patches")]
-    public partial TerraformList<TerraformBlock<AzurermMaintenanceConfigurationInstallPatchesBlock>>? InstallPatches { get; set; }
+    public TerraformList<AzurermMaintenanceConfigurationInstallPatchesBlock> InstallPatches { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMaintenanceConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMaintenanceConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for window.
@@ -196,6 +196,6 @@ public partial class AzurermMaintenanceConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Window block(s) allowed")]
     [TerraformProperty("window")]
-    public partial TerraformList<TerraformBlock<AzurermMaintenanceConfigurationWindowBlock>>? Window { get; set; }
+    public TerraformList<AzurermMaintenanceConfigurationWindowBlock> Window { get; set; } = new();
 
 }

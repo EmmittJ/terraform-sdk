@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for capture_description in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventhubCaptureDescriptionBlock : TerraformBlockBase
+public partial class AzurermEventhubCaptureDescriptionBlock() : TerraformBlock("capture_description")
 {
     /// <summary>
     /// The enabled attribute.
@@ -51,7 +51,7 @@ public partial class AzurermEventhubCaptureDescriptionBlock : TerraformBlockBase
 /// Block type for retention_description in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventhubRetentionDescriptionBlock : TerraformBlockBase
+public partial class AzurermEventhubRetentionDescriptionBlock() : TerraformBlock("retention_description")
 {
     /// <summary>
     /// The cleanup_policy attribute.
@@ -81,7 +81,7 @@ public partial class AzurermEventhubRetentionDescriptionBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventhubTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventhubTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -189,7 +189,7 @@ public partial class AzurermEventhub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CaptureDescription block(s) allowed")]
     [TerraformProperty("capture_description")]
-    public partial TerraformList<TerraformBlock<AzurermEventhubCaptureDescriptionBlock>>? CaptureDescription { get; set; }
+    public TerraformList<AzurermEventhubCaptureDescriptionBlock> CaptureDescription { get; set; } = new();
 
     /// <summary>
     /// Block for retention_description.
@@ -197,14 +197,14 @@ public partial class AzurermEventhub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDescription block(s) allowed")]
     [TerraformProperty("retention_description")]
-    public partial TerraformList<TerraformBlock<AzurermEventhubRetentionDescriptionBlock>>? RetentionDescription { get; set; }
+    public TerraformList<AzurermEventhubRetentionDescriptionBlock> RetentionDescription { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventhubTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventhubTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The partition_ids attribute.

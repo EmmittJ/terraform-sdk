@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFluidRelayServerCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermFluidRelayServerCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermFluidRelayServerCustomerManagedKeyBlock : TerraformB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFluidRelayServerIdentityBlock : TerraformBlockBase
+public partial class AzurermFluidRelayServerIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -55,7 +55,7 @@ public partial class AzurermFluidRelayServerIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFluidRelayServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFluidRelayServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,7 +148,7 @@ public partial class AzurermFluidRelayServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermFluidRelayServerCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermFluidRelayServerCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -156,14 +156,14 @@ public partial class AzurermFluidRelayServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermFluidRelayServerIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermFluidRelayServerIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFluidRelayServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFluidRelayServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The frs_tenant_id attribute.

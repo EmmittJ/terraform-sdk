@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metadata_filters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeGlobalForwardingRuleMetadataFiltersBlock : TerraformBlockBase
+public partial class GoogleComputeGlobalForwardingRuleMetadataFiltersBlock() : TerraformBlock("metadata_filters")
 {
     /// <summary>
     /// Specifies how individual filterLabel matches within the list of
@@ -28,7 +28,7 @@ public partial class GoogleComputeGlobalForwardingRuleMetadataFiltersBlock : Ter
 /// Block type for service_directory_registrations in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock : TerraformBlockBase
+public partial class GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock() : TerraformBlock("service_directory_registrations")
 {
     /// <summary>
     /// Service Directory namespace to register the forwarding rule under.
@@ -53,7 +53,7 @@ public partial class GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrati
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeGlobalForwardingRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeGlobalForwardingRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -360,7 +360,7 @@ public partial class GoogleComputeGlobalForwardingRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("metadata_filters")]
-    public partial TerraformList<TerraformBlock<GoogleComputeGlobalForwardingRuleMetadataFiltersBlock>>? MetadataFilters { get; set; }
+    public TerraformList<GoogleComputeGlobalForwardingRuleMetadataFiltersBlock> MetadataFilters { get; set; } = new();
 
     /// <summary>
     /// Block for service_directory_registrations.
@@ -368,14 +368,14 @@ public partial class GoogleComputeGlobalForwardingRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDirectoryRegistrations block(s) allowed")]
     [TerraformProperty("service_directory_registrations")]
-    public partial TerraformList<TerraformBlock<GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock>>? ServiceDirectoryRegistrations { get; set; }
+    public TerraformList<GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock> ServiceDirectoryRegistrations { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeGlobalForwardingRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeGlobalForwardingRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// [Output Only] The URL for the corresponding base Forwarding Rule. By base Forwarding Rule, we mean the Forwarding Rule that has the same IP address, protocol, and port settings with the current Forwarding Rule, but without sourceIPRanges specified. Always empty if the current Forwarding Rule does not have sourceIPRanges specified.

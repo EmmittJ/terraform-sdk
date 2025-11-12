@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for groups in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEvidentlyLaunchGroupsBlock : TerraformBlockBase
+public partial class AwsEvidentlyLaunchGroupsBlock() : TerraformBlock("groups")
 {
     /// <summary>
     /// The description attribute.
@@ -45,7 +45,7 @@ public partial class AwsEvidentlyLaunchGroupsBlock : TerraformBlockBase
 /// Block type for metric_monitors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEvidentlyLaunchMetricMonitorsBlock : TerraformBlockBase
+public partial class AwsEvidentlyLaunchMetricMonitorsBlock() : TerraformBlock("metric_monitors")
 {
 }
 
@@ -53,7 +53,7 @@ public partial class AwsEvidentlyLaunchMetricMonitorsBlock : TerraformBlockBase
 /// Block type for scheduled_splits_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEvidentlyLaunchScheduledSplitsConfigBlock : TerraformBlockBase
+public partial class AwsEvidentlyLaunchScheduledSplitsConfigBlock() : TerraformBlock("scheduled_splits_config")
 {
 }
 
@@ -61,7 +61,7 @@ public partial class AwsEvidentlyLaunchScheduledSplitsConfigBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEvidentlyLaunchTimeoutsBlock : TerraformBlockBase
+public partial class AwsEvidentlyLaunchTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -163,7 +163,7 @@ public partial class AwsEvidentlyLaunch : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Groups block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Groups block(s) allowed")]
     [TerraformProperty("groups")]
-    public partial TerraformList<TerraformBlock<AwsEvidentlyLaunchGroupsBlock>>? Groups { get; set; }
+    public required TerraformList<AwsEvidentlyLaunchGroupsBlock> Groups { get; set; } = new();
 
     /// <summary>
     /// Block for metric_monitors.
@@ -171,7 +171,7 @@ public partial class AwsEvidentlyLaunch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 MetricMonitors block(s) allowed")]
     [TerraformProperty("metric_monitors")]
-    public partial TerraformList<TerraformBlock<AwsEvidentlyLaunchMetricMonitorsBlock>>? MetricMonitors { get; set; }
+    public TerraformList<AwsEvidentlyLaunchMetricMonitorsBlock> MetricMonitors { get; set; } = new();
 
     /// <summary>
     /// Block for scheduled_splits_config.
@@ -179,14 +179,14 @@ public partial class AwsEvidentlyLaunch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledSplitsConfig block(s) allowed")]
     [TerraformProperty("scheduled_splits_config")]
-    public partial TerraformList<TerraformBlock<AwsEvidentlyLaunchScheduledSplitsConfigBlock>>? ScheduledSplitsConfig { get; set; }
+    public TerraformList<AwsEvidentlyLaunchScheduledSplitsConfigBlock> ScheduledSplitsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEvidentlyLaunchTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEvidentlyLaunchTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for external_mapping in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock() : TerraformBlock("external_mapping")
 {
     /// <summary>
     /// The address_space attribute.
@@ -29,7 +29,7 @@ public partial class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : T
 /// Block type for internal_mapping in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock() : TerraformBlock("internal_mapping")
 {
     /// <summary>
     /// The address_space attribute.
@@ -52,7 +52,7 @@ public partial class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -153,7 +153,7 @@ public partial class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalMapping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExternalMapping block(s) required")]
     [TerraformProperty("external_mapping")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock>>? ExternalMapping { get; set; }
+    public required TerraformList<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock> ExternalMapping { get; set; } = new();
 
     /// <summary>
     /// Block for internal_mapping.
@@ -162,13 +162,13 @@ public partial class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternalMapping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InternalMapping block(s) required")]
     [TerraformProperty("internal_mapping")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock>>? InternalMapping { get; set; }
+    public required TerraformList<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock> InternalMapping { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

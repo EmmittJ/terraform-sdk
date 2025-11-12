@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLbListenerDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsLbListenerDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -73,7 +73,7 @@ public partial class AwsLbListenerDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLbListenerDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLbListenerDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The alpn_policy attribute.

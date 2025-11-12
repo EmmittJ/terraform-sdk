@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for lifecycle_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlockBase
+public partial class AwsEfsFileSystemLifecyclePolicyBlock() : TerraformBlock("lifecycle_policy")
 {
     /// <summary>
     /// The transition_to_archive attribute.
@@ -35,7 +35,7 @@ public partial class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlockBase
 /// Block type for protection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEfsFileSystemProtectionBlock : TerraformBlockBase
+public partial class AwsEfsFileSystemProtectionBlock() : TerraformBlock("protection")
 {
     /// <summary>
     /// The replication_overwrite attribute.
@@ -139,7 +139,7 @@ public partial class AwsEfsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 LifecyclePolicy block(s) allowed")]
     [TerraformProperty("lifecycle_policy")]
-    public partial TerraformList<TerraformBlock<AwsEfsFileSystemLifecyclePolicyBlock>>? LifecyclePolicy { get; set; }
+    public TerraformList<AwsEfsFileSystemLifecyclePolicyBlock> LifecyclePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for protection.
@@ -147,7 +147,7 @@ public partial class AwsEfsFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protection block(s) allowed")]
     [TerraformProperty("protection")]
-    public partial TerraformList<TerraformBlock<AwsEfsFileSystemProtectionBlock>>? Protection { get; set; }
+    public TerraformList<AwsEfsFileSystemProtectionBlock> Protection { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for automatic_update in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock() : TerraformBlock("automatic_update")
 {
     /// <summary>
     /// The authentication_type attribute.
@@ -35,7 +35,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdat
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,13 +146,13 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticUpdate block(s) allowed")]
     [TerraformProperty("automatic_update")]
-    public partial TerraformList<TerraformBlock<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>>? AutomaticUpdate { get; set; }
+    public TerraformList<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock> AutomaticUpdate { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

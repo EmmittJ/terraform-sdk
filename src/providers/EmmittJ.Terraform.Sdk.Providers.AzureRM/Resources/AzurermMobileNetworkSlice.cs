@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock() : TerraformBlock("single_network_slice_selection_assistance_information")
 {
     /// <summary>
     /// The slice_differentiator attribute.
@@ -32,7 +32,7 @@ public partial class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssista
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkSliceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,13 +140,13 @@ public partial class AzurermMobileNetworkSlice : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleNetworkSliceSelectionAssistanceInformation block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("single_network_slice_selection_assistance_information")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>>? SingleNetworkSliceSelectionAssistanceInformation { get; set; }
+    public TerraformList<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock> SingleNetworkSliceSelectionAssistanceInformation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMobileNetworkSliceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMobileNetworkSliceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

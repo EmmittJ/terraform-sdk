@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_bus in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventEndpointEventBusBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventEndpointEventBusBlock() : TerraformBlock("event_bus")
 {
     /// <summary>
     /// The event_bus_arn attribute.
@@ -22,7 +22,7 @@ public partial class AwsCloudwatchEventEndpointEventBusBlock : TerraformBlockBas
 /// Block type for replication_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventEndpointReplicationConfigBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventEndpointReplicationConfigBlock() : TerraformBlock("replication_config")
 {
     /// <summary>
     /// The state attribute.
@@ -37,7 +37,7 @@ public partial class AwsCloudwatchEventEndpointReplicationConfigBlock : Terrafor
 /// Block type for routing_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchEventEndpointRoutingConfigBlock : TerraformBlockBase
+public partial class AwsCloudwatchEventEndpointRoutingConfigBlock() : TerraformBlock("routing_config")
 {
 }
 
@@ -94,7 +94,7 @@ public partial class AwsCloudwatchEventEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 EventBus block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 EventBus block(s) allowed")]
     [TerraformProperty("event_bus")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventEndpointEventBusBlock>>? EventBus { get; set; }
+    public TerraformList<AwsCloudwatchEventEndpointEventBusBlock> EventBus { get; set; } = new();
 
     /// <summary>
     /// Block for replication_config.
@@ -102,7 +102,7 @@ public partial class AwsCloudwatchEventEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfig block(s) allowed")]
     [TerraformProperty("replication_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventEndpointReplicationConfigBlock>>? ReplicationConfig { get; set; }
+    public TerraformList<AwsCloudwatchEventEndpointReplicationConfigBlock> ReplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for routing_config.
@@ -112,7 +112,7 @@ public partial class AwsCloudwatchEventEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingConfig block(s) allowed")]
     [TerraformProperty("routing_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchEventEndpointRoutingConfigBlock>>? RoutingConfig { get; set; }
+    public required TerraformList<AwsCloudwatchEventEndpointRoutingConfigBlock> RoutingConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

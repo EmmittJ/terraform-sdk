@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for soa_record in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsZoneSoaRecordBlock() : TerraformBlock("soa_record")
 {
     /// <summary>
     /// The email attribute.
@@ -67,7 +67,7 @@ public partial class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPrivateDnsZoneTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsZoneTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -145,14 +145,14 @@ public partial class AzurermPrivateDnsZone : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoaRecord block(s) allowed")]
     [TerraformProperty("soa_record")]
-    public partial TerraformList<TerraformBlock<AzurermPrivateDnsZoneSoaRecordBlock>>? SoaRecord { get; set; }
+    public TerraformList<AzurermPrivateDnsZoneSoaRecordBlock> SoaRecord { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPrivateDnsZoneTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPrivateDnsZoneTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The max_number_of_record_sets attribute.

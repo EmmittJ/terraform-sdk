@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for mount_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncLocationNfsMountOptionsBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationNfsMountOptionsBlock() : TerraformBlock("mount_options")
 {
     /// <summary>
     /// The version attribute.
@@ -21,7 +21,7 @@ public partial class AwsDatasyncLocationNfsMountOptionsBlock : TerraformBlockBas
 /// Block type for on_prem_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncLocationNfsOnPremConfigBlock : TerraformBlockBase
+public partial class AwsDatasyncLocationNfsOnPremConfigBlock() : TerraformBlock("on_prem_config")
 {
     /// <summary>
     /// The agent_arns attribute.
@@ -93,7 +93,7 @@ public partial class AwsDatasyncLocationNfs : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MountOptions block(s) allowed")]
     [TerraformProperty("mount_options")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncLocationNfsMountOptionsBlock>>? MountOptions { get; set; }
+    public TerraformList<AwsDatasyncLocationNfsMountOptionsBlock> MountOptions { get; set; } = new();
 
     /// <summary>
     /// Block for on_prem_config.
@@ -103,7 +103,7 @@ public partial class AwsDatasyncLocationNfs : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OnPremConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnPremConfig block(s) allowed")]
     [TerraformProperty("on_prem_config")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncLocationNfsOnPremConfigBlock>>? OnPremConfig { get; set; }
+    public required TerraformList<AwsDatasyncLocationNfsOnPremConfigBlock> OnPremConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

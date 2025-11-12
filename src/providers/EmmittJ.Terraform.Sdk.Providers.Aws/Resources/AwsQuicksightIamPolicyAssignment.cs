@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for identities in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightIamPolicyAssignmentIdentitiesBlock : TerraformBlockBase
+public partial class AwsQuicksightIamPolicyAssignmentIdentitiesBlock() : TerraformBlock("identities")
 {
     /// <summary>
     /// The group attribute.
@@ -82,7 +82,7 @@ public partial class AwsQuicksightIamPolicyAssignment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("identities")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightIamPolicyAssignmentIdentitiesBlock>>? Identities { get; set; }
+    public TerraformList<AwsQuicksightIamPolicyAssignmentIdentitiesBlock> Identities { get; set; } = new();
 
     /// <summary>
     /// The assignment_id attribute.

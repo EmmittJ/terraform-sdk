@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_repository_association in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlockBase
+public partial class AwsFsxFileCacheDataRepositoryAssociationBlock() : TerraformBlock("data_repository_association")
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ public partial class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBl
 /// Block type for lustre_configuration in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlockBase
+public partial class AwsFsxFileCacheLustreConfigurationBlock() : TerraformBlock("lustre_configuration")
 {
     /// <summary>
     /// The deployment_type attribute.
@@ -83,7 +83,7 @@ public partial class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFsxFileCacheTimeoutsBlock : TerraformBlockBase
+public partial class AwsFsxFileCacheTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -205,21 +205,21 @@ public partial class AwsFsxFileCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 DataRepositoryAssociation block(s) allowed")]
     [TerraformProperty("data_repository_association")]
-    public partial TerraformSet<TerraformBlock<AwsFsxFileCacheDataRepositoryAssociationBlock>>? DataRepositoryAssociation { get; set; }
+    public TerraformSet<AwsFsxFileCacheDataRepositoryAssociationBlock> DataRepositoryAssociation { get; set; } = new();
 
     /// <summary>
     /// Block for lustre_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("lustre_configuration")]
-    public partial TerraformSet<TerraformBlock<AwsFsxFileCacheLustreConfigurationBlock>>? LustreConfiguration { get; set; }
+    public TerraformSet<AwsFsxFileCacheLustreConfigurationBlock> LustreConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFsxFileCacheTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFsxFileCacheTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

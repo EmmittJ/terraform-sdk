@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourcePolicyAssignmentIdentityBlock : TerraformBlockBase
+public partial class AzurermResourcePolicyAssignmentIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermResourcePolicyAssignmentIdentityBlock : TerraformBlo
 /// Block type for non_compliance_message in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourcePolicyAssignmentNonComplianceMessageBlock : TerraformBlockBase
+public partial class AzurermResourcePolicyAssignmentNonComplianceMessageBlock() : TerraformBlock("non_compliance_message")
 {
     /// <summary>
     /// The content attribute.
@@ -54,7 +54,7 @@ public partial class AzurermResourcePolicyAssignmentNonComplianceMessageBlock : 
 /// Block type for overrides in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourcePolicyAssignmentOverridesBlock : TerraformBlockBase
+public partial class AzurermResourcePolicyAssignmentOverridesBlock() : TerraformBlock("overrides")
 {
     /// <summary>
     /// The value attribute.
@@ -70,7 +70,7 @@ public partial class AzurermResourcePolicyAssignmentOverridesBlock : TerraformBl
 /// Block type for resource_selectors in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermResourcePolicyAssignmentResourceSelectorsBlock : TerraformBlockBase
+public partial class AzurermResourcePolicyAssignmentResourceSelectorsBlock() : TerraformBlock("resource_selectors")
 {
     /// <summary>
     /// The name attribute.
@@ -85,7 +85,7 @@ public partial class AzurermResourcePolicyAssignmentResourceSelectorsBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermResourcePolicyAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermResourcePolicyAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -213,34 +213,34 @@ public partial class AzurermResourcePolicyAssignment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermResourcePolicyAssignmentIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermResourcePolicyAssignmentIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for non_compliance_message.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("non_compliance_message")]
-    public partial TerraformList<TerraformBlock<AzurermResourcePolicyAssignmentNonComplianceMessageBlock>>? NonComplianceMessage { get; set; }
+    public TerraformList<AzurermResourcePolicyAssignmentNonComplianceMessageBlock> NonComplianceMessage { get; set; } = new();
 
     /// <summary>
     /// Block for overrides.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("overrides")]
-    public partial TerraformList<TerraformBlock<AzurermResourcePolicyAssignmentOverridesBlock>>? Overrides { get; set; }
+    public TerraformList<AzurermResourcePolicyAssignmentOverridesBlock> Overrides { get; set; } = new();
 
     /// <summary>
     /// Block for resource_selectors.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resource_selectors")]
-    public partial TerraformList<TerraformBlock<AzurermResourcePolicyAssignmentResourceSelectorsBlock>>? ResourceSelectors { get; set; }
+    public TerraformList<AzurermResourcePolicyAssignmentResourceSelectorsBlock> ResourceSelectors { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermResourcePolicyAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermResourcePolicyAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

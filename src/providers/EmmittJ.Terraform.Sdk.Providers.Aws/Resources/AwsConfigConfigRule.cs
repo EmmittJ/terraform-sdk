@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for evaluation_mode in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsConfigConfigRuleEvaluationModeBlock : TerraformBlockBase
+public partial class AwsConfigConfigRuleEvaluationModeBlock() : TerraformBlock("evaluation_mode")
 {
     /// <summary>
     /// The mode attribute.
@@ -21,7 +21,7 @@ public partial class AwsConfigConfigRuleEvaluationModeBlock : TerraformBlockBase
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigConfigRuleScopeBlock : TerraformBlockBase
+public partial class AwsConfigConfigRuleScopeBlock() : TerraformBlock("scope")
 {
     /// <summary>
     /// The compliance_resource_id attribute.
@@ -57,7 +57,7 @@ public partial class AwsConfigConfigRuleScopeBlock : TerraformBlockBase
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsConfigConfigRuleSourceBlock : TerraformBlockBase
+public partial class AwsConfigConfigRuleSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The owner attribute.
@@ -148,7 +148,7 @@ public partial class AwsConfigConfigRule : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("evaluation_mode")]
-    public partial TerraformSet<TerraformBlock<AwsConfigConfigRuleEvaluationModeBlock>>? EvaluationMode { get; set; }
+    public TerraformSet<AwsConfigConfigRuleEvaluationModeBlock> EvaluationMode { get; set; } = new();
 
     /// <summary>
     /// Block for scope.
@@ -156,7 +156,7 @@ public partial class AwsConfigConfigRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scope block(s) allowed")]
     [TerraformProperty("scope")]
-    public partial TerraformList<TerraformBlock<AwsConfigConfigRuleScopeBlock>>? Scope { get; set; }
+    public TerraformList<AwsConfigConfigRuleScopeBlock> Scope { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -166,7 +166,7 @@ public partial class AwsConfigConfigRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AwsConfigConfigRuleSourceBlock>>? Source { get; set; }
+    public required TerraformList<AwsConfigConfigRuleSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

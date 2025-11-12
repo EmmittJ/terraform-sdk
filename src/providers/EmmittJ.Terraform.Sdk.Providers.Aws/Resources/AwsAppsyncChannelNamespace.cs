@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for handler_configs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncChannelNamespaceHandlerConfigsBlock : TerraformBlockBase
+public partial class AwsAppsyncChannelNamespaceHandlerConfigsBlock() : TerraformBlock("handler_configs")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsAppsyncChannelNamespaceHandlerConfigsBlock : TerraformBl
 /// Block type for publish_auth_mode in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncChannelNamespacePublishAuthModeBlock : TerraformBlockBase
+public partial class AwsAppsyncChannelNamespacePublishAuthModeBlock() : TerraformBlock("publish_auth_mode")
 {
     /// <summary>
     /// The auth_type attribute.
@@ -30,7 +30,7 @@ public partial class AwsAppsyncChannelNamespacePublishAuthModeBlock : TerraformB
 /// Block type for subscribe_auth_mode in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppsyncChannelNamespaceSubscribeAuthModeBlock : TerraformBlockBase
+public partial class AwsAppsyncChannelNamespaceSubscribeAuthModeBlock() : TerraformBlock("subscribe_auth_mode")
 {
     /// <summary>
     /// The auth_type attribute.
@@ -93,21 +93,21 @@ public partial class AwsAppsyncChannelNamespace : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("handler_configs")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncChannelNamespaceHandlerConfigsBlock>>? HandlerConfigs { get; set; }
+    public TerraformList<AwsAppsyncChannelNamespaceHandlerConfigsBlock> HandlerConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for publish_auth_mode.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("publish_auth_mode")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncChannelNamespacePublishAuthModeBlock>>? PublishAuthMode { get; set; }
+    public TerraformList<AwsAppsyncChannelNamespacePublishAuthModeBlock> PublishAuthMode { get; set; } = new();
 
     /// <summary>
     /// Block for subscribe_auth_mode.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("subscribe_auth_mode")]
-    public partial TerraformList<TerraformBlock<AwsAppsyncChannelNamespaceSubscribeAuthModeBlock>>? SubscribeAuthMode { get; set; }
+    public TerraformList<AwsAppsyncChannelNamespaceSubscribeAuthModeBlock> SubscribeAuthMode { get; set; } = new();
 
     /// <summary>
     /// The channel_namespace_arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for composite_slot_type_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock : TerraformBlockBase
+public partial class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock() : TerraformBlock("composite_slot_type_setting")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock : Terra
 /// Block type for external_source_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsSlotTypeExternalSourceSettingBlock : TerraformBlockBase
+public partial class AwsLexv2modelsSlotTypeExternalSourceSettingBlock() : TerraformBlock("external_source_setting")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsLexv2modelsSlotTypeExternalSourceSettingBlock : Terrafor
 /// Block type for slot_type_values in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsSlotTypeSlotTypeValuesBlock : TerraformBlockBase
+public partial class AwsLexv2modelsSlotTypeSlotTypeValuesBlock() : TerraformBlock("slot_type_values")
 {
 }
 
@@ -30,7 +30,7 @@ public partial class AwsLexv2modelsSlotTypeSlotTypeValuesBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlockBase
+public partial class AwsLexv2modelsSlotTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -59,7 +59,7 @@ public partial class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlockBase
 /// Block type for value_selection_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsSlotTypeValueSelectionSettingBlock : TerraformBlockBase
+public partial class AwsLexv2modelsSlotTypeValueSelectionSettingBlock() : TerraformBlock("value_selection_setting")
 {
     /// <summary>
     /// The resolution_strategy attribute.
@@ -138,35 +138,35 @@ public partial class AwsLexv2modelsSlotType : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("composite_slot_type_setting")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>>? CompositeSlotTypeSetting { get; set; }
+    public TerraformList<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock> CompositeSlotTypeSetting { get; set; } = new();
 
     /// <summary>
     /// Block for external_source_setting.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("external_source_setting")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>>? ExternalSourceSetting { get; set; }
+    public TerraformList<AwsLexv2modelsSlotTypeExternalSourceSettingBlock> ExternalSourceSetting { get; set; } = new();
 
     /// <summary>
     /// Block for slot_type_values.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("slot_type_values")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>>? SlotTypeValues { get; set; }
+    public TerraformList<AwsLexv2modelsSlotTypeSlotTypeValuesBlock> SlotTypeValues { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLexv2modelsSlotTypeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLexv2modelsSlotTypeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for value_selection_setting.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("value_selection_setting")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>>? ValueSelectionSetting { get; set; }
+    public TerraformList<AwsLexv2modelsSlotTypeValueSelectionSettingBlock> ValueSelectionSetting { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

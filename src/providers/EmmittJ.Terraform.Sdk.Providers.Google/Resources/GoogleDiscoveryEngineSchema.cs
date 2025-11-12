@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineSchemaTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineSchemaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -84,7 +84,7 @@ public partial class GoogleDiscoveryEngineSchema : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineSchemaTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineSchemaTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique full resource name of the schema. Values are of the format

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity_units in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraIndexCapacityUnitsBlock : TerraformBlockBase
+public partial class AwsKendraIndexCapacityUnitsBlock() : TerraformBlock("capacity_units")
 {
     /// <summary>
     /// The query_capacity_units attribute.
@@ -28,7 +28,7 @@ public partial class AwsKendraIndexCapacityUnitsBlock : TerraformBlockBase
 /// Block type for document_metadata_configuration_updates in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock : TerraformBlockBase
+public partial class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock() : TerraformBlock("document_metadata_configuration_updates")
 {
     /// <summary>
     /// The name attribute.
@@ -52,7 +52,7 @@ public partial class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock : T
 /// Block type for server_side_encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraIndexServerSideEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsKendraIndexServerSideEncryptionConfigurationBlock() : TerraformBlock("server_side_encryption_configuration")
 {
     /// <summary>
     /// The kms_key_id attribute.
@@ -67,7 +67,7 @@ public partial class AwsKendraIndexServerSideEncryptionConfigurationBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKendraIndexTimeoutsBlock : TerraformBlockBase
+public partial class AwsKendraIndexTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,7 +96,7 @@ public partial class AwsKendraIndexTimeoutsBlock : TerraformBlockBase
 /// Block type for user_group_resolution_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraIndexUserGroupResolutionConfigurationBlock : TerraformBlockBase
+public partial class AwsKendraIndexUserGroupResolutionConfigurationBlock() : TerraformBlock("user_group_resolution_configuration")
 {
     /// <summary>
     /// The user_group_resolution_mode attribute.
@@ -112,7 +112,7 @@ public partial class AwsKendraIndexUserGroupResolutionConfigurationBlock : Terra
 /// Block type for user_token_configurations in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraIndexUserTokenConfigurationsBlock : TerraformBlockBase
+public partial class AwsKendraIndexUserTokenConfigurationsBlock() : TerraformBlock("user_token_configurations")
 {
 }
 
@@ -197,7 +197,7 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityUnits block(s) allowed")]
     [TerraformProperty("capacity_units")]
-    public partial TerraformList<TerraformBlock<AwsKendraIndexCapacityUnitsBlock>>? CapacityUnits { get; set; }
+    public TerraformList<AwsKendraIndexCapacityUnitsBlock> CapacityUnits { get; set; } = new();
 
     /// <summary>
     /// Block for document_metadata_configuration_updates.
@@ -205,7 +205,7 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 DocumentMetadataConfigurationUpdates block(s) allowed")]
     [TerraformProperty("document_metadata_configuration_updates")]
-    public partial TerraformSet<TerraformBlock<AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock>>? DocumentMetadataConfigurationUpdates { get; set; }
+    public TerraformSet<AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock> DocumentMetadataConfigurationUpdates { get; set; } = new();
 
     /// <summary>
     /// Block for server_side_encryption_configuration.
@@ -213,14 +213,14 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryptionConfiguration block(s) allowed")]
     [TerraformProperty("server_side_encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKendraIndexServerSideEncryptionConfigurationBlock>>? ServerSideEncryptionConfiguration { get; set; }
+    public TerraformList<AwsKendraIndexServerSideEncryptionConfigurationBlock> ServerSideEncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKendraIndexTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKendraIndexTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_group_resolution_configuration.
@@ -228,7 +228,7 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserGroupResolutionConfiguration block(s) allowed")]
     [TerraformProperty("user_group_resolution_configuration")]
-    public partial TerraformList<TerraformBlock<AwsKendraIndexUserGroupResolutionConfigurationBlock>>? UserGroupResolutionConfiguration { get; set; }
+    public TerraformList<AwsKendraIndexUserGroupResolutionConfigurationBlock> UserGroupResolutionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for user_token_configurations.
@@ -236,7 +236,7 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserTokenConfigurations block(s) allowed")]
     [TerraformProperty("user_token_configurations")]
-    public partial TerraformList<TerraformBlock<AwsKendraIndexUserTokenConfigurationsBlock>>? UserTokenConfigurations { get; set; }
+    public TerraformList<AwsKendraIndexUserTokenConfigurationsBlock> UserTokenConfigurations { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

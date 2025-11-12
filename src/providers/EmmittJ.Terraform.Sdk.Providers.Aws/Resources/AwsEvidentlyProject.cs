@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_delivery in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEvidentlyProjectDataDeliveryBlock : TerraformBlockBase
+public partial class AwsEvidentlyProjectDataDeliveryBlock() : TerraformBlock("data_delivery")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsEvidentlyProjectDataDeliveryBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEvidentlyProjectTimeoutsBlock : TerraformBlockBase
+public partial class AwsEvidentlyProjectTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -99,14 +99,14 @@ public partial class AwsEvidentlyProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataDelivery block(s) allowed")]
     [TerraformProperty("data_delivery")]
-    public partial TerraformList<TerraformBlock<AwsEvidentlyProjectDataDeliveryBlock>>? DataDelivery { get; set; }
+    public TerraformList<AwsEvidentlyProjectDataDeliveryBlock> DataDelivery { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEvidentlyProjectTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEvidentlyProjectTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The active_experiment_count attribute.

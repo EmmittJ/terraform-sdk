@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for aws in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryConnectionAwsBlock : TerraformBlockBase
+public partial class GoogleBigqueryConnectionAwsBlock() : TerraformBlock("aws")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleBigqueryConnectionAwsBlock : TerraformBlockBase
 /// Block type for azure in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryConnectionAzureBlock : TerraformBlockBase
+public partial class GoogleBigqueryConnectionAzureBlock() : TerraformBlock("azure")
 {
 
 
@@ -42,7 +42,7 @@ public partial class GoogleBigqueryConnectionAzureBlock : TerraformBlockBase
 /// Block type for cloud_resource in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryConnectionCloudResourceBlock : TerraformBlockBase
+public partial class GoogleBigqueryConnectionCloudResourceBlock() : TerraformBlock("cloud_resource")
 {
 
 }
@@ -51,7 +51,7 @@ public partial class GoogleBigqueryConnectionCloudResourceBlock : TerraformBlock
 /// Block type for cloud_spanner in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlockBase
+public partial class GoogleBigqueryConnectionCloudSpannerBlock() : TerraformBlock("cloud_spanner")
 {
     /// <summary>
     /// Cloud Spanner database in the form &#39;project/instance/database&#39;.
@@ -103,7 +103,7 @@ public partial class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlockB
 /// Block type for cloud_sql in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlockBase
+public partial class GoogleBigqueryConnectionCloudSqlBlock() : TerraformBlock("cloud_sql")
 {
     /// <summary>
     /// Database name.
@@ -136,7 +136,7 @@ public partial class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlockBase
 /// Block type for spark in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigqueryConnectionSparkBlock : TerraformBlockBase
+public partial class GoogleBigqueryConnectionSparkBlock() : TerraformBlock("spark")
 {
 
 }
@@ -145,7 +145,7 @@ public partial class GoogleBigqueryConnectionSparkBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigqueryConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigqueryConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -243,7 +243,7 @@ public partial class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Aws block(s) allowed")]
     [TerraformProperty("aws")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryConnectionAwsBlock>>? Aws { get; set; }
+    public TerraformList<GoogleBigqueryConnectionAwsBlock> Aws { get; set; } = new();
 
     /// <summary>
     /// Block for azure.
@@ -251,7 +251,7 @@ public partial class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Azure block(s) allowed")]
     [TerraformProperty("azure")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryConnectionAzureBlock>>? Azure { get; set; }
+    public TerraformList<GoogleBigqueryConnectionAzureBlock> Azure { get; set; } = new();
 
     /// <summary>
     /// Block for cloud_resource.
@@ -259,7 +259,7 @@ public partial class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudResource block(s) allowed")]
     [TerraformProperty("cloud_resource")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudResourceBlock>>? CloudResource { get; set; }
+    public TerraformList<GoogleBigqueryConnectionCloudResourceBlock> CloudResource { get; set; } = new();
 
     /// <summary>
     /// Block for cloud_spanner.
@@ -267,7 +267,7 @@ public partial class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudSpanner block(s) allowed")]
     [TerraformProperty("cloud_spanner")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudSpannerBlock>>? CloudSpanner { get; set; }
+    public TerraformList<GoogleBigqueryConnectionCloudSpannerBlock> CloudSpanner { get; set; } = new();
 
     /// <summary>
     /// Block for cloud_sql.
@@ -275,7 +275,7 @@ public partial class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudSql block(s) allowed")]
     [TerraformProperty("cloud_sql")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryConnectionCloudSqlBlock>>? CloudSql { get; set; }
+    public TerraformList<GoogleBigqueryConnectionCloudSqlBlock> CloudSql { get; set; } = new();
 
     /// <summary>
     /// Block for spark.
@@ -283,14 +283,14 @@ public partial class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spark block(s) allowed")]
     [TerraformProperty("spark")]
-    public partial TerraformList<TerraformBlock<GoogleBigqueryConnectionSparkBlock>>? Spark { get; set; }
+    public TerraformList<GoogleBigqueryConnectionSparkBlock> Spark { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigqueryConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigqueryConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// True if the connection has credential assigned.

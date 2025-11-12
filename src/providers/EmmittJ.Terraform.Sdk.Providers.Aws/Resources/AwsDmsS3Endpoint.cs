@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDmsS3EndpointTimeoutsBlock : TerraformBlockBase
+public partial class AwsDmsS3EndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -399,7 +399,7 @@ public partial class AwsDmsS3Endpoint : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDmsS3EndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDmsS3EndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint_arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlockBase
+public partial class AzurermLogAnalyticsWorkspaceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogAnalyticsWorkspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -202,14 +202,14 @@ public partial class AzurermLogAnalyticsWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermLogAnalyticsWorkspaceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermLogAnalyticsWorkspaceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogAnalyticsWorkspaceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogAnalyticsWorkspaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_shared_key attribute.

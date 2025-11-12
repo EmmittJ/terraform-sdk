@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for basic_algorithm in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock : TerraformBlockBase
+public partial class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock() : TerraformBlock("basic_algorithm")
 {
     /// <summary>
     /// Duration between scaling events. A scaling period starts after the
@@ -24,7 +24,7 @@ public partial class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock : Terraf
 /// Block type for secondary_worker_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock() : TerraformBlock("secondary_worker_config")
 {
     /// <summary>
     /// Maximum number of instances for this group. Note that by default, clusters will not use
@@ -68,7 +68,7 @@ public partial class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocAutoscalingPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -97,7 +97,7 @@ public partial class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlo
 /// Block type for worker_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocAutoscalingPolicyWorkerConfigBlock() : TerraformBlock("worker_config")
 {
     /// <summary>
     /// Maximum number of instances for this group.
@@ -184,7 +184,7 @@ public partial class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAlgorithm block(s) allowed")]
     [TerraformProperty("basic_algorithm")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock>>? BasicAlgorithm { get; set; }
+    public TerraformList<GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock> BasicAlgorithm { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_worker_config.
@@ -192,14 +192,14 @@ public partial class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryWorkerConfig block(s) allowed")]
     [TerraformProperty("secondary_worker_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock>>? SecondaryWorkerConfig { get; set; }
+    public TerraformList<GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock> SecondaryWorkerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocAutoscalingPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocAutoscalingPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for worker_config.
@@ -207,7 +207,7 @@ public partial class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfig block(s) allowed")]
     [TerraformProperty("worker_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicyWorkerConfigBlock>>? WorkerConfig { get; set; }
+    public TerraformList<GoogleDataprocAutoscalingPolicyWorkerConfigBlock> WorkerConfig { get; set; } = new();
 
     /// <summary>
     /// The &amp;quot;resource name&amp;quot; of the autoscaling policy.

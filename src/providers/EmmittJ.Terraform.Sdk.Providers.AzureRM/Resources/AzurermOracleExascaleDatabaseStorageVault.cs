@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for high_capacity_database_storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock : TerraformBlockBase
+public partial class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock() : TerraformBlock("high_capacity_database_storage")
 {
 
     /// <summary>
@@ -23,7 +23,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDataba
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,13 +149,13 @@ public partial class AzurermOracleExascaleDatabaseStorageVault : TerraformResour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HighCapacityDatabaseStorage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighCapacityDatabaseStorage block(s) allowed")]
     [TerraformProperty("high_capacity_database_storage")]
-    public partial TerraformList<TerraformBlock<AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock>>? HighCapacityDatabaseStorage { get; set; }
+    public required TerraformList<AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock> HighCapacityDatabaseStorage { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock Timeouts { get; set; } = new();
 
 }

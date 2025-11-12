@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for category in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoLocalRulestackRuleCategoryBlock : TerraformBlockBase
+public partial class AzurermPaloAltoLocalRulestackRuleCategoryBlock() : TerraformBlock("category")
 {
     /// <summary>
     /// The custom_urls attribute.
@@ -29,7 +29,7 @@ public partial class AzurermPaloAltoLocalRulestackRuleCategoryBlock : TerraformB
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlockBase
+public partial class AzurermPaloAltoLocalRulestackRuleDestinationBlock() : TerraformBlock("destination")
 {
     /// <summary>
     /// The cidrs attribute.
@@ -72,7 +72,7 @@ public partial class AzurermPaloAltoLocalRulestackRuleDestinationBlock : Terrafo
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlockBase
+public partial class AzurermPaloAltoLocalRulestackRuleSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The cidrs attribute.
@@ -108,7 +108,7 @@ public partial class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -280,7 +280,7 @@ public partial class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
     [TerraformProperty("category")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoLocalRulestackRuleCategoryBlock>>? Category { get; set; }
+    public TerraformList<AzurermPaloAltoLocalRulestackRuleCategoryBlock> Category { get; set; } = new();
 
     /// <summary>
     /// Block for destination.
@@ -290,7 +290,7 @@ public partial class AzurermPaloAltoLocalRulestackRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoLocalRulestackRuleDestinationBlock>>? Destination { get; set; }
+    public required TerraformList<AzurermPaloAltoLocalRulestackRuleDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -300,13 +300,13 @@ public partial class AzurermPaloAltoLocalRulestackRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermPaloAltoLocalRulestackRuleSourceBlock>>? Source { get; set; }
+    public required TerraformList<AzurermPaloAltoLocalRulestackRuleSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPaloAltoLocalRulestackRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPaloAltoLocalRulestackRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIotcentralApplicationIdentityBlock : TerraformBlockBase
+public partial class AzurermIotcentralApplicationIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -24,7 +24,7 @@ public partial class AzurermIotcentralApplicationIdentityBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIotcentralApplicationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIotcentralApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,13 +146,13 @@ public partial class AzurermIotcentralApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermIotcentralApplicationIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermIotcentralApplicationIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIotcentralApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIotcentralApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for private_endpoint in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceNetworkAclPrivateEndpointBlock() : TerraformBlock("private_endpoint")
 {
     /// <summary>
     /// The allowed_request_types attribute.
@@ -36,7 +36,7 @@ public partial class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : Terra
 /// Block type for public_network in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSignalrServiceNetworkAclPublicNetworkBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceNetworkAclPublicNetworkBlock() : TerraformBlock("public_network")
 {
     /// <summary>
     /// The allowed_request_types attribute.
@@ -58,7 +58,7 @@ public partial class AzurermSignalrServiceNetworkAclPublicNetworkBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSignalrServiceNetworkAclTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSignalrServiceNetworkAclTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,7 +128,7 @@ public partial class AzurermSignalrServiceNetworkAcl : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("private_endpoint")]
-    public partial TerraformSet<TerraformBlock<AzurermSignalrServiceNetworkAclPrivateEndpointBlock>>? PrivateEndpoint { get; set; }
+    public TerraformSet<AzurermSignalrServiceNetworkAclPrivateEndpointBlock> PrivateEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for public_network.
@@ -138,13 +138,13 @@ public partial class AzurermSignalrServiceNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PublicNetwork block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicNetwork block(s) allowed")]
     [TerraformProperty("public_network")]
-    public partial TerraformList<TerraformBlock<AzurermSignalrServiceNetworkAclPublicNetworkBlock>>? PublicNetwork { get; set; }
+    public required TerraformList<AzurermSignalrServiceNetworkAclPublicNetworkBlock> PublicNetwork { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSignalrServiceNetworkAclTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSignalrServiceNetworkAclTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : TerraformBlockBase
+public partial class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -30,7 +30,7 @@ public partial class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,13 +161,13 @@ public partial class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
 }

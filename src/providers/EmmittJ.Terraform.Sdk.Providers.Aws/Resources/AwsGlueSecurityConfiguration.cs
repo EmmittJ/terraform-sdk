@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGlueSecurityConfigurationEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsGlueSecurityConfigurationEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
 }
 
@@ -50,6 +50,6 @@ public partial class AwsGlueSecurityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EncryptionConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsGlueSecurityConfigurationEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public required TerraformList<AwsGlueSecurityConfigurationEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
 }

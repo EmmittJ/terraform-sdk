@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -96,6 +96,6 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment : Terrafo
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

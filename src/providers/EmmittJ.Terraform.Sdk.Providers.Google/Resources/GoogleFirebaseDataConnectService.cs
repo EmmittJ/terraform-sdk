@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseDataConnectServiceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseDataConnectServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -114,7 +114,7 @@ public partial class GoogleFirebaseDataConnectService : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseDataConnectServiceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseDataConnectServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. [Output only] Create time stamp.

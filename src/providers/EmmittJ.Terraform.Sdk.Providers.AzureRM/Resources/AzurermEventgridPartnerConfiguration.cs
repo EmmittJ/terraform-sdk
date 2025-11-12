@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for partner_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : TerraformBlockBase
+public partial class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock() : TerraformBlock("partner_authorization")
 {
     /// <summary>
     /// The authorization_expiration_time_in_utc attribute.
@@ -37,7 +37,7 @@ public partial class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermEventgridPartnerConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -112,13 +112,13 @@ public partial class AzurermEventgridPartnerConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("partner_authorization")]
-    public partial TerraformList<TerraformBlock<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>>? PartnerAuthorization { get; set; }
+    public TerraformList<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock> PartnerAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermEventgridPartnerConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermEventgridPartnerConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

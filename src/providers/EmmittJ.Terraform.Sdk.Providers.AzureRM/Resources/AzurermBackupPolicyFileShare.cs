@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBackupPolicyFileShareBackupBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyFileShareBackupBlock() : TerraformBlock("backup")
 {
     /// <summary>
     /// The frequency attribute.
@@ -29,7 +29,7 @@ public partial class AzurermBackupPolicyFileShareBackupBlock : TerraformBlockBas
 /// Block type for retention_daily in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBackupPolicyFileShareRetentionDailyBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyFileShareRetentionDailyBlock() : TerraformBlock("retention_daily")
 {
     /// <summary>
     /// The count attribute.
@@ -45,7 +45,7 @@ public partial class AzurermBackupPolicyFileShareRetentionDailyBlock : Terraform
 /// Block type for retention_monthly in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyFileShareRetentionMonthlyBlock() : TerraformBlock("retention_monthly")
 {
     /// <summary>
     /// The count attribute.
@@ -89,7 +89,7 @@ public partial class AzurermBackupPolicyFileShareRetentionMonthlyBlock : Terrafo
 /// Block type for retention_weekly in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBackupPolicyFileShareRetentionWeeklyBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyFileShareRetentionWeeklyBlock() : TerraformBlock("retention_weekly")
 {
     /// <summary>
     /// The count attribute.
@@ -113,7 +113,7 @@ public partial class AzurermBackupPolicyFileShareRetentionWeeklyBlock : Terrafor
 /// Block type for retention_yearly in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyFileShareRetentionYearlyBlock() : TerraformBlock("retention_yearly")
 {
     /// <summary>
     /// The count attribute.
@@ -165,7 +165,7 @@ public partial class AzurermBackupPolicyFileShareRetentionYearlyBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBackupPolicyFileShareTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -253,7 +253,7 @@ public partial class AzurermBackupPolicyFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Backup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public partial TerraformList<TerraformBlock<AzurermBackupPolicyFileShareBackupBlock>>? Backup { get; set; }
+    public required TerraformList<AzurermBackupPolicyFileShareBackupBlock> Backup { get; set; } = new();
 
     /// <summary>
     /// Block for retention_daily.
@@ -263,7 +263,7 @@ public partial class AzurermBackupPolicyFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RetentionDaily block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDaily block(s) allowed")]
     [TerraformProperty("retention_daily")]
-    public partial TerraformList<TerraformBlock<AzurermBackupPolicyFileShareRetentionDailyBlock>>? RetentionDaily { get; set; }
+    public required TerraformList<AzurermBackupPolicyFileShareRetentionDailyBlock> RetentionDaily { get; set; } = new();
 
     /// <summary>
     /// Block for retention_monthly.
@@ -271,7 +271,7 @@ public partial class AzurermBackupPolicyFileShare : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionMonthly block(s) allowed")]
     [TerraformProperty("retention_monthly")]
-    public partial TerraformList<TerraformBlock<AzurermBackupPolicyFileShareRetentionMonthlyBlock>>? RetentionMonthly { get; set; }
+    public TerraformList<AzurermBackupPolicyFileShareRetentionMonthlyBlock> RetentionMonthly { get; set; } = new();
 
     /// <summary>
     /// Block for retention_weekly.
@@ -279,7 +279,7 @@ public partial class AzurermBackupPolicyFileShare : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionWeekly block(s) allowed")]
     [TerraformProperty("retention_weekly")]
-    public partial TerraformList<TerraformBlock<AzurermBackupPolicyFileShareRetentionWeeklyBlock>>? RetentionWeekly { get; set; }
+    public TerraformList<AzurermBackupPolicyFileShareRetentionWeeklyBlock> RetentionWeekly { get; set; } = new();
 
     /// <summary>
     /// Block for retention_yearly.
@@ -287,13 +287,13 @@ public partial class AzurermBackupPolicyFileShare : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionYearly block(s) allowed")]
     [TerraformProperty("retention_yearly")]
-    public partial TerraformList<TerraformBlock<AzurermBackupPolicyFileShareRetentionYearlyBlock>>? RetentionYearly { get; set; }
+    public TerraformList<AzurermBackupPolicyFileShareRetentionYearlyBlock> RetentionYearly { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBackupPolicyFileShareTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBackupPolicyFileShareTimeoutsBlock Timeouts { get; set; } = new();
 
 }

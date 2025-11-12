@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_password in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock() : TerraformBlock("key_vault_password")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : 
 /// Block type for key_vault_private_key_content_base64 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block() : TerraformBlock("key_vault_private_key_content_base64")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -54,7 +54,7 @@ public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyConten
 /// Block type for key_vault_private_key_passphrase in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock() : TerraformBlock("key_vault_private_key_passphrase")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -78,7 +78,7 @@ public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassph
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceSftpTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceSftpTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -257,7 +257,7 @@ public partial class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("key_vault_password")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock>>? KeyVaultPassword { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock> KeyVaultPassword { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_private_key_content_base64.
@@ -265,7 +265,7 @@ public partial class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPrivateKeyContentBase64 block(s) allowed")]
     [TerraformProperty("key_vault_private_key_content_base64")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block>>? KeyVaultPrivateKeyContentBase64 { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block> KeyVaultPrivateKeyContentBase64 { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_private_key_passphrase.
@@ -273,13 +273,13 @@ public partial class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPrivateKeyPassphrase block(s) allowed")]
     [TerraformProperty("key_vault_private_key_passphrase")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock>>? KeyVaultPrivateKeyPassphrase { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock> KeyVaultPrivateKeyPassphrase { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedServiceSftpTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedServiceSftpTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for network_access_control in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGrafanaWorkspaceNetworkAccessControlBlock : TerraformBlockBase
+public partial class AwsGrafanaWorkspaceNetworkAccessControlBlock() : TerraformBlock("network_access_control")
 {
     /// <summary>
     /// The prefix_list_ids attribute.
@@ -30,7 +30,7 @@ public partial class AwsGrafanaWorkspaceNetworkAccessControlBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGrafanaWorkspaceTimeoutsBlock : TerraformBlockBase
+public partial class AwsGrafanaWorkspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -52,7 +52,7 @@ public partial class AwsGrafanaWorkspaceTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGrafanaWorkspaceVpcConfigurationBlock : TerraformBlockBase
+public partial class AwsGrafanaWorkspaceVpcConfigurationBlock() : TerraformBlock("vpc_configuration")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -210,14 +210,14 @@ public partial class AwsGrafanaWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAccessControl block(s) allowed")]
     [TerraformProperty("network_access_control")]
-    public partial TerraformList<TerraformBlock<AwsGrafanaWorkspaceNetworkAccessControlBlock>>? NetworkAccessControl { get; set; }
+    public TerraformList<AwsGrafanaWorkspaceNetworkAccessControlBlock> NetworkAccessControl { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGrafanaWorkspaceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGrafanaWorkspaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_configuration.
@@ -225,7 +225,7 @@ public partial class AwsGrafanaWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     [TerraformProperty("vpc_configuration")]
-    public partial TerraformList<TerraformBlock<AwsGrafanaWorkspaceVpcConfigurationBlock>>? VpcConfiguration { get; set; }
+    public TerraformList<AwsGrafanaWorkspaceVpcConfigurationBlock> VpcConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRouterNatLogConfigBlock : TerraformBlockBase
+public partial class GoogleComputeRouterNatLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// Indicates whether or not to export logs.
@@ -30,7 +30,7 @@ public partial class GoogleComputeRouterNatLogConfigBlock : TerraformBlockBase
 /// Block type for nat64_subnetwork in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeRouterNatNat64SubnetworkBlock : TerraformBlockBase
+public partial class GoogleComputeRouterNatNat64SubnetworkBlock() : TerraformBlock("nat64_subnetwork")
 {
     /// <summary>
     /// Self-link of the subnetwork resource that will use NAT64
@@ -46,7 +46,7 @@ public partial class GoogleComputeRouterNatNat64SubnetworkBlock : TerraformBlock
 /// Block type for rules in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeRouterNatRulesBlock : TerraformBlockBase
+public partial class GoogleComputeRouterNatRulesBlock() : TerraformBlock("rules")
 {
     /// <summary>
     /// An optional description of this rule.
@@ -89,7 +89,7 @@ public partial class GoogleComputeRouterNatRulesBlock : TerraformBlockBase
 /// Block type for subnetwork in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeRouterNatSubnetworkBlock : TerraformBlockBase
+public partial class GoogleComputeRouterNatSubnetworkBlock() : TerraformBlock("subnetwork")
 {
     /// <summary>
     /// Self-link of subnetwork to NAT
@@ -126,7 +126,7 @@ public partial class GoogleComputeRouterNatSubnetworkBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRouterNatTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRouterNatTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -372,34 +372,34 @@ public partial class GoogleComputeRouterNat : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRouterNatLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<GoogleComputeRouterNatLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for nat64_subnetwork.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("nat64_subnetwork")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeRouterNatNat64SubnetworkBlock>>? Nat64Subnetwork { get; set; }
+    public TerraformSet<GoogleComputeRouterNatNat64SubnetworkBlock> Nat64Subnetwork { get; set; } = new();
 
     /// <summary>
     /// Block for rules.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rules")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeRouterNatRulesBlock>>? Rules { get; set; }
+    public TerraformSet<GoogleComputeRouterNatRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for subnetwork.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("subnetwork")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeRouterNatSubnetworkBlock>>? Subnetwork { get; set; }
+    public TerraformSet<GoogleComputeRouterNatSubnetworkBlock> Subnetwork { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRouterNatTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRouterNatTimeoutsBlock Timeouts { get; set; } = new();
 
 }

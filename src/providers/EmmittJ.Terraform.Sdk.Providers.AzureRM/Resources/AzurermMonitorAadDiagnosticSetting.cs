@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for enabled_log in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermMonitorAadDiagnosticSettingEnabledLogBlock : TerraformBlockBase
+public partial class AzurermMonitorAadDiagnosticSettingEnabledLogBlock() : TerraformBlock("enabled_log")
 {
     /// <summary>
     /// The category attribute.
@@ -22,7 +22,7 @@ public partial class AzurermMonitorAadDiagnosticSettingEnabledLogBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorAadDiagnosticSettingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -111,13 +111,13 @@ public partial class AzurermMonitorAadDiagnosticSetting : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("enabled_log")]
-    public partial TerraformSet<TerraformBlock<AzurermMonitorAadDiagnosticSettingEnabledLogBlock>>? EnabledLog { get; set; }
+    public TerraformSet<AzurermMonitorAadDiagnosticSettingEnabledLogBlock> EnabledLog { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorAadDiagnosticSettingTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorAadDiagnosticSettingTimeoutsBlock Timeouts { get; set; } = new();
 
 }

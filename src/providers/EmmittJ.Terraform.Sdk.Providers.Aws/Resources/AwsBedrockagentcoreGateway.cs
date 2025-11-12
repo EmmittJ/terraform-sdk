@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authorizer_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreGatewayAuthorizerConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreGatewayAuthorizerConfigurationBlock() : TerraformBlock("authorizer_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsBedrockagentcoreGatewayAuthorizerConfigurationBlock : Te
 /// Block type for protocol_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreGatewayProtocolConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreGatewayProtocolConfigurationBlock() : TerraformBlock("protocol_configuration")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsBedrockagentcoreGatewayProtocolConfigurationBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentcoreGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -128,21 +128,21 @@ public partial class AwsBedrockagentcoreGateway : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("authorizer_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreGatewayAuthorizerConfigurationBlock>>? AuthorizerConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreGatewayAuthorizerConfigurationBlock> AuthorizerConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for protocol_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("protocol_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreGatewayProtocolConfigurationBlock>>? ProtocolConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreGatewayProtocolConfigurationBlock> ProtocolConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentcoreGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentcoreGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The gateway_arn attribute.

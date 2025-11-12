@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for catalog_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlockBase
+public partial class AwsEcrpublicRepositoryCatalogDataBlock() : TerraformBlock("catalog_data")
 {
     /// <summary>
     /// The about_text attribute.
@@ -56,7 +56,7 @@ public partial class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEcrpublicRepositoryTimeoutsBlock : TerraformBlockBase
+public partial class AwsEcrpublicRepositoryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -126,14 +126,14 @@ public partial class AwsEcrpublicRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogData block(s) allowed")]
     [TerraformProperty("catalog_data")]
-    public partial TerraformList<TerraformBlock<AwsEcrpublicRepositoryCatalogDataBlock>>? CatalogData { get; set; }
+    public TerraformList<AwsEcrpublicRepositoryCatalogDataBlock> CatalogData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEcrpublicRepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEcrpublicRepositoryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

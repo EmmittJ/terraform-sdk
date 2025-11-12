@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageBucketIamMemberConditionBlock : TerraformBlockBase
+public partial class GoogleStorageBucketIamMemberConditionBlock() : TerraformBlock("condition")
 {
     /// <summary>
     /// The description attribute.
@@ -37,7 +37,7 @@ public partial class GoogleStorageBucketIamMemberConditionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageBucketIamMemberTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageBucketIamMemberTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -95,14 +95,14 @@ public partial class GoogleStorageBucketIamMember : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<GoogleStorageBucketIamMemberConditionBlock>>? Condition { get; set; }
+    public TerraformList<GoogleStorageBucketIamMemberConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageBucketIamMemberTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageBucketIamMemberTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.

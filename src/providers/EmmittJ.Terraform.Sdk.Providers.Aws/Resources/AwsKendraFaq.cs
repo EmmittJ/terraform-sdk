@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_path in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKendraFaqS3PathBlock : TerraformBlockBase
+public partial class AwsKendraFaqS3PathBlock() : TerraformBlock("s3_path")
 {
     /// <summary>
     /// The bucket attribute.
@@ -30,7 +30,7 @@ public partial class AwsKendraFaqS3PathBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKendraFaqTimeoutsBlock : TerraformBlockBase
+public partial class AwsKendraFaqTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -139,14 +139,14 @@ public partial class AwsKendraFaq : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Path block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Path block(s) allowed")]
     [TerraformProperty("s3_path")]
-    public partial TerraformList<TerraformBlock<AwsKendraFaqS3PathBlock>>? S3Path { get; set; }
+    public required TerraformList<AwsKendraFaqS3PathBlock> S3Path { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKendraFaqTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKendraFaqTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

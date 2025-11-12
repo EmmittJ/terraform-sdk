@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for snapshot_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeSnapshotSnapshotEncryptionKeyBlock() : TerraformBlock("snapshot_encryption_key")
 {
     /// <summary>
     /// The name of the encryption key that is stored in Google Cloud KMS.
@@ -46,7 +46,7 @@ public partial class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : Terraform
 /// Block type for source_disk_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock() : TerraformBlock("source_disk_encryption_key")
 {
     /// <summary>
     /// The name of the encryption key that is stored in Google Cloud KMS.
@@ -85,7 +85,7 @@ public partial class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeSnapshotTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeSnapshotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -205,7 +205,7 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotEncryptionKey block(s) allowed")]
     [TerraformProperty("snapshot_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSnapshotSnapshotEncryptionKeyBlock>>? SnapshotEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeSnapshotSnapshotEncryptionKeyBlock> SnapshotEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for source_disk_encryption_key.
@@ -213,14 +213,14 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceDiskEncryptionKey block(s) allowed")]
     [TerraformProperty("source_disk_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeSnapshotSourceDiskEncryptionKeyBlock>>? SourceDiskEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeSnapshotSourceDiskEncryptionKeyBlock> SourceDiskEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeSnapshotTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeSnapshotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

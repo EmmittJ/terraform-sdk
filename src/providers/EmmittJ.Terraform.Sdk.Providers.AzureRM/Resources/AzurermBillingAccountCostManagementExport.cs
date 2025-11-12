@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for export_data_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBillingAccountCostManagementExportExportDataOptionsBlock : TerraformBlockBase
+public partial class AzurermBillingAccountCostManagementExportExportDataOptionsBlock() : TerraformBlock("export_data_options")
 {
     /// <summary>
     /// The time_frame attribute.
@@ -30,7 +30,7 @@ public partial class AzurermBillingAccountCostManagementExportExportDataOptionsB
 /// Block type for export_data_storage_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock : TerraformBlockBase
+public partial class AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock() : TerraformBlock("export_data_storage_location")
 {
     /// <summary>
     /// The container_id attribute.
@@ -54,7 +54,7 @@ public partial class AzurermBillingAccountCostManagementExportExportDataStorageL
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBillingAccountCostManagementExportTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBillingAccountCostManagementExportTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,7 +165,7 @@ public partial class AzurermBillingAccountCostManagementExport : TerraformResour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataOptions block(s) allowed")]
     [TerraformProperty("export_data_options")]
-    public partial TerraformList<TerraformBlock<AzurermBillingAccountCostManagementExportExportDataOptionsBlock>>? ExportDataOptions { get; set; }
+    public required TerraformList<AzurermBillingAccountCostManagementExportExportDataOptionsBlock> ExportDataOptions { get; set; } = new();
 
     /// <summary>
     /// Block for export_data_storage_location.
@@ -175,13 +175,13 @@ public partial class AzurermBillingAccountCostManagementExport : TerraformResour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataStorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataStorageLocation block(s) allowed")]
     [TerraformProperty("export_data_storage_location")]
-    public partial TerraformList<TerraformBlock<AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock>>? ExportDataStorageLocation { get; set; }
+    public required TerraformList<AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock> ExportDataStorageLocation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBillingAccountCostManagementExportTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBillingAccountCostManagementExportTimeoutsBlock Timeouts { get; set; } = new();
 
 }

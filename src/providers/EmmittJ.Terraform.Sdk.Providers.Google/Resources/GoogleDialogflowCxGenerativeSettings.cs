@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for fallback_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock() : TerraformBlock("fallback_settings")
 {
     /// <summary>
     /// Display name of the selected prompt.
@@ -21,7 +21,7 @@ public partial class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock :
 /// Block type for generative_safety_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock() : TerraformBlock("generative_safety_settings")
 {
     /// <summary>
     /// Optional. Default phrase match strategy for banned phrases.
@@ -37,7 +37,7 @@ public partial class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySetting
 /// Block type for knowledge_connector_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock() : TerraformBlock("knowledge_connector_settings")
 {
     /// <summary>
     /// Name of the virtual agent. Used for LLM prompt. Can be left empty.
@@ -87,7 +87,7 @@ public partial class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSetti
 /// Block type for llm_model_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock() : TerraformBlock("llm_model_settings")
 {
     /// <summary>
     /// The selected LLM model.
@@ -109,7 +109,7 @@ public partial class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -173,7 +173,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FallbackSettings block(s) allowed")]
     [TerraformProperty("fallback_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock>>? FallbackSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock> FallbackSettings { get; set; } = new();
 
     /// <summary>
     /// Block for generative_safety_settings.
@@ -181,7 +181,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenerativeSafetySettings block(s) allowed")]
     [TerraformProperty("generative_safety_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock>>? GenerativeSafetySettings { get; set; }
+    public TerraformList<GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock> GenerativeSafetySettings { get; set; } = new();
 
     /// <summary>
     /// Block for knowledge_connector_settings.
@@ -189,7 +189,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KnowledgeConnectorSettings block(s) allowed")]
     [TerraformProperty("knowledge_connector_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock>>? KnowledgeConnectorSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock> KnowledgeConnectorSettings { get; set; } = new();
 
     /// <summary>
     /// Block for llm_model_settings.
@@ -197,14 +197,14 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     [TerraformProperty("llm_model_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock>>? LlmModelSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock> LlmModelSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxGenerativeSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxGenerativeSettingsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the generativeSettings.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for emergency_contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlockBase
+public partial class AwsShieldProactiveEngagementEmergencyContactBlock() : TerraformBlock("emergency_contact")
 {
     /// <summary>
     /// The contact_notes attribute.
@@ -54,7 +54,7 @@ public partial class AwsShieldProactiveEngagement : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("emergency_contact")]
-    public partial TerraformList<TerraformBlock<AwsShieldProactiveEngagementEmergencyContactBlock>>? EmergencyContact { get; set; }
+    public TerraformList<AwsShieldProactiveEngagementEmergencyContactBlock> EmergencyContact { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

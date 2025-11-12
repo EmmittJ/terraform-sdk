@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlockBase
+public partial class AzurermElasticSanVolumeGroupEncryptionBlock() : TerraformBlock("encryption")
 {
 
 
@@ -32,7 +32,7 @@ public partial class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBloc
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlockBase
+public partial class AzurermElasticSanVolumeGroupIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -57,7 +57,7 @@ public partial class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlockB
 /// Block type for network_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlockBase
+public partial class AzurermElasticSanVolumeGroupNetworkRuleBlock() : TerraformBlock("network_rule")
 {
     /// <summary>
     /// The action attribute.
@@ -80,7 +80,7 @@ public partial class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermElasticSanVolumeGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,7 +165,7 @@ public partial class AzurermElasticSanVolumeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<AzurermElasticSanVolumeGroupEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -173,20 +173,20 @@ public partial class AzurermElasticSanVolumeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermElasticSanVolumeGroupIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_rule")]
-    public partial TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupNetworkRuleBlock>>? NetworkRule { get; set; }
+    public TerraformList<AzurermElasticSanVolumeGroupNetworkRuleBlock> NetworkRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermElasticSanVolumeGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermElasticSanVolumeGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

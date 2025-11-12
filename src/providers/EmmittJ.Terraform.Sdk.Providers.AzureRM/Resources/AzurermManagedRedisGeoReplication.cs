@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagedRedisGeoReplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -75,6 +75,6 @@ public partial class AzurermManagedRedisGeoReplication : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagedRedisGeoReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagedRedisGeoReplicationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

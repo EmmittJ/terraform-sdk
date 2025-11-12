@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDiskEncryptionSetIdentityBlock : TerraformBlockBase
+public partial class AzurermDiskEncryptionSetIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermDiskEncryptionSetIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDiskEncryptionSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -154,14 +154,14 @@ public partial class AzurermDiskEncryptionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDiskEncryptionSetIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermDiskEncryptionSetIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDiskEncryptionSetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDiskEncryptionSetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The key_vault_key_url attribute.

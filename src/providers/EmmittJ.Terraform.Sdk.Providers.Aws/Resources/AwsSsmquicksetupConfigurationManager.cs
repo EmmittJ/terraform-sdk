@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration_definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : TerraformBlockBase
+public partial class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock() : TerraformBlock("configuration_definition")
 {
 
     /// <summary>
@@ -52,7 +52,7 @@ public partial class AwsSsmquicksetupConfigurationManagerConfigurationDefinition
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSsmquicksetupConfigurationManagerTimeoutsBlock : TerraformBlockBase
+public partial class AwsSsmquicksetupConfigurationManagerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -120,14 +120,14 @@ public partial class AwsSsmquicksetupConfigurationManager : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("configuration_definition")]
-    public partial TerraformList<TerraformBlock<AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock>>? ConfigurationDefinition { get; set; }
+    public TerraformList<AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock> ConfigurationDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSsmquicksetupConfigurationManagerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSsmquicksetupConfigurationManagerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The manager_arn attribute.

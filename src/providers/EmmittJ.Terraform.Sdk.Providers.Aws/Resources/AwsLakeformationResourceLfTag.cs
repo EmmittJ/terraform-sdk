@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for database in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationResourceLfTagDatabaseBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagDatabaseBlock() : TerraformBlock("database")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -29,7 +29,7 @@ public partial class AwsLakeformationResourceLfTagDatabaseBlock : TerraformBlock
 /// Block type for lf_tag in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationResourceLfTagLfTagBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagLfTagBlock() : TerraformBlock("lf_tag")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -60,7 +60,7 @@ public partial class AwsLakeformationResourceLfTagLfTagBlock : TerraformBlockBas
 /// Block type for table in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationResourceLfTagTableBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagTableBlock() : TerraformBlock("table")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -97,7 +97,7 @@ public partial class AwsLakeformationResourceLfTagTableBlock : TerraformBlockBas
 /// Block type for table_with_columns in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationResourceLfTagTableWithColumnsBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagTableWithColumnsBlock() : TerraformBlock("table_with_columns")
 {
     /// <summary>
     /// The catalog_id attribute.
@@ -135,7 +135,7 @@ public partial class AwsLakeformationResourceLfTagTableWithColumnsBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLakeformationResourceLfTagTimeoutsBlock : TerraformBlockBase
+public partial class AwsLakeformationResourceLfTagTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -181,35 +181,35 @@ public partial class AwsLakeformationResourceLfTag : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("database")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagDatabaseBlock>>? Database { get; set; }
+    public TerraformList<AwsLakeformationResourceLfTagDatabaseBlock> Database { get; set; } = new();
 
     /// <summary>
     /// Block for lf_tag.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("lf_tag")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagLfTagBlock>>? LfTag { get; set; }
+    public TerraformList<AwsLakeformationResourceLfTagLfTagBlock> LfTag { get; set; } = new();
 
     /// <summary>
     /// Block for table.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("table")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagTableBlock>>? Table { get; set; }
+    public TerraformList<AwsLakeformationResourceLfTagTableBlock> Table { get; set; } = new();
 
     /// <summary>
     /// Block for table_with_columns.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("table_with_columns")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagTableWithColumnsBlock>>? TableWithColumns { get; set; }
+    public TerraformList<AwsLakeformationResourceLfTagTableWithColumnsBlock> TableWithColumns { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLakeformationResourceLfTagTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLakeformationResourceLfTagTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

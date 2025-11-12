@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for acl in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermStorageTableAclBlock : TerraformBlockBase
+public partial class AzurermStorageTableAclBlock() : TerraformBlock("acl")
 {
     /// <summary>
     /// The id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermStorageTableAclBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageTableTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -91,14 +91,14 @@ public partial class AzurermStorageTable : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("acl")]
-    public partial TerraformSet<TerraformBlock<AzurermStorageTableAclBlock>>? Acl { get; set; }
+    public TerraformSet<AzurermStorageTableAclBlock> Acl { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageTableTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageTableTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Resource Manager ID of this Storage Table.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspaceswebSessionLoggerEventFilterBlock : TerraformBlockBase
+public partial class AwsWorkspaceswebSessionLoggerEventFilterBlock() : TerraformBlock("event_filter")
 {
     /// <summary>
     /// The include attribute.
@@ -21,7 +21,7 @@ public partial class AwsWorkspaceswebSessionLoggerEventFilterBlock : TerraformBl
 /// Block type for log_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWorkspaceswebSessionLoggerLogConfigurationBlock : TerraformBlockBase
+public partial class AwsWorkspaceswebSessionLoggerLogConfigurationBlock() : TerraformBlock("log_configuration")
 {
 }
 
@@ -74,14 +74,14 @@ public partial class AwsWorkspaceswebSessionLogger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_filter")]
-    public partial TerraformList<TerraformBlock<AwsWorkspaceswebSessionLoggerEventFilterBlock>>? EventFilter { get; set; }
+    public TerraformList<AwsWorkspaceswebSessionLoggerEventFilterBlock> EventFilter { get; set; } = new();
 
     /// <summary>
     /// Block for log_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log_configuration")]
-    public partial TerraformList<TerraformBlock<AwsWorkspaceswebSessionLoggerLogConfigurationBlock>>? LogConfiguration { get; set; }
+    public TerraformList<AwsWorkspaceswebSessionLoggerLogConfigurationBlock> LogConfiguration { get; set; } = new();
 
     /// <summary>
     /// The associated_portal_arns attribute.

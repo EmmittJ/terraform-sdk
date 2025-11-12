@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : TerraformBlockBase
+public partial class AzurermOracleExadataInfrastructureMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// The days_of_week attribute.
@@ -63,7 +63,7 @@ public partial class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOracleExadataInfrastructureTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -208,13 +208,13 @@ public partial class AzurermOracleExadataInfrastructure : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<AzurermOracleExadataInfrastructureMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOracleExadataInfrastructureTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOracleExadataInfrastructureTimeoutsBlock Timeouts { get; set; } = new();
 
 }

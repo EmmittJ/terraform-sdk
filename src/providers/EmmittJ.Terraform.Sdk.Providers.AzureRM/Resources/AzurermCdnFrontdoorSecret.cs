@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for secret in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermCdnFrontdoorSecretSecretBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorSecretSecretBlock() : TerraformBlock("secret")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermCdnFrontdoorSecretSecretBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermCdnFrontdoorSecretTimeoutsBlock : TerraformBlockBase
+public partial class AzurermCdnFrontdoorSecretTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -80,14 +80,14 @@ public partial class AzurermCdnFrontdoorSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Secret block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Secret block(s) allowed")]
     [TerraformProperty("secret")]
-    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorSecretSecretBlock>>? Secret { get; set; }
+    public required TerraformList<AzurermCdnFrontdoorSecretSecretBlock> Secret { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermCdnFrontdoorSecretTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermCdnFrontdoorSecretTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cdn_frontdoor_profile_name attribute.

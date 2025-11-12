@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigtableMaterializedViewTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigtableMaterializedViewTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -89,7 +89,7 @@ public partial class GoogleBigtableMaterializedView : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigtableMaterializedViewTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigtableMaterializedViewTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique name of the requested materialized view. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/materializedViews/&amp;lt;materializedViewId&amp;gt;&#39;.

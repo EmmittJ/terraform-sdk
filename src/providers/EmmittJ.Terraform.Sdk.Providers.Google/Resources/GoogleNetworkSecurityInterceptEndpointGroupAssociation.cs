@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -106,7 +106,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation : Te
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkSecurityInterceptEndpointGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkSecurityInterceptEndpointGroupAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

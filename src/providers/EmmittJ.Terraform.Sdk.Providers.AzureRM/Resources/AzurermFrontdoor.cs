@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for backend_pool in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorBackendPoolBlock : TerraformBlockBase
+public partial class AzurermFrontdoorBackendPoolBlock() : TerraformBlock("backend_pool")
 {
     /// <summary>
     /// The health_probe_name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermFrontdoorBackendPoolBlock : TerraformBlockBase
 /// Block type for backend_pool_health_probe in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlockBase
+public partial class AzurermFrontdoorBackendPoolHealthProbeBlock() : TerraformBlock("backend_pool_health_probe")
 {
     /// <summary>
     /// The enabled attribute.
@@ -91,7 +91,7 @@ public partial class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBloc
 /// Block type for backend_pool_load_balancing in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlockBase
+public partial class AzurermFrontdoorBackendPoolLoadBalancingBlock() : TerraformBlock("backend_pool_load_balancing")
 {
     /// <summary>
     /// The additional_latency_milliseconds attribute.
@@ -129,7 +129,7 @@ public partial class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBl
 /// Block type for backend_pool_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlockBase
+public partial class AzurermFrontdoorBackendPoolSettingsBlock() : TerraformBlock("backend_pool_settings")
 {
     /// <summary>
     /// The backend_pools_send_receive_timeout_seconds attribute.
@@ -152,7 +152,7 @@ public partial class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlockBa
 /// Block type for frontend_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorFrontendEndpointBlock : TerraformBlockBase
+public partial class AzurermFrontdoorFrontendEndpointBlock() : TerraformBlock("frontend_endpoint")
 {
     /// <summary>
     /// The host_name attribute.
@@ -198,7 +198,7 @@ public partial class AzurermFrontdoorFrontendEndpointBlock : TerraformBlockBase
 /// Block type for routing_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFrontdoorRoutingRuleBlock : TerraformBlockBase
+public partial class AzurermFrontdoorRoutingRuleBlock() : TerraformBlock("routing_rule")
 {
     /// <summary>
     /// The accepted_protocols attribute.
@@ -246,7 +246,7 @@ public partial class AzurermFrontdoorRoutingRuleBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFrontdoorTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFrontdoorTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -339,7 +339,7 @@ public partial class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPool block(s) required")]
     [TerraformProperty("backend_pool")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorBackendPoolBlock>>? BackendPool { get; set; }
+    public required TerraformList<AzurermFrontdoorBackendPoolBlock> BackendPool { get; set; } = new();
 
     /// <summary>
     /// Block for backend_pool_health_probe.
@@ -349,7 +349,7 @@ public partial class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolHealthProbe block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolHealthProbe block(s) allowed")]
     [TerraformProperty("backend_pool_health_probe")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorBackendPoolHealthProbeBlock>>? BackendPoolHealthProbe { get; set; }
+    public required TerraformList<AzurermFrontdoorBackendPoolHealthProbeBlock> BackendPoolHealthProbe { get; set; } = new();
 
     /// <summary>
     /// Block for backend_pool_load_balancing.
@@ -359,14 +359,14 @@ public partial class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolLoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolLoadBalancing block(s) allowed")]
     [TerraformProperty("backend_pool_load_balancing")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorBackendPoolLoadBalancingBlock>>? BackendPoolLoadBalancing { get; set; }
+    public required TerraformList<AzurermFrontdoorBackendPoolLoadBalancingBlock> BackendPoolLoadBalancing { get; set; } = new();
 
     /// <summary>
     /// Block for backend_pool_settings.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("backend_pool_settings")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorBackendPoolSettingsBlock>>? BackendPoolSettings { get; set; }
+    public TerraformList<AzurermFrontdoorBackendPoolSettingsBlock> BackendPoolSettings { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_endpoint.
@@ -376,7 +376,7 @@ public partial class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendEndpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 FrontendEndpoint block(s) allowed")]
     [TerraformProperty("frontend_endpoint")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorFrontendEndpointBlock>>? FrontendEndpoint { get; set; }
+    public required TerraformList<AzurermFrontdoorFrontendEndpointBlock> FrontendEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for routing_rule.
@@ -386,14 +386,14 @@ public partial class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 RoutingRule block(s) allowed")]
     [TerraformProperty("routing_rule")]
-    public partial TerraformList<TerraformBlock<AzurermFrontdoorRoutingRuleBlock>>? RoutingRule { get; set; }
+    public required TerraformList<AzurermFrontdoorRoutingRuleBlock> RoutingRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFrontdoorTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFrontdoorTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The backend_pool_health_probes attribute.

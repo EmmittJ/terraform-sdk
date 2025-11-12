@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for replication_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcrReplicationConfigurationReplicationConfigurationBlock : TerraformBlockBase
+public partial class AwsEcrReplicationConfigurationReplicationConfigurationBlock() : TerraformBlock("replication_configuration")
 {
 }
 
@@ -40,7 +40,7 @@ public partial class AwsEcrReplicationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfiguration block(s) allowed")]
     [TerraformProperty("replication_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcrReplicationConfigurationReplicationConfigurationBlock>>? ReplicationConfiguration { get; set; }
+    public TerraformList<AwsEcrReplicationConfigurationReplicationConfigurationBlock> ReplicationConfiguration { get; set; } = new();
 
     /// <summary>
     /// The registry_id attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cmek_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleLoggingFolderBucketConfigCmekSettingsBlock : TerraformBlockBase
+public partial class GoogleLoggingFolderBucketConfigCmekSettingsBlock() : TerraformBlock("cmek_settings")
 {
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
@@ -30,7 +30,7 @@ public partial class GoogleLoggingFolderBucketConfigCmekSettingsBlock : Terrafor
 /// Block type for index_configs in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleLoggingFolderBucketConfigIndexConfigsBlock : TerraformBlockBase
+public partial class GoogleLoggingFolderBucketConfigIndexConfigsBlock() : TerraformBlock("index_configs")
 {
     /// <summary>
     /// The LogEntry field path to index.
@@ -113,7 +113,7 @@ public partial class GoogleLoggingFolderBucketConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekSettings block(s) allowed")]
     [TerraformProperty("cmek_settings")]
-    public partial TerraformList<TerraformBlock<GoogleLoggingFolderBucketConfigCmekSettingsBlock>>? CmekSettings { get; set; }
+    public TerraformList<GoogleLoggingFolderBucketConfigCmekSettingsBlock> CmekSettings { get; set; } = new();
 
     /// <summary>
     /// Block for index_configs.
@@ -121,7 +121,7 @@ public partial class GoogleLoggingFolderBucketConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 IndexConfigs block(s) allowed")]
     [TerraformProperty("index_configs")]
-    public partial TerraformSet<TerraformBlock<GoogleLoggingFolderBucketConfigIndexConfigsBlock>>? IndexConfigs { get; set; }
+    public TerraformSet<GoogleLoggingFolderBucketConfigIndexConfigsBlock> IndexConfigs { get; set; } = new();
 
     /// <summary>
     /// The bucket&#39;s lifecycle such as active or deleted.

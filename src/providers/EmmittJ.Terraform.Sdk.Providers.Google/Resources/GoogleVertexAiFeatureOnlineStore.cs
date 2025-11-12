@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigtable in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeatureOnlineStoreBigtableBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureOnlineStoreBigtableBlock() : TerraformBlock("bigtable")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreBigtableBlock : TerraformBl
 /// Block type for dedicated_serving_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock() : TerraformBlock("dedicated_serving_endpoint")
 {
 
 
@@ -24,7 +24,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlo
 /// Block type for optimized in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeatureOnlineStoreOptimizedBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureOnlineStoreOptimizedBlock() : TerraformBlock("optimized")
 {
 }
 
@@ -32,7 +32,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreOptimizedBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,7 +119,7 @@ public partial class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bigtable block(s) allowed")]
     [TerraformProperty("bigtable")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreBigtableBlock>>? Bigtable { get; set; }
+    public TerraformList<GoogleVertexAiFeatureOnlineStoreBigtableBlock> Bigtable { get; set; } = new();
 
     /// <summary>
     /// Block for dedicated_serving_endpoint.
@@ -127,7 +127,7 @@ public partial class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedServingEndpoint block(s) allowed")]
     [TerraformProperty("dedicated_serving_endpoint")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock>>? DedicatedServingEndpoint { get; set; }
+    public TerraformList<GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock> DedicatedServingEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for optimized.
@@ -135,14 +135,14 @@ public partial class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Optimized block(s) allowed")]
     [TerraformProperty("optimized")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreOptimizedBlock>>? Optimized { get; set; }
+    public TerraformList<GoogleVertexAiFeatureOnlineStoreOptimizedBlock> Optimized { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiFeatureOnlineStoreTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiFeatureOnlineStoreTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the feature online store was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

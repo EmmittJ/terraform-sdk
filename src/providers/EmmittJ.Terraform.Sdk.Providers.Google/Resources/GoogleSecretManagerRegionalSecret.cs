@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for customer_managed_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock : TerraformBlockBase
+public partial class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock() : TerraformBlock("customer_managed_encryption")
 {
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey used to encrypt secret payloads.
@@ -22,7 +22,7 @@ public partial class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionB
 /// Block type for rotation in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecretManagerRegionalSecretRotationBlock : TerraformBlockBase
+public partial class GoogleSecretManagerRegionalSecretRotationBlock() : TerraformBlock("rotation")
 {
     /// <summary>
     /// Timestamp in UTC at which the Secret is scheduled to rotate.
@@ -49,7 +49,7 @@ public partial class GoogleSecretManagerRegionalSecretRotationBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSecretManagerRegionalSecretTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -78,7 +78,7 @@ public partial class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformB
 /// Block type for topics in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSecretManagerRegionalSecretTopicsBlock : TerraformBlockBase
+public partial class GoogleSecretManagerRegionalSecretTopicsBlock() : TerraformBlock("topics")
 {
     /// <summary>
     /// The resource name of the Pub/Sub topic that will be published to, in the following format:
@@ -246,7 +246,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedEncryption block(s) allowed")]
     [TerraformProperty("customer_managed_encryption")]
-    public partial TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock>>? CustomerManagedEncryption { get; set; }
+    public TerraformList<GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock> CustomerManagedEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for rotation.
@@ -254,21 +254,21 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rotation block(s) allowed")]
     [TerraformProperty("rotation")]
-    public partial TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretRotationBlock>>? Rotation { get; set; }
+    public TerraformList<GoogleSecretManagerRegionalSecretRotationBlock> Rotation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSecretManagerRegionalSecretTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSecretManagerRegionalSecretTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for topics.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topics")]
-    public partial TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretTopicsBlock>>? Topics { get; set; }
+    public TerraformList<GoogleSecretManagerRegionalSecretTopicsBlock> Topics { get; set; } = new();
 
     /// <summary>
     /// The time at which the regional secret was created.

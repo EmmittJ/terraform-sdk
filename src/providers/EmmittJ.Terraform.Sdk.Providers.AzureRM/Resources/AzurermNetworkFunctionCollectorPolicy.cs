@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ipfx_emission in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock : TerraformBlockBase
+public partial class AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock() : TerraformBlock("ipfx_emission")
 {
     /// <summary>
     /// The destination_types attribute.
@@ -22,7 +22,7 @@ public partial class AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock : Te
 /// Block type for ipfx_ingestion in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock : TerraformBlockBase
+public partial class AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock() : TerraformBlock("ipfx_ingestion")
 {
     /// <summary>
     /// The source_resource_ids attribute.
@@ -38,7 +38,7 @@ public partial class AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,7 +126,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpfxEmission block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpfxEmission block(s) allowed")]
     [TerraformProperty("ipfx_emission")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock>>? IpfxEmission { get; set; }
+    public required TerraformList<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock> IpfxEmission { get; set; } = new();
 
     /// <summary>
     /// Block for ipfx_ingestion.
@@ -136,13 +136,13 @@ public partial class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpfxIngestion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpfxIngestion block(s) allowed")]
     [TerraformProperty("ipfx_ingestion")]
-    public partial TerraformList<TerraformBlock<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock>>? IpfxIngestion { get; set; }
+    public required TerraformList<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock> IpfxIngestion { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNetworkFunctionCollectorPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNetworkFunctionCollectorPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

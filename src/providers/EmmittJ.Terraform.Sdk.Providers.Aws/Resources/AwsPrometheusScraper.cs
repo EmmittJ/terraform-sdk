@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPrometheusScraperDestinationBlock : TerraformBlockBase
+public partial class AwsPrometheusScraperDestinationBlock() : TerraformBlock("destination")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsPrometheusScraperDestinationBlock : TerraformBlockBase
 /// Block type for role_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPrometheusScraperRoleConfigurationBlock : TerraformBlockBase
+public partial class AwsPrometheusScraperRoleConfigurationBlock() : TerraformBlock("role_configuration")
 {
     /// <summary>
     /// The source_role_arn attribute.
@@ -36,7 +36,7 @@ public partial class AwsPrometheusScraperRoleConfigurationBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPrometheusScraperSourceBlock : TerraformBlockBase
+public partial class AwsPrometheusScraperSourceBlock() : TerraformBlock("source")
 {
 }
 
@@ -44,7 +44,7 @@ public partial class AwsPrometheusScraperSourceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsPrometheusScraperTimeoutsBlock : TerraformBlockBase
+public partial class AwsPrometheusScraperTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -112,28 +112,28 @@ public partial class AwsPrometheusScraper : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("destination")]
-    public partial TerraformList<TerraformBlock<AwsPrometheusScraperDestinationBlock>>? Destination { get; set; }
+    public TerraformList<AwsPrometheusScraperDestinationBlock> Destination { get; set; } = new();
 
     /// <summary>
     /// Block for role_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("role_configuration")]
-    public partial TerraformList<TerraformBlock<AwsPrometheusScraperRoleConfigurationBlock>>? RoleConfiguration { get; set; }
+    public TerraformList<AwsPrometheusScraperRoleConfigurationBlock> RoleConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AwsPrometheusScraperSourceBlock>>? Source { get; set; }
+    public TerraformList<AwsPrometheusScraperSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsPrometheusScraperTimeoutsBlock>? Timeouts { get; set; }
+    public AwsPrometheusScraperTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

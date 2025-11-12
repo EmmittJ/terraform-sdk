@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cloudwatch_logging_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : TerraformBlockBase
+public partial class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock() : TerraformBlock("cloudwatch_logging_options")
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ public partial class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock
 /// Block type for inputs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlockBase
+public partial class AwsKinesisAnalyticsApplicationInputsBlock() : TerraformBlock("inputs")
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ public partial class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlockB
 /// Block type for outputs in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlockBase
+public partial class AwsKinesisAnalyticsApplicationOutputsBlock() : TerraformBlock("outputs")
 {
 
     /// <summary>
@@ -66,7 +66,7 @@ public partial class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlock
 /// Block type for reference_data_sources in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : TerraformBlockBase
+public partial class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock() : TerraformBlock("reference_data_sources")
 {
 
     /// <summary>
@@ -153,7 +153,7 @@ public partial class AwsKinesisAnalyticsApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudwatchLoggingOptions block(s) allowed")]
     [TerraformProperty("cloudwatch_logging_options")]
-    public partial TerraformList<TerraformBlock<AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock>>? CloudwatchLoggingOptions { get; set; }
+    public TerraformList<AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock> CloudwatchLoggingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for inputs.
@@ -161,7 +161,7 @@ public partial class AwsKinesisAnalyticsApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Inputs block(s) allowed")]
     [TerraformProperty("inputs")]
-    public partial TerraformList<TerraformBlock<AwsKinesisAnalyticsApplicationInputsBlock>>? Inputs { get; set; }
+    public TerraformList<AwsKinesisAnalyticsApplicationInputsBlock> Inputs { get; set; } = new();
 
     /// <summary>
     /// Block for outputs.
@@ -169,7 +169,7 @@ public partial class AwsKinesisAnalyticsApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 Outputs block(s) allowed")]
     [TerraformProperty("outputs")]
-    public partial TerraformSet<TerraformBlock<AwsKinesisAnalyticsApplicationOutputsBlock>>? Outputs { get; set; }
+    public TerraformSet<AwsKinesisAnalyticsApplicationOutputsBlock> Outputs { get; set; } = new();
 
     /// <summary>
     /// Block for reference_data_sources.
@@ -177,7 +177,7 @@ public partial class AwsKinesisAnalyticsApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReferenceDataSources block(s) allowed")]
     [TerraformProperty("reference_data_sources")]
-    public partial TerraformList<TerraformBlock<AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock>>? ReferenceDataSources { get; set; }
+    public TerraformList<AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock> ReferenceDataSources { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

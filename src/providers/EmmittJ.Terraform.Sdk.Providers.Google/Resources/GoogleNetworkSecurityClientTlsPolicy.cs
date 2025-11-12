@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for client_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock() : TerraformBlock("client_certificate")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock 
 /// Block type for server_validation_ca in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock() : TerraformBlock("server_validation_ca")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,21 +117,21 @@ public partial class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificate block(s) allowed")]
     [TerraformProperty("client_certificate")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock>>? ClientCertificate { get; set; }
+    public TerraformList<GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock> ClientCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for server_validation_ca.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("server_validation_ca")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock>>? ServerValidationCa { get; set; }
+    public TerraformList<GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock> ServerValidationCa { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the ClientTlsPolicy was created in UTC.

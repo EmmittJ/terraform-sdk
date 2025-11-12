@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_sas_token in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock() : TerraformBlock("key_vault_sas_token")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasT
 /// Block type for service_principal_linked_key_vault_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock() : TerraformBlock("service_principal_linked_key_vault_key")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -54,7 +54,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrinc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -223,7 +223,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureBlobStorage : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultSasToken block(s) allowed")]
     [TerraformProperty("key_vault_sas_token")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock>>? KeyVaultSasToken { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock> KeyVaultSasToken { get; set; } = new();
 
     /// <summary>
     /// Block for service_principal_linked_key_vault_key.
@@ -231,13 +231,13 @@ public partial class AzurermDataFactoryLinkedServiceAzureBlobStorage : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipalLinkedKeyVaultKey block(s) allowed")]
     [TerraformProperty("service_principal_linked_key_vault_key")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock>>? ServicePrincipalLinkedKeyVaultKey { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock> ServicePrincipalLinkedKeyVaultKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock Timeouts { get; set; } = new();
 
 }

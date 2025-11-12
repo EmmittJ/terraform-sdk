@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for launch_specification in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlockBase
+public partial class AwsSpotFleetRequestLaunchSpecificationBlock() : TerraformBlock("launch_specification")
 {
     /// <summary>
     /// The ami attribute.
@@ -135,7 +135,7 @@ public partial class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBloc
 /// Block type for launch_template_config in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsSpotFleetRequestLaunchTemplateConfigBlock : TerraformBlockBase
+public partial class AwsSpotFleetRequestLaunchTemplateConfigBlock() : TerraformBlock("launch_template_config")
 {
 }
 
@@ -143,7 +143,7 @@ public partial class AwsSpotFleetRequestLaunchTemplateConfigBlock : TerraformBlo
 /// Block type for spot_maintenance_strategies in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSpotFleetRequestSpotMaintenanceStrategiesBlock : TerraformBlockBase
+public partial class AwsSpotFleetRequestSpotMaintenanceStrategiesBlock() : TerraformBlock("spot_maintenance_strategies")
 {
 }
 
@@ -151,7 +151,7 @@ public partial class AwsSpotFleetRequestSpotMaintenanceStrategiesBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsSpotFleetRequestTimeoutsBlock : TerraformBlockBase
+public partial class AwsSpotFleetRequestTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -368,14 +368,14 @@ public partial class AwsSpotFleetRequest : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("launch_specification")]
-    public partial TerraformSet<TerraformBlock<AwsSpotFleetRequestLaunchSpecificationBlock>>? LaunchSpecification { get; set; }
+    public TerraformSet<AwsSpotFleetRequestLaunchSpecificationBlock> LaunchSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template_config.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("launch_template_config")]
-    public partial TerraformSet<TerraformBlock<AwsSpotFleetRequestLaunchTemplateConfigBlock>>? LaunchTemplateConfig { get; set; }
+    public TerraformSet<AwsSpotFleetRequestLaunchTemplateConfigBlock> LaunchTemplateConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spot_maintenance_strategies.
@@ -383,14 +383,14 @@ public partial class AwsSpotFleetRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpotMaintenanceStrategies block(s) allowed")]
     [TerraformProperty("spot_maintenance_strategies")]
-    public partial TerraformList<TerraformBlock<AwsSpotFleetRequestSpotMaintenanceStrategiesBlock>>? SpotMaintenanceStrategies { get; set; }
+    public TerraformList<AwsSpotFleetRequestSpotMaintenanceStrategiesBlock> SpotMaintenanceStrategies { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsSpotFleetRequestTimeoutsBlock>? Timeouts { get; set; }
+    public AwsSpotFleetRequestTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The client_token attribute.

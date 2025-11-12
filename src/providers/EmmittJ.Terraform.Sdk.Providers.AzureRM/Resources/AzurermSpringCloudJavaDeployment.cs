@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for quota in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSpringCloudJavaDeploymentQuotaBlock : TerraformBlockBase
+public partial class AzurermSpringCloudJavaDeploymentQuotaBlock() : TerraformBlock("quota")
 {
     /// <summary>
     /// The cpu attribute.
@@ -28,7 +28,7 @@ public partial class AzurermSpringCloudJavaDeploymentQuotaBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSpringCloudJavaDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSpringCloudJavaDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -127,13 +127,13 @@ public partial class AzurermSpringCloudJavaDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
     [TerraformProperty("quota")]
-    public partial TerraformList<TerraformBlock<AzurermSpringCloudJavaDeploymentQuotaBlock>>? Quota { get; set; }
+    public TerraformList<AzurermSpringCloudJavaDeploymentQuotaBlock> Quota { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSpringCloudJavaDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSpringCloudJavaDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

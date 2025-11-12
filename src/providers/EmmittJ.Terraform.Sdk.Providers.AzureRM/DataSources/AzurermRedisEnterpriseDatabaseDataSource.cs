@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -55,7 +55,7 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSou
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The linked_database_group_nickname attribute.

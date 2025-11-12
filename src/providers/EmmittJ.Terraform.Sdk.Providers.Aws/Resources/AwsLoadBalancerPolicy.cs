@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for policy_attribute in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsLoadBalancerPolicyPolicyAttributeBlock : TerraformBlockBase
+public partial class AwsLoadBalancerPolicyPolicyAttributeBlock() : TerraformBlock("policy_attribute")
 {
     /// <summary>
     /// The name attribute.
@@ -76,6 +76,6 @@ public partial class AwsLoadBalancerPolicy : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("policy_attribute")]
-    public partial TerraformSet<TerraformBlock<AwsLoadBalancerPolicyPolicyAttributeBlock>>? PolicyAttribute { get; set; }
+    public TerraformSet<AwsLoadBalancerPolicyPolicyAttributeBlock> PolicyAttribute { get; set; } = new();
 
 }

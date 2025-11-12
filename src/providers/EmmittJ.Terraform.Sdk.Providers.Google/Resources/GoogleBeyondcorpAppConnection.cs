@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for application_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpAppConnectionApplicationEndpointBlock() : TerraformBlock("application_endpoint")
 {
     /// <summary>
     /// Hostname or IP address of the remote application endpoint.
@@ -30,7 +30,7 @@ public partial class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : Ter
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpAppConnectionGatewayBlock() : TerraformBlock("gateway")
 {
     /// <summary>
     /// AppGateway name in following format: projects/{project_id}/locations/{locationId}/appgateways/{gateway_id}.
@@ -57,7 +57,7 @@ public partial class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBeyondcorpAppConnectionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBeyondcorpAppConnectionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -163,7 +163,7 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApplicationEndpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationEndpoint block(s) allowed")]
     [TerraformProperty("application_endpoint")]
-    public partial TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionApplicationEndpointBlock>>? ApplicationEndpoint { get; set; }
+    public required TerraformList<GoogleBeyondcorpAppConnectionApplicationEndpointBlock> ApplicationEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for gateway.
@@ -171,14 +171,14 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     [TerraformProperty("gateway")]
-    public partial TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionGatewayBlock>>? Gateway { get; set; }
+    public TerraformList<GoogleBeyondcorpAppConnectionGatewayBlock> Gateway { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBeyondcorpAppConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBeyondcorpAppConnectionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

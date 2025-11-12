@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedisCacheIdentityBlock : TerraformBlockBase
+public partial class AzurermRedisCacheIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermRedisCacheIdentityBlock : TerraformBlockBase
 /// Block type for patch_schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedisCachePatchScheduleBlock : TerraformBlockBase
+public partial class AzurermRedisCachePatchScheduleBlock() : TerraformBlock("patch_schedule")
 {
     /// <summary>
     /// The day_of_week attribute.
@@ -61,7 +61,7 @@ public partial class AzurermRedisCachePatchScheduleBlock : TerraformBlockBase
 /// Block type for redis_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRedisCacheRedisConfigurationBlock : TerraformBlockBase
+public partial class AzurermRedisCacheRedisConfigurationBlock() : TerraformBlock("redis_configuration")
 {
     /// <summary>
     /// The active_directory_authentication_enabled attribute.
@@ -182,7 +182,7 @@ public partial class AzurermRedisCacheRedisConfigurationBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRedisCacheTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRedisCacheTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -376,14 +376,14 @@ public partial class AzurermRedisCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermRedisCacheIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermRedisCacheIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for patch_schedule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("patch_schedule")]
-    public partial TerraformList<TerraformBlock<AzurermRedisCachePatchScheduleBlock>>? PatchSchedule { get; set; }
+    public TerraformList<AzurermRedisCachePatchScheduleBlock> PatchSchedule { get; set; } = new();
 
     /// <summary>
     /// Block for redis_configuration.
@@ -391,14 +391,14 @@ public partial class AzurermRedisCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedisConfiguration block(s) allowed")]
     [TerraformProperty("redis_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermRedisCacheRedisConfigurationBlock>>? RedisConfiguration { get; set; }
+    public TerraformList<AzurermRedisCacheRedisConfigurationBlock> RedisConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRedisCacheTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRedisCacheTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hostname attribute.

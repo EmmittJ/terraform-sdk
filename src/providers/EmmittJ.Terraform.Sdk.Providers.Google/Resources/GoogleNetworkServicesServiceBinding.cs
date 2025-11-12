@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesServiceBindingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesServiceBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -93,7 +93,7 @@ public partial class GoogleNetworkServicesServiceBinding : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesServiceBindingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesServiceBindingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the ServiceBinding was created in UTC.

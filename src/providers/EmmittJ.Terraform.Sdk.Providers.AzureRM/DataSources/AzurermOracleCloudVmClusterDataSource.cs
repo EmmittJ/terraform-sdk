@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOracleCloudVmClusterDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOracleCloudVmClusterDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermOracleCloudVmClusterDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOracleCloudVmClusterDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOracleCloudVmClusterDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The backup_subnet_cidr attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for features in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowFulfillmentFeaturesBlock : TerraformBlockBase
+public partial class GoogleDialogflowFulfillmentFeaturesBlock() : TerraformBlock("features")
 {
     /// <summary>
     /// The type of the feature that enabled for fulfillment.
@@ -23,7 +23,7 @@ public partial class GoogleDialogflowFulfillmentFeaturesBlock : TerraformBlockBa
 /// Block type for generic_web_service in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowFulfillmentGenericWebServiceBlock : TerraformBlockBase
+public partial class GoogleDialogflowFulfillmentGenericWebServiceBlock() : TerraformBlock("generic_web_service")
 {
     /// <summary>
     /// The password for HTTP Basic authentication.
@@ -60,7 +60,7 @@ public partial class GoogleDialogflowFulfillmentGenericWebServiceBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowFulfillmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowFulfillmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,7 +129,7 @@ public partial class GoogleDialogflowFulfillment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("features")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowFulfillmentFeaturesBlock>>? Features { get; set; }
+    public TerraformList<GoogleDialogflowFulfillmentFeaturesBlock> Features { get; set; } = new();
 
     /// <summary>
     /// Block for generic_web_service.
@@ -137,14 +137,14 @@ public partial class GoogleDialogflowFulfillment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenericWebService block(s) allowed")]
     [TerraformProperty("generic_web_service")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowFulfillmentGenericWebServiceBlock>>? GenericWebService { get; set; }
+    public TerraformList<GoogleDialogflowFulfillmentGenericWebServiceBlock> GenericWebService { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowFulfillmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowFulfillmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the fulfillment.

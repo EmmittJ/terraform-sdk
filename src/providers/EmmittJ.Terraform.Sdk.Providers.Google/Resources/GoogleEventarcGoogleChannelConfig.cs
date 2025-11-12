@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEventarcGoogleChannelConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEventarcGoogleChannelConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,7 +82,7 @@ public partial class GoogleEventarcGoogleChannelConfig : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEventarcGoogleChannelConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEventarcGoogleChannelConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The last-modified time.

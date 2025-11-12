@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for scalable_target_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppautoscalingScheduledActionScalableTargetActionBlock : TerraformBlockBase
+public partial class AwsAppautoscalingScheduledActionScalableTargetActionBlock() : TerraformBlock("scalable_target_action")
 {
     /// <summary>
     /// The max_capacity attribute.
@@ -117,7 +117,7 @@ public partial class AwsAppautoscalingScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalableTargetAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalableTargetAction block(s) allowed")]
     [TerraformProperty("scalable_target_action")]
-    public partial TerraformList<TerraformBlock<AwsAppautoscalingScheduledActionScalableTargetActionBlock>>? ScalableTargetAction { get; set; }
+    public required TerraformList<AwsAppautoscalingScheduledActionScalableTargetActionBlock> ScalableTargetAction { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

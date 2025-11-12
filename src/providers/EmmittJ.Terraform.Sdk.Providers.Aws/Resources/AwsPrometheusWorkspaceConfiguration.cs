@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for limits_per_label_set in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock : TerraformBlockBase
+public partial class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock() : TerraformBlock("limits_per_label_set")
 {
     /// <summary>
     /// The label_set attribute.
@@ -22,7 +22,7 @@ public partial class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsPrometheusWorkspaceConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsPrometheusWorkspaceConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -76,13 +76,13 @@ public partial class AwsPrometheusWorkspaceConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("limits_per_label_set")]
-    public partial TerraformList<TerraformBlock<AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock>>? LimitsPerLabelSet { get; set; }
+    public TerraformList<AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock> LimitsPerLabelSet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsPrometheusWorkspaceConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsPrometheusWorkspaceConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

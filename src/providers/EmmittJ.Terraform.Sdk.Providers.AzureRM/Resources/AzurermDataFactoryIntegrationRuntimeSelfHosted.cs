@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rbac_authorization in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock() : TerraformBlock("rbac_authorization")
 {
     /// <summary>
     /// The resource_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthoriza
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -105,14 +105,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformR
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rbac_authorization")]
-    public partial TerraformSet<TerraformBlock<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>>? RbacAuthorization { get; set; }
+    public TerraformSet<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock> RbacAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_authorization_key attribute.

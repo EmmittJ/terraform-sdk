@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for certificate in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlockBase
+public partial class AwsWorkspaceswebTrustStoreCertificateBlock() : TerraformBlock("certificate")
 {
     /// <summary>
     /// The body attribute.
@@ -51,7 +51,7 @@ public partial class AwsWorkspaceswebTrustStore : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("certificate")]
-    public partial TerraformSet<TerraformBlock<AwsWorkspaceswebTrustStoreCertificateBlock>>? Certificate { get; set; }
+    public TerraformSet<AwsWorkspaceswebTrustStoreCertificateBlock> Certificate { get; set; } = new();
 
     /// <summary>
     /// The associated_portal_arns attribute.

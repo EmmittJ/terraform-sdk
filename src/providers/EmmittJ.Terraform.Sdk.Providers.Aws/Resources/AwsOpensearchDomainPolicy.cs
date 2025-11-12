@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOpensearchDomainPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AwsOpensearchDomainPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -68,6 +68,6 @@ public partial class AwsOpensearchDomainPolicy : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOpensearchDomainPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOpensearchDomainPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

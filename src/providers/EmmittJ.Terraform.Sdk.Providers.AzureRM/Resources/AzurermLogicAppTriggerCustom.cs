@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLogicAppTriggerCustomTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLogicAppTriggerCustomTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -83,7 +83,7 @@ public partial class AzurermLogicAppTriggerCustom : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLogicAppTriggerCustomTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLogicAppTriggerCustomTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The callback_url attribute.

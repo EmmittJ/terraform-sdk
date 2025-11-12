@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rules in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlockBase
+public partial class AzurermStorageBlobInventoryPolicyRulesBlock() : TerraformBlock("rules")
 {
     /// <summary>
     /// The format attribute.
@@ -62,7 +62,7 @@ public partial class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageBlobInventoryPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -126,13 +126,13 @@ public partial class AzurermStorageBlobInventoryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public partial TerraformSet<TerraformBlock<AzurermStorageBlobInventoryPolicyRulesBlock>>? Rules { get; set; }
+    public required TerraformSet<AzurermStorageBlobInventoryPolicyRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageBlobInventoryPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageBlobInventoryPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

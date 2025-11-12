@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsPrometheusWorkspaceLoggingConfigurationBlock : TerraformBlockBase
+public partial class AwsPrometheusWorkspaceLoggingConfigurationBlock() : TerraformBlock("logging_configuration")
 {
     /// <summary>
     /// The log_group_arn attribute.
@@ -76,7 +76,7 @@ public partial class AwsPrometheusWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformProperty("logging_configuration")]
-    public partial TerraformList<TerraformBlock<AwsPrometheusWorkspaceLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
+    public TerraformList<AwsPrometheusWorkspaceLoggingConfigurationBlock> LoggingConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

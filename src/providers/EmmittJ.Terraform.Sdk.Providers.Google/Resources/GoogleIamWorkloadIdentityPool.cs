@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIamWorkloadIdentityPoolTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIamWorkloadIdentityPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -92,7 +92,7 @@ public partial class GoogleIamWorkloadIdentityPool : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIamWorkloadIdentityPoolTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIamWorkloadIdentityPoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the pool as

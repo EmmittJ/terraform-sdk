@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock() : TerraformBlock("action")
 {
     /// <summary>
     /// The action_groups attribute.
@@ -28,7 +28,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : Terra
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock() : TerraformBlock("criteria")
 {
     /// <summary>
     /// The metric_measure_column attribute.
@@ -82,7 +82,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : Ter
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -107,7 +107,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -288,7 +288,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
     [TerraformProperty("action")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock>>? Action { get; set; }
+    public TerraformList<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock> Action { get; set; } = new();
 
     /// <summary>
     /// Block for criteria.
@@ -297,7 +297,7 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [TerraformProperty("criteria")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock>>? Criteria { get; set; }
+    public required TerraformList<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock> Criteria { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -305,14 +305,14 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_with_api_version attribute.

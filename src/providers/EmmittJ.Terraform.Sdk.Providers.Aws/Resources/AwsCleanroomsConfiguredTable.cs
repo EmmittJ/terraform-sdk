@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for table_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCleanroomsConfiguredTableTableReferenceBlock : TerraformBlockBase
+public partial class AwsCleanroomsConfiguredTableTableReferenceBlock() : TerraformBlock("table_reference")
 {
     /// <summary>
     /// The database_name attribute.
@@ -30,7 +30,7 @@ public partial class AwsCleanroomsConfiguredTableTableReferenceBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCleanroomsConfiguredTableTimeoutsBlock : TerraformBlockBase
+public partial class AwsCleanroomsConfiguredTableTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,14 +132,14 @@ public partial class AwsCleanroomsConfiguredTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TableReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableReference block(s) allowed")]
     [TerraformProperty("table_reference")]
-    public partial TerraformList<TerraformBlock<AwsCleanroomsConfiguredTableTableReferenceBlock>>? TableReference { get; set; }
+    public required TerraformList<AwsCleanroomsConfiguredTableTableReferenceBlock> TableReference { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCleanroomsConfiguredTableTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCleanroomsConfiguredTableTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

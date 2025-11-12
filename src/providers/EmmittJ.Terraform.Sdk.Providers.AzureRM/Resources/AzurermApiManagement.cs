@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_location in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementAdditionalLocationBlock : TerraformBlockBase
+public partial class AzurermApiManagementAdditionalLocationBlock() : TerraformBlock("additional_location")
 {
     /// <summary>
     /// The capacity attribute.
@@ -53,7 +53,7 @@ public partial class AzurermApiManagementAdditionalLocationBlock : TerraformBloc
 /// Block type for certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementCertificateBlock : TerraformBlockBase
+public partial class AzurermApiManagementCertificateBlock() : TerraformBlock("certificate")
 {
     /// <summary>
     /// The certificate_password attribute.
@@ -87,7 +87,7 @@ public partial class AzurermApiManagementCertificateBlock : TerraformBlockBase
 /// Block type for delegation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementDelegationBlock : TerraformBlockBase
+public partial class AzurermApiManagementDelegationBlock() : TerraformBlock("delegation")
 {
     /// <summary>
     /// The subscriptions_enabled attribute.
@@ -123,7 +123,7 @@ public partial class AzurermApiManagementDelegationBlock : TerraformBlockBase
 /// Block type for hostname_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementHostnameConfigurationBlock : TerraformBlockBase
+public partial class AzurermApiManagementHostnameConfigurationBlock() : TerraformBlock("hostname_configuration")
 {
 }
 
@@ -131,7 +131,7 @@ public partial class AzurermApiManagementHostnameConfigurationBlock : TerraformB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementIdentityBlock : TerraformBlockBase
+public partial class AzurermApiManagementIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -156,7 +156,7 @@ public partial class AzurermApiManagementIdentityBlock : TerraformBlockBase
 /// Block type for protocols in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementProtocolsBlock : TerraformBlockBase
+public partial class AzurermApiManagementProtocolsBlock() : TerraformBlock("protocols")
 {
     /// <summary>
     /// The enable_http2 attribute.
@@ -179,7 +179,7 @@ public partial class AzurermApiManagementProtocolsBlock : TerraformBlockBase
 /// Block type for security in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementSecurityBlock : TerraformBlockBase
+public partial class AzurermApiManagementSecurityBlock() : TerraformBlock("security")
 {
     /// <summary>
     /// The backend_ssl30_enabled attribute.
@@ -354,7 +354,7 @@ public partial class AzurermApiManagementSecurityBlock : TerraformBlockBase
 /// Block type for sign_in in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementSignInBlock : TerraformBlockBase
+public partial class AzurermApiManagementSignInBlock() : TerraformBlock("sign_in")
 {
     /// <summary>
     /// The enabled attribute.
@@ -370,7 +370,7 @@ public partial class AzurermApiManagementSignInBlock : TerraformBlockBase
 /// Block type for sign_up in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementSignUpBlock : TerraformBlockBase
+public partial class AzurermApiManagementSignUpBlock() : TerraformBlock("sign_up")
 {
     /// <summary>
     /// The enabled attribute.
@@ -386,7 +386,7 @@ public partial class AzurermApiManagementSignUpBlock : TerraformBlockBase
 /// Block type for tenant_access in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementTenantAccessBlock : TerraformBlockBase
+public partial class AzurermApiManagementTenantAccessBlock() : TerraformBlock("tenant_access")
 {
     /// <summary>
     /// The enabled attribute.
@@ -405,7 +405,7 @@ public partial class AzurermApiManagementTenantAccessBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -441,7 +441,7 @@ public partial class AzurermApiManagementTimeoutsBlock : TerraformBlockBase
 /// Block type for virtual_network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementVirtualNetworkConfigurationBlock : TerraformBlockBase
+public partial class AzurermApiManagementVirtualNetworkConfigurationBlock() : TerraformBlock("virtual_network_configuration")
 {
     /// <summary>
     /// The subnet_id attribute.
@@ -586,7 +586,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("additional_location")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementAdditionalLocationBlock>>? AdditionalLocation { get; set; }
+    public TerraformList<AzurermApiManagementAdditionalLocationBlock> AdditionalLocation { get; set; } = new();
 
     /// <summary>
     /// Block for certificate.
@@ -594,7 +594,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Certificate block(s) allowed")]
     [TerraformProperty("certificate")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementCertificateBlock>>? Certificate { get; set; }
+    public TerraformList<AzurermApiManagementCertificateBlock> Certificate { get; set; } = new();
 
     /// <summary>
     /// Block for delegation.
@@ -602,7 +602,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Delegation block(s) allowed")]
     [TerraformProperty("delegation")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementDelegationBlock>>? Delegation { get; set; }
+    public TerraformList<AzurermApiManagementDelegationBlock> Delegation { get; set; } = new();
 
     /// <summary>
     /// Block for hostname_configuration.
@@ -610,7 +610,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HostnameConfiguration block(s) allowed")]
     [TerraformProperty("hostname_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementHostnameConfigurationBlock>>? HostnameConfiguration { get; set; }
+    public TerraformList<AzurermApiManagementHostnameConfigurationBlock> HostnameConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -618,7 +618,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermApiManagementIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for protocols.
@@ -626,7 +626,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protocols block(s) allowed")]
     [TerraformProperty("protocols")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementProtocolsBlock>>? Protocols { get; set; }
+    public TerraformList<AzurermApiManagementProtocolsBlock> Protocols { get; set; } = new();
 
     /// <summary>
     /// Block for security.
@@ -634,7 +634,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
     [TerraformProperty("security")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementSecurityBlock>>? Security { get; set; }
+    public TerraformList<AzurermApiManagementSecurityBlock> Security { get; set; } = new();
 
     /// <summary>
     /// Block for sign_in.
@@ -642,7 +642,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignIn block(s) allowed")]
     [TerraformProperty("sign_in")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementSignInBlock>>? SignIn { get; set; }
+    public TerraformList<AzurermApiManagementSignInBlock> SignIn { get; set; } = new();
 
     /// <summary>
     /// Block for sign_up.
@@ -650,7 +650,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignUp block(s) allowed")]
     [TerraformProperty("sign_up")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementSignUpBlock>>? SignUp { get; set; }
+    public TerraformList<AzurermApiManagementSignUpBlock> SignUp { get; set; } = new();
 
     /// <summary>
     /// Block for tenant_access.
@@ -658,14 +658,14 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TenantAccess block(s) allowed")]
     [TerraformProperty("tenant_access")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementTenantAccessBlock>>? TenantAccess { get; set; }
+    public TerraformList<AzurermApiManagementTenantAccessBlock> TenantAccess { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_network_configuration.
@@ -673,7 +673,7 @@ public partial class AzurermApiManagement : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
     [TerraformProperty("virtual_network_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementVirtualNetworkConfigurationBlock>>? VirtualNetworkConfiguration { get; set; }
+    public TerraformList<AzurermApiManagementVirtualNetworkConfigurationBlock> VirtualNetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// The developer_portal_url attribute.

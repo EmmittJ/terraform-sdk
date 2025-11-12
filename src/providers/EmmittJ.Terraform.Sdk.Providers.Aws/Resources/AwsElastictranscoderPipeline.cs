@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for content_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElastictranscoderPipelineContentConfigBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPipelineContentConfigBlock() : TerraformBlock("content_config")
 {
     /// <summary>
     /// The bucket attribute.
@@ -28,7 +28,7 @@ public partial class AwsElastictranscoderPipelineContentConfigBlock : TerraformB
 /// Block type for content_config_permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsElastictranscoderPipelineContentConfigPermissionsBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPipelineContentConfigPermissionsBlock() : TerraformBlock("content_config_permissions")
 {
     /// <summary>
     /// The access attribute.
@@ -57,7 +57,7 @@ public partial class AwsElastictranscoderPipelineContentConfigPermissionsBlock :
 /// Block type for notifications in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPipelineNotificationsBlock() : TerraformBlock("notifications")
 {
     /// <summary>
     /// The completed attribute.
@@ -93,7 +93,7 @@ public partial class AwsElastictranscoderPipelineNotificationsBlock : TerraformB
 /// Block type for thumbnail_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElastictranscoderPipelineThumbnailConfigBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPipelineThumbnailConfigBlock() : TerraformBlock("thumbnail_config")
 {
     /// <summary>
     /// The bucket attribute.
@@ -115,7 +115,7 @@ public partial class AwsElastictranscoderPipelineThumbnailConfigBlock : Terrafor
 /// Block type for thumbnail_config_permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : TerraformBlockBase
+public partial class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock() : TerraformBlock("thumbnail_config_permissions")
 {
     /// <summary>
     /// The access attribute.
@@ -208,14 +208,14 @@ public partial class AwsElastictranscoderPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContentConfig block(s) allowed")]
     [TerraformProperty("content_config")]
-    public partial TerraformList<TerraformBlock<AwsElastictranscoderPipelineContentConfigBlock>>? ContentConfig { get; set; }
+    public TerraformList<AwsElastictranscoderPipelineContentConfigBlock> ContentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for content_config_permissions.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("content_config_permissions")]
-    public partial TerraformSet<TerraformBlock<AwsElastictranscoderPipelineContentConfigPermissionsBlock>>? ContentConfigPermissions { get; set; }
+    public TerraformSet<AwsElastictranscoderPipelineContentConfigPermissionsBlock> ContentConfigPermissions { get; set; } = new();
 
     /// <summary>
     /// Block for notifications.
@@ -223,7 +223,7 @@ public partial class AwsElastictranscoderPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notifications block(s) allowed")]
     [TerraformProperty("notifications")]
-    public partial TerraformList<TerraformBlock<AwsElastictranscoderPipelineNotificationsBlock>>? Notifications { get; set; }
+    public TerraformList<AwsElastictranscoderPipelineNotificationsBlock> Notifications { get; set; } = new();
 
     /// <summary>
     /// Block for thumbnail_config.
@@ -231,14 +231,14 @@ public partial class AwsElastictranscoderPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThumbnailConfig block(s) allowed")]
     [TerraformProperty("thumbnail_config")]
-    public partial TerraformList<TerraformBlock<AwsElastictranscoderPipelineThumbnailConfigBlock>>? ThumbnailConfig { get; set; }
+    public TerraformList<AwsElastictranscoderPipelineThumbnailConfigBlock> ThumbnailConfig { get; set; } = new();
 
     /// <summary>
     /// Block for thumbnail_config_permissions.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("thumbnail_config_permissions")]
-    public partial TerraformSet<TerraformBlock<AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock>>? ThumbnailConfigPermissions { get; set; }
+    public TerraformSet<AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock> ThumbnailConfigPermissions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

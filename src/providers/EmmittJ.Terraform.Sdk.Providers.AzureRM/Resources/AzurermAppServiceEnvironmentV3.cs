@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cluster_setting in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAppServiceEnvironmentV3ClusterSettingBlock : TerraformBlockBase
+public partial class AzurermAppServiceEnvironmentV3ClusterSettingBlock() : TerraformBlock("cluster_setting")
 {
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermAppServiceEnvironmentV3ClusterSettingBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceEnvironmentV3TimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,14 +149,14 @@ public partial class AzurermAppServiceEnvironmentV3 : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cluster_setting")]
-    public partial TerraformList<TerraformBlock<AzurermAppServiceEnvironmentV3ClusterSettingBlock>>? ClusterSetting { get; set; }
+    public TerraformList<AzurermAppServiceEnvironmentV3ClusterSettingBlock> ClusterSetting { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceEnvironmentV3TimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceEnvironmentV3TimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dns_suffix attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The destination IP range of outgoing packets that this policy-based route applies to. Default is &amp;quot;0.0.0.0/0&amp;quot;.
@@ -43,7 +43,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : Terr
 /// Block type for interconnect_attachment in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock() : TerraformBlock("interconnect_attachment")
 {
     /// <summary>
     /// Cloud region to install this policy-based route on for Interconnect attachments. Use &#39;all&#39; to install it on all Interconnect attachments.
@@ -59,7 +59,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttach
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -88,7 +88,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : Te
 /// Block type for virtual_machine in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock() : TerraformBlock("virtual_machine")
 {
     /// <summary>
     /// A list of VM instance tags that this policy-based route applies to. VM instances that have ANY of tags specified here will install this PBR.
@@ -187,7 +187,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteFilterBlock>>? Filter { get; set; }
+    public required TerraformList<GoogleNetworkConnectivityPolicyBasedRouteFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for interconnect_attachment.
@@ -195,14 +195,14 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InterconnectAttachment block(s) allowed")]
     [TerraformProperty("interconnect_attachment")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock>>? InterconnectAttachment { get; set; }
+    public TerraformList<GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock> InterconnectAttachment { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_machine.
@@ -210,7 +210,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachine block(s) allowed")]
     [TerraformProperty("virtual_machine")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock>>? VirtualMachine { get; set; }
+    public TerraformList<GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock> VirtualMachine { get; set; } = new();
 
     /// <summary>
     /// Time when the policy-based route was created.

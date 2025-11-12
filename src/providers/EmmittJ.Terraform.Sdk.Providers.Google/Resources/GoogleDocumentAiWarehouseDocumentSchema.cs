@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for property_definitions in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : TerraformBlockBase
+public partial class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock() : TerraformBlock("property_definitions")
 {
     /// <summary>
     /// The display-name for the property, used for front-end.
@@ -71,7 +71,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,14 +144,14 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyDefinitions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PropertyDefinitions block(s) required")]
     [TerraformProperty("property_definitions")]
-    public partial TerraformList<TerraformBlock<GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock>>? PropertyDefinitions { get; set; }
+    public required TerraformList<GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock> PropertyDefinitions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the document schema.

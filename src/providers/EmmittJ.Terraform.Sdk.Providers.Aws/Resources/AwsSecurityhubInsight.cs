@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecurityhubInsightFiltersBlock : TerraformBlockBase
+public partial class AwsSecurityhubInsightFiltersBlock() : TerraformBlock("filters")
 {
 }
 
@@ -58,7 +58,7 @@ public partial class AwsSecurityhubInsight : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filters block(s) allowed")]
     [TerraformProperty("filters")]
-    public partial TerraformList<TerraformBlock<AwsSecurityhubInsightFiltersBlock>>? Filters { get; set; }
+    public required TerraformList<AwsSecurityhubInsightFiltersBlock> Filters { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

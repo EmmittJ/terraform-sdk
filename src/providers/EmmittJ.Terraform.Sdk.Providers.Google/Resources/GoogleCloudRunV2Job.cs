@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2JobBinaryAuthorizationBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2JobBinaryAuthorizationBlock() : TerraformBlock("binary_authorization")
 {
     /// <summary>
     /// If present, indicates to use Breakglass using this justification. If useDefault is False, then it must be empty. For more information on breakglass, see https://cloud.google.com/binary-authorization/docs/using-breakglass
@@ -35,7 +35,7 @@ public partial class GoogleCloudRunV2JobBinaryAuthorizationBlock : TerraformBloc
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudRunV2JobTemplateBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2JobTemplateBlock() : TerraformBlock("template")
 {
     /// <summary>
     /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
@@ -81,7 +81,7 @@ public partial class GoogleCloudRunV2JobTemplateBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudRunV2JobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudRunV2JobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -217,7 +217,7 @@ public partial class GoogleCloudRunV2Job : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2JobBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public TerraformList<GoogleCloudRunV2JobBinaryAuthorizationBlock> BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for template.
@@ -227,14 +227,14 @@ public partial class GoogleCloudRunV2Job : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public partial TerraformList<TerraformBlock<GoogleCloudRunV2JobTemplateBlock>>? Template { get; set; }
+    public required TerraformList<GoogleCloudRunV2JobTemplateBlock> Template { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudRunV2JobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudRunV2JobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Job does not reach its desired state. See comments in reconciling for additional information on &#39;reconciliation&#39; process in Cloud Run.

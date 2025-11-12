@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for gdce_cluster in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocGdcServiceInstanceGdceClusterBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcServiceInstanceGdceClusterBlock() : TerraformBlock("gdce_cluster")
 {
     /// <summary>
     /// Gdce cluster resource id.
@@ -22,7 +22,7 @@ public partial class GoogleDataprocGdcServiceInstanceGdceClusterBlock : Terrafor
 /// Block type for spark_service_instance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocGdcServiceInstanceSparkServiceInstanceConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcServiceInstanceSparkServiceInstanceConfigBlock() : TerraformBlock("spark_service_instance_config")
 {
 }
 
@@ -30,7 +30,7 @@ public partial class GoogleDataprocGdcServiceInstanceSparkServiceInstanceConfigB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocGdcServiceInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcServiceInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -125,7 +125,7 @@ public partial class GoogleDataprocGdcServiceInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GdceCluster block(s) allowed")]
     [TerraformProperty("gdce_cluster")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocGdcServiceInstanceGdceClusterBlock>>? GdceCluster { get; set; }
+    public TerraformList<GoogleDataprocGdcServiceInstanceGdceClusterBlock> GdceCluster { get; set; } = new();
 
     /// <summary>
     /// Block for spark_service_instance_config.
@@ -133,14 +133,14 @@ public partial class GoogleDataprocGdcServiceInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkServiceInstanceConfig block(s) allowed")]
     [TerraformProperty("spark_service_instance_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocGdcServiceInstanceSparkServiceInstanceConfigBlock>>? SparkServiceInstanceConfig { get; set; }
+    public TerraformList<GoogleDataprocGdcServiceInstanceSparkServiceInstanceConfigBlock> SparkServiceInstanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocGdcServiceInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocGdcServiceInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

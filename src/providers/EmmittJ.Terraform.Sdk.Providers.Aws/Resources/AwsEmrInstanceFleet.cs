@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for instance_type_configs in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlockBase
+public partial class AwsEmrInstanceFleetInstanceTypeConfigsBlock() : TerraformBlock("instance_type_configs")
 {
     /// <summary>
     /// The bid_price attribute.
@@ -43,7 +43,7 @@ public partial class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBloc
 /// Block type for launch_specifications in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrInstanceFleetLaunchSpecificationsBlock : TerraformBlockBase
+public partial class AwsEmrInstanceFleetLaunchSpecificationsBlock() : TerraformBlock("launch_specifications")
 {
 }
 
@@ -105,7 +105,7 @@ public partial class AwsEmrInstanceFleet : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("instance_type_configs")]
-    public partial TerraformSet<TerraformBlock<AwsEmrInstanceFleetInstanceTypeConfigsBlock>>? InstanceTypeConfigs { get; set; }
+    public TerraformSet<AwsEmrInstanceFleetInstanceTypeConfigsBlock> InstanceTypeConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for launch_specifications.
@@ -113,7 +113,7 @@ public partial class AwsEmrInstanceFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchSpecifications block(s) allowed")]
     [TerraformProperty("launch_specifications")]
-    public partial TerraformList<TerraformBlock<AwsEmrInstanceFleetLaunchSpecificationsBlock>>? LaunchSpecifications { get; set; }
+    public TerraformList<AwsEmrInstanceFleetLaunchSpecificationsBlock> LaunchSpecifications { get; set; } = new();
 
     /// <summary>
     /// The provisioned_on_demand_capacity attribute.

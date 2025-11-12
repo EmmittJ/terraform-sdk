@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKeyVaultCertificateCertificateBlock : TerraformBlockBase
+public partial class AzurermKeyVaultCertificateCertificateBlock() : TerraformBlock("certificate")
 {
     /// <summary>
     /// The contents attribute.
@@ -29,7 +29,7 @@ public partial class AzurermKeyVaultCertificateCertificateBlock : TerraformBlock
 /// Block type for certificate_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKeyVaultCertificateCertificatePolicyBlock : TerraformBlockBase
+public partial class AzurermKeyVaultCertificateCertificatePolicyBlock() : TerraformBlock("certificate_policy")
 {
 }
 
@@ -37,7 +37,7 @@ public partial class AzurermKeyVaultCertificateCertificatePolicyBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKeyVaultCertificateTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultCertificateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,7 +115,7 @@ public partial class AzurermKeyVaultCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]
     [TerraformProperty("certificate")]
-    public partial TerraformList<TerraformBlock<AzurermKeyVaultCertificateCertificateBlock>>? Certificate { get; set; }
+    public TerraformList<AzurermKeyVaultCertificateCertificateBlock> Certificate { get; set; } = new();
 
     /// <summary>
     /// Block for certificate_policy.
@@ -123,14 +123,14 @@ public partial class AzurermKeyVaultCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificatePolicy block(s) allowed")]
     [TerraformProperty("certificate_policy")]
-    public partial TerraformList<TerraformBlock<AzurermKeyVaultCertificateCertificatePolicyBlock>>? CertificatePolicy { get; set; }
+    public TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlock> CertificatePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKeyVaultCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKeyVaultCertificateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The certificate_attribute attribute.

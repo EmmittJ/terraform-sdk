@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for big_query in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiFeatureGroupBigQueryBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureGroupBigQueryBlock() : TerraformBlock("big_query")
 {
     /// <summary>
     /// Columns to construct entityId / row keys. If not provided defaults to entityId.
@@ -21,7 +21,7 @@ public partial class GoogleVertexAiFeatureGroupBigQueryBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiFeatureGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiFeatureGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,14 +107,14 @@ public partial class GoogleVertexAiFeatureGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigQuery block(s) allowed")]
     [TerraformProperty("big_query")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureGroupBigQueryBlock>>? BigQuery { get; set; }
+    public TerraformList<GoogleVertexAiFeatureGroupBigQueryBlock> BigQuery { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiFeatureGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiFeatureGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the FeatureGroup was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.

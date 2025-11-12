@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for app_engine_http_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlockBase
+public partial class GoogleCloudSchedulerJobAppEngineHttpTargetBlock() : TerraformBlock("app_engine_http_target")
 {
     /// <summary>
     /// HTTP request body.
@@ -53,7 +53,7 @@ public partial class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : Terraform
 /// Block type for http_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlockBase
+public partial class GoogleCloudSchedulerJobHttpTargetBlock() : TerraformBlock("http_target")
 {
     /// <summary>
     /// HTTP request body.
@@ -95,7 +95,7 @@ public partial class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlockBase
 /// Block type for pubsub_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlockBase
+public partial class GoogleCloudSchedulerJobPubsubTargetBlock() : TerraformBlock("pubsub_target")
 {
     /// <summary>
     /// Attributes for PubsubMessage.
@@ -132,7 +132,7 @@ public partial class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlockBa
 /// Block type for retry_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlockBase
+public partial class GoogleCloudSchedulerJobRetryConfigBlock() : TerraformBlock("retry_config")
 {
     /// <summary>
     /// The maximum amount of time to wait before retrying a job after it fails.
@@ -184,7 +184,7 @@ public partial class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudSchedulerJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -298,7 +298,7 @@ public partial class GoogleCloudSchedulerJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngineHttpTarget block(s) allowed")]
     [TerraformProperty("app_engine_http_target")]
-    public partial TerraformList<TerraformBlock<GoogleCloudSchedulerJobAppEngineHttpTargetBlock>>? AppEngineHttpTarget { get; set; }
+    public TerraformList<GoogleCloudSchedulerJobAppEngineHttpTargetBlock> AppEngineHttpTarget { get; set; } = new();
 
     /// <summary>
     /// Block for http_target.
@@ -306,7 +306,7 @@ public partial class GoogleCloudSchedulerJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
     [TerraformProperty("http_target")]
-    public partial TerraformList<TerraformBlock<GoogleCloudSchedulerJobHttpTargetBlock>>? HttpTarget { get; set; }
+    public TerraformList<GoogleCloudSchedulerJobHttpTargetBlock> HttpTarget { get; set; } = new();
 
     /// <summary>
     /// Block for pubsub_target.
@@ -314,7 +314,7 @@ public partial class GoogleCloudSchedulerJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubTarget block(s) allowed")]
     [TerraformProperty("pubsub_target")]
-    public partial TerraformList<TerraformBlock<GoogleCloudSchedulerJobPubsubTargetBlock>>? PubsubTarget { get; set; }
+    public TerraformList<GoogleCloudSchedulerJobPubsubTargetBlock> PubsubTarget { get; set; } = new();
 
     /// <summary>
     /// Block for retry_config.
@@ -322,14 +322,14 @@ public partial class GoogleCloudSchedulerJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryConfig block(s) allowed")]
     [TerraformProperty("retry_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudSchedulerJobRetryConfigBlock>>? RetryConfig { get; set; }
+    public TerraformList<GoogleCloudSchedulerJobRetryConfigBlock> RetryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudSchedulerJobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudSchedulerJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// State of the job.

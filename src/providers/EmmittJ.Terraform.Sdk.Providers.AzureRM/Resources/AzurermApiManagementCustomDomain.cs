@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for developer_portal in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlockBase
+public partial class AzurermApiManagementCustomDomainDeveloperPortalBlock() : TerraformBlock("developer_portal")
 {
     /// <summary>
     /// The certificate attribute.
@@ -70,7 +70,7 @@ public partial class AzurermApiManagementCustomDomainDeveloperPortalBlock : Terr
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlockBase
+public partial class AzurermApiManagementCustomDomainGatewayBlock() : TerraformBlock("gateway")
 {
     /// <summary>
     /// The certificate attribute.
@@ -141,7 +141,7 @@ public partial class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlo
 /// Block type for management in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementCustomDomainManagementBlock : TerraformBlockBase
+public partial class AzurermApiManagementCustomDomainManagementBlock() : TerraformBlock("management")
 {
     /// <summary>
     /// The certificate attribute.
@@ -205,7 +205,7 @@ public partial class AzurermApiManagementCustomDomainManagementBlock : Terraform
 /// Block type for portal in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementCustomDomainPortalBlock : TerraformBlockBase
+public partial class AzurermApiManagementCustomDomainPortalBlock() : TerraformBlock("portal")
 {
     /// <summary>
     /// The certificate attribute.
@@ -269,7 +269,7 @@ public partial class AzurermApiManagementCustomDomainPortalBlock : TerraformBloc
 /// Block type for scm in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementCustomDomainScmBlock : TerraformBlockBase
+public partial class AzurermApiManagementCustomDomainScmBlock() : TerraformBlock("scm")
 {
     /// <summary>
     /// The certificate attribute.
@@ -333,7 +333,7 @@ public partial class AzurermApiManagementCustomDomainScmBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementCustomDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -394,41 +394,41 @@ public partial class AzurermApiManagementCustomDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("developer_portal")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementCustomDomainDeveloperPortalBlock>>? DeveloperPortal { get; set; }
+    public TerraformList<AzurermApiManagementCustomDomainDeveloperPortalBlock> DeveloperPortal { get; set; } = new();
 
     /// <summary>
     /// Block for gateway.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("gateway")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementCustomDomainGatewayBlock>>? Gateway { get; set; }
+    public TerraformList<AzurermApiManagementCustomDomainGatewayBlock> Gateway { get; set; } = new();
 
     /// <summary>
     /// Block for management.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("management")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementCustomDomainManagementBlock>>? Management { get; set; }
+    public TerraformList<AzurermApiManagementCustomDomainManagementBlock> Management { get; set; } = new();
 
     /// <summary>
     /// Block for portal.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("portal")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementCustomDomainPortalBlock>>? Portal { get; set; }
+    public TerraformList<AzurermApiManagementCustomDomainPortalBlock> Portal { get; set; } = new();
 
     /// <summary>
     /// Block for scm.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scm")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementCustomDomainScmBlock>>? Scm { get; set; }
+    public TerraformList<AzurermApiManagementCustomDomainScmBlock> Scm { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
 
 }

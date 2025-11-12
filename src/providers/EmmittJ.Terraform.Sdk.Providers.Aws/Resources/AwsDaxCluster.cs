@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDaxClusterServerSideEncryptionBlock : TerraformBlockBase
+public partial class AwsDaxClusterServerSideEncryptionBlock() : TerraformBlock("server_side_encryption")
 {
     /// <summary>
     /// The enabled attribute.
@@ -21,7 +21,7 @@ public partial class AwsDaxClusterServerSideEncryptionBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDaxClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsDaxClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -178,14 +178,14 @@ public partial class AwsDaxCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     [TerraformProperty("server_side_encryption")]
-    public partial TerraformList<TerraformBlock<AwsDaxClusterServerSideEncryptionBlock>>? ServerSideEncryption { get; set; }
+    public TerraformList<AwsDaxClusterServerSideEncryptionBlock> ServerSideEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDaxClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDaxClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApplicationInsightsWorkbookIdentityBlock : TerraformBlockBase
+public partial class AzurermApplicationInsightsWorkbookIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermApplicationInsightsWorkbookIdentityBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApplicationInsightsWorkbookTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApplicationInsightsWorkbookTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -161,13 +161,13 @@ public partial class AzurermApplicationInsightsWorkbook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermApplicationInsightsWorkbookIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermApplicationInsightsWorkbookIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApplicationInsightsWorkbookTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApplicationInsightsWorkbookTimeoutsBlock Timeouts { get; set; } = new();
 
 }

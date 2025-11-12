@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCodecatalystProjectTimeoutsBlock : TerraformBlockBase
+public partial class AwsCodecatalystProjectTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,7 +82,7 @@ public partial class AwsCodecatalystProject : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCodecatalystProjectTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCodecatalystProjectTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name attribute.

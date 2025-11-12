@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for aspects in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexEntryAspectsBlock : TerraformBlockBase
+public partial class GoogleDataplexEntryAspectsBlock() : TerraformBlock("aspects")
 {
     /// <summary>
     /// Depending on how the aspect is attached to the entry, the format of the aspect key can be one of the following:
@@ -25,7 +25,7 @@ public partial class GoogleDataplexEntryAspectsBlock : TerraformBlockBase
 /// Block type for entry_source in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexEntryEntrySourceBlock : TerraformBlockBase
+public partial class GoogleDataplexEntryEntrySourceBlock() : TerraformBlock("entry_source")
 {
     /// <summary>
     /// The time when the resource was created in the source system.
@@ -93,7 +93,7 @@ public partial class GoogleDataplexEntryEntrySourceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexEntryTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexEntryTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -191,7 +191,7 @@ public partial class GoogleDataplexEntry : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("aspects")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexEntryAspectsBlock>>? Aspects { get; set; }
+    public TerraformList<GoogleDataplexEntryAspectsBlock> Aspects { get; set; } = new();
 
     /// <summary>
     /// Block for entry_source.
@@ -199,14 +199,14 @@ public partial class GoogleDataplexEntry : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntrySource block(s) allowed")]
     [TerraformProperty("entry_source")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexEntryEntrySourceBlock>>? EntrySource { get; set; }
+    public TerraformList<GoogleDataplexEntryEntrySourceBlock> EntrySource { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexEntryTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexEntryTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the Entry was created in Dataplex.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cdi_input_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMedialiveChannelCdiInputSpecificationBlock : TerraformBlockBase
+public partial class AwsMedialiveChannelCdiInputSpecificationBlock() : TerraformBlock("cdi_input_specification")
 {
     /// <summary>
     /// The resolution attribute.
@@ -22,7 +22,7 @@ public partial class AwsMedialiveChannelCdiInputSpecificationBlock : TerraformBl
 /// Block type for destinations in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMedialiveChannelDestinationsBlock : TerraformBlockBase
+public partial class AwsMedialiveChannelDestinationsBlock() : TerraformBlock("destinations")
 {
     /// <summary>
     /// The id attribute.
@@ -38,7 +38,7 @@ public partial class AwsMedialiveChannelDestinationsBlock : TerraformBlockBase
 /// Block type for encoder_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMedialiveChannelEncoderSettingsBlock : TerraformBlockBase
+public partial class AwsMedialiveChannelEncoderSettingsBlock() : TerraformBlock("encoder_settings")
 {
 }
 
@@ -46,7 +46,7 @@ public partial class AwsMedialiveChannelEncoderSettingsBlock : TerraformBlockBas
 /// Block type for input_attachments in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMedialiveChannelInputAttachmentsBlock : TerraformBlockBase
+public partial class AwsMedialiveChannelInputAttachmentsBlock() : TerraformBlock("input_attachments")
 {
     /// <summary>
     /// The input_attachment_name attribute.
@@ -70,7 +70,7 @@ public partial class AwsMedialiveChannelInputAttachmentsBlock : TerraformBlockBa
 /// Block type for input_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMedialiveChannelInputSpecificationBlock : TerraformBlockBase
+public partial class AwsMedialiveChannelInputSpecificationBlock() : TerraformBlock("input_specification")
 {
     /// <summary>
     /// The codec attribute.
@@ -102,7 +102,7 @@ public partial class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
 /// Block type for maintenance in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMedialiveChannelMaintenanceBlock : TerraformBlockBase
+public partial class AwsMedialiveChannelMaintenanceBlock() : TerraformBlock("maintenance")
 {
     /// <summary>
     /// The maintenance_day attribute.
@@ -126,7 +126,7 @@ public partial class AwsMedialiveChannelMaintenanceBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMedialiveChannelTimeoutsBlock : TerraformBlockBase
+public partial class AwsMedialiveChannelTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -155,7 +155,7 @@ public partial class AwsMedialiveChannelTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMedialiveChannelVpcBlock : TerraformBlockBase
+public partial class AwsMedialiveChannelVpcBlock() : TerraformBlock("vpc")
 {
 
 
@@ -265,7 +265,7 @@ public partial class AwsMedialiveChannel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdiInputSpecification block(s) allowed")]
     [TerraformProperty("cdi_input_specification")]
-    public partial TerraformList<TerraformBlock<AwsMedialiveChannelCdiInputSpecificationBlock>>? CdiInputSpecification { get; set; }
+    public TerraformList<AwsMedialiveChannelCdiInputSpecificationBlock> CdiInputSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for destinations.
@@ -274,7 +274,7 @@ public partial class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [TerraformProperty("destinations")]
-    public partial TerraformSet<TerraformBlock<AwsMedialiveChannelDestinationsBlock>>? Destinations { get; set; }
+    public required TerraformSet<AwsMedialiveChannelDestinationsBlock> Destinations { get; set; } = new();
 
     /// <summary>
     /// Block for encoder_settings.
@@ -284,7 +284,7 @@ public partial class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EncoderSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncoderSettings block(s) allowed")]
     [TerraformProperty("encoder_settings")]
-    public partial TerraformList<TerraformBlock<AwsMedialiveChannelEncoderSettingsBlock>>? EncoderSettings { get; set; }
+    public required TerraformList<AwsMedialiveChannelEncoderSettingsBlock> EncoderSettings { get; set; } = new();
 
     /// <summary>
     /// Block for input_attachments.
@@ -293,7 +293,7 @@ public partial class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputAttachments is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputAttachments block(s) required")]
     [TerraformProperty("input_attachments")]
-    public partial TerraformSet<TerraformBlock<AwsMedialiveChannelInputAttachmentsBlock>>? InputAttachments { get; set; }
+    public required TerraformSet<AwsMedialiveChannelInputAttachmentsBlock> InputAttachments { get; set; } = new();
 
     /// <summary>
     /// Block for input_specification.
@@ -303,7 +303,7 @@ public partial class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputSpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputSpecification block(s) allowed")]
     [TerraformProperty("input_specification")]
-    public partial TerraformList<TerraformBlock<AwsMedialiveChannelInputSpecificationBlock>>? InputSpecification { get; set; }
+    public required TerraformList<AwsMedialiveChannelInputSpecificationBlock> InputSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance.
@@ -311,14 +311,14 @@ public partial class AwsMedialiveChannel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Maintenance block(s) allowed")]
     [TerraformProperty("maintenance")]
-    public partial TerraformList<TerraformBlock<AwsMedialiveChannelMaintenanceBlock>>? Maintenance { get; set; }
+    public TerraformList<AwsMedialiveChannelMaintenanceBlock> Maintenance { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMedialiveChannelTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMedialiveChannelTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc.
@@ -326,7 +326,7 @@ public partial class AwsMedialiveChannel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vpc block(s) allowed")]
     [TerraformProperty("vpc")]
-    public partial TerraformList<TerraformBlock<AwsMedialiveChannelVpcBlock>>? Vpc { get; set; }
+    public TerraformList<AwsMedialiveChannelVpcBlock> Vpc { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

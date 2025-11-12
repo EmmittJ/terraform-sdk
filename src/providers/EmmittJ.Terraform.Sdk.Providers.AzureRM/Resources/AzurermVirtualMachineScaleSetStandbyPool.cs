@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for elasticity_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock() : TerraformBlock("elasticity_profile")
 {
     /// <summary>
     /// The max_ready_capacity attribute.
@@ -30,7 +30,7 @@ public partial class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVirtualMachineScaleSetStandbyPoolTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVirtualMachineScaleSetStandbyPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -134,13 +134,13 @@ public partial class AzurermVirtualMachineScaleSetStandbyPool : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ElasticityProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticityProfile block(s) allowed")]
     [TerraformProperty("elasticity_profile")]
-    public partial TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock>>? ElasticityProfile { get; set; }
+    public required TerraformList<AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock> ElasticityProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVirtualMachineScaleSetStandbyPoolTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVirtualMachineScaleSetStandbyPoolTimeoutsBlock Timeouts { get; set; } = new();
 
 }

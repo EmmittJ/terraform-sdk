@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQuicksightThemeConfigurationBlock : TerraformBlockBase
+public partial class AwsQuicksightThemeConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsQuicksightThemeConfigurationBlock : TerraformBlockBase
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsQuicksightThemePermissionsBlock : TerraformBlockBase
+public partial class AwsQuicksightThemePermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The actions attribute.
@@ -38,7 +38,7 @@ public partial class AwsQuicksightThemePermissionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsQuicksightThemeTimeoutsBlock : TerraformBlockBase
+public partial class AwsQuicksightThemeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -145,7 +145,7 @@ public partial class AwsQuicksightTheme : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsQuicksightThemeConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsQuicksightThemeConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for permissions.
@@ -153,14 +153,14 @@ public partial class AwsQuicksightTheme : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     [TerraformProperty("permissions")]
-    public partial TerraformSet<TerraformBlock<AwsQuicksightThemePermissionsBlock>>? Permissions { get; set; }
+    public TerraformSet<AwsQuicksightThemePermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsQuicksightThemeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsQuicksightThemeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

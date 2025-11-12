@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for network_address_port_translation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock() : TerraformBlock("network_address_port_translation")
 {
     /// <summary>
     /// The icmp_pinhole_timeout_in_seconds attribute.
@@ -56,7 +56,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -192,13 +192,13 @@ public partial class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAddressPortTranslation block(s) allowed")]
     [TerraformProperty("network_address_port_translation")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock>>? NetworkAddressPortTranslation { get; set; }
+    public TerraformList<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock> NetworkAddressPortTranslation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock Timeouts { get; set; } = new();
 
 }

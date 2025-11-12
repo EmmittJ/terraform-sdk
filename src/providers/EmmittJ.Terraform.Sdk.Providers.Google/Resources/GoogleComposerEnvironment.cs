@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComposerEnvironmentConfigBlock : TerraformBlockBase
+public partial class GoogleComposerEnvironmentConfigBlock() : TerraformBlock("config")
 {
 
 
@@ -52,7 +52,7 @@ public partial class GoogleComposerEnvironmentConfigBlock : TerraformBlockBase
 /// Block type for storage_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComposerEnvironmentStorageConfigBlock : TerraformBlockBase
+public partial class GoogleComposerEnvironmentStorageConfigBlock() : TerraformBlock("storage_config")
 {
     /// <summary>
     /// Optional. Name of an existing Cloud Storage bucket to be used by the environment.
@@ -68,7 +68,7 @@ public partial class GoogleComposerEnvironmentStorageConfigBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComposerEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComposerEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -148,7 +148,7 @@ public partial class GoogleComposerEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public partial TerraformList<TerraformBlock<GoogleComposerEnvironmentConfigBlock>>? Config { get; set; }
+    public TerraformList<GoogleComposerEnvironmentConfigBlock> Config { get; set; } = new();
 
     /// <summary>
     /// Block for storage_config.
@@ -156,14 +156,14 @@ public partial class GoogleComposerEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
     [TerraformProperty("storage_config")]
-    public partial TerraformList<TerraformBlock<GoogleComposerEnvironmentStorageConfigBlock>>? StorageConfig { get; set; }
+    public TerraformList<GoogleComposerEnvironmentStorageConfigBlock> StorageConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComposerEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComposerEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

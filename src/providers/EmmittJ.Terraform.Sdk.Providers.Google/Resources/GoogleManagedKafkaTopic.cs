@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleManagedKafkaTopicTimeoutsBlock : TerraformBlockBase
+public partial class GoogleManagedKafkaTopicTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -105,7 +105,7 @@ public partial class GoogleManagedKafkaTopic : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleManagedKafkaTopicTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleManagedKafkaTopicTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the topic. The &#39;topic&#39; segment is used when connecting directly to the cluster. Must be in the format &#39;projects/PROJECT_ID/locations/LOCATION/clusters/CLUSTER_ID/topics/TOPIC_ID&#39;.

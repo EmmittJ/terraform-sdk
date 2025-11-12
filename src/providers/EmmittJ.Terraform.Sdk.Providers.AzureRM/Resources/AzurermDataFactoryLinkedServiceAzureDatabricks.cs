@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for instance_pool in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock() : TerraformBlock("instance_pool")
 {
     /// <summary>
     /// The cluster_version attribute.
@@ -44,7 +44,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolB
 /// Block type for key_vault_password in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock() : TerraformBlock("key_vault_password")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPassw
 /// Block type for new_cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock() : TerraformBlock("new_cluster_config")
 {
     /// <summary>
     /// The cluster_version attribute.
@@ -148,7 +148,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterCon
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -283,7 +283,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstancePool block(s) allowed")]
     [TerraformProperty("instance_pool")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock>>? InstancePool { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock> InstancePool { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_password.
@@ -291,7 +291,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
     [TerraformProperty("key_vault_password")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock>>? KeyVaultPassword { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock> KeyVaultPassword { get; set; } = new();
 
     /// <summary>
     /// Block for new_cluster_config.
@@ -299,13 +299,13 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewClusterConfig block(s) allowed")]
     [TerraformProperty("new_cluster_config")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock>>? NewClusterConfig { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock> NewClusterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock Timeouts { get; set; } = new();
 
 }

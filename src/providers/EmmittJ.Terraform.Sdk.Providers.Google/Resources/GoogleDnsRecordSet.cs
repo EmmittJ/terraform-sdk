@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDnsRecordSetRoutingPolicyBlock : TerraformBlockBase
+public partial class GoogleDnsRecordSetRoutingPolicyBlock() : TerraformBlock("routing_policy")
 {
     /// <summary>
     /// Specifies whether to enable fencing for geo queries.
@@ -92,6 +92,6 @@ public partial class GoogleDnsRecordSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingPolicy block(s) allowed")]
     [TerraformProperty("routing_policy")]
-    public partial TerraformList<TerraformBlock<GoogleDnsRecordSetRoutingPolicyBlock>>? RoutingPolicy { get; set; }
+    public TerraformList<GoogleDnsRecordSetRoutingPolicyBlock> RoutingPolicy { get; set; } = new();
 
 }

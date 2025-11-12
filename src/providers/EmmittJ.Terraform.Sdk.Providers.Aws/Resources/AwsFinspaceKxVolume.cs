@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for nas1_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxVolumeNas1ConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxVolumeNas1ConfigurationBlock() : TerraformBlock("nas1_configuration")
 {
     /// <summary>
     /// The size attribute.
@@ -30,7 +30,7 @@ public partial class AwsFinspaceKxVolumeNas1ConfigurationBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFinspaceKxVolumeTimeoutsBlock : TerraformBlockBase
+public partial class AwsFinspaceKxVolumeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,14 +144,14 @@ public partial class AwsFinspaceKxVolume : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("nas1_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxVolumeNas1ConfigurationBlock>>? Nas1Configuration { get; set; }
+    public TerraformList<AwsFinspaceKxVolumeNas1ConfigurationBlock> Nas1Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFinspaceKxVolumeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFinspaceKxVolumeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

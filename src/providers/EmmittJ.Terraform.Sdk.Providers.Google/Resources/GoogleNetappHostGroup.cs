@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetappHostGroupTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetappHostGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,7 +119,7 @@ public partial class GoogleNetappHostGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetappHostGroupTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetappHostGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time of the host group. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.

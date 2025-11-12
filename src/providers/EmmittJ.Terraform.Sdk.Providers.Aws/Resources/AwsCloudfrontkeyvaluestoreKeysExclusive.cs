@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resource_key_value_pair in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock : TerraformBlockBase
+public partial class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock() : TerraformBlock("resource_key_value_pair")
 {
     /// <summary>
     /// The key to put.
@@ -55,7 +55,7 @@ public partial class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("resource_key_value_pair")]
-    public partial TerraformSet<TerraformBlock<AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock>>? ResourceKeyValuePair { get; set; }
+    public TerraformSet<AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock> ResourceKeyValuePair { get; set; } = new();
 
     /// <summary>
     /// Total size of the Key Value Store in bytes.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpcIpamPreviewNextCidrDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpcIpamPreviewNextCidrDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -67,7 +67,7 @@ public partial class AwsVpcIpamPreviewNextCidrDataSource : TerraformDataSource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpcIpamPreviewNextCidrDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpcIpamPreviewNextCidrDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cidr attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterAutoScalingConfigurationBlock() : TerraformBlock("auto_scaling_configuration")
 {
     /// <summary>
     /// The auto_scaling_metric attribute.
@@ -62,7 +62,7 @@ public partial class AwsFinspaceKxClusterAutoScalingConfigurationBlock : Terrafo
 /// Block type for cache_storage_configurations in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterCacheStorageConfigurationsBlock() : TerraformBlock("cache_storage_configurations")
 {
     /// <summary>
     /// The size attribute.
@@ -86,7 +86,7 @@ public partial class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : Terra
 /// Block type for capacity_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterCapacityConfigurationBlock() : TerraformBlock("capacity_configuration")
 {
     /// <summary>
     /// The node_count attribute.
@@ -110,7 +110,7 @@ public partial class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformB
 /// Block type for code in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterCodeBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterCodeBlock() : TerraformBlock("code")
 {
     /// <summary>
     /// The s3_bucket attribute.
@@ -141,7 +141,7 @@ public partial class AwsFinspaceKxClusterCodeBlock : TerraformBlockBase
 /// Block type for database in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterDatabaseBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterDatabaseBlock() : TerraformBlock("database")
 {
     /// <summary>
     /// The changeset_id attribute.
@@ -171,7 +171,7 @@ public partial class AwsFinspaceKxClusterDatabaseBlock : TerraformBlockBase
 /// Block type for savedown_storage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterSavedownStorageConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterSavedownStorageConfigurationBlock() : TerraformBlock("savedown_storage_configuration")
 {
     /// <summary>
     /// The size attribute.
@@ -200,7 +200,7 @@ public partial class AwsFinspaceKxClusterSavedownStorageConfigurationBlock : Ter
 /// Block type for scaling_group_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterScalingGroupConfigurationBlock() : TerraformBlock("scaling_group_configuration")
 {
     /// <summary>
     /// The cpu attribute.
@@ -246,7 +246,7 @@ public partial class AwsFinspaceKxClusterScalingGroupConfigurationBlock : Terraf
 /// Block type for tickerplant_log_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterTickerplantLogConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterTickerplantLogConfigurationBlock() : TerraformBlock("tickerplant_log_configuration")
 {
     /// <summary>
     /// The tickerplant_log_volumes attribute.
@@ -262,7 +262,7 @@ public partial class AwsFinspaceKxClusterTickerplantLogConfigurationBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsFinspaceKxClusterTimeoutsBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -291,7 +291,7 @@ public partial class AwsFinspaceKxClusterTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlockBase
+public partial class AwsFinspaceKxClusterVpcConfigurationBlock() : TerraformBlock("vpc_configuration")
 {
     /// <summary>
     /// The ip_address_type attribute.
@@ -446,14 +446,14 @@ public partial class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingConfiguration block(s) allowed")]
     [TerraformProperty("auto_scaling_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterAutoScalingConfigurationBlock>>? AutoScalingConfiguration { get; set; }
+    public TerraformList<AwsFinspaceKxClusterAutoScalingConfigurationBlock> AutoScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for cache_storage_configurations.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cache_storage_configurations")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterCacheStorageConfigurationsBlock>>? CacheStorageConfigurations { get; set; }
+    public TerraformList<AwsFinspaceKxClusterCacheStorageConfigurationsBlock> CacheStorageConfigurations { get; set; } = new();
 
     /// <summary>
     /// Block for capacity_configuration.
@@ -461,7 +461,7 @@ public partial class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityConfiguration block(s) allowed")]
     [TerraformProperty("capacity_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterCapacityConfigurationBlock>>? CapacityConfiguration { get; set; }
+    public TerraformList<AwsFinspaceKxClusterCapacityConfigurationBlock> CapacityConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for code.
@@ -469,14 +469,14 @@ public partial class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Code block(s) allowed")]
     [TerraformProperty("code")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterCodeBlock>>? Code { get; set; }
+    public TerraformList<AwsFinspaceKxClusterCodeBlock> Code { get; set; } = new();
 
     /// <summary>
     /// Block for database.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("database")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterDatabaseBlock>>? Database { get; set; }
+    public TerraformList<AwsFinspaceKxClusterDatabaseBlock> Database { get; set; } = new();
 
     /// <summary>
     /// Block for savedown_storage_configuration.
@@ -484,7 +484,7 @@ public partial class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SavedownStorageConfiguration block(s) allowed")]
     [TerraformProperty("savedown_storage_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterSavedownStorageConfigurationBlock>>? SavedownStorageConfiguration { get; set; }
+    public TerraformList<AwsFinspaceKxClusterSavedownStorageConfigurationBlock> SavedownStorageConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_group_configuration.
@@ -492,21 +492,21 @@ public partial class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingGroupConfiguration block(s) allowed")]
     [TerraformProperty("scaling_group_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterScalingGroupConfigurationBlock>>? ScalingGroupConfiguration { get; set; }
+    public TerraformList<AwsFinspaceKxClusterScalingGroupConfigurationBlock> ScalingGroupConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for tickerplant_log_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tickerplant_log_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterTickerplantLogConfigurationBlock>>? TickerplantLogConfiguration { get; set; }
+    public TerraformList<AwsFinspaceKxClusterTickerplantLogConfigurationBlock> TickerplantLogConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsFinspaceKxClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsFinspaceKxClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_configuration.
@@ -516,7 +516,7 @@ public partial class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     [TerraformProperty("vpc_configuration")]
-    public partial TerraformList<TerraformBlock<AwsFinspaceKxClusterVpcConfigurationBlock>>? VpcConfiguration { get; set; }
+    public required TerraformList<AwsFinspaceKxClusterVpcConfigurationBlock> VpcConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

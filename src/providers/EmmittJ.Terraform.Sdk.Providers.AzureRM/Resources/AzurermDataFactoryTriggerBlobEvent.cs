@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pipeline in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermDataFactoryTriggerBlobEventPipelineBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerBlobEventPipelineBlock() : TerraformBlock("pipeline")
 {
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermDataFactoryTriggerBlobEventPipelineBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryTriggerBlobEventTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryTriggerBlobEventTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -166,13 +166,13 @@ public partial class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
     [TerraformProperty("pipeline")]
-    public partial TerraformSet<TerraformBlock<AzurermDataFactoryTriggerBlobEventPipelineBlock>>? Pipeline { get; set; }
+    public required TerraformSet<AzurermDataFactoryTriggerBlobEventPipelineBlock> Pipeline { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryTriggerBlobEventTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryTriggerBlobEventTimeoutsBlock Timeouts { get; set; } = new();
 
 }

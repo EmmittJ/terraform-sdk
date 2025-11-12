@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for minimum_healthy_hosts in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock() : TerraformBlock("minimum_healthy_hosts")
 {
     /// <summary>
     /// The type attribute.
@@ -28,7 +28,7 @@ public partial class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : Ter
 /// Block type for traffic_routing_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock() : TerraformBlock("traffic_routing_config")
 {
     /// <summary>
     /// The type attribute.
@@ -43,7 +43,7 @@ public partial class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock : Te
 /// Block type for zonal_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodedeployDeploymentConfigZonalConfigBlock : TerraformBlockBase
+public partial class AwsCodedeployDeploymentConfigZonalConfigBlock() : TerraformBlock("zonal_config")
 {
     /// <summary>
     /// The first_zone_monitor_duration_in_seconds attribute.
@@ -106,7 +106,7 @@ public partial class AwsCodedeployDeploymentConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumHealthyHosts block(s) allowed")]
     [TerraformProperty("minimum_healthy_hosts")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock>>? MinimumHealthyHosts { get; set; }
+    public TerraformList<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock> MinimumHealthyHosts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_routing_config.
@@ -114,7 +114,7 @@ public partial class AwsCodedeployDeploymentConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficRoutingConfig block(s) allowed")]
     [TerraformProperty("traffic_routing_config")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock>>? TrafficRoutingConfig { get; set; }
+    public TerraformList<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock> TrafficRoutingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for zonal_config.
@@ -122,7 +122,7 @@ public partial class AwsCodedeployDeploymentConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZonalConfig block(s) allowed")]
     [TerraformProperty("zonal_config")]
-    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigZonalConfigBlock>>? ZonalConfig { get; set; }
+    public TerraformList<AwsCodedeployDeploymentConfigZonalConfigBlock> ZonalConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

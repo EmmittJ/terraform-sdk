@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_subscription in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsInspectorAssessmentTemplateEventSubscriptionBlock : TerraformBlockBase
+public partial class AwsInspectorAssessmentTemplateEventSubscriptionBlock() : TerraformBlock("event_subscription")
 {
     /// <summary>
     /// The event attribute.
@@ -100,7 +100,7 @@ public partial class AwsInspectorAssessmentTemplate : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("event_subscription")]
-    public partial TerraformSet<TerraformBlock<AwsInspectorAssessmentTemplateEventSubscriptionBlock>>? EventSubscription { get; set; }
+    public TerraformSet<AwsInspectorAssessmentTemplateEventSubscriptionBlock> EventSubscription { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

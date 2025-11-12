@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automatic_update_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock : TerraformBlockBase
+public partial class GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock() : TerraformBlock("automatic_update_policy")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock : Te
 /// Block type for event_trigger in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBlockBase
+public partial class GoogleCloudfunctionsFunctionEventTriggerBlock() : TerraformBlock("event_trigger")
 {
     /// <summary>
     /// The type of event to observe. For example: &amp;quot;google.storage.object.finalize&amp;quot;. See the documentation on calling Cloud Functions for a full reference of accepted triggers.
@@ -38,7 +38,7 @@ public partial class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBl
 /// Block type for on_deploy_update_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock : TerraformBlockBase
+public partial class GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock() : TerraformBlock("on_deploy_update_policy")
 {
 
 }
@@ -47,7 +47,7 @@ public partial class GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock : Ter
 /// Block type for secret_environment_variables in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : TerraformBlockBase
+public partial class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock() : TerraformBlock("secret_environment_variables")
 {
     /// <summary>
     /// Name of the environment variable.
@@ -86,7 +86,7 @@ public partial class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock
 /// Block type for secret_volumes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlockBase
+public partial class GoogleCloudfunctionsFunctionSecretVolumesBlock() : TerraformBlock("secret_volumes")
 {
     /// <summary>
     /// The path within the container to mount the secret volume. For example, setting the mount_path as &amp;quot;/etc/secrets&amp;quot; would mount the secret value files under the &amp;quot;/etc/secrets&amp;quot; directory. This directory will also be completely shadowed and unavailable to mount any other secrets. Recommended mount paths: &amp;quot;/etc/secrets&amp;quot; Restricted mount paths: &amp;quot;/cloudsql&amp;quot;, &amp;quot;/dev/log&amp;quot;, &amp;quot;/pod&amp;quot;, &amp;quot;/proc&amp;quot;, &amp;quot;/var/log&amp;quot;.
@@ -117,7 +117,7 @@ public partial class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformB
 /// Block type for source_repository in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudfunctionsFunctionSourceRepositoryBlock : TerraformBlockBase
+public partial class GoogleCloudfunctionsFunctionSourceRepositoryBlock() : TerraformBlock("source_repository")
 {
 
     /// <summary>
@@ -134,7 +134,7 @@ public partial class GoogleCloudfunctionsFunctionSourceRepositoryBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudfunctionsFunctionTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudfunctionsFunctionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -383,7 +383,7 @@ public partial class GoogleCloudfunctionsFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticUpdatePolicy block(s) allowed")]
     [TerraformProperty("automatic_update_policy")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock>>? AutomaticUpdatePolicy { get; set; }
+    public TerraformList<GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock> AutomaticUpdatePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for event_trigger.
@@ -391,7 +391,7 @@ public partial class GoogleCloudfunctionsFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventTrigger block(s) allowed")]
     [TerraformProperty("event_trigger")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctionsFunctionEventTriggerBlock>>? EventTrigger { get; set; }
+    public TerraformList<GoogleCloudfunctionsFunctionEventTriggerBlock> EventTrigger { get; set; } = new();
 
     /// <summary>
     /// Block for on_deploy_update_policy.
@@ -399,21 +399,21 @@ public partial class GoogleCloudfunctionsFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDeployUpdatePolicy block(s) allowed")]
     [TerraformProperty("on_deploy_update_policy")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock>>? OnDeployUpdatePolicy { get; set; }
+    public TerraformList<GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock> OnDeployUpdatePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for secret_environment_variables.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("secret_environment_variables")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock>>? SecretEnvironmentVariables { get; set; }
+    public TerraformList<GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock> SecretEnvironmentVariables { get; set; } = new();
 
     /// <summary>
     /// Block for secret_volumes.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("secret_volumes")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctionsFunctionSecretVolumesBlock>>? SecretVolumes { get; set; }
+    public TerraformList<GoogleCloudfunctionsFunctionSecretVolumesBlock> SecretVolumes { get; set; } = new();
 
     /// <summary>
     /// Block for source_repository.
@@ -421,14 +421,14 @@ public partial class GoogleCloudfunctionsFunction : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceRepository block(s) allowed")]
     [TerraformProperty("source_repository")]
-    public partial TerraformList<TerraformBlock<GoogleCloudfunctionsFunctionSourceRepositoryBlock>>? SourceRepository { get; set; }
+    public TerraformList<GoogleCloudfunctionsFunctionSourceRepositoryBlock> SourceRepository { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudfunctionsFunctionTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudfunctionsFunctionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

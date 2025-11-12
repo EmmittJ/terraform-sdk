@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermManagedDiskSasTokenTimeoutsBlock : TerraformBlockBase
+public partial class AzurermManagedDiskSasTokenTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,7 +76,7 @@ public partial class AzurermManagedDiskSasToken : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermManagedDiskSasTokenTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermManagedDiskSasTokenTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The sas_url attribute.

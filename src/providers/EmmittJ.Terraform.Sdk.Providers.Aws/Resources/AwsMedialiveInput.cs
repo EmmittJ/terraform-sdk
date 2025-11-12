@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destinations in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMedialiveInputDestinationsBlock : TerraformBlockBase
+public partial class AwsMedialiveInputDestinationsBlock() : TerraformBlock("destinations")
 {
     /// <summary>
     /// The stream_name attribute.
@@ -22,7 +22,7 @@ public partial class AwsMedialiveInputDestinationsBlock : TerraformBlockBase
 /// Block type for input_devices in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMedialiveInputInputDevicesBlock : TerraformBlockBase
+public partial class AwsMedialiveInputInputDevicesBlock() : TerraformBlock("input_devices")
 {
     /// <summary>
     /// The id attribute.
@@ -38,7 +38,7 @@ public partial class AwsMedialiveInputInputDevicesBlock : TerraformBlockBase
 /// Block type for media_connect_flows in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMedialiveInputMediaConnectFlowsBlock : TerraformBlockBase
+public partial class AwsMedialiveInputMediaConnectFlowsBlock() : TerraformBlock("media_connect_flows")
 {
     /// <summary>
     /// The flow_arn attribute.
@@ -54,7 +54,7 @@ public partial class AwsMedialiveInputMediaConnectFlowsBlock : TerraformBlockBas
 /// Block type for sources in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsMedialiveInputSourcesBlock : TerraformBlockBase
+public partial class AwsMedialiveInputSourcesBlock() : TerraformBlock("sources")
 {
     /// <summary>
     /// The password_param attribute.
@@ -86,7 +86,7 @@ public partial class AwsMedialiveInputSourcesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMedialiveInputTimeoutsBlock : TerraformBlockBase
+public partial class AwsMedialiveInputTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,7 +115,7 @@ public partial class AwsMedialiveInputTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsMedialiveInputVpcBlock : TerraformBlockBase
+public partial class AwsMedialiveInputVpcBlock() : TerraformBlock("vpc")
 {
     /// <summary>
     /// The security_group_ids attribute.
@@ -207,35 +207,35 @@ public partial class AwsMedialiveInput : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("destinations")]
-    public partial TerraformSet<TerraformBlock<AwsMedialiveInputDestinationsBlock>>? Destinations { get; set; }
+    public TerraformSet<AwsMedialiveInputDestinationsBlock> Destinations { get; set; } = new();
 
     /// <summary>
     /// Block for input_devices.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("input_devices")]
-    public partial TerraformSet<TerraformBlock<AwsMedialiveInputInputDevicesBlock>>? InputDevices { get; set; }
+    public TerraformSet<AwsMedialiveInputInputDevicesBlock> InputDevices { get; set; } = new();
 
     /// <summary>
     /// Block for media_connect_flows.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("media_connect_flows")]
-    public partial TerraformSet<TerraformBlock<AwsMedialiveInputMediaConnectFlowsBlock>>? MediaConnectFlows { get; set; }
+    public TerraformSet<AwsMedialiveInputMediaConnectFlowsBlock> MediaConnectFlows { get; set; } = new();
 
     /// <summary>
     /// Block for sources.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("sources")]
-    public partial TerraformSet<TerraformBlock<AwsMedialiveInputSourcesBlock>>? Sources { get; set; }
+    public TerraformSet<AwsMedialiveInputSourcesBlock> Sources { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMedialiveInputTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMedialiveInputTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc.
@@ -243,7 +243,7 @@ public partial class AwsMedialiveInput : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vpc block(s) allowed")]
     [TerraformProperty("vpc")]
-    public partial TerraformList<TerraformBlock<AwsMedialiveInputVpcBlock>>? Vpc { get; set; }
+    public TerraformList<AwsMedialiveInputVpcBlock> Vpc { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

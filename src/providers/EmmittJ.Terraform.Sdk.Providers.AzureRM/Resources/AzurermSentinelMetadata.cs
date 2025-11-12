@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for author in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelMetadataAuthorBlock : TerraformBlockBase
+public partial class AzurermSentinelMetadataAuthorBlock() : TerraformBlock("author")
 {
     /// <summary>
     /// The email attribute.
@@ -35,7 +35,7 @@ public partial class AzurermSentinelMetadataAuthorBlock : TerraformBlockBase
 /// Block type for category in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelMetadataCategoryBlock : TerraformBlockBase
+public partial class AzurermSentinelMetadataCategoryBlock() : TerraformBlock("category")
 {
     /// <summary>
     /// The domains attribute.
@@ -57,7 +57,7 @@ public partial class AzurermSentinelMetadataCategoryBlock : TerraformBlockBase
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelMetadataSourceBlock : TerraformBlockBase
+public partial class AzurermSentinelMetadataSourceBlock() : TerraformBlock("source")
 {
     /// <summary>
     /// The id attribute.
@@ -87,7 +87,7 @@ public partial class AzurermSentinelMetadataSourceBlock : TerraformBlockBase
 /// Block type for support in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSentinelMetadataSupportBlock : TerraformBlockBase
+public partial class AzurermSentinelMetadataSupportBlock() : TerraformBlock("support")
 {
     /// <summary>
     /// The email attribute.
@@ -124,7 +124,7 @@ public partial class AzurermSentinelMetadataSupportBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSentinelMetadataTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSentinelMetadataTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -303,7 +303,7 @@ public partial class AzurermSentinelMetadata : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Author block(s) allowed")]
     [TerraformProperty("author")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelMetadataAuthorBlock>>? Author { get; set; }
+    public TerraformList<AzurermSentinelMetadataAuthorBlock> Author { get; set; } = new();
 
     /// <summary>
     /// Block for category.
@@ -311,7 +311,7 @@ public partial class AzurermSentinelMetadata : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
     [TerraformProperty("category")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelMetadataCategoryBlock>>? Category { get; set; }
+    public TerraformList<AzurermSentinelMetadataCategoryBlock> Category { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -319,7 +319,7 @@ public partial class AzurermSentinelMetadata : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelMetadataSourceBlock>>? Source { get; set; }
+    public TerraformList<AzurermSentinelMetadataSourceBlock> Source { get; set; } = new();
 
     /// <summary>
     /// Block for support.
@@ -327,13 +327,13 @@ public partial class AzurermSentinelMetadata : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Support block(s) allowed")]
     [TerraformProperty("support")]
-    public partial TerraformList<TerraformBlock<AzurermSentinelMetadataSupportBlock>>? Support { get; set; }
+    public TerraformList<AzurermSentinelMetadataSupportBlock> Support { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSentinelMetadataTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSentinelMetadataTimeoutsBlock Timeouts { get; set; } = new();
 
 }

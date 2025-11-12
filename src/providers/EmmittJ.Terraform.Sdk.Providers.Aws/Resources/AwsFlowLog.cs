@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsFlowLogDestinationOptionsBlock : TerraformBlockBase
+public partial class AwsFlowLogDestinationOptionsBlock() : TerraformBlock("destination_options")
 {
     /// <summary>
     /// The file_format attribute.
@@ -159,7 +159,7 @@ public partial class AwsFlowLog : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationOptions block(s) allowed")]
     [TerraformProperty("destination_options")]
-    public partial TerraformList<TerraformBlock<AwsFlowLogDestinationOptionsBlock>>? DestinationOptions { get; set; }
+    public TerraformList<AwsFlowLogDestinationOptionsBlock> DestinationOptions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

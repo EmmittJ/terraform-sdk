@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entry_references in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBlockBase
+public partial class GoogleDataplexEntryLinkEntryReferencesBlock() : TerraformBlock("entry_references")
 {
     /// <summary>
     /// The relative resource name of the referenced Entry, of the form:
@@ -38,7 +38,7 @@ public partial class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexEntryLinkTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexEntryLinkTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -120,14 +120,14 @@ public partial class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryReferences is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntryReferences block(s) required")]
     [TerraformProperty("entry_references")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexEntryLinkEntryReferencesBlock>>? EntryReferences { get; set; }
+    public required TerraformList<GoogleDataplexEntryLinkEntryReferencesBlock> EntryReferences { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexEntryLinkTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexEntryLinkTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the Entry Link was created.

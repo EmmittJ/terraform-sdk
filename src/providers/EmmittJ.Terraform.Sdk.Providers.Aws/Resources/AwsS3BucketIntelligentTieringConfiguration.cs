@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketIntelligentTieringConfigurationFilterBlock : TerraformBlockBase
+public partial class AwsS3BucketIntelligentTieringConfigurationFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The prefix attribute.
@@ -28,7 +28,7 @@ public partial class AwsS3BucketIntelligentTieringConfigurationFilterBlock : Ter
 /// Block type for tiering in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsS3BucketIntelligentTieringConfigurationTieringBlock : TerraformBlockBase
+public partial class AwsS3BucketIntelligentTieringConfigurationTieringBlock() : TerraformBlock("tiering")
 {
     /// <summary>
     /// The access_tier attribute.
@@ -101,7 +101,7 @@ public partial class AwsS3BucketIntelligentTieringConfiguration : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketIntelligentTieringConfigurationFilterBlock>>? Filter { get; set; }
+    public TerraformList<AwsS3BucketIntelligentTieringConfigurationFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// Block for tiering.
@@ -110,6 +110,6 @@ public partial class AwsS3BucketIntelligentTieringConfiguration : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tiering is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tiering block(s) required")]
     [TerraformProperty("tiering")]
-    public partial TerraformSet<TerraformBlock<AwsS3BucketIntelligentTieringConfigurationTieringBlock>>? Tiering { get; set; }
+    public required TerraformSet<AwsS3BucketIntelligentTieringConfigurationTieringBlock> Tiering { get; set; } = new();
 
 }

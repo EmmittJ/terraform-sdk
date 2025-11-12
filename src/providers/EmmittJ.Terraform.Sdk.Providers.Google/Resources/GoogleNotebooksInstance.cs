@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for accelerator_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlockBase
+public partial class GoogleNotebooksInstanceAcceleratorConfigBlock() : TerraformBlock("accelerator_config")
 {
     /// <summary>
     /// Count of cores of this accelerator.
@@ -30,7 +30,7 @@ public partial class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBl
 /// Block type for container_image in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksInstanceContainerImageBlock : TerraformBlockBase
+public partial class GoogleNotebooksInstanceContainerImageBlock() : TerraformBlock("container_image")
 {
     /// <summary>
     /// The path to the container image repository.
@@ -54,7 +54,7 @@ public partial class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
 /// Block type for reservation_affinity in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlockBase
+public partial class GoogleNotebooksInstanceReservationAffinityBlock() : TerraformBlock("reservation_affinity")
 {
     /// <summary>
     /// The type of Compute Reservation. Possible values: [&amp;quot;NO_RESERVATION&amp;quot;, &amp;quot;ANY_RESERVATION&amp;quot;, &amp;quot;SPECIFIC_RESERVATION&amp;quot;]
@@ -84,7 +84,7 @@ public partial class GoogleNotebooksInstanceReservationAffinityBlock : Terraform
 /// Block type for shielded_instance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlockBase
+public partial class GoogleNotebooksInstanceShieldedInstanceConfigBlock() : TerraformBlock("shielded_instance_config")
 {
     /// <summary>
     /// Defines whether the instance has integrity monitoring enabled. Enables monitoring and attestation of the
@@ -120,7 +120,7 @@ public partial class GoogleNotebooksInstanceShieldedInstanceConfigBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNotebooksInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,7 +149,7 @@ public partial class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlockBase
 /// Block type for vm_image in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNotebooksInstanceVmImageBlock : TerraformBlockBase
+public partial class GoogleNotebooksInstanceVmImageBlock() : TerraformBlock("vm_image")
 {
     /// <summary>
     /// Use this VM image family to find the image; the newest image in this family will be used.
@@ -429,7 +429,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AcceleratorConfig block(s) allowed")]
     [TerraformProperty("accelerator_config")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceAcceleratorConfigBlock>>? AcceleratorConfig { get; set; }
+    public TerraformList<GoogleNotebooksInstanceAcceleratorConfigBlock> AcceleratorConfig { get; set; } = new();
 
     /// <summary>
     /// Block for container_image.
@@ -437,7 +437,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerImage block(s) allowed")]
     [TerraformProperty("container_image")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceContainerImageBlock>>? ContainerImage { get; set; }
+    public TerraformList<GoogleNotebooksInstanceContainerImageBlock> ContainerImage { get; set; } = new();
 
     /// <summary>
     /// Block for reservation_affinity.
@@ -445,7 +445,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationAffinity block(s) allowed")]
     [TerraformProperty("reservation_affinity")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceReservationAffinityBlock>>? ReservationAffinity { get; set; }
+    public TerraformList<GoogleNotebooksInstanceReservationAffinityBlock> ReservationAffinity { get; set; } = new();
 
     /// <summary>
     /// Block for shielded_instance_config.
@@ -453,14 +453,14 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceConfig block(s) allowed")]
     [TerraformProperty("shielded_instance_config")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceShieldedInstanceConfigBlock>>? ShieldedInstanceConfig { get; set; }
+    public TerraformList<GoogleNotebooksInstanceShieldedInstanceConfigBlock> ShieldedInstanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNotebooksInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNotebooksInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vm_image.
@@ -468,7 +468,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VmImage block(s) allowed")]
     [TerraformProperty("vm_image")]
-    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceVmImageBlock>>? VmImage { get; set; }
+    public TerraformList<GoogleNotebooksInstanceVmImageBlock> VmImage { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

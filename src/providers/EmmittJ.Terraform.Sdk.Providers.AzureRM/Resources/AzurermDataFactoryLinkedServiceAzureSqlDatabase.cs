@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_connection_string in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringBlock() : TerraformBlock("key_vault_connection_string")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConn
 /// Block type for key_vault_password in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBlock() : TerraformBlock("key_vault_password")
 {
     /// <summary>
     /// The linked_service_name attribute.
@@ -54,7 +54,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPass
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabaseTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabaseTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -202,7 +202,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultConnectionString block(s) allowed")]
     [TerraformProperty("key_vault_connection_string")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringBlock>>? KeyVaultConnectionString { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringBlock> KeyVaultConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_password.
@@ -210,13 +210,13 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
     [TerraformProperty("key_vault_password")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBlock>>? KeyVaultPassword { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBlock> KeyVaultPassword { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedServiceAzureSqlDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedServiceAzureSqlDatabaseTimeoutsBlock Timeouts { get; set; } = new();
 
 }

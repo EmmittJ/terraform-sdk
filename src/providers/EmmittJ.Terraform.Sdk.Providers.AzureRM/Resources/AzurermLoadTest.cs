@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLoadTestEncryptionBlock : TerraformBlockBase
+public partial class AzurermLoadTestEncryptionBlock() : TerraformBlock("encryption")
 {
     /// <summary>
     /// The key_url attribute.
@@ -22,7 +22,7 @@ public partial class AzurermLoadTestEncryptionBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermLoadTestIdentityBlock : TerraformBlockBase
+public partial class AzurermLoadTestIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -47,7 +47,7 @@ public partial class AzurermLoadTestIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermLoadTestTimeoutsBlock : TerraformBlockBase
+public partial class AzurermLoadTestTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,7 +140,7 @@ public partial class AzurermLoadTest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public partial TerraformList<TerraformBlock<AzurermLoadTestEncryptionBlock>>? Encryption { get; set; }
+    public TerraformList<AzurermLoadTestEncryptionBlock> Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -148,14 +148,14 @@ public partial class AzurermLoadTest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermLoadTestIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermLoadTestIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermLoadTestTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermLoadTestTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The data_plane_uri attribute.

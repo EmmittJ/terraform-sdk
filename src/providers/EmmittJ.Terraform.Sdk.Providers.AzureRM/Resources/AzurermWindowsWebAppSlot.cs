@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auth_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotAuthSettingsBlock() : TerraformBlock("auth_settings")
 {
     /// <summary>
     /// Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
@@ -78,7 +78,7 @@ public partial class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlockB
 /// Block type for auth_settings_v2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsWebAppSlotAuthSettingsV2Block : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotAuthSettingsV2Block() : TerraformBlock("auth_settings_v2")
 {
     /// <summary>
     /// Should the AuthV2 Settings be enabled. Defaults to `false`
@@ -170,7 +170,7 @@ public partial class AzurermWindowsWebAppSlotAuthSettingsV2Block : TerraformBloc
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsWebAppSlotBackupBlock : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotBackupBlock() : TerraformBlock("backup")
 {
     /// <summary>
     /// Should this backup job be enabled?
@@ -201,7 +201,7 @@ public partial class AzurermWindowsWebAppSlotBackupBlock : TerraformBlockBase
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermWindowsWebAppSlotConnectionStringBlock : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotConnectionStringBlock() : TerraformBlock("connection_string")
 {
     /// <summary>
     /// The name which should be used for this Connection.
@@ -233,7 +233,7 @@ public partial class AzurermWindowsWebAppSlotConnectionStringBlock : TerraformBl
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsWebAppSlotIdentityBlock : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -258,7 +258,7 @@ public partial class AzurermWindowsWebAppSlotIdentityBlock : TerraformBlockBase
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsWebAppSlotLogsBlock : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotLogsBlock() : TerraformBlock("logs")
 {
     /// <summary>
     /// The detailed_error_messages attribute.
@@ -280,7 +280,7 @@ public partial class AzurermWindowsWebAppSlotLogsBlock : TerraformBlockBase
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotSiteConfigBlock() : TerraformBlock("site_config")
 {
     /// <summary>
     /// The always_on attribute.
@@ -473,7 +473,7 @@ public partial class AzurermWindowsWebAppSlotSiteConfigBlock : TerraformBlockBas
 /// Block type for storage_account in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The access_key attribute.
@@ -528,7 +528,7 @@ public partial class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermWindowsWebAppSlotTimeoutsBlock : TerraformBlockBase
+public partial class AzurermWindowsWebAppSlotTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -711,7 +711,7 @@ public partial class AzurermWindowsWebAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     [TerraformProperty("auth_settings")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsWebAppSlotAuthSettingsBlock>>? AuthSettings { get; set; }
+    public TerraformList<AzurermWindowsWebAppSlotAuthSettingsBlock> AuthSettings { get; set; } = new();
 
     /// <summary>
     /// Block for auth_settings_v2.
@@ -719,7 +719,7 @@ public partial class AzurermWindowsWebAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
     [TerraformProperty("auth_settings_v2")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsWebAppSlotAuthSettingsV2Block>>? AuthSettingsV2 { get; set; }
+    public TerraformList<AzurermWindowsWebAppSlotAuthSettingsV2Block> AuthSettingsV2 { get; set; } = new();
 
     /// <summary>
     /// Block for backup.
@@ -727,14 +727,14 @@ public partial class AzurermWindowsWebAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsWebAppSlotBackupBlock>>? Backup { get; set; }
+    public TerraformList<AzurermWindowsWebAppSlotBackupBlock> Backup { get; set; } = new();
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connection_string")]
-    public partial TerraformSet<TerraformBlock<AzurermWindowsWebAppSlotConnectionStringBlock>>? ConnectionString { get; set; }
+    public TerraformSet<AzurermWindowsWebAppSlotConnectionStringBlock> ConnectionString { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -742,7 +742,7 @@ public partial class AzurermWindowsWebAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsWebAppSlotIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermWindowsWebAppSlotIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for logs.
@@ -750,7 +750,7 @@ public partial class AzurermWindowsWebAppSlot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformProperty("logs")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsWebAppSlotLogsBlock>>? Logs { get; set; }
+    public TerraformList<AzurermWindowsWebAppSlotLogsBlock> Logs { get; set; } = new();
 
     /// <summary>
     /// Block for site_config.
@@ -760,21 +760,21 @@ public partial class AzurermWindowsWebAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     [TerraformProperty("site_config")]
-    public partial TerraformList<TerraformBlock<AzurermWindowsWebAppSlotSiteConfigBlock>>? SiteConfig { get; set; }
+    public required TerraformList<AzurermWindowsWebAppSlotSiteConfigBlock> SiteConfig { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformSet<TerraformBlock<AzurermWindowsWebAppSlotStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformSet<AzurermWindowsWebAppSlotStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermWindowsWebAppSlotTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermWindowsWebAppSlotTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The custom_domain_verification_id attribute.

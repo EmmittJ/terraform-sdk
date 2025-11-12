@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allocation_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock() : TerraformBlock("allocation_options")
 {
     /// <summary>
     /// Optional. Sets the strategy used to automatically find a free range of a size given by prefixLength. Can be set only when trying to create a reservation that automatically finds the free range to reserve. Possible values: [&amp;quot;RANDOM&amp;quot;, &amp;quot;FIRST_AVAILABLE&amp;quot;, &amp;quot;RANDOM_FIRST_N_AVAILABLE&amp;quot;, &amp;quot;FIRST_SMALLEST_FITTING&amp;quot;]
@@ -29,7 +29,7 @@ public partial class GoogleNetworkConnectivityInternalRangeAllocationOptionsBloc
 /// Block type for migration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityInternalRangeMigrationBlock() : TerraformBlock("migration")
 {
     /// <summary>
     /// Resource path as an URI of the source resource, for example a subnet.
@@ -59,7 +59,7 @@ public partial class GoogleNetworkConnectivityInternalRangeMigrationBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkConnectivityInternalRangeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -213,7 +213,7 @@ public partial class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllocationOptions block(s) allowed")]
     [TerraformProperty("allocation_options")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock>>? AllocationOptions { get; set; }
+    public TerraformList<GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock> AllocationOptions { get; set; } = new();
 
     /// <summary>
     /// Block for migration.
@@ -221,14 +221,14 @@ public partial class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Migration block(s) allowed")]
     [TerraformProperty("migration")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityInternalRangeMigrationBlock>>? Migration { get; set; }
+    public TerraformList<GoogleNetworkConnectivityInternalRangeMigrationBlock> Migration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkConnectivityInternalRangeTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkConnectivityInternalRangeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

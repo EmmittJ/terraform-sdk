@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for chat_engine_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock() : TerraformBlock("chat_engine_config")
 {
     /// <summary>
     /// If the flag set to true, we allow the agent and engine are in
@@ -35,7 +35,7 @@ public partial class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : Terr
 /// Block type for common_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDiscoveryEngineChatEngineCommonConfigBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineChatEngineCommonConfigBlock() : TerraformBlock("common_config")
 {
     /// <summary>
     /// The name of the company, business or entity that is associated with the engine. Setting this may help improve LLM related features.
@@ -50,7 +50,7 @@ public partial class GoogleDiscoveryEngineChatEngineCommonConfigBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDiscoveryEngineChatEngineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -154,7 +154,7 @@ public partial class GoogleDiscoveryEngineChatEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ChatEngineConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ChatEngineConfig block(s) allowed")]
     [TerraformProperty("chat_engine_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineChatEngineChatEngineConfigBlock>>? ChatEngineConfig { get; set; }
+    public required TerraformList<GoogleDiscoveryEngineChatEngineChatEngineConfigBlock> ChatEngineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for common_config.
@@ -162,14 +162,14 @@ public partial class GoogleDiscoveryEngineChatEngine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
     [TerraformProperty("common_config")]
-    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineChatEngineCommonConfigBlock>>? CommonConfig { get; set; }
+    public TerraformList<GoogleDiscoveryEngineChatEngineCommonConfigBlock> CommonConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDiscoveryEngineChatEngineTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDiscoveryEngineChatEngineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Additional information of the Chat Engine.

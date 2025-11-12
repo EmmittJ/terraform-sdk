@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auto_scale in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolAutoScaleBlock : TerraformBlockBase
+public partial class AzurermBatchPoolAutoScaleBlock() : TerraformBlock("auto_scale")
 {
     /// <summary>
     /// The evaluation_interval attribute.
@@ -29,7 +29,7 @@ public partial class AzurermBatchPoolAutoScaleBlock : TerraformBlockBase
 /// Block type for certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolCertificateBlock : TerraformBlockBase
+public partial class AzurermBatchPoolCertificateBlock() : TerraformBlock("certificate")
 {
     /// <summary>
     /// The id attribute.
@@ -67,7 +67,7 @@ public partial class AzurermBatchPoolCertificateBlock : TerraformBlockBase
 /// Block type for container_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolContainerConfigurationBlock : TerraformBlockBase
+public partial class AzurermBatchPoolContainerConfigurationBlock() : TerraformBlock("container_configuration")
 {
     /// <summary>
     /// The container_image_names attribute.
@@ -96,7 +96,7 @@ public partial class AzurermBatchPoolContainerConfigurationBlock : TerraformBloc
 /// Block type for data_disks in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolDataDisksBlock : TerraformBlockBase
+public partial class AzurermBatchPoolDataDisksBlock() : TerraformBlock("data_disks")
 {
     /// <summary>
     /// The caching attribute.
@@ -134,7 +134,7 @@ public partial class AzurermBatchPoolDataDisksBlock : TerraformBlockBase
 /// Block type for disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolDiskEncryptionBlock : TerraformBlockBase
+public partial class AzurermBatchPoolDiskEncryptionBlock() : TerraformBlock("disk_encryption")
 {
     /// <summary>
     /// The disk_encryption_target attribute.
@@ -150,7 +150,7 @@ public partial class AzurermBatchPoolDiskEncryptionBlock : TerraformBlockBase
 /// Block type for extensions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolExtensionsBlock : TerraformBlockBase
+public partial class AzurermBatchPoolExtensionsBlock() : TerraformBlock("extensions")
 {
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
@@ -224,7 +224,7 @@ public partial class AzurermBatchPoolExtensionsBlock : TerraformBlockBase
 /// Block type for fixed_scale in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolFixedScaleBlock : TerraformBlockBase
+public partial class AzurermBatchPoolFixedScaleBlock() : TerraformBlock("fixed_scale")
 {
     /// <summary>
     /// The node_deallocation_method attribute.
@@ -260,7 +260,7 @@ public partial class AzurermBatchPoolFixedScaleBlock : TerraformBlockBase
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolIdentityBlock : TerraformBlockBase
+public partial class AzurermBatchPoolIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -284,7 +284,7 @@ public partial class AzurermBatchPoolIdentityBlock : TerraformBlockBase
 /// Block type for mount in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolMountBlock : TerraformBlockBase
+public partial class AzurermBatchPoolMountBlock() : TerraformBlock("mount")
 {
 }
 
@@ -292,7 +292,7 @@ public partial class AzurermBatchPoolMountBlock : TerraformBlockBase
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlockBase
+public partial class AzurermBatchPoolNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The accelerated_networking_enabled attribute.
@@ -335,7 +335,7 @@ public partial class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlockB
 /// Block type for node_placement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolNodePlacementBlock : TerraformBlockBase
+public partial class AzurermBatchPoolNodePlacementBlock() : TerraformBlock("node_placement")
 {
     /// <summary>
     /// The policy attribute.
@@ -350,7 +350,7 @@ public partial class AzurermBatchPoolNodePlacementBlock : TerraformBlockBase
 /// Block type for security_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolSecurityProfileBlock : TerraformBlockBase
+public partial class AzurermBatchPoolSecurityProfileBlock() : TerraformBlock("security_profile")
 {
     /// <summary>
     /// The host_encryption_enabled attribute.
@@ -386,7 +386,7 @@ public partial class AzurermBatchPoolSecurityProfileBlock : TerraformBlockBase
 /// Block type for start_task in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolStartTaskBlock : TerraformBlockBase
+public partial class AzurermBatchPoolStartTaskBlock() : TerraformBlock("start_task")
 {
     /// <summary>
     /// The command_line attribute.
@@ -423,7 +423,7 @@ public partial class AzurermBatchPoolStartTaskBlock : TerraformBlockBase
 /// Block type for storage_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlockBase
+public partial class AzurermBatchPoolStorageImageReferenceBlock() : TerraformBlock("storage_image_reference")
 {
     /// <summary>
     /// The id attribute.
@@ -466,7 +466,7 @@ public partial class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
 /// Block type for task_scheduling_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlockBase
+public partial class AzurermBatchPoolTaskSchedulingPolicyBlock() : TerraformBlock("task_scheduling_policy")
 {
     /// <summary>
     /// The node_fill_type attribute.
@@ -481,7 +481,7 @@ public partial class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermBatchPoolTimeoutsBlock : TerraformBlockBase
+public partial class AzurermBatchPoolTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -517,7 +517,7 @@ public partial class AzurermBatchPoolTimeoutsBlock : TerraformBlockBase
 /// Block type for user_accounts in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolUserAccountsBlock : TerraformBlockBase
+public partial class AzurermBatchPoolUserAccountsBlock() : TerraformBlock("user_accounts")
 {
     /// <summary>
     /// The elevation_level attribute.
@@ -549,7 +549,7 @@ public partial class AzurermBatchPoolUserAccountsBlock : TerraformBlockBase
 /// Block type for windows in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermBatchPoolWindowsBlock : TerraformBlockBase
+public partial class AzurermBatchPoolWindowsBlock() : TerraformBlock("windows")
 {
     /// <summary>
     /// The enable_automatic_updates attribute.
@@ -679,14 +679,14 @@ public partial class AzurermBatchPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScale block(s) allowed")]
     [TerraformProperty("auto_scale")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolAutoScaleBlock>>? AutoScale { get; set; }
+    public TerraformList<AzurermBatchPoolAutoScaleBlock> AutoScale { get; set; } = new();
 
     /// <summary>
     /// Block for certificate.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("certificate")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolCertificateBlock>>? Certificate { get; set; }
+    public TerraformList<AzurermBatchPoolCertificateBlock> Certificate { get; set; } = new();
 
     /// <summary>
     /// Block for container_configuration.
@@ -694,28 +694,28 @@ public partial class AzurermBatchPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerConfiguration block(s) allowed")]
     [TerraformProperty("container_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolContainerConfigurationBlock>>? ContainerConfiguration { get; set; }
+    public TerraformList<AzurermBatchPoolContainerConfigurationBlock> ContainerConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for data_disks.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_disks")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolDataDisksBlock>>? DataDisks { get; set; }
+    public TerraformList<AzurermBatchPoolDataDisksBlock> DataDisks { get; set; } = new();
 
     /// <summary>
     /// Block for disk_encryption.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("disk_encryption")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolDiskEncryptionBlock>>? DiskEncryption { get; set; }
+    public TerraformList<AzurermBatchPoolDiskEncryptionBlock> DiskEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for extensions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("extensions")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolExtensionsBlock>>? Extensions { get; set; }
+    public TerraformList<AzurermBatchPoolExtensionsBlock> Extensions { get; set; } = new();
 
     /// <summary>
     /// Block for fixed_scale.
@@ -723,7 +723,7 @@ public partial class AzurermBatchPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FixedScale block(s) allowed")]
     [TerraformProperty("fixed_scale")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolFixedScaleBlock>>? FixedScale { get; set; }
+    public TerraformList<AzurermBatchPoolFixedScaleBlock> FixedScale { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -731,14 +731,14 @@ public partial class AzurermBatchPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermBatchPoolIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for mount.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("mount")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolMountBlock>>? Mount { get; set; }
+    public TerraformList<AzurermBatchPoolMountBlock> Mount { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
@@ -746,14 +746,14 @@ public partial class AzurermBatchPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public TerraformList<AzurermBatchPoolNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for node_placement.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("node_placement")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolNodePlacementBlock>>? NodePlacement { get; set; }
+    public TerraformList<AzurermBatchPoolNodePlacementBlock> NodePlacement { get; set; } = new();
 
     /// <summary>
     /// Block for security_profile.
@@ -761,7 +761,7 @@ public partial class AzurermBatchPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
     [TerraformProperty("security_profile")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolSecurityProfileBlock>>? SecurityProfile { get; set; }
+    public TerraformList<AzurermBatchPoolSecurityProfileBlock> SecurityProfile { get; set; } = new();
 
     /// <summary>
     /// Block for start_task.
@@ -769,7 +769,7 @@ public partial class AzurermBatchPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StartTask block(s) allowed")]
     [TerraformProperty("start_task")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolStartTaskBlock>>? StartTask { get; set; }
+    public TerraformList<AzurermBatchPoolStartTaskBlock> StartTask { get; set; } = new();
 
     /// <summary>
     /// Block for storage_image_reference.
@@ -779,34 +779,34 @@ public partial class AzurermBatchPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageImageReference block(s) allowed")]
     [TerraformProperty("storage_image_reference")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolStorageImageReferenceBlock>>? StorageImageReference { get; set; }
+    public required TerraformList<AzurermBatchPoolStorageImageReferenceBlock> StorageImageReference { get; set; } = new();
 
     /// <summary>
     /// Block for task_scheduling_policy.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("task_scheduling_policy")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolTaskSchedulingPolicyBlock>>? TaskSchedulingPolicy { get; set; }
+    public TerraformList<AzurermBatchPoolTaskSchedulingPolicyBlock> TaskSchedulingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermBatchPoolTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermBatchPoolTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_accounts.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("user_accounts")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolUserAccountsBlock>>? UserAccounts { get; set; }
+    public TerraformList<AzurermBatchPoolUserAccountsBlock> UserAccounts { get; set; } = new();
 
     /// <summary>
     /// Block for windows.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("windows")]
-    public partial TerraformList<TerraformBlock<AzurermBatchPoolWindowsBlock>>? Windows { get; set; }
+    public TerraformList<AzurermBatchPoolWindowsBlock> Windows { get; set; } = new();
 
 }

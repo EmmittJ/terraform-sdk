@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsClusterConfigurationBlock : TerraformBlockBase
+public partial class AwsEcsClusterConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsEcsClusterConfigurationBlock : TerraformBlockBase
 /// Block type for service_connect_defaults in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsClusterServiceConnectDefaultsBlock : TerraformBlockBase
+public partial class AwsEcsClusterServiceConnectDefaultsBlock() : TerraformBlock("service_connect_defaults")
 {
     /// <summary>
     /// The namespace attribute.
@@ -30,7 +30,7 @@ public partial class AwsEcsClusterServiceConnectDefaultsBlock : TerraformBlockBa
 /// Block type for setting in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsClusterSettingBlock : TerraformBlockBase
+public partial class AwsEcsClusterSettingBlock() : TerraformBlock("setting")
 {
     /// <summary>
     /// The name attribute.
@@ -102,7 +102,7 @@ public partial class AwsEcsCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcsClusterConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsEcsClusterConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for service_connect_defaults.
@@ -110,14 +110,14 @@ public partial class AwsEcsCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceConnectDefaults block(s) allowed")]
     [TerraformProperty("service_connect_defaults")]
-    public partial TerraformList<TerraformBlock<AwsEcsClusterServiceConnectDefaultsBlock>>? ServiceConnectDefaults { get; set; }
+    public TerraformList<AwsEcsClusterServiceConnectDefaultsBlock> ServiceConnectDefaults { get; set; } = new();
 
     /// <summary>
     /// Block for setting.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("setting")]
-    public partial TerraformSet<TerraformBlock<AwsEcsClusterSettingBlock>>? Setting { get; set; }
+    public TerraformSet<AwsEcsClusterSettingBlock> Setting { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

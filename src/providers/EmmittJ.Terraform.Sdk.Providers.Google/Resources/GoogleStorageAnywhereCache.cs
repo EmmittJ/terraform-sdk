@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageAnywhereCacheTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageAnywhereCacheTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,7 +82,7 @@ public partial class GoogleStorageAnywhereCache : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageAnywhereCacheTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageAnywhereCacheTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ID of the Anywhere cache instance.

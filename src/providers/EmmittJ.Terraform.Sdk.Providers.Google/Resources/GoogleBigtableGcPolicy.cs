@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for max_age in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlockBase
+public partial class GoogleBigtableGcPolicyMaxAgeBlock() : TerraformBlock("max_age")
 {
     /// <summary>
     /// Number of days before applying GC policy.
@@ -29,7 +29,7 @@ public partial class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlockBase
 /// Block type for max_version in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleBigtableGcPolicyMaxVersionBlock : TerraformBlockBase
+public partial class GoogleBigtableGcPolicyMaxVersionBlock() : TerraformBlock("max_version")
 {
     /// <summary>
     /// Number of version before applying the GC policy.
@@ -45,7 +45,7 @@ public partial class GoogleBigtableGcPolicyMaxVersionBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleBigtableGcPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleBigtableGcPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -150,20 +150,20 @@ public partial class GoogleBigtableGcPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxAge block(s) allowed")]
     [TerraformProperty("max_age")]
-    public partial TerraformList<TerraformBlock<GoogleBigtableGcPolicyMaxAgeBlock>>? MaxAge { get; set; }
+    public TerraformList<GoogleBigtableGcPolicyMaxAgeBlock> MaxAge { get; set; } = new();
 
     /// <summary>
     /// Block for max_version.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("max_version")]
-    public partial TerraformList<TerraformBlock<GoogleBigtableGcPolicyMaxVersionBlock>>? MaxVersion { get; set; }
+    public TerraformList<GoogleBigtableGcPolicyMaxVersionBlock> MaxVersion { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleBigtableGcPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleBigtableGcPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

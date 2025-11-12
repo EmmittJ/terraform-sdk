@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPostgresqlFlexibleServerAuthenticationBlock : TerraformBlockBase
+public partial class AzurermPostgresqlFlexibleServerAuthenticationBlock() : TerraformBlock("authentication")
 {
     /// <summary>
     /// The active_directory_auth_enabled attribute.
@@ -35,7 +35,7 @@ public partial class AzurermPostgresqlFlexibleServerAuthenticationBlock : Terraf
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock : TerraformBlockBase
+public partial class AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock() : TerraformBlock("customer_managed_key")
 {
     /// <summary>
     /// The geo_backup_key_vault_key_id attribute.
@@ -72,7 +72,7 @@ public partial class AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock : Te
 /// Block type for high_availability in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPostgresqlFlexibleServerHighAvailabilityBlock : TerraformBlockBase
+public partial class AzurermPostgresqlFlexibleServerHighAvailabilityBlock() : TerraformBlock("high_availability")
 {
     /// <summary>
     /// The mode attribute.
@@ -95,7 +95,7 @@ public partial class AzurermPostgresqlFlexibleServerHighAvailabilityBlock : Terr
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPostgresqlFlexibleServerIdentityBlock : TerraformBlockBase
+public partial class AzurermPostgresqlFlexibleServerIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -120,7 +120,7 @@ public partial class AzurermPostgresqlFlexibleServerIdentityBlock : TerraformBlo
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPostgresqlFlexibleServerMaintenanceWindowBlock : TerraformBlockBase
+public partial class AzurermPostgresqlFlexibleServerMaintenanceWindowBlock() : TerraformBlock("maintenance_window")
 {
     /// <summary>
     /// The day_of_week attribute.
@@ -149,7 +149,7 @@ public partial class AzurermPostgresqlFlexibleServerMaintenanceWindowBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPostgresqlFlexibleServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPostgresqlFlexibleServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -368,7 +368,7 @@ public partial class AzurermPostgresqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     [TerraformProperty("authentication")]
-    public partial TerraformList<TerraformBlock<AzurermPostgresqlFlexibleServerAuthenticationBlock>>? Authentication { get; set; }
+    public TerraformList<AzurermPostgresqlFlexibleServerAuthenticationBlock> Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for customer_managed_key.
@@ -376,7 +376,7 @@ public partial class AzurermPostgresqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public partial TerraformList<TerraformBlock<AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public TerraformList<AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for high_availability.
@@ -384,7 +384,7 @@ public partial class AzurermPostgresqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighAvailability block(s) allowed")]
     [TerraformProperty("high_availability")]
-    public partial TerraformList<TerraformBlock<AzurermPostgresqlFlexibleServerHighAvailabilityBlock>>? HighAvailability { get; set; }
+    public TerraformList<AzurermPostgresqlFlexibleServerHighAvailabilityBlock> HighAvailability { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -392,7 +392,7 @@ public partial class AzurermPostgresqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermPostgresqlFlexibleServerIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermPostgresqlFlexibleServerIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window.
@@ -400,14 +400,14 @@ public partial class AzurermPostgresqlFlexibleServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public partial TerraformList<TerraformBlock<AzurermPostgresqlFlexibleServerMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public TerraformList<AzurermPostgresqlFlexibleServerMaintenanceWindowBlock> MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPostgresqlFlexibleServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPostgresqlFlexibleServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.

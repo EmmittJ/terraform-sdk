@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for network_endpoints in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkEndpointsNetworkEndpointsBlock() : TerraformBlock("network_endpoints")
 {
     /// <summary>
     /// The name for a specific VM instance that the IP address belongs to.
@@ -42,7 +42,7 @@ public partial class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeNetworkEndpointsTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeNetworkEndpointsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -110,13 +110,13 @@ public partial class GoogleComputeNetworkEndpoints : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("network_endpoints")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeNetworkEndpointsNetworkEndpointsBlock>>? NetworkEndpoints { get; set; }
+    public TerraformSet<GoogleComputeNetworkEndpointsNetworkEndpointsBlock> NetworkEndpoints { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeNetworkEndpointsTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeNetworkEndpointsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for dump_flags in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock() : TerraformBlock("dump_flags")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock : 
 /// Block type for performance_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock() : TerraformBlock("performance_config")
 {
     /// <summary>
     /// Initial dump parallelism level. Possible values: [&amp;quot;MIN&amp;quot;, &amp;quot;OPTIMAL&amp;quot;, &amp;quot;MAX&amp;quot;]
@@ -29,7 +29,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfig
 /// Block type for reverse_ssh_connectivity in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock() : TerraformBlock("reverse_ssh_connectivity")
 {
     /// <summary>
     /// The name of the virtual machine (Compute Engine) used as the bastion server
@@ -68,7 +68,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnect
 /// Block type for static_ip_connectivity in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock() : TerraformBlock("static_ip_connectivity")
 {
 }
 
@@ -76,7 +76,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectiv
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -105,7 +105,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : T
 /// Block type for vpc_peering_connectivity in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock : TerraformBlockBase
+public partial class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock() : TerraformBlock("vpc_peering_connectivity")
 {
     /// <summary>
     /// The name of the VPC network to peer with the Cloud SQL private network.
@@ -220,7 +220,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DumpFlags block(s) allowed")]
     [TerraformProperty("dump_flags")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>>? DumpFlags { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock> DumpFlags { get; set; } = new();
 
     /// <summary>
     /// Block for performance_config.
@@ -228,7 +228,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerformanceConfig block(s) allowed")]
     [TerraformProperty("performance_config")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>>? PerformanceConfig { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock> PerformanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for reverse_ssh_connectivity.
@@ -236,7 +236,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseSshConnectivity block(s) allowed")]
     [TerraformProperty("reverse_ssh_connectivity")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>>? ReverseSshConnectivity { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock> ReverseSshConnectivity { get; set; } = new();
 
     /// <summary>
     /// Block for static_ip_connectivity.
@@ -244,14 +244,14 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticIpConnectivity block(s) allowed")]
     [TerraformProperty("static_ip_connectivity")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>>? StaticIpConnectivity { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock> StaticIpConnectivity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_peering_connectivity.
@@ -259,7 +259,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConnectivity block(s) allowed")]
     [TerraformProperty("vpc_peering_connectivity")]
-    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>>? VpcPeeringConnectivity { get; set; }
+    public TerraformList<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock> VpcPeeringConnectivity { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.

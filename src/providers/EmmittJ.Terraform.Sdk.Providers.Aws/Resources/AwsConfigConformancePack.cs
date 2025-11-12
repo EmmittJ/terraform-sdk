@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for input_parameter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsConfigConformancePackInputParameterBlock : TerraformBlockBase
+public partial class AwsConfigConformancePackInputParameterBlock() : TerraformBlock("input_parameter")
 {
     /// <summary>
     /// The parameter_name attribute.
@@ -92,7 +92,7 @@ public partial class AwsConfigConformancePack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(60, ErrorMessage = "Maximum 60 InputParameter block(s) allowed")]
     [TerraformProperty("input_parameter")]
-    public partial TerraformSet<TerraformBlock<AwsConfigConformancePackInputParameterBlock>>? InputParameter { get; set; }
+    public TerraformSet<AwsConfigConformancePackInputParameterBlock> InputParameter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

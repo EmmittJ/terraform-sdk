@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for certificate_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGameliftFleetCertificateConfigurationBlock : TerraformBlockBase
+public partial class AwsGameliftFleetCertificateConfigurationBlock() : TerraformBlock("certificate_configuration")
 {
     /// <summary>
     /// The certificate_type attribute.
@@ -21,7 +21,7 @@ public partial class AwsGameliftFleetCertificateConfigurationBlock : TerraformBl
 /// Block type for ec2_inbound_permission in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlockBase
+public partial class AwsGameliftFleetEc2InboundPermissionBlock() : TerraformBlock("ec2_inbound_permission")
 {
     /// <summary>
     /// The from_port attribute.
@@ -61,7 +61,7 @@ public partial class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlockB
 /// Block type for resource_creation_limit_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGameliftFleetResourceCreationLimitPolicyBlock : TerraformBlockBase
+public partial class AwsGameliftFleetResourceCreationLimitPolicyBlock() : TerraformBlock("resource_creation_limit_policy")
 {
     /// <summary>
     /// The new_game_sessions_per_creator attribute.
@@ -83,7 +83,7 @@ public partial class AwsGameliftFleetResourceCreationLimitPolicyBlock : Terrafor
 /// Block type for runtime_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsGameliftFleetRuntimeConfigurationBlock : TerraformBlockBase
+public partial class AwsGameliftFleetRuntimeConfigurationBlock() : TerraformBlock("runtime_configuration")
 {
     /// <summary>
     /// The game_session_activation_timeout_seconds attribute.
@@ -105,7 +105,7 @@ public partial class AwsGameliftFleetRuntimeConfigurationBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGameliftFleetTimeoutsBlock : TerraformBlockBase
+public partial class AwsGameliftFleetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -232,7 +232,7 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateConfiguration block(s) allowed")]
     [TerraformProperty("certificate_configuration")]
-    public partial TerraformList<TerraformBlock<AwsGameliftFleetCertificateConfigurationBlock>>? CertificateConfiguration { get; set; }
+    public TerraformList<AwsGameliftFleetCertificateConfigurationBlock> CertificateConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for ec2_inbound_permission.
@@ -240,7 +240,7 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Ec2InboundPermission block(s) allowed")]
     [TerraformProperty("ec2_inbound_permission")]
-    public partial TerraformSet<TerraformBlock<AwsGameliftFleetEc2InboundPermissionBlock>>? Ec2InboundPermission { get; set; }
+    public TerraformSet<AwsGameliftFleetEc2InboundPermissionBlock> Ec2InboundPermission { get; set; } = new();
 
     /// <summary>
     /// Block for resource_creation_limit_policy.
@@ -248,7 +248,7 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceCreationLimitPolicy block(s) allowed")]
     [TerraformProperty("resource_creation_limit_policy")]
-    public partial TerraformList<TerraformBlock<AwsGameliftFleetResourceCreationLimitPolicyBlock>>? ResourceCreationLimitPolicy { get; set; }
+    public TerraformList<AwsGameliftFleetResourceCreationLimitPolicyBlock> ResourceCreationLimitPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for runtime_configuration.
@@ -256,14 +256,14 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfiguration block(s) allowed")]
     [TerraformProperty("runtime_configuration")]
-    public partial TerraformList<TerraformBlock<AwsGameliftFleetRuntimeConfigurationBlock>>? RuntimeConfiguration { get; set; }
+    public TerraformList<AwsGameliftFleetRuntimeConfigurationBlock> RuntimeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGameliftFleetTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGameliftFleetTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

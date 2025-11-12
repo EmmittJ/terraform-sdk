@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destinations in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcPipelineDestinationsBlock : TerraformBlockBase
+public partial class GoogleEventarcPipelineDestinationsBlock() : TerraformBlock("destinations")
 {
     /// <summary>
     /// The resource name of the Message Bus to which events should be
@@ -43,7 +43,7 @@ public partial class GoogleEventarcPipelineDestinationsBlock : TerraformBlockBas
 /// Block type for input_payload_format in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcPipelineInputPayloadFormatBlock : TerraformBlockBase
+public partial class GoogleEventarcPipelineInputPayloadFormatBlock() : TerraformBlock("input_payload_format")
 {
 }
 
@@ -51,7 +51,7 @@ public partial class GoogleEventarcPipelineInputPayloadFormatBlock : TerraformBl
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcPipelineLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleEventarcPipelineLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// The minimum severity of logs that will be sent to Stackdriver/Platform
@@ -67,7 +67,7 @@ public partial class GoogleEventarcPipelineLoggingConfigBlock : TerraformBlockBa
 /// Block type for mediations in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcPipelineMediationsBlock : TerraformBlockBase
+public partial class GoogleEventarcPipelineMediationsBlock() : TerraformBlock("mediations")
 {
 }
 
@@ -75,7 +75,7 @@ public partial class GoogleEventarcPipelineMediationsBlock : TerraformBlockBase
 /// Block type for retry_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlockBase
+public partial class GoogleEventarcPipelineRetryPolicyBlock() : TerraformBlock("retry_policy")
 {
     /// <summary>
     /// The maximum number of delivery attempts for any message. The value must
@@ -110,7 +110,7 @@ public partial class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleEventarcPipelineTimeoutsBlock : TerraformBlockBase
+public partial class GoogleEventarcPipelineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -222,7 +222,7 @@ public partial class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [TerraformProperty("destinations")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcPipelineDestinationsBlock>>? Destinations { get; set; }
+    public required TerraformList<GoogleEventarcPipelineDestinationsBlock> Destinations { get; set; } = new();
 
     /// <summary>
     /// Block for input_payload_format.
@@ -230,7 +230,7 @@ public partial class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputPayloadFormat block(s) allowed")]
     [TerraformProperty("input_payload_format")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcPipelineInputPayloadFormatBlock>>? InputPayloadFormat { get; set; }
+    public TerraformList<GoogleEventarcPipelineInputPayloadFormatBlock> InputPayloadFormat { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
@@ -238,14 +238,14 @@ public partial class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcPipelineLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<GoogleEventarcPipelineLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for mediations.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("mediations")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcPipelineMediationsBlock>>? Mediations { get; set; }
+    public TerraformList<GoogleEventarcPipelineMediationsBlock> Mediations { get; set; } = new();
 
     /// <summary>
     /// Block for retry_policy.
@@ -253,14 +253,14 @@ public partial class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     [TerraformProperty("retry_policy")]
-    public partial TerraformList<TerraformBlock<GoogleEventarcPipelineRetryPolicyBlock>>? RetryPolicy { get; set; }
+    public TerraformList<GoogleEventarcPipelineRetryPolicyBlock> RetryPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleEventarcPipelineTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleEventarcPipelineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation time.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for health_check in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAlbTargetGroupHealthCheckBlock : TerraformBlockBase
+public partial class AwsAlbTargetGroupHealthCheckBlock() : TerraformBlock("health_check")
 {
     /// <summary>
     /// The enabled attribute.
@@ -77,7 +77,7 @@ public partial class AwsAlbTargetGroupHealthCheckBlock : TerraformBlockBase
 /// Block type for stickiness in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAlbTargetGroupStickinessBlock : TerraformBlockBase
+public partial class AwsAlbTargetGroupStickinessBlock() : TerraformBlock("stickiness")
 {
     /// <summary>
     /// The cookie_duration attribute.
@@ -114,7 +114,7 @@ public partial class AwsAlbTargetGroupStickinessBlock : TerraformBlockBase
 /// Block type for target_failover in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAlbTargetGroupTargetFailoverBlock : TerraformBlockBase
+public partial class AwsAlbTargetGroupTargetFailoverBlock() : TerraformBlock("target_failover")
 {
     /// <summary>
     /// The on_deregistration attribute.
@@ -138,7 +138,7 @@ public partial class AwsAlbTargetGroupTargetFailoverBlock : TerraformBlockBase
 /// Block type for target_group_health in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAlbTargetGroupTargetGroupHealthBlock : TerraformBlockBase
+public partial class AwsAlbTargetGroupTargetGroupHealthBlock() : TerraformBlock("target_group_health")
 {
 }
 
@@ -146,7 +146,7 @@ public partial class AwsAlbTargetGroupTargetGroupHealthBlock : TerraformBlockBas
 /// Block type for target_health_state in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAlbTargetGroupTargetHealthStateBlock : TerraformBlockBase
+public partial class AwsAlbTargetGroupTargetHealthStateBlock() : TerraformBlock("target_health_state")
 {
     /// <summary>
     /// The enable_unhealthy_connection_termination attribute.
@@ -328,7 +328,7 @@ public partial class AwsAlbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheck block(s) allowed")]
     [TerraformProperty("health_check")]
-    public partial TerraformList<TerraformBlock<AwsAlbTargetGroupHealthCheckBlock>>? HealthCheck { get; set; }
+    public TerraformList<AwsAlbTargetGroupHealthCheckBlock> HealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for stickiness.
@@ -336,14 +336,14 @@ public partial class AwsAlbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Stickiness block(s) allowed")]
     [TerraformProperty("stickiness")]
-    public partial TerraformList<TerraformBlock<AwsAlbTargetGroupStickinessBlock>>? Stickiness { get; set; }
+    public TerraformList<AwsAlbTargetGroupStickinessBlock> Stickiness { get; set; } = new();
 
     /// <summary>
     /// Block for target_failover.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("target_failover")]
-    public partial TerraformList<TerraformBlock<AwsAlbTargetGroupTargetFailoverBlock>>? TargetFailover { get; set; }
+    public TerraformList<AwsAlbTargetGroupTargetFailoverBlock> TargetFailover { get; set; } = new();
 
     /// <summary>
     /// Block for target_group_health.
@@ -351,14 +351,14 @@ public partial class AwsAlbTargetGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetGroupHealth block(s) allowed")]
     [TerraformProperty("target_group_health")]
-    public partial TerraformList<TerraformBlock<AwsAlbTargetGroupTargetGroupHealthBlock>>? TargetGroupHealth { get; set; }
+    public TerraformList<AwsAlbTargetGroupTargetGroupHealthBlock> TargetGroupHealth { get; set; } = new();
 
     /// <summary>
     /// Block for target_health_state.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("target_health_state")]
-    public partial TerraformList<TerraformBlock<AwsAlbTargetGroupTargetHealthStateBlock>>? TargetHealthState { get; set; }
+    public TerraformList<AwsAlbTargetGroupTargetHealthStateBlock> TargetHealthState { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for external_ip in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVmwareengineNetworkPolicyExternalIpBlock : TerraformBlockBase
+public partial class GoogleVmwareengineNetworkPolicyExternalIpBlock() : TerraformBlock("external_ip")
 {
     /// <summary>
     /// True if the service is enabled; false otherwise.
@@ -22,7 +22,7 @@ public partial class GoogleVmwareengineNetworkPolicyExternalIpBlock : TerraformB
 /// Block type for internet_access in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVmwareengineNetworkPolicyInternetAccessBlock : TerraformBlockBase
+public partial class GoogleVmwareengineNetworkPolicyInternetAccessBlock() : TerraformBlock("internet_access")
 {
     /// <summary>
     /// True if the service is enabled; false otherwise.
@@ -38,7 +38,7 @@ public partial class GoogleVmwareengineNetworkPolicyInternetAccessBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVmwareengineNetworkPolicyTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVmwareengineNetworkPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -138,7 +138,7 @@ public partial class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalIp block(s) allowed")]
     [TerraformProperty("external_ip")]
-    public partial TerraformList<TerraformBlock<GoogleVmwareengineNetworkPolicyExternalIpBlock>>? ExternalIp { get; set; }
+    public TerraformList<GoogleVmwareengineNetworkPolicyExternalIpBlock> ExternalIp { get; set; } = new();
 
     /// <summary>
     /// Block for internet_access.
@@ -146,14 +146,14 @@ public partial class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InternetAccess block(s) allowed")]
     [TerraformProperty("internet_access")]
-    public partial TerraformList<TerraformBlock<GoogleVmwareengineNetworkPolicyInternetAccessBlock>>? InternetAccess { get; set; }
+    public TerraformList<GoogleVmwareengineNetworkPolicyInternetAccessBlock> InternetAccess { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVmwareengineNetworkPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVmwareengineNetworkPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation time of this resource.

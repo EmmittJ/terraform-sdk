@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachment in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsNetworkInterfaceAttachmentBlock : TerraformBlockBase
+public partial class AwsNetworkInterfaceAttachmentBlock() : TerraformBlock("attachment")
 {
 
     /// <summary>
@@ -210,7 +210,7 @@ public partial class AwsNetworkInterface : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("attachment")]
-    public partial TerraformSet<TerraformBlock<AwsNetworkInterfaceAttachmentBlock>>? Attachment { get; set; }
+    public TerraformSet<AwsNetworkInterfaceAttachmentBlock> Attachment { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

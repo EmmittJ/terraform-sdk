@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleFirebaseAppCheckPlayIntegrityConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleFirebaseAppCheckPlayIntegrityConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -78,7 +78,7 @@ public partial class GoogleFirebaseAppCheckPlayIntegrityConfig : TerraformResour
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleFirebaseAppCheckPlayIntegrityConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleFirebaseAppCheckPlayIntegrityConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The relative resource name of the Play Integrity configuration object

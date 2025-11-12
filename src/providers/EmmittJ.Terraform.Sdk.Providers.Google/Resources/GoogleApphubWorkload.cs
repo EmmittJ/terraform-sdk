@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApphubWorkloadAttributesBlock : TerraformBlockBase
+public partial class GoogleApphubWorkloadAttributesBlock() : TerraformBlock("attributes")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApphubWorkloadAttributesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApphubWorkloadTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApphubWorkloadTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -115,14 +115,14 @@ public partial class GoogleApphubWorkload : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
     [TerraformProperty("attributes")]
-    public partial TerraformList<TerraformBlock<GoogleApphubWorkloadAttributesBlock>>? Attributes { get; set; }
+    public TerraformList<GoogleApphubWorkloadAttributesBlock> Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApphubWorkloadTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApphubWorkloadTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Create time.

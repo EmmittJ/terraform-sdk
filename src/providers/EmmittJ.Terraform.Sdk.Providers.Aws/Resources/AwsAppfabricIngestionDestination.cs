@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppfabricIngestionDestinationDestinationConfigurationBlock : TerraformBlockBase
+public partial class AwsAppfabricIngestionDestinationDestinationConfigurationBlock() : TerraformBlock("destination_configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsAppfabricIngestionDestinationDestinationConfigurationBlo
 /// Block type for processing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAppfabricIngestionDestinationProcessingConfigurationBlock : TerraformBlockBase
+public partial class AwsAppfabricIngestionDestinationProcessingConfigurationBlock() : TerraformBlock("processing_configuration")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsAppfabricIngestionDestinationProcessingConfigurationBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAppfabricIngestionDestinationTimeoutsBlock : TerraformBlockBase
+public partial class AwsAppfabricIngestionDestinationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -91,21 +91,21 @@ public partial class AwsAppfabricIngestionDestination : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("destination_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAppfabricIngestionDestinationDestinationConfigurationBlock>>? DestinationConfiguration { get; set; }
+    public TerraformList<AwsAppfabricIngestionDestinationDestinationConfigurationBlock> DestinationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for processing_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("processing_configuration")]
-    public partial TerraformList<TerraformBlock<AwsAppfabricIngestionDestinationProcessingConfigurationBlock>>? ProcessingConfiguration { get; set; }
+    public TerraformList<AwsAppfabricIngestionDestinationProcessingConfigurationBlock> ProcessingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAppfabricIngestionDestinationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAppfabricIngestionDestinationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

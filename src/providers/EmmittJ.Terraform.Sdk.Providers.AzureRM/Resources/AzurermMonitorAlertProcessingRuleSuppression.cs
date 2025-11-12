@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock : TerraformBlockBase
+public partial class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock() : TerraformBlock("condition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock 
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock : TerraformBlockBase
+public partial class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The effective_from attribute.
@@ -43,7 +43,7 @@ public partial class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -143,7 +143,7 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock>>? Condition { get; set; }
+    public TerraformList<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -151,13 +151,13 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock Timeouts { get; set; } = new();
 
 }

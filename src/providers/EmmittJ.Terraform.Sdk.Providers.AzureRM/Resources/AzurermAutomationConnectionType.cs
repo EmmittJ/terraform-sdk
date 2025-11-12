@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for field in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermAutomationConnectionTypeFieldBlock : TerraformBlockBase
+public partial class AzurermAutomationConnectionTypeFieldBlock() : TerraformBlock("field")
 {
     /// <summary>
     /// The is_encrypted attribute.
@@ -44,7 +44,7 @@ public partial class AzurermAutomationConnectionTypeFieldBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAutomationConnectionTypeTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAutomationConnectionTypeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -124,13 +124,13 @@ public partial class AzurermAutomationConnectionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Field block(s) required")]
     [TerraformProperty("field")]
-    public partial TerraformList<TerraformBlock<AzurermAutomationConnectionTypeFieldBlock>>? Field { get; set; }
+    public required TerraformList<AzurermAutomationConnectionTypeFieldBlock> Field { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAutomationConnectionTypeTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAutomationConnectionTypeTimeoutsBlock Timeouts { get; set; } = new();
 
 }

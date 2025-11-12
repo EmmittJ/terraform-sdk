@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for bgp_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermVpnGatewayBgpSettingsBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayBgpSettingsBlock() : TerraformBlock("bgp_settings")
 {
     /// <summary>
     /// The asn attribute.
@@ -31,7 +31,7 @@ public partial class AzurermVpnGatewayBgpSettingsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermVpnGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermVpnGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,14 +146,14 @@ public partial class AzurermVpnGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
     [TerraformProperty("bgp_settings")]
-    public partial TerraformList<TerraformBlock<AzurermVpnGatewayBgpSettingsBlock>>? BgpSettings { get; set; }
+    public TerraformList<AzurermVpnGatewayBgpSettingsBlock> BgpSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermVpnGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermVpnGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ip_configuration attribute.

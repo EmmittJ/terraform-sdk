@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for deployment_targets in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudformationStackInstancesDeploymentTargetsBlock : TerraformBlockBase
+public partial class AwsCloudformationStackInstancesDeploymentTargetsBlock() : TerraformBlock("deployment_targets")
 {
     /// <summary>
     /// The account_filter_type attribute.
@@ -42,7 +42,7 @@ public partial class AwsCloudformationStackInstancesDeploymentTargetsBlock : Ter
 /// Block type for operation_preferences in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudformationStackInstancesOperationPreferencesBlock : TerraformBlockBase
+public partial class AwsCloudformationStackInstancesOperationPreferencesBlock() : TerraformBlock("operation_preferences")
 {
     /// <summary>
     /// The concurrency_mode attribute.
@@ -99,7 +99,7 @@ public partial class AwsCloudformationStackInstancesOperationPreferencesBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCloudformationStackInstancesTimeoutsBlock : TerraformBlockBase
+public partial class AwsCloudformationStackInstancesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -197,7 +197,7 @@ public partial class AwsCloudformationStackInstances : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentTargets block(s) allowed")]
     [TerraformProperty("deployment_targets")]
-    public partial TerraformList<TerraformBlock<AwsCloudformationStackInstancesDeploymentTargetsBlock>>? DeploymentTargets { get; set; }
+    public TerraformList<AwsCloudformationStackInstancesDeploymentTargetsBlock> DeploymentTargets { get; set; } = new();
 
     /// <summary>
     /// Block for operation_preferences.
@@ -205,14 +205,14 @@ public partial class AwsCloudformationStackInstances : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationPreferences block(s) allowed")]
     [TerraformProperty("operation_preferences")]
-    public partial TerraformList<TerraformBlock<AwsCloudformationStackInstancesOperationPreferencesBlock>>? OperationPreferences { get; set; }
+    public TerraformList<AwsCloudformationStackInstancesOperationPreferencesBlock> OperationPreferences { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCloudformationStackInstancesTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCloudformationStackInstancesTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set.

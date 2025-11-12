@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for jwt_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApigatewayv2AuthorizerJwtConfigurationBlock : TerraformBlockBase
+public partial class AwsApigatewayv2AuthorizerJwtConfigurationBlock() : TerraformBlock("jwt_configuration")
 {
     /// <summary>
     /// The audience attribute.
@@ -28,7 +28,7 @@ public partial class AwsApigatewayv2AuthorizerJwtConfigurationBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsApigatewayv2AuthorizerTimeoutsBlock : TerraformBlockBase
+public partial class AwsApigatewayv2AuthorizerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -135,13 +135,13 @@ public partial class AwsApigatewayv2Authorizer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JwtConfiguration block(s) allowed")]
     [TerraformProperty("jwt_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApigatewayv2AuthorizerJwtConfigurationBlock>>? JwtConfiguration { get; set; }
+    public TerraformList<AwsApigatewayv2AuthorizerJwtConfigurationBlock> JwtConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsApigatewayv2AuthorizerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsApigatewayv2AuthorizerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

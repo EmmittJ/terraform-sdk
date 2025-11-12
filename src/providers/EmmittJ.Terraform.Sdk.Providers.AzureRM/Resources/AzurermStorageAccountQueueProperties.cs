@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cors_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlockBase
+public partial class AzurermStorageAccountQueuePropertiesCorsRuleBlock() : TerraformBlock("cors_rule")
 {
     /// <summary>
     /// The allowed_headers attribute.
@@ -54,7 +54,7 @@ public partial class AzurermStorageAccountQueuePropertiesCorsRuleBlock : Terrafo
 /// Block type for hour_metrics in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountQueuePropertiesHourMetricsBlock() : TerraformBlock("hour_metrics")
 {
     /// <summary>
     /// The include_apis attribute.
@@ -84,7 +84,7 @@ public partial class AzurermStorageAccountQueuePropertiesHourMetricsBlock : Terr
 /// Block type for logging in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlockBase
+public partial class AzurermStorageAccountQueuePropertiesLoggingBlock() : TerraformBlock("logging")
 {
     /// <summary>
     /// The delete attribute.
@@ -131,7 +131,7 @@ public partial class AzurermStorageAccountQueuePropertiesLoggingBlock : Terrafor
 /// Block type for minute_metrics in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock() : TerraformBlock("minute_metrics")
 {
     /// <summary>
     /// The include_apis attribute.
@@ -161,7 +161,7 @@ public partial class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlockBase
+public partial class AzurermStorageAccountQueuePropertiesTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -224,7 +224,7 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 CorsRule block(s) allowed")]
     [TerraformProperty("cors_rule")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesCorsRuleBlock>>? CorsRule { get; set; }
+    public TerraformList<AzurermStorageAccountQueuePropertiesCorsRuleBlock> CorsRule { get; set; } = new();
 
     /// <summary>
     /// Block for hour_metrics.
@@ -232,7 +232,7 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourMetrics block(s) allowed")]
     [TerraformProperty("hour_metrics")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesHourMetricsBlock>>? HourMetrics { get; set; }
+    public TerraformList<AzurermStorageAccountQueuePropertiesHourMetricsBlock> HourMetrics { get; set; } = new();
 
     /// <summary>
     /// Block for logging.
@@ -240,7 +240,7 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
     [TerraformProperty("logging")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesLoggingBlock>>? Logging { get; set; }
+    public TerraformList<AzurermStorageAccountQueuePropertiesLoggingBlock> Logging { get; set; } = new();
 
     /// <summary>
     /// Block for minute_metrics.
@@ -248,13 +248,13 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinuteMetrics block(s) allowed")]
     [TerraformProperty("minute_metrics")]
-    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>>? MinuteMetrics { get; set; }
+    public TerraformList<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock> MinuteMetrics { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermStorageAccountQueuePropertiesTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermStorageAccountQueuePropertiesTimeoutsBlock Timeouts { get; set; } = new();
 
 }

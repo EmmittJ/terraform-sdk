@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for inspect_job in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionJobTriggerInspectJobBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionJobTriggerInspectJobBlock() : TerraformBlock("inspect_job")
 {
     /// <summary>
     /// The name of the template to run when this job is triggered.
@@ -21,7 +21,7 @@ public partial class GoogleDataLossPreventionJobTriggerInspectJobBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataLossPreventionJobTriggerTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionJobTriggerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -50,7 +50,7 @@ public partial class GoogleDataLossPreventionJobTriggerTimeoutsBlock : Terraform
 /// Block type for triggers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataLossPreventionJobTriggerTriggersBlock : TerraformBlockBase
+public partial class GoogleDataLossPreventionJobTriggerTriggersBlock() : TerraformBlock("triggers")
 {
 }
 
@@ -116,14 +116,14 @@ public partial class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InspectJob block(s) allowed")]
     [TerraformProperty("inspect_job")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionJobTriggerInspectJobBlock>>? InspectJob { get; set; }
+    public TerraformList<GoogleDataLossPreventionJobTriggerInspectJobBlock> InspectJob { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataLossPreventionJobTriggerTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataLossPreventionJobTriggerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for triggers.
@@ -132,7 +132,7 @@ public partial class GoogleDataLossPreventionJobTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Triggers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Triggers block(s) required")]
     [TerraformProperty("triggers")]
-    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionJobTriggerTriggersBlock>>? Triggers { get; set; }
+    public required TerraformList<GoogleDataLossPreventionJobTriggerTriggersBlock> Triggers { get; set; } = new();
 
     /// <summary>
     /// The creation timestamp of an inspectTemplate. Set by the server.

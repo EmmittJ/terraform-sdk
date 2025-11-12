@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for on_exception_steps in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferWorkflowOnExceptionStepsBlock : TerraformBlockBase
+public partial class AwsTransferWorkflowOnExceptionStepsBlock() : TerraformBlock("on_exception_steps")
 {
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsTransferWorkflowOnExceptionStepsBlock : TerraformBlockBa
 /// Block type for steps in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsTransferWorkflowStepsBlock : TerraformBlockBase
+public partial class AwsTransferWorkflowStepsBlock() : TerraformBlock("steps")
 {
     /// <summary>
     /// The type attribute.
@@ -85,7 +85,7 @@ public partial class AwsTransferWorkflow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 OnExceptionSteps block(s) allowed")]
     [TerraformProperty("on_exception_steps")]
-    public partial TerraformList<TerraformBlock<AwsTransferWorkflowOnExceptionStepsBlock>>? OnExceptionSteps { get; set; }
+    public TerraformList<AwsTransferWorkflowOnExceptionStepsBlock> OnExceptionSteps { get; set; } = new();
 
     /// <summary>
     /// Block for steps.
@@ -95,7 +95,7 @@ public partial class AwsTransferWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Steps block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 Steps block(s) allowed")]
     [TerraformProperty("steps")]
-    public partial TerraformList<TerraformBlock<AwsTransferWorkflowStepsBlock>>? Steps { get; set; }
+    public required TerraformList<AwsTransferWorkflowStepsBlock> Steps { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

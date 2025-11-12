@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auto_scale_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlockBase
+public partial class AzurermNginxDeploymentAutoScaleProfileBlock() : TerraformBlock("auto_scale_profile")
 {
     /// <summary>
     /// The max_capacity attribute.
@@ -38,7 +38,7 @@ public partial class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBloc
 /// Block type for frontend_private in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlockBase
+public partial class AzurermNginxDeploymentFrontendPrivateBlock() : TerraformBlock("frontend_private")
 {
     /// <summary>
     /// The allocation_method attribute.
@@ -70,7 +70,7 @@ public partial class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
 /// Block type for frontend_public in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNginxDeploymentFrontendPublicBlock : TerraformBlockBase
+public partial class AzurermNginxDeploymentFrontendPublicBlock() : TerraformBlock("frontend_public")
 {
     /// <summary>
     /// The ip_address attribute.
@@ -85,7 +85,7 @@ public partial class AzurermNginxDeploymentFrontendPublicBlock : TerraformBlockB
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNginxDeploymentIdentityBlock : TerraformBlockBase
+public partial class AzurermNginxDeploymentIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -111,7 +111,7 @@ public partial class AzurermNginxDeploymentIdentityBlock : TerraformBlockBase
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AzurermNginxDeploymentLoggingStorageAccountBlock : TerraformBlockBase
+public partial class AzurermNginxDeploymentLoggingStorageAccountBlock() : TerraformBlock("logging_storage_account")
 {
     /// <summary>
     /// The container_name attribute.
@@ -133,7 +133,7 @@ public partial class AzurermNginxDeploymentLoggingStorageAccountBlock : Terrafor
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNginxDeploymentNetworkInterfaceBlock : TerraformBlockBase
+public partial class AzurermNginxDeploymentNetworkInterfaceBlock() : TerraformBlock("network_interface")
 {
     /// <summary>
     /// The subnet_id attribute.
@@ -149,7 +149,7 @@ public partial class AzurermNginxDeploymentNetworkInterfaceBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermNginxDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermNginxDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -185,7 +185,7 @@ public partial class AzurermNginxDeploymentTimeoutsBlock : TerraformBlockBase
 /// Block type for web_application_firewall in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermNginxDeploymentWebApplicationFirewallBlock : TerraformBlockBase
+public partial class AzurermNginxDeploymentWebApplicationFirewallBlock() : TerraformBlock("web_application_firewall")
 {
     /// <summary>
     /// The activation_state_enabled attribute.
@@ -295,14 +295,14 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("auto_scale_profile")]
-    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentAutoScaleProfileBlock>>? AutoScaleProfile { get; set; }
+    public TerraformList<AzurermNginxDeploymentAutoScaleProfileBlock> AutoScaleProfile { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_private.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("frontend_private")]
-    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPrivateBlock>>? FrontendPrivate { get; set; }
+    public TerraformList<AzurermNginxDeploymentFrontendPrivateBlock> FrontendPrivate { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_public.
@@ -310,7 +310,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendPublic block(s) allowed")]
     [TerraformProperty("frontend_public")]
-    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPublicBlock>>? FrontendPublic { get; set; }
+    public TerraformList<AzurermNginxDeploymentFrontendPublicBlock> FrontendPublic { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -318,7 +318,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermNginxDeploymentIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for logging_storage_account.
@@ -326,21 +326,21 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("logging_storage_account")]
-    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentLoggingStorageAccountBlock>>? LoggingStorageAccount { get; set; }
+    public TerraformList<AzurermNginxDeploymentLoggingStorageAccountBlock> LoggingStorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_interface")]
-    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentNetworkInterfaceBlock>>? NetworkInterface { get; set; }
+    public TerraformList<AzurermNginxDeploymentNetworkInterfaceBlock> NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermNginxDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermNginxDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for web_application_firewall.
@@ -348,7 +348,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebApplicationFirewall block(s) allowed")]
     [TerraformProperty("web_application_firewall")]
-    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentWebApplicationFirewallBlock>>? WebApplicationFirewall { get; set; }
+    public TerraformList<AzurermNginxDeploymentWebApplicationFirewallBlock> WebApplicationFirewall { get; set; } = new();
 
     /// <summary>
     /// The dataplane_api_endpoint attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPostgresqlServerKeyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPostgresqlServerKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -76,6 +76,6 @@ public partial class AzurermPostgresqlServerKey : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPostgresqlServerKeyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPostgresqlServerKeyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

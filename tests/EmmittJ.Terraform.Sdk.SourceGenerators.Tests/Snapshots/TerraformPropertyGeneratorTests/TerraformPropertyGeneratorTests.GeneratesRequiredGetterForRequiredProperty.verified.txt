@@ -16,14 +16,6 @@ partial class TestProvider
         set => SetPropertyValue("required_config", value);
     }
 
-    /// <summary>
-    /// Gets the stored value for RequiredConfig (not a reference).
-    /// </summary>
-    public EmmittJ.Terraform.Sdk.TerraformValue<string> RequiredConfigValue
-    {
-        get => GetRequiredPropertyValue<EmmittJ.Terraform.Sdk.TerraformValue<string>>("required_config");
-    }
-
 }
 
 }

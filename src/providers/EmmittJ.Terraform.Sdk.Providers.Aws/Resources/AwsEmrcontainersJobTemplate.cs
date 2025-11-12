@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for job_template_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlockBase
+public partial class AwsEmrcontainersJobTemplateJobTemplateDataBlock() : TerraformBlock("job_template_data")
 {
     /// <summary>
     /// The execution_role_arn attribute.
@@ -37,7 +37,7 @@ public partial class AwsEmrcontainersJobTemplateJobTemplateDataBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsEmrcontainersJobTemplateTimeoutsBlock : TerraformBlockBase
+public partial class AwsEmrcontainersJobTemplateTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -109,14 +109,14 @@ public partial class AwsEmrcontainersJobTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 JobTemplateData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobTemplateData block(s) allowed")]
     [TerraformProperty("job_template_data")]
-    public partial TerraformList<TerraformBlock<AwsEmrcontainersJobTemplateJobTemplateDataBlock>>? JobTemplateData { get; set; }
+    public required TerraformList<AwsEmrcontainersJobTemplateJobTemplateDataBlock> JobTemplateData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsEmrcontainersJobTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public AwsEmrcontainersJobTemplateTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

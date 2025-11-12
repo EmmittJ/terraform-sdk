@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for idp_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock() : TerraformBlock("idp_config")
 {
     /// <summary>
     /// Unique identifier for all SAML entities
@@ -37,7 +37,7 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock
 /// Block type for sp_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock() : TerraformBlock("sp_config")
 {
     /// <summary>
     /// Callback URI where responses from IDP are handled. Must start with &#39;https://&#39;.
@@ -62,7 +62,7 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -152,7 +152,7 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformRe
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IdpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdpConfig block(s) allowed")]
     [TerraformProperty("idp_config")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock>>? IdpConfig { get; set; }
+    public required TerraformList<GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock> IdpConfig { get; set; } = new();
 
     /// <summary>
     /// Block for sp_config.
@@ -162,13 +162,13 @@ public partial class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformRe
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpConfig block(s) allowed")]
     [TerraformProperty("sp_config")]
-    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock>>? SpConfig { get; set; }
+    public required TerraformList<GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock> SpConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock Timeouts { get; set; } = new();
 
 }

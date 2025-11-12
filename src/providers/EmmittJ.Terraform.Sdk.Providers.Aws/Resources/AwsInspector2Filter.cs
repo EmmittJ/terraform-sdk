@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter_criteria in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsInspector2FilterFilterCriteriaBlock : TerraformBlockBase
+public partial class AwsInspector2FilterFilterCriteriaBlock() : TerraformBlock("filter_criteria")
 {
 }
 
@@ -68,7 +68,7 @@ public partial class AwsInspector2Filter : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filter_criteria")]
-    public partial TerraformList<TerraformBlock<AwsInspector2FilterFilterCriteriaBlock>>? FilterCriteria { get; set; }
+    public TerraformList<AwsInspector2FilterFilterCriteriaBlock> FilterCriteria { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

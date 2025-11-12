@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBlockBase
+public partial class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock() : TerraformBlock("ip_rule")
 {
     /// <summary>
     /// The ip_mask attribute.
@@ -30,7 +30,7 @@ public partial class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -105,13 +105,13 @@ public partial class AzurermIotcentralApplicationNetworkRuleSet : TerraformResou
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ip_rule")]
-    public partial TerraformList<TerraformBlock<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>>? IpRule { get; set; }
+    public TerraformList<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock> IpRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock Timeouts { get; set; } = new();
 
 }

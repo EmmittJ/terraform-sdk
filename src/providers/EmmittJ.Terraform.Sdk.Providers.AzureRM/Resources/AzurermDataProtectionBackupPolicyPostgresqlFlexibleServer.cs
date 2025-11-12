@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for default_retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock() : TerraformBlock("default_retention_rule")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDe
 /// Block type for retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock() : TerraformBlock("retention_rule")
 {
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRe
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,20 +119,20 @@ public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServer :
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
     [TerraformProperty("default_retention_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock>>? DefaultRetentionRule { get; set; }
+    public required TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock> DefaultRetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for retention_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("retention_rule")]
-    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock>>? RetentionRule { get; set; }
+    public TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock> RetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerTimeoutsBlock Timeouts { get; set; } = new();
 
 }

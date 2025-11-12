@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authorizer_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotDomainConfigurationAuthorizerConfigBlock : TerraformBlockBase
+public partial class AwsIotDomainConfigurationAuthorizerConfigBlock() : TerraformBlock("authorizer_config")
 {
     /// <summary>
     /// The allow_authorizer_override attribute.
@@ -28,7 +28,7 @@ public partial class AwsIotDomainConfigurationAuthorizerConfigBlock : TerraformB
 /// Block type for tls_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsIotDomainConfigurationTlsConfigBlock : TerraformBlockBase
+public partial class AwsIotDomainConfigurationTlsConfigBlock() : TerraformBlock("tls_config")
 {
     /// <summary>
     /// The security_policy attribute.
@@ -140,7 +140,7 @@ public partial class AwsIotDomainConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthorizerConfig block(s) allowed")]
     [TerraformProperty("authorizer_config")]
-    public partial TerraformList<TerraformBlock<AwsIotDomainConfigurationAuthorizerConfigBlock>>? AuthorizerConfig { get; set; }
+    public TerraformList<AwsIotDomainConfigurationAuthorizerConfigBlock> AuthorizerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for tls_config.
@@ -148,7 +148,7 @@ public partial class AwsIotDomainConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
     [TerraformProperty("tls_config")]
-    public partial TerraformList<TerraformBlock<AwsIotDomainConfigurationTlsConfigBlock>>? TlsConfig { get; set; }
+    public TerraformList<AwsIotDomainConfigurationTlsConfigBlock> TlsConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

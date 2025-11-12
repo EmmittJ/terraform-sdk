@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryCustomerManagedKeyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryCustomerManagedKeyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -82,6 +82,6 @@ public partial class AzurermDataFactoryCustomerManagedKey : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryCustomerManagedKeyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

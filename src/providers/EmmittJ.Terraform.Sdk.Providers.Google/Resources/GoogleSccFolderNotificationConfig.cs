@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for streaming_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSccFolderNotificationConfigStreamingConfigBlock : TerraformBlockBase
+public partial class GoogleSccFolderNotificationConfigStreamingConfigBlock() : TerraformBlock("streaming_config")
 {
     /// <summary>
     /// Expression that defines the filter to apply across create/update
@@ -46,7 +46,7 @@ public partial class GoogleSccFolderNotificationConfigStreamingConfigBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccFolderNotificationConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccFolderNotificationConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -128,14 +128,14 @@ public partial class GoogleSccFolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StreamingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingConfig block(s) allowed")]
     [TerraformProperty("streaming_config")]
-    public partial TerraformList<TerraformBlock<GoogleSccFolderNotificationConfigStreamingConfigBlock>>? StreamingConfig { get; set; }
+    public required TerraformList<GoogleSccFolderNotificationConfigStreamingConfigBlock> StreamingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccFolderNotificationConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccFolderNotificationConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of this notification config, in the format

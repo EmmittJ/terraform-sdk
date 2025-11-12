@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for component_version in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterComponentVersionBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterComponentVersionBlock() : TerraformBlock("component_version")
 {
     /// <summary>
     /// The interactive_hive attribute.
@@ -22,7 +22,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterComponentVersionBloc
 /// Block type for compute_isolation in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock() : TerraformBlock("compute_isolation")
 {
     /// <summary>
     /// The compute_isolation_enabled attribute.
@@ -44,7 +44,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterComputeIsolationBloc
 /// Block type for disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock() : TerraformBlock("disk_encryption")
 {
     /// <summary>
     /// The encryption_algorithm attribute.
@@ -80,7 +80,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock 
 /// Block type for extension in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterExtensionBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterExtensionBlock() : TerraformBlock("extension")
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -104,7 +104,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterExtensionBlock : Ter
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterGatewayBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterGatewayBlock() : TerraformBlock("gateway")
 {
     /// <summary>
     /// The password attribute.
@@ -128,7 +128,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterGatewayBlock : Terra
 /// Block type for metastores in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterMetastoresBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterMetastoresBlock() : TerraformBlock("metastores")
 {
 }
 
@@ -136,7 +136,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterMetastoresBlock : Te
 /// Block type for monitor in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterMonitorBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterMonitorBlock() : TerraformBlock("monitor")
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -160,7 +160,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterMonitorBlock : Terra
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterNetworkBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterNetworkBlock() : TerraformBlock("network")
 {
     /// <summary>
     /// The connection_direction attribute.
@@ -182,7 +182,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterNetworkBlock : Terra
 /// Block type for private_link_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock() : TerraformBlock("private_link_configuration")
 {
     /// <summary>
     /// The group_id attribute.
@@ -206,7 +206,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigura
 /// Block type for roles in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterRolesBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterRolesBlock() : TerraformBlock("roles")
 {
 }
 
@@ -214,7 +214,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterRolesBlock : Terrafo
 /// Block type for security_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock() : TerraformBlock("security_profile")
 {
     /// <summary>
     /// The aadds_resource_id attribute.
@@ -277,7 +277,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock() : TerraformBlock("storage_account")
 {
     /// <summary>
     /// The is_default attribute.
@@ -316,7 +316,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock 
 /// Block type for storage_account_gen2 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block() : TerraformBlock("storage_account_gen2")
 {
     /// <summary>
     /// The filesystem_id attribute.
@@ -356,7 +356,7 @@ public partial class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Bl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -474,7 +474,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
     [TerraformProperty("component_version")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock>>? ComponentVersion { get; set; }
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock> ComponentVersion { get; set; } = new();
 
     /// <summary>
     /// Block for compute_isolation.
@@ -482,14 +482,14 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
     [TerraformProperty("compute_isolation")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock>>? ComputeIsolation { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock> ComputeIsolation { get; set; } = new();
 
     /// <summary>
     /// Block for disk_encryption.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("disk_encryption")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock>>? DiskEncryption { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock> DiskEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for extension.
@@ -497,7 +497,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
     [TerraformProperty("extension")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterExtensionBlock>>? Extension { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterExtensionBlock> Extension { get; set; } = new();
 
     /// <summary>
     /// Block for gateway.
@@ -507,7 +507,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     [TerraformProperty("gateway")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterGatewayBlock>>? Gateway { get; set; }
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterGatewayBlock> Gateway { get; set; } = new();
 
     /// <summary>
     /// Block for metastores.
@@ -515,7 +515,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
     [TerraformProperty("metastores")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterMetastoresBlock>>? Metastores { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlock> Metastores { get; set; } = new();
 
     /// <summary>
     /// Block for monitor.
@@ -523,7 +523,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
     [TerraformProperty("monitor")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterMonitorBlock>>? Monitor { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterMonitorBlock> Monitor { get; set; } = new();
 
     /// <summary>
     /// Block for network.
@@ -531,7 +531,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformProperty("network")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterNetworkBlock>>? Network { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterNetworkBlock> Network { get; set; } = new();
 
     /// <summary>
     /// Block for private_link_configuration.
@@ -539,7 +539,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
     [TerraformProperty("private_link_configuration")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock> PrivateLinkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for roles.
@@ -549,7 +549,7 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
     [TerraformProperty("roles")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterRolesBlock>>? Roles { get; set; }
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlock> Roles { get; set; } = new();
 
     /// <summary>
     /// Block for security_profile.
@@ -557,14 +557,14 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
     [TerraformProperty("security_profile")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock>>? SecurityProfile { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock> SecurityProfile { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage_account")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock>>? StorageAccount { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock> StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account_gen2.
@@ -572,14 +572,14 @@ public partial class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
     [TerraformProperty("storage_account_gen2")]
-    public partial TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block>>? StorageAccountGen2 { get; set; }
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block> StorageAccountGen2 { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHdinsightInteractiveQueryClusterTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHdinsightInteractiveQueryClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The https_endpoint attribute.

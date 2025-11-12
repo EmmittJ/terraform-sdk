@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public partial class AwsGuarddutyDetectorDatasourcesBlock : TerraformBlockBase
+public partial class AwsGuarddutyDetectorDatasourcesBlock() : TerraformBlock("datasources")
 {
 }
 
@@ -70,7 +70,7 @@ public partial class AwsGuarddutyDetector : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Datasources block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("datasources")]
-    public partial TerraformList<TerraformBlock<AwsGuarddutyDetectorDatasourcesBlock>>? Datasources { get; set; }
+    public TerraformList<AwsGuarddutyDetectorDatasourcesBlock> Datasources { get; set; } = new();
 
     /// <summary>
     /// The account_id attribute.

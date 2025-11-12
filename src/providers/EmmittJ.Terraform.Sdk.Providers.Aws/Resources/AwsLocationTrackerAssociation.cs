@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLocationTrackerAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsLocationTrackerAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,6 +68,6 @@ public partial class AwsLocationTrackerAssociation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLocationTrackerAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLocationTrackerAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

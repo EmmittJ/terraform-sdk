@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for authority in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubMembershipAuthorityBlock : TerraformBlockBase
+public partial class GoogleGkeHubMembershipAuthorityBlock() : TerraformBlock("authority")
 {
     /// <summary>
     /// A JSON Web Token (JWT) issuer URI. &#39;issuer&#39; must start with &#39;https://&#39; and // be a valid
@@ -23,7 +23,7 @@ public partial class GoogleGkeHubMembershipAuthorityBlock : TerraformBlockBase
 /// Block type for endpoint in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleGkeHubMembershipEndpointBlock : TerraformBlockBase
+public partial class GoogleGkeHubMembershipEndpointBlock() : TerraformBlock("endpoint")
 {
 }
 
@@ -31,7 +31,7 @@ public partial class GoogleGkeHubMembershipEndpointBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleGkeHubMembershipTimeoutsBlock : TerraformBlockBase
+public partial class GoogleGkeHubMembershipTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -113,7 +113,7 @@ public partial class GoogleGkeHubMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authority block(s) allowed")]
     [TerraformProperty("authority")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubMembershipAuthorityBlock>>? Authority { get; set; }
+    public TerraformList<GoogleGkeHubMembershipAuthorityBlock> Authority { get; set; } = new();
 
     /// <summary>
     /// Block for endpoint.
@@ -121,14 +121,14 @@ public partial class GoogleGkeHubMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
     [TerraformProperty("endpoint")]
-    public partial TerraformList<TerraformBlock<GoogleGkeHubMembershipEndpointBlock>>? Endpoint { get; set; }
+    public TerraformList<GoogleGkeHubMembershipEndpointBlock> Endpoint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleGkeHubMembershipTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleGkeHubMembershipTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

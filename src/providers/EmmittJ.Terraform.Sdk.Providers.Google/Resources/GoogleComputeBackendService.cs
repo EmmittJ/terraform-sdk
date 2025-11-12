@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backend in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceBackendBlock() : TerraformBlock("backend")
 {
     /// <summary>
     /// Specifies the balancing mode for this backend.
@@ -163,7 +163,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
 /// Block type for cdn_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceCdnPolicyBlock() : TerraformBlock("cdn_policy")
 {
     /// <summary>
     /// Specifies the cache setting for all responses from this backend.
@@ -239,7 +239,7 @@ public partial class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlockB
 /// Block type for circuit_breakers in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceCircuitBreakersBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceCircuitBreakersBlock() : TerraformBlock("circuit_breakers")
 {
     /// <summary>
     /// The maximum number of connections to the backend cluster.
@@ -289,7 +289,7 @@ public partial class GoogleComputeBackendServiceCircuitBreakersBlock : Terraform
 /// Block type for consistent_hash in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceConsistentHashBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceConsistentHashBlock() : TerraformBlock("consistent_hash")
 {
     /// <summary>
     /// The hash based on the value of the specified header field.
@@ -317,7 +317,7 @@ public partial class GoogleComputeBackendServiceConsistentHashBlock : TerraformB
 /// Block type for custom_metrics in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceCustomMetricsBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceCustomMetricsBlock() : TerraformBlock("custom_metrics")
 {
     /// <summary>
     /// If true, the metric data is not used for load balancing.
@@ -349,7 +349,7 @@ public partial class GoogleComputeBackendServiceCustomMetricsBlock : TerraformBl
 /// Block type for iap in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceIapBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceIapBlock() : TerraformBlock("iap")
 {
     /// <summary>
     /// Whether the serving infrastructure will authenticate and authorize all incoming requests.
@@ -380,7 +380,7 @@ public partial class GoogleComputeBackendServiceIapBlock : TerraformBlockBase
 /// Block type for locality_lb_policies in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceLocalityLbPoliciesBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceLocalityLbPoliciesBlock() : TerraformBlock("locality_lb_policies")
 {
 }
 
@@ -388,7 +388,7 @@ public partial class GoogleComputeBackendServiceLocalityLbPoliciesBlock : Terraf
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceLogConfigBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// Whether to enable logging for the load balancer traffic served by this backend service.
@@ -431,7 +431,7 @@ public partial class GoogleComputeBackendServiceLogConfigBlock : TerraformBlockB
 /// Block type for max_stream_duration in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceMaxStreamDurationBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceMaxStreamDurationBlock() : TerraformBlock("max_stream_duration")
 {
     /// <summary>
     /// Span of time that&#39;s a fraction of a second at nanosecond resolution.
@@ -456,7 +456,7 @@ public partial class GoogleComputeBackendServiceMaxStreamDurationBlock : Terrafo
 /// Block type for outlier_detection in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceOutlierDetectionBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceOutlierDetectionBlock() : TerraformBlock("outlier_detection")
 {
     /// <summary>
     /// Number of errors before a host is ejected from the connection pool. When the
@@ -550,7 +550,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceParamsBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceParamsBlock() : TerraformBlock("params")
 {
     /// <summary>
     /// Resource manager tags to be bound to the backend service. Tag keys and values have the
@@ -567,7 +567,7 @@ public partial class GoogleComputeBackendServiceParamsBlock : TerraformBlockBase
 /// Block type for security_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceSecuritySettingsBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceSecuritySettingsBlock() : TerraformBlock("security_settings")
 {
     /// <summary>
     /// ClientTlsPolicy is a resource that specifies how a client should authenticate
@@ -593,7 +593,7 @@ public partial class GoogleComputeBackendServiceSecuritySettingsBlock : Terrafor
 /// Block type for strong_session_affinity_cookie in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceStrongSessionAffinityCookieBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceStrongSessionAffinityCookieBlock() : TerraformBlock("strong_session_affinity_cookie")
 {
     /// <summary>
     /// Name of the cookie.
@@ -615,7 +615,7 @@ public partial class GoogleComputeBackendServiceStrongSessionAffinityCookieBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeBackendServiceTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -644,7 +644,7 @@ public partial class GoogleComputeBackendServiceTimeoutsBlock : TerraformBlockBa
 /// Block type for tls_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeBackendServiceTlsSettingsBlock : TerraformBlockBase
+public partial class GoogleComputeBackendServiceTlsSettingsBlock() : TerraformBlock("tls_settings")
 {
     /// <summary>
     /// Reference to the BackendAuthenticationConfig resource from the networksecurity.googleapis.com namespace.
@@ -961,7 +961,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("backend")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeBackendServiceBackendBlock>>? Backend { get; set; }
+    public TerraformSet<GoogleComputeBackendServiceBackendBlock> Backend { get; set; } = new();
 
     /// <summary>
     /// Block for cdn_policy.
@@ -969,7 +969,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnPolicy block(s) allowed")]
     [TerraformProperty("cdn_policy")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceCdnPolicyBlock>>? CdnPolicy { get; set; }
+    public TerraformList<GoogleComputeBackendServiceCdnPolicyBlock> CdnPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for circuit_breakers.
@@ -977,7 +977,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CircuitBreakers block(s) allowed")]
     [TerraformProperty("circuit_breakers")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceCircuitBreakersBlock>>? CircuitBreakers { get; set; }
+    public TerraformList<GoogleComputeBackendServiceCircuitBreakersBlock> CircuitBreakers { get; set; } = new();
 
     /// <summary>
     /// Block for consistent_hash.
@@ -985,14 +985,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConsistentHash block(s) allowed")]
     [TerraformProperty("consistent_hash")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceConsistentHashBlock>>? ConsistentHash { get; set; }
+    public TerraformList<GoogleComputeBackendServiceConsistentHashBlock> ConsistentHash { get; set; } = new();
 
     /// <summary>
     /// Block for custom_metrics.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_metrics")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceCustomMetricsBlock>>? CustomMetrics { get; set; }
+    public TerraformList<GoogleComputeBackendServiceCustomMetricsBlock> CustomMetrics { get; set; } = new();
 
     /// <summary>
     /// Block for iap.
@@ -1000,14 +1000,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Iap block(s) allowed")]
     [TerraformProperty("iap")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceIapBlock>>? Iap { get; set; }
+    public TerraformList<GoogleComputeBackendServiceIapBlock> Iap { get; set; } = new();
 
     /// <summary>
     /// Block for locality_lb_policies.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("locality_lb_policies")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceLocalityLbPoliciesBlock>>? LocalityLbPolicies { get; set; }
+    public TerraformList<GoogleComputeBackendServiceLocalityLbPoliciesBlock> LocalityLbPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
@@ -1015,7 +1015,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<GoogleComputeBackendServiceLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for max_stream_duration.
@@ -1023,7 +1023,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxStreamDuration block(s) allowed")]
     [TerraformProperty("max_stream_duration")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceMaxStreamDurationBlock>>? MaxStreamDuration { get; set; }
+    public TerraformList<GoogleComputeBackendServiceMaxStreamDurationBlock> MaxStreamDuration { get; set; } = new();
 
     /// <summary>
     /// Block for outlier_detection.
@@ -1031,7 +1031,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutlierDetection block(s) allowed")]
     [TerraformProperty("outlier_detection")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceOutlierDetectionBlock>>? OutlierDetection { get; set; }
+    public TerraformList<GoogleComputeBackendServiceOutlierDetectionBlock> OutlierDetection { get; set; } = new();
 
     /// <summary>
     /// Block for params.
@@ -1039,7 +1039,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceParamsBlock>>? Params { get; set; }
+    public TerraformList<GoogleComputeBackendServiceParamsBlock> Params { get; set; } = new();
 
     /// <summary>
     /// Block for security_settings.
@@ -1047,7 +1047,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecuritySettings block(s) allowed")]
     [TerraformProperty("security_settings")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceSecuritySettingsBlock>>? SecuritySettings { get; set; }
+    public TerraformList<GoogleComputeBackendServiceSecuritySettingsBlock> SecuritySettings { get; set; } = new();
 
     /// <summary>
     /// Block for strong_session_affinity_cookie.
@@ -1055,14 +1055,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StrongSessionAffinityCookie block(s) allowed")]
     [TerraformProperty("strong_session_affinity_cookie")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceStrongSessionAffinityCookieBlock>>? StrongSessionAffinityCookie { get; set; }
+    public TerraformList<GoogleComputeBackendServiceStrongSessionAffinityCookieBlock> StrongSessionAffinityCookie { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeBackendServiceTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeBackendServiceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tls_settings.
@@ -1070,7 +1070,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsSettings block(s) allowed")]
     [TerraformProperty("tls_settings")]
-    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceTlsSettingsBlock>>? TlsSettings { get; set; }
+    public TerraformList<GoogleComputeBackendServiceTlsSettingsBlock> TlsSettings { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

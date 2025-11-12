@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachments_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQbusinessApplicationAttachmentsConfigurationBlock : TerraformBlockBase
+public partial class AwsQbusinessApplicationAttachmentsConfigurationBlock() : TerraformBlock("attachments_configuration")
 {
     /// <summary>
     /// Status information about whether file upload functionality is activated or deactivated for your end user.
@@ -22,7 +22,7 @@ public partial class AwsQbusinessApplicationAttachmentsConfigurationBlock : Terr
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsQbusinessApplicationEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsQbusinessApplicationEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
@@ -38,7 +38,7 @@ public partial class AwsQbusinessApplicationEncryptionConfigurationBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsQbusinessApplicationTimeoutsBlock : TerraformBlockBase
+public partial class AwsQbusinessApplicationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -122,21 +122,21 @@ public partial class AwsQbusinessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attachments_configuration")]
-    public partial TerraformList<TerraformBlock<AwsQbusinessApplicationAttachmentsConfigurationBlock>>? AttachmentsConfiguration { get; set; }
+    public TerraformList<AwsQbusinessApplicationAttachmentsConfigurationBlock> AttachmentsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsQbusinessApplicationEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsQbusinessApplicationEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsQbusinessApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsQbusinessApplicationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

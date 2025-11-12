@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for trigger in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCodecommitTriggerTriggerBlock : TerraformBlockBase
+public partial class AwsCodecommitTriggerTriggerBlock() : TerraformBlock("trigger")
 {
     /// <summary>
     /// The branches attribute.
@@ -88,7 +88,7 @@ public partial class AwsCodecommitTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Trigger block(s) allowed")]
     [TerraformProperty("trigger")]
-    public partial TerraformSet<TerraformBlock<AwsCodecommitTriggerTriggerBlock>>? Trigger { get; set; }
+    public required TerraformSet<AwsCodecommitTriggerTriggerBlock> Trigger { get; set; } = new();
 
     /// <summary>
     /// The configuration_id attribute.

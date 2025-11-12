@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_grant in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsS3BucketLoggingTargetGrantBlock : TerraformBlockBase
+public partial class AwsS3BucketLoggingTargetGrantBlock() : TerraformBlock("target_grant")
 {
     /// <summary>
     /// The permission attribute.
@@ -22,7 +22,7 @@ public partial class AwsS3BucketLoggingTargetGrantBlock : TerraformBlockBase
 /// Block type for target_object_key_format in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsS3BucketLoggingTargetObjectKeyFormatBlock : TerraformBlockBase
+public partial class AwsS3BucketLoggingTargetObjectKeyFormatBlock() : TerraformBlock("target_object_key_format")
 {
 }
 
@@ -86,7 +86,7 @@ public partial class AwsS3BucketLogging : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("target_grant")]
-    public partial TerraformSet<TerraformBlock<AwsS3BucketLoggingTargetGrantBlock>>? TargetGrant { get; set; }
+    public TerraformSet<AwsS3BucketLoggingTargetGrantBlock> TargetGrant { get; set; } = new();
 
     /// <summary>
     /// Block for target_object_key_format.
@@ -94,6 +94,6 @@ public partial class AwsS3BucketLogging : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetObjectKeyFormat block(s) allowed")]
     [TerraformProperty("target_object_key_format")]
-    public partial TerraformList<TerraformBlock<AwsS3BucketLoggingTargetObjectKeyFormatBlock>>? TargetObjectKeyFormat { get; set; }
+    public TerraformList<AwsS3BucketLoggingTargetObjectKeyFormatBlock> TargetObjectKeyFormat { get; set; } = new();
 
 }

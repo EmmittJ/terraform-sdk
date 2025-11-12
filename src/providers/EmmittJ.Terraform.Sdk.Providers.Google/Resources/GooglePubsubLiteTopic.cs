@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for partition_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubLiteTopicPartitionConfigBlock : TerraformBlockBase
+public partial class GooglePubsubLiteTopicPartitionConfigBlock() : TerraformBlock("partition_config")
 {
     /// <summary>
     /// The number of partitions in the topic. Must be at least 1.
@@ -22,7 +22,7 @@ public partial class GooglePubsubLiteTopicPartitionConfigBlock : TerraformBlockB
 /// Block type for reservation_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubLiteTopicReservationConfigBlock : TerraformBlockBase
+public partial class GooglePubsubLiteTopicReservationConfigBlock() : TerraformBlock("reservation_config")
 {
     /// <summary>
     /// The Reservation to use for this topic&#39;s throughput capacity.
@@ -37,7 +37,7 @@ public partial class GooglePubsubLiteTopicReservationConfigBlock : TerraformBloc
 /// Block type for retention_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlockBase
+public partial class GooglePubsubLiteTopicRetentionConfigBlock() : TerraformBlock("retention_config")
 {
     /// <summary>
     /// The provisioned storage, in bytes, per partition. If the number of bytes stored
@@ -65,7 +65,7 @@ public partial class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GooglePubsubLiteTopicTimeoutsBlock : TerraformBlockBase
+public partial class GooglePubsubLiteTopicTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -142,7 +142,7 @@ public partial class GooglePubsubLiteTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionConfig block(s) allowed")]
     [TerraformProperty("partition_config")]
-    public partial TerraformList<TerraformBlock<GooglePubsubLiteTopicPartitionConfigBlock>>? PartitionConfig { get; set; }
+    public TerraformList<GooglePubsubLiteTopicPartitionConfigBlock> PartitionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for reservation_config.
@@ -150,7 +150,7 @@ public partial class GooglePubsubLiteTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationConfig block(s) allowed")]
     [TerraformProperty("reservation_config")]
-    public partial TerraformList<TerraformBlock<GooglePubsubLiteTopicReservationConfigBlock>>? ReservationConfig { get; set; }
+    public TerraformList<GooglePubsubLiteTopicReservationConfigBlock> ReservationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for retention_config.
@@ -158,13 +158,13 @@ public partial class GooglePubsubLiteTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionConfig block(s) allowed")]
     [TerraformProperty("retention_config")]
-    public partial TerraformList<TerraformBlock<GooglePubsubLiteTopicRetentionConfigBlock>>? RetentionConfig { get; set; }
+    public TerraformList<GooglePubsubLiteTopicRetentionConfigBlock> RetentionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GooglePubsubLiteTopicTimeoutsBlock>? Timeouts { get; set; }
+    public GooglePubsubLiteTopicTimeoutsBlock Timeouts { get; set; } = new();
 
 }

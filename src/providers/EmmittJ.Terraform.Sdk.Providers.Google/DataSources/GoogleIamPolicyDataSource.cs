@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for audit_config in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleIamPolicyDataSourceAuditConfigBlock : TerraformBlockBase
+public partial class GoogleIamPolicyDataSourceAuditConfigBlock() : TerraformBlock("audit_config")
 {
     /// <summary>
     /// The service attribute.
@@ -22,7 +22,7 @@ public partial class GoogleIamPolicyDataSourceAuditConfigBlock : TerraformBlockB
 /// Block type for binding in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleIamPolicyDataSourceBindingBlock : TerraformBlockBase
+public partial class GoogleIamPolicyDataSourceBindingBlock() : TerraformBlock("binding")
 {
     /// <summary>
     /// The members attribute.
@@ -63,14 +63,14 @@ public partial class GoogleIamPolicyDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("audit_config")]
-    public partial TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceAuditConfigBlock>>? AuditConfig { get; set; }
+    public TerraformSet<GoogleIamPolicyDataSourceAuditConfigBlock> AuditConfig { get; set; } = new();
 
     /// <summary>
     /// Block for binding.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("binding")]
-    public partial TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceBindingBlock>>? Binding { get; set; }
+    public TerraformSet<GoogleIamPolicyDataSourceBindingBlock> Binding { get; set; } = new();
 
     /// <summary>
     /// The policy_data attribute.

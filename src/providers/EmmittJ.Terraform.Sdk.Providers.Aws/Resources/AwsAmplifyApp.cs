@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_branch_creation_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlockBase
+public partial class AwsAmplifyAppAutoBranchCreationConfigBlock() : TerraformBlock("auto_branch_creation_config")
 {
     /// <summary>
     /// The basic_auth_credentials attribute.
@@ -84,7 +84,7 @@ public partial class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
 /// Block type for cache_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAmplifyAppCacheConfigBlock : TerraformBlockBase
+public partial class AwsAmplifyAppCacheConfigBlock() : TerraformBlock("cache_config")
 {
     /// <summary>
     /// The type attribute.
@@ -100,7 +100,7 @@ public partial class AwsAmplifyAppCacheConfigBlock : TerraformBlockBase
 /// Block type for custom_rule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAmplifyAppCustomRuleBlock : TerraformBlockBase
+public partial class AwsAmplifyAppCustomRuleBlock() : TerraformBlock("custom_rule")
 {
     /// <summary>
     /// The condition attribute.
@@ -138,7 +138,7 @@ public partial class AwsAmplifyAppCustomRuleBlock : TerraformBlockBase
 /// Block type for job_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsAmplifyAppJobConfigBlock : TerraformBlockBase
+public partial class AwsAmplifyAppJobConfigBlock() : TerraformBlock("job_config")
 {
     /// <summary>
     /// The build_compute_type attribute.
@@ -313,7 +313,7 @@ public partial class AwsAmplifyApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoBranchCreationConfig block(s) allowed")]
     [TerraformProperty("auto_branch_creation_config")]
-    public partial TerraformList<TerraformBlock<AwsAmplifyAppAutoBranchCreationConfigBlock>>? AutoBranchCreationConfig { get; set; }
+    public TerraformList<AwsAmplifyAppAutoBranchCreationConfigBlock> AutoBranchCreationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cache_config.
@@ -321,14 +321,14 @@ public partial class AwsAmplifyApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheConfig block(s) allowed")]
     [TerraformProperty("cache_config")]
-    public partial TerraformList<TerraformBlock<AwsAmplifyAppCacheConfigBlock>>? CacheConfig { get; set; }
+    public TerraformList<AwsAmplifyAppCacheConfigBlock> CacheConfig { get; set; } = new();
 
     /// <summary>
     /// Block for custom_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_rule")]
-    public partial TerraformList<TerraformBlock<AwsAmplifyAppCustomRuleBlock>>? CustomRule { get; set; }
+    public TerraformList<AwsAmplifyAppCustomRuleBlock> CustomRule { get; set; } = new();
 
     /// <summary>
     /// Block for job_config.
@@ -336,7 +336,7 @@ public partial class AwsAmplifyApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobConfig block(s) allowed")]
     [TerraformProperty("job_config")]
-    public partial TerraformList<TerraformBlock<AwsAmplifyAppJobConfigBlock>>? JobConfig { get; set; }
+    public TerraformList<AwsAmplifyAppJobConfigBlock> JobConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

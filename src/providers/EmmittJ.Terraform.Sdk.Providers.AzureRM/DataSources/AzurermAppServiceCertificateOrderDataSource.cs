@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermAppServiceCertificateOrderDataSourceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermAppServiceCertificateOrderDataSourceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The read attribute.
@@ -54,7 +54,7 @@ public partial class AzurermAppServiceCertificateOrderDataSource : TerraformData
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermAppServiceCertificateOrderDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermAppServiceCertificateOrderDataSourceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The app_service_certificate_not_renewable_reasons attribute.

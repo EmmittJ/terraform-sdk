@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authentication_options in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlockBase
+public partial class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock() : TerraformBlock("authentication_options")
 {
     /// <summary>
     /// The active_directory_id attribute.
@@ -50,7 +50,7 @@ public partial class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : Terrafo
 /// Block type for client_connect_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2ClientVpnEndpointClientConnectOptionsBlock : TerraformBlockBase
+public partial class AwsEc2ClientVpnEndpointClientConnectOptionsBlock() : TerraformBlock("client_connect_options")
 {
     /// <summary>
     /// The enabled attribute.
@@ -72,7 +72,7 @@ public partial class AwsEc2ClientVpnEndpointClientConnectOptionsBlock : Terrafor
 /// Block type for client_login_banner_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock : TerraformBlockBase
+public partial class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock() : TerraformBlock("client_login_banner_options")
 {
     /// <summary>
     /// The banner_text attribute.
@@ -94,7 +94,7 @@ public partial class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock : Terr
 /// Block type for client_route_enforcement_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock : TerraformBlockBase
+public partial class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock() : TerraformBlock("client_route_enforcement_options")
 {
     /// <summary>
     /// The enforced attribute.
@@ -109,7 +109,7 @@ public partial class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock :
 /// Block type for connection_log_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlockBase
+public partial class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock() : TerraformBlock("connection_log_options")
 {
     /// <summary>
     /// The cloudwatch_log_group attribute.
@@ -280,7 +280,7 @@ public partial class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 AuthenticationOptions block(s) allowed")]
     [TerraformProperty("authentication_options")]
-    public partial TerraformSet<TerraformBlock<AwsEc2ClientVpnEndpointAuthenticationOptionsBlock>>? AuthenticationOptions { get; set; }
+    public required TerraformSet<AwsEc2ClientVpnEndpointAuthenticationOptionsBlock> AuthenticationOptions { get; set; } = new();
 
     /// <summary>
     /// Block for client_connect_options.
@@ -288,7 +288,7 @@ public partial class AwsEc2ClientVpnEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectOptions block(s) allowed")]
     [TerraformProperty("client_connect_options")]
-    public partial TerraformList<TerraformBlock<AwsEc2ClientVpnEndpointClientConnectOptionsBlock>>? ClientConnectOptions { get; set; }
+    public TerraformList<AwsEc2ClientVpnEndpointClientConnectOptionsBlock> ClientConnectOptions { get; set; } = new();
 
     /// <summary>
     /// Block for client_login_banner_options.
@@ -296,7 +296,7 @@ public partial class AwsEc2ClientVpnEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientLoginBannerOptions block(s) allowed")]
     [TerraformProperty("client_login_banner_options")]
-    public partial TerraformList<TerraformBlock<AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock>>? ClientLoginBannerOptions { get; set; }
+    public TerraformList<AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock> ClientLoginBannerOptions { get; set; } = new();
 
     /// <summary>
     /// Block for client_route_enforcement_options.
@@ -304,7 +304,7 @@ public partial class AwsEc2ClientVpnEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientRouteEnforcementOptions block(s) allowed")]
     [TerraformProperty("client_route_enforcement_options")]
-    public partial TerraformList<TerraformBlock<AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock>>? ClientRouteEnforcementOptions { get; set; }
+    public TerraformList<AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock> ClientRouteEnforcementOptions { get; set; } = new();
 
     /// <summary>
     /// Block for connection_log_options.
@@ -314,7 +314,7 @@ public partial class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionLogOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionLogOptions block(s) allowed")]
     [TerraformProperty("connection_log_options")]
-    public partial TerraformList<TerraformBlock<AwsEc2ClientVpnEndpointConnectionLogOptionsBlock>>? ConnectionLogOptions { get; set; }
+    public required TerraformList<AwsEc2ClientVpnEndpointConnectionLogOptionsBlock> ConnectionLogOptions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

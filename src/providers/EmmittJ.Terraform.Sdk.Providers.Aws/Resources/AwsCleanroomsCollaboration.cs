@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_encryption_metadata in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBlockBase
+public partial class AwsCleanroomsCollaborationDataEncryptionMetadataBlock() : TerraformBlock("data_encryption_metadata")
 {
     /// <summary>
     /// The allow_clear_text attribute.
@@ -46,7 +46,7 @@ public partial class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : Ter
 /// Block type for member in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCleanroomsCollaborationMemberBlock : TerraformBlockBase
+public partial class AwsCleanroomsCollaborationMemberBlock() : TerraformBlock("member")
 {
     /// <summary>
     /// The account_id attribute.
@@ -79,7 +79,7 @@ public partial class AwsCleanroomsCollaborationMemberBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlockBase
+public partial class AwsCleanroomsCollaborationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -188,21 +188,21 @@ public partial class AwsCleanroomsCollaboration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataEncryptionMetadata block(s) allowed")]
     [TerraformProperty("data_encryption_metadata")]
-    public partial TerraformList<TerraformBlock<AwsCleanroomsCollaborationDataEncryptionMetadataBlock>>? DataEncryptionMetadata { get; set; }
+    public TerraformList<AwsCleanroomsCollaborationDataEncryptionMetadataBlock> DataEncryptionMetadata { get; set; } = new();
 
     /// <summary>
     /// Block for member.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("member")]
-    public partial TerraformSet<TerraformBlock<AwsCleanroomsCollaborationMemberBlock>>? Member { get; set; }
+    public TerraformSet<AwsCleanroomsCollaborationMemberBlock> Member { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCleanroomsCollaborationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCleanroomsCollaborationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

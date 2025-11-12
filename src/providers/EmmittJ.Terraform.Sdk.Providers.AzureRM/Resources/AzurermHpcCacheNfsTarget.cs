@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for namespace_junction in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlockBase
+public partial class AzurermHpcCacheNfsTargetNamespaceJunctionBlock() : TerraformBlock("namespace_junction")
 {
     /// <summary>
     /// The access_policy_name attribute.
@@ -44,7 +44,7 @@ public partial class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHpcCacheNfsTargetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -156,13 +156,13 @@ public partial class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NamespaceJunction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 NamespaceJunction block(s) allowed")]
     [TerraformProperty("namespace_junction")]
-    public partial TerraformSet<TerraformBlock<AzurermHpcCacheNfsTargetNamespaceJunctionBlock>>? NamespaceJunction { get; set; }
+    public required TerraformSet<AzurermHpcCacheNfsTargetNamespaceJunctionBlock> NamespaceJunction { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHpcCacheNfsTargetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHpcCacheNfsTargetTimeoutsBlock Timeouts { get; set; } = new();
 
 }

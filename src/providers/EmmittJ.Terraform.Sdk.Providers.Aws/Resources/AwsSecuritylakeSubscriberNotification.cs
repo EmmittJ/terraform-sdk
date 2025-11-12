@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSecuritylakeSubscriberNotificationConfigurationBlock : TerraformBlockBase
+public partial class AwsSecuritylakeSubscriberNotificationConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -39,7 +39,7 @@ public partial class AwsSecuritylakeSubscriberNotification : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsSecuritylakeSubscriberNotificationConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsSecuritylakeSubscriberNotificationConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// The endpoint_id attribute.

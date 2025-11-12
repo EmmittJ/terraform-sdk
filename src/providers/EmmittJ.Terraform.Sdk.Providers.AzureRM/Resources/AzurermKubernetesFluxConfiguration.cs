@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for blob_storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlockBase
+public partial class AzurermKubernetesFluxConfigurationBlobStorageBlock() : TerraformBlock("blob_storage")
 {
     /// <summary>
     /// The account_key attribute.
@@ -57,7 +57,7 @@ public partial class AzurermKubernetesFluxConfigurationBlobStorageBlock : Terraf
 /// Block type for bucket in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlockBase
+public partial class AzurermKubernetesFluxConfigurationBucketBlock() : TerraformBlock("bucket")
 {
     /// <summary>
     /// The access_key attribute.
@@ -123,7 +123,7 @@ public partial class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBl
 /// Block type for git_repository in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlockBase
+public partial class AzurermKubernetesFluxConfigurationGitRepositoryBlock() : TerraformBlock("git_repository")
 {
     /// <summary>
     /// The https_ca_cert_base64 attribute.
@@ -218,7 +218,7 @@ public partial class AzurermKubernetesFluxConfigurationGitRepositoryBlock : Terr
 /// Block type for kustomizations in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBlockBase
+public partial class AzurermKubernetesFluxConfigurationKustomizationsBlock() : TerraformBlock("kustomizations")
 {
     /// <summary>
     /// The depends_on attribute.
@@ -290,7 +290,7 @@ public partial class AzurermKubernetesFluxConfigurationKustomizationsBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKubernetesFluxConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKubernetesFluxConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -383,7 +383,7 @@ public partial class AzurermKubernetesFluxConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlobStorage block(s) allowed")]
     [TerraformProperty("blob_storage")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationBlobStorageBlock>>? BlobStorage { get; set; }
+    public TerraformList<AzurermKubernetesFluxConfigurationBlobStorageBlock> BlobStorage { get; set; } = new();
 
     /// <summary>
     /// Block for bucket.
@@ -391,7 +391,7 @@ public partial class AzurermKubernetesFluxConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bucket block(s) allowed")]
     [TerraformProperty("bucket")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationBucketBlock>>? Bucket { get; set; }
+    public TerraformList<AzurermKubernetesFluxConfigurationBucketBlock> Bucket { get; set; } = new();
 
     /// <summary>
     /// Block for git_repository.
@@ -399,7 +399,7 @@ public partial class AzurermKubernetesFluxConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
     [TerraformProperty("git_repository")]
-    public partial TerraformList<TerraformBlock<AzurermKubernetesFluxConfigurationGitRepositoryBlock>>? GitRepository { get; set; }
+    public TerraformList<AzurermKubernetesFluxConfigurationGitRepositoryBlock> GitRepository { get; set; } = new();
 
     /// <summary>
     /// Block for kustomizations.
@@ -408,13 +408,13 @@ public partial class AzurermKubernetesFluxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kustomizations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Kustomizations block(s) required")]
     [TerraformProperty("kustomizations")]
-    public partial TerraformSet<TerraformBlock<AzurermKubernetesFluxConfigurationKustomizationsBlock>>? Kustomizations { get; set; }
+    public required TerraformSet<AzurermKubernetesFluxConfigurationKustomizationsBlock> Kustomizations { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKubernetesFluxConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKubernetesFluxConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

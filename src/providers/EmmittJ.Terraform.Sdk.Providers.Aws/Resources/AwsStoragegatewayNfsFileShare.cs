@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cache_attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsStoragegatewayNfsFileShareCacheAttributesBlock : TerraformBlockBase
+public partial class AwsStoragegatewayNfsFileShareCacheAttributesBlock() : TerraformBlock("cache_attributes")
 {
     /// <summary>
     /// The cache_stale_timeout_in_seconds attribute.
@@ -21,7 +21,7 @@ public partial class AwsStoragegatewayNfsFileShareCacheAttributesBlock : Terrafo
 /// Block type for nfs_file_share_defaults in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock : TerraformBlockBase
+public partial class AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock() : TerraformBlock("nfs_file_share_defaults")
 {
     /// <summary>
     /// The directory_mode attribute.
@@ -57,7 +57,7 @@ public partial class AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsStoragegatewayNfsFileShareTimeoutsBlock : TerraformBlockBase
+public partial class AwsStoragegatewayNfsFileShareTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -249,7 +249,7 @@ public partial class AwsStoragegatewayNfsFileShare : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheAttributes block(s) allowed")]
     [TerraformProperty("cache_attributes")]
-    public partial TerraformList<TerraformBlock<AwsStoragegatewayNfsFileShareCacheAttributesBlock>>? CacheAttributes { get; set; }
+    public TerraformList<AwsStoragegatewayNfsFileShareCacheAttributesBlock> CacheAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for nfs_file_share_defaults.
@@ -257,14 +257,14 @@ public partial class AwsStoragegatewayNfsFileShare : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NfsFileShareDefaults block(s) allowed")]
     [TerraformProperty("nfs_file_share_defaults")]
-    public partial TerraformList<TerraformBlock<AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock>>? NfsFileShareDefaults { get; set; }
+    public TerraformList<AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock> NfsFileShareDefaults { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsStoragegatewayNfsFileShareTimeoutsBlock>? Timeouts { get; set; }
+    public AwsStoragegatewayNfsFileShareTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

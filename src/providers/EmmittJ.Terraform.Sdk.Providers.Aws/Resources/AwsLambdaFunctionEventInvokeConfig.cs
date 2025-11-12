@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock : TerraformBlockBase
+public partial class AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock() : TerraformBlock("destination_config")
 {
 }
 
@@ -69,6 +69,6 @@ public partial class AwsLambdaFunctionEventInvokeConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfig block(s) allowed")]
     [TerraformProperty("destination_config")]
-    public partial TerraformList<TerraformBlock<AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock>>? DestinationConfig { get; set; }
+    public TerraformList<AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock> DestinationConfig { get; set; } = new();
 
 }

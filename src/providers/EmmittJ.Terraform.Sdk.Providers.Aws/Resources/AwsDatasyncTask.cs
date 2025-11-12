@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for excludes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncTaskExcludesBlock : TerraformBlockBase
+public partial class AwsDatasyncTaskExcludesBlock() : TerraformBlock("excludes")
 {
     /// <summary>
     /// The filter_type attribute.
@@ -28,7 +28,7 @@ public partial class AwsDatasyncTaskExcludesBlock : TerraformBlockBase
 /// Block type for includes in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncTaskIncludesBlock : TerraformBlockBase
+public partial class AwsDatasyncTaskIncludesBlock() : TerraformBlock("includes")
 {
     /// <summary>
     /// The filter_type attribute.
@@ -50,7 +50,7 @@ public partial class AwsDatasyncTaskIncludesBlock : TerraformBlockBase
 /// Block type for options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncTaskOptionsBlock : TerraformBlockBase
+public partial class AwsDatasyncTaskOptionsBlock() : TerraformBlock("options")
 {
     /// <summary>
     /// The atime attribute.
@@ -163,7 +163,7 @@ public partial class AwsDatasyncTaskOptionsBlock : TerraformBlockBase
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncTaskScheduleBlock : TerraformBlockBase
+public partial class AwsDatasyncTaskScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The schedule_expression attribute.
@@ -179,7 +179,7 @@ public partial class AwsDatasyncTaskScheduleBlock : TerraformBlockBase
 /// Block type for task_report_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlockBase
+public partial class AwsDatasyncTaskTaskReportConfigBlock() : TerraformBlock("task_report_config")
 {
     /// <summary>
     /// The output_type attribute.
@@ -208,7 +208,7 @@ public partial class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDatasyncTaskTimeoutsBlock : TerraformBlockBase
+public partial class AwsDatasyncTaskTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -300,7 +300,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Excludes block(s) allowed")]
     [TerraformProperty("excludes")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncTaskExcludesBlock>>? Excludes { get; set; }
+    public TerraformList<AwsDatasyncTaskExcludesBlock> Excludes { get; set; } = new();
 
     /// <summary>
     /// Block for includes.
@@ -308,7 +308,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Includes block(s) allowed")]
     [TerraformProperty("includes")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncTaskIncludesBlock>>? Includes { get; set; }
+    public TerraformList<AwsDatasyncTaskIncludesBlock> Includes { get; set; } = new();
 
     /// <summary>
     /// Block for options.
@@ -316,7 +316,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     [TerraformProperty("options")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncTaskOptionsBlock>>? Options { get; set; }
+    public TerraformList<AwsDatasyncTaskOptionsBlock> Options { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -324,7 +324,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncTaskScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AwsDatasyncTaskScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for task_report_config.
@@ -332,14 +332,14 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskReportConfig block(s) allowed")]
     [TerraformProperty("task_report_config")]
-    public partial TerraformList<TerraformBlock<AwsDatasyncTaskTaskReportConfigBlock>>? TaskReportConfig { get; set; }
+    public TerraformList<AwsDatasyncTaskTaskReportConfigBlock> TaskReportConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDatasyncTaskTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDatasyncTaskTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

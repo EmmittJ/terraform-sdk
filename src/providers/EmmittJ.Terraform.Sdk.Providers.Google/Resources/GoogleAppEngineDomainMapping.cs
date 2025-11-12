@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for ssl_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlockBase
+public partial class GoogleAppEngineDomainMappingSslSettingsBlock() : TerraformBlock("ssl_settings")
 {
     /// <summary>
     /// ID of the AuthorizedCertificate resource configuring SSL for the application. Clearing this field will
@@ -36,7 +36,7 @@ public partial class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAppEngineDomainMappingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -107,14 +107,14 @@ public partial class GoogleAppEngineDomainMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslSettings block(s) allowed")]
     [TerraformProperty("ssl_settings")]
-    public partial TerraformList<TerraformBlock<GoogleAppEngineDomainMappingSslSettingsBlock>>? SslSettings { get; set; }
+    public TerraformList<GoogleAppEngineDomainMappingSslSettingsBlock> SslSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAppEngineDomainMappingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAppEngineDomainMappingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Full path to the DomainMapping resource in the API. Example: apps/myapp/domainMapping/example.com.

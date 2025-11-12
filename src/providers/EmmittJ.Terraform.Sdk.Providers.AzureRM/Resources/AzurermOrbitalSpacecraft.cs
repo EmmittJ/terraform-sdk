@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for links in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermOrbitalSpacecraftLinksBlock : TerraformBlockBase
+public partial class AzurermOrbitalSpacecraftLinksBlock() : TerraformBlock("links")
 {
     /// <summary>
     /// The bandwidth_mhz attribute.
@@ -54,7 +54,7 @@ public partial class AzurermOrbitalSpacecraftLinksBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlockBase
+public partial class AzurermOrbitalSpacecraftTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -166,13 +166,13 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
     [TerraformProperty("links")]
-    public partial TerraformList<TerraformBlock<AzurermOrbitalSpacecraftLinksBlock>>? Links { get; set; }
+    public required TerraformList<AzurermOrbitalSpacecraftLinksBlock> Links { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermOrbitalSpacecraftTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermOrbitalSpacecraftTimeoutsBlock Timeouts { get; set; } = new();
 
 }

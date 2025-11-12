@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for exclude_cloud_storage_buckets in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock() : TerraformBlock("exclude_cloud_storage_buckets")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucket
 /// Block type for exclude_cloud_storage_locations in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock() : TerraformBlock("exclude_cloud_storage_locations")
 {
     /// <summary>
     /// The list of cloud storage locations to exclude in the DatasetConfig.
@@ -30,7 +30,7 @@ public partial class GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocati
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsDatasetConfigIdentityBlock() : TerraformBlock("identity")
 {
 
     /// <summary>
@@ -47,7 +47,7 @@ public partial class GoogleStorageInsightsDatasetConfigIdentityBlock : Terraform
 /// Block type for include_cloud_storage_buckets in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock() : TerraformBlock("include_cloud_storage_buckets")
 {
 }
 
@@ -55,7 +55,7 @@ public partial class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucket
 /// Block type for include_cloud_storage_locations in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock() : TerraformBlock("include_cloud_storage_locations")
 {
     /// <summary>
     /// The list of cloud storage locations to include in the DatasetConfig.
@@ -71,7 +71,7 @@ public partial class GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocati
 /// Block type for source_folders in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsDatasetConfigSourceFoldersBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsDatasetConfigSourceFoldersBlock() : TerraformBlock("source_folders")
 {
     /// <summary>
     /// The list of folder numbers to include in the DatasetConfig.
@@ -86,7 +86,7 @@ public partial class GoogleStorageInsightsDatasetConfigSourceFoldersBlock : Terr
 /// Block type for source_projects in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleStorageInsightsDatasetConfigSourceProjectsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsDatasetConfigSourceProjectsBlock() : TerraformBlock("source_projects")
 {
     /// <summary>
     /// The list of project numbers to include in the DatasetConfig.
@@ -101,7 +101,7 @@ public partial class GoogleStorageInsightsDatasetConfigSourceProjectsBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleStorageInsightsDatasetConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleStorageInsightsDatasetConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -220,7 +220,7 @@ public partial class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeCloudStorageBuckets block(s) allowed")]
     [TerraformProperty("exclude_cloud_storage_buckets")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock>>? ExcludeCloudStorageBuckets { get; set; }
+    public TerraformList<GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock> ExcludeCloudStorageBuckets { get; set; } = new();
 
     /// <summary>
     /// Block for exclude_cloud_storage_locations.
@@ -228,7 +228,7 @@ public partial class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeCloudStorageLocations block(s) allowed")]
     [TerraformProperty("exclude_cloud_storage_locations")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock>>? ExcludeCloudStorageLocations { get; set; }
+    public TerraformList<GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock> ExcludeCloudStorageLocations { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -238,7 +238,7 @@ public partial class GoogleStorageInsightsDatasetConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<GoogleStorageInsightsDatasetConfigIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for include_cloud_storage_buckets.
@@ -246,7 +246,7 @@ public partial class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeCloudStorageBuckets block(s) allowed")]
     [TerraformProperty("include_cloud_storage_buckets")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock>>? IncludeCloudStorageBuckets { get; set; }
+    public TerraformList<GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock> IncludeCloudStorageBuckets { get; set; } = new();
 
     /// <summary>
     /// Block for include_cloud_storage_locations.
@@ -254,7 +254,7 @@ public partial class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeCloudStorageLocations block(s) allowed")]
     [TerraformProperty("include_cloud_storage_locations")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock>>? IncludeCloudStorageLocations { get; set; }
+    public TerraformList<GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock> IncludeCloudStorageLocations { get; set; } = new();
 
     /// <summary>
     /// Block for source_folders.
@@ -262,7 +262,7 @@ public partial class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceFolders block(s) allowed")]
     [TerraformProperty("source_folders")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigSourceFoldersBlock>>? SourceFolders { get; set; }
+    public TerraformList<GoogleStorageInsightsDatasetConfigSourceFoldersBlock> SourceFolders { get; set; } = new();
 
     /// <summary>
     /// Block for source_projects.
@@ -270,14 +270,14 @@ public partial class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceProjects block(s) allowed")]
     [TerraformProperty("source_projects")]
-    public partial TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigSourceProjectsBlock>>? SourceProjects { get; set; }
+    public TerraformList<GoogleStorageInsightsDatasetConfigSourceProjectsBlock> SourceProjects { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleStorageInsightsDatasetConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleStorageInsightsDatasetConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The UTC time at which the DatasetConfig was created. This is auto-populated.

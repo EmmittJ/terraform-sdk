@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDxBgpPeerTimeoutsBlock : TerraformBlockBase
+public partial class AwsDxBgpPeerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -97,7 +97,7 @@ public partial class AwsDxBgpPeer : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDxBgpPeerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDxBgpPeerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The aws_device attribute.

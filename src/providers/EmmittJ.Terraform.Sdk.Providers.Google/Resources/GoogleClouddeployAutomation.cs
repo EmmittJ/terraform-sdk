@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rules in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployAutomationRulesBlock : TerraformBlockBase
+public partial class GoogleClouddeployAutomationRulesBlock() : TerraformBlock("rules")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleClouddeployAutomationRulesBlock : TerraformBlockBase
 /// Block type for selector in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployAutomationSelectorBlock : TerraformBlockBase
+public partial class GoogleClouddeployAutomationSelectorBlock() : TerraformBlock("selector")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class GoogleClouddeployAutomationSelectorBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleClouddeployAutomationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleClouddeployAutomationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,7 +144,7 @@ public partial class GoogleClouddeployAutomation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployAutomationRulesBlock>>? Rules { get; set; }
+    public required TerraformList<GoogleClouddeployAutomationRulesBlock> Rules { get; set; } = new();
 
     /// <summary>
     /// Block for selector.
@@ -154,14 +154,14 @@ public partial class GoogleClouddeployAutomation : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selector block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Selector block(s) allowed")]
     [TerraformProperty("selector")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployAutomationSelectorBlock>>? Selector { get; set; }
+    public required TerraformList<GoogleClouddeployAutomationSelectorBlock> Selector { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleClouddeployAutomationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleClouddeployAutomationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Time at which the automation was created.

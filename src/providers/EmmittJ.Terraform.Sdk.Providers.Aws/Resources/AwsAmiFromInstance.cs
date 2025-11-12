@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ebs_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAmiFromInstanceEbsBlockDeviceBlock : TerraformBlockBase
+public partial class AwsAmiFromInstanceEbsBlockDeviceBlock() : TerraformBlock("ebs_block_device")
 {
 
 
@@ -23,7 +23,7 @@ public partial class AwsAmiFromInstanceEbsBlockDeviceBlock : TerraformBlockBase
 /// Block type for ephemeral_block_device in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsAmiFromInstanceEphemeralBlockDeviceBlock : TerraformBlockBase
+public partial class AwsAmiFromInstanceEphemeralBlockDeviceBlock() : TerraformBlock("ephemeral_block_device")
 {
 
 
@@ -33,7 +33,7 @@ public partial class AwsAmiFromInstanceEphemeralBlockDeviceBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsAmiFromInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AwsAmiFromInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -137,21 +137,21 @@ public partial class AwsAmiFromInstance : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsAmiFromInstanceEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
+    public TerraformSet<AwsAmiFromInstanceEbsBlockDeviceBlock> EbsBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for ephemeral_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ephemeral_block_device")]
-    public partial TerraformSet<TerraformBlock<AwsAmiFromInstanceEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
+    public TerraformSet<AwsAmiFromInstanceEphemeralBlockDeviceBlock> EphemeralBlockDevice { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsAmiFromInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsAmiFromInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The architecture attribute.

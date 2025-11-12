@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for managed_rule_group in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock() : TerraformBlock("managed_rule_group")
 {
     /// <summary>
     /// Name of the managed rule group.
@@ -37,7 +37,7 @@ public partial class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : T
 /// Block type for rule_group_reference in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock() : TerraformBlock("rule_group_reference")
 {
     /// <summary>
     /// ARN of the Rule Group to associate with the Web ACL.
@@ -53,7 +53,7 @@ public partial class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -130,20 +130,20 @@ public partial class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("managed_rule_group")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock>>? ManagedRuleGroup { get; set; }
+    public TerraformList<AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock> ManagedRuleGroup { get; set; } = new();
 
     /// <summary>
     /// Block for rule_group_reference.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rule_group_reference")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock>>? RuleGroupReference { get; set; }
+    public TerraformList<AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock> RuleGroupReference { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
 }

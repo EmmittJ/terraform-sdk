@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlockBase
+public partial class AwsLexv2modelsBotLocaleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -35,7 +35,7 @@ public partial class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlockBase
 /// Block type for voice_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLexv2modelsBotLocaleVoiceSettingsBlock : TerraformBlockBase
+public partial class AwsLexv2modelsBotLocaleVoiceSettingsBlock() : TerraformBlock("voice_settings")
 {
     /// <summary>
     /// The engine attribute.
@@ -121,14 +121,14 @@ public partial class AwsLexv2modelsBotLocale : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLexv2modelsBotLocaleTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLexv2modelsBotLocaleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for voice_settings.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("voice_settings")]
-    public partial TerraformList<TerraformBlock<AwsLexv2modelsBotLocaleVoiceSettingsBlock>>? VoiceSettings { get; set; }
+    public TerraformList<AwsLexv2modelsBotLocaleVoiceSettingsBlock> VoiceSettings { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

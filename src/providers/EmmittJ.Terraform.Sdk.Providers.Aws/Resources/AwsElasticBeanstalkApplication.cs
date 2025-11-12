@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for appversion_lifecycle in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformBlockBase
+public partial class AwsElasticBeanstalkApplicationAppversionLifecycleBlock() : TerraformBlock("appversion_lifecycle")
 {
     /// <summary>
     /// The delete_source_from_s3 attribute.
@@ -98,7 +98,7 @@ public partial class AwsElasticBeanstalkApplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppversionLifecycle block(s) allowed")]
     [TerraformProperty("appversion_lifecycle")]
-    public partial TerraformList<TerraformBlock<AwsElasticBeanstalkApplicationAppversionLifecycleBlock>>? AppversionLifecycle { get; set; }
+    public TerraformList<AwsElasticBeanstalkApplicationAppversionLifecycleBlock> AppversionLifecycle { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

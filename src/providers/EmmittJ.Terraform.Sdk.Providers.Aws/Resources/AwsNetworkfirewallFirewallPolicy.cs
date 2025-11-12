@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkfirewallFirewallPolicyEncryptionConfigurationBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallFirewallPolicyEncryptionConfigurationBlock() : TerraformBlock("encryption_configuration")
 {
     /// <summary>
     /// The key_id attribute.
@@ -29,7 +29,7 @@ public partial class AwsNetworkfirewallFirewallPolicyEncryptionConfigurationBloc
 /// Block type for firewall_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock : TerraformBlockBase
+public partial class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock() : TerraformBlock("firewall_policy")
 {
     /// <summary>
     /// The stateful_default_actions attribute.
@@ -122,7 +122,7 @@ public partial class AwsNetworkfirewallFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public partial TerraformList<TerraformBlock<AwsNetworkfirewallFirewallPolicyEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public TerraformList<AwsNetworkfirewallFirewallPolicyEncryptionConfigurationBlock> EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for firewall_policy.
@@ -132,7 +132,7 @@ public partial class AwsNetworkfirewallFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FirewallPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FirewallPolicy block(s) allowed")]
     [TerraformProperty("firewall_policy")]
-    public partial TerraformList<TerraformBlock<AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock>>? FirewallPolicy { get; set; }
+    public required TerraformList<AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock> FirewallPolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDigitalTwinsInstanceIdentityBlock : TerraformBlockBase
+public partial class AzurermDigitalTwinsInstanceIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -31,7 +31,7 @@ public partial class AzurermDigitalTwinsInstanceIdentityBlock : TerraformBlockBa
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDigitalTwinsInstanceTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDigitalTwinsInstanceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -117,14 +117,14 @@ public partial class AzurermDigitalTwinsInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermDigitalTwinsInstanceIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermDigitalTwinsInstanceIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDigitalTwinsInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDigitalTwinsInstanceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The host_name attribute.

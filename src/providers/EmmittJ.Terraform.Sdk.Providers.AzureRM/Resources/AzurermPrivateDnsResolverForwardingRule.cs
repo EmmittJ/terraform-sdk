@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for target_dns_servers in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock() : TerraformBlock("target_dns_servers")
 {
     /// <summary>
     /// The ip_address attribute.
@@ -29,7 +29,7 @@ public partial class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : TerraformBlockBase
+public partial class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -123,13 +123,13 @@ public partial class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDnsServers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetDnsServers block(s) required")]
     [TerraformProperty("target_dns_servers")]
-    public partial TerraformList<TerraformBlock<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>>? TargetDnsServers { get; set; }
+    public required TerraformList<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock> TargetDnsServers { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

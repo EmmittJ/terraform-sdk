@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_agent_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock() : TerraformBlock("automated_agent_config")
 {
     /// <summary>
     /// ID of the Dialogflow agent environment to use.
@@ -30,7 +30,7 @@ public partial class GoogleDialogflowConversationProfileAutomatedAgentConfigBloc
 /// Block type for human_agent_assistant_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock() : TerraformBlock("human_agent_assistant_config")
 {
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleDialogflowConversationProfileHumanAgentAssistantConfi
 /// Block type for human_agent_handoff_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock() : TerraformBlock("human_agent_handoff_config")
 {
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleDialogflowConversationProfileHumanAgentHandoffConfigB
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileLoggingConfigBlock() : TerraformBlock("logging_config")
 {
     /// <summary>
     /// Whether to log conversation events
@@ -61,7 +61,7 @@ public partial class GoogleDialogflowConversationProfileLoggingConfigBlock : Ter
 /// Block type for new_message_event_notification_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock() : TerraformBlock("new_message_event_notification_config")
 {
     /// <summary>
     /// Format of the message Possible values: [&amp;quot;MESSAGE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;PROTO&amp;quot;, &amp;quot;JSON&amp;quot;]
@@ -83,7 +83,7 @@ public partial class GoogleDialogflowConversationProfileNewMessageEventNotificat
 /// Block type for new_recognition_result_notification_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock() : TerraformBlock("new_recognition_result_notification_config")
 {
     /// <summary>
     /// Format of message. Possible values: [&amp;quot;MESSAGE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;PROTO&amp;quot;, &amp;quot;JSON&amp;quot;]
@@ -108,7 +108,7 @@ public partial class GoogleDialogflowConversationProfileNewRecognitionResultNoti
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileNotificationConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileNotificationConfigBlock() : TerraformBlock("notification_config")
 {
     /// <summary>
     /// Format of the message Possible values: [&amp;quot;MESSAGE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;PROTO&amp;quot;, &amp;quot;JSON&amp;quot;]
@@ -130,7 +130,7 @@ public partial class GoogleDialogflowConversationProfileNotificationConfigBlock 
 /// Block type for stt_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileSttConfigBlock() : TerraformBlock("stt_config")
 {
     /// <summary>
     /// Audio encoding of the audio content to process. Possible values: [&amp;quot;AUDIO_ENCODING_UNSPECIFIED&amp;quot;, &amp;quot;AUDIO_ENCODING_LINEAR_16&amp;quot;, &amp;quot;AUDIO_ENCODING_FLAC&amp;quot;, &amp;quot;AUDIO_ENCODING_MULAW&amp;quot;, &amp;quot;AUDIO_ENCODING_AMR&amp;quot;, &amp;quot;AUDIO_ENCODING_AMR_WB&amp;quot;, &amp;quot;AUDIO_ENCODING_OGG_OPUS&amp;quot;, &amp;quot;AUDIOENCODING_SPEEX_WITH_HEADER_BYTE&amp;quot;]
@@ -188,7 +188,7 @@ public partial class GoogleDialogflowConversationProfileSttConfigBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -217,7 +217,7 @@ public partial class GoogleDialogflowConversationProfileTimeoutsBlock : Terrafor
 /// Block type for tts_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlockBase
+public partial class GoogleDialogflowConversationProfileTtsConfigBlock() : TerraformBlock("tts_config")
 {
     /// <summary>
     /// An identifier which selects &#39;audio effects&#39; profiles that are applied on (post synthesized) text to speech. Effects are applied on top of each other in the order they are given.
@@ -316,7 +316,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedAgentConfig block(s) allowed")]
     [TerraformProperty("automated_agent_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileAutomatedAgentConfigBlock>>? AutomatedAgentConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileAutomatedAgentConfigBlock> AutomatedAgentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for human_agent_assistant_config.
@@ -324,7 +324,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanAgentAssistantConfig block(s) allowed")]
     [TerraformProperty("human_agent_assistant_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock>>? HumanAgentAssistantConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock> HumanAgentAssistantConfig { get; set; } = new();
 
     /// <summary>
     /// Block for human_agent_handoff_config.
@@ -332,7 +332,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanAgentHandoffConfig block(s) allowed")]
     [TerraformProperty("human_agent_handoff_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock>>? HumanAgentHandoffConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock> HumanAgentHandoffConfig { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
@@ -340,7 +340,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileLoggingConfigBlock> LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for new_message_event_notification_config.
@@ -348,7 +348,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewMessageEventNotificationConfig block(s) allowed")]
     [TerraformProperty("new_message_event_notification_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock>>? NewMessageEventNotificationConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock> NewMessageEventNotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for new_recognition_result_notification_config.
@@ -356,7 +356,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewRecognitionResultNotificationConfig block(s) allowed")]
     [TerraformProperty("new_recognition_result_notification_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock>>? NewRecognitionResultNotificationConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock> NewRecognitionResultNotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for notification_config.
@@ -364,7 +364,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformProperty("notification_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNotificationConfigBlock>>? NotificationConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileNotificationConfigBlock> NotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for stt_config.
@@ -372,14 +372,14 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SttConfig block(s) allowed")]
     [TerraformProperty("stt_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileSttConfigBlock>>? SttConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileSttConfigBlock> SttConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowConversationProfileTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowConversationProfileTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tts_config.
@@ -387,7 +387,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TtsConfig block(s) allowed")]
     [TerraformProperty("tts_config")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileTtsConfigBlock>>? TtsConfig { get; set; }
+    public TerraformList<GoogleDialogflowConversationProfileTtsConfigBlock> TtsConfig { get; set; } = new();
 
     /// <summary>
     /// name

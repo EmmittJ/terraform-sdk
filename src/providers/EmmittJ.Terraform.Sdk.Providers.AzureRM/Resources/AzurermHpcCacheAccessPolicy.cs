@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for access_rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlockBase
+public partial class AzurermHpcCacheAccessPolicyAccessRuleBlock() : TerraformBlock("access_rule")
 {
     /// <summary>
     /// The access attribute.
@@ -72,7 +72,7 @@ public partial class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermHpcCacheAccessPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -146,13 +146,13 @@ public partial class AzurermHpcCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 AccessRule block(s) allowed")]
     [TerraformProperty("access_rule")]
-    public partial TerraformSet<TerraformBlock<AzurermHpcCacheAccessPolicyAccessRuleBlock>>? AccessRule { get; set; }
+    public required TerraformSet<AzurermHpcCacheAccessPolicyAccessRuleBlock> AccessRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermHpcCacheAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermHpcCacheAccessPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
 }

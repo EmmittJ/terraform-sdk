@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for deploy_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock() : TerraformBlock("deploy_config")
 {
     /// <summary>
     /// If true, enable the QMT fast tryout feature for this model if possible.
@@ -29,7 +29,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfig
 /// Block type for endpoint_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock() : TerraformBlock("endpoint_config")
 {
     /// <summary>
     /// If true, the endpoint will be exposed through a dedicated
@@ -57,7 +57,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConf
 /// Block type for model_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : TerraformBlockBase
+public partial class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock() : TerraformBlock("model_config")
 {
     /// <summary>
     /// Whether the user accepts the End User License Agreement (EULA)
@@ -98,7 +98,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -172,7 +172,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeployConfig block(s) allowed")]
     [TerraformProperty("deploy_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock>>? DeployConfig { get; set; }
+    public TerraformList<GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock> DeployConfig { get; set; } = new();
 
     /// <summary>
     /// Block for endpoint_config.
@@ -180,7 +180,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfig block(s) allowed")]
     [TerraformProperty("endpoint_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock>>? EndpointConfig { get; set; }
+    public TerraformList<GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock> EndpointConfig { get; set; } = new();
 
     /// <summary>
     /// Block for model_config.
@@ -188,14 +188,14 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelConfig block(s) allowed")]
     [TerraformProperty("model_config")]
-    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock>>? ModelConfig { get; set; }
+    public TerraformList<GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock> ModelConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The display name assigned to the model deployed to the endpoint.

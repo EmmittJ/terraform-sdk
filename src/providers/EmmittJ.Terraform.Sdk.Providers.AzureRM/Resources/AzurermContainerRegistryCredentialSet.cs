@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication_credentials in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock() : TerraformBlock("authentication_credentials")
 {
     /// <summary>
     /// The password_secret_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermContainerRegistryCredentialSetAuthenticationCredenti
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryCredentialSetIdentityBlock() : TerraformBlock("identity")
 {
 
 
@@ -48,7 +48,7 @@ public partial class AzurermContainerRegistryCredentialSetIdentityBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlockBase
+public partial class AzurermContainerRegistryCredentialSetTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,7 +129,7 @@ public partial class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationCredentials block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationCredentials block(s) allowed")]
     [TerraformProperty("authentication_credentials")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock>>? AuthenticationCredentials { get; set; }
+    public required TerraformList<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock> AuthenticationCredentials { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -139,13 +139,13 @@ public partial class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermContainerRegistryCredentialSetIdentityBlock>>? Identity { get; set; }
+    public required TerraformList<AzurermContainerRegistryCredentialSetIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermContainerRegistryCredentialSetTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermContainerRegistryCredentialSetTimeoutsBlock Timeouts { get; set; } = new();
 
 }

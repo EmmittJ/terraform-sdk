@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for contact in .
 /// Nesting mode: set
 /// </summary>
-public partial class AzurermKeyVaultCertificateContactsContactBlock : TerraformBlockBase
+public partial class AzurermKeyVaultCertificateContactsContactBlock() : TerraformBlock("contact")
 {
     /// <summary>
     /// The email attribute.
@@ -36,7 +36,7 @@ public partial class AzurermKeyVaultCertificateContactsContactBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlockBase
+public partial class AzurermKeyVaultCertificateContactsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -97,13 +97,13 @@ public partial class AzurermKeyVaultCertificateContacts : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("contact")]
-    public partial TerraformSet<TerraformBlock<AzurermKeyVaultCertificateContactsContactBlock>>? Contact { get; set; }
+    public TerraformSet<AzurermKeyVaultCertificateContactsContactBlock> Contact { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermKeyVaultCertificateContactsTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermKeyVaultCertificateContactsTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auth in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDbProxyAuthBlock : TerraformBlockBase
+public partial class AwsDbProxyAuthBlock() : TerraformBlock("auth")
 {
     /// <summary>
     /// The auth_scheme attribute.
@@ -56,7 +56,7 @@ public partial class AwsDbProxyAuthBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDbProxyTimeoutsBlock : TerraformBlockBase
+public partial class AwsDbProxyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -190,14 +190,14 @@ public partial class AwsDbProxy : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("auth")]
-    public partial TerraformSet<TerraformBlock<AwsDbProxyAuthBlock>>? Auth { get; set; }
+    public TerraformSet<AwsDbProxyAuthBlock> Auth { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDbProxyTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDbProxyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

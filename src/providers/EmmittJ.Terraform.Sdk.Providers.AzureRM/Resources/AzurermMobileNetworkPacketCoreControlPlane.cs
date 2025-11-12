@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -30,7 +30,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : T
 /// Block type for local_diagnostics_access in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock() : TerraformBlock("local_diagnostics_access")
 {
     /// <summary>
     /// The authentication_type attribute.
@@ -53,7 +53,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsA
 /// Block type for platform in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock() : TerraformBlock("platform")
 {
     /// <summary>
     /// The arc_kubernetes_cluster_id attribute.
@@ -97,7 +97,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -255,7 +255,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for local_diagnostics_access.
@@ -265,7 +265,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocalDiagnosticsAccess block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiagnosticsAccess block(s) allowed")]
     [TerraformProperty("local_diagnostics_access")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock>>? LocalDiagnosticsAccess { get; set; }
+    public required TerraformList<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock> LocalDiagnosticsAccess { get; set; } = new();
 
     /// <summary>
     /// Block for platform.
@@ -273,13 +273,13 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
     [TerraformProperty("platform")]
-    public partial TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock>>? Platform { get; set; }
+    public TerraformList<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock> Platform { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock Timeouts { get; set; } = new();
 
 }

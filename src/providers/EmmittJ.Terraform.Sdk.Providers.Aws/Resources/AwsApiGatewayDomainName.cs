@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayDomainNameEndpointConfigurationBlock : TerraformBlockBase
+public partial class AwsApiGatewayDomainNameEndpointConfigurationBlock() : TerraformBlock("endpoint_configuration")
 {
     /// <summary>
     /// The ip_address_type attribute.
@@ -29,7 +29,7 @@ public partial class AwsApiGatewayDomainNameEndpointConfigurationBlock : Terrafo
 /// Block type for mutual_tls_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBlockBase
+public partial class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock() : TerraformBlock("mutual_tls_authentication")
 {
     /// <summary>
     /// The truststore_uri attribute.
@@ -170,7 +170,7 @@ public partial class AwsApiGatewayDomainName : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfiguration block(s) allowed")]
     [TerraformProperty("endpoint_configuration")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayDomainNameEndpointConfigurationBlock>>? EndpointConfiguration { get; set; }
+    public TerraformList<AwsApiGatewayDomainNameEndpointConfigurationBlock> EndpointConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for mutual_tls_authentication.
@@ -178,7 +178,7 @@ public partial class AwsApiGatewayDomainName : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MutualTlsAuthentication block(s) allowed")]
     [TerraformProperty("mutual_tls_authentication")]
-    public partial TerraformList<TerraformBlock<AwsApiGatewayDomainNameMutualTlsAuthenticationBlock>>? MutualTlsAuthentication { get; set; }
+    public TerraformList<AwsApiGatewayDomainNameMutualTlsAuthenticationBlock> MutualTlsAuthentication { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

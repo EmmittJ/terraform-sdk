@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleTagsTagBindingTimeoutsBlock : TerraformBlockBase
+public partial class GoogleTagsTagBindingTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -61,7 +61,7 @@ public partial class GoogleTagsTagBinding : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleTagsTagBindingTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleTagsTagBindingTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The generated id for the TagBinding. This is a string of the form: &#39;tagBindings/{full-resource-name}/{tag-value-name}&#39;

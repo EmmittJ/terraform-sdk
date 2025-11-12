@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for serial_pipeline in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleClouddeployDeliveryPipelineSerialPipelineBlock : TerraformBlockBase
+public partial class GoogleClouddeployDeliveryPipelineSerialPipelineBlock() : TerraformBlock("serial_pipeline")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleClouddeployDeliveryPipelineSerialPipelineBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleClouddeployDeliveryPipelineTimeoutsBlock : TerraformBlockBase
+public partial class GoogleClouddeployDeliveryPipelineTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -119,14 +119,14 @@ public partial class GoogleClouddeployDeliveryPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SerialPipeline block(s) allowed")]
     [TerraformProperty("serial_pipeline")]
-    public partial TerraformList<TerraformBlock<GoogleClouddeployDeliveryPipelineSerialPipelineBlock>>? SerialPipeline { get; set; }
+    public TerraformList<GoogleClouddeployDeliveryPipelineSerialPipelineBlock> SerialPipeline { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleClouddeployDeliveryPipelineTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleClouddeployDeliveryPipelineTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Information around the state of the Delivery Pipeline.

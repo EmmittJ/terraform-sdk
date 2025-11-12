@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_security_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainAdvancedSecurityOptionsBlock() : TerraformBlock("advanced_security_options")
 {
     /// <summary>
     /// The enabled attribute.
@@ -29,7 +29,7 @@ public partial class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : Terraf
 /// Block type for auto_tune_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainAutoTuneOptionsBlock() : TerraformBlock("auto_tune_options")
 {
     /// <summary>
     /// The desired_state attribute.
@@ -52,7 +52,7 @@ public partial class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlock
 /// Block type for cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainClusterConfigBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainClusterConfigBlock() : TerraformBlock("cluster_config")
 {
     /// <summary>
     /// The dedicated_master_count attribute.
@@ -123,7 +123,7 @@ public partial class AwsElasticsearchDomainClusterConfigBlock : TerraformBlockBa
 /// Block type for cognito_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainCognitoOptionsBlock() : TerraformBlock("cognito_options")
 {
     /// <summary>
     /// The enabled attribute.
@@ -162,7 +162,7 @@ public partial class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlockB
 /// Block type for domain_endpoint_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainDomainEndpointOptionsBlock() : TerraformBlock("domain_endpoint_options")
 {
     /// <summary>
     /// The custom_endpoint attribute.
@@ -205,7 +205,7 @@ public partial class AwsElasticsearchDomainDomainEndpointOptionsBlock : Terrafor
 /// Block type for ebs_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainEbsOptionsBlock() : TerraformBlock("ebs_options")
 {
     /// <summary>
     /// The ebs_enabled attribute.
@@ -249,7 +249,7 @@ public partial class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlockBase
 /// Block type for encrypt_at_rest in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainEncryptAtRestBlock() : TerraformBlock("encrypt_at_rest")
 {
     /// <summary>
     /// The enabled attribute.
@@ -272,7 +272,7 @@ public partial class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlockBa
 /// Block type for log_publishing_options in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainLogPublishingOptionsBlock() : TerraformBlock("log_publishing_options")
 {
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
@@ -303,7 +303,7 @@ public partial class AwsElasticsearchDomainLogPublishingOptionsBlock : Terraform
 /// Block type for node_to_node_encryption in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainNodeToNodeEncryptionBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainNodeToNodeEncryptionBlock() : TerraformBlock("node_to_node_encryption")
 {
     /// <summary>
     /// The enabled attribute.
@@ -319,7 +319,7 @@ public partial class AwsElasticsearchDomainNodeToNodeEncryptionBlock : Terraform
 /// Block type for snapshot_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainSnapshotOptionsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainSnapshotOptionsBlock() : TerraformBlock("snapshot_options")
 {
     /// <summary>
     /// The automated_snapshot_start_hour attribute.
@@ -335,7 +335,7 @@ public partial class AwsElasticsearchDomainSnapshotOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsElasticsearchDomainTimeoutsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -364,7 +364,7 @@ public partial class AwsElasticsearchDomainTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlockBase
+public partial class AwsElasticsearchDomainVpcOptionsBlock() : TerraformBlock("vpc_options")
 {
 
     /// <summary>
@@ -457,7 +457,7 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSecurityOptions block(s) allowed")]
     [TerraformProperty("advanced_security_options")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainAdvancedSecurityOptionsBlock>>? AdvancedSecurityOptions { get; set; }
+    public TerraformList<AwsElasticsearchDomainAdvancedSecurityOptionsBlock> AdvancedSecurityOptions { get; set; } = new();
 
     /// <summary>
     /// Block for auto_tune_options.
@@ -465,7 +465,7 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoTuneOptions block(s) allowed")]
     [TerraformProperty("auto_tune_options")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainAutoTuneOptionsBlock>>? AutoTuneOptions { get; set; }
+    public TerraformList<AwsElasticsearchDomainAutoTuneOptionsBlock> AutoTuneOptions { get; set; } = new();
 
     /// <summary>
     /// Block for cluster_config.
@@ -473,7 +473,7 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterConfig block(s) allowed")]
     [TerraformProperty("cluster_config")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainClusterConfigBlock>>? ClusterConfig { get; set; }
+    public TerraformList<AwsElasticsearchDomainClusterConfigBlock> ClusterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cognito_options.
@@ -481,7 +481,7 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CognitoOptions block(s) allowed")]
     [TerraformProperty("cognito_options")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainCognitoOptionsBlock>>? CognitoOptions { get; set; }
+    public TerraformList<AwsElasticsearchDomainCognitoOptionsBlock> CognitoOptions { get; set; } = new();
 
     /// <summary>
     /// Block for domain_endpoint_options.
@@ -489,7 +489,7 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainEndpointOptions block(s) allowed")]
     [TerraformProperty("domain_endpoint_options")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainDomainEndpointOptionsBlock>>? DomainEndpointOptions { get; set; }
+    public TerraformList<AwsElasticsearchDomainDomainEndpointOptionsBlock> DomainEndpointOptions { get; set; } = new();
 
     /// <summary>
     /// Block for ebs_options.
@@ -497,7 +497,7 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EbsOptions block(s) allowed")]
     [TerraformProperty("ebs_options")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainEbsOptionsBlock>>? EbsOptions { get; set; }
+    public TerraformList<AwsElasticsearchDomainEbsOptionsBlock> EbsOptions { get; set; } = new();
 
     /// <summary>
     /// Block for encrypt_at_rest.
@@ -505,14 +505,14 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptAtRest block(s) allowed")]
     [TerraformProperty("encrypt_at_rest")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainEncryptAtRestBlock>>? EncryptAtRest { get; set; }
+    public TerraformList<AwsElasticsearchDomainEncryptAtRestBlock> EncryptAtRest { get; set; } = new();
 
     /// <summary>
     /// Block for log_publishing_options.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("log_publishing_options")]
-    public partial TerraformSet<TerraformBlock<AwsElasticsearchDomainLogPublishingOptionsBlock>>? LogPublishingOptions { get; set; }
+    public TerraformSet<AwsElasticsearchDomainLogPublishingOptionsBlock> LogPublishingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for node_to_node_encryption.
@@ -520,7 +520,7 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeToNodeEncryption block(s) allowed")]
     [TerraformProperty("node_to_node_encryption")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainNodeToNodeEncryptionBlock>>? NodeToNodeEncryption { get; set; }
+    public TerraformList<AwsElasticsearchDomainNodeToNodeEncryptionBlock> NodeToNodeEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for snapshot_options.
@@ -528,14 +528,14 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotOptions block(s) allowed")]
     [TerraformProperty("snapshot_options")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainSnapshotOptionsBlock>>? SnapshotOptions { get; set; }
+    public TerraformList<AwsElasticsearchDomainSnapshotOptionsBlock> SnapshotOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsElasticsearchDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AwsElasticsearchDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_options.
@@ -543,7 +543,7 @@ public partial class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcOptions block(s) allowed")]
     [TerraformProperty("vpc_options")]
-    public partial TerraformList<TerraformBlock<AwsElasticsearchDomainVpcOptionsBlock>>? VpcOptions { get; set; }
+    public TerraformList<AwsElasticsearchDomainVpcOptionsBlock> VpcOptions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

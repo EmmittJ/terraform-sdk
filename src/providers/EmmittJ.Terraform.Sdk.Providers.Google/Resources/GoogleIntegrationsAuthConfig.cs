@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for client_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlockBase
+public partial class GoogleIntegrationsAuthConfigClientCertificateBlock() : TerraformBlock("client_certificate")
 {
     /// <summary>
     /// The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines.
@@ -38,7 +38,7 @@ public partial class GoogleIntegrationsAuthConfigClientCertificateBlock : Terraf
 /// Block type for decrypted_credential in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : TerraformBlockBase
+public partial class GoogleIntegrationsAuthConfigDecryptedCredentialBlock() : TerraformBlock("decrypted_credential")
 {
     /// <summary>
     /// Credential type associated with auth configs.
@@ -54,7 +54,7 @@ public partial class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleIntegrationsAuthConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -157,7 +157,7 @@ public partial class GoogleIntegrationsAuthConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificate block(s) allowed")]
     [TerraformProperty("client_certificate")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationsAuthConfigClientCertificateBlock>>? ClientCertificate { get; set; }
+    public TerraformList<GoogleIntegrationsAuthConfigClientCertificateBlock> ClientCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for decrypted_credential.
@@ -165,14 +165,14 @@ public partial class GoogleIntegrationsAuthConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DecryptedCredential block(s) allowed")]
     [TerraformProperty("decrypted_credential")]
-    public partial TerraformList<TerraformBlock<GoogleIntegrationsAuthConfigDecryptedCredentialBlock>>? DecryptedCredential { get; set; }
+    public TerraformList<GoogleIntegrationsAuthConfigDecryptedCredentialBlock> DecryptedCredential { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleIntegrationsAuthConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleIntegrationsAuthConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Certificate id for client certificate.

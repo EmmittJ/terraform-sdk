@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for backup_policy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEfsBackupPolicyBackupPolicyBlock : TerraformBlockBase
+public partial class AwsEfsBackupPolicyBackupPolicyBlock() : TerraformBlock("backup_policy")
 {
     /// <summary>
     /// The status attribute.
@@ -58,6 +58,6 @@ public partial class AwsEfsBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackupPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupPolicy block(s) allowed")]
     [TerraformProperty("backup_policy")]
-    public partial TerraformList<TerraformBlock<AwsEfsBackupPolicyBackupPolicyBlock>>? BackupPolicy { get; set; }
+    public required TerraformList<AwsEfsBackupPolicyBackupPolicyBlock> BackupPolicy { get; set; } = new();
 
 }

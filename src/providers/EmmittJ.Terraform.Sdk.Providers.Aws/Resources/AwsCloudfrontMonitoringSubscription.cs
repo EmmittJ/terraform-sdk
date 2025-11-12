@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for monitoring_subscription in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock : TerraformBlockBase
+public partial class AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock() : TerraformBlock("monitoring_subscription")
 {
 }
 
@@ -43,6 +43,6 @@ public partial class AwsCloudfrontMonitoringSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitoringSubscription block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringSubscription block(s) allowed")]
     [TerraformProperty("monitoring_subscription")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>>? MonitoringSubscription { get; set; }
+    public required TerraformList<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock> MonitoringSubscription { get; set; } = new();
 
 }

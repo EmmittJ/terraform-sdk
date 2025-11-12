@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for sse_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVerifiedaccessGroupSseConfigurationBlock : TerraformBlockBase
+public partial class AwsVerifiedaccessGroupSseConfigurationBlock() : TerraformBlock("sse_configuration")
 {
     /// <summary>
     /// The customer_managed_key_enabled attribute.
@@ -90,7 +90,7 @@ public partial class AwsVerifiedaccessGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseConfiguration block(s) allowed")]
     [TerraformProperty("sse_configuration")]
-    public partial TerraformList<TerraformBlock<AwsVerifiedaccessGroupSseConfigurationBlock>>? SseConfiguration { get; set; }
+    public TerraformList<AwsVerifiedaccessGroupSseConfigurationBlock> SseConfiguration { get; set; } = new();
 
     /// <summary>
     /// The creation_time attribute.

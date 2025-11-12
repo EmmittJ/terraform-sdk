@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for asset in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlockBase
+public partial class AwsDataexchangeRevisionAssetsAssetBlock() : TerraformBlock("asset")
 {
 
 
@@ -19,7 +19,7 @@ public partial class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsDataexchangeRevisionAssetsTimeoutsBlock : TerraformBlockBase
+public partial class AwsDataexchangeRevisionAssetsTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -87,14 +87,14 @@ public partial class AwsDataexchangeRevisionAssets : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("asset")]
-    public partial TerraformSet<TerraformBlock<AwsDataexchangeRevisionAssetsAssetBlock>>? Asset { get; set; }
+    public TerraformSet<AwsDataexchangeRevisionAssetsAssetBlock> Asset { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsDataexchangeRevisionAssetsTimeoutsBlock>? Timeouts { get; set; }
+    public AwsDataexchangeRevisionAssetsTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

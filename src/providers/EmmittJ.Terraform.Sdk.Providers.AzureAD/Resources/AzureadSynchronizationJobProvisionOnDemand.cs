@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for parameter in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzureadSynchronizationJobProvisionOnDemandParameterBlock : TerraformBlockBase
+public partial class AzureadSynchronizationJobProvisionOnDemandParameterBlock() : TerraformBlock("parameter")
 {
     /// <summary>
     /// The identifier of the synchronization rule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
@@ -22,7 +22,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemandParameterBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : TerraformBlockBase
+public partial class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -94,13 +94,13 @@ public partial class AzureadSynchronizationJobProvisionOnDemand : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameter block(s) required")]
     [TerraformProperty("parameter")]
-    public partial TerraformList<TerraformBlock<AzureadSynchronizationJobProvisionOnDemandParameterBlock>>? Parameter { get; set; }
+    public required TerraformList<AzureadSynchronizationJobProvisionOnDemandParameterBlock> Parameter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock>? Timeouts { get; set; }
+    public AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock Timeouts { get; set; } = new();
 
 }

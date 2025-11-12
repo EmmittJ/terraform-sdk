@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCertificateManagerCertificateMapTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCertificateManagerCertificateMapTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -86,7 +86,7 @@ public partial class GoogleCertificateManagerCertificateMap : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCertificateManagerCertificateMapTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCertificateManagerCertificateMapTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp of a Certificate Map. Timestamp is in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,

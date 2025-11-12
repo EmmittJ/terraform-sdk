@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for staging_distribution_dns_names in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock : TerraformBlockBase
+public partial class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock() : TerraformBlock("staging_distribution_dns_names")
 {
     /// <summary>
     /// The items attribute.
@@ -29,7 +29,7 @@ public partial class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionD
 /// Block type for traffic_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock : TerraformBlockBase
+public partial class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock() : TerraformBlock("traffic_config")
 {
     /// <summary>
     /// The type attribute.
@@ -63,14 +63,14 @@ public partial class AwsCloudfrontContinuousDeploymentPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("staging_distribution_dns_names")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock>>? StagingDistributionDnsNames { get; set; }
+    public TerraformList<AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock> StagingDistributionDnsNames { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("traffic_config")]
-    public partial TerraformList<TerraformBlock<AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock>>? TrafficConfig { get; set; }
+    public TerraformList<AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock> TrafficConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

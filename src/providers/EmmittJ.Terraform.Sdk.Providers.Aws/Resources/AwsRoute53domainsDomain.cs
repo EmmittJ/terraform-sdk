@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for admin_contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsDomainAdminContactBlock : TerraformBlockBase
+public partial class AwsRoute53domainsDomainAdminContactBlock() : TerraformBlock("admin_contact")
 {
     /// <summary>
     /// The address_line_1 attribute.
@@ -105,7 +105,7 @@ public partial class AwsRoute53domainsDomainAdminContactBlock : TerraformBlockBa
 /// Block type for registrant_contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlockBase
+public partial class AwsRoute53domainsDomainRegistrantContactBlock() : TerraformBlock("registrant_contact")
 {
     /// <summary>
     /// The address_line_1 attribute.
@@ -204,7 +204,7 @@ public partial class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBl
 /// Block type for tech_contact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsRoute53domainsDomainTechContactBlock : TerraformBlockBase
+public partial class AwsRoute53domainsDomainTechContactBlock() : TerraformBlock("tech_contact")
 {
     /// <summary>
     /// The address_line_1 attribute.
@@ -303,7 +303,7 @@ public partial class AwsRoute53domainsDomainTechContactBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsRoute53domainsDomainTimeoutsBlock : TerraformBlockBase
+public partial class AwsRoute53domainsDomainTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -420,28 +420,28 @@ public partial class AwsRoute53domainsDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("admin_contact")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsDomainAdminContactBlock>>? AdminContact { get; set; }
+    public TerraformList<AwsRoute53domainsDomainAdminContactBlock> AdminContact { get; set; } = new();
 
     /// <summary>
     /// Block for registrant_contact.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("registrant_contact")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsDomainRegistrantContactBlock>>? RegistrantContact { get; set; }
+    public TerraformList<AwsRoute53domainsDomainRegistrantContactBlock> RegistrantContact { get; set; } = new();
 
     /// <summary>
     /// Block for tech_contact.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tech_contact")]
-    public partial TerraformList<TerraformBlock<AwsRoute53domainsDomainTechContactBlock>>? TechContact { get; set; }
+    public TerraformList<AwsRoute53domainsDomainTechContactBlock> TechContact { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsRoute53domainsDomainTimeoutsBlock>? Timeouts { get; set; }
+    public AwsRoute53domainsDomainTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The abuse_contact_email attribute.

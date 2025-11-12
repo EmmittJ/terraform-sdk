@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsFsxOpenzfsSnapshotDataSourceFilterBlock : TerraformBlockBase
+public partial class AwsFsxOpenzfsSnapshotDataSourceFilterBlock() : TerraformBlock("filter")
 {
     /// <summary>
     /// The name attribute.
@@ -82,7 +82,7 @@ public partial class AwsFsxOpenzfsSnapshotDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public partial TerraformSet<TerraformBlock<AwsFsxOpenzfsSnapshotDataSourceFilterBlock>>? Filter { get; set; }
+    public TerraformSet<AwsFsxOpenzfsSnapshotDataSourceFilterBlock> Filter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSqlSslCertTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSqlSslCertTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,7 +68,7 @@ public partial class GoogleSqlSslCert : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSqlSslCertTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSqlSslCertTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The actual certificate data for this client certificate.

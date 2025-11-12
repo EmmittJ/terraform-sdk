@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for table_data in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlockBase
+public partial class AwsLakeformationDataCellsFilterTableDataBlock() : TerraformBlock("table_data")
 {
     /// <summary>
     /// The column_names attribute.
@@ -60,7 +60,7 @@ public partial class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsLakeformationDataCellsFilterTimeoutsBlock : TerraformBlockBase
+public partial class AwsLakeformationDataCellsFilterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -92,14 +92,14 @@ public partial class AwsLakeformationDataCellsFilter : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("table_data")]
-    public partial TerraformList<TerraformBlock<AwsLakeformationDataCellsFilterTableDataBlock>>? TableData { get; set; }
+    public TerraformList<AwsLakeformationDataCellsFilterTableDataBlock> TableData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsLakeformationDataCellsFilterTimeoutsBlock>? Timeouts { get; set; }
+    public AwsLakeformationDataCellsFilterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The id attribute.

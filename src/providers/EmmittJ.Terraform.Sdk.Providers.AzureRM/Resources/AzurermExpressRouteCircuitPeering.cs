@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ipv6 in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlockBase
+public partial class AzurermExpressRouteCircuitPeeringIpv6Block() : TerraformBlock("ipv6")
 {
     /// <summary>
     /// The enabled attribute.
@@ -44,7 +44,7 @@ public partial class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
 /// Block type for microsoft_peering_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock : TerraformBlockBase
+public partial class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock() : TerraformBlock("microsoft_peering_config")
 {
     /// <summary>
     /// The advertised_communities attribute.
@@ -81,7 +81,7 @@ public partial class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermExpressRouteCircuitPeeringTimeoutsBlock : TerraformBlockBase
+public partial class AzurermExpressRouteCircuitPeeringTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -210,7 +210,7 @@ public partial class AzurermExpressRouteCircuitPeering : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ipv6 block(s) allowed")]
     [TerraformProperty("ipv6")]
-    public partial TerraformList<TerraformBlock<AzurermExpressRouteCircuitPeeringIpv6Block>>? Ipv6 { get; set; }
+    public TerraformList<AzurermExpressRouteCircuitPeeringIpv6Block> Ipv6 { get; set; } = new();
 
     /// <summary>
     /// Block for microsoft_peering_config.
@@ -218,14 +218,14 @@ public partial class AzurermExpressRouteCircuitPeering : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MicrosoftPeeringConfig block(s) allowed")]
     [TerraformProperty("microsoft_peering_config")]
-    public partial TerraformList<TerraformBlock<AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock>>? MicrosoftPeeringConfig { get; set; }
+    public TerraformList<AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock> MicrosoftPeeringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermExpressRouteCircuitPeeringTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermExpressRouteCircuitPeeringTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The azure_asn attribute.

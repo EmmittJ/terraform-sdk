@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for replication_specification in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsKeyspacesKeyspaceReplicationSpecificationBlock : TerraformBlockBase
+public partial class AwsKeyspacesKeyspaceReplicationSpecificationBlock() : TerraformBlock("replication_specification")
 {
     /// <summary>
     /// The region_list attribute.
@@ -28,7 +28,7 @@ public partial class AwsKeyspacesKeyspaceReplicationSpecificationBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsKeyspacesKeyspaceTimeoutsBlock : TerraformBlockBase
+public partial class AwsKeyspacesKeyspaceTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -98,14 +98,14 @@ public partial class AwsKeyspacesKeyspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationSpecification block(s) allowed")]
     [TerraformProperty("replication_specification")]
-    public partial TerraformList<TerraformBlock<AwsKeyspacesKeyspaceReplicationSpecificationBlock>>? ReplicationSpecification { get; set; }
+    public TerraformList<AwsKeyspacesKeyspaceReplicationSpecificationBlock> ReplicationSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsKeyspacesKeyspaceTimeoutsBlock>? Timeouts { get; set; }
+    public AwsKeyspacesKeyspaceTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

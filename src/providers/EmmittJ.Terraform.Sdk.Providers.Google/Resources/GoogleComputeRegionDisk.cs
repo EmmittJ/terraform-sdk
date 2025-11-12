@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for async_primary_disk in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionDiskAsyncPrimaryDiskBlock : TerraformBlockBase
+public partial class GoogleComputeRegionDiskAsyncPrimaryDiskBlock() : TerraformBlock("async_primary_disk")
 {
     /// <summary>
     /// Primary disk for asynchronous disk replication.
@@ -22,7 +22,7 @@ public partial class GoogleComputeRegionDiskAsyncPrimaryDiskBlock : TerraformBlo
 /// Block type for disk_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionDiskDiskEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeRegionDiskDiskEncryptionKeyBlock() : TerraformBlock("disk_encryption_key")
 {
     /// <summary>
     /// The name of the encryption key that is stored in Google Cloud KMS.
@@ -55,7 +55,7 @@ public partial class GoogleComputeRegionDiskDiskEncryptionKeyBlock : TerraformBl
 /// Block type for guest_os_features in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeRegionDiskGuestOsFeaturesBlock : TerraformBlockBase
+public partial class GoogleComputeRegionDiskGuestOsFeaturesBlock() : TerraformBlock("guest_os_features")
 {
     /// <summary>
     /// The type of supported feature. Read [Enabling guest operating system features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features) to see a list of available options. Possible values: [&amp;quot;MULTI_IP_SUBNET&amp;quot;, &amp;quot;SECURE_BOOT&amp;quot;, &amp;quot;SEV_CAPABLE&amp;quot;, &amp;quot;UEFI_COMPATIBLE&amp;quot;, &amp;quot;VIRTIO_SCSI_MULTIQUEUE&amp;quot;, &amp;quot;WINDOWS&amp;quot;, &amp;quot;GVNIC&amp;quot;, &amp;quot;SEV_LIVE_MIGRATABLE&amp;quot;, &amp;quot;SEV_SNP_CAPABLE&amp;quot;, &amp;quot;SUSPEND_RESUME_COMPATIBLE&amp;quot;, &amp;quot;TDX_CAPABLE&amp;quot;]
@@ -71,7 +71,7 @@ public partial class GoogleComputeRegionDiskGuestOsFeaturesBlock : TerraformBloc
 /// Block type for source_snapshot_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock : TerraformBlockBase
+public partial class GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock() : TerraformBlock("source_snapshot_encryption_key")
 {
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
@@ -88,7 +88,7 @@ public partial class GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRegionDiskTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionDiskTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -305,7 +305,7 @@ public partial class GoogleComputeRegionDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncPrimaryDisk block(s) allowed")]
     [TerraformProperty("async_primary_disk")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionDiskAsyncPrimaryDiskBlock>>? AsyncPrimaryDisk { get; set; }
+    public TerraformList<GoogleComputeRegionDiskAsyncPrimaryDiskBlock> AsyncPrimaryDisk { get; set; } = new();
 
     /// <summary>
     /// Block for disk_encryption_key.
@@ -313,14 +313,14 @@ public partial class GoogleComputeRegionDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskEncryptionKey block(s) allowed")]
     [TerraformProperty("disk_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionDiskDiskEncryptionKeyBlock>>? DiskEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeRegionDiskDiskEncryptionKeyBlock> DiskEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for guest_os_features.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("guest_os_features")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeRegionDiskGuestOsFeaturesBlock>>? GuestOsFeatures { get; set; }
+    public TerraformSet<GoogleComputeRegionDiskGuestOsFeaturesBlock> GuestOsFeatures { get; set; } = new();
 
     /// <summary>
     /// Block for source_snapshot_encryption_key.
@@ -328,14 +328,14 @@ public partial class GoogleComputeRegionDisk : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
     [TerraformProperty("source_snapshot_encryption_key")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock>>? SourceSnapshotEncryptionKey { get; set; }
+    public TerraformList<GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock> SourceSnapshotEncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRegionDiskTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRegionDiskTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.

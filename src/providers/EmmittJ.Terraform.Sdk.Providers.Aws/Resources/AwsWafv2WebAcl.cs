@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for association_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclAssociationConfigBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclAssociationConfigBlock() : TerraformBlock("association_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsWafv2WebAclAssociationConfigBlock : TerraformBlockBase
 /// Block type for captcha_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclCaptchaConfigBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclCaptchaConfigBlock() : TerraformBlock("captcha_config")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsWafv2WebAclCaptchaConfigBlock : TerraformBlockBase
 /// Block type for challenge_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclChallengeConfigBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclChallengeConfigBlock() : TerraformBlock("challenge_config")
 {
 }
 
@@ -30,7 +30,7 @@ public partial class AwsWafv2WebAclChallengeConfigBlock : TerraformBlockBase
 /// Block type for custom_response_body in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafv2WebAclCustomResponseBodyBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclCustomResponseBodyBlock() : TerraformBlock("custom_response_body")
 {
     /// <summary>
     /// The content attribute.
@@ -62,7 +62,7 @@ public partial class AwsWafv2WebAclCustomResponseBodyBlock : TerraformBlockBase
 /// Block type for data_protection_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclDataProtectionConfigBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclDataProtectionConfigBlock() : TerraformBlock("data_protection_config")
 {
 }
 
@@ -70,7 +70,7 @@ public partial class AwsWafv2WebAclDataProtectionConfigBlock : TerraformBlockBas
 /// Block type for default_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclDefaultActionBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclDefaultActionBlock() : TerraformBlock("default_action")
 {
 }
 
@@ -78,7 +78,7 @@ public partial class AwsWafv2WebAclDefaultActionBlock : TerraformBlockBase
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsWafv2WebAclRuleBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The name attribute.
@@ -102,7 +102,7 @@ public partial class AwsWafv2WebAclRuleBlock : TerraformBlockBase
 /// Block type for visibility_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsWafv2WebAclVisibilityConfigBlock : TerraformBlockBase
+public partial class AwsWafv2WebAclVisibilityConfigBlock() : TerraformBlock("visibility_config")
 {
     /// <summary>
     /// The cloudwatch_metrics_enabled attribute.
@@ -217,7 +217,7 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssociationConfig block(s) allowed")]
     [TerraformProperty("association_config")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclAssociationConfigBlock>>? AssociationConfig { get; set; }
+    public TerraformList<AwsWafv2WebAclAssociationConfigBlock> AssociationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for captcha_config.
@@ -225,7 +225,7 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CaptchaConfig block(s) allowed")]
     [TerraformProperty("captcha_config")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclCaptchaConfigBlock>>? CaptchaConfig { get; set; }
+    public TerraformList<AwsWafv2WebAclCaptchaConfigBlock> CaptchaConfig { get; set; } = new();
 
     /// <summary>
     /// Block for challenge_config.
@@ -233,14 +233,14 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ChallengeConfig block(s) allowed")]
     [TerraformProperty("challenge_config")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclChallengeConfigBlock>>? ChallengeConfig { get; set; }
+    public TerraformList<AwsWafv2WebAclChallengeConfigBlock> ChallengeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for custom_response_body.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("custom_response_body")]
-    public partial TerraformSet<TerraformBlock<AwsWafv2WebAclCustomResponseBodyBlock>>? CustomResponseBody { get; set; }
+    public TerraformSet<AwsWafv2WebAclCustomResponseBodyBlock> CustomResponseBody { get; set; } = new();
 
     /// <summary>
     /// Block for data_protection_config.
@@ -248,7 +248,7 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionConfig block(s) allowed")]
     [TerraformProperty("data_protection_config")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclDataProtectionConfigBlock>>? DataProtectionConfig { get; set; }
+    public TerraformList<AwsWafv2WebAclDataProtectionConfigBlock> DataProtectionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for default_action.
@@ -258,14 +258,14 @@ public partial class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAction block(s) allowed")]
     [TerraformProperty("default_action")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclDefaultActionBlock>>? DefaultAction { get; set; }
+    public required TerraformList<AwsWafv2WebAclDefaultActionBlock> DefaultAction { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsWafv2WebAclRuleBlock>>? Rule { get; set; }
+    public TerraformSet<AwsWafv2WebAclRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// Block for visibility_config.
@@ -275,7 +275,7 @@ public partial class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VisibilityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VisibilityConfig block(s) allowed")]
     [TerraformProperty("visibility_config")]
-    public partial TerraformList<TerraformBlock<AwsWafv2WebAclVisibilityConfigBlock>>? VisibilityConfig { get; set; }
+    public required TerraformList<AwsWafv2WebAclVisibilityConfigBlock> VisibilityConfig { get; set; } = new();
 
     /// <summary>
     /// The application_integration_url attribute.

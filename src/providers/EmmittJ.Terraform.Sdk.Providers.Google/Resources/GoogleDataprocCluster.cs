@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocClusterClusterConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocClusterClusterConfigBlock() : TerraformBlock("cluster_config")
 {
 
     /// <summary>
@@ -36,7 +36,7 @@ public partial class GoogleDataprocClusterClusterConfigBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocClusterTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocClusterTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -65,7 +65,7 @@ public partial class GoogleDataprocClusterTimeoutsBlock : TerraformBlockBase
 /// Block type for virtual_cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocClusterVirtualClusterConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocClusterVirtualClusterConfigBlock() : TerraformBlock("virtual_cluster_config")
 {
     /// <summary>
     /// A Cloud Storage bucket used to stage job dependencies, config files, and job driver console output. If you do not specify a staging bucket, Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or EU) for your cluster&#39;s staging bucket according to the Compute Engine zone where your cluster is deployed, and then create and manage this project-level, per-location bucket.
@@ -138,14 +138,14 @@ public partial class GoogleDataprocCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterConfig block(s) allowed")]
     [TerraformProperty("cluster_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocClusterClusterConfigBlock>>? ClusterConfig { get; set; }
+    public TerraformList<GoogleDataprocClusterClusterConfigBlock> ClusterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocClusterTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocClusterTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_cluster_config.
@@ -153,7 +153,7 @@ public partial class GoogleDataprocCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualClusterConfig block(s) allowed")]
     [TerraformProperty("virtual_cluster_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocClusterVirtualClusterConfigBlock>>? VirtualClusterConfig { get; set; }
+    public TerraformList<GoogleDataprocClusterVirtualClusterConfigBlock> VirtualClusterConfig { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.

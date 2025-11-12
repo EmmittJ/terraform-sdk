@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for asset in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlockBase
+public partial class AwsCognitoManagedLoginBrandingAssetBlock() : TerraformBlock("asset")
 {
     /// <summary>
     /// The bytes attribute.
@@ -99,7 +99,7 @@ public partial class AwsCognitoManagedLoginBranding : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("asset")]
-    public partial TerraformSet<TerraformBlock<AwsCognitoManagedLoginBrandingAssetBlock>>? Asset { get; set; }
+    public TerraformSet<AwsCognitoManagedLoginBrandingAssetBlock> Asset { get; set; } = new();
 
     /// <summary>
     /// The managed_login_branding_id attribute.

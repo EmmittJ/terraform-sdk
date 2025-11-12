@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for status in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlockBase
+public partial class AzurermSecurityCenterAssessmentStatusBlock() : TerraformBlock("status")
 {
     /// <summary>
     /// The cause attribute.
@@ -36,7 +36,7 @@ public partial class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSecurityCenterAssessmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -116,13 +116,13 @@ public partial class AzurermSecurityCenterAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Status block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Status block(s) allowed")]
     [TerraformProperty("status")]
-    public partial TerraformList<TerraformBlock<AzurermSecurityCenterAssessmentStatusBlock>>? Status { get; set; }
+    public required TerraformList<AzurermSecurityCenterAssessmentStatusBlock> Status { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSecurityCenterAssessmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSecurityCenterAssessmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

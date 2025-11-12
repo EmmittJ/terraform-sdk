@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identifier in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSharedImageIdentifierBlock : TerraformBlockBase
+public partial class AzurermSharedImageIdentifierBlock() : TerraformBlock("identifier")
 {
     /// <summary>
     /// The offer attribute.
@@ -38,7 +38,7 @@ public partial class AzurermSharedImageIdentifierBlock : TerraformBlockBase
 /// Block type for purchase_plan in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermSharedImagePurchasePlanBlock : TerraformBlockBase
+public partial class AzurermSharedImagePurchasePlanBlock() : TerraformBlock("purchase_plan")
 {
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermSharedImagePurchasePlanBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermSharedImageTimeoutsBlock : TerraformBlockBase
+public partial class AzurermSharedImageTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -312,7 +312,7 @@ public partial class AzurermSharedImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
     [TerraformProperty("identifier")]
-    public partial TerraformList<TerraformBlock<AzurermSharedImageIdentifierBlock>>? Identifier { get; set; }
+    public required TerraformList<AzurermSharedImageIdentifierBlock> Identifier { get; set; } = new();
 
     /// <summary>
     /// Block for purchase_plan.
@@ -320,13 +320,13 @@ public partial class AzurermSharedImage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PurchasePlan block(s) allowed")]
     [TerraformProperty("purchase_plan")]
-    public partial TerraformList<TerraformBlock<AzurermSharedImagePurchasePlanBlock>>? PurchasePlan { get; set; }
+    public TerraformList<AzurermSharedImagePurchasePlanBlock> PurchasePlan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermSharedImageTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermSharedImageTimeoutsBlock Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for service_perimeters in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock() : TerraformBlock("service_perimeters")
 {
 
     /// <summary>
@@ -79,7 +79,7 @@ public partial class GoogleAccessContextManagerServicePerimetersServicePerimeter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleAccessContextManagerServicePerimetersTimeoutsBlock : TerraformBlockBase
+public partial class GoogleAccessContextManagerServicePerimetersTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -134,13 +134,13 @@ public partial class GoogleAccessContextManagerServicePerimeters : TerraformReso
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("service_perimeters")]
-    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimetersServicePerimetersBlock>>? ServicePerimeters { get; set; }
+    public TerraformList<GoogleAccessContextManagerServicePerimetersServicePerimetersBlock> ServicePerimeters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleAccessContextManagerServicePerimetersTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleAccessContextManagerServicePerimetersTimeoutsBlock Timeouts { get; set; } = new();
 
 }

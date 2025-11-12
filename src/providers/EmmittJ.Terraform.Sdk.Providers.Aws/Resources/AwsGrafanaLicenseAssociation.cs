@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsGrafanaLicenseAssociationTimeoutsBlock : TerraformBlockBase
+public partial class AwsGrafanaLicenseAssociationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -75,7 +75,7 @@ public partial class AwsGrafanaLicenseAssociation : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsGrafanaLicenseAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsGrafanaLicenseAssociationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The free_trial_expiration attribute.

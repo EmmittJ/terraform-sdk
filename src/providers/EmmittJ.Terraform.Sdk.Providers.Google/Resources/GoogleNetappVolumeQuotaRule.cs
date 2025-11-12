@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetappVolumeQuotaRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -129,7 +129,7 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetappVolumeQuotaRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetappVolumeQuotaRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time of the quota rule. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.

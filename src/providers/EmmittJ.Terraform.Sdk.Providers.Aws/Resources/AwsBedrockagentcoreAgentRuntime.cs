@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for agent_runtime_artifact in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock() : TerraformBlock("agent_runtime_artifact")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock : 
 /// Block type for authorizer_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock() : TerraformBlock("authorizer_configuration")
 {
 }
 
@@ -22,7 +22,7 @@ public partial class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The network_mode attribute.
@@ -38,7 +38,7 @@ public partial class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : 
 /// Block type for protocol_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock() : TerraformBlock("protocol_configuration")
 {
     /// <summary>
     /// The server_protocol attribute.
@@ -53,7 +53,7 @@ public partial class AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock :
 /// Block type for request_header_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock() : TerraformBlock("request_header_configuration")
 {
     /// <summary>
     /// The request_header_allowlist attribute.
@@ -68,7 +68,7 @@ public partial class AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsBedrockagentcoreAgentRuntimeTimeoutsBlock : TerraformBlockBase
+public partial class AwsBedrockagentcoreAgentRuntimeTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
@@ -158,42 +158,42 @@ public partial class AwsBedrockagentcoreAgentRuntime : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("agent_runtime_artifact")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock>>? AgentRuntimeArtifact { get; set; }
+    public TerraformList<AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock> AgentRuntimeArtifact { get; set; } = new();
 
     /// <summary>
     /// Block for authorizer_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("authorizer_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock>>? AuthorizerConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock> AuthorizerConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for protocol_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("protocol_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock>>? ProtocolConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock> ProtocolConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for request_header_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("request_header_configuration")]
-    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock>>? RequestHeaderConfiguration { get; set; }
+    public TerraformList<AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock> RequestHeaderConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsBedrockagentcoreAgentRuntimeTimeoutsBlock>? Timeouts { get; set; }
+    public AwsBedrockagentcoreAgentRuntimeTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The agent_runtime_arn attribute.

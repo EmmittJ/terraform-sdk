@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlockBase
+public partial class GoogleApigeeDeveloperAppAttributesBlock() : TerraformBlock("attributes")
 {
     /// <summary>
     /// Key of the attribute
@@ -28,7 +28,7 @@ public partial class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeDeveloperAppTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -149,14 +149,14 @@ public partial class GoogleApigeeDeveloperApp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attributes")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeDeveloperAppAttributesBlock>>? Attributes { get; set; }
+    public TerraformList<GoogleApigeeDeveloperAppAttributesBlock> Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeDeveloperAppTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeDeveloperAppTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// ID of the developer app. This ID is not user specified but is

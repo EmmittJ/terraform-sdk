@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock : TerraformBlockBase
+public partial class AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -68,6 +68,6 @@ public partial class AzurermArcMachineAutomanageConfigurationAssignment : Terraf
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

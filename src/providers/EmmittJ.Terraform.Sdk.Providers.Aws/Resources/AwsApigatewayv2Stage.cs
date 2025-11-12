@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_log_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlockBase
+public partial class AwsApigatewayv2StageAccessLogSettingsBlock() : TerraformBlock("access_log_settings")
 {
     /// <summary>
     /// The destination_arn attribute.
@@ -30,7 +30,7 @@ public partial class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
 /// Block type for default_route_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlockBase
+public partial class AwsApigatewayv2StageDefaultRouteSettingsBlock() : TerraformBlock("default_route_settings")
 {
     /// <summary>
     /// The data_trace_enabled attribute.
@@ -73,7 +73,7 @@ public partial class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBl
 /// Block type for route_settings in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlockBase
+public partial class AwsApigatewayv2StageRouteSettingsBlock() : TerraformBlock("route_settings")
 {
     /// <summary>
     /// The data_trace_enabled attribute.
@@ -215,7 +215,7 @@ public partial class AwsApigatewayv2Stage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogSettings block(s) allowed")]
     [TerraformProperty("access_log_settings")]
-    public partial TerraformList<TerraformBlock<AwsApigatewayv2StageAccessLogSettingsBlock>>? AccessLogSettings { get; set; }
+    public TerraformList<AwsApigatewayv2StageAccessLogSettingsBlock> AccessLogSettings { get; set; } = new();
 
     /// <summary>
     /// Block for default_route_settings.
@@ -223,14 +223,14 @@ public partial class AwsApigatewayv2Stage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRouteSettings block(s) allowed")]
     [TerraformProperty("default_route_settings")]
-    public partial TerraformList<TerraformBlock<AwsApigatewayv2StageDefaultRouteSettingsBlock>>? DefaultRouteSettings { get; set; }
+    public TerraformList<AwsApigatewayv2StageDefaultRouteSettingsBlock> DefaultRouteSettings { get; set; } = new();
 
     /// <summary>
     /// Block for route_settings.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("route_settings")]
-    public partial TerraformSet<TerraformBlock<AwsApigatewayv2StageRouteSettingsBlock>>? RouteSettings { get; set; }
+    public TerraformSet<AwsApigatewayv2StageRouteSettingsBlock> RouteSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

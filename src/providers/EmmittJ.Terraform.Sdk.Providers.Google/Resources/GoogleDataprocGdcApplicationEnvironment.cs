@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for spark_application_environment_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock() : TerraformBlock("spark_application_environment_config")
 {
     /// <summary>
     /// A map of default Spark properties to apply to workloads in this application environment. These defaults may be overridden by per-application properties.
@@ -28,7 +28,7 @@ public partial class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvi
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -140,14 +140,14 @@ public partial class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkApplicationEnvironmentConfig block(s) allowed")]
     [TerraformProperty("spark_application_environment_config")]
-    public partial TerraformList<TerraformBlock<GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock>>? SparkApplicationEnvironmentConfig { get; set; }
+    public TerraformList<GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock> SparkApplicationEnvironmentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeSyncAuthorizationTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeSyncAuthorizationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -74,7 +74,7 @@ public partial class GoogleApigeeSyncAuthorization : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeSyncAuthorizationTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeSyncAuthorizationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Entity tag (ETag) used for optimistic concurrency control as a way to help prevent simultaneous updates from overwriting each other.

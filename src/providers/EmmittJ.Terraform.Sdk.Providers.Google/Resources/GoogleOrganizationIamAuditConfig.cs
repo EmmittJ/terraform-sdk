@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for audit_log_config in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleOrganizationIamAuditConfigAuditLogConfigBlock : TerraformBlockBase
+public partial class GoogleOrganizationIamAuditConfigAuditLogConfigBlock() : TerraformBlock("audit_log_config")
 {
     /// <summary>
     /// Identities that do not cause logging for this type of permission. Each entry can have one of the following values:user:{emailid}: An email address that represents a specific Google account. For example, alice@gmail.com or joe@example.com. serviceAccount:{emailid}: An email address that represents a service account. For example, my-other-app@appspot.gserviceaccount.com. group:{emailid}: An email address that represents a Google group. For example, admins@example.com. domain:{domain}: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
@@ -65,7 +65,7 @@ public partial class GoogleOrganizationIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuditLogConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuditLogConfig block(s) required")]
     [TerraformProperty("audit_log_config")]
-    public partial TerraformSet<TerraformBlock<GoogleOrganizationIamAuditConfigAuditLogConfigBlock>>? AuditLogConfig { get; set; }
+    public required TerraformSet<GoogleOrganizationIamAuditConfigAuditLogConfigBlock> AuditLogConfig { get; set; } = new();
 
     /// <summary>
     /// The etag of iam policy

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ides in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodecatalystDevEnvironmentIdesBlock : TerraformBlockBase
+public partial class AwsCodecatalystDevEnvironmentIdesBlock() : TerraformBlock("ides")
 {
     /// <summary>
     /// The name attribute.
@@ -28,7 +28,7 @@ public partial class AwsCodecatalystDevEnvironmentIdesBlock : TerraformBlockBase
 /// Block type for persistent_storage in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodecatalystDevEnvironmentPersistentStorageBlock : TerraformBlockBase
+public partial class AwsCodecatalystDevEnvironmentPersistentStorageBlock() : TerraformBlock("persistent_storage")
 {
     /// <summary>
     /// The size attribute.
@@ -44,7 +44,7 @@ public partial class AwsCodecatalystDevEnvironmentPersistentStorageBlock : Terra
 /// Block type for repositories in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformBlockBase
+public partial class AwsCodecatalystDevEnvironmentRepositoriesBlock() : TerraformBlock("repositories")
 {
     /// <summary>
     /// The branch_name attribute.
@@ -67,7 +67,7 @@ public partial class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsCodecatalystDevEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsCodecatalystDevEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -162,7 +162,7 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Ides block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ides block(s) allowed")]
     [TerraformProperty("ides")]
-    public partial TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentIdesBlock>>? Ides { get; set; }
+    public required TerraformList<AwsCodecatalystDevEnvironmentIdesBlock> Ides { get; set; } = new();
 
     /// <summary>
     /// Block for persistent_storage.
@@ -172,7 +172,7 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PersistentStorage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistentStorage block(s) allowed")]
     [TerraformProperty("persistent_storage")]
-    public partial TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentPersistentStorageBlock>>? PersistentStorage { get; set; }
+    public required TerraformList<AwsCodecatalystDevEnvironmentPersistentStorageBlock> PersistentStorage { get; set; } = new();
 
     /// <summary>
     /// Block for repositories.
@@ -180,13 +180,13 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
     [TerraformProperty("repositories")]
-    public partial TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentRepositoriesBlock>>? Repositories { get; set; }
+    public TerraformList<AwsCodecatalystDevEnvironmentRepositoriesBlock> Repositories { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsCodecatalystDevEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsCodecatalystDevEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

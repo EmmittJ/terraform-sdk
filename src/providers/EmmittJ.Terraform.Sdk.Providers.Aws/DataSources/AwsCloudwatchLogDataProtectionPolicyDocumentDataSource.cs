@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock : TerraformBlockBase
+public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock() : TerraformBlock("configuration")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfi
 /// Block type for statement in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock : TerraformBlockBase
+public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock() : TerraformBlock("statement")
 {
     /// <summary>
     /// The data_identifiers attribute.
@@ -78,7 +78,7 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : Te
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock>>? Configuration { get; set; }
+    public TerraformList<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock> Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for statement.
@@ -87,7 +87,7 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : Te
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Statement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Statement block(s) allowed")]
     [TerraformProperty("statement")]
-    public partial TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; }
+    public TerraformList<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock> Statement { get; set; } = new();
 
     /// <summary>
     /// The json attribute.

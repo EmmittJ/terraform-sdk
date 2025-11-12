@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for recovery_point_selection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformBlockBase
+public partial class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock() : TerraformBlock("recovery_point_selection")
 {
     /// <summary>
     /// The algorithm attribute.
@@ -106,7 +106,7 @@ public partial class AwsBackupRestoreTestingPlan : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("recovery_point_selection")]
-    public partial TerraformList<TerraformBlock<AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock>>? RecoveryPointSelection { get; set; }
+    public TerraformList<AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock> RecoveryPointSelection { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

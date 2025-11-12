@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -42,7 +42,7 @@ public partial class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlo
 /// Block type for wsfc_domain_profile in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBlockBase
+public partial class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock() : TerraformBlock("wsfc_domain_profile")
 {
     /// <summary>
     /// The cluster_bootstrap_account_name attribute.
@@ -173,7 +173,7 @@ public partial class AzurermMssqlVirtualMachineGroup : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlVirtualMachineGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlVirtualMachineGroupTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for wsfc_domain_profile.
@@ -183,6 +183,6 @@ public partial class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WsfcDomainProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WsfcDomainProfile block(s) allowed")]
     [TerraformProperty("wsfc_domain_profile")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock>>? WsfcDomainProfile { get; set; }
+    public required TerraformList<AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock> WsfcDomainProfile { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorAlertProcessingRuleActionGroupConditionBlock : TerraformBlockBase
+public partial class AzurermMonitorAlertProcessingRuleActionGroupConditionBlock() : TerraformBlock("condition")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AzurermMonitorAlertProcessingRuleActionGroupConditionBlock 
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock : TerraformBlockBase
+public partial class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock() : TerraformBlock("schedule")
 {
     /// <summary>
     /// The effective_from attribute.
@@ -43,7 +43,7 @@ public partial class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -151,7 +151,7 @@ public partial class AzurermMonitorAlertProcessingRuleActionGroup : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleActionGroupConditionBlock>>? Condition { get; set; }
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlock> Condition { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -159,13 +159,13 @@ public partial class AzurermMonitorAlertProcessingRuleActionGroup : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public partial TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock>>? Schedule { get; set; }
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock> Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock Timeouts { get; set; } = new();
 
 }

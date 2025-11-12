@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlockBase
+public partial class AzurermElasticCloudElasticsearchLogsBlock() : TerraformBlock("logs")
 {
     /// <summary>
     /// The send_activity_logs attribute.
@@ -35,7 +35,7 @@ public partial class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlockBase
+public partial class AzurermElasticCloudElasticsearchTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,14 +144,14 @@ public partial class AzurermElasticCloudElasticsearch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformProperty("logs")]
-    public partial TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchLogsBlock>>? Logs { get; set; }
+    public TerraformList<AzurermElasticCloudElasticsearchLogsBlock> Logs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermElasticCloudElasticsearchTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermElasticCloudElasticsearchTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The elastic_cloud_deployment_id attribute.

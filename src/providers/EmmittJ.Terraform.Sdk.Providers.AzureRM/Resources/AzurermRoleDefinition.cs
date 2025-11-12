@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permissions in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermRoleDefinitionPermissionsBlock : TerraformBlockBase
+public partial class AzurermRoleDefinitionPermissionsBlock() : TerraformBlock("permissions")
 {
     /// <summary>
     /// The actions attribute.
@@ -42,7 +42,7 @@ public partial class AzurermRoleDefinitionPermissionsBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermRoleDefinitionTimeoutsBlock : TerraformBlockBase
+public partial class AzurermRoleDefinitionTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -132,14 +132,14 @@ public partial class AzurermRoleDefinition : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("permissions")]
-    public partial TerraformList<TerraformBlock<AzurermRoleDefinitionPermissionsBlock>>? Permissions { get; set; }
+    public TerraformList<AzurermRoleDefinitionPermissionsBlock> Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermRoleDefinitionTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The role_definition_resource_id attribute.

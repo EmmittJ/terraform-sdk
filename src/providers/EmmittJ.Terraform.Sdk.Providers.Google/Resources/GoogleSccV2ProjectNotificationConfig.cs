@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for streaming_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleSccV2ProjectNotificationConfigStreamingConfigBlock : TerraformBlockBase
+public partial class GoogleSccV2ProjectNotificationConfigStreamingConfigBlock() : TerraformBlock("streaming_config")
 {
     /// <summary>
     /// Expression that defines the filter to apply across create/update
@@ -46,7 +46,7 @@ public partial class GoogleSccV2ProjectNotificationConfigStreamingConfigBlock : 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleSccV2ProjectNotificationConfigTimeoutsBlock : TerraformBlockBase
+public partial class GoogleSccV2ProjectNotificationConfigTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -133,14 +133,14 @@ public partial class GoogleSccV2ProjectNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StreamingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingConfig block(s) allowed")]
     [TerraformProperty("streaming_config")]
-    public partial TerraformList<TerraformBlock<GoogleSccV2ProjectNotificationConfigStreamingConfigBlock>>? StreamingConfig { get; set; }
+    public required TerraformList<GoogleSccV2ProjectNotificationConfigStreamingConfigBlock> StreamingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleSccV2ProjectNotificationConfigTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleSccV2ProjectNotificationConfigTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of this notification config, in the format

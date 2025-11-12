@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsDevicefarmDevicePoolRuleBlock : TerraformBlockBase
+public partial class AwsDevicefarmDevicePoolRuleBlock() : TerraformBlock("rule")
 {
     /// <summary>
     /// The attribute attribute.
@@ -106,7 +106,7 @@ public partial class AwsDevicefarmDevicePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [TerraformProperty("rule")]
-    public partial TerraformSet<TerraformBlock<AwsDevicefarmDevicePoolRuleBlock>>? Rule { get; set; }
+    public required TerraformSet<AwsDevicefarmDevicePoolRuleBlock> Rule { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

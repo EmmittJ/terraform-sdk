@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entries in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleChronicleReferenceListEntriesBlock : TerraformBlockBase
+public partial class GoogleChronicleReferenceListEntriesBlock() : TerraformBlock("entries")
 {
     /// <summary>
     /// Required. The value of the entry. Maximum length is 512 characters.
@@ -22,7 +22,7 @@ public partial class GoogleChronicleReferenceListEntriesBlock : TerraformBlockBa
 /// Block type for scope_info in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleChronicleReferenceListScopeInfoBlock : TerraformBlockBase
+public partial class GoogleChronicleReferenceListScopeInfoBlock() : TerraformBlock("scope_info")
 {
 }
 
@@ -30,7 +30,7 @@ public partial class GoogleChronicleReferenceListScopeInfoBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlockBase
+public partial class GoogleChronicleReferenceListTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -134,7 +134,7 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entries block(s) required")]
     [TerraformProperty("entries")]
-    public partial TerraformList<TerraformBlock<GoogleChronicleReferenceListEntriesBlock>>? Entries { get; set; }
+    public required TerraformList<GoogleChronicleReferenceListEntriesBlock> Entries { get; set; } = new();
 
     /// <summary>
     /// Block for scope_info.
@@ -142,14 +142,14 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScopeInfo block(s) allowed")]
     [TerraformProperty("scope_info")]
-    public partial TerraformList<TerraformBlock<GoogleChronicleReferenceListScopeInfoBlock>>? ScopeInfo { get; set; }
+    public TerraformList<GoogleChronicleReferenceListScopeInfoBlock> ScopeInfo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleChronicleReferenceListTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleChronicleReferenceListTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The unique display name of the reference list.

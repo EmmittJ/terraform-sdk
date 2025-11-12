@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for client_ip_resolution_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeEnvironmentClientIpResolutionConfigBlock : TerraformBlockBase
+public partial class GoogleApigeeEnvironmentClientIpResolutionConfigBlock() : TerraformBlock("client_ip_resolution_config")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleApigeeEnvironmentClientIpResolutionConfigBlock : Terr
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeEnvironmentNodeConfigBlock : TerraformBlockBase
+public partial class GoogleApigeeEnvironmentNodeConfigBlock() : TerraformBlock("node_config")
 {
 
     /// <summary>
@@ -41,7 +41,7 @@ public partial class GoogleApigeeEnvironmentNodeConfigBlock : TerraformBlockBase
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleApigeeEnvironmentPropertiesBlock : TerraformBlockBase
+public partial class GoogleApigeeEnvironmentPropertiesBlock() : TerraformBlock("properties")
 {
 }
 
@@ -49,7 +49,7 @@ public partial class GoogleApigeeEnvironmentPropertiesBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleApigeeEnvironmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleApigeeEnvironmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -166,7 +166,7 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientIpResolutionConfig block(s) allowed")]
     [TerraformProperty("client_ip_resolution_config")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeEnvironmentClientIpResolutionConfigBlock>>? ClientIpResolutionConfig { get; set; }
+    public TerraformList<GoogleApigeeEnvironmentClientIpResolutionConfigBlock> ClientIpResolutionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_config.
@@ -174,7 +174,7 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeEnvironmentNodeConfigBlock>>? NodeConfig { get; set; }
+    public TerraformList<GoogleApigeeEnvironmentNodeConfigBlock> NodeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for properties.
@@ -182,13 +182,13 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public partial TerraformList<TerraformBlock<GoogleApigeeEnvironmentPropertiesBlock>>? Properties { get; set; }
+    public TerraformList<GoogleApigeeEnvironmentPropertiesBlock> Properties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleApigeeEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleApigeeEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

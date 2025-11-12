@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for execution_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexTaskExecutionSpecBlock : TerraformBlockBase
+public partial class GoogleDataplexTaskExecutionSpecBlock() : TerraformBlock("execution_spec")
 {
     /// <summary>
     /// The arguments to pass to the task. The args can use placeholders of the format ${placeholder} as part of key/value string. These will be interpolated before passing the args to the driver. Currently supported placeholders: - ${taskId} - ${job_time} To pass positional args, set the key as TASK_ARGS. The value should be a comma-separated string of all the positional arguments. To use a delimiter other than comma, refer to https://cloud.google.com/sdk/gcloud/reference/topic/escaping. In case of other keys being present in the args, then TASK_ARGS will be passed as the last argument. An object containing a list of &#39;key&#39;: value pairs. Example: { &#39;name&#39;: &#39;wrench&#39;, &#39;mass&#39;: &#39;1.3kg&#39;, &#39;count&#39;: &#39;3&#39; }.
@@ -50,7 +50,7 @@ public partial class GoogleDataplexTaskExecutionSpecBlock : TerraformBlockBase
 /// Block type for notebook in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexTaskNotebookBlock : TerraformBlockBase
+public partial class GoogleDataplexTaskNotebookBlock() : TerraformBlock("notebook")
 {
     /// <summary>
     /// Cloud Storage URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
@@ -80,7 +80,7 @@ public partial class GoogleDataplexTaskNotebookBlock : TerraformBlockBase
 /// Block type for spark in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexTaskSparkBlock : TerraformBlockBase
+public partial class GoogleDataplexTaskSparkBlock() : TerraformBlock("spark")
 {
     /// <summary>
     /// Cloud Storage URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
@@ -137,7 +137,7 @@ public partial class GoogleDataplexTaskSparkBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDataplexTaskTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDataplexTaskTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -166,7 +166,7 @@ public partial class GoogleDataplexTaskTimeoutsBlock : TerraformBlockBase
 /// Block type for trigger_spec in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDataplexTaskTriggerSpecBlock : TerraformBlockBase
+public partial class GoogleDataplexTaskTriggerSpecBlock() : TerraformBlock("trigger_spec")
 {
     /// <summary>
     /// Prevent the task from executing. This does not cancel already running tasks. It is intended to temporarily disable RECURRING tasks.
@@ -284,7 +284,7 @@ public partial class GoogleDataplexTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExecutionSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionSpec block(s) allowed")]
     [TerraformProperty("execution_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexTaskExecutionSpecBlock>>? ExecutionSpec { get; set; }
+    public required TerraformList<GoogleDataplexTaskExecutionSpecBlock> ExecutionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for notebook.
@@ -292,7 +292,7 @@ public partial class GoogleDataplexTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notebook block(s) allowed")]
     [TerraformProperty("notebook")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexTaskNotebookBlock>>? Notebook { get; set; }
+    public TerraformList<GoogleDataplexTaskNotebookBlock> Notebook { get; set; } = new();
 
     /// <summary>
     /// Block for spark.
@@ -300,14 +300,14 @@ public partial class GoogleDataplexTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spark block(s) allowed")]
     [TerraformProperty("spark")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexTaskSparkBlock>>? Spark { get; set; }
+    public TerraformList<GoogleDataplexTaskSparkBlock> Spark { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDataplexTaskTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDataplexTaskTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trigger_spec.
@@ -317,7 +317,7 @@ public partial class GoogleDataplexTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TriggerSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TriggerSpec block(s) allowed")]
     [TerraformProperty("trigger_spec")]
-    public partial TerraformList<TerraformBlock<GoogleDataplexTaskTriggerSpecBlock>>? TriggerSpec { get; set; }
+    public required TerraformList<GoogleDataplexTaskTriggerSpecBlock> TriggerSpec { get; set; } = new();
 
     /// <summary>
     /// The time when the task was created.

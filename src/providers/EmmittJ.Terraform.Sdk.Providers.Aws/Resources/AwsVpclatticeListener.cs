@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_action in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpclatticeListenerDefaultActionBlock : TerraformBlockBase
+public partial class AwsVpclatticeListenerDefaultActionBlock() : TerraformBlock("default_action")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class AwsVpclatticeListenerDefaultActionBlock : TerraformBlockBas
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpclatticeListenerTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpclatticeListenerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -122,14 +122,14 @@ public partial class AwsVpclatticeListener : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAction block(s) allowed")]
     [TerraformProperty("default_action")]
-    public partial TerraformList<TerraformBlock<AwsVpclatticeListenerDefaultActionBlock>>? DefaultAction { get; set; }
+    public required TerraformList<AwsVpclatticeListenerDefaultActionBlock> DefaultAction { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpclatticeListenerTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpclatticeListenerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

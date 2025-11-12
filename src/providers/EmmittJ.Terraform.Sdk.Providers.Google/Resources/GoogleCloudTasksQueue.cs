@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for app_engine_routing_override in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlockBase
+public partial class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock() : TerraformBlock("app_engine_routing_override")
 {
 
     /// <summary>
@@ -42,7 +42,7 @@ public partial class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : Terraf
 /// Block type for http_target in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudTasksQueueHttpTargetBlock : TerraformBlockBase
+public partial class GoogleCloudTasksQueueHttpTargetBlock() : TerraformBlock("http_target")
 {
     /// <summary>
     /// The HTTP method to use for the request.
@@ -60,7 +60,7 @@ public partial class GoogleCloudTasksQueueHttpTargetBlock : TerraformBlockBase
 /// Block type for rate_limits in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlockBase
+public partial class GoogleCloudTasksQueueRateLimitsBlock() : TerraformBlock("rate_limits")
 {
 
     /// <summary>
@@ -88,7 +88,7 @@ public partial class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlockBase
 /// Block type for retry_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlockBase
+public partial class GoogleCloudTasksQueueRetryConfigBlock() : TerraformBlock("retry_config")
 {
     /// <summary>
     /// Number of attempts per task.
@@ -154,7 +154,7 @@ public partial class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlockBase
 /// Block type for stackdriver_logging_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleCloudTasksQueueStackdriverLoggingConfigBlock : TerraformBlockBase
+public partial class GoogleCloudTasksQueueStackdriverLoggingConfigBlock() : TerraformBlock("stackdriver_logging_config")
 {
     /// <summary>
     /// Specifies the fraction of operations to write to Stackdriver Logging.
@@ -172,7 +172,7 @@ public partial class GoogleCloudTasksQueueStackdriverLoggingConfigBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlockBase
+public partial class GoogleCloudTasksQueueTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -253,7 +253,7 @@ public partial class GoogleCloudTasksQueue : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngineRoutingOverride block(s) allowed")]
     [TerraformProperty("app_engine_routing_override")]
-    public partial TerraformList<TerraformBlock<GoogleCloudTasksQueueAppEngineRoutingOverrideBlock>>? AppEngineRoutingOverride { get; set; }
+    public TerraformList<GoogleCloudTasksQueueAppEngineRoutingOverrideBlock> AppEngineRoutingOverride { get; set; } = new();
 
     /// <summary>
     /// Block for http_target.
@@ -261,7 +261,7 @@ public partial class GoogleCloudTasksQueue : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
     [TerraformProperty("http_target")]
-    public partial TerraformList<TerraformBlock<GoogleCloudTasksQueueHttpTargetBlock>>? HttpTarget { get; set; }
+    public TerraformList<GoogleCloudTasksQueueHttpTargetBlock> HttpTarget { get; set; } = new();
 
     /// <summary>
     /// Block for rate_limits.
@@ -269,7 +269,7 @@ public partial class GoogleCloudTasksQueue : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimits block(s) allowed")]
     [TerraformProperty("rate_limits")]
-    public partial TerraformList<TerraformBlock<GoogleCloudTasksQueueRateLimitsBlock>>? RateLimits { get; set; }
+    public TerraformList<GoogleCloudTasksQueueRateLimitsBlock> RateLimits { get; set; } = new();
 
     /// <summary>
     /// Block for retry_config.
@@ -277,7 +277,7 @@ public partial class GoogleCloudTasksQueue : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryConfig block(s) allowed")]
     [TerraformProperty("retry_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudTasksQueueRetryConfigBlock>>? RetryConfig { get; set; }
+    public TerraformList<GoogleCloudTasksQueueRetryConfigBlock> RetryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for stackdriver_logging_config.
@@ -285,14 +285,14 @@ public partial class GoogleCloudTasksQueue : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StackdriverLoggingConfig block(s) allowed")]
     [TerraformProperty("stackdriver_logging_config")]
-    public partial TerraformList<TerraformBlock<GoogleCloudTasksQueueStackdriverLoggingConfigBlock>>? StackdriverLoggingConfig { get; set; }
+    public TerraformList<GoogleCloudTasksQueueStackdriverLoggingConfigBlock> StackdriverLoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleCloudTasksQueueTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleCloudTasksQueueTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The current state of the queue.

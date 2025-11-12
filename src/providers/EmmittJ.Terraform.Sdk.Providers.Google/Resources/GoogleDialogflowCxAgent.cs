@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxAgentAdvancedSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentAdvancedSettingsBlock() : TerraformBlock("advanced_settings")
 {
 }
 
@@ -14,7 +14,7 @@ public partial class GoogleDialogflowCxAgentAdvancedSettingsBlock : TerraformBlo
 /// Block type for answer_feedback_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock() : TerraformBlock("answer_feedback_settings")
 {
     /// <summary>
     /// If enabled, end users will be able to provide [answer feedback](https://cloud.google.com/dialogflow/cx/docs/reference/rest/v3/projects.locations.agents.sessions/submitAnswerFeedback#body.AnswerFeedback)
@@ -30,7 +30,7 @@ public partial class GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock : Terraf
 /// Block type for client_certificate_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentClientCertificateSettingsBlock() : TerraformBlock("client_certificate_settings")
 {
     /// <summary>
     /// The name of the SecretManager secret version resource storing the passphrase. &#39;passphrase&#39; should be left unset if the private key is not encrypted. Format: **projects/{project}/secrets/{secret}/versions/{version}**
@@ -61,7 +61,7 @@ public partial class GoogleDialogflowCxAgentClientCertificateSettingsBlock : Ter
 /// Block type for gen_app_builder_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxAgentGenAppBuilderSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentGenAppBuilderSettingsBlock() : TerraformBlock("gen_app_builder_settings")
 {
     /// <summary>
     /// The full name of the Gen App Builder engine related to this agent if there is one.
@@ -78,7 +78,7 @@ public partial class GoogleDialogflowCxAgentGenAppBuilderSettingsBlock : Terrafo
 /// Block type for git_integration_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxAgentGitIntegrationSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentGitIntegrationSettingsBlock() : TerraformBlock("git_integration_settings")
 {
 }
 
@@ -86,7 +86,7 @@ public partial class GoogleDialogflowCxAgentGitIntegrationSettingsBlock : Terraf
 /// Block type for personalization_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxAgentPersonalizationSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentPersonalizationSettingsBlock() : TerraformBlock("personalization_settings")
 {
     /// <summary>
     /// Default end user metadata, used when processing DetectIntent requests. Recommended to be filled as a template instead of hard-coded value, for example { &amp;quot;age&amp;quot;: &amp;quot;$session.params.age&amp;quot; }.
@@ -105,7 +105,7 @@ public partial class GoogleDialogflowCxAgentPersonalizationSettingsBlock : Terra
 /// Block type for speech_to_text_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxAgentSpeechToTextSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentSpeechToTextSettingsBlock() : TerraformBlock("speech_to_text_settings")
 {
     /// <summary>
     /// Whether to use speech adaptation for speech recognition.
@@ -120,7 +120,7 @@ public partial class GoogleDialogflowCxAgentSpeechToTextSettingsBlock : Terrafor
 /// Block type for text_to_speech_settings in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleDialogflowCxAgentTextToSpeechSettingsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentTextToSpeechSettingsBlock() : TerraformBlock("text_to_speech_settings")
 {
     /// <summary>
     /// Configuration of how speech should be synthesized, mapping from [language](https://cloud.google.com/dialogflow/cx/docs/reference/language) to [SynthesizeSpeechConfig](https://cloud.google.com/dialogflow/cx/docs/reference/rest/v3/projects.locations.agents#synthesizespeechconfig).
@@ -138,7 +138,7 @@ public partial class GoogleDialogflowCxAgentTextToSpeechSettingsBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleDialogflowCxAgentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleDialogflowCxAgentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -315,7 +315,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSettings block(s) allowed")]
     [TerraformProperty("advanced_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentAdvancedSettingsBlock>>? AdvancedSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxAgentAdvancedSettingsBlock> AdvancedSettings { get; set; } = new();
 
     /// <summary>
     /// Block for answer_feedback_settings.
@@ -323,7 +323,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnswerFeedbackSettings block(s) allowed")]
     [TerraformProperty("answer_feedback_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock>>? AnswerFeedbackSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock> AnswerFeedbackSettings { get; set; } = new();
 
     /// <summary>
     /// Block for client_certificate_settings.
@@ -331,7 +331,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificateSettings block(s) allowed")]
     [TerraformProperty("client_certificate_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentClientCertificateSettingsBlock>>? ClientCertificateSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxAgentClientCertificateSettingsBlock> ClientCertificateSettings { get; set; } = new();
 
     /// <summary>
     /// Block for gen_app_builder_settings.
@@ -339,7 +339,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenAppBuilderSettings block(s) allowed")]
     [TerraformProperty("gen_app_builder_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentGenAppBuilderSettingsBlock>>? GenAppBuilderSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxAgentGenAppBuilderSettingsBlock> GenAppBuilderSettings { get; set; } = new();
 
     /// <summary>
     /// Block for git_integration_settings.
@@ -347,7 +347,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitIntegrationSettings block(s) allowed")]
     [TerraformProperty("git_integration_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentGitIntegrationSettingsBlock>>? GitIntegrationSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxAgentGitIntegrationSettingsBlock> GitIntegrationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for personalization_settings.
@@ -355,7 +355,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersonalizationSettings block(s) allowed")]
     [TerraformProperty("personalization_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentPersonalizationSettingsBlock>>? PersonalizationSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxAgentPersonalizationSettingsBlock> PersonalizationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for speech_to_text_settings.
@@ -363,7 +363,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpeechToTextSettings block(s) allowed")]
     [TerraformProperty("speech_to_text_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentSpeechToTextSettingsBlock>>? SpeechToTextSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxAgentSpeechToTextSettingsBlock> SpeechToTextSettings { get; set; } = new();
 
     /// <summary>
     /// Block for text_to_speech_settings.
@@ -371,14 +371,14 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TextToSpeechSettings block(s) allowed")]
     [TerraformProperty("text_to_speech_settings")]
-    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentTextToSpeechSettingsBlock>>? TextToSpeechSettings { get; set; }
+    public TerraformList<GoogleDialogflowCxAgentTextToSpeechSettingsBlock> TextToSpeechSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleDialogflowCxAgentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleDialogflowCxAgentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the agent.

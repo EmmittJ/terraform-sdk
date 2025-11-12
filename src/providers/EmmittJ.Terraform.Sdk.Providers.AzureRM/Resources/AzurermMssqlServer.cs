@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azuread_administrator in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlockBase
+public partial class AzurermMssqlServerAzureadAdministratorBlock() : TerraformBlock("azuread_administrator")
 {
     /// <summary>
     /// The azuread_authentication_only attribute.
@@ -44,7 +44,7 @@ public partial class AzurermMssqlServerAzureadAdministratorBlock : TerraformBloc
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermMssqlServerIdentityBlock : TerraformBlockBase
+public partial class AzurermMssqlServerIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -69,7 +69,7 @@ public partial class AzurermMssqlServerIdentityBlock : TerraformBlockBase
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermMssqlServerTimeoutsBlock : TerraformBlockBase
+public partial class AzurermMssqlServerTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -240,7 +240,7 @@ public partial class AzurermMssqlServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureadAdministrator block(s) allowed")]
     [TerraformProperty("azuread_administrator")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlServerAzureadAdministratorBlock>>? AzureadAdministrator { get; set; }
+    public TerraformList<AzurermMssqlServerAzureadAdministratorBlock> AzureadAdministrator { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -248,14 +248,14 @@ public partial class AzurermMssqlServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermMssqlServerIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermMssqlServerIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermMssqlServerTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermMssqlServerTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fully_qualified_domain_name attribute.

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for service_directory_registrations in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlock : TerraformBlockBase
+public partial class GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlock() : TerraformBlock("service_directory_registrations")
 {
     /// <summary>
     /// Service Directory namespace to register the forwarding rule under.
@@ -28,7 +28,7 @@ public partial class GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeForwardingRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeForwardingRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -458,14 +458,14 @@ public partial class GoogleComputeForwardingRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDirectoryRegistrations block(s) allowed")]
     [TerraformProperty("service_directory_registrations")]
-    public partial TerraformList<TerraformBlock<GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlock>>? ServiceDirectoryRegistrations { get; set; }
+    public TerraformList<GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlock> ServiceDirectoryRegistrations { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeForwardingRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeForwardingRuleTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// [Output Only] The URL for the corresponding base Forwarding Rule. By base Forwarding Rule, we mean the Forwarding Rule that has the same IP address, protocol, and port settings with the current Forwarding Rule, but without sourceIPRanges specified. Always empty if the current Forwarding Rule does not have sourceIPRanges specified.

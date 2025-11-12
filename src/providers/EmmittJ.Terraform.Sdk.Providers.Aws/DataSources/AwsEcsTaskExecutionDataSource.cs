@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity_provider_strategy in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : TerraformBlockBase
+public partial class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock() : TerraformBlock("capacity_provider_strategy")
 {
     /// <summary>
     /// The base attribute.
@@ -36,7 +36,7 @@ public partial class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock 
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : TerraformBlockBase
+public partial class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock() : TerraformBlock("network_configuration")
 {
     /// <summary>
     /// The assign_public_ip attribute.
@@ -66,7 +66,7 @@ public partial class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : Te
 /// Block type for overrides in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlockBase
+public partial class AwsEcsTaskExecutionDataSourceOverridesBlock() : TerraformBlock("overrides")
 {
     /// <summary>
     /// The cpu attribute.
@@ -102,7 +102,7 @@ public partial class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBloc
 /// Block type for placement_constraints in .
 /// Nesting mode: set
 /// </summary>
-public partial class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : TerraformBlockBase
+public partial class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock() : TerraformBlock("placement_constraints")
 {
     /// <summary>
     /// The expression attribute.
@@ -125,7 +125,7 @@ public partial class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : Te
 /// Block type for placement_strategy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : TerraformBlockBase
+public partial class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock() : TerraformBlock("placement_strategy")
 {
     /// <summary>
     /// The field attribute.
@@ -266,7 +266,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("capacity_provider_strategy")]
-    public partial TerraformSet<TerraformBlock<AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock>>? CapacityProviderStrategy { get; set; }
+    public TerraformSet<AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock> CapacityProviderStrategy { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
@@ -274,7 +274,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public TerraformList<AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for overrides.
@@ -282,7 +282,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Overrides block(s) allowed")]
     [TerraformProperty("overrides")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourceOverridesBlock>>? Overrides { get; set; }
+    public TerraformList<AwsEcsTaskExecutionDataSourceOverridesBlock> Overrides { get; set; } = new();
 
     /// <summary>
     /// Block for placement_constraints.
@@ -290,7 +290,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
     [TerraformProperty("placement_constraints")]
-    public partial TerraformSet<TerraformBlock<AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock>>? PlacementConstraints { get; set; }
+    public TerraformSet<AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock> PlacementConstraints { get; set; } = new();
 
     /// <summary>
     /// Block for placement_strategy.
@@ -298,7 +298,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 PlacementStrategy block(s) allowed")]
     [TerraformProperty("placement_strategy")]
-    public partial TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourcePlacementStrategyBlock>>? PlacementStrategy { get; set; }
+    public TerraformList<AwsEcsTaskExecutionDataSourcePlacementStrategyBlock> PlacementStrategy { get; set; } = new();
 
     /// <summary>
     /// The task_arns attribute.

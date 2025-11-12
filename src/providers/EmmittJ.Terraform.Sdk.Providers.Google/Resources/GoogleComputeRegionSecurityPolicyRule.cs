@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for match in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyRuleMatchBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyRuleMatchBlock() : TerraformBlock("match")
 {
     /// <summary>
     /// Preconfigured versioned expression. If this field is specified, config must also be specified.
@@ -22,7 +22,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleMatchBlock : Terraform
 /// Block type for network_match in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock() : TerraformBlock("network_match")
 {
     /// <summary>
     /// Destination IPv4/IPv6 addresses or CIDR prefixes, in standard text format.
@@ -79,7 +79,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : Te
 /// Block type for preconfigured_waf_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock() : TerraformBlock("preconfigured_waf_config")
 {
 }
 
@@ -87,7 +87,7 @@ public partial class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfig
 /// Block type for rate_limit_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock() : TerraformBlock("rate_limit_options")
 {
     /// <summary>
     /// Can only be specified if the action for the rule is &amp;quot;rate_based_ban&amp;quot;.
@@ -146,7 +146,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -259,7 +259,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     [TerraformProperty("match")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleMatchBlock>>? Match { get; set; }
+    public TerraformList<GoogleComputeRegionSecurityPolicyRuleMatchBlock> Match { get; set; } = new();
 
     /// <summary>
     /// Block for network_match.
@@ -267,7 +267,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkMatch block(s) allowed")]
     [TerraformProperty("network_match")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>>? NetworkMatch { get; set; }
+    public TerraformList<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock> NetworkMatch { get; set; } = new();
 
     /// <summary>
     /// Block for preconfigured_waf_config.
@@ -275,7 +275,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreconfiguredWafConfig block(s) allowed")]
     [TerraformProperty("preconfigured_waf_config")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; }
+    public TerraformList<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock> PreconfiguredWafConfig { get; set; } = new();
 
     /// <summary>
     /// Block for rate_limit_options.
@@ -283,13 +283,13 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimitOptions block(s) allowed")]
     [TerraformProperty("rate_limit_options")]
-    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; }
+    public TerraformList<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock> RateLimitOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock Timeouts { get; set; } = new();
 
 }

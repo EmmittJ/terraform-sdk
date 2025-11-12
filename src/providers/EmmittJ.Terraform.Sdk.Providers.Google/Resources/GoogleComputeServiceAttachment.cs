@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for consumer_accept_lists in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformBlockBase
+public partial class GoogleComputeServiceAttachmentConsumerAcceptListsBlock() : TerraformBlock("consumer_accept_lists")
 {
     /// <summary>
     /// The number of consumer forwarding rules the consumer project can
@@ -39,7 +39,7 @@ public partial class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class GoogleComputeServiceAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -205,14 +205,14 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("consumer_accept_lists")]
-    public partial TerraformSet<TerraformBlock<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>>? ConsumerAcceptLists { get; set; }
+    public TerraformSet<GoogleComputeServiceAttachmentConsumerAcceptListsBlock> ConsumerAcceptLists { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleComputeServiceAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleComputeServiceAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// An array of the consumer forwarding rules connected to this service

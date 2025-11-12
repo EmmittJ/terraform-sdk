@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for basic_authentication in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock() : TerraformBlock("basic_authentication")
 {
     /// <summary>
     /// The password attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -144,13 +144,13 @@ public partial class AzurermDataFactoryLinkedServiceOdbc : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAuthentication block(s) allowed")]
     [TerraformProperty("basic_authentication")]
-    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock>>? BasicAuthentication { get; set; }
+    public TerraformList<AzurermDataFactoryLinkedServiceOdbcBasicAuthenticationBlock> BasicAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock Timeouts { get; set; } = new();
 
 }

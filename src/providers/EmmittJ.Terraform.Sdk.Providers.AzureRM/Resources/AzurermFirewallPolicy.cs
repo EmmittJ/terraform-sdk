@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for dns in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyDnsBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyDnsBlock() : TerraformBlock("dns")
 {
     /// <summary>
     /// The proxy_enabled attribute.
@@ -28,7 +28,7 @@ public partial class AzurermFirewallPolicyDnsBlock : TerraformBlockBase
 /// Block type for explicit_proxy in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyExplicitProxyBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyExplicitProxyBlock() : TerraformBlock("explicit_proxy")
 {
     /// <summary>
     /// The enable_pac_file attribute.
@@ -78,7 +78,7 @@ public partial class AzurermFirewallPolicyExplicitProxyBlock : TerraformBlockBas
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyIdentityBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyIdentityBlock() : TerraformBlock("identity")
 {
     /// <summary>
     /// The identity_ids attribute.
@@ -103,7 +103,7 @@ public partial class AzurermFirewallPolicyIdentityBlock : TerraformBlockBase
 /// Block type for insights in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyInsightsBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyInsightsBlock() : TerraformBlock("insights")
 {
     /// <summary>
     /// The default_log_analytics_workspace_id attribute.
@@ -134,7 +134,7 @@ public partial class AzurermFirewallPolicyInsightsBlock : TerraformBlockBase
 /// Block type for intrusion_detection in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyIntrusionDetectionBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyIntrusionDetectionBlock() : TerraformBlock("intrusion_detection")
 {
     /// <summary>
     /// The mode attribute.
@@ -156,7 +156,7 @@ public partial class AzurermFirewallPolicyIntrusionDetectionBlock : TerraformBlo
 /// Block type for threat_intelligence_allowlist in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock() : TerraformBlock("threat_intelligence_allowlist")
 {
     /// <summary>
     /// The fqdns attribute.
@@ -178,7 +178,7 @@ public partial class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermFirewallPolicyTimeoutsBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -214,7 +214,7 @@ public partial class AzurermFirewallPolicyTimeoutsBlock : TerraformBlockBase
 /// Block type for tls_certificate in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermFirewallPolicyTlsCertificateBlock : TerraformBlockBase
+public partial class AzurermFirewallPolicyTlsCertificateBlock() : TerraformBlock("tls_certificate")
 {
     /// <summary>
     /// The key_vault_secret_id attribute.
@@ -330,7 +330,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]
     [TerraformProperty("dns")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyDnsBlock>>? Dns { get; set; }
+    public TerraformList<AzurermFirewallPolicyDnsBlock> Dns { get; set; } = new();
 
     /// <summary>
     /// Block for explicit_proxy.
@@ -338,7 +338,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExplicitProxy block(s) allowed")]
     [TerraformProperty("explicit_proxy")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyExplicitProxyBlock>>? ExplicitProxy { get; set; }
+    public TerraformList<AzurermFirewallPolicyExplicitProxyBlock> ExplicitProxy { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -346,7 +346,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyIdentityBlock>>? Identity { get; set; }
+    public TerraformList<AzurermFirewallPolicyIdentityBlock> Identity { get; set; } = new();
 
     /// <summary>
     /// Block for insights.
@@ -354,7 +354,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Insights block(s) allowed")]
     [TerraformProperty("insights")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyInsightsBlock>>? Insights { get; set; }
+    public TerraformList<AzurermFirewallPolicyInsightsBlock> Insights { get; set; } = new();
 
     /// <summary>
     /// Block for intrusion_detection.
@@ -362,7 +362,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntrusionDetection block(s) allowed")]
     [TerraformProperty("intrusion_detection")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyIntrusionDetectionBlock>>? IntrusionDetection { get; set; }
+    public TerraformList<AzurermFirewallPolicyIntrusionDetectionBlock> IntrusionDetection { get; set; } = new();
 
     /// <summary>
     /// Block for threat_intelligence_allowlist.
@@ -370,14 +370,14 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatIntelligenceAllowlist block(s) allowed")]
     [TerraformProperty("threat_intelligence_allowlist")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock>>? ThreatIntelligenceAllowlist { get; set; }
+    public TerraformList<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock> ThreatIntelligenceAllowlist { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermFirewallPolicyTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tls_certificate.
@@ -385,7 +385,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsCertificate block(s) allowed")]
     [TerraformProperty("tls_certificate")]
-    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyTlsCertificateBlock>>? TlsCertificate { get; set; }
+    public TerraformList<AzurermFirewallPolicyTlsCertificateBlock> TlsCertificate { get; set; } = new();
 
     /// <summary>
     /// The child_policies attribute.

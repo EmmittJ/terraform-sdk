@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for catalog_adogit in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlockBase
+public partial class AzurermDevCenterCatalogCatalogAdogitBlock() : TerraformBlock("catalog_adogit")
 {
     /// <summary>
     /// The branch attribute.
@@ -46,7 +46,7 @@ public partial class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlockB
 /// Block type for catalog_github in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlockBase
+public partial class AzurermDevCenterCatalogCatalogGithubBlock() : TerraformBlock("catalog_github")
 {
     /// <summary>
     /// The branch attribute.
@@ -86,7 +86,7 @@ public partial class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlockB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlockBase
+public partial class AzurermDevCenterCatalogTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -165,7 +165,7 @@ public partial class AzurermDevCenterCatalog : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogAdogit block(s) allowed")]
     [TerraformProperty("catalog_adogit")]
-    public partial TerraformList<TerraformBlock<AzurermDevCenterCatalogCatalogAdogitBlock>>? CatalogAdogit { get; set; }
+    public TerraformList<AzurermDevCenterCatalogCatalogAdogitBlock> CatalogAdogit { get; set; } = new();
 
     /// <summary>
     /// Block for catalog_github.
@@ -173,13 +173,13 @@ public partial class AzurermDevCenterCatalog : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogGithub block(s) allowed")]
     [TerraformProperty("catalog_github")]
-    public partial TerraformList<TerraformBlock<AzurermDevCenterCatalogCatalogGithubBlock>>? CatalogGithub { get; set; }
+    public TerraformList<AzurermDevCenterCatalogCatalogGithubBlock> CatalogGithub { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermDevCenterCatalogTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermDevCenterCatalogTimeoutsBlock Timeouts { get; set; } = new();
 
 }

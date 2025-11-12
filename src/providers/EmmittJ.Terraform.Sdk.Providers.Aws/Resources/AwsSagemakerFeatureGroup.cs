@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for feature_definition in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlockBase
+public partial class AwsSagemakerFeatureGroupFeatureDefinitionBlock() : TerraformBlock("feature_definition")
 {
     /// <summary>
     /// The collection_type attribute.
@@ -35,7 +35,7 @@ public partial class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformB
 /// Block type for offline_store_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerFeatureGroupOfflineStoreConfigBlock() : TerraformBlock("offline_store_config")
 {
     /// <summary>
     /// The disable_glue_table_creation attribute.
@@ -57,7 +57,7 @@ public partial class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : Terraform
 /// Block type for online_store_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerFeatureGroupOnlineStoreConfigBlock() : TerraformBlock("online_store_config")
 {
     /// <summary>
     /// The enable_online_store attribute.
@@ -79,7 +79,7 @@ public partial class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformB
 /// Block type for throughput_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlockBase
+public partial class AwsSagemakerFeatureGroupThroughputConfigBlock() : TerraformBlock("throughput_config")
 {
     /// <summary>
     /// The provisioned_read_capacity_units attribute.
@@ -189,7 +189,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FeatureDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2500, ErrorMessage = "Maximum 2500 FeatureDefinition block(s) allowed")]
     [TerraformProperty("feature_definition")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerFeatureGroupFeatureDefinitionBlock>>? FeatureDefinition { get; set; }
+    public required TerraformList<AwsSagemakerFeatureGroupFeatureDefinitionBlock> FeatureDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for offline_store_config.
@@ -197,7 +197,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OfflineStoreConfig block(s) allowed")]
     [TerraformProperty("offline_store_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerFeatureGroupOfflineStoreConfigBlock>>? OfflineStoreConfig { get; set; }
+    public TerraformList<AwsSagemakerFeatureGroupOfflineStoreConfigBlock> OfflineStoreConfig { get; set; } = new();
 
     /// <summary>
     /// Block for online_store_config.
@@ -205,7 +205,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnlineStoreConfig block(s) allowed")]
     [TerraformProperty("online_store_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerFeatureGroupOnlineStoreConfigBlock>>? OnlineStoreConfig { get; set; }
+    public TerraformList<AwsSagemakerFeatureGroupOnlineStoreConfigBlock> OnlineStoreConfig { get; set; } = new();
 
     /// <summary>
     /// Block for throughput_config.
@@ -213,7 +213,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThroughputConfig block(s) allowed")]
     [TerraformProperty("throughput_config")]
-    public partial TerraformList<TerraformBlock<AwsSagemakerFeatureGroupThroughputConfigBlock>>? ThroughputConfig { get; set; }
+    public TerraformList<AwsSagemakerFeatureGroupThroughputConfigBlock> ThroughputConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

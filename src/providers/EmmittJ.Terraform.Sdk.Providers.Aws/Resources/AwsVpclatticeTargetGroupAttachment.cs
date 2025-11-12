@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsVpclatticeTargetGroupAttachmentTargetBlock : TerraformBlockBase
+public partial class AwsVpclatticeTargetGroupAttachmentTargetBlock() : TerraformBlock("target")
 {
     /// <summary>
     /// The id attribute.
@@ -29,7 +29,7 @@ public partial class AwsVpclatticeTargetGroupAttachmentTargetBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsVpclatticeTargetGroupAttachmentTimeoutsBlock : TerraformBlockBase
+public partial class AwsVpclatticeTargetGroupAttachmentTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -87,13 +87,13 @@ public partial class AwsVpclatticeTargetGroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public partial TerraformList<TerraformBlock<AwsVpclatticeTargetGroupAttachmentTargetBlock>>? Target { get; set; }
+    public required TerraformList<AwsVpclatticeTargetGroupAttachmentTargetBlock> Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsVpclatticeTargetGroupAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public AwsVpclatticeTargetGroupAttachmentTimeoutsBlock Timeouts { get; set; } = new();
 
 }

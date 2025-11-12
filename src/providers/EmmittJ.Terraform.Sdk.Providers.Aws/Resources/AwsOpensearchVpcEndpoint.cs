@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsOpensearchVpcEndpointTimeoutsBlock : TerraformBlockBase
+public partial class AwsOpensearchVpcEndpointTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -35,7 +35,7 @@ public partial class AwsOpensearchVpcEndpointTimeoutsBlock : TerraformBlockBase
 /// Block type for vpc_options in .
 /// Nesting mode: list
 /// </summary>
-public partial class AwsOpensearchVpcEndpointVpcOptionsBlock : TerraformBlockBase
+public partial class AwsOpensearchVpcEndpointVpcOptionsBlock() : TerraformBlock("vpc_options")
 {
 
     /// <summary>
@@ -93,7 +93,7 @@ public partial class AwsOpensearchVpcEndpoint : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsOpensearchVpcEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public AwsOpensearchVpcEndpointTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_options.
@@ -103,7 +103,7 @@ public partial class AwsOpensearchVpcEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcOptions block(s) allowed")]
     [TerraformProperty("vpc_options")]
-    public partial TerraformList<TerraformBlock<AwsOpensearchVpcEndpointVpcOptionsBlock>>? VpcOptions { get; set; }
+    public required TerraformList<AwsOpensearchVpcEndpointVpcOptionsBlock> VpcOptions { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.

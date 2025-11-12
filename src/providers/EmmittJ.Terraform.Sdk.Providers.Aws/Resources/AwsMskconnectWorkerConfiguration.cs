@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AwsMskconnectWorkerConfigurationTimeoutsBlock : TerraformBlockBase
+public partial class AwsMskconnectWorkerConfigurationTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The delete attribute.
@@ -82,7 +82,7 @@ public partial class AwsMskconnectWorkerConfiguration : TerraformResource
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AwsMskconnectWorkerConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public AwsMskconnectWorkerConfigurationTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.

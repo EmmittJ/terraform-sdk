@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public partial class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesWasmPluginLogConfigBlock() : TerraformBlock("log_config")
 {
     /// <summary>
     /// Optional. Specifies whether to enable logging for activity by this plugin.
@@ -40,7 +40,7 @@ public partial class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesWasmPluginTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -69,7 +69,7 @@ public partial class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlo
 /// Block type for versions in .
 /// Nesting mode: set
 /// </summary>
-public partial class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlockBase
+public partial class GoogleNetworkServicesWasmPluginVersionsBlock() : TerraformBlock("versions")
 {
 
     /// <summary>
@@ -196,14 +196,14 @@ public partial class GoogleNetworkServicesWasmPlugin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public partial TerraformList<TerraformBlock<GoogleNetworkServicesWasmPluginLogConfigBlock>>? LogConfig { get; set; }
+    public TerraformList<GoogleNetworkServicesWasmPluginLogConfigBlock> LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<GoogleNetworkServicesWasmPluginTimeoutsBlock>? Timeouts { get; set; }
+    public GoogleNetworkServicesWasmPluginTimeoutsBlock Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for versions.
@@ -212,7 +212,7 @@ public partial class GoogleNetworkServicesWasmPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Versions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Versions block(s) required")]
     [TerraformProperty("versions")]
-    public partial TerraformSet<TerraformBlock<GoogleNetworkServicesWasmPluginVersionsBlock>>? Versions { get; set; }
+    public required TerraformSet<GoogleNetworkServicesWasmPluginVersionsBlock> Versions { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp when the resource was created.

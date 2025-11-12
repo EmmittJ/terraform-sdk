@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sku in .
 /// Nesting mode: list
 /// </summary>
-public partial class AzurermApiManagementStandaloneGatewaySkuBlock : TerraformBlockBase
+public partial class AzurermApiManagementStandaloneGatewaySkuBlock() : TerraformBlock("sku")
 {
     /// <summary>
     /// The capacity attribute.
@@ -29,7 +29,7 @@ public partial class AzurermApiManagementStandaloneGatewaySkuBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public partial class AzurermApiManagementStandaloneGatewayTimeoutsBlock : TerraformBlockBase
+public partial class AzurermApiManagementStandaloneGatewayTimeoutsBlock() : TerraformBlock("timeouts")
 {
     /// <summary>
     /// The create attribute.
@@ -131,13 +131,13 @@ public partial class AzurermApiManagementStandaloneGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public partial TerraformList<TerraformBlock<AzurermApiManagementStandaloneGatewaySkuBlock>>? Sku { get; set; }
+    public required TerraformList<AzurermApiManagementStandaloneGatewaySkuBlock> Sku { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public partial TerraformBlock<AzurermApiManagementStandaloneGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public AzurermApiManagementStandaloneGatewayTimeoutsBlock Timeouts { get; set; } = new();
 
 }
