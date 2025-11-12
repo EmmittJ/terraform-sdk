@@ -29,7 +29,7 @@ public sealed class TerraformStackException : TerraformException
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
-    public TerraformStackException(string message, TerraformConstruct construct)
+    public TerraformStackException(string message, TerraformBlock construct)
         : base(message, construct)
     {
     }
@@ -40,7 +40,7 @@ public sealed class TerraformStackException : TerraformException
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
     /// <param name="propertyName">The property name where the error occurred.</param>
-    public TerraformStackException(string message, TerraformConstruct construct, string propertyName)
+    public TerraformStackException(string message, TerraformBlock construct, string propertyName)
         : base(message, construct)
     {
         PropertyName = propertyName;
@@ -55,7 +55,7 @@ public sealed class TerraformStackException : TerraformException
     /// <param name="propertyPath">The full property path for nested errors.</param>
     public TerraformStackException(
         string message,
-        TerraformConstruct construct,
+        TerraformBlock construct,
         string propertyName,
         string propertyPath)
         : base(message, construct)
@@ -80,7 +80,7 @@ public sealed class TerraformStackException : TerraformException
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
     /// <param name="innerException">The inner exception.</param>
-    public TerraformStackException(string message, TerraformConstruct construct, Exception innerException)
+    public TerraformStackException(string message, TerraformBlock construct, Exception innerException)
         : base(message, construct, innerException)
     {
     }

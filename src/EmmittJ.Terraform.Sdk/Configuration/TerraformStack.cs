@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformStack
 {
-    private readonly List<TerraformConstruct> _constructs = [];
+    private readonly List<TerraformBlock> _constructs = [];
 
     /// <summary>
     /// Gets the name of this configuration.
@@ -29,7 +29,7 @@ public class TerraformStack
     /// <summary>
     /// Adds a construct (variable, resource, data source, etc.) to this configuration.
     /// </summary>
-    public void Add(TerraformConstruct construct)
+    public void Add(TerraformBlock construct)
     {
         if (construct == null)
         {
@@ -42,7 +42,7 @@ public class TerraformStack
     /// <summary>
     /// Gets all constructs in this configuration.
     /// </summary>
-    public IReadOnlyList<TerraformConstruct> Constructs => _constructs.AsReadOnly();
+    public IReadOnlyList<TerraformBlock> Constructs => _constructs.AsReadOnly();
 
     /// <summary>
     /// Compiles all constructs to HCL using two-pass resolution.
@@ -80,10 +80,11 @@ public class TerraformStack
             }
         }
 
-        // Render all constructs
+        // Render all constructs by resolving them to expressions first
         foreach (var construct in _constructs)
         {
-            sb.Append(construct.ToHcl(context));
+            var expression = construct.Resolve(context);
+            sb.Append(expression.ToHcl(context));
             sb.AppendLine();
         }
 
@@ -200,14 +201,25 @@ public class TerraformStack
     }
 
     /// <summary>
-    /// Gets a string representation of a construct for error messages.
+    /// Gets a string representation of a block for error messages.
     /// </summary>
-    private static string GetConstructName(TerraformConstruct construct)
+    private static string GetConstructName(TerraformBlock construct)
     {
-        if (construct is NamedTerraformConstruct namedConstruct)
+        // Try to get BlockType property
+        var blockTypeProperty = construct.GetType().GetProperty("BlockType");
+        var blockType = blockTypeProperty?.GetValue(construct) as string ?? construct.GetType().Name;
+
+        // Try to get ConstructName property (from NamedTerraformConstruct or similar)
+        var nameProperty = construct.GetType().GetProperty("ConstructName");
+        if (nameProperty != null)
         {
-            return $"{namedConstruct.BlockType}.{namedConstruct.ConstructName}";
+            var name = nameProperty.GetValue(construct);
+            if (name != null)
+            {
+                return $"{blockType}.{name}";
+            }
         }
-        return construct.BlockType;
+
+        return blockType;
     }
 }

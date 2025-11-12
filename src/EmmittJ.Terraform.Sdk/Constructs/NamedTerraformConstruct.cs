@@ -3,12 +3,13 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Abstract base class for Terraform constructs that have a name identifier.
 /// Includes resources, data sources, modules, and providers.
+/// NOTE: This class is deprecated and will be removed. Use TerraformBlock directly instead.
 /// </summary>
 /// <remarks>
 /// Initializes a new instance of the <see cref="NamedTerraformConstruct"/> class.
 /// </remarks>
 /// <param name="constructName">The name of the construct.</param>
-public abstract class NamedTerraformConstruct(string constructName) : TerraformConstruct
+public abstract class NamedTerraformConstruct(string constructName) : TerraformBlock("")
 {
     private readonly HashSet<string> _declaredOutputs = [];
 
@@ -16,6 +17,11 @@ public abstract class NamedTerraformConstruct(string constructName) : TerraformC
     /// Gets the name of this construct.
     /// </summary>
     public string ConstructName { get; } = constructName ?? throw new ArgumentNullException(nameof(constructName));
+
+    /// <summary>
+    /// Gets the block type for this construct. Override in derived classes.
+    /// </summary>
+    public abstract string BlockType { get; }
 
     /// <summary>
     /// Declares an output attribute for this construct.
@@ -69,6 +75,7 @@ public abstract class NamedTerraformConstruct(string constructName) : TerraformC
 
     /// <summary>
     /// Indexer for convenient property access.
+    /// Hides the inherited indexer from TerraformMap.
     /// </summary>
-    public TerraformReferenceExpression this[string attributeName] => GetOutput(attributeName);
+    public new TerraformReferenceExpression this[string attributeName] => GetOutput(attributeName);
 }

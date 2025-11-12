@@ -14,9 +14,9 @@ public class TerraformValueTests
 
     private class TestResolveContext : ITerraformResolveContext
     {
-        public TerraformConstruct Scope { get; }
+        public object Scope { get; }
 
-        public TestResolveContext(TerraformConstruct scope)
+        public TestResolveContext(object scope)
         {
             Scope = scope;
         }

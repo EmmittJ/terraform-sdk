@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Creates a new context for the given scope.
 /// </remarks>
 /// <param name="scope">The configuration scope.</param>
-public class TerraformContext(TerraformStack scope) : ITerraformContext
+public class TerraformContext(TerraformStack scope) : ITerraformContext, ITerraformResolveContext
 {
     /// <summary>
     /// Creates a temporary context for testing or one-off resolution.
@@ -32,11 +32,16 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     }
 
     private int _indentLevel = 0;
-    private TerraformConstruct? _currentConstruct;
+    private TerraformBlock? _currentConstruct;
     private readonly DependencyGraph _dependencyGraph = new();
 
     /// <inheritdoc/>
     public TerraformStack Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
+
+    /// <summary>
+    /// Explicit implementation of ITerraformResolveContext.Scope
+    /// </summary>
+    object ITerraformResolveContext.Scope => Scope;
 
     /// <inheritdoc/>
     public int IndentLevel => _indentLevel;
@@ -50,7 +55,7 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     public DependencyGraph DependencyGraph => _dependencyGraph;
 
     /// <inheritdoc/>
-    public IDisposable SetCurrentConstruct(TerraformConstruct? construct)
+    public IDisposable SetCurrentConstruct(TerraformBlock? construct)
     {
         var previousConstruct = _currentConstruct;
         _currentConstruct = construct;
@@ -62,7 +67,7 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     }
 
     /// <inheritdoc/>
-    public void RecordDependency(TerraformConstruct dependency)
+    public void RecordDependency(TerraformBlock dependency)
     {
         if (_currentConstruct != null && dependency != _currentConstruct)
         {
@@ -107,9 +112,9 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     private class ConstructScope : IDisposable
     {
         private readonly TerraformContext _context;
-        private readonly TerraformConstruct? _previousConstruct;
+        private readonly TerraformBlock? _previousConstruct;
 
-        public ConstructScope(TerraformContext context, TerraformConstruct? previousConstruct)
+        public ConstructScope(TerraformContext context, TerraformBlock? previousConstruct)
         {
             _context = context;
             _previousConstruct = previousConstruct;

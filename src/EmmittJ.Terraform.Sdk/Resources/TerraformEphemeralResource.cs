@@ -5,25 +5,33 @@ namespace EmmittJ.Terraform.Sdk;
 /// Ephemeral resources are used for temporary credentials, tokens, and secrets
 /// that don't persist in the Terraform state file.
 /// </summary>
-public class TerraformEphemeralResource(string type, string name) : TerraformProvisionableConstruct(type, name)
+public class TerraformEphemeralResource(string type, string name) : TerraformBlock("")
 {
-    /// <inheritdoc/>
-    public override string BlockType => "ephemeral";
+    /// <summary>
+    /// Gets the type of this ephemeral resource (e.g., "random_id").
+    /// </summary>
+    public string ConstructType { get; } = type ?? throw new ArgumentNullException(nameof(type));
 
-    /// <inheritdoc/>
-    protected override string[] BlockLabels => [ConstructType, ConstructName];
+    /// <summary>
+    /// Gets the name of this ephemeral resource.
+    /// </summary>
+    public string ConstructName { get; } = name ?? throw new ArgumentNullException(nameof(name));
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"{ConstructType}.{ConstructName}");
+        => TerraformExpression.Identifier($"ephemeral.{ConstructType}.{ConstructName}");
 
     /// <inheritdoc/>
-    protected override void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    public override TerraformExpression Resolve(ITerraformResolveContext context)
     {
-        // Call base to write all regular properties
-        base.WriteProperties(sb, context);
+        // Get map expression from properties (via base.Resolve())
+        var bodyMap = base.Resolve(context);
 
-        // Ephemeral resources don't support meta-arguments like lifecycle, provisioners, etc.
-        // They are short-lived and don't persist in state
+        // Ephemeral resources use "ephemeral" block type
+        return new TerraformConstructExpression(
+            blockType: "ephemeral",
+            labels: [ConstructType, ConstructName],
+            body: bodyMap
+        );
     }
 }

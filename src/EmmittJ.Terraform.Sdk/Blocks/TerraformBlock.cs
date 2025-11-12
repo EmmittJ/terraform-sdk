@@ -19,14 +19,15 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// <summary>
     /// Gets the Terraform block label (e.g., "timeouts", "tags").
     /// This is set during construction and used during HCL serialization.
+    /// For top-level constructs, this may be empty.
     /// </summary>
     public string BlockLabel { get; }
 
     /// <summary>
     /// Initializes a new instance of TerraformBlock.
     /// </summary>
-    /// <param name="blockLabel">The Terraform block label (e.g., "timeouts").</param>
-    protected TerraformBlock(string blockLabel) : base()
+    /// <param name="blockLabel">The Terraform block label (e.g., "timeouts"). Can be empty for top-level constructs.</param>
+    protected TerraformBlock(string blockLabel = "") : base()
     {
         BlockLabel = blockLabel;
     }
@@ -89,6 +90,14 @@ public abstract class TerraformBlock : TerraformMap<object>
         return GetPropertyValue<T>(terraformName)
             ?? throw new InvalidOperationException($"Required property '{terraformName}' has not been set.");
     }
+
+    /// <summary>
+    /// Creates a reference expression to this block.
+    /// Default implementation returns a simple identifier.
+    /// Override in derived classes to provide specific reference formats (e.g., "resource.type.name").
+    /// </summary>
+    public virtual TerraformExpression AsReference()
+        => TerraformExpression.Identifier(BlockLabel);
 
     // Note: Resolve() is inherited from TerraformMap<object> and handles resolution automatically.
     // The base implementation iterates the _elements dictionary and resolves each value to a TerraformExpression,

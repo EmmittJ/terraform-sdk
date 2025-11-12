@@ -8,5 +8,5 @@ public interface ITerraformResolveContext
     /// <summary>
     /// The current scope being resolved.
     /// </summary>
-    TerraformConstruct Scope { get; }
+    object Scope { get; }
 }

@@ -1,20 +1,31 @@
 namespace EmmittJ.Terraform.Sdk;
 
+using EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
+
 /// <summary>
-/// Represents a Terraform output value block.
+/// Represents a Terraform output value - a top-level construct for exposing values from a configuration.
+/// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
 /// </summary>
-public class TerraformOutput(string name) : TerraformConstruct
+/// <remarks>
+/// Output values make information about your infrastructure available on the command line,
+/// and can expose information for other Terraform configurations to use.
+/// Output values support the depends_on meta-argument.
+/// </remarks>
+public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
 {
     /// <summary>
     /// Gets the output name.
     /// </summary>
-    public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
+    public string Name { get; }
 
-    /// <inheritdoc/>
-    public override string BlockType => "output";
-
-    /// <inheritdoc/>
-    protected override string[] BlockLabels => [Name];
+    /// <summary>
+    /// Initializes a new instance of TerraformOutput.
+    /// </summary>
+    /// <param name="name">The output name.</param>
+    public TerraformOutput(string name) : base("")
+    {
+        Name = name ?? throw new ArgumentNullException(nameof(name));
+    }
 
     /// <summary>
     /// Gets or sets the output value.
@@ -45,17 +56,36 @@ public class TerraformOutput(string name) : TerraformConstruct
     }
 
     /// <summary>
-    /// Gets the list of resources this depends on.
-    /// </summary>
-    public List<string> DependsOn { get; } = new();
-
-    /// <summary>
     /// Gets the list of preconditions to validate before using this output.
     /// Preconditions allow you to validate assumptions about the output value.
     /// </summary>
     public List<TerraformCondition> Preconditions { get; } = new();
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Resolves to a TerraformConstructExpression representing the output block.
+    /// Overrides the base Resolve() to return a construct expression instead of a map expression.
+    /// </summary>
+    /// <param name="ctx">The resolution context.</param>
+    /// <returns>A TerraformConstructExpression with block type "output" and label [name].</returns>
+    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    {
+        if (GetPropertyValue<TerraformValue<object>?>("value") == null)
+        {
+            throw new InvalidOperationException($"Output '{Name}' must have a value set before it can be synthesized. Use the Value property to set the output value.");
+        }
+
+        // Get map expression from properties (via base.Resolve())
+        var bodyMap = base.Resolve(ctx);
+
+        // Wrap in construct expression with output name
+        return new TerraformConstructExpression("output", [Name], bodyMap);
+    }
+
+    /// <summary>
+    /// Generates a reference to this output (e.g., "output.connection_string").
+    /// Used when referencing this output's value in other parts of the configuration.
+    /// </summary>
+    /// <returns>An identifier expression for this output.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"output.{Name}");
 
@@ -67,63 +97,4 @@ public class TerraformOutput(string name) : TerraformConstruct
     /// <returns>A TerraformExpression representing the output reference.</returns>
     public static implicit operator TerraformExpression(TerraformOutput output)
         => output.AsReference();
-
-    /// <inheritdoc/>
-    protected override void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
-    {
-        if (GetPropertyValue<TerraformValue<object>?>("value") == null)
-        {
-            throw new TerraformStackException(
-                $"Output '{Name}' must have a value set before it can be synthesized. " +
-                "Use the Value property to set the output value.",
-                this,
-                "Value");
-        }
-
-        // Call base to write all regular properties
-        base.WriteProperties(sb, context);
-    }
-
-    /// <inheritdoc/>
-    public override string ToHcl(ITerraformContext? context = null)
-    {
-        context ??= TerraformContext.Temporary(this);
-
-        var sb = new System.Text.StringBuilder();
-
-        sb.Append($"{context.Indent}{BlockType}");
-        foreach (var identifier in BlockLabels)
-        {
-            sb.Append($" \"{identifier}\"");
-        }
-        sb.AppendLine(" {");
-
-        using (context.PushIndent())
-        {
-            WriteProperties(sb, context);
-
-            if (DependsOn.Count > 0)
-            {
-                var deps = string.Join(", ", DependsOn);
-                sb.AppendLine($"{context.Indent}depends_on = [{deps}]");
-            }
-
-            // Write preconditions
-            foreach (var precondition in Preconditions)
-            {
-                sb.AppendLine();
-                sb.AppendLine($"{context.Indent}precondition {{");
-                using (context.PushIndent())
-                {
-                    sb.AppendLine($"{context.Indent}condition     = {precondition.Condition}");
-                    sb.AppendLine($"{context.Indent}error_message = \"{precondition.ErrorMessage}\"");
-                }
-                sb.AppendLine($"{context.Indent}}}");
-            }
-        }
-
-        sb.AppendLine($"{context.Indent}}}");
-
-        return sb.ToString();
-    }
 }

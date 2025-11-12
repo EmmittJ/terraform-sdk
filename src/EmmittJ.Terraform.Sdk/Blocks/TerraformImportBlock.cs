@@ -33,7 +33,7 @@ namespace EmmittJ.Terraform.Sdk.Constructs;
 /// );
 /// </code>
 /// </example>
-public class TerraformImportBlock : TerraformConstruct
+public class TerraformImportBlock : TerraformBlock
 {
     /// <summary>
     /// The resource address where the imported object should be placed in the state.
@@ -52,12 +52,6 @@ public class TerraformImportBlock : TerraformConstruct
     /// Useful when you have multiple provider configurations (e.g., "aws.west").
     /// </summary>
     public string? Provider { get; }
-
-    /// <inheritdoc/>
-    public override string BlockType => "import";
-
-    /// <inheritdoc/>
-    protected override string[] BlockLabels => [];
 
     /// <summary>
     /// Creates a new Terraform import block.
@@ -96,6 +90,20 @@ public class TerraformImportBlock : TerraformConstruct
 
     [TerraformProperty("provider")]
     public ImportAddressProperty? ProviderProperty { get; set; }
+
+    /// <summary>
+    /// Resolves to a TerraformConstructExpression representing the import block.
+    /// </summary>
+    /// <param name="ctx">The resolution context.</param>
+    /// <returns>A TerraformConstructExpression with block type "import" and no labels.</returns>
+    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    {
+        // Get map expression from properties (via base.Resolve())
+        var bodyMap = base.Resolve(ctx);
+
+        // Wrap in construct expression with block type "import" and no labels
+        return new TerraformConstructExpression("import", [], bodyMap);
+    }
 
     /// <inheritdoc/>
     public override TerraformReferenceExpression AsReference()

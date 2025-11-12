@@ -261,7 +261,7 @@ public class TerraformValueResolverTests
         public TerraformStack Scope => throw new NotImplementedException();
         public DependencyGraph DependencyGraph => throw new NotImplementedException();
 
-        public void RegisterConstruct(TerraformConstruct construct)
+        public void RegisterConstruct(TerraformBlock construct)
         {
         }
 
@@ -277,12 +277,12 @@ public class TerraformValueResolverTests
             return new IndentScope(() => IndentLevel--);
         }
 
-        public IDisposable SetCurrentConstruct(TerraformConstruct? construct)
+        public IDisposable SetCurrentConstruct(TerraformBlock? construct)
         {
             return new IndentScope(() => { });
         }
 
-        public void RecordDependency(TerraformConstruct dependency)
+        public void RecordDependency(TerraformBlock dependency)
         {
         }
 

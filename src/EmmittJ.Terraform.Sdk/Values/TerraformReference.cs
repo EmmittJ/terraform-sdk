@@ -19,18 +19,18 @@ namespace EmmittJ.Terraform.Sdk;
 /// </example>
 public class TerraformReference<T> : TerraformValue<T>
 {
-    private readonly TerraformConstruct _construct;
+    private readonly TerraformBlock _block;
     private readonly string _attributeName;
 
     /// <summary>
     /// Creates a new reference to a resource attribute.
     /// </summary>
-    /// <param name="construct">The construct being referenced.</param>
+    /// <param name="block">The block being referenced.</param>
     /// <param name="attributeName">The attribute name (as it appears in HCL, e.g., "name", "id").</param>
-    public TerraformReference(TerraformConstruct construct, string attributeName)
-        : base(CreateReferenceResolvable(construct, attributeName))
+    public TerraformReference(TerraformBlock block, string attributeName)
+        : base(CreateReferenceResolvable(block, attributeName))
     {
-        _construct = construct ?? throw new ArgumentNullException(nameof(construct));
+        _block = block ?? throw new ArgumentNullException(nameof(block));
         _attributeName = attributeName ?? throw new ArgumentNullException(nameof(attributeName));
     }
 
@@ -38,16 +38,16 @@ public class TerraformReference<T> : TerraformValue<T>
     /// Creates the resolvable that produces the reference identifier.
     /// </summary>
     private static ITerraformResolvable CreateReferenceResolvable(
-        TerraformConstruct construct,
+        TerraformBlock block,
         string attributeName)
     {
-        return new TerraformReferenceResolvable(construct, attributeName);
+        return new TerraformReferenceResolvable(block, attributeName);
     }
 
     /// <summary>
-    /// Gets the construct being referenced.
+    /// Gets the block being referenced.
     /// </summary>
-    public TerraformConstruct Construct => _construct;
+    public TerraformBlock Block => _block;
 
     /// <summary>
     /// Gets the attribute name being referenced.
@@ -60,19 +60,19 @@ public class TerraformReference<T> : TerraformValue<T>
 /// </summary>
 internal class TerraformReferenceResolvable : ITerraformResolvable
 {
-    private readonly TerraformConstruct _construct;
+    private readonly TerraformBlock _block;
     private readonly string _attributeName;
 
-    public TerraformReferenceResolvable(TerraformConstruct construct, string attributeName)
+    public TerraformReferenceResolvable(TerraformBlock block, string attributeName)
     {
-        _construct = construct;
+        _block = block;
         _attributeName = attributeName;
     }
 
     public TerraformExpression Resolve(ITerraformResolveContext context)
     {
         // Generate reference: resource_type.resource_name.attribute_name
-        var reference = _construct.AsReference();
+        var reference = _block.AsReference();
 
         // If attribute is not empty, append it
         if (!string.IsNullOrEmpty(_attributeName))

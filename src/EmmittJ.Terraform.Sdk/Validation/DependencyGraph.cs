@@ -1,46 +1,46 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a dependency graph for Terraform constructs.
-/// Tracks what each construct depends on (depends_on relationship).
+/// Represents a dependency graph for Terraform blocks.
+/// Tracks what each block depends on (depends_on relationship).
 /// Provides cycle detection and topological sorting.
 /// </summary>
 public sealed class DependencyGraph
 {
-    // Maps each construct to the set of constructs it depends on
+    // Maps each block to the set of blocks it depends on
     // e.g., subnet depends on vpc: _dependsOn[subnet] = { vpc }
-    private readonly Dictionary<TerraformConstruct, HashSet<TerraformConstruct>> _dependsOn = new();
+    private readonly Dictionary<TerraformBlock, HashSet<TerraformBlock>> _dependsOn = new();
 
     /// <summary>
-    /// Gets all constructs in the dependency graph.
+    /// Gets all blocks in the dependency graph.
     /// </summary>
-    public IReadOnlyCollection<TerraformConstruct> Constructs => _dependsOn.Keys;
+    public IReadOnlyCollection<TerraformBlock> Constructs => _dependsOn.Keys;
 
     /// <summary>
-    /// Adds a construct to the graph.
+    /// Adds a block to the graph.
     /// </summary>
-    /// <param name="construct">The construct to add.</param>
-    public void AddConstruct(TerraformConstruct construct)
+    /// <param name="construct">The block to add.</param>
+    public void AddConstruct(TerraformBlock construct)
     {
         if (!_dependsOn.ContainsKey(construct))
         {
-            _dependsOn[construct] = new HashSet<TerraformConstruct>();
+            _dependsOn[construct] = new HashSet<TerraformBlock>();
         }
     }
 
     /// <summary>
-    /// Records that a construct depends on another construct.
+    /// Records that a block depends on another block.
     /// Think: "dependent depends_on dependency"
     /// Example: subnet depends_on vpc
     /// </summary>
-    /// <param name="dependent">The construct that has the dependency (e.g., subnet).</param>
-    /// <param name="dependency">The construct being depended upon (e.g., vpc).</param>
-    public void AddDependency(TerraformConstruct dependent, TerraformConstruct dependency)
+    /// <param name="dependent">The block that has the dependency (e.g., subnet).</param>
+    /// <param name="dependency">The block being depended upon (e.g., vpc).</param>
+    public void AddDependency(TerraformBlock dependent, TerraformBlock dependency)
     {
         ArgumentNullException.ThrowIfNull(dependent);
         ArgumentNullException.ThrowIfNull(dependency);
 
-        // Ensure both constructs exist in the graph
+        // Ensure both blocks exist in the graph
         AddConstruct(dependent);
         AddConstruct(dependency);
 
@@ -49,26 +49,26 @@ public sealed class DependencyGraph
     }
 
     /// <summary>
-    /// Gets all constructs that this construct depends on (its depends_on list).
+    /// Gets all blocks that this block depends on (its depends_on list).
     /// </summary>
-    /// <param name="construct">The construct to get dependencies for.</param>
-    /// <returns>The set of constructs that this construct depends on.</returns>
-    public IReadOnlySet<TerraformConstruct> GetDependsOn(TerraformConstruct construct)
+    /// <param name="construct">The block to get dependencies for.</param>
+    /// <returns>The set of blocks that this block depends on.</returns>
+    public IReadOnlySet<TerraformBlock> GetDependsOn(TerraformBlock construct)
     {
         return _dependsOn.TryGetValue(construct, out var deps)
             ? deps
-            : new HashSet<TerraformConstruct>();
+            : new HashSet<TerraformBlock>();
     }
 
     /// <summary>
-    /// Gets all constructs that depend on this construct (reverse lookup).
+    /// Gets all blocks that depend on this block (reverse lookup).
     /// Useful for understanding impact of changes.
     /// </summary>
-    /// <param name="construct">The construct to find dependents for.</param>
-    /// <returns>The set of constructs that depend on this construct.</returns>
-    public IReadOnlySet<TerraformConstruct> GetDependents(TerraformConstruct construct)
+    /// <param name="construct">The block to find dependents for.</param>
+    /// <returns>The set of blocks that depend on this block.</returns>
+    public IReadOnlySet<TerraformBlock> GetDependents(TerraformBlock construct)
     {
-        var dependents = new HashSet<TerraformConstruct>();
+        var dependents = new HashSet<TerraformBlock>();
         foreach (var (dependent, dependencies) in _dependsOn)
         {
             if (dependencies.Contains(construct))
@@ -92,12 +92,12 @@ public sealed class DependencyGraph
     /// Finds all circular dependency chains in the graph.
     /// </summary>
     /// <returns>A collection of circular dependency chains.</returns>
-    public IReadOnlyList<IReadOnlyList<TerraformConstruct>> FindCycles()
+    public IReadOnlyList<IReadOnlyList<TerraformBlock>> FindCycles()
     {
-        var cycles = new List<IReadOnlyList<TerraformConstruct>>();
-        var visited = new HashSet<TerraformConstruct>();
-        var recursionStack = new HashSet<TerraformConstruct>();
-        var path = new List<TerraformConstruct>();
+        var cycles = new List<IReadOnlyList<TerraformBlock>>();
+        var visited = new HashSet<TerraformBlock>();
+        var recursionStack = new HashSet<TerraformBlock>();
+        var path = new List<TerraformBlock>();
 
         foreach (var construct in _dependsOn.Keys)
         {
@@ -111,11 +111,11 @@ public sealed class DependencyGraph
     }
 
     private void FindCyclesRecursive(
-        TerraformConstruct construct,
-        HashSet<TerraformConstruct> visited,
-        HashSet<TerraformConstruct> recursionStack,
-        List<TerraformConstruct> path,
-        List<IReadOnlyList<TerraformConstruct>> cycles)
+        TerraformBlock construct,
+        HashSet<TerraformBlock> visited,
+        HashSet<TerraformBlock> recursionStack,
+        List<TerraformBlock> path,
+        List<IReadOnlyList<TerraformBlock>> cycles)
     {
         visited.Add(construct);
         recursionStack.Add(construct);
@@ -142,12 +142,12 @@ public sealed class DependencyGraph
     }
 
     /// <summary>
-    /// Performs a topological sort of the constructs.
-    /// Returns constructs in dependency order (dependencies before dependents).
+    /// Performs a topological sort of the blocks.
+    /// Returns blocks in dependency order (dependencies before dependents).
     /// </summary>
-    /// <returns>Topologically sorted constructs.</returns>
+    /// <returns>Topologically sorted blocks.</returns>
     /// <exception cref="TerraformStackException">Thrown if the graph contains cycles.</exception>
-    public IReadOnlyList<TerraformConstruct> TopologicalSort()
+    public IReadOnlyList<TerraformBlock> TopologicalSort()
     {
         if (HasCycles())
         {
@@ -157,8 +157,8 @@ public sealed class DependencyGraph
                 $"Cannot perform topological sort: circular dependency detected: {cycleDescription}");
         }
 
-        var result = new List<TerraformConstruct>();
-        var visited = new HashSet<TerraformConstruct>();
+        var result = new List<TerraformBlock>();
+        var visited = new HashSet<TerraformBlock>();
 
         foreach (var construct in _dependsOn.Keys)
         {
@@ -172,13 +172,13 @@ public sealed class DependencyGraph
     }
 
     private void TopologicalSortRecursive(
-        TerraformConstruct construct,
-        HashSet<TerraformConstruct> visited,
-        List<TerraformConstruct> result)
+        TerraformBlock construct,
+        HashSet<TerraformBlock> visited,
+        List<TerraformBlock> result)
     {
         visited.Add(construct);
 
-        // Visit all dependencies first (things this construct depends on)
+        // Visit all dependencies first (things this block depends on)
         foreach (var dependency in _dependsOn[construct])
         {
             if (!visited.Contains(dependency))
@@ -187,14 +187,14 @@ public sealed class DependencyGraph
             }
         }
 
-        // Add this construct after all its dependencies
+        // Add this block after all its dependencies
         result.Add(construct);
     }
 
     /// <summary>
-    /// Gets a string representation of a construct for error messages.
+    /// Gets a string representation of a block for error messages.
     /// </summary>
-    private static string GetConstructName(TerraformConstruct construct)
+    private static string GetConstructName(TerraformBlock construct)
     {
         var type = construct.GetType().Name;
         var nameProperty = construct.GetType().GetProperty("Name");
@@ -216,7 +216,7 @@ public sealed class DependencyGraph
     {
         var lines = new List<string>
         {
-            $"Dependency Graph: {_dependsOn.Count} constructs",
+            $"Dependency Graph: {_dependsOn.Count} blocks",
             ""
         };
 

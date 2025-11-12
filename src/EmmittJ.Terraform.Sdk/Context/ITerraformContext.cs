@@ -41,12 +41,12 @@ public interface ITerraformContext
     /// </summary>
     /// <param name="construct">The current construct.</param>
     /// <returns>A disposable that clears the current construct when disposed.</returns>
-    IDisposable SetCurrentConstruct(TerraformConstruct? construct);
+    IDisposable SetCurrentConstruct(TerraformBlock? construct);
 
     /// <summary>
     /// Records a dependency from the current construct to another construct.
     /// Called automatically when resolving references during the Prepare phase.
     /// </summary>
     /// <param name="dependency">The construct being depended upon.</param>
-    void RecordDependency(TerraformConstruct dependency);
+    void RecordDependency(TerraformBlock dependency);
 }

@@ -3,7 +3,8 @@
 using Aspire.Hosting;
 using EmmittJ.Aspire.Hosting.Terraform;
 using EmmittJ.Terraform.Sdk;
-using EmmittJ.Terraform.Sdk.Providers.AzureRM;
+// Note: Provider namespace temporarily removed until providers are regenerated
+// using EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 var builder = DistributedApplication.CreateBuilder(args);
 

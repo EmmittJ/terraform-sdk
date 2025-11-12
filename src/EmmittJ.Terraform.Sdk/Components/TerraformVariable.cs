@@ -1,20 +1,29 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform variable declaration.
+/// Represents a Terraform variable declaration - a top-level construct for input values.
+/// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
 /// </summary>
-public class TerraformVariable(string name) : TerraformConstruct
+/// <remarks>
+/// Input variables let you customize aspects of Terraform modules without altering
+/// the module's own source code. This functionality allows you to share modules across
+/// different Terraform configurations, making your module composable and reusable.
+/// </remarks>
+public partial class TerraformVariable : TerraformBlock
 {
     /// <summary>
     /// Gets the name of the variable.
     /// </summary>
-    public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
+    public string Name { get; }
 
-    /// <inheritdoc/>
-    public override string BlockType => "variable";
-
-    /// <inheritdoc/>
-    protected override string[] BlockLabels => [Name];
+    /// <summary>
+    /// Initializes a new instance of TerraformVariable.
+    /// </summary>
+    /// <param name="name">The variable name.</param>
+    public TerraformVariable(string name) : base("")
+    {
+        Name = name ?? throw new ArgumentNullException(nameof(name));
+    }
 
     /// <summary>
     /// Gets or sets the description of the variable.
@@ -53,7 +62,26 @@ public class TerraformVariable(string name) : TerraformConstruct
         set => SetPropertyValue("sensitive", value);
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Resolves to a TerraformConstructExpression representing the variable block.
+    /// Overrides the base Resolve() to return a construct expression instead of a map expression.
+    /// </summary>
+    /// <param name="ctx">The resolution context.</param>
+    /// <returns>A TerraformConstructExpression with block type "variable" and label [name].</returns>
+    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    {
+        // Get map expression from properties (via base.Resolve())
+        var bodyMap = base.Resolve(ctx);
+
+        // Wrap in construct expression with variable name
+        return new TerraformConstructExpression("variable", [Name], bodyMap);
+    }
+
+    /// <summary>
+    /// Generates a reference to this variable (e.g., "var.region").
+    /// Used when referencing this variable's value in other parts of the configuration.
+    /// </summary>
+    /// <returns>An identifier expression for this variable.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"var.{Name}");
 

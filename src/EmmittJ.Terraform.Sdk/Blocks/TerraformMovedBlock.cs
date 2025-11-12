@@ -9,7 +9,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Reference: https://developer.hashicorp.com/terraform/language/modules/develop/refactoring
 /// Requires: Terraform 1.1+
 /// </remarks>
-public class TerraformMovedBlock : TerraformConstruct
+public class TerraformMovedBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the previous address of the resource or module.
@@ -20,12 +20,6 @@ public class TerraformMovedBlock : TerraformConstruct
     /// Gets the new address of the resource or module.
     /// </summary>
     public string To { get; }
-
-    /// <inheritdoc/>
-    public override string BlockType => "moved";
-
-    /// <inheritdoc/>
-    protected override string[] BlockLabels => Array.Empty<string>();
 
     /// <summary>
     /// Creates a new moved block with the specified from and to addresses.
@@ -52,6 +46,20 @@ public class TerraformMovedBlock : TerraformConstruct
 
     [TerraformProperty("to")]
     public MovedAddressProperty ToProperty { get; set; }
+
+    /// <summary>
+    /// Resolves to a TerraformConstructExpression representing the moved block.
+    /// </summary>
+    /// <param name="ctx">The resolution context.</param>
+    /// <returns>A TerraformConstructExpression with block type "moved" and no labels.</returns>
+    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    {
+        // Get map expression from properties (via base.Resolve())
+        var bodyMap = base.Resolve(ctx);
+
+        // Wrap in construct expression with block type "moved" and no labels
+        return new TerraformConstructExpression("moved", [], bodyMap);
+    }
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()

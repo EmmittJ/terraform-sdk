@@ -13,7 +13,7 @@ public sealed class ValidationError
     /// <summary>
     /// Gets the construct where the error occurred, if applicable.
     /// </summary>
-    public TerraformConstruct? Construct { get; }
+    public TerraformBlock? Construct { get; }
 
     /// <summary>
     /// Gets the property name where the error occurred, if applicable.
@@ -35,7 +35,7 @@ public sealed class ValidationError
     public ValidationError(
         string message,
         ValidationSeverity severity = ValidationSeverity.Error,
-        TerraformConstruct? construct = null,
+        TerraformBlock? construct = null,
         string? propertyName = null)
     {
         Message = message ?? throw new ArgumentNullException(nameof(message));
@@ -53,12 +53,20 @@ public sealed class ValidationError
 
         if (Construct != null)
         {
-            parts.Add($"Construct: {Construct.BlockType}");
+            // Try to get BlockType property
+            var blockTypeProperty = Construct.GetType().GetProperty("BlockType");
+            var blockType = blockTypeProperty?.GetValue(Construct) as string ?? Construct.GetType().Name;
+            parts.Add($"Construct: {blockType}");
 
-            // Add the name if it's a NamedTerraformConstruct
-            if (Construct is NamedTerraformConstruct namedConstruct)
+            // Add the name if it has a ConstructName property
+            var nameProperty = Construct.GetType().GetProperty("ConstructName");
+            if (nameProperty != null)
             {
-                parts.Add($"Name: {namedConstruct.ConstructName}");
+                var name = nameProperty.GetValue(Construct);
+                if (name != null)
+                {
+                    parts.Add($"Name: {name}");
+                }
             }
         }
 

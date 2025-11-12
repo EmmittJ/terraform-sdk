@@ -1,18 +1,18 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a semantic reference to another Terraform construct.
+/// Represents a semantic reference to another Terraform block.
 /// This tracks relationships between constructs for dependency analysis and validation.
 /// Extends TerraformExpression so it can be stored directly while maintaining metadata.
 /// Records dependencies during Prepare and resolves to HCL string during ToHcl.
 /// </summary>
-public class TerraformReferenceExpression(TerraformConstruct source, string? propertyPath = null)
+public class TerraformReferenceExpression(TerraformBlock source, string? propertyPath = null)
     : TerraformExpression
 {
     /// <summary>
-    /// Gets the construct being referenced.
+    /// Gets the block being referenced.
     /// </summary>
-    public TerraformConstruct Source { get; } = source ?? throw new ArgumentNullException(nameof(source));
+    public TerraformBlock Source { get; } = source ?? throw new ArgumentNullException(nameof(source));
 
     /// <summary>
     /// Gets the optional property path (e.g., "endpoints.primary").

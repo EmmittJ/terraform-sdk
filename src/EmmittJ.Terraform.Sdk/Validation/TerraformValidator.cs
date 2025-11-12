@@ -12,7 +12,7 @@ public static class TerraformValidator
     /// </summary>
     /// <param name="construct">The construct to validate.</param>
     /// <returns>A validation result containing any errors found.</returns>
-    public static ValidationResult Validate(TerraformConstruct construct)
+    public static ValidationResult Validate(TerraformBlock construct)
     {
         ArgumentNullException.ThrowIfNull(construct);
 
@@ -49,7 +49,7 @@ public static class TerraformValidator
     /// </summary>
     /// <param name="construct">The construct to validate.</param>
     /// <exception cref="TerraformValidationException">Thrown when validation fails.</exception>
-    public static void ValidateAndThrow(TerraformConstruct construct)
+    public static void ValidateAndThrow(TerraformBlock construct)
     {
         var result = Validate(construct);
 
@@ -64,7 +64,7 @@ public static class TerraformValidator
     /// </summary>
     /// <param name="constructs">The constructs to validate.</param>
     /// <returns>A validation result containing all errors found across all constructs.</returns>
-    public static ValidationResult ValidateMany(IEnumerable<TerraformConstruct> constructs)
+    public static ValidationResult ValidateMany(IEnumerable<TerraformBlock> constructs)
     {
         ArgumentNullException.ThrowIfNull(constructs);
 
@@ -92,7 +92,7 @@ public static class TerraformValidator
     public static ValidationResult ValidateProperty(
         object? value,
         string propertyName,
-        TerraformConstruct construct,
+        TerraformBlock construct,
         IEnumerable<ValidationAttribute> validationAttributes)
     {
         ArgumentNullException.ThrowIfNull(propertyName);

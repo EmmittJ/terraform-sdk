@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 internal class TerraformResolveContext : ITerraformResolveContext
 {
-    public TerraformConstruct Scope { get; }
+    public object Scope { get; }
 
     /// <summary>
     /// Creates a new TerraformResolveContext from an ITerraformContext.
@@ -15,20 +15,19 @@ internal class TerraformResolveContext : ITerraformResolveContext
     public TerraformResolveContext(ITerraformContext? context)
     {
         // Try to get the scope from context
-        // TerraformContext.Scope is a TerraformStack, not a TerraformConstruct
-        // So we create a placeholder construct for resolution
-        Scope = CreatePlaceholderScope();
+        // TerraformContext.Scope is a TerraformStack
+        Scope = context?.Scope ?? CreatePlaceholderScope();
     }
 
     /// <summary>
     /// Creates a TerraformResolveContext with a specific scope.
     /// </summary>
-    public TerraformResolveContext(TerraformConstruct scope)
+    public TerraformResolveContext(object scope)
     {
         Scope = scope ?? throw new ArgumentNullException(nameof(scope));
     }
 
-    private static TerraformConstruct CreatePlaceholderScope()
+    private static object CreatePlaceholderScope()
     {
         // Create a minimal placeholder scope for cases where we don't have a real scope
         // This ensures the resolution can proceed even without full context

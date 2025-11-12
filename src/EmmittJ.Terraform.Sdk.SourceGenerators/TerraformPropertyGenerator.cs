@@ -326,7 +326,6 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
             }
         }
     }
-
     private static void GenerateSetter(StringBuilder sb, PropertyToGenerate property)
     {
         // Setter stores the value for serialization

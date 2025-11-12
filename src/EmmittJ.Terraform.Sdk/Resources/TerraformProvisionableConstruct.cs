@@ -66,16 +66,6 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
     public List<TerraformDynamicBlock> DynamicBlocks { get; } = new();
 
     /// <summary>
-    /// Preparation phase - prepares all meta-arguments and properties.
-    /// </summary>
-    public override void Prepare(ITerraformContext context)
-    {
-        base.Prepare(context);
-
-        // TerraformValue<T> structs don't need preparation - they're resolved during serialization
-    }
-
-    /// <summary>
     /// Writes meta-arguments to HCL (count, for_each, depends_on, provider, lifecycle).
     /// </summary>
     protected void WriteMetaArguments(System.Text.StringBuilder sb, ITerraformContext context)
