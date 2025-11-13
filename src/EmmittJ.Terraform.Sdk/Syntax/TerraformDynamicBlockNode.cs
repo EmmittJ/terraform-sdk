@@ -12,7 +12,7 @@ using System.Text;
 /// of an assignment. It extends TerraformSyntaxNode directly, not TerraformExpression, because
 /// dynamic blocks are block-level constructs that control structure, not value expressions.
 /// </remarks>
-public class TerraformDynamicBlockExpression : TerraformSyntaxNode
+public class TerraformDynamicBlockNode : TerraformSyntaxNode
 {
     private readonly string _blockType;
     private readonly TerraformExpression _forEach;
@@ -26,7 +26,7 @@ public class TerraformDynamicBlockExpression : TerraformSyntaxNode
     /// <param name="forEach">The collection to iterate over (must resolve to a collection)</param>
     /// <param name="content">The content of each generated block (must be a TerraformMapExpression)</param>
     /// <param name="iterator">Optional name for the iterator variable (defaults to blockType if null)</param>
-    public TerraformDynamicBlockExpression(
+    public TerraformDynamicBlockNode(
         string blockType,
         TerraformExpression forEach,
         TerraformMapExpression content,

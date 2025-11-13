@@ -133,7 +133,7 @@ public abstract class TerraformBlock : TerraformMap<object>
             // Check if the resolvable inside is a dynamic block - special handling
             if (terraformValue.Resolvable is TerraformDynamicBlock<TerraformBlock> dynamicBlock)
             {
-                // Dynamic blocks resolve to TerraformDynamicBlockExpression (a syntax node)
+                // Dynamic blocks resolve to TerraformDynamicBlockNode (a syntax node)
                 var dynamicBlockExpr = dynamicBlock.Resolve(context);
                 nodes.Add(dynamicBlockExpr);
             }

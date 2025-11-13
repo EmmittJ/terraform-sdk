@@ -111,7 +111,7 @@ public class DynamicBlockIntegrationTests
         var expression = dynamicBlock.Resolve(context);
 
         // Assert
-        Assert.IsType<TerraformDynamicBlockExpression>(expression);
+        Assert.IsType<TerraformDynamicBlockNode>(expression);
     }
 
     [Fact]

@@ -60,12 +60,12 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
         => throw new NotSupportedException("Dynamic blocks cannot be referenced.");
 
     /// <summary>
-    /// Resolves the dynamic block to a TerraformDynamicBlockExpression for rendering.
+    /// Resolves the dynamic block to a TerraformDynamicBlockNode for rendering.
     /// This converts the block model into the syntax node that generates HCL.
     /// </summary>
     /// <param name="context">The resolution context.</param>
-    /// <returns>A TerraformDynamicBlockExpression representing this dynamic block.</returns>
-    public TerraformDynamicBlockExpression Resolve(ITerraformContext context)
+    /// <returns>A TerraformDynamicBlockNode representing this dynamic block.</returns>
+    public TerraformDynamicBlockNode Resolve(ITerraformContext context)
     {
         // Resolve the forEach value to an expression
         var forEachNodes = ForEach.ResolveNodes(context).ToList();
@@ -86,7 +86,7 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
             }
         }
 
-        return new TerraformDynamicBlockExpression(
+        return new TerraformDynamicBlockNode(
             BlockTypeToGenerate,
             forEachExpr,
             contentMap,

@@ -295,9 +295,9 @@ public class TerraformMapExpression : TerraformExpression,
         foreach (var (key, value) in _properties.OrderBy(p => p.Key))
         {
             // Dynamic blocks are structural nodes, not value expressions - render as blocks
-            if (value is TerraformDynamicBlockExpression dynamicBlockExpr)
+            if (value is TerraformDynamicBlockNode dynamicBlockNode)
             {
-                sb.AppendLine(dynamicBlockExpr.ToHcl(context));
+                sb.AppendLine(dynamicBlockNode.ToHcl(context));
             }
             // All other values are expressions that can be rendered as arguments
             else if (value is TerraformExpression expr)
