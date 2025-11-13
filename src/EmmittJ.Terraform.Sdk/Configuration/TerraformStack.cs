@@ -73,20 +73,44 @@ public class TerraformStack
         // Render terraform block first if present
         if (_terraform != null)
         {
-            var terraformExpression = _terraform.Resolve(context);
-            sb.Append(terraformExpression.ToHcl(context));
+            if (_terraform is ITerraformSerializable serializable)
+            {
+                sb.Append(serializable.ToHcl(context));
+            }
+            else
+            {
+                var terraformExpression = _terraform.ResolveNodes(context).FirstOrDefault();
+                if (terraformExpression != null)
+                {
+                    sb.Append(terraformExpression.ToHcl(context));
+                }
+            }
+
             if (_blocks.Count > 0)
             {
                 sb.AppendLine();
             }
         }
 
-        // Render all blocks by resolving them to expressions first
+        // Render all blocks using node resolution
         foreach (var block in _blocks)
         {
-            var expression = block.Resolve(context);
-            sb.Append(expression.ToHcl(context));
-            sb.AppendLine();
+            if (block is ITerraformSerializable serializable)
+            {
+                // Some blocks still use ITerraformSerializable (e.g., TerraformSettings)
+                sb.Append(serializable.ToHcl(context));
+                sb.AppendLine();
+            }
+            else
+            {
+                // All blocks resolve to nodes - top-level blocks will resolve to TerraformTopLevelBlockNode
+                var nodes = block.ResolveNodes(context);
+                foreach (var node in nodes)
+                {
+                    sb.Append(node.ToHcl(context));
+                    sb.AppendLine();
+                }
+            }
         }
 
         return sb.ToString();

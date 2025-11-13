@@ -91,10 +91,12 @@ public static partial class Tf
         public static TerraformValue<string> CidrSubnet(TerraformValue<string> prefix, TerraformValue<int> newbits, TerraformValue<int> netnum)
         {
             return TerraformValue<string>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("cidrsubnet",
-                    prefix.Resolve(ctx),
-                    newbits.Resolve(ctx),
-                    netnum.Resolve(ctx)));
+            {
+                var prefixExpr = (TerraformExpression)prefix.ResolveNodes(ctx).First();
+                var newbitsExpr = (TerraformExpression)newbits.ResolveNodes(ctx).First();
+                var netnumExpr = (TerraformExpression)netnum.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("cidrsubnet", prefixExpr, newbitsExpr, netnumExpr)];
+            });
         }
 
         /// <summary>
@@ -106,7 +108,10 @@ public static partial class Tf
         public static TerraformValue<int> Length<T>(TerraformList<T> list)
         {
             return TerraformValue<int>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("length", list.Resolve(ctx)));
+            {
+                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("length", listExpr)];
+            });
         }
 
         /// <summary>
@@ -118,7 +123,10 @@ public static partial class Tf
         public static TerraformValue<int> Length<T>(TerraformMap<T> map)
         {
             return TerraformValue<int>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("length", map.Resolve(ctx)));
+            {
+                var mapExpr = (TerraformExpression)map.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("length", mapExpr)];
+            });
         }
 
         /// <summary>
@@ -130,7 +138,10 @@ public static partial class Tf
         public static TerraformValue<int> Length<T>(TerraformSet<T> set)
         {
             return TerraformValue<int>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("length", set.Resolve(ctx)));
+            {
+                var setExpr = (TerraformExpression)set.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("length", setExpr)];
+            });
         }
 
         /// <summary>
@@ -142,7 +153,10 @@ public static partial class Tf
         public static TerraformValue<int> Length(TerraformValue<string> str)
         {
             return TerraformValue<int>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("length", str.Resolve(ctx)));
+            {
+                var strExpr = (TerraformExpression)str.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("length", strExpr)];
+            });
         }
 
         /// <summary>
@@ -155,7 +169,11 @@ public static partial class Tf
         public static TerraformValue<T> Element<T>(TerraformList<T> list, TerraformValue<int> index)
         {
             return TerraformValue<T>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("element", list.Resolve(ctx), index.Resolve(ctx)));
+            {
+                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
+                var indexExpr = (TerraformExpression)index.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("element", listExpr, indexExpr)];
+            });
         }
 
         /// <summary>
@@ -168,7 +186,11 @@ public static partial class Tf
         public static TerraformValue<string> Join(TerraformValue<string> separator, TerraformList<string> list)
         {
             return TerraformValue<string>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("join", separator.Resolve(ctx), list.Resolve(ctx)));
+            {
+                var separatorExpr = (TerraformExpression)separator.ResolveNodes(ctx).First();
+                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("join", separatorExpr, listExpr)];
+            });
         }
 
         /// <summary>
@@ -183,12 +205,12 @@ public static partial class Tf
             return TerraformValue<string>.Lazy(ctx =>
             {
                 var allArgs = new TerraformExpression[arguments.Length + 1];
-                allArgs[0] = formatString.Resolve(ctx);
+                allArgs[0] = (TerraformExpression)formatString.ResolveNodes(ctx).First();
                 for (int i = 0; i < arguments.Length; i++)
                 {
-                    allArgs[i + 1] = arguments[i].Resolve(ctx);
+                    allArgs[i + 1] = (TerraformExpression)arguments[i].ResolveNodes(ctx).First();
                 }
-                return TerraformExpressionExtensions.Call("format", allArgs);
+                return [TerraformExpressionExtensions.Call("format", allArgs)];
             });
         }
 
@@ -203,9 +225,19 @@ public static partial class Tf
         public static TerraformValue<TValue> Lookup<TValue>(TerraformMap<TValue> map, TerraformValue<string> key, TerraformValue<TValue>? defaultValue = null)
         {
             return TerraformValue<TValue>.Lazy(ctx =>
-                defaultValue is null
-                    ? TerraformExpressionExtensions.Call("lookup", map.Resolve(ctx), key.Resolve(ctx))
-                    : TerraformExpressionExtensions.Call("lookup", map.Resolve(ctx), key.Resolve(ctx), defaultValue.Resolve(ctx)));
+            {
+                var mapExpr = (TerraformExpression)map.ResolveNodes(ctx).First();
+                var keyExpr = (TerraformExpression)key.ResolveNodes(ctx).First();
+                if (defaultValue is null)
+                {
+                    return [TerraformExpressionExtensions.Call("lookup", mapExpr, keyExpr)];
+                }
+                else
+                {
+                    var defaultExpr = (TerraformExpression)defaultValue.ResolveNodes(ctx).First();
+                    return [TerraformExpressionExtensions.Call("lookup", mapExpr, keyExpr, defaultExpr)];
+                }
+            });
         }
 
         /// <summary>
@@ -221,9 +253,9 @@ public static partial class Tf
                 var expressions = new TerraformExpression[lists.Length];
                 for (int i = 0; i < lists.Length; i++)
                 {
-                    expressions[i] = lists[i].Resolve(ctx);
+                    expressions[i] = (TerraformExpression)lists[i].ResolveNodes(ctx).First();
                 }
-                return TerraformExpressionExtensions.Call("concat", expressions);
+                return [TerraformExpressionExtensions.Call("concat", expressions)];
             });
         }
 
@@ -236,7 +268,10 @@ public static partial class Tf
         public static TerraformValue<string> File(TerraformValue<string> path)
         {
             return TerraformValue<string>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("file", path.Resolve(ctx)));
+            {
+                var pathExpr = (TerraformExpression)path.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("file", pathExpr)];
+            });
         }
 
         /// <summary>
@@ -248,7 +283,10 @@ public static partial class Tf
         public static TerraformList<int> Range(TerraformValue<int> max)
         {
             return TerraformList<int>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("range", max.Resolve(ctx)));
+            {
+                var maxExpr = (TerraformExpression)max.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("range", maxExpr)];
+            });
         }
 
         /// <summary>
@@ -261,7 +299,11 @@ public static partial class Tf
         public static TerraformList<int> Range(TerraformValue<int> start, TerraformValue<int> limit)
         {
             return TerraformList<int>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("range", start.Resolve(ctx), limit.Resolve(ctx)));
+            {
+                var startExpr = (TerraformExpression)start.ResolveNodes(ctx).First();
+                var limitExpr = (TerraformExpression)limit.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("range", startExpr, limitExpr)];
+            });
         }
 
         /// <summary>
@@ -275,7 +317,12 @@ public static partial class Tf
         public static TerraformList<int> Range(TerraformValue<int> start, TerraformValue<int> limit, TerraformValue<int> step)
         {
             return TerraformList<int>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("range", start.Resolve(ctx), limit.Resolve(ctx), step.Resolve(ctx)));
+            {
+                var startExpr = (TerraformExpression)start.ResolveNodes(ctx).First();
+                var limitExpr = (TerraformExpression)limit.ResolveNodes(ctx).First();
+                var stepExpr = (TerraformExpression)step.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("range", startExpr, limitExpr, stepExpr)];
+            });
         }
 
         /// <summary>
@@ -287,7 +334,10 @@ public static partial class Tf
         public static TerraformValue<string> ToString<T>(TerraformValue<T> value)
         {
             return TerraformValue<string>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("tostring", value.Resolve(ctx)));
+            {
+                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("tostring", valueExpr)];
+            });
         }
 
         /// <summary>
@@ -299,7 +349,10 @@ public static partial class Tf
         public static TerraformValue<double> ToNumber<T>(TerraformValue<T> value)
         {
             return TerraformValue<double>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("tonumber", value.Resolve(ctx)));
+            {
+                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("tonumber", valueExpr)];
+            });
         }
 
         /// <summary>
@@ -311,7 +364,10 @@ public static partial class Tf
         public static TerraformValue<bool> ToBool<T>(TerraformValue<T> value)
         {
             return TerraformValue<bool>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("tobool", value.Resolve(ctx)));
+            {
+                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("tobool", valueExpr)];
+            });
         }
 
         /// <summary>
@@ -323,7 +379,10 @@ public static partial class Tf
         public static TerraformList<T> ToList<T>(TerraformValue<T> value)
         {
             return TerraformList<T>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("tolist", value.Resolve(ctx)));
+            {
+                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("tolist", valueExpr)];
+            });
         }
 
         /// <summary>
@@ -335,7 +394,10 @@ public static partial class Tf
         public static TerraformList<T> ToList<T>(TerraformSet<T> set)
         {
             return TerraformList<T>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("tolist", set.Resolve(ctx)));
+            {
+                var setExpr = (TerraformExpression)set.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("tolist", setExpr)];
+            });
         }
 
         /// <summary>
@@ -347,7 +409,10 @@ public static partial class Tf
         public static TerraformMap<T> ToMap<T>(TerraformValue<T> value)
         {
             return TerraformMap<T>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("tomap", value.Resolve(ctx)));
+            {
+                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("tomap", valueExpr)];
+            });
         }
 
         /// <summary>
@@ -359,7 +424,10 @@ public static partial class Tf
         public static TerraformSet<T> ToSet<T>(TerraformValue<T> value)
         {
             return TerraformSet<T>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("toset", value.Resolve(ctx)));
+            {
+                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("toset", valueExpr)];
+            });
         }
 
         /// <summary>
@@ -371,7 +439,10 @@ public static partial class Tf
         public static TerraformSet<T> ToSet<T>(TerraformList<T> list)
         {
             return TerraformSet<T>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("toset", list.Resolve(ctx)));
+            {
+                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("toset", listExpr)];
+            });
         }
 
         /// <summary>
@@ -387,9 +458,9 @@ public static partial class Tf
                 var expressions = new TerraformExpression[maps.Length];
                 for (int i = 0; i < maps.Length; i++)
                 {
-                    expressions[i] = maps[i].Resolve(ctx);
+                    expressions[i] = (TerraformExpression)maps[i].ResolveNodes(ctx).First();
                 }
-                return TerraformExpressionExtensions.Call("merge", expressions);
+                return [TerraformExpressionExtensions.Call("merge", expressions)];
             });
         }
 
@@ -403,7 +474,11 @@ public static partial class Tf
         public static TerraformValue<int> Index<T>(TerraformList<T> list, TerraformValue<T> value)
         {
             return TerraformValue<int>.Lazy(ctx =>
-                TerraformExpressionExtensions.Call("index", list.Resolve(ctx), value.Resolve(ctx)));
+            {
+                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
+                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
+                return [TerraformExpressionExtensions.Call("index", listExpr, valueExpr)];
+            });
         }
 
         /// <summary>
@@ -420,9 +495,9 @@ public static partial class Tf
                 var expressions = new TerraformExpression[arguments.Length];
                 for (int i = 0; i < arguments.Length; i++)
                 {
-                    expressions[i] = arguments[i].Resolve(ctx);
+                    expressions[i] = (TerraformExpression)arguments[i].ResolveNodes(ctx).First();
                 }
-                return TerraformExpressionExtensions.Call(functionName, expressions);
+                return [TerraformExpressionExtensions.Call(functionName, expressions)];
             });
         }
     }

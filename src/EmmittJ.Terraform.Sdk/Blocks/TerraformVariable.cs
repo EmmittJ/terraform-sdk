@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -73,27 +75,21 @@ public partial class TerraformVariable : TerraformBlock, ITerraformTopLevelBlock
     }
 
     /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the variable block.
-    /// Overrides the base Resolve() to return a block expression instead of a map expression.
-    /// </summary>
-    /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformBlockExpression with block type "variable" and label [name].</returns>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with variable name
-        return new TerraformBlockExpression("variable", [Name], bodyMap);
-    }
-
-    /// <summary>
     /// Generates a reference to this variable (e.g., "var.region").
     /// Used when referencing this variable's value in other parts of the configuration.
     /// </summary>
     /// <returns>An identifier expression for this variable.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"var.{Name}");
+
+    /// <summary>
+    /// Resolves this variable to a top-level block node.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+    }
 
     /// <summary>
     /// Implicit conversion to TerraformExpression for natural reference usage.

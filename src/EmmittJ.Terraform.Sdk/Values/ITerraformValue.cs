@@ -12,9 +12,10 @@ public interface ITerraformValue
     bool HasValue { get; }
 
     /// <summary>
-    /// Resolve this value to a TerraformExpression.
+    /// Resolve this value to syntax nodes.
+    /// Values typically resolve to a single expression node.
     /// </summary>
     /// <param name="context">The resolution context.</param>
-    /// <returns>The resolved TerraformExpression.</returns>
-    TerraformExpression Resolve(ITerraformContext context);
+    /// <returns>The resolved syntax nodes.</returns>
+    IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context);
 }

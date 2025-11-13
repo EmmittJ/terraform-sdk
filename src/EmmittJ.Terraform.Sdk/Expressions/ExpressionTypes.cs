@@ -24,7 +24,7 @@ internal class TerraformIdentifierExpression<T> : TerraformExpression
         }
     }
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         // Dynamic identifier
         if (_resolver != null && _value != null)
@@ -59,7 +59,7 @@ internal class LiteralExpression<T>(T value) : TerraformExpression
 {
     private readonly T _value = value;
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         return _value switch
         {
@@ -109,7 +109,7 @@ internal class RawExpression(string hcl) : TerraformExpression
 {
     private readonly string _hcl = hcl ?? throw new ArgumentNullException(nameof(hcl));
 
-    public override string ToHcl(ITerraformContext? context = null) => _hcl;
+    public override string ToHcl(ITerraformContext context) => _hcl;
 
     public override bool Equals(object? obj)
     {
@@ -135,7 +135,7 @@ internal class BinaryExpression(TerraformExpression left, BinaryOperator op, Ter
     private readonly BinaryOperator _operator = op;
     private readonly TerraformExpression _right = right ?? throw new ArgumentNullException(nameof(right));
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         var opString = _operator switch
         {
@@ -183,7 +183,7 @@ internal class MemberAccessExpression(TerraformExpression obj, string member) : 
     private readonly TerraformExpression _object = obj ?? throw new ArgumentNullException(nameof(obj));
     private readonly string _member = member ?? throw new ArgumentNullException(nameof(member));
 
-    public override string ToHcl(ITerraformContext? context = null) => $"{_object.ToHcl(context)}.{_member}";
+    public override string ToHcl(ITerraformContext context) => $"{_object.ToHcl(context)}.{_member}";
 
     public override bool Equals(object? obj)
     {
@@ -209,7 +209,7 @@ internal class FunctionCallExpression(string functionName, params TerraformExpre
     private readonly string _functionName = functionName ?? throw new ArgumentNullException(nameof(functionName));
     private readonly TerraformExpression[] _arguments = arguments ?? throw new ArgumentNullException(nameof(arguments));
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         var args = string.Join(", ", _arguments.Select(a => a.ToHcl(context)));
         return $"{_functionName}({args})";
@@ -244,23 +244,23 @@ internal class FunctionCallExpression(string functionName, params TerraformExpre
 /// </summary>
 internal class ListExpression : TerraformExpression
 {
-    private readonly List<TerraformExpression> _elements = new();
+    private readonly List<TerraformSyntaxNode> _elements = new();
 
     public ListExpression() { }
 
-    public ListExpression(params TerraformExpression[] elements)
+    public ListExpression(params TerraformSyntaxNode[] elements)
     {
         _elements.AddRange(elements);
     }
 
-    public ListExpression(IEnumerable<TerraformExpression> elements)
+    public ListExpression(IEnumerable<TerraformSyntaxNode> elements)
     {
         _elements.AddRange(elements);
     }
 
-    public void Add(TerraformExpression element) => _elements.Add(element);
+    public void Add(TerraformSyntaxNode element) => _elements.Add(element);
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         if (_elements.Count == 0)
             return "[]";
@@ -313,7 +313,7 @@ internal class StringInterpolationExpression : TerraformExpression
         }
     }
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         var sb = new System.Text.StringBuilder("\"");
         foreach (var part in _parts)
@@ -424,7 +424,7 @@ internal class ForExpression : TerraformExpression
         _isMap = true;
     }
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         var iteratorPart = _keyVar != null ? $"{_keyVar}, {_itemVar}" : _itemVar;
         var conditionPart = _condition != null ? $" if {_condition.ToHcl(context)}" : "";
@@ -482,7 +482,7 @@ internal class ConditionalExpression(TerraformExpression condition, TerraformExp
     private readonly TerraformExpression _trueValue = trueValue;
     private readonly TerraformExpression _falseValue = falseValue;
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         return $"{_condition.ToHcl(context)} ? {_trueValue.ToHcl(context)} : {_falseValue.ToHcl(context)}";
     }
@@ -518,7 +518,7 @@ internal class SplatExpression : TerraformExpression
         _attribute = attribute ?? throw new ArgumentNullException(nameof(attribute));
     }
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         var baseExpr = $"{_source.ToHcl(context)}[*]";
         return _attribute != null ? $"{baseExpr}.{_attribute}" : baseExpr;
@@ -571,3 +571,4 @@ public static class TerraformExpressionExtensions
     public static TerraformExpression Splat(this TerraformExpression source, string attribute)
         => new SplatExpression(source, attribute);
 }
+

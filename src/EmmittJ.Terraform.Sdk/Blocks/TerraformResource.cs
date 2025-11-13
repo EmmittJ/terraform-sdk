@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -48,26 +50,19 @@ public partial class TerraformResource : TerraformBlock, ITerraformTopLevelBlock
     }
 
     /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the resource block.
-    /// Overrides the base Resolve() to return a block expression instead of a map expression.
-    /// </summary>
-    /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformBlockExpression with block type "resource" and labels [type, name].</returns>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with resource type and name
-        return new TerraformBlockExpression("resource",
-            [ResourceType, ResourceName], bodyMap);
-    }
-
-    /// <summary>
     /// Generates a reference to this resource (e.g., "aws_vpc.main").
     /// Used when referencing this resource's attributes in other parts of the configuration.
     /// </summary>
     /// <returns>An identifier expression for this resource.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"{ResourceType}.{ResourceName}");
+
+    /// <summary>
+    /// Resolves this resource to a top-level block node.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+    }
 }

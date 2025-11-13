@@ -69,7 +69,7 @@ internal class TerraformReferenceResolvable : ITerraformResolvable
         _attributeName = attributeName;
     }
 
-    public TerraformExpression Resolve(ITerraformContext context)
+    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         // Generate reference: resource_type.resource_name.attribute_name
         var reference = _block.AsReference();
@@ -81,9 +81,11 @@ internal class TerraformReferenceResolvable : ITerraformResolvable
             var identifier = reference.ToHcl(TerraformContext.Temporary());
 
             // Append attribute name
-            return TerraformExpression.Identifier($"{identifier}.{_attributeName}");
+            yield return TerraformExpression.Identifier($"{identifier}.{_attributeName}");
         }
-
-        return reference;
+        else
+        {
+            yield return reference;
+        }
     }
 }

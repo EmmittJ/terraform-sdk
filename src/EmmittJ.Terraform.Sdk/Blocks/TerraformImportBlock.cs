@@ -33,8 +33,18 @@ namespace EmmittJ.Terraform.Sdk;
 /// );
 /// </code>
 /// </example>
-public class TerraformImportBlock : TerraformBlock
+public class TerraformImportBlock : TerraformBlock, ITerraformTopLevelBlock
 {
+    /// <summary>
+    /// Gets the block type keyword for import blocks.
+    /// </summary>
+    public string BlockType => "import";
+
+    /// <summary>
+    /// Gets the block labels for this import block (none).
+    /// </summary>
+    public string[] BlockLabels => [];
+
     /// <summary>
     /// The resource address where the imported object should be placed in the state.
     /// Supports count/for_each indexing (e.g., "aws_instance.example[0]").
@@ -92,17 +102,12 @@ public class TerraformImportBlock : TerraformBlock
     public ImportAddressProperty? ProviderProperty { get; set; }
 
     /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the import block.
+    /// Resolves this import block to a top-level block node.
     /// </summary>
-    /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformBlockExpression with block type "import" and no labels.</returns>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with block type "import" and no labels
-        return new TerraformBlockExpression("import", [], bodyMap);
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
     }
 
     /// <inheritdoc/>
@@ -124,9 +129,9 @@ public class ImportAddressProperty : ITerraformResolvable
         _address = address;
     }
 
-    public TerraformExpression Resolve(ITerraformContext context)
+    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        return new ImportAddressExpression(_address);
+        yield return new ImportAddressExpression(_address);
     }
 }
 

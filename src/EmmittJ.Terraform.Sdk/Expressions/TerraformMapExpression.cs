@@ -6,28 +6,28 @@ using System.Diagnostics.CodeAnalysis;
 
 /// <summary>
 /// Represents a Terraform map with string keys and expression values.
-/// Provides an ergonomic API for building HCL maps without TerraformExpression.Raw.
+/// Provides an ergonomic API for building HCL maps without TerraformSyntaxNode.Raw.
 /// Similar to BicepDictionary in Azure.Provisioning.
 /// Supports collection initializer syntax and standard dictionary interfaces.
 /// </summary>
 public class TerraformMapExpression : TerraformExpression,
-    IDictionary<string, TerraformExpression>,
+    IDictionary<string, TerraformSyntaxNode>,
     IDictionary,
-    IReadOnlyDictionary<string, TerraformExpression>
+    IReadOnlyDictionary<string, TerraformSyntaxNode>
 {
-    protected readonly Dictionary<string, TerraformExpression> _properties = new();
+    protected readonly Dictionary<string, TerraformSyntaxNode> _properties = new();
 
     /// <summary>
     /// Creates a new empty TerraformMapExpression.
     /// </summary>
     public TerraformMapExpression() { }
 
-    #region IDictionary<string, TerraformExpression> Implementation
+    #region IDictionary<string, TerraformSyntaxNode> Implementation
 
     /// <summary>
-    /// Adds a property with a TerraformExpression value (for collection initializer syntax).
+    /// Adds a property with a TerraformSyntaxNode value (for collection initializer syntax).
     /// </summary>
-    public void Add(string key, TerraformExpression value)
+    public void Add(string key, TerraformSyntaxNode value)
     {
         _properties[key] = value ?? throw new ArgumentNullException(nameof(value));
     }
@@ -37,8 +37,8 @@ public class TerraformMapExpression : TerraformExpression,
     /// </summary>
     public void Add<T>(string key, T value)
     {
-        // Redirect to expression overload if this is a TerraformExpression
-        if (value is TerraformExpression expr)
+        // Redirect to expression overload if this is a TerraformSyntaxNode
+        if (value is TerraformSyntaxNode expr)
         {
             Add(key, expr);
             return;
@@ -50,7 +50,7 @@ public class TerraformMapExpression : TerraformExpression,
     /// <summary>
     /// Indexer to get/set properties.
     /// </summary>
-    public override TerraformExpression this[string key]
+    public new TerraformSyntaxNode this[string key]
     {
         get => _properties[key];
         set => _properties[key] = value;
@@ -69,7 +69,7 @@ public class TerraformMapExpression : TerraformExpression,
     /// <summary>
     /// Tries to get a property value.
     /// </summary>
-    public bool TryGetValue(string key, [MaybeNullWhen(false)] out TerraformExpression value)
+    public bool TryGetValue(string key, [MaybeNullWhen(false)] out TerraformSyntaxNode value)
         => _properties.TryGetValue(key, out value);
 
     /// <summary>
@@ -80,7 +80,7 @@ public class TerraformMapExpression : TerraformExpression,
     /// <summary>
     /// Gets the values in the dictionary.
     /// </summary>
-    public ICollection<TerraformExpression> Values => _properties.Values;
+    public ICollection<TerraformSyntaxNode> Values => _properties.Values;
 
     /// <summary>
     /// Gets the number of properties.
@@ -100,31 +100,31 @@ public class TerraformMapExpression : TerraformExpression,
     /// <summary>
     /// Adds a key-value pair.
     /// </summary>
-    void ICollection<KeyValuePair<string, TerraformExpression>>.Add(KeyValuePair<string, TerraformExpression> item)
+    void ICollection<KeyValuePair<string, TerraformSyntaxNode>>.Add(KeyValuePair<string, TerraformSyntaxNode> item)
         => Add(item.Key, item.Value);
 
     /// <summary>
     /// Checks if the dictionary contains a key-value pair.
     /// </summary>
-    bool ICollection<KeyValuePair<string, TerraformExpression>>.Contains(KeyValuePair<string, TerraformExpression> item)
-        => ((ICollection<KeyValuePair<string, TerraformExpression>>)_properties).Contains(item);
+    bool ICollection<KeyValuePair<string, TerraformSyntaxNode>>.Contains(KeyValuePair<string, TerraformSyntaxNode> item)
+        => ((ICollection<KeyValuePair<string, TerraformSyntaxNode>>)_properties).Contains(item);
 
     /// <summary>
     /// Copies the dictionary to an array.
     /// </summary>
-    void ICollection<KeyValuePair<string, TerraformExpression>>.CopyTo(KeyValuePair<string, TerraformExpression>[] array, int arrayIndex)
-        => ((ICollection<KeyValuePair<string, TerraformExpression>>)_properties).CopyTo(array, arrayIndex);
+    void ICollection<KeyValuePair<string, TerraformSyntaxNode>>.CopyTo(KeyValuePair<string, TerraformSyntaxNode>[] array, int arrayIndex)
+        => ((ICollection<KeyValuePair<string, TerraformSyntaxNode>>)_properties).CopyTo(array, arrayIndex);
 
     /// <summary>
     /// Removes a key-value pair.
     /// </summary>
-    bool ICollection<KeyValuePair<string, TerraformExpression>>.Remove(KeyValuePair<string, TerraformExpression> item)
-        => ((ICollection<KeyValuePair<string, TerraformExpression>>)_properties).Remove(item);
+    bool ICollection<KeyValuePair<string, TerraformSyntaxNode>>.Remove(KeyValuePair<string, TerraformSyntaxNode> item)
+        => ((ICollection<KeyValuePair<string, TerraformSyntaxNode>>)_properties).Remove(item);
 
     /// <summary>
     /// Gets the enumerator for the properties.
     /// </summary>
-    public IEnumerator<KeyValuePair<string, TerraformExpression>> GetEnumerator()
+    public IEnumerator<KeyValuePair<string, TerraformSyntaxNode>> GetEnumerator()
         => _properties.GetEnumerator();
 
     /// <summary>
@@ -134,10 +134,10 @@ public class TerraformMapExpression : TerraformExpression,
 
     #endregion
 
-    #region IReadOnlyDictionary<string, TerraformExpression> Implementation
+    #region IReadOnlyDictionary<string, TerraformSyntaxNode> Implementation
 
-    IEnumerable<string> IReadOnlyDictionary<string, TerraformExpression>.Keys => _properties.Keys;
-    IEnumerable<TerraformExpression> IReadOnlyDictionary<string, TerraformExpression>.Values => _properties.Values;
+    IEnumerable<string> IReadOnlyDictionary<string, TerraformSyntaxNode>.Keys => _properties.Keys;
+    IEnumerable<TerraformSyntaxNode> IReadOnlyDictionary<string, TerraformSyntaxNode>.Values => _properties.Values;
 
     #endregion
 
@@ -160,7 +160,7 @@ public class TerraformMapExpression : TerraformExpression,
             if (value is null)
                 throw new ArgumentNullException(nameof(value));
 
-            var expr = value as TerraformExpression ?? TerraformExpression.FromObject(value);
+            var expr = value as TerraformSyntaxNode ?? TerraformExpression.Literal(value);
             _properties[s] = expr;
         }
     }
@@ -172,7 +172,7 @@ public class TerraformMapExpression : TerraformExpression,
         if (value is null)
             throw new ArgumentNullException(nameof(value));
 
-        var expr = value as TerraformExpression ?? TerraformExpression.FromObject(value);
+        var expr = value as TerraformSyntaxNode ?? TerraformExpression.Literal(value);
         Add(s, expr);
     }
 
@@ -195,7 +195,7 @@ public class TerraformMapExpression : TerraformExpression,
     /// <summary>
     /// Gets a property value (returns null if not found).
     /// </summary>
-    public TerraformExpression? Get(string key)
+    public TerraformSyntaxNode? Get(string key)
     {
         return _properties.TryGetValue(key, out var value) ? value : null;
     }
@@ -228,7 +228,7 @@ public class TerraformMapExpression : TerraformExpression,
     /// <summary>
     /// Implicit conversion from Dictionary to TerraformMapExpression.
     /// </summary>
-    public static implicit operator TerraformMapExpression(Dictionary<string, TerraformExpression> dict)
+    public static implicit operator TerraformMapExpression(Dictionary<string, TerraformSyntaxNode> dict)
     {
         var obj = new TerraformMapExpression();
         foreach (var (key, value) in dict)
@@ -245,12 +245,15 @@ public class TerraformMapExpression : TerraformExpression,
     /// <summary>
     /// Preparation phase - prepares all nested expressions and records dependencies for references.
     /// </summary>
-    public override void Prepare(ITerraformContext context)
+    public new void Prepare(ITerraformContext context)
     {
         // Prepare any nested resolvable expressions
         foreach (var (_, expr) in _properties)
         {
-            expr.Prepare(context);
+            if (expr is ITerraformPreparable preparable)
+            {
+                preparable.Prepare(context);
+            }
         }
     }
 
@@ -258,13 +261,12 @@ public class TerraformMapExpression : TerraformExpression,
     /// Converts the object to HCL syntax with proper indentation.
     /// Uses context for indentation when available.
     /// </summary>
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         if (_properties.Count == 0)
         {
             return "{}";
         }
-        context ??= TerraformContext.Temporary(this);
 
         var sb = new System.Text.StringBuilder();
         sb.AppendLine("{");

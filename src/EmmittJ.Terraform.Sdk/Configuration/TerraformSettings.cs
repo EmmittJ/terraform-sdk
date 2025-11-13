@@ -32,10 +32,9 @@ public partial class TerraformSettings : TerraformBlock, ITerraformTopLevelBlock
 
     /// <summary>
     /// Gets or sets the backend configuration for remote state storage.
-    /// Backend is a block expression with a label.
+    /// This is a nested block, not a property.
     /// </summary>
-    [TerraformArgument("backend")]
-    public partial TerraformValue<TerraformBackend>? Backend { get; set; }
+    public TerraformBackend? Backend { get; set; }
 
     /// <summary>
     /// Gets or sets the cloud block configuration (for Terraform Cloud/Enterprise).
@@ -76,16 +75,10 @@ public partial class TerraformSettings : TerraformBlock, ITerraformTopLevelBlock
     }
 
     /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the terraform block.
+    /// Cannot generate reference to terraform settings blocks.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with "terraform" block type and no labels
-        return new TerraformBlockExpression("terraform", [], bodyMap);
-    }
+    public override TerraformExpression AsReference()
+        => throw new NotSupportedException("Terraform settings blocks cannot be referenced.");
 }
 
 /// <summary>

@@ -18,10 +18,10 @@ public abstract class TerraformBlock : TerraformMap<object>
 {
     /// <summary>
     /// Gets the Terraform block label (e.g., "timeouts", "tags").
-    /// This is set during blockion and used during HCL serialization.
-    /// For top-level blocks, this may be empty.
+    /// This is set during construction and used during HCL serialization.
+    /// For top-level blocks, this may be empty. Can be overridden by derived classes.
     /// </summary>
-    public string BlockLabel { get; }
+    internal protected virtual string? BlockLabel { get; }
 
     /// <summary>
     /// Initializes a new instance of TerraformBlock.
@@ -53,8 +53,8 @@ public abstract class TerraformBlock : TerraformMap<object>
         // because that would wrap the TerraformValue<int> instance itself as a literal object
         else if (value is ITerraformValue tfValue)
         {
-            // ITerraformValue has a Resolve method, so we can resolve and rewrap
-            this[terraformName] = TerraformValue<object>.Lazy(ctx => tfValue.Resolve(ctx));
+            // ITerraformValue is ITerraformResolvable, so we can resolve and rewrap
+            this[terraformName] = TerraformValue<object>.Lazy(ctx => tfValue.ResolveNodes(ctx));
         }
         // Handle ITerraformResolvable
         else if (value is ITerraformResolvable resolvable)
@@ -120,7 +120,48 @@ public abstract class TerraformBlock : TerraformMap<object>
     public virtual TerraformExpression AsReference()
         => TerraformExpression.Identifier(BlockLabel);
 
-    // Note: Resolve() is inherited from TerraformMap<object> and handles resolution automatically.
-    // The base implementation iterates the _elements dictionary and resolves each value to a TerraformExpression,
-    // then returns a MapExpression containing all the key-value pairs.
+    /// <summary>
+    /// Resolves this block to multiple syntax nodes (arguments + nested blocks).
+    /// Nodes are sorted by the context's formatter.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var nodes = new List<TerraformSyntaxNode>();
+
+        foreach (var (key, terraformValue) in _elements)
+        {
+            // Check if the resolvable inside is a nested block
+            if (terraformValue.Resolvable is TerraformBlock nestedBlock)
+            {
+                var blockNode = new TerraformBlockNode(
+                    nestedBlock.BlockLabel ?? key,
+                    nestedBlock.ResolveNodes(context)
+                );
+                nodes.Add(blockNode);
+            }
+            // Otherwise it's an argument value - resolve to expression
+            else
+            {
+                var resolvedNodes = terraformValue.ResolveNodes(context).ToList();
+
+                if (resolvedNodes.Count == 1 && resolvedNodes[0] is TerraformExpression expr)
+                {
+                    nodes.Add(new TerraformArgumentNode(key, expr));
+                }
+                else
+                {
+                    // Fallback: add all resolved nodes (shouldn't happen in normal cases)
+                    nodes.AddRange(resolvedNodes);
+                }
+            }
+        }
+
+        // Format nodes using the context's formatter
+        var formatted = context.Formatter.Format(nodes);
+
+        foreach (var node in formatted)
+        {
+            yield return node;
+        }
+    }
 }

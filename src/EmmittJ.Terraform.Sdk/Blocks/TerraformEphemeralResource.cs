@@ -5,33 +5,38 @@ namespace EmmittJ.Terraform.Sdk;
 /// Ephemeral resources are used for temporary credentials, tokens, and secrets
 /// that don't persist in the Terraform state file.
 /// </summary>
-public class TerraformEphemeralResource(string type, string name) : TerraformBlock("")
+public class TerraformEphemeralResource(string type, string name) : TerraformBlock(""), ITerraformTopLevelBlock
 {
     /// <summary>
     /// Gets the type of this ephemeral resource (e.g., "random_id").
     /// </summary>
-    public string BlockType { get; } = type ?? throw new ArgumentNullException(nameof(type));
+    public string ResourceType { get; } = type ?? throw new ArgumentNullException(nameof(type));
 
     /// <summary>
     /// Gets the name of this ephemeral resource.
     /// </summary>
-    public string BlockName { get; } = name ?? throw new ArgumentNullException(nameof(name));
+    public string ResourceName { get; } = name ?? throw new ArgumentNullException(nameof(name));
+
+    /// <summary>
+    /// Gets the block type keyword for ephemeral resources.
+    /// </summary>
+    public string BlockType => "ephemeral";
+
+    /// <summary>
+    /// Gets the block labels for this ephemeral resource.
+    /// </summary>
+    public string[] BlockLabels => [ResourceType, ResourceName];
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"ephemeral.{BlockType}.{BlockName}");
+        => TerraformExpression.Identifier($"ephemeral.{ResourceType}.{ResourceName}");
 
-    /// <inheritdoc/>
-    public override TerraformExpression Resolve(ITerraformContext context)
+    /// <summary>
+    /// Resolves this ephemeral resource to a top-level block node.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(context);
-
-        // Ephemeral resources use "ephemeral" block type
-        return new TerraformBlockExpression(
-            blockType: "ephemeral",
-            labels: [BlockType, BlockName],
-            body: bodyMap
-        );
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
     }
 }

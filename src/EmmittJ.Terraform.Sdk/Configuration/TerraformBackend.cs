@@ -3,15 +3,14 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Represents a Terraform backend configuration for remote state storage.
 /// Backends determine where Terraform stores its state data.
-/// This is a block expression for backend configuration.
 /// </summary>
-public class TerraformBackend : TerraformNestedBlockExpression
+public partial class TerraformBackend : TerraformBlock
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="TerraformBackend"/> class.
     /// </summary>
     /// <param name="type">The backend type (e.g., "s3", "azurerm", "remote", "local", "gcs").</param>
-    public TerraformBackend(string type)
+    public TerraformBackend(string type) : base("backend")
     {
         Type = type ?? throw new ArgumentNullException(nameof(type));
     }
@@ -22,28 +21,9 @@ public class TerraformBackend : TerraformNestedBlockExpression
     public string Type { get; }
 
     /// <summary>
-    /// Renders the backend as a labeled block: "type" { properties }
-    /// The parent block provides the "backend" keyword.
+    /// Cannot generate reference to backend blocks.
     /// </summary>
-    public override string ToHcl(ITerraformContext? context = null)
-    {
-        context ??= TerraformContext.Temporary(this);
-
-        if (_properties.Count == 0)
-        {
-            return $"\"{Type}\" {{}}";
-        }
-
-        var sb = new System.Text.StringBuilder();
-        sb.AppendLine($"\"{Type}\" {{");
-
-        using (context.PushIndent())
-        {
-            sb.Append(RenderProperties(context));
-        }
-        sb.Append($"{context.Indent}}}");
-
-        return sb.ToString();
-    }
+    public override TerraformExpression AsReference()
+        => throw new NotSupportedException("Backend blocks cannot be referenced.");
 }
 

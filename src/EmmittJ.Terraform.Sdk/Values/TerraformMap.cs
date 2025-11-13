@@ -10,8 +10,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <typeparam name="T">The value type (string, double, bool, TerraformBlock&lt;T&gt;, etc.)</typeparam>
 public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerable
 {
-    // Internal: Store values as TerraformValue<T> to preserve unknowns
-    private readonly Dictionary<string, TerraformValue<T>> _elements;
+    // Protected: Store values as TerraformValue<T> to preserve unknowns
+    // Protected to allow derived classes like TerraformBlock to access elements
+    protected readonly Dictionary<string, TerraformValue<T>> _elements;
 
     // Parameterless constructor for collection initializer syntax
     public TerraformMap()
@@ -55,16 +56,25 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
 
     /// <summary>
     /// Override resolution to handle nested TerraformValue&lt;T&gt; values.
+    /// Maps resolve to a single MapExpression node.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        var resolvedPairs = _elements.Select(kvp =>
-            new KeyValuePair<string, TerraformExpression>(
-                kvp.Key,
-                kvp.Value.Resolve(context)
-            ));
+        var resolvedPairs = new List<KeyValuePair<string, TerraformSyntaxNode>>();
 
-        return TerraformExpression.Map(resolvedPairs);
+        foreach (var kvp in _elements)
+        {
+            // Resolve the value - take first node as expression
+            var nodes = kvp.Value.ResolveNodes(context).ToList();
+            var expr = nodes.Count > 1 ? TerraformExpression.List(nodes) : nodes.FirstOrDefault();
+            if (expr is null)
+            {
+                continue;
+            }
+            resolvedPairs.Add(new KeyValuePair<string, TerraformSyntaxNode>(kvp.Key, expr));
+        }
+
+        yield return TerraformExpression.Map(resolvedPairs);
     }
 
     // Indexer for collection initializer syntax { ["key"] = value }
@@ -94,7 +104,7 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     public static implicit operator TerraformMap<T>(Dictionary<string, TerraformValue<T>> values)
         => new TerraformMap<T>(values);
 
-    // Implicit conversion from TerraformExpression
+    // Implicit conversion from ITerraformResolvable (like TerraformExpression)
     public static implicit operator TerraformMap<T>(TerraformExpression expression)
         => new TerraformMap<T>(expression);
 
@@ -102,9 +112,9 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     /// Creates a lazy TerraformMap that will be resolved at resolution time.
     /// The producer function is called during resolution to generate the final expression.
     /// </summary>
-    /// <param name="producer">A function that produces a TerraformExpression when called with a resolution context.</param>
+    /// <param name="producer">A function that produces a TerraformSyntaxNode when called with a resolution context.</param>
     /// <returns>A TerraformMap that wraps the lazy producer.</returns>
-    public static new TerraformMap<T> Lazy(Func<ITerraformContext, TerraformExpression> producer)
+    public static new TerraformMap<T> Lazy(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         => new TerraformLazyMap<T>(producer);
 
     // IEnumerable for collection initializer syntax (non-functional)
@@ -123,15 +133,15 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
 /// </summary>
 internal sealed class TerraformLazyMap<T> : TerraformMap<T>
 {
-    private readonly Func<ITerraformContext, TerraformExpression> _producer;
+    private readonly Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> _producer;
 
-    public TerraformLazyMap(Func<ITerraformContext, TerraformExpression> producer)
+    public TerraformLazyMap(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         : base()
     {
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
-    public override TerraformExpression Resolve(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         return _producer(context);
     }

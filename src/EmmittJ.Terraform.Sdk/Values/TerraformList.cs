@@ -54,13 +54,16 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     /// Override resolution to handle nested TerraformValue&lt;T&gt; elements.
     /// This preserves unknowns during serialization.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Resolve each element individually
-        var resolvedElements = _elements
-            .Select(e => e.Resolve(context))
-            .ToList();
-        return TerraformExpression.List((IEnumerable<TerraformExpression>)resolvedElements);
+        // Resolve each element individually - take first node as expression
+        var resolvedElements = new List<TerraformSyntaxNode>();
+        foreach (var e in _elements)
+        {
+            var nodes = e.ResolveNodes(context);
+            resolvedElements.AddRange(nodes);
+        }
+        yield return TerraformExpression.List(resolvedElements);
     }
 
     // Add method for collection initializer syntax
@@ -96,7 +99,7 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     /// </summary>
     /// <param name="producer">A function that produces a TerraformExpression when called with a resolution context.</param>
     /// <returns>A TerraformList that wraps the lazy producer.</returns>
-    public static new TerraformList<T> Lazy(Func<ITerraformContext, TerraformExpression> producer)
+    public static new TerraformList<T> Lazy(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         => new TerraformLazyList<T>(producer);
 
     // IEnumerable for collection initializer syntax (non-functional)
@@ -115,15 +118,15 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
 /// </summary>
 internal sealed class TerraformLazyList<T> : TerraformList<T>
 {
-    private readonly Func<ITerraformContext, TerraformExpression> _producer;
+    private readonly Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> _producer;
 
-    public TerraformLazyList(Func<ITerraformContext, TerraformExpression> producer)
+    public TerraformLazyList(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         : base()
     {
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
-    public override TerraformExpression Resolve(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         return _producer(context);
     }

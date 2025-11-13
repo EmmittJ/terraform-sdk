@@ -19,6 +19,11 @@ public class TerraformValue<T> : ITerraformValue
 {
     protected readonly ITerraformResolvable? _resolvable;
 
+    /// <summary>
+    /// Gets the underlying resolvable for internal use by the SDK.
+    /// </summary>
+    internal ITerraformResolvable? Resolvable => _resolvable;
+
     protected TerraformValue()
     {
         _resolvable = null;
@@ -35,12 +40,12 @@ public class TerraformValue<T> : ITerraformValue
     public bool HasValue => _resolvable != null;
 
     /// <summary>
-    /// Resolve this value to a TerraformExpression.
-    /// Note: Always returns TerraformExpression regardless of T.
+    /// Resolve this value to syntax nodes.
+    /// Values typically resolve to a single expression node.
     /// </summary>
     /// <param name="context">The resolution context.</param>
-    /// <returns>The resolved TerraformExpression.</returns>
-    public virtual TerraformExpression Resolve(ITerraformContext context)
+    /// <returns>The resolved syntax nodes.</returns>
+    public virtual IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         if (_resolvable == null)
         {
@@ -48,7 +53,7 @@ public class TerraformValue<T> : ITerraformValue
                 $"Cannot resolve {GetType().Name} - no resolvable value was provided. " +
                 "This may indicate a bug in the Terraform SDK.");
         }
-        return _resolvable.Resolve(context);
+        return _resolvable.ResolveNodes(context);
     }
 
     /// <summary>
@@ -57,7 +62,7 @@ public class TerraformValue<T> : ITerraformValue
     /// </summary>
     /// <param name="producer">A function that produces a TerraformExpression when called with a resolution context.</param>
     /// <returns>A TerraformValue that wraps the lazy producer.</returns>
-    public static TerraformValue<T> Lazy(Func<ITerraformContext, TerraformExpression> producer)
+    public static TerraformValue<T> Lazy(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         => new TerraformLazyValue<T>(producer);
 
     /// <summary>
@@ -96,19 +101,19 @@ public static class TerraformValue
 
 /// <summary>
 /// Represents a lazy Terraform value that will be computed during resolution.
-/// Internal implementation detail used by TerraformValue.Lazy() factory method.
+/// Internal implementation detail used by TerraformValue&lt;T&gt;.Lazy() factory method.
 /// </summary>
 internal class TerraformLazyValue<T> : TerraformValue<T>
 {
-    private readonly Func<ITerraformContext, TerraformExpression> _producer;
+    private readonly Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> _producer;
 
-    public TerraformLazyValue(Func<ITerraformContext, TerraformExpression> producer)
+    public TerraformLazyValue(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         : base()
     {
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
-    public override TerraformExpression Resolve(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         return _producer(context);
     }

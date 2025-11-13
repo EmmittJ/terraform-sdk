@@ -49,7 +49,7 @@ internal class IndexExpression : TerraformExpression
         }
     }
 
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
         var sourceHcl = _source.ToHcl(context);
         var indexHcl = _index.ToHcl(context);

@@ -14,7 +14,7 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
     /// Gets the block type name for blocks being generated (e.g., "ingress", "egress").
     /// Extracted from the Content block's BlockLabel.
     /// </summary>
-    public string BlockTypeToGenerate => Content.BlockLabel;
+    public string BlockTypeToGenerate => Content.BlockLabel ?? throw new InvalidOperationException("Dynamic block content must have a BlockLabel");
 
     /// <summary>
     /// Gets the strongly-typed content - this IS the block being generated.
@@ -54,27 +54,10 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
     }
 
     /// <summary>
-    /// Resolves the dynamic block to a TerraformDynamicBlockExpression.
+    /// Cannot generate reference to dynamic blocks.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Resolve the content and forEach to expressions
-        var contentExpr = Content.Resolve(ctx);
-        var forEachExpr = ForEach.Resolve(ctx);
-
-        // Content should be a TerraformMapExpression
-        if (contentExpr is not TerraformMapExpression mapExpr)
-        {
-            throw new InvalidOperationException(
-                $"Dynamic block content must resolve to a TerraformMapExpression, but got {contentExpr.GetType().Name}");
-        }
-
-        return new TerraformDynamicBlockExpression(
-            Content.BlockLabel,
-            forEachExpr,
-            mapExpr,
-            Iterator);
-    }
+    public override TerraformExpression AsReference()
+        => throw new NotSupportedException("Dynamic blocks cannot be referenced.");
 }
 
 /// <summary>

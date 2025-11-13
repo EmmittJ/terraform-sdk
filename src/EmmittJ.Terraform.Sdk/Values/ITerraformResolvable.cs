@@ -1,16 +1,22 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Base interface for anything that can be resolved to a TerraformExpression during synthesis.
-/// All resolvables produce expressions that can be serialized to HCL.
+/// Interface for types that can be resolved to Terraform syntax nodes.
 /// </summary>
+/// <remarks>
+/// Resolution is the second phase of two-phase compilation:
+/// 1. Prepare: Collect dependencies, validate structure
+/// 2. Resolve: Generate syntax nodes that will be rendered to HCL
+///
+/// Blocks return multiple nodes (properties + nested blocks).
+/// Values/expressions return single nodes.
+/// </remarks>
 public interface ITerraformResolvable
 {
     /// <summary>
-    /// Resolve this object to a TerraformExpression.
-    /// Called during the ToHcl phase.
+    /// Resolves this object to one or more Terraform syntax nodes.
     /// </summary>
-    /// <param name="context">The context provided during resolution.</param>
-    /// <returns>A TerraformExpression representing this resolvable value.</returns>
-    TerraformExpression Resolve(ITerraformContext context);
+    /// <param name="context">The resolution context for dependency tracking and indentation.</param>
+    /// <returns>Enumerable of syntax nodes representing this object's HCL structure.</returns>
+    IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context);
 }

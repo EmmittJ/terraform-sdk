@@ -23,8 +23,8 @@ internal class TerraformLiteralValue<T> : ITerraformResolvable
     /// </summary>
     /// <param name="context">The resolution context (unused for literals).</param>
     /// <returns>A LiteralExpression containing the literal value.</returns>
-    public TerraformExpression Resolve(ITerraformContext context)
+    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        return TerraformExpression.Literal(_value);
+        yield return TerraformExpression.Literal(_value);
     }
 }

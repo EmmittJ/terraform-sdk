@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -38,18 +40,6 @@ public class TerraformLocals : TerraformBlock, ITerraformTopLevelBlock
         get => TerraformExpression.Identifier($"local.{name}");
     }
 
-    /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the locals block.
-    /// </summary>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with "locals" block type and no labels
-        return new TerraformBlockExpression("locals", [], bodyMap);
-    }
-
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier("local");
@@ -61,4 +51,13 @@ public class TerraformLocals : TerraformBlock, ITerraformTopLevelBlock
     /// <returns>A reference expression to the local value.</returns>
     public TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"local.{name}");
+
+    /// <summary>
+    /// Resolves this locals block to a top-level block node.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+    }
 }

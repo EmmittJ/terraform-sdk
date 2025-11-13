@@ -7,7 +7,7 @@
 ### 🎯 Key Components
 
 - **EmmittJ.Terraform.Sdk**: Core SDK with polymorphic property system, expression trees, and HCL generation
-- **EmmittJ.Terraform.Sdk.Providers.***: Auto-generated provider-specific resources (AWS, Azure, GCP)
+- **EmmittJ.Terraform.Sdk.Providers.\***: Auto-generated provider-specific resources (AWS, Azure, GCP)
 - **EmmittJ.Terraform.Sdk.SourceGenerators**: Roslyn source generators for meta-arguments and properties
 - **EmmittJ.Terraform.Sdk.AppHost**: Code generation using Aspire to generate provider bindings
 - **EmmittJ.Aspire.Hosting.Terraform**: Integration with Aspire for deployment scenarios
@@ -17,7 +17,7 @@
 - **.NET 10.0** (specified in `global.json`) - preview features enabled
 - **C# 14** with preview features
 - **Source Generators** for compile-time code generation
--  **Verify** and **xUnit** for testing with Verify.Xunit for snapshot testing
+- **Verify** and **xUnit** for testing with Verify.Xunit for snapshot testing
 - **Aspire** for code generation orchestration
 - **Central Package Management** via `Directory.Packages.props`
 
@@ -55,6 +55,14 @@
 - ✅ Use proper grammar and complete sentences
 - ✅ Follow the patterns in existing code (e.g., `Tf.cs`, `TerraformStack.cs`)
 
+### Naming Conventions
+
+- ✅ **Public classes** must start with or contain **"Terraform"** (e.g., `TerraformResource`, `TerraformBlock`, `TerraformExpression`)
+- ✅ **Public interfaces** must start with **"ITerraform"** or contain **"Terraform"** (e.g., `ITerraformResolvable`, `ITerraformContext`, `ITerraformSerializable`)
+- ✅ This makes it immediately clear which types are part of the public Terraform SDK API
+- ❌ **Do NOT create** public classes or interfaces that don't follow this naming pattern
+- ❌ **Do NOT use** generic names like `Value`, `Block`, `Expression` without the "Terraform" prefix
+
 ## 🏗️ Architecture Principles
 
 ### Polymorphic Value System
@@ -66,12 +74,12 @@ The SDK uses a **polymorphic type system** with `TerraformValue<T>` to avoid nul
 public class TerraformValue<T> : ITerraformValue
 {
     protected readonly ITerraformResolvable? _resolvable;
-    
+
     public TerraformExpression Resolve(ITerraformContext context)
     {
         return _resolvable.Resolve(context);
     }
-    
+
     // Implicit conversion from literal values
     public static implicit operator TerraformValue<T>(T value)
         => new TerraformValue<T>(new TerraformLiteralValue<T>(value));
@@ -86,6 +94,7 @@ public class Property
 ```
 
 **Key Benefits**:
+
 - No null reference exceptions - each class only has needed fields
 - Compile-time type safety via generic `TerraformValue<T>`
 - No runtime type checking or switching
@@ -107,7 +116,7 @@ public class TerraformResource : TerraformBlock, ITerraformPreparable
     {
         // Register dependencies, validate references
     }
-    
+
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Generate HCL expression
@@ -207,6 +216,7 @@ aspire publish
 ```
 
 **Generated Code Locations**:
+
 - `src/providers/EmmittJ.Terraform.Sdk.Providers.Aws/` - AWS resources
 - `src/providers/EmmittJ.Terraform.Sdk.Providers.AzureRM/` - Azure resources
 - `src/providers/EmmittJ.Terraform.Sdk.Providers.Google/` - GCP resources
@@ -219,7 +229,7 @@ aspire publish
 
 ```csharp
 // ✅ Preferred: Map indexer syntax (current API)
-var vpc = new TerraformResource("aws_vpc", "main") 
+var vpc = new TerraformResource("aws_vpc", "main")
 {
     ["cidr_block"] = "10.0.0.0/16",
     ["enable_dns_hostnames"] = true
@@ -229,12 +239,12 @@ var vpc = new TerraformResource("aws_vpc", "main")
 ### References Between Resources
 
 ```csharp
-var vpc = new TerraformResource("aws_vpc", "main") 
+var vpc = new TerraformResource("aws_vpc", "main")
 {
     ["cidr_block"] = "10.0.0.0/16"
 }
 
-var subnet = new TerraformResource("aws_subnet", "public") 
+var subnet = new TerraformResource("aws_subnet", "public")
 {
     ["vpc_id"] = vpc["id"], // Creates "${aws_vpc.main.id}"
     ["cidr_block"] = "10.0.1.0/24"
@@ -400,6 +410,7 @@ var api = builder.AddProject<Projects.Api>("api")
 ```
 
 **Key Points**:
+
 - Only operates during `aspire publish` (not `dotnet run`)
 - Generates `main.tf` files in output directory
 - Integrates with Aspire's deployment pipeline

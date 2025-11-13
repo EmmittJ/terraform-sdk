@@ -63,6 +63,24 @@ public class MetaArgumentGenerator : IIncrementalGenerator
         if (!hasCount && !hasForEach && !hasDependsOn && !hasProvider && !hasLifecycle)
             return null;
 
+        // Check if base class also implements these interfaces
+        // If so, skip generation - the derived class will inherit the properties
+        var baseClass = classSymbol.BaseType;
+        if (baseClass is not null && baseClass.SpecialType != SpecialType.System_Object)
+        {
+            var baseInterfaces = baseClass.AllInterfaces;
+            var baseHasMetaArguments = baseInterfaces.Any(i =>
+                i.Name == CountInterfaceName ||
+                i.Name == ForEachInterfaceName ||
+                i.Name == DependsOnInterfaceName ||
+                i.Name == ProviderInterfaceName ||
+                i.Name == LifecycleInterfaceName);
+
+            // Don't generate - will inherit from base class
+            if (baseHasMetaArguments)
+                return null;
+        }
+
         return new ClassInfo(
             Namespace: classSymbol.ContainingNamespace.ToDisplayString(),
             ClassName: classSymbol.Name,

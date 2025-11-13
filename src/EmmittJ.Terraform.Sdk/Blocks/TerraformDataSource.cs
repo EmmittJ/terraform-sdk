@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -49,25 +51,19 @@ public partial class TerraformDataSource :
     }
 
     /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the data source block.
-    /// Overrides the base Resolve() to return a block expression instead of a map expression.
-    /// </summary>
-    /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformBlockExpression with block type "data" and labels [type, name].</returns>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with data source type and name
-        return new TerraformBlockExpression("data", [DataSourceType, DataSourceName], bodyMap);
-    }
-
-    /// <summary>
     /// Generates a reference to this data source (e.g., "data.aws_ami.ubuntu").
     /// Used when referencing this data source's attributes in other parts of the configuration.
     /// </summary>
     /// <returns>An identifier expression for this data source.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"data.{DataSourceType}.{DataSourceName}");
+
+    /// <summary>
+    /// Resolves this data source to a top-level block node.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+    }
 }

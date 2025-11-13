@@ -9,8 +9,18 @@ namespace EmmittJ.Terraform.Sdk;
 /// Reference: https://developer.hashicorp.com/terraform/language/modules/develop/refactoring
 /// Requires: Terraform 1.1+
 /// </remarks>
-public class TerraformMovedBlock : TerraformBlock
+public class TerraformMovedBlock : TerraformBlock, ITerraformTopLevelBlock
 {
+    /// <summary>
+    /// Gets the block type keyword for moved blocks.
+    /// </summary>
+    public string BlockType => "moved";
+
+    /// <summary>
+    /// Gets the block labels for this moved block (none).
+    /// </summary>
+    public string[] BlockLabels => [];
+
     /// <summary>
     /// Gets the previous address of the resource or module.
     /// </summary>
@@ -48,17 +58,12 @@ public class TerraformMovedBlock : TerraformBlock
     public MovedAddressProperty ToProperty { get; set; }
 
     /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the moved block.
+    /// Resolves this moved block to a top-level block node.
     /// </summary>
-    /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformBlockExpression with block type "moved" and no labels.</returns>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with block type "moved" and no labels
-        return new TerraformBlockExpression("moved", [], bodyMap);
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
     }
 
     /// <inheritdoc/>
@@ -81,10 +86,10 @@ public class MovedAddressProperty : ITerraformResolvable
         _address = address ?? throw new ArgumentNullException(nameof(address));
     }
 
-    public TerraformExpression Resolve(ITerraformContext context)
+    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         // Return a literal expression that renders without quotes
-        return new MovedAddressExpression(_address);
+        yield return new MovedAddressExpression(_address);
     }
 }
 

@@ -27,13 +27,8 @@ public class TerraformProviderMetaBlock : TerraformBlock
     }
 
     /// <summary>
-    /// Resolves to a labeled block expression: provider_meta "provider_name" { ... }
+    /// Cannot generate reference to provider_meta blocks.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        var bodyMap = base.Resolve(ctx);
-
-        // Create a labeled block: provider_meta "provider_name" { body }
-        return new TerraformBlockExpression("provider_meta", [ProviderName], bodyMap);
-    }
+    public override TerraformExpression AsReference()
+        => throw new NotSupportedException("Provider meta blocks cannot be referenced.");
 }

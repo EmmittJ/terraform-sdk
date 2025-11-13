@@ -1,13 +1,15 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Base class for all Terraform expressions (AST nodes).
-/// Expressions are syntax trees that can be rendered to HCL strings.
-/// They support optional context for indentation in multi-line structures.
-/// Implements ITerraformSerializable to support two-phase resolution (Prepare → ToHcl).
-/// Implements ITerraformResolvable so expressions can be directly assigned to TerraformValue&lt;T&gt;.
+/// Base class for all Terraform expressions (values, not structural elements).
+/// Expressions represent values that can appear on the right-hand side of assignments.
+/// They are a specialized type of syntax node.
 /// </summary>
-public abstract class TerraformExpression : ITerraformSerializable, ITerraformResolvable
+/// <remarks>
+/// Examples: literals, references, function calls, operators, conditionals
+/// Not examples: resource blocks, property assignments, nested blocks (those are BlockNode/ArgumentNode)
+/// </remarks>
+public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformSerializable, ITerraformResolvable
 {
     /// <summary>
     /// The assignment operator used when rendering properties.
@@ -26,20 +28,32 @@ public abstract class TerraformExpression : ITerraformSerializable, ITerraformRe
     }
 
     /// <summary>
-    /// Expressions resolve to themselves - they are already the final form.
-    /// This allows expressions to be directly assigned to TerraformValue&lt;T&gt; via implicit conversion.
+    /// Expressions resolve to themselves (single node).
+    /// Implements ITerraformResolvable - expressions are already resolved.
     /// </summary>
     /// <param name="context">The resolution context (unused for expressions).</param>
-    /// <returns>This expression instance.</returns>
-    public virtual TerraformExpression Resolve(ITerraformContext context) => this;
+    /// <returns>Enumerable containing this expression as a single node.</returns>
+    public virtual IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        yield return this;
+    }
 
     /// <summary>
-    /// Converts expression to HCL string with optional context for indentation.
+    /// Converts expression to HCL string with context for indentation.
     /// Context provides indentation level for multi-line structures like objects and lists.
-    /// When context is null, renders without indentation tracking.
     /// Derived classes must implement this method to provide HCL rendering.
+    /// Overrides the abstract method from TerraformSyntaxNode.
     /// </summary>
-    public abstract string ToHcl(ITerraformContext? context = null);
+    public abstract override string ToHcl(ITerraformContext context);
+
+    /// <summary>
+    /// Explicit implementation of ITerraformSerializable.ToHcl to handle nullable context parameter.
+    /// Delegates to the non-nullable ToHcl method with a temporary context if needed.
+    /// </summary>
+    string ITerraformSerializable.ToHcl(ITerraformContext? context)
+    {
+        return ToHcl(context ?? TerraformContext.Temporary(this));
+    }
 
     public override string ToString()
         => throw new NotImplementedException("Use ToHcl() to render the expression to HCL string.");
@@ -65,31 +79,31 @@ public abstract class TerraformExpression : ITerraformSerializable, ITerraformRe
     /// <summary>
     /// Creates a list literal expression.
     /// </summary>
-    public static TerraformExpression List(params TerraformExpression[] elements) => new ListExpression(elements);
+    public static TerraformExpression List(params TerraformSyntaxNode[] elements) => new ListExpression(elements);
 
     /// <summary>
     /// Creates a list literal expression.
     /// </summary>
-    public static TerraformExpression List(IEnumerable<TerraformExpression> elements) => new ListExpression(elements);
+    public static TerraformExpression List(IEnumerable<TerraformSyntaxNode> elements) => new ListExpression(elements);
 
     /// <summary>
     /// Creates a set literal expression.
     /// Terraform sets are unordered collections of unique values.
     /// </summary>
-    public static TerraformExpression Set(params TerraformExpression[] elements) => new ListExpression(elements);
+    public static TerraformExpression Set(params TerraformSyntaxNode[] elements) => new ListExpression(elements);
 
     /// <summary>
     /// Creates a set literal expression.
     /// Terraform sets are unordered collections of unique values.
     /// Note: In HCL, sets use the same syntax as lists. The type system distinguishes them.
     /// </summary>
-    public static TerraformExpression Set(IEnumerable<TerraformExpression> elements) => new ListExpression(elements);
+    public static TerraformExpression Set(IEnumerable<TerraformSyntaxNode> elements) => new ListExpression(elements);
 
     /// <summary>
     /// Creates a map literal expression from key-value pairs.
     /// Example: Map(new[] { KeyValuePair.Create("key1", expr1), KeyValuePair.Create("key2", expr2) })
     /// </summary>
-    public static TerraformExpression Map(IEnumerable<KeyValuePair<string, TerraformExpression>>? pairs = null)
+    public static TerraformExpression Map(IEnumerable<KeyValuePair<string, TerraformSyntaxNode>>? pairs = null)
     {
         var map = new TerraformMapExpression();
         if (pairs != null)

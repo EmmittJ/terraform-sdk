@@ -44,6 +44,9 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     /// <inheritdoc/>
     public string Indent { get; private set; } = string.Empty;
 
+    /// <inheritdoc/>
+    public ITerraformNodeFormatter Formatter { get; } = new TerraformNodeFormatter();
+
     /// <summary>
     /// Gets the dependency graph being built during the Prepare phase.
     /// </summary>

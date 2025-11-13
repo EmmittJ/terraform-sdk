@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -55,25 +57,19 @@ public partial class TerraformModule :
     public TerraformValue<string>? Version { get; set; }
 
     /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the module block.
-    /// Overrides the base Resolve() to return a block expression instead of a map expression.
-    /// </summary>
-    /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformBlockExpression with block type "module" and label [name].</returns>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with module name
-        return new TerraformBlockExpression("module", [Name], bodyMap);
-    }
-
-    /// <summary>
     /// Generates a reference to this module (e.g., "module.vpc").
     /// Used when referencing this module's outputs in other parts of the configuration.
     /// </summary>
     /// <returns>An identifier expression for this module.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"module.{Name}");
+
+    /// <summary>
+    /// Resolves this module to a top-level block node.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+    }
 }

@@ -27,6 +27,11 @@ public interface ITerraformContext
     string Indent { get; }
 
     /// <summary>
+    /// Gets the node formatter for sorting and formatting syntax nodes.
+    /// </summary>
+    ITerraformNodeFormatter Formatter { get; }
+
+    /// <summary>
     /// Increases the indentation level and returns a disposable that will decrease it when disposed.
     /// Use with 'using' statement for automatic indent management.
     /// </summary>

@@ -108,15 +108,25 @@ public static class TerraformValueResolver
     /// </summary>
     private static TerraformExpression ResolveResolvableValue(ITerraformResolvable resolvable, ITerraformContext context)
     {
-        return resolvable.Resolve(context);
+        var nodes = resolvable.ResolveNodes(context).ToList();
+        if (nodes.Count == 1 && nodes[0] is TerraformExpression expr)
+        {
+            return expr;
+        }
+        throw new InvalidOperationException($"Resolvable resolved to {nodes.Count} nodes instead of single expression");
     }
 
     /// <summary>
-    /// Resolves a TerraformValue&lt;T&gt; using its Resolve method via interface.
+    /// Resolves a TerraformValue&lt;T&gt; using its ResolveNodes method via interface.
     /// </summary>
     private static TerraformExpression ResolveTerraformValue(ITerraformValue terraformValue, ITerraformContext context)
     {
-        return terraformValue.Resolve(context);
+        var nodes = terraformValue.ResolveNodes(context).ToList();
+        if (nodes.Count == 1 && nodes[0] is TerraformExpression expr)
+        {
+            return expr;
+        }
+        throw new InvalidOperationException($"TerraformValue resolved to {nodes.Count} nodes instead of single expression");
     }
 
     private static TerraformExpression ResolveEnumerable(IEnumerable enumerable, ITerraformContext context)

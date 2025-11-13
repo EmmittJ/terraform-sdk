@@ -53,12 +53,16 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     /// <summary>
     /// Override resolution to handle nested TerraformValue&lt;T&gt; elements.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        var resolvedElements = _elements
-            .Select(e => e.Resolve(context))
-            .ToList();
-        return TerraformExpression.Set((IEnumerable<TerraformExpression>)resolvedElements);
+        var resolvedElements = new List<TerraformSyntaxNode>();
+        foreach (var e in _elements)
+        {
+            // Take first resolved node as expression - values should resolve to single expression nodes
+            var nodes = e.ResolveNodes(context);
+            resolvedElements.AddRange(nodes);
+        }
+        yield return TerraformExpression.Set(resolvedElements);
     }
 
     // Add method for collection initializer syntax
@@ -97,7 +101,7 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     /// </summary>
     /// <param name="producer">A function that produces a TerraformExpression when called with a resolution context.</param>
     /// <returns>A TerraformSet that wraps the lazy producer.</returns>
-    public static new TerraformSet<T> Lazy(Func<ITerraformContext, TerraformExpression> producer)
+    public static new TerraformSet<T> Lazy(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         => new TerraformLazySet<T>(producer);
 
     // IEnumerable for collection initializer syntax (non-functional)
@@ -116,15 +120,15 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
 /// </summary>
 internal sealed class TerraformLazySet<T> : TerraformSet<T>
 {
-    private readonly Func<ITerraformContext, TerraformExpression> _producer;
+    private readonly Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> _producer;
 
-    public TerraformLazySet(Func<ITerraformContext, TerraformExpression> producer)
+    public TerraformLazySet(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
         : base()
     {
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     }
 
-    public override TerraformExpression Resolve(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         return _producer(context);
     }

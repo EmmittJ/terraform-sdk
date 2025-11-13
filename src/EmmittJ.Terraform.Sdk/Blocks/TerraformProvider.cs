@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -41,25 +43,19 @@ public partial class TerraformProvider : TerraformBlock, ITerraformTopLevelBlock
     public TerraformValue<string>? Alias { get; set; }
 
     /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the provider block.
-    /// Overrides the base Resolve() to return a block expression instead of a map expression.
-    /// </summary>
-    /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformBlockExpression with block type "provider" and label [name].</returns>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with provider name
-        return new TerraformBlockExpression("provider", [Name], bodyMap);
-    }
-
-    /// <summary>
     /// Generates a reference to this provider.
     /// Used when specifying provider configuration in resources or data sources.
     /// </summary>
     /// <returns>An identifier expression for this provider.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier(Name);
+
+    /// <summary>
+    /// Resolves this provider to a top-level block node.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+    }
 }

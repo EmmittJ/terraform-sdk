@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -64,29 +66,13 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
     }
 
     /// <summary>
-    /// Gets the list of preconditions to validate before using this output.
+    /// Adds a precondition to validate before using this output.
     /// Preconditions allow you to validate assumptions about the output value.
     /// </summary>
-    public List<TerraformCondition> Preconditions { get; } = new();
-
-    /// <summary>
-    /// Resolves to a TerraformBlockExpression representing the output block.
-    /// Overrides the base Resolve() to return a block expression instead of a map expression.
-    /// </summary>
-    /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformBlockExpression with block type "output" and label [name].</returns>
-    public override TerraformExpression Resolve(ITerraformContext ctx)
+    public void AddPrecondition(string condition, string errorMessage)
     {
-        if (GetPropertyValue<TerraformValue<object>?>("value") == null)
-        {
-            throw new InvalidOperationException($"Output '{Name}' must have a value set before it can be synthesized. Use the Value property to set the output value.");
-        }
-
-        // Get map expression from properties (via base.Resolve())
-        var bodyMap = base.Resolve(ctx);
-
-        // Wrap in block expression with output name
-        return new TerraformBlockExpression("output", [Name], bodyMap);
+        var precondition = new TerraformConditionBlock("precondition", condition, errorMessage);
+        this[$"precondition_{Guid.NewGuid():N}"] = precondition;
     }
 
     /// <summary>
@@ -96,6 +82,20 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
     /// <returns>An identifier expression for this output.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"output.{Name}");
+
+    /// <summary>
+    /// Resolves this output to a top-level block node.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        if (GetPropertyValue<TerraformValue<object>?>("value") == null)
+        {
+            throw new InvalidOperationException($"Output '{Name}' must have a value set before it can be synthesized. Use the Value property to set the output value.");
+        }
+
+        var children = base.ResolveNodes(context).ToList();
+        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+    }
 
     /// <summary>
     /// Implicit conversion to TerraformExpression for natural reference usage.
