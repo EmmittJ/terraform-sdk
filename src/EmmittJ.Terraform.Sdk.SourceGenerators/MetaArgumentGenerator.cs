@@ -20,6 +20,7 @@ public class MetaArgumentGenerator : IIncrementalGenerator
     private const string DependsOnInterfaceName = "ITerraformHasDependsOn";
     private const string ProviderInterfaceName = "ITerraformHasProvider";
     private const string LifecycleInterfaceName = "ITerraformHasLifecycle";
+    private const string ProvidersInterfaceName = "ITerraformHasProviders";
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -58,9 +59,10 @@ public class MetaArgumentGenerator : IIncrementalGenerator
         var hasDependsOn = interfaces.Any(i => i.Name == DependsOnInterfaceName);
         var hasProvider = interfaces.Any(i => i.Name == ProviderInterfaceName);
         var hasLifecycle = interfaces.Any(i => i.Name == LifecycleInterfaceName);
+        var hasProviders = interfaces.Any(i => i.Name == ProvidersInterfaceName);
 
         // Only generate if at least one marker interface is implemented
-        if (!hasCount && !hasForEach && !hasDependsOn && !hasProvider && !hasLifecycle)
+        if (!hasCount && !hasForEach && !hasDependsOn && !hasProvider && !hasLifecycle && !hasProviders)
             return null;
 
         // Check if base class also implements these interfaces
@@ -74,7 +76,8 @@ public class MetaArgumentGenerator : IIncrementalGenerator
                 i.Name == ForEachInterfaceName ||
                 i.Name == DependsOnInterfaceName ||
                 i.Name == ProviderInterfaceName ||
-                i.Name == LifecycleInterfaceName);
+                i.Name == LifecycleInterfaceName ||
+                i.Name == ProvidersInterfaceName);
 
             // Don't generate - will inherit from base class
             if (baseHasMetaArguments)
@@ -88,7 +91,8 @@ public class MetaArgumentGenerator : IIncrementalGenerator
             HasForEach: hasForEach,
             HasDependsOn: hasDependsOn,
             HasProvider: hasProvider,
-            HasLifecycle: hasLifecycle);
+            HasLifecycle: hasLifecycle,
+            HasProviders: hasProviders);
     }
 
     private static void Execute(SourceProductionContext context, ClassInfo classInfo)
@@ -186,6 +190,22 @@ public class MetaArgumentGenerator : IIncrementalGenerator
             sb.AppendLine();
         }
 
+        // Generate Providers property
+        if (classInfo.HasProviders)
+        {
+            sb.AppendLine("        private System.Collections.Generic.Dictionary<string, string>? _providers;");
+            sb.AppendLine();
+            sb.AppendLine("        /// <summary>");
+            sb.AppendLine("        /// Gets the provider mappings for this module.");
+            sb.AppendLine("        /// Maps child module provider configuration names to parent provider configuration references.");
+            sb.AppendLine("        /// </summary>");
+            sb.AppendLine("        public System.Collections.Generic.Dictionary<string, string> Providers");
+            sb.AppendLine("        {");
+            sb.AppendLine("            get => _providers ??= new System.Collections.Generic.Dictionary<string, string>();");
+            sb.AppendLine("        }");
+            sb.AppendLine();
+        }
+
         sb.AppendLine("    }");
         sb.AppendLine("}");
 
@@ -199,5 +219,6 @@ public class MetaArgumentGenerator : IIncrementalGenerator
         bool HasForEach,
         bool HasDependsOn,
         bool HasProvider,
-        bool HasLifecycle);
+        bool HasLifecycle,
+        bool HasProviders);
 }

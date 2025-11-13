@@ -75,12 +75,59 @@ public partial class TerraformVariable : TerraformBlock, ITerraformTopLevelBlock
     }
 
     /// <summary>
+    /// Gets or sets whether the variable can be null.
+    /// When false, the variable must have a non-null value.
+    /// Default: true
+    /// </summary>
+    public TerraformValue<bool>? Nullable
+    {
+        get => GetPropertyValue<TerraformValue<bool>?>("nullable");
+        set => SetPropertyValue("nullable", value);
+    }
+
+    /// <summary>
+    /// Gets or sets whether the variable is ephemeral.
+    /// Ephemeral variables are available during runtime but omitted from state and plan files.
+    /// Available in Terraform v1.10 and later.
+    /// Default: false
+    /// </summary>
+    public TerraformValue<bool>? Ephemeral
+    {
+        get => GetPropertyValue<TerraformValue<bool>?>("ephemeral");
+        set => SetPropertyValue("ephemeral", value);
+    }
+
+    /// <summary>
+    /// Gets the list of validation blocks for this variable.
+    /// Each validation block contains a condition and error_message.
+    /// </summary>
+    public TerraformList<TerraformConditionBlock> Validations
+    {
+        get => GetPropertyValue<TerraformList<TerraformConditionBlock>?>("validation") ?? new TerraformList<TerraformConditionBlock>();
+        set => SetPropertyValue("validation", value);
+    }
+
+    /// <summary>
     /// Generates a reference to this variable (e.g., "var.region").
     /// Used when referencing this variable's value in other parts of the configuration.
     /// </summary>
     /// <returns>An identifier expression for this variable.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"var.{Name}");
+
+    /// <summary>
+    /// Adds a validation block to this variable.
+    /// </summary>
+    /// <param name="condition">The condition expression that must evaluate to true.</param>
+    /// <param name="errorMessage">The error message to display if the condition is false.</param>
+    /// <returns>This variable instance for fluent chaining.</returns>
+    public TerraformVariable AddValidation(string condition, string errorMessage)
+    {
+        var validations = Validations;
+        validations.Add(new TerraformConditionBlock("validation", condition, errorMessage));
+        Validations = validations;
+        return this;
+    }
 
     /// <summary>
     /// Resolves this variable to a top-level block node.

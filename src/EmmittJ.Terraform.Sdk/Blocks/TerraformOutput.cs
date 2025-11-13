@@ -66,13 +66,26 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
     }
 
     /// <summary>
-    /// Adds a precondition to validate before using this output.
-    /// Preconditions allow you to validate assumptions about the output value.
+    /// Gets or sets whether the output is ephemeral.
+    /// Ephemeral outputs pass data between modules without persisting to state or plan files.
+    /// Only applicable to child module outputs (not root module).
+    /// Available in Terraform v1.10 and later.
+    /// Default: false
     /// </summary>
-    public void AddPrecondition(string condition, string errorMessage)
+    public TerraformValue<bool>? Ephemeral
     {
-        var precondition = new TerraformConditionBlock("precondition", condition, errorMessage);
-        this[$"precondition_{Guid.NewGuid():N}"] = precondition;
+        get => GetPropertyValue<TerraformValue<bool>?>("ephemeral");
+        set => SetPropertyValue("ephemeral", value);
+    }
+
+    /// <summary>
+    /// Gets the list of precondition blocks for this output.
+    /// Preconditions validate the output value before exposing or storing it in state.
+    /// </summary>
+    public TerraformList<TerraformConditionBlock> Preconditions
+    {
+        get => GetPropertyValue<TerraformList<TerraformConditionBlock>?>("precondition") ?? new TerraformList<TerraformConditionBlock>();
+        set => SetPropertyValue("precondition", value);
     }
 
     /// <summary>
@@ -82,6 +95,20 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
     /// <returns>An identifier expression for this output.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"output.{Name}");
+
+    /// <summary>
+    /// Adds a precondition block to this output.
+    /// </summary>
+    /// <param name="condition">The condition expression that must evaluate to true.</param>
+    /// <param name="errorMessage">The error message to display if the condition is false.</param>
+    /// <returns>This output instance for fluent chaining.</returns>
+    public TerraformOutput AddPrecondition(string condition, string errorMessage)
+    {
+        var preconditions = Preconditions;
+        preconditions.Add(new TerraformConditionBlock("precondition", condition, errorMessage));
+        Preconditions = preconditions;
+        return this;
+    }
 
     /// <summary>
     /// Resolves this output to a top-level block node.

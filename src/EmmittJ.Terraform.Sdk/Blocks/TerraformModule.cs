@@ -16,6 +16,7 @@ public partial class TerraformModule :
     ITerraformHasDependsOn,
     ITerraformHasCount,
     ITerraformHasForEach,
+    ITerraformHasProviders,
     ITerraformTopLevelBlock
 {
     /// <summary>

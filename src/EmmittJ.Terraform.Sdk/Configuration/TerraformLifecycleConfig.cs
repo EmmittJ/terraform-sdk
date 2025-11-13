@@ -15,24 +15,4 @@ public class TerraformLifecycleConfig : TerraformBlock
     }
 
     protected internal override string? BlockLabel => "lifecycle";
-
-    /// <summary>
-    /// Adds a precondition to validate before applying changes.
-    /// Preconditions are checked before Terraform applies the resource configuration.
-    /// </summary>
-    public void AddPrecondition(string condition, string errorMessage)
-    {
-        var precondition = new TerraformConditionBlock("precondition", condition, errorMessage);
-        this[$"precondition_{Guid.NewGuid():N}"] = precondition;
-    }
-
-    /// <summary>
-    /// Adds a postcondition to validate after applying changes.
-    /// Postconditions are checked after Terraform applies the resource configuration.
-    /// </summary>
-    public void AddPostcondition(string condition, string errorMessage)
-    {
-        var postcondition = new TerraformConditionBlock("postcondition", condition, errorMessage);
-        this[$"postcondition_{Guid.NewGuid():N}"] = postcondition;
-    }
 }

@@ -83,3 +83,23 @@ public interface ITerraformHasLifecycle
     /// </summary>
     TerraformLifecycleConfig? Lifecycle { get; set; }
 }
+
+/// <summary>
+/// Marker interface for blocks that support the 'providers' meta-argument.
+/// Source generator will add the Providers property to implementing types.
+/// </summary>
+/// <remarks>
+/// The providers meta-argument is used in module blocks to pass provider configurations
+/// from the parent module to the child module. It allows you to specify which provider
+/// configuration the child module should use for each provider it requires.
+/// Maps child provider configuration names to parent provider configuration references.
+/// </remarks>
+public interface ITerraformHasProviders
+{
+    /// <summary>
+    /// Gets the provider mappings for this module.
+    /// Key: child module's provider configuration name
+    /// Value: reference to parent module's provider configuration
+    /// </summary>
+    Dictionary<string, string> Providers { get; }
+}

@@ -1,9 +1,9 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a condition block (precondition or postcondition) for lifecycle and output validation.
+/// Represents a condition block (precondition, postcondition, or validation) for lifecycle, output, and variable validation.
 /// </summary>
-internal class TerraformConditionBlock : TerraformBlock
+public class TerraformConditionBlock : TerraformBlock
 {
     private readonly string _blockType;
 
