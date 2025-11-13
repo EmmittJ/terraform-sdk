@@ -58,7 +58,7 @@ public class TerraformMovedBlock : TerraformBlock
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with block type "moved" and no labels
-        return new TerraformTopLevelBlockExpression("moved", [], bodyMap);
+        return new TerraformBlockExpression("moved", [], bodyMap);
     }
 
     /// <inheritdoc/>

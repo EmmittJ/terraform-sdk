@@ -1,0 +1,10 @@
+﻿terraform {
+  cloud = {
+    hostname = "app.terraform.io"
+    organization = "my-org"
+    workspaces = {
+      name = "my-workspace"
+    }
+  }
+  required_version = ">= 1.9.0"
+}

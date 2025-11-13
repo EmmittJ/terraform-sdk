@@ -60,7 +60,7 @@ public class TerraformLifecycleConfig
     /// <summary>
     /// Converts this lifecycle configuration to a block expression.
     /// </summary>
-    public TerraformBlockExpression ToBlockExpression()
+    public TerraformNestedBlockExpression ToBlockExpression()
     {
         return new LifecycleBlockExpression(this);
     }
@@ -69,7 +69,7 @@ public class TerraformLifecycleConfig
 /// <summary>
 /// Internal block expression for lifecycle configuration.
 /// </summary>
-internal class LifecycleBlockExpression : TerraformBlockExpression
+internal class LifecycleBlockExpression : TerraformNestedBlockExpression
 {
     private readonly TerraformLifecycleConfig _config;
 

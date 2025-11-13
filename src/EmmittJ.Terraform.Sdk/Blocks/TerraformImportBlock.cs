@@ -102,7 +102,7 @@ public class TerraformImportBlock : TerraformBlock
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with block type "import" and no labels
-        return new TerraformTopLevelBlockExpression("import", [], bodyMap);
+        return new TerraformBlockExpression("import", [], bodyMap);
     }
 
     /// <inheritdoc/>

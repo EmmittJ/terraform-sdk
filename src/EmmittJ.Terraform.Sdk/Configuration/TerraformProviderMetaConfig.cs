@@ -10,49 +10,30 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// Reference: https://developer.hashicorp.com/terraform/internals/provider-meta
 /// </remarks>
-public class TerraformProviderMetaConfig
+public class TerraformProviderMetaBlock : TerraformBlock
 {
     /// <summary>
-    /// The provider name this metadata is for (e.g., "my-provider").
+    /// Gets the provider name this metadata is for (e.g., "my-provider").
     /// </summary>
-    public string ProviderName { get; set; } = string.Empty;
+    public string ProviderName { get; }
 
     /// <summary>
-    /// The metadata key-value pairs to pass to the provider.
-    /// The schema must match what the provider expects.
+    /// Initializes a new instance of TerraformProviderMetaBlock.
     /// </summary>
-    public Dictionary<string, object?> Metadata { get; set; } = new();
-
-    /// <summary>
-    /// Creates a new provider_meta configuration.
-    /// </summary>
-    public TerraformProviderMetaConfig()
+    /// <param name="providerName">The provider name this metadata is for.</param>
+    public TerraformProviderMetaBlock(string providerName) : base("provider_meta")
     {
+        ProviderName = providerName ?? throw new ArgumentNullException(nameof(providerName));
     }
 
     /// <summary>
-    /// Creates a new provider_meta configuration with the specified provider name.
+    /// Resolves to a labeled block expression: provider_meta "provider_name" { ... }
     /// </summary>
-    public TerraformProviderMetaConfig(string providerName)
+    public override TerraformExpression Resolve(ITerraformContext ctx)
     {
-        ProviderName = providerName;
-    }
+        var bodyMap = base.Resolve(ctx);
 
-    /// <summary>
-    /// Creates a new provider_meta configuration with the specified provider name and metadata.
-    /// </summary>
-    public TerraformProviderMetaConfig(string providerName, Dictionary<string, object?> metadata)
-    {
-        ProviderName = providerName;
-        Metadata = metadata;
-    }
-
-    /// <summary>
-    /// Adds or updates a metadata key-value pair.
-    /// </summary>
-    public TerraformProviderMetaConfig WithMetadata(string key, object? value)
-    {
-        Metadata[key] = value;
-        return this;
+        // Create a labeled block: provider_meta "provider_name" { body }
+        return new TerraformBlockExpression("provider_meta", [ProviderName], bodyMap);
     }
 }

@@ -14,7 +14,7 @@ namespace EmmittJ.Terraform.Sdk.SourceGenerators;
 [Generator(LanguageNames.CSharp)]
 public class TerraformPropertyGenerator : IIncrementalGenerator
 {
-    private const string TerraformPropertyAttributeName = "TerraformPropertyAttribute";
+    private const string TerraformPropertyAttributeName = "TerraformArgumentAttribute";
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -142,31 +142,24 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
     private static bool ShouldReturnReferences(INamedTypeSymbol classSymbol)
     {
         // Check the inheritance chain
-        // Resources, Data Sources, Ephemeral Resources, and Blocks return references from their getters
-        // Providers return actual values - they're config that can't be referenced in HCL
+        // Resources, Data Sources, Ephemeral Resources return references from their getters
+        // Providers, Settings, and other configuration blocks return actual values
         var baseType = classSymbol.BaseType;
         while (baseType is not null)
         {
             var name = baseType.Name;
 
-            // Providers don't return references - they return actual stored values
-            // Provider configuration values cannot be referenced in HCL
-            // Providers are only used via alias selection (provider = aws.west)
-            if (name == "TerraformProvider")
-                return false;
-
-            // Resources, DataSources, EphemeralResources, and Blocks return references
-            // These can all be referenced in HCL expressions
+            // Only these specific types return references
+            // Everything else (providers, settings blocks, nested config blocks) returns values
             if (name == "TerraformResource" ||
                 name == "TerraformDataSource" ||
-                name == "TerraformEphemeralResource" ||
-                name == "TerraformBlock")
+                name == "TerraformEphemeralResource")
                 return true;
 
             baseType = baseType.BaseType;
         }
 
-        // Default to not returning references if we can't determine
+        // Default to not returning references
         return false;
     }
 

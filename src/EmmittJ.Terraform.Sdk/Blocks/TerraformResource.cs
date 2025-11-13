@@ -59,7 +59,7 @@ public partial class TerraformResource : TerraformBlock, ITerraformTopLevelBlock
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with resource type and name
-        return new TerraformTopLevelBlockExpression("resource",
+        return new TerraformBlockExpression("resource",
             [ResourceType, ResourceName], bodyMap);
     }
 

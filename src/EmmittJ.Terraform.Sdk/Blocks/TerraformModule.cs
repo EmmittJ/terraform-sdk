@@ -66,7 +66,7 @@ public partial class TerraformModule :
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with module name
-        return new TerraformTopLevelBlockExpression("module", [Name], bodyMap);
+        return new TerraformBlockExpression("module", [Name], bodyMap);
     }
 
     /// <summary>

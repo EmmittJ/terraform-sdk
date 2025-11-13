@@ -52,7 +52,7 @@ public partial class TerraformProvider : TerraformBlock, ITerraformTopLevelBlock
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with provider name
-        return new TerraformTopLevelBlockExpression("provider", [Name], bodyMap);
+        return new TerraformBlockExpression("provider", [Name], bodyMap);
     }
 
     /// <summary>

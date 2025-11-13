@@ -73,7 +73,8 @@ public class TerraformStack
         // Render terraform block first if present
         if (_terraform != null)
         {
-            sb.Append(_terraform.ToHcl(context));
+            var terraformExpression = _terraform.Resolve(context);
+            sb.Append(terraformExpression.ToHcl(context));
             if (_blocks.Count > 0)
             {
                 sb.AppendLine();
@@ -113,11 +114,10 @@ public class TerraformStack
             }
 
             // Check workspaces tags/name mutual exclusivity
-            if (_terraform.Cloud?.Workspaces != null)
+            if (_terraform.Cloud?.Workspaces is { } workspaces)
             {
-                var workspaces = _terraform.Cloud.Workspaces;
-                var hasName = !string.IsNullOrWhiteSpace(workspaces.Name);
-                var hasTags = workspaces.Tags != null && workspaces.Tags.Count > 0;
+                var hasName = workspaces.Name is not null;
+                var hasTags = workspaces.Tags is not null;
 
                 if (hasName && hasTags)
                 {

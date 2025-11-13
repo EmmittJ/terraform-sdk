@@ -28,7 +28,7 @@ public class TerraformEphemeralResource(string type, string name) : TerraformBlo
         var bodyMap = base.Resolve(context);
 
         // Ephemeral resources use "ephemeral" block type
-        return new TerraformTopLevelBlockExpression(
+        return new TerraformBlockExpression(
             blockType: "ephemeral",
             labels: [BlockType, BlockName],
             body: bodyMap

@@ -47,7 +47,7 @@ public class TerraformLocals : TerraformBlock, ITerraformTopLevelBlock
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with "locals" block type and no labels
-        return new TerraformTopLevelBlockExpression("locals", [], bodyMap);
+        return new TerraformBlockExpression("locals", [], bodyMap);
     }
 
     /// <inheritdoc/>

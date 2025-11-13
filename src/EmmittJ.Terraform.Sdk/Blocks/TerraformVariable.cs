@@ -84,7 +84,7 @@ public partial class TerraformVariable : TerraformBlock, ITerraformTopLevelBlock
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with variable name
-        return new TerraformTopLevelBlockExpression("variable", [Name], bodyMap);
+        return new TerraformBlockExpression("variable", [Name], bodyMap);
     }
 
     /// <summary>

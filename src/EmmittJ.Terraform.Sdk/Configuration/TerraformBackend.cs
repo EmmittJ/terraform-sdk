@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Backends determine where Terraform stores its state data.
 /// This is a block expression for backend configuration.
 /// </summary>
-public class TerraformBackend : TerraformBlockExpression
+public class TerraformBackend : TerraformNestedBlockExpression
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="TerraformBackend"/> class.
