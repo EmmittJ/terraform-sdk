@@ -21,8 +21,10 @@ public class TerraformDynamicBlockExpressionTests
             forEachExpr,
             contentMap);
 
+        var context = TerraformContext.Temporary();
+
         // Act
-        var hcl = dynamicBlock.ToHcl();
+        var hcl = dynamicBlock.ToHcl(context);
 
         // Assert
         var expected = @"dynamic ""ingress"" {
@@ -53,8 +55,10 @@ public class TerraformDynamicBlockExpressionTests
             contentMap,
             iterator: "rule");
 
+        var context = TerraformContext.Temporary();
+
         // Act
-        var hcl = dynamicBlock.ToHcl();
+        var hcl = dynamicBlock.ToHcl(context);
 
         // Assert
         var expected = @"dynamic ""ingress"" {
@@ -87,8 +91,10 @@ public class TerraformDynamicBlockExpressionTests
             contentMap,
             iterator: "setting");
 
+        var context = TerraformContext.Temporary();
+
         // Act
-        var hcl = dynamicBlock.ToHcl();
+        var hcl = dynamicBlock.ToHcl(context);
 
         // Assert
         Assert.Contains(@"dynamic ""setting"" {", hcl);

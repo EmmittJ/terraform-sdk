@@ -3,11 +3,16 @@ namespace EmmittJ.Terraform.Sdk;
 using System.Text;
 
 /// <summary>
-/// Represents a Terraform dynamic block expression in the AST.
+/// Represents a Terraform dynamic block syntax node (structural construct, not a value expression).
 /// Dynamic blocks are a special Terraform construct that generates repeated nested blocks
 /// based on a collection. They render with unique syntax: dynamic "block_type" { for_each = ... content { } }
 /// </summary>
-public class TerraformDynamicBlockExpression : TerraformExpression
+/// <remarks>
+/// This is a structural syntax node, not an expression. It cannot appear on the right-hand side
+/// of an assignment. It extends TerraformSyntaxNode directly, not TerraformExpression, because
+/// dynamic blocks are block-level constructs that control structure, not value expressions.
+/// </remarks>
+public class TerraformDynamicBlockExpression : TerraformSyntaxNode
 {
     private readonly string _blockType;
     private readonly TerraformExpression _forEach;
@@ -15,7 +20,7 @@ public class TerraformDynamicBlockExpression : TerraformExpression
     private readonly string? _iterator;
 
     /// <summary>
-    /// Creates a new dynamic block expression.
+    /// Creates a new dynamic block syntax node.
     /// </summary>
     /// <param name="blockType">The type of nested block to generate (e.g., "ingress", "egress", "setting")</param>
     /// <param name="forEach">The collection to iterate over (must resolve to a collection)</param>
@@ -36,7 +41,7 @@ public class TerraformDynamicBlockExpression : TerraformExpression
     /// <summary>
     /// Preparation phase - prepares nested expressions.
     /// </summary>
-    public override void Prepare(ITerraformContext context)
+    public void Prepare(ITerraformContext context)
     {
         _forEach.Prepare(context);
         _content.Prepare(context);
@@ -56,9 +61,8 @@ public class TerraformDynamicBlockExpression : TerraformExpression
     ///   }
     /// }
     /// </summary>
-    public override string ToHcl(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext context)
     {
-        context ??= TerraformContext.Temporary(this);
         var sb = new StringBuilder();
 
         // Dynamic block header: dynamic "block_type" {

@@ -284,7 +284,7 @@ public class TerraformMapExpression : TerraformExpression,
     /// Renders the properties as HCL with proper indentation.
     /// Returns the rendered properties without surrounding braces, allowing parent expressions
     /// to compose the content within their own block structures.
-    /// Detects TerraformDynamicBlockExpression and renders with dynamic block syntax.
+    /// Dynamic block expressions are rendered as standalone blocks (not as key = value assignments).
     /// </summary>
     /// <param name="context">The rendering context providing indentation and scope information.</param>
     /// <returns>The rendered properties as a string.</returns>
@@ -294,14 +294,19 @@ public class TerraformMapExpression : TerraformExpression,
 
         foreach (var (key, value) in _properties.OrderBy(p => p.Key))
         {
-            // Check if this is a dynamic block expression - render with special syntax
+            // Dynamic blocks are structural nodes, not value expressions - render as blocks
             if (value is TerraformDynamicBlockExpression dynamicBlockExpr)
             {
                 sb.AppendLine(dynamicBlockExpr.ToHcl(context));
             }
+            // All other values are expressions that can be rendered as arguments
+            else if (value is TerraformExpression expr)
+            {
+                sb.AppendLine($"{context.Indent}{key}{base.AssignmentOperator}{expr.ToHcl(context)}");
+            }
             else
             {
-                // Normal property rendering
+                // Other syntax nodes that aren't expressions
                 sb.AppendLine($"{context.Indent}{key}{base.AssignmentOperator}{value.ToHcl(context)}");
             }
         }

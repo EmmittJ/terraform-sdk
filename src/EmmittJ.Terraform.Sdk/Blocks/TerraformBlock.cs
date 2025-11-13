@@ -130,8 +130,15 @@ public abstract class TerraformBlock : TerraformMap<object>
 
         foreach (var (key, terraformValue) in _elements)
         {
+            // Check if the resolvable inside is a dynamic block - special handling
+            if (terraformValue.Resolvable is TerraformDynamicBlock<TerraformBlock> dynamicBlock)
+            {
+                // Dynamic blocks resolve to TerraformDynamicBlockExpression (a syntax node)
+                var dynamicBlockExpr = dynamicBlock.Resolve(context);
+                nodes.Add(dynamicBlockExpr);
+            }
             // Check if the resolvable inside is a nested block
-            if (terraformValue.Resolvable is TerraformBlock nestedBlock)
+            else if (terraformValue.Resolvable is TerraformBlock nestedBlock)
             {
                 var blockNode = new TerraformBlockNode(
                     nestedBlock.BlockLabel ?? key,
