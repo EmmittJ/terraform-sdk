@@ -16,7 +16,7 @@ The EmmittJ Terraform SDK is a .NET library that enables infrastructure-as-code 
 - 🎯 **Polymorphic value system** - No null reference exceptions, automatic type inference
 - 📝 **IntelliSense support** - Full IDE support with documentation
 - 🔄 **Two-phase resolution** - Intelligent dependency tracking and validation
-- 🏗️ **Expression trees** - Compositional HCL generation with optimization
+- 🏛️ **Compositional AST** - Build complex HCL from simple expression nodes
 - 🌐 **Multi-cloud** - AWS, Azure, GCP support via auto-generated providers
 - 🔌 **Aspire integration** - Deploy infrastructure with .NET Aspire
 
@@ -109,22 +109,69 @@ resource "aws_subnet" "public" {
 
 ## 🏗️ Architecture
 
-### Polymorphic Value System
+The SDK uses a **three-layer architecture** to transform C# into HCL:
 
-The SDK uses a polymorphic type system with `TerraformValue<T>` to provide type safety and avoid null reference exceptions:
+### 1. Values Layer - Type-Safe Storage
+
+The polymorphic value system provides compile-time type safety and eliminates null reference exceptions:
 
 ```csharp
-// Implicit conversion from literals
-TerraformValue<string> region = "us-west-2";
-TerraformValue<int> port = 443;
-TerraformValue<bool> enabled = true;
-
-// Reference to other resources
-TerraformValue<string> vpcId = vpc["id"];
-
-// Terraform expressions
-TerraformValue<string> name = Tf.Join("-", ["app", "server"]);
+// Type-safe values that can be literals, references, or expressions
+TerraformValue<string> region = "us-west-2";           // Literal
+TerraformValue<string> vpcId = vpc["id"];              // Reference
+TerraformValue<int> count = 3;                         // Literal
+TerraformValue<string> name = Tf.Join("-", ["app"]);  // Expression
 ```
+
+**Features:**
+
+- Implicit conversions from literals
+- Automatic dependency tracking via references
+- Lazy evaluation support
+- Collections: `TerraformList<T>`, `TerraformMap<T>`, `TerraformSet<T>`
+
+### 2. Expressions Layer - Compositional Syntax
+
+Immutable expression nodes that compose into larger structures:
+
+```csharp
+// Build complex expressions compositionally
+var name = TerraformExpression.Conditional(
+    isProd,
+    TerraformExpression.Interpolate("prod-", baseName),
+    TerraformExpression.Interpolate("dev-", baseName)
+);
+
+// Use Terraform functions
+var tags = TerraformExpression.ForList(users, user => user["email"]);
+var combined = Tf.Join(",", ["a", "b", "c"]);
+```
+
+**Features:**
+
+- Type-agnostic syntax representation
+- Operator overloading (`+`, `-`, `*`, `/`, `[]`)
+- String interpolation, conditionals, for expressions
+- Terraform built-in functions
+
+### 3. Syntax Layer - HCL Rendering
+
+Direct representation of HCL output elements:
+
+```csharp
+// Syntax nodes render to HCL
+new TerraformArgumentNode("region", TerraformExpression.Literal("us-west-2"))
+// → region = "us-west-2"
+
+new TerraformBlockNode("tags", children)
+// → tags { ... }
+```
+
+**Features:**
+
+- Context-aware indentation
+- Automatic node ordering (meta-arguments first)
+- Self-rendering nodes
 
 ### Two-Phase Resolution
 
@@ -140,14 +187,20 @@ This enables:
 - Compile-time validation
 - Optimized HCL generation
 
-### Expression Trees
+```csharp
+// References automatically track dependencies
+subnet["vpc_id"] = vpc["id"];  // Records: subnet depends on vpc
 
-Terraform configurations are represented as immutable expression trees that compose into larger structures. This design enables:
+// Resolution ensures correct ordering
+stack.ToHcl();  // VPC rendered before Subnet
+```
 
-- Easy validation and transformation
-- Type-safe composition
-- Optimization opportunities
-- Clear separation of concerns
+**For detailed architecture documentation, see:**
+
+- `docs/architecture-overview.md` - Complete system architecture
+- `docs/values-system.md` - Polymorphic value system
+- `docs/expressions-system.md` - Expression composition
+- `docs/syntax-system.md` - HCL rendering
 
 ## 🔧 Advanced Features
 
@@ -317,7 +370,7 @@ dotnet verify accept -y
 
 ## 📂 Project Structure
 
-- **EmmittJ.Terraform.Sdk** - Core SDK with polymorphic property system, expression trees, and HCL generation
+- **EmmittJ.Terraform.Sdk** - Core SDK with polymorphic property system, compositional expression API, and HCL generation
 - **EmmittJ.Terraform.Sdk.Providers.\*** - Auto-generated provider-specific resources (AWS, Azure, GCP)
 - **EmmittJ.Terraform.Sdk.SourceGenerators** - Roslyn source generators for meta-arguments and properties
 - **EmmittJ.Terraform.Sdk.AppHost** - Code generation using Aspire to generate provider bindings
@@ -366,7 +419,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Inspired by:
 
 - [Terraform CDK](https://developer.hashicorp.com/terraform/cdktf) - Similar two-phase resolution concepts
-- [AWS CDK](https://aws.amazon.com/cdk/) - Expression tree and construct patterns
+- [AWS CDK](https://aws.amazon.com/cdk/) - Compositional AST and construct patterns
 - [Pulumi](https://www.pulumi.com/) - Infrastructure as code with real programming languages
 
 ---

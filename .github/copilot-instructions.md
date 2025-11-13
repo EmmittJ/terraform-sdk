@@ -6,7 +6,7 @@
 
 ### 🎯 Key Components
 
-- **EmmittJ.Terraform.Sdk**: Core SDK with polymorphic property system, expression trees, and HCL generation
+- **EmmittJ.Terraform.Sdk**: Core SDK with polymorphic property system, compositional expression API, and HCL generation
 - **EmmittJ.Terraform.Sdk.Providers.\***: Auto-generated provider-specific resources (AWS, Azure, GCP)
 - **EmmittJ.Terraform.Sdk.SourceGenerators**: Roslyn source generators for meta-arguments and properties
 - **EmmittJ.Terraform.Sdk.AppHost**: Code generation using Aspire to generate provider bindings
@@ -65,80 +65,52 @@
 
 ## 🏗️ Architecture Principles
 
-### Polymorphic Value System
+**For comprehensive architecture documentation, see:**
 
-The SDK uses a **polymorphic type system** with `TerraformValue<T>` to avoid null reference exceptions and runtime type checking:
+- `docs/architecture-overview.md` - Complete system architecture
+- `docs/values-system.md` - Polymorphic value system details
+- `docs/expressions-system.md` - Expression composition patterns
+- `docs/syntax-system.md` - HCL rendering and syntax nodes
+
+### Three-Layer Architecture
+
+The SDK transforms C# code to HCL through three layers:
+
+1. **Values Layer** (`TerraformValue<T>`) - Type-safe value storage with polymorphic dispatch
+2. **Expressions Layer** (`TerraformExpression`) - Compositional HCL syntax builders
+3. **Syntax Layer** (`TerraformSyntaxNode`) - Direct HCL output representation
 
 ```csharp
-// ✅ Good - polymorphic dispatch, type-safe
-public class TerraformValue<T> : ITerraformValue
-{
-    protected readonly ITerraformResolvable? _resolvable;
-
-    public TerraformExpression Resolve(ITerraformContext context)
-    {
-        return _resolvable.Resolve(context);
-    }
-
-    // Implicit conversion from literal values
-    public static implicit operator TerraformValue<T>(T value)
-        => new TerraformValue<T>(new TerraformLiteralValue<T>(value));
-}
-
-// ❌ Avoid - runtime switching on types
-public class Property
-{
-    public object? Value { get; set; }
-    public PropertyType Type { get; set; }
-}
+// Values resolve to expressions, which render as syntax nodes
+TerraformValue<string> region = "us-west-2";  // Values layer
+    ↓ ResolveNodes()
+TerraformExpression.Literal("us-west-2")      // Expressions layer
+    ↓ ToHcl(context)
+"\"us-west-2\""                               // Syntax layer (HCL output)
 ```
-
-**Key Benefits**:
-
-- No null reference exceptions - each class only has needed fields
-- Compile-time type safety via generic `TerraformValue<T>`
-- No runtime type checking or switching
-- Implicit conversions for ergonomic API (literals → `TerraformValue<T>`)
-- Lazy evaluation support via `ITerraformResolvable`
 
 ### Two-Phase Resolution System
 
-Inspired by Terraform CDK and AWS CDK, the SDK uses **two-pass compilation**:
+Inspired by Terraform CDK and AWS CDK:
 
-1. **Prepare Phase**: Collect dependencies, track references, validate structure
-2. **Resolve Phase**: Generate HCL expressions and output
-
-```csharp
-// ✅ Implement ITerraformPreparable for blocks that need dependency tracking
-public class TerraformResource : TerraformBlock, ITerraformPreparable
-{
-    public void Prepare(ITerraformContext ctx)
-    {
-        // Register dependencies, validate references
-    }
-
-    public override TerraformExpression Resolve(ITerraformContext ctx)
-    {
-        // Generate HCL expression
-    }
-}
-```
-
-### Expression Tree Design
-
-Terraform configurations are represented as **immutable expression trees**:
-
-- `TerraformExpression`: Abstract base for all HCL syntax nodes
-- Compositional building - expressions compose into larger expressions
-- No knowledge of types/values at expression level
-- Easy to validate, transform, and optimize
+1. **Prepare Phase**: Track dependencies, validate structure, build dependency graph
+2. **Resolve Phase**: Generate syntax nodes, sort by dependencies, render to HCL
 
 ```csharp
-// ✅ Build expressions compositionally
-var vpc = TerraformExpression.Identifier("aws_vpc.main");
-var attr = TerraformExpression.AttributeAccess(vpc, "id");
-var ref = TerraformExpression.Reference(attr);
+// References automatically track dependencies during Prepare
+subnet["vpc_id"] = vpc["id"];  // Records: subnet depends on vpc
+
+// Resolution ensures correct ordering
+stack.ToHcl();  // VPC rendered before Subnet
 ```
+
+### Key Design Principles
+
+- **Polymorphic dispatch** - Avoid runtime type checking, use interfaces
+- **Immutability** - Objects don't change after creation
+- **Type safety** - Compile-time validation via `TerraformValue<T>`
+- **Composition** - Build complex structures from simple pieces
+- **Lazy evaluation** - Defer computation until resolution phase
 
 ## 🧪 Testing Guidelines
 
@@ -225,73 +197,85 @@ aspire publish
 
 ## 🎨 Terraform SDK Patterns
 
-### Creating Resources
+### Values System (`TerraformValue<T>`)
+
+Polymorphic value storage providing type safety and implicit conversions:
 
 ```csharp
-// ✅ Preferred: Map indexer syntax (current API)
-var vpc = new TerraformResource("aws_vpc", "main")
-{
-    ["cidr_block"] = "10.0.0.0/16",
-    ["enable_dns_hostnames"] = true
-}
+// Literals - automatic wrapping
+TerraformValue<string> region = "us-west-2";
+TerraformValue<int> count = 3;
+
+// References - automatic dependency tracking
+TerraformValue<string> vpcId = vpc["id"];
+
+// Lazy evaluation - deferred computation
+var value = TerraformValue<string>.Lazy(ctx =>
+    condition ? TerraformExpression.Literal("a") : TerraformExpression.Literal("b")
+);
 ```
 
-### References Between Resources
+**Key Points:**
+
+- `TerraformValue<T>` where `T` is the **Terraform type** (string, double, bool)
+- Values resolve to `TerraformExpression` nodes during resolution
+- Collections: `TerraformList<T>`, `TerraformMap<T>`, `TerraformSet<T>`
+- See `docs/values-system.md` for complete details
+
+### Expressions System (`TerraformExpression`)
+
+Compositional syntax builders for HCL constructs:
 
 ```csharp
-var vpc = new TerraformResource("aws_vpc", "main")
-{
-    ["cidr_block"] = "10.0.0.0/16"
-}
+// Literals and identifiers
+TerraformExpression.Literal("us-west-2")
+TerraformExpression.Identifier("var.region")
 
-var subnet = new TerraformResource("aws_subnet", "public")
-{
-    ["vpc_id"] = vpc["id"], // Creates "${aws_vpc.main.id}"
-    ["cidr_block"] = "10.0.1.0/24"
+// Collections
+TerraformExpression.List("a", "b", "c")
+TerraformExpression.Object()  // Map/object
 
-}
+// Composition
+TerraformExpression.Conditional(isProd, "prod-value", "dev-value")
+TerraformExpression.Interpolate("prefix-", variable, "-suffix")
+TerraformExpression.ForList(collection, item => item["id"])
+
+// Operators (overloaded)
+var sum = expr1 + expr2;
+var name = vpc["id"];
 ```
 
-### Using the Tf Helper Class
+**Key Points:**
 
-The `Tf` class provides Terraform built-in functions and type helpers:
+- Expressions are **type-agnostic** - type safety happens at `TerraformValue<T>` level
+- Immutable and compositional
+- Expressions ARE syntax nodes (extend `TerraformSyntaxNode`)
+- See `docs/expressions-system.md` for complete details
+
+### Syntax System (`TerraformSyntaxNode`)
+
+Direct HCL rendering layer:
 
 ```csharp
-// Type constraints
-var stringType = Tf.Types.String;
-var listOfStrings = Tf.Types.List(Tf.Types.String);
-var mapOfNumbers = Tf.Types.Map(Tf.Types.Number);
+// Argument nodes (key = value)
+new TerraformArgumentNode("region", TerraformExpression.Literal("us-west-2"))
+// → region = "us-west-2"
 
-// Built-in functions (when implemented)
-var joined = Tf.Join(",", ["a", "b", "c"]);
-var base64 = Tf.Base64Encode("hello");
+// Block nodes (nested blocks)
+new TerraformBlockNode("tags", children)
+// → tags { ... }
+
+// Top-level blocks (resources, providers, etc.)
+new TerraformTopLevelBlockNode("resource", ["aws_vpc", "main"], children)
+// → resource "aws_vpc" "main" { ... }
 ```
 
-### Stack Composition
+**Key Points:**
 
-```csharp
-var stack = new TerraformStack { Name = "my-infrastructure" };
-
-// Add terraform settings block
-stack.Terraform = new TerraformSettings
-{
-    RequiredVersion = ">= 1.9.0"
-};
-
-// Add provider
-var awsProvider = new TerraformProvider("aws")
-{
-    ["region"] = "us-west-2"
-};
-stack.Add(awsProvider);
-
-// Add resources
-stack.Add(vpc);
-stack.Add(subnet);
-
-// Generate HCL
-string hcl = stack.ToHcl();
-```
+- Syntax nodes know how to render themselves to HCL
+- Context provides indentation management
+- Automatic node ordering (meta-arguments first, alphabetical properties)
+- See `docs/syntax-system.md` for complete details
 
 ## 🔍 Common Development Tasks
 
@@ -334,7 +318,7 @@ Providers are generated via the AppHost. To add a new provider:
 - Note: We are in pre-1.0.0, so breaking changes are allowed but should be minimized.
 - ❌ Changing public API signatures without versioning
 - ❌ Removing public types, methods, or properties
-- ❌ Changing expression tree structure in non-backward-compatible ways
+- ❌ Changing expression node structure in non-backward-compatible ways
 - ✅ Mark obsolete APIs with `[Obsolete("Reason", error: false)]`
 - ✅ Provide migration guidance in XML docs
 
@@ -416,6 +400,54 @@ var api = builder.AddProject<Projects.Api>("api")
 - Integrates with Aspire's deployment pipeline
 - Supports multiple cloud providers (AWS, Azure, GCP)
 
+## 📋 Task Tracking with Todo Lists
+
+For complex, multi-step work, use the `todos` tool to maintain visibility and ensure steady progress:
+
+### ✅ When to Create a Todo List
+
+- **Multi-Step Work**: Tasks requiring multiple sequential or parallel steps
+- **Complex Requests**: When breaking down ambiguous or complex user requests
+- **Multiple Tasks**: When users provide numbered lists or comma-separated tasks
+- **Long-Running Work**: Tasks that require checkpoints for feedback and validation
+
+### ❌ When NOT to Create a Todo List
+
+- **Simple Operations**: Single-step tasks that can be completed directly (e.g., reading a file, quick edits)
+- **Trivial Requests**: Purely conversational or informational requests
+
+### 💡 Todo List Best Practices
+
+- **Break Down Work**: Create specific, actionable items that can be tracked and verified
+- **Update Status Consistently**: Mark tasks as `in-progress` when starting, `completed` immediately after finishing
+- **One Task at a Time**: Only mark one todo as `in-progress` at a time
+- **Complete Incrementally**: Mark todos completed as soon as they're done; don't batch completions
+- **Provide Context**: Include detailed descriptions with story number, file paths, methods, or acceptance criteria
+
+## 🤖 Task Delegation with runSubagent
+
+When working on a task, you may encounter subtasks that are out of context or require extensive searching/research. Use the `runSubagent` tool to delegate these to a specialized agent:
+
+### ✅ When to Use runSubagent
+
+- **Out-of-Context Searches**: When you need to search for code patterns, files, or information unrelated to your current focus
+- **Complex Research**: When gathering information requires multiple search iterations and you're not confident you'll find the right match immediately
+- **Multi-Step Discovery**: When the subtask involves exploring unfamiliar parts of the codebase
+- **Parallel Work**: When you need information that doesn't block your current progress
+
+### ❌ When NOT to Use runSubagent
+
+- **Simple, direct tasks**: Reading a known file, making a straightforward edit
+- **Current context**: When the information is already available or directly related to your current work
+- **Quick lookups**: Single file searches or grep operations with clear patterns
+
+### 💡 Delegation Best Practices
+
+- **Be Specific**: Provide detailed instructions about what the agent should find and return
+- **Define Output**: Clearly specify what information the agent should report back
+- **State Intent**: Tell the agent whether to do research only or to make changes
+- **Trust Results**: Agent outputs should generally be trusted as they have full context for their subtask
+
 ## 📚 Additional Resources
 
 - **Terraform Documentation**: https://developer.hashicorp.com/terraform
@@ -430,14 +462,14 @@ var api = builder.AddProject<Projects.Api>("api")
 1. `src/EmmittJ.Terraform.Sdk/Tf.cs` - Main helper class
 2. `src/EmmittJ.Terraform.Sdk/Configuration/TerraformStack.cs` - Stack/infrastructure container
 3. `src/EmmittJ.Terraform.Sdk/Blocks/TerraformResource.cs` - Resource implementation
-4. `src/EmmittJ.Terraform.Sdk/Expressions/TerraformExpression.cs` - Expression tree base
+4. `src/EmmittJ.Terraform.Sdk/Expressions/TerraformExpression.cs` - Compositional expression API
 5. `README.md` files in each project directory
 
 ### Key Concepts to Understand
 
 - **Polymorphic values** - Type-safe value representation via `TerraformValue<T>`
 - **Two-phase resolution** - Prepare → Resolve pattern
-- **Expression trees** - Compositional HCL generation
+- **Compositional AST** - Expression nodes that build HCL syntax
 - **Reference system** - Inter-resource dependencies
 - **Source generation** - Compile-time code generation
 
