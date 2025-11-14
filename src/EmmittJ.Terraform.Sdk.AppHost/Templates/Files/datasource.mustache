@@ -7,25 +7,16 @@ namespace {{Namespace}};
 
 {{/BlockTypes}}
 /// <summary>
-/// Represents a {{TerraformName}} Terraform data source.
-/// {{#Description}}
+/// Represents a {{TerraformType}} Terraform data source.
+{{#Description}}
 /// {{Description}}
-/// {{/Description}}
+{{/Description}}
 /// </summary>
 {{#IsDeprecated}}
-[Obsolete("This data source is deprecated.")]
+[Obsolete("This resource is deprecated.")]
 {{/IsDeprecated}}
-public partial class {{ClassName}} : TerraformDataSource
+public partial class {{ClassName}}(string name) : TerraformDataSource("{{{TerraformType}}}", name)
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="{{ClassName}}"/> class.
-    /// </summary>
-    /// <param name="stack">The Terraform stack this data source belongs to.</param>
-    /// <param name="name">The unique name for this data source instance.</param>
-    public {{ClassName}}(TerraformStack stack, string name) : base(stack, "{{TerraformName}}", name)
-    {
-    }
-
 {{#Arguments}}
 {{>_argument}}
 {{/Arguments}}

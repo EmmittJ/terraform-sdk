@@ -1,8 +1,0 @@
-﻿terraform {
-  required_version = ">= 1.9.0"
-  backend "s3" {
-    bucket = "my-state"
-    key = "terraform.tfstate"
-    region = "us-west-2"
-  }
-}

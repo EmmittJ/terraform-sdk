@@ -11,7 +11,8 @@ public sealed class TerraformCodeGenServices(
     TerraformCodeGenOptions options,
     Templates.ResourceTemplate resourceTemplate,
     Templates.DataSourceTemplate dataSourceTemplate,
-    Templates.ProviderTemplate providerTemplate)
+    Templates.ProviderTemplate providerTemplate,
+    Templates.TerraformConfigTemplate terraformConfigTemplate)
 {
     public IFileSystem FileSystem { get; } = fileSystem;
     public ITerraformCli TerraformCli { get; } = terraformCli;
@@ -21,4 +22,5 @@ public sealed class TerraformCodeGenServices(
     public Templates.ResourceTemplate ResourceTemplate { get; } = resourceTemplate;
     public Templates.DataSourceTemplate DataSourceTemplate { get; } = dataSourceTemplate;
     public Templates.ProviderTemplate ProviderTemplate { get; } = providerTemplate;
+    public Templates.TerraformConfigTemplate TerraformConfigTemplate { get; } = terraformConfigTemplate;
 }

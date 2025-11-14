@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\EmmittJ.Terraform.Sdk.AppHost\EmmittJ.Terraform.Sdk.AppHost.csproj" />
+    <ProjectReference Include="..\..\src\EmmittJ.Terraform.Sdk\EmmittJ.Terraform.Sdk.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <Using Include="VerifyXunit" />
+    <Using Include="VerifyTests" />
+  </ItemGroup>
+
+</Project>

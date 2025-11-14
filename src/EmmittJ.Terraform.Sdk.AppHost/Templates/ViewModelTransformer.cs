@@ -147,7 +147,7 @@ public class ViewModelTransformer
             NeedsNewKeyword = needsNewKeyword,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,
-            Properties = block.Arguments.Select(p => TransformProperty(p, isNestedBlockProperty: true)).ToList()
+            Arguments = block.Arguments.Select(p => TransformProperty(p, isNestedBlockProperty: true)).ToList()
         };
     }
 

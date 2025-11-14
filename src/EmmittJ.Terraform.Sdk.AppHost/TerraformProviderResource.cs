@@ -89,19 +89,8 @@ public sealed class TerraformProviderResource : Resource
         // Create working directory
         codeGenServices.FileSystem.CreateDirectory(workingDirectory);
 
-        // Generate Terraform configuration file
-        var terraformConfig = $@"terraform {{
-  required_providers {{
-    {ProviderName} = {{
-      source  = ""hashicorp/{ProviderName}""
-      version = ""{Version}""
-    }}
-  }}
-}}
-
-provider ""{ProviderName}"" {{
-}}
-";
+        // Generate Terraform configuration file from template
+        var terraformConfig = codeGenServices.TerraformConfigTemplate.Generate(ProviderName, Version);
 
         var configPath = Path.Combine(workingDirectory, "main.tf");
         await codeGenServices.FileSystem.WriteAllTextAsync(configPath, terraformConfig, context.CancellationToken);

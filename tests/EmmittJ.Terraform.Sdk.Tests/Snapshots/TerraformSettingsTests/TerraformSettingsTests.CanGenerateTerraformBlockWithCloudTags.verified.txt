@@ -1,9 +1,0 @@
-﻿terraform {
-  cloud = {
-    organization = "my-org"
-    workspaces = {
-      tags = ["app", "production"]
-    }
-  }
-  required_version = ">= 1.9.0"
-}

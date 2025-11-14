@@ -1,0 +1,21 @@
+﻿using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
+
+/// <summary>
+/// Represents a azurerm_resource_group Terraform data source.
+/// Use this data source to access information about an existing Resource Group.
+/// </summary>
+public partial class AzurermResourceGroup(string name) : TerraformDataSource("azurerm_resource_group", name)
+{
+    /// <summary>
+    /// The name of the Resource Group.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformString Name
+    {
+        get => new TerraformReference<TerraformString>(this, "name");
+        set => SetArgument("name", value);
+    }
+}

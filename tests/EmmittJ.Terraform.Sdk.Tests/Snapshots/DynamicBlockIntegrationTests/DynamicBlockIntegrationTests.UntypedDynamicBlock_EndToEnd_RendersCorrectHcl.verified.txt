@@ -1,9 +1,0 @@
-﻿dynamic "setting" {
-  for_each = var.settings
-  iterator = setting
-
-  content {
-    name = setting.value.name
-    namespace = setting.value.ns
-  }
-}

@@ -53,6 +53,7 @@ internal static class ServiceCollectionExtensions
         services.AddSingleton<Templates.ProviderTemplate>();
         services.AddSingleton<Templates.ProviderFunctionsTemplate>();
         services.AddSingleton<Templates.EphemeralResourceTemplate>();
+        services.AddSingleton<Templates.TerraformConfigTemplate>();
 
         // Service aggregator
         services.AddSingleton<TerraformCodeGenServices>();

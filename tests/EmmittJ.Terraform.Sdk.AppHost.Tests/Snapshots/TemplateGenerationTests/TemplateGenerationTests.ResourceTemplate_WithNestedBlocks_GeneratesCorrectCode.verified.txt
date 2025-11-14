@@ -1,0 +1,54 @@
+﻿using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
+
+/// <summary>
+/// Block type for subnet in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualNetworkSubnetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "subnet";
+
+    /// <summary>
+    /// The name of the subnet.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformString Name
+    {
+        get => new TerraformReference<TerraformString>(this, "name");
+        set => SetArgument("name", value);
+    }
+    /// <summary>
+    /// The address prefix to use for the subnet.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
+    [TerraformArgument("address_prefix")]
+    public required TerraformString AddressPrefix
+    {
+        get => new TerraformReference<TerraformString>(this, "address_prefix");
+        set => SetArgument("address_prefix", value);
+    }
+}
+
+/// <summary>
+/// Represents a azurerm_virtual_network Terraform resource.
+/// Manages a Virtual Network.
+/// </summary>
+public partial class AzurermVirtualNetwork(string name) : TerraformResource("azurerm_virtual_network", name)
+{
+    /// <summary>
+    /// The name of the virtual network.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformString Name
+    {
+        get => new TerraformReference<TerraformString>(this, "name");
+        set => SetArgument("name", value);
+    }
+}

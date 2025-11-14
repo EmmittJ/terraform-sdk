@@ -1,0 +1,33 @@
+﻿using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
+
+/// <summary>
+/// Represents the azurerm Terraform provider.
+/// The Azure Resource Manager provider.
+/// Version: 4.0.0
+/// Resources: 1000
+/// Data Sources: 500
+/// </summary>
+public partial class AzurermProvider(string name = "azurerm") : TerraformProvider(name)
+{
+    /// <summary>
+    /// A features block as defined below.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Features is required")]
+    [TerraformArgument("features")]
+    public required AzurermProviderFeaturesBlock Features
+    {
+        get => new TerraformReference<AzurermProviderFeaturesBlock>(this, "features");
+        set => SetArgument("features", value);
+    }
+    /// <summary>
+    /// The Subscription ID which should be used.
+    /// </summary>
+    [TerraformArgument("subscription_id")]
+    public TerraformString? SubscriptionId
+    {
+        get => new TerraformReference<TerraformString>(this, "subscription_id");
+        set => SetArgument("subscription_id", value);
+    }
+}

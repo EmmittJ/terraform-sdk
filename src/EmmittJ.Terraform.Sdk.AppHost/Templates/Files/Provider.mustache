@@ -4,23 +4,15 @@ namespace {{Namespace}};
 
 /// <summary>
 /// Represents the {{ProviderName}} Terraform provider.
-/// {{#Description}}
+{{#Description}}
 /// {{Description}}
-/// {{/Description}}
+{{/Description}}
 /// Version: {{Version}}
 /// Resources: {{ResourceCount}}
 /// Data Sources: {{DataSourceCount}}
 /// </summary>
-public partial class {{ClassName}} : TerraformProvider
+public partial class {{ClassName}}(string name = "{{ProviderName}}") : TerraformProvider(name)
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="{{ClassName}}"/> class.
-    /// </summary>
-    /// <param name="name">The name of the provider instance. Defaults to "{{ProviderName}}".</param>
-    public {{ClassName}}(string name = "{{ProviderName}}") : base(name)
-    {
-    }
-
 {{#Arguments}}
 {{>_argument}}
 {{/Arguments}}

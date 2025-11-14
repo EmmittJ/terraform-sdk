@@ -206,7 +206,7 @@ public static class TemplateHelpers
             NeedsNewKeyword = needsNewKeyword,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,
-            Properties = block.Arguments.Select(p => PreparePropertyForTemplate(p, isNestedBlockProperty: true)).ToList()
+            Arguments = block.Arguments.Select(p => PreparePropertyForTemplate(p, isNestedBlockProperty: true)).ToList()
         };
     }
 }

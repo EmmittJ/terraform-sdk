@@ -1,0 +1,40 @@
+﻿using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
+
+/// <summary>
+/// Represents a azurerm_resource_group Terraform resource.
+/// Manages a Resource Group.
+/// </summary>
+public partial class AzurermResourceGroup(string name) : TerraformResource("azurerm_resource_group", name)
+{
+    /// <summary>
+    /// The name of the Resource Group.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformString Name
+    {
+        get => new TerraformReference<TerraformString>(this, "name");
+        set => SetArgument("name", value);
+    }
+    /// <summary>
+    /// The Azure Region where the Resource Group should exist.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    [TerraformArgument("location")]
+    public required TerraformString Location
+    {
+        get => new TerraformReference<TerraformString>(this, "location");
+        set => SetArgument("location", value);
+    }
+    /// <summary>
+    /// A mapping of tags to assign to the resource.
+    /// </summary>
+    [TerraformArgument("tags")]
+    public TerraformMap<TerraformString>? Tags
+    {
+        get => TerraformMap<TerraformString>.Lazy(ctx => new TerraformReference<TerraformMap<TerraformString>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+}
