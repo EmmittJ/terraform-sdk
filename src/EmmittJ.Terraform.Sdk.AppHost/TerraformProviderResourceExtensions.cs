@@ -13,22 +13,19 @@ public static class TerraformProviderResourceExtensions
     /// Adds a Terraform provider resource to the application for code generation with a custom name.
     /// </summary>
     /// <param name="builder">The distributed application builder.</param>
-    /// <param name="name">The name of the resource (used for identification in the dashboard).</param>
     /// <param name="providerName">The Terraform provider name (e.g., "aws", "azurerm").</param>
     /// <param name="version">The version constraint for the provider (e.g., "~> 6.0").</param>
     /// <returns>A resource builder for the Terraform provider.</returns>
     public static IResourceBuilder<TerraformProviderResource> AddTerraformProvider(
         this IDistributedApplicationBuilder builder,
-        string name,
         string providerName,
         string version)
     {
         ArgumentNullException.ThrowIfNull(builder);
-        ArgumentException.ThrowIfNullOrWhiteSpace(name);
         ArgumentException.ThrowIfNullOrWhiteSpace(providerName);
         ArgumentException.ThrowIfNullOrWhiteSpace(version);
 
-        var resource = new TerraformProviderResource(name, providerName, version);
+        var resource = new TerraformProviderResource(providerName, version);
         return builder.AddResource(resource)
             .WithAnnotation(new TerraformProviderAnnotation());
     }

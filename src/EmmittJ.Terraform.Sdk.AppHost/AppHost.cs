@@ -14,7 +14,8 @@ var codeGenEnv = builder.AddTerraformCodeGenEnvironment("terraform-codegen")
 // Provider names become the namespace suffix (e.g., "AzureRM" -> "EmmittJ.Terraform.Sdk.Providers.AzureRM")
 // var aws = builder.AddTerraformProvider("aws", "aws", "~> 6.0");
 
-var azurerm = builder.AddTerraformProvider("AzureRM", "azurerm", "~> 4.0");
+var azurerm = builder
+    .AddTerraformProvider("azurerm", "~> 4.0");
 
 // var azuread = builder.AddTerraformProvider("AzureAD", "azuread", "~> 3.0");
 

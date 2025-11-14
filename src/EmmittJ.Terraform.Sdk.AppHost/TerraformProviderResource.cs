@@ -22,7 +22,7 @@ public sealed class TerraformProviderResource : Resource
     /// </summary>
     public string Version { get; }
 
-    public TerraformProviderResource(string name, string providerName, string version) : base(name)
+    public TerraformProviderResource(string providerName, string version) : base(providerName)
     {
         ProviderName = providerName;
         Version = version;
