@@ -10,6 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Data sources allow Terraform to use information defined outside of Terraform, defined by another
 /// separate Terraform configuration, or modified by functions.
 /// Data sources support a subset of meta-arguments: depends_on and provider.
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/data-sources"/></para>
 /// </remarks>
 public partial class TerraformDataSource :
     TerraformBlock,
@@ -51,7 +52,8 @@ public partial class TerraformDataSource :
 
     /// <summary>
     /// Generates a reference to this data source (e.g., "data.aws_ami.ubuntu").
-    /// Used when referencing this data source's attributes in other parts of the configuration.
+    /// This reference can be used to access the data source's attributes (output values like id, arn, etc.)
+    /// in other parts of the configuration.
     /// </summary>
     /// <returns>An identifier expression for this data source.</returns>
     public override TerraformExpression AsReference()

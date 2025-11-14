@@ -5,6 +5,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// Import blocks allow you to declare which existing infrastructure objects should be
 /// imported into Terraform's state without requiring separate terraform import commands.
 /// </summary>
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/import"/></para>
+/// </remarks>
 /// <example>
 /// <code>
 /// // Basic import

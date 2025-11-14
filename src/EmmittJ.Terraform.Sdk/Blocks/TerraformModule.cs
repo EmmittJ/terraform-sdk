@@ -10,6 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Modules are containers for multiple resources that are used together.
 /// A module consists of a collection of .tf files kept together in a directory.
 /// Modules support depends_on, count, and for_each meta-arguments.
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/modules/syntax"/></para>
 /// </remarks>
 public partial class TerraformModule :
     TerraformBlock,

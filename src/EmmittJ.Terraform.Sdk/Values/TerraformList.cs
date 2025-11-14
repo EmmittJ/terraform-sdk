@@ -3,7 +3,7 @@ using System.Collections;
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform list attribute that can contain multiple ordered elements.
+/// Represents a Terraform list argument that can contain multiple ordered elements.
 /// Terraform lists are ordered collections that allow duplicates.
 /// Inherits from TerraformValue&lt;IEnumerable&lt;T&gt;&gt; for clean typing.
 /// </summary>

@@ -5,6 +5,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Represents a Terraform locals block containing local values.
 /// </summary>
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/values/locals"/></para>
+/// </remarks>
 public class TerraformLocals : TerraformBlock
 {
     /// <summary>

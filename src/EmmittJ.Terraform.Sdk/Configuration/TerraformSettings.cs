@@ -7,6 +7,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// Represents the terraform {} settings block.
 /// This is a top-level Terraform block that configures Terraform itself.
 /// </summary>
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/settings"/></para>
+/// </remarks>
 public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
 {
     /// <summary>

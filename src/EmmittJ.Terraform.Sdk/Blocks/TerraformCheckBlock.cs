@@ -1,10 +1,15 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform check block for continuous validation (Terraform 1.5+).
-/// Check blocks allow you to define assertions that Terraform will continuously validate.
-/// They can contain data sources for fetching external data and assert blocks for validation.
+/// Represents a Terraform check block for infrastructure validation (Terraform 1.5+).
+/// Check blocks execute as the last step of plan or apply operations to validate infrastructure.
+/// Unlike other validations, check failures report warnings but do not block operations.
+/// Continuous validation requires enabling health checks in HCP Terraform workspaces.
+/// Check blocks can contain scoped data sources and multiple assert blocks.
 /// </summary>
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/checks"/></para>
+/// </remarks>
 /// <example>
 /// <code>
 /// var check = new TerraformCheckBlock("health_check");
@@ -56,8 +61,10 @@ public class TerraformCheckBlock : TerraformBlock
     }
 
     /// <summary>
-    /// Adds a data source to the check block.
-    /// Data sources in check blocks can be used to fetch external data for validation.
+    /// Adds a scoped data source to the check block.
+    /// Nested data sources are only accessible within their parent check block.
+    /// Terraform fetches nested data sources as the final step of plan or apply operations,
+    /// after applying the rest of the configuration.
     /// </summary>
     /// <param name="dataSource">The data source to add.</param>
     /// <returns>This check block for fluent chaining.</returns>
@@ -72,7 +79,8 @@ public class TerraformCheckBlock : TerraformBlock
 
     /// <summary>
     /// Adds an assert block to the check block.
-    /// Assert blocks define validation conditions that must be true.
+    /// A check block must contain at least one assert block.
+    /// For a check to pass, all assert block conditions must evaluate to true.
     /// </summary>
     /// <param name="assert">The assert block to add.</param>
     /// <returns>This check block for fluent chaining.</returns>
@@ -100,11 +108,40 @@ public class TerraformCheckBlock : TerraformBlock
     {
         throw new NotSupportedException("Check blocks cannot be referenced in expressions.");
     }
+
+    /// <summary>
+    /// Resolves this check block to a top-level block node with nested data sources and assert blocks.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var children = new List<TerraformSyntaxNode>();
+
+        // Add nested data sources first (they're fetched before assertions are evaluated)
+        foreach (var dataSource in _dataSources)
+        {
+            var dataSourceNodes = dataSource.ResolveNodes(context).ToList();
+            children.AddRange(dataSourceNodes);
+        }
+
+        // Add assert blocks
+        foreach (var assert in _asserts)
+        {
+            var assertNodes = assert.ResolveNodes(context).ToList();
+            children.AddRange(assertNodes);
+        }
+
+        // Format all children
+        var formatted = context.Formatter.Format(children);
+
+        // Wrap in a top-level block node
+        yield return new TerraformBlockNode(BlockType, BlockLabels, formatted);
+    }
 }
 
 /// <summary>
 /// Represents an assert block within a check block.
-/// Assert blocks define validation conditions with custom error messages.
+/// Assert blocks define validation conditions that must evaluate to true.
+/// When a condition evaluates to false, Terraform displays the error_message as a warning.
 /// </summary>
 public class TerraformAssertBlock : TerraformBlock
 {
@@ -115,12 +152,15 @@ public class TerraformAssertBlock : TerraformBlock
 
     /// <summary>
     /// Gets or sets the condition expression that must evaluate to true.
+    /// The condition can reference nested data sources, variables, resources, data sources,
+    /// or module outputs within the current module.
     /// </summary>
     [TerraformArgument("condition")]
     public TerraformValue<TerraformExpression>? Condition { get; set; }
 
     /// <summary>
-    /// Gets or sets the error message to display when the condition is false.
+    /// Gets or sets the error message to display when the condition evaluates to false.
+    /// Terraform displays this message as a warning but continues the operation.
     /// </summary>
     [TerraformArgument("error_message")]
     public TerraformValue<string>? ErrorMessage { get; set; }

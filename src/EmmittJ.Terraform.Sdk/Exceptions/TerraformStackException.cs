@@ -1,7 +1,7 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Exception thrown when there's an error in Terraform stack blockion.
+/// Exception thrown when there's an error in Terraform stack configuration.
 /// </summary>
 public sealed class TerraformStackException : TerraformException
 {

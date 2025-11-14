@@ -6,8 +6,8 @@ namespace EmmittJ.Terraform.Sdk;
 /// the existing infrastructure state.
 /// </summary>
 /// <remarks>
-/// Reference: https://developer.hashicorp.com/terraform/language/modules/develop/refactoring
 /// Requires: Terraform 1.1+
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/modules/develop/refactoring"/></para>
 /// </remarks>
 public class TerraformMovedBlock : TerraformBlock
 {

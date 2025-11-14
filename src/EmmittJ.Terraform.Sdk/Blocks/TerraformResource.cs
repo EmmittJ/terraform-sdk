@@ -10,6 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Resources are the most important element in Terraform. Each resource block describes one or more
 /// infrastructure objects, such as virtual networks, compute instances, or higher-level components
 /// such as DNS records.
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/resources"/></para>
 /// </remarks>
 public partial class TerraformResource : TerraformBlock,
     ITerraformHasCount,
@@ -51,7 +52,8 @@ public partial class TerraformResource : TerraformBlock,
 
     /// <summary>
     /// Generates a reference to this resource (e.g., "aws_vpc.main").
-    /// Used when referencing this resource's attributes in other parts of the configuration.
+    /// This reference can be used to access the resource's attributes (output values like id, arn, etc.)
+    /// in other parts of the configuration.
     /// </summary>
     /// <returns>An identifier expression for this resource.</returns>
     public override TerraformExpression AsReference()

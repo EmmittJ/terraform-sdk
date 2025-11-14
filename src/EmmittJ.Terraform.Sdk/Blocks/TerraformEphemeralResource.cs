@@ -5,6 +5,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// Ephemeral resources are used for temporary credentials, tokens, and secrets
 /// that don't persist in the Terraform state file.
 /// </summary>
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/resources/ephemeral"/></para>
+/// </remarks>
 public class TerraformEphemeralResource(string type, string name) : TerraformBlock()
 {
     /// <summary>

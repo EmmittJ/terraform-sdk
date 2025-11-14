@@ -3,7 +3,7 @@ using System.Collections;
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform set attribute that can contain multiple unique unordered elements.
+/// Represents a Terraform set argument that can contain multiple unique unordered elements.
 /// Terraform sets are unordered collections that do not allow duplicates.
 /// Inherits from TerraformValue&lt;IEnumerable&lt;T&gt;&gt; for clean typing.
 /// </summary>
