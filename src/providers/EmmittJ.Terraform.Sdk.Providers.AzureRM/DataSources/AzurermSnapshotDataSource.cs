@@ -1,0 +1,166 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
+// This is the key to natural Terraform syntax
+// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
+// The value that was SET is only used during serialization
+
+// Providers: Getter returns stored value
+// Providers are not referenced in HCL
+// Use required getter if property is required or non-nullable
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSnapshotDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    [TerraformArgument("read")]
+    public TerraformValue<string>? Read
+    {
+        get => new TerraformReference<string>(this, "read");
+        set => SetArgument("read", value);
+    }
+
+}
+
+/// <summary>
+/// Retrieves information about a azurerm_snapshot.
+/// </summary>
+public class AzurermSnapshotDataSource : TerraformDataSource
+{
+    public AzurermSnapshotDataSource(string name) : base("azurerm_snapshot", name)
+    {
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [TerraformArgument("id")]
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    [TerraformArgument("resource_group_name")]
+    public required TerraformValue<string> ResourceGroupName
+    {
+        get => new TerraformReference<string>(this, "resource_group_name");
+        set => SetArgument("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    [TerraformArgument("timeouts")]
+    public AzurermSnapshotDataSourceTimeoutsBlock Timeouts { get; set; } = new();
+
+    /// <summary>
+    /// The creation_option attribute.
+    /// </summary>
+    [TerraformArgument("creation_option")]
+    public TerraformValue<string> CreationOption
+    {
+        get => new TerraformReference<string>(this, "creation_option");
+    }
+
+    /// <summary>
+    /// The disk_size_gb attribute.
+    /// </summary>
+    [TerraformArgument("disk_size_gb")]
+    public TerraformValue<double> DiskSizeGb
+    {
+        get => new TerraformReference<double>(this, "disk_size_gb");
+    }
+
+    /// <summary>
+    /// The encryption_settings attribute.
+    /// </summary>
+    [TerraformArgument("encryption_settings")]
+    public TerraformList<object> EncryptionSettings
+    {
+        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "encryption_settings").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The os_type attribute.
+    /// </summary>
+    [TerraformArgument("os_type")]
+    public TerraformValue<string> OsType
+    {
+        get => new TerraformReference<string>(this, "os_type");
+    }
+
+    /// <summary>
+    /// The source_resource_id attribute.
+    /// </summary>
+    [TerraformArgument("source_resource_id")]
+    public TerraformValue<string> SourceResourceId
+    {
+        get => new TerraformReference<string>(this, "source_resource_id");
+    }
+
+    /// <summary>
+    /// The source_uri attribute.
+    /// </summary>
+    [TerraformArgument("source_uri")]
+    public TerraformValue<string> SourceUri
+    {
+        get => new TerraformReference<string>(this, "source_uri");
+    }
+
+    /// <summary>
+    /// The storage_account_id attribute.
+    /// </summary>
+    [TerraformArgument("storage_account_id")]
+    public TerraformValue<string> StorageAccountId
+    {
+        get => new TerraformReference<string>(this, "storage_account_id");
+    }
+
+    /// <summary>
+    /// The time_created attribute.
+    /// </summary>
+    [TerraformArgument("time_created")]
+    public TerraformValue<string> TimeCreated
+    {
+        get => new TerraformReference<string>(this, "time_created");
+    }
+
+    /// <summary>
+    /// The trusted_launch_enabled attribute.
+    /// </summary>
+    [TerraformArgument("trusted_launch_enabled")]
+    public TerraformValue<bool> TrustedLaunchEnabled
+    {
+        get => new TerraformReference<bool>(this, "trusted_launch_enabled");
+    }
+
+}

@@ -1,0 +1,826 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
+// This is the key to natural Terraform syntax
+// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
+// The value that was SET is only used during serialization
+
+// Providers: Getter returns stored value
+// Providers are not referenced in HCL
+// Use required getter if property is required or non-nullable
+
+/// <summary>
+/// Block type for component_version in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterComponentVersionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "component_version";
+
+    /// <summary>
+    /// The spark attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Spark is required")]
+    [TerraformArgument("spark")]
+    public required TerraformValue<string> Spark
+    {
+        get => new TerraformReference<string>(this, "spark");
+        set => SetArgument("spark", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for compute_isolation in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterComputeIsolationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "compute_isolation";
+
+    /// <summary>
+    /// The compute_isolation_enabled attribute.
+    /// </summary>
+    [TerraformArgument("compute_isolation_enabled")]
+    public TerraformValue<bool>? ComputeIsolationEnabled
+    {
+        get => new TerraformReference<bool>(this, "compute_isolation_enabled");
+        set => SetArgument("compute_isolation_enabled", value);
+    }
+
+    /// <summary>
+    /// The host_sku attribute.
+    /// </summary>
+    [TerraformArgument("host_sku")]
+    public TerraformValue<string>? HostSku
+    {
+        get => new TerraformReference<string>(this, "host_sku");
+        set => SetArgument("host_sku", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for disk_encryption in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterDiskEncryptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "disk_encryption";
+
+    /// <summary>
+    /// The encryption_algorithm attribute.
+    /// </summary>
+    [TerraformArgument("encryption_algorithm")]
+    public TerraformValue<string>? EncryptionAlgorithm
+    {
+        get => new TerraformReference<string>(this, "encryption_algorithm");
+        set => SetArgument("encryption_algorithm", value);
+    }
+
+    /// <summary>
+    /// The encryption_at_host_enabled attribute.
+    /// </summary>
+    [TerraformArgument("encryption_at_host_enabled")]
+    public TerraformValue<bool>? EncryptionAtHostEnabled
+    {
+        get => new TerraformReference<bool>(this, "encryption_at_host_enabled");
+        set => SetArgument("encryption_at_host_enabled", value);
+    }
+
+    /// <summary>
+    /// The key_vault_key_id attribute.
+    /// </summary>
+    [TerraformArgument("key_vault_key_id")]
+    public TerraformValue<string>? KeyVaultKeyId
+    {
+        get => new TerraformReference<string>(this, "key_vault_key_id");
+        set => SetArgument("key_vault_key_id", value);
+    }
+
+    /// <summary>
+    /// The key_vault_managed_identity_id attribute.
+    /// </summary>
+    [TerraformArgument("key_vault_managed_identity_id")]
+    public TerraformValue<string>? KeyVaultManagedIdentityId
+    {
+        get => new TerraformReference<string>(this, "key_vault_managed_identity_id");
+        set => SetArgument("key_vault_managed_identity_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for extension in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterExtensionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "extension";
+
+    /// <summary>
+    /// The log_analytics_workspace_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
+    [TerraformArgument("log_analytics_workspace_id")]
+    public required TerraformValue<string> LogAnalyticsWorkspaceId
+    {
+        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        set => SetArgument("log_analytics_workspace_id", value);
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
+    [TerraformArgument("primary_key")]
+    public required TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+        set => SetArgument("primary_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for gateway in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterGatewayBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "gateway";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    [TerraformArgument("password")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    [TerraformArgument("username")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for metastores in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterMetastoresBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "metastores";
+
+}
+
+/// <summary>
+/// Block type for monitor in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterMonitorBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "monitor";
+
+    /// <summary>
+    /// The log_analytics_workspace_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
+    [TerraformArgument("log_analytics_workspace_id")]
+    public required TerraformValue<string> LogAnalyticsWorkspaceId
+    {
+        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        set => SetArgument("log_analytics_workspace_id", value);
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
+    [TerraformArgument("primary_key")]
+    public required TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+        set => SetArgument("primary_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for network in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterNetworkBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "network";
+
+    /// <summary>
+    /// The connection_direction attribute.
+    /// </summary>
+    [TerraformArgument("connection_direction")]
+    public TerraformValue<string>? ConnectionDirection
+    {
+        get => new TerraformReference<string>(this, "connection_direction");
+        set => SetArgument("connection_direction", value);
+    }
+
+    /// <summary>
+    /// The private_link_enabled attribute.
+    /// </summary>
+    [TerraformArgument("private_link_enabled")]
+    public TerraformValue<bool>? PrivateLinkEnabled
+    {
+        get => new TerraformReference<bool>(this, "private_link_enabled");
+        set => SetArgument("private_link_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for private_link_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterPrivateLinkConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "private_link_configuration";
+
+    /// <summary>
+    /// The group_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
+    [TerraformArgument("group_id")]
+    public required TerraformValue<string> GroupId
+    {
+        get => new TerraformReference<string>(this, "group_id");
+        set => SetArgument("group_id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for roles in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterRolesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "roles";
+
+}
+
+/// <summary>
+/// Block type for security_profile in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterSecurityProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "security_profile";
+
+    /// <summary>
+    /// The aadds_resource_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AaddsResourceId is required")]
+    [TerraformArgument("aadds_resource_id")]
+    public required TerraformValue<string> AaddsResourceId
+    {
+        get => new TerraformReference<string>(this, "aadds_resource_id");
+        set => SetArgument("aadds_resource_id", value);
+    }
+
+    /// <summary>
+    /// The cluster_users_group_dns attribute.
+    /// </summary>
+    [TerraformArgument("cluster_users_group_dns")]
+    public TerraformSet<string>? ClusterUsersGroupDns
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cluster_users_group_dns").ResolveNodes(ctx));
+        set => SetArgument("cluster_users_group_dns", value);
+    }
+
+    /// <summary>
+    /// The domain_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    [TerraformArgument("domain_name")]
+    public required TerraformValue<string> DomainName
+    {
+        get => new TerraformReference<string>(this, "domain_name");
+        set => SetArgument("domain_name", value);
+    }
+
+    /// <summary>
+    /// The domain_user_password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUserPassword is required")]
+    [TerraformArgument("domain_user_password")]
+    public required TerraformValue<string> DomainUserPassword
+    {
+        get => new TerraformReference<string>(this, "domain_user_password");
+        set => SetArgument("domain_user_password", value);
+    }
+
+    /// <summary>
+    /// The domain_username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUsername is required")]
+    [TerraformArgument("domain_username")]
+    public required TerraformValue<string> DomainUsername
+    {
+        get => new TerraformReference<string>(this, "domain_username");
+        set => SetArgument("domain_username", value);
+    }
+
+    /// <summary>
+    /// The ldaps_urls attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LdapsUrls is required")]
+    [TerraformArgument("ldaps_urls")]
+    public required TerraformSet<string> LdapsUrls
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ldaps_urls").ResolveNodes(ctx));
+        set => SetArgument("ldaps_urls", value);
+    }
+
+    /// <summary>
+    /// The msi_resource_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MsiResourceId is required")]
+    [TerraformArgument("msi_resource_id")]
+    public required TerraformValue<string> MsiResourceId
+    {
+        get => new TerraformReference<string>(this, "msi_resource_id");
+        set => SetArgument("msi_resource_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for storage_account in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterStorageAccountBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "storage_account";
+
+    /// <summary>
+    /// The is_default attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
+    [TerraformArgument("is_default")]
+    public required TerraformValue<bool> IsDefault
+    {
+        get => new TerraformReference<bool>(this, "is_default");
+        set => SetArgument("is_default", value);
+    }
+
+    /// <summary>
+    /// The storage_account_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
+    [TerraformArgument("storage_account_key")]
+    public required TerraformValue<string> StorageAccountKey
+    {
+        get => new TerraformReference<string>(this, "storage_account_key");
+        set => SetArgument("storage_account_key", value);
+    }
+
+    /// <summary>
+    /// The storage_container_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
+    [TerraformArgument("storage_container_id")]
+    public required TerraformValue<string> StorageContainerId
+    {
+        get => new TerraformReference<string>(this, "storage_container_id");
+        set => SetArgument("storage_container_id", value);
+    }
+
+    /// <summary>
+    /// The storage_resource_id attribute.
+    /// </summary>
+    [TerraformArgument("storage_resource_id")]
+    public TerraformValue<string>? StorageResourceId
+    {
+        get => new TerraformReference<string>(this, "storage_resource_id");
+        set => SetArgument("storage_resource_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for storage_account_gen2 in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightSparkClusterStorageAccountGen2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "storage_account_gen2";
+
+    /// <summary>
+    /// The filesystem_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemId is required")]
+    [TerraformArgument("filesystem_id")]
+    public required TerraformValue<string> FilesystemId
+    {
+        get => new TerraformReference<string>(this, "filesystem_id");
+        set => SetArgument("filesystem_id", value);
+    }
+
+    /// <summary>
+    /// The is_default attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
+    [TerraformArgument("is_default")]
+    public required TerraformValue<bool> IsDefault
+    {
+        get => new TerraformReference<bool>(this, "is_default");
+        set => SetArgument("is_default", value);
+    }
+
+    /// <summary>
+    /// The managed_identity_resource_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityResourceId is required")]
+    [TerraformArgument("managed_identity_resource_id")]
+    public required TerraformValue<string> ManagedIdentityResourceId
+    {
+        get => new TerraformReference<string>(this, "managed_identity_resource_id");
+        set => SetArgument("managed_identity_resource_id", value);
+    }
+
+    /// <summary>
+    /// The storage_resource_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageResourceId is required")]
+    [TerraformArgument("storage_resource_id")]
+    public required TerraformValue<string> StorageResourceId
+    {
+        get => new TerraformReference<string>(this, "storage_resource_id");
+        set => SetArgument("storage_resource_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermHdinsightSparkClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    [TerraformArgument("create")]
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    [TerraformArgument("delete")]
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    [TerraformArgument("read")]
+    public TerraformValue<string>? Read
+    {
+        get => new TerraformReference<string>(this, "read");
+        set => SetArgument("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    [TerraformArgument("update")]
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+/// <summary>
+/// Manages a azurerm_hdinsight_spark_cluster resource.
+/// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
+public class AzurermHdinsightSparkCluster : TerraformResource
+{
+    public AzurermHdinsightSparkCluster(string name) : base("azurerm_hdinsight_spark_cluster", name)
+    {
+    }
+
+    /// <summary>
+    /// The cluster_version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
+    [TerraformArgument("cluster_version")]
+    public required TerraformValue<string> ClusterVersion
+    {
+        get => new TerraformReference<string>(this, "cluster_version");
+        set => SetArgument("cluster_version", value);
+    }
+
+    /// <summary>
+    /// The encryption_in_transit_enabled attribute.
+    /// </summary>
+    [TerraformArgument("encryption_in_transit_enabled")]
+    public TerraformValue<bool>? EncryptionInTransitEnabled
+    {
+        get => new TerraformReference<bool>(this, "encryption_in_transit_enabled");
+        set => SetArgument("encryption_in_transit_enabled", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [TerraformArgument("id")]
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    [TerraformArgument("location")]
+    public required TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+        set => SetArgument("location", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    [TerraformArgument("resource_group_name")]
+    public required TerraformValue<string> ResourceGroupName
+    {
+        get => new TerraformReference<string>(this, "resource_group_name");
+        set => SetArgument("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    [TerraformArgument("tags")]
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The tier attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
+    [TerraformArgument("tier")]
+    public required TerraformValue<string> Tier
+    {
+        get => new TerraformReference<string>(this, "tier");
+        set => SetArgument("tier", value);
+    }
+
+    /// <summary>
+    /// The tls_min_version attribute.
+    /// </summary>
+    [TerraformArgument("tls_min_version")]
+    public TerraformValue<string>? TlsMinVersion
+    {
+        get => new TerraformReference<string>(this, "tls_min_version");
+        set => SetArgument("tls_min_version", value);
+    }
+
+    /// <summary>
+    /// The zones attribute.
+    /// </summary>
+    [TerraformArgument("zones")]
+    public TerraformSet<string>? Zones
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        set => SetArgument("zones", value);
+    }
+
+    /// <summary>
+    /// Block for component_version.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentVersion is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
+    [TerraformArgument("component_version")]
+    public required TerraformList<AzurermHdinsightSparkClusterComponentVersionBlock> ComponentVersion { get; set; } = new();
+
+    /// <summary>
+    /// Block for compute_isolation.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
+    [TerraformArgument("compute_isolation")]
+    public TerraformList<AzurermHdinsightSparkClusterComputeIsolationBlock> ComputeIsolation { get; set; } = new();
+
+    /// <summary>
+    /// Block for disk_encryption.
+    /// Nesting mode: list
+    /// </summary>
+    [TerraformArgument("disk_encryption")]
+    public TerraformList<AzurermHdinsightSparkClusterDiskEncryptionBlock> DiskEncryption { get; set; } = new();
+
+    /// <summary>
+    /// Block for extension.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
+    [TerraformArgument("extension")]
+    public TerraformList<AzurermHdinsightSparkClusterExtensionBlock> Extension { get; set; } = new();
+
+    /// <summary>
+    /// Block for gateway.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gateway is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
+    [TerraformArgument("gateway")]
+    public required TerraformList<AzurermHdinsightSparkClusterGatewayBlock> Gateway { get; set; } = new();
+
+    /// <summary>
+    /// Block for metastores.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
+    [TerraformArgument("metastores")]
+    public TerraformList<AzurermHdinsightSparkClusterMetastoresBlock> Metastores { get; set; } = new();
+
+    /// <summary>
+    /// Block for monitor.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
+    [TerraformArgument("monitor")]
+    public TerraformList<AzurermHdinsightSparkClusterMonitorBlock> Monitor { get; set; } = new();
+
+    /// <summary>
+    /// Block for network.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
+    [TerraformArgument("network")]
+    public TerraformList<AzurermHdinsightSparkClusterNetworkBlock> Network { get; set; } = new();
+
+    /// <summary>
+    /// Block for private_link_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
+    [TerraformArgument("private_link_configuration")]
+    public TerraformList<AzurermHdinsightSparkClusterPrivateLinkConfigurationBlock> PrivateLinkConfiguration { get; set; } = new();
+
+    /// <summary>
+    /// Block for roles.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
+    [TerraformArgument("roles")]
+    public required TerraformList<AzurermHdinsightSparkClusterRolesBlock> Roles { get; set; } = new();
+
+    /// <summary>
+    /// Block for security_profile.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
+    [TerraformArgument("security_profile")]
+    public TerraformList<AzurermHdinsightSparkClusterSecurityProfileBlock> SecurityProfile { get; set; } = new();
+
+    /// <summary>
+    /// Block for storage_account.
+    /// Nesting mode: list
+    /// </summary>
+    [TerraformArgument("storage_account")]
+    public TerraformList<AzurermHdinsightSparkClusterStorageAccountBlock> StorageAccount { get; set; } = new();
+
+    /// <summary>
+    /// Block for storage_account_gen2.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
+    [TerraformArgument("storage_account_gen2")]
+    public TerraformList<AzurermHdinsightSparkClusterStorageAccountGen2Block> StorageAccountGen2 { get; set; } = new();
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    [TerraformArgument("timeouts")]
+    public AzurermHdinsightSparkClusterTimeoutsBlock Timeouts { get; set; } = new();
+
+    /// <summary>
+    /// The https_endpoint attribute.
+    /// </summary>
+    [TerraformArgument("https_endpoint")]
+    public TerraformValue<string> HttpsEndpoint
+    {
+        get => new TerraformReference<string>(this, "https_endpoint");
+    }
+
+    /// <summary>
+    /// The ssh_endpoint attribute.
+    /// </summary>
+    [TerraformArgument("ssh_endpoint")]
+    public TerraformValue<string> SshEndpoint
+    {
+        get => new TerraformReference<string>(this, "ssh_endpoint");
+    }
+
+}

@@ -1,0 +1,452 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
+// This is the key to natural Terraform syntax
+// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
+// The value that was SET is only used during serialization
+
+// Providers: Getter returns stored value
+// Providers are not referenced in HCL
+// Use required getter if property is required or non-nullable
+
+/// <summary>
+/// Block type for additional_workspace in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "additional_workspace";
+
+    /// <summary>
+    /// The data_types attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTypes is required")]
+    [TerraformArgument("data_types")]
+    public required TerraformSet<string> DataTypes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_types").ResolveNodes(ctx));
+        set => SetArgument("data_types", value);
+    }
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    [TerraformArgument("workspace_id")]
+    public required TerraformValue<string> WorkspaceId
+    {
+        get => new TerraformReference<string>(this, "workspace_id");
+        set => SetArgument("workspace_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for recommendations_enabled in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "recommendations_enabled";
+
+    /// <summary>
+    /// The acr_authentication attribute.
+    /// </summary>
+    [TerraformArgument("acr_authentication")]
+    public TerraformValue<bool>? AcrAuthentication
+    {
+        get => new TerraformReference<bool>(this, "acr_authentication");
+        set => SetArgument("acr_authentication", value);
+    }
+
+    /// <summary>
+    /// The agent_send_unutilized_msg attribute.
+    /// </summary>
+    [TerraformArgument("agent_send_unutilized_msg")]
+    public TerraformValue<bool>? AgentSendUnutilizedMsg
+    {
+        get => new TerraformReference<bool>(this, "agent_send_unutilized_msg");
+        set => SetArgument("agent_send_unutilized_msg", value);
+    }
+
+    /// <summary>
+    /// The baseline attribute.
+    /// </summary>
+    [TerraformArgument("baseline")]
+    public TerraformValue<bool>? Baseline
+    {
+        get => new TerraformReference<bool>(this, "baseline");
+        set => SetArgument("baseline", value);
+    }
+
+    /// <summary>
+    /// The edge_hub_mem_optimize attribute.
+    /// </summary>
+    [TerraformArgument("edge_hub_mem_optimize")]
+    public TerraformValue<bool>? EdgeHubMemOptimize
+    {
+        get => new TerraformReference<bool>(this, "edge_hub_mem_optimize");
+        set => SetArgument("edge_hub_mem_optimize", value);
+    }
+
+    /// <summary>
+    /// The edge_logging_option attribute.
+    /// </summary>
+    [TerraformArgument("edge_logging_option")]
+    public TerraformValue<bool>? EdgeLoggingOption
+    {
+        get => new TerraformReference<bool>(this, "edge_logging_option");
+        set => SetArgument("edge_logging_option", value);
+    }
+
+    /// <summary>
+    /// The inconsistent_module_settings attribute.
+    /// </summary>
+    [TerraformArgument("inconsistent_module_settings")]
+    public TerraformValue<bool>? InconsistentModuleSettings
+    {
+        get => new TerraformReference<bool>(this, "inconsistent_module_settings");
+        set => SetArgument("inconsistent_module_settings", value);
+    }
+
+    /// <summary>
+    /// The install_agent attribute.
+    /// </summary>
+    [TerraformArgument("install_agent")]
+    public TerraformValue<bool>? InstallAgent
+    {
+        get => new TerraformReference<bool>(this, "install_agent");
+        set => SetArgument("install_agent", value);
+    }
+
+    /// <summary>
+    /// The ip_filter_deny_all attribute.
+    /// </summary>
+    [TerraformArgument("ip_filter_deny_all")]
+    public TerraformValue<bool>? IpFilterDenyAll
+    {
+        get => new TerraformReference<bool>(this, "ip_filter_deny_all");
+        set => SetArgument("ip_filter_deny_all", value);
+    }
+
+    /// <summary>
+    /// The ip_filter_permissive_rule attribute.
+    /// </summary>
+    [TerraformArgument("ip_filter_permissive_rule")]
+    public TerraformValue<bool>? IpFilterPermissiveRule
+    {
+        get => new TerraformReference<bool>(this, "ip_filter_permissive_rule");
+        set => SetArgument("ip_filter_permissive_rule", value);
+    }
+
+    /// <summary>
+    /// The open_ports attribute.
+    /// </summary>
+    [TerraformArgument("open_ports")]
+    public TerraformValue<bool>? OpenPorts
+    {
+        get => new TerraformReference<bool>(this, "open_ports");
+        set => SetArgument("open_ports", value);
+    }
+
+    /// <summary>
+    /// The permissive_firewall_policy attribute.
+    /// </summary>
+    [TerraformArgument("permissive_firewall_policy")]
+    public TerraformValue<bool>? PermissiveFirewallPolicy
+    {
+        get => new TerraformReference<bool>(this, "permissive_firewall_policy");
+        set => SetArgument("permissive_firewall_policy", value);
+    }
+
+    /// <summary>
+    /// The permissive_input_firewall_rules attribute.
+    /// </summary>
+    [TerraformArgument("permissive_input_firewall_rules")]
+    public TerraformValue<bool>? PermissiveInputFirewallRules
+    {
+        get => new TerraformReference<bool>(this, "permissive_input_firewall_rules");
+        set => SetArgument("permissive_input_firewall_rules", value);
+    }
+
+    /// <summary>
+    /// The permissive_output_firewall_rules attribute.
+    /// </summary>
+    [TerraformArgument("permissive_output_firewall_rules")]
+    public TerraformValue<bool>? PermissiveOutputFirewallRules
+    {
+        get => new TerraformReference<bool>(this, "permissive_output_firewall_rules");
+        set => SetArgument("permissive_output_firewall_rules", value);
+    }
+
+    /// <summary>
+    /// The privileged_docker_options attribute.
+    /// </summary>
+    [TerraformArgument("privileged_docker_options")]
+    public TerraformValue<bool>? PrivilegedDockerOptions
+    {
+        get => new TerraformReference<bool>(this, "privileged_docker_options");
+        set => SetArgument("privileged_docker_options", value);
+    }
+
+    /// <summary>
+    /// The shared_credentials attribute.
+    /// </summary>
+    [TerraformArgument("shared_credentials")]
+    public TerraformValue<bool>? SharedCredentials
+    {
+        get => new TerraformReference<bool>(this, "shared_credentials");
+        set => SetArgument("shared_credentials", value);
+    }
+
+    /// <summary>
+    /// The vulnerable_tls_cipher_suite attribute.
+    /// </summary>
+    [TerraformArgument("vulnerable_tls_cipher_suite")]
+    public TerraformValue<bool>? VulnerableTlsCipherSuite
+    {
+        get => new TerraformReference<bool>(this, "vulnerable_tls_cipher_suite");
+        set => SetArgument("vulnerable_tls_cipher_suite", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    [TerraformArgument("create")]
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    [TerraformArgument("delete")]
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    [TerraformArgument("read")]
+    public TerraformValue<string>? Read
+    {
+        get => new TerraformReference<string>(this, "read");
+        set => SetArgument("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    [TerraformArgument("update")]
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+/// <summary>
+/// Manages a azurerm_iot_security_solution resource.
+/// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
+public class AzurermIotSecuritySolution : TerraformResource
+{
+    public AzurermIotSecuritySolution(string name) : base("azurerm_iot_security_solution", name)
+    {
+    }
+
+    /// <summary>
+    /// The disabled_data_sources attribute.
+    /// </summary>
+    [TerraformArgument("disabled_data_sources")]
+    public TerraformSet<string>? DisabledDataSources
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disabled_data_sources").ResolveNodes(ctx));
+        set => SetArgument("disabled_data_sources", value);
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    [TerraformArgument("display_name")]
+    public required TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+        set => SetArgument("display_name", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [TerraformArgument("enabled")]
+    public TerraformValue<bool>? Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The events_to_export attribute.
+    /// </summary>
+    [TerraformArgument("events_to_export")]
+    public TerraformSet<string>? EventsToExport
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "events_to_export").ResolveNodes(ctx));
+        set => SetArgument("events_to_export", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [TerraformArgument("id")]
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The iothub_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubIds is required")]
+    [TerraformArgument("iothub_ids")]
+    public required TerraformSet<string> IothubIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "iothub_ids").ResolveNodes(ctx));
+        set => SetArgument("iothub_ids", value);
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    [TerraformArgument("location")]
+    public required TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+        set => SetArgument("location", value);
+    }
+
+    /// <summary>
+    /// The log_analytics_workspace_id attribute.
+    /// </summary>
+    [TerraformArgument("log_analytics_workspace_id")]
+    public TerraformValue<string>? LogAnalyticsWorkspaceId
+    {
+        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        set => SetArgument("log_analytics_workspace_id", value);
+    }
+
+    /// <summary>
+    /// The log_unmasked_ips_enabled attribute.
+    /// </summary>
+    [TerraformArgument("log_unmasked_ips_enabled")]
+    public TerraformValue<bool>? LogUnmaskedIpsEnabled
+    {
+        get => new TerraformReference<bool>(this, "log_unmasked_ips_enabled");
+        set => SetArgument("log_unmasked_ips_enabled", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The query_for_resources attribute.
+    /// </summary>
+    [TerraformArgument("query_for_resources")]
+    public TerraformValue<string> QueryForResources
+    {
+        get => new TerraformReference<string>(this, "query_for_resources");
+        set => SetArgument("query_for_resources", value);
+    }
+
+    /// <summary>
+    /// The query_subscription_ids attribute.
+    /// </summary>
+    [TerraformArgument("query_subscription_ids")]
+    public TerraformSet<string> QuerySubscriptionIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "query_subscription_ids").ResolveNodes(ctx));
+        set => SetArgument("query_subscription_ids", value);
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    [TerraformArgument("resource_group_name")]
+    public required TerraformValue<string> ResourceGroupName
+    {
+        get => new TerraformReference<string>(this, "resource_group_name");
+        set => SetArgument("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    [TerraformArgument("tags")]
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// Block for additional_workspace.
+    /// Nesting mode: set
+    /// </summary>
+    [TerraformArgument("additional_workspace")]
+    public TerraformSet<AzurermIotSecuritySolutionAdditionalWorkspaceBlock> AdditionalWorkspace { get; set; } = new();
+
+    /// <summary>
+    /// Block for recommendations_enabled.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecommendationsEnabled block(s) allowed")]
+    [TerraformArgument("recommendations_enabled")]
+    public TerraformList<AzurermIotSecuritySolutionRecommendationsEnabledBlock> RecommendationsEnabled { get; set; } = new();
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    [TerraformArgument("timeouts")]
+    public AzurermIotSecuritySolutionTimeoutsBlock Timeouts { get; set; } = new();
+
+}

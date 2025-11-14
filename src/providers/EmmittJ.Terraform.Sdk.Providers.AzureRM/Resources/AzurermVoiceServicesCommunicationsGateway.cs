@@ -1,0 +1,305 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
+// This is the key to natural Terraform syntax
+// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
+// The value that was SET is only used during serialization
+
+// Providers: Getter returns stored value
+// Providers are not referenced in HCL
+// Use required getter if property is required or non-nullable
+
+/// <summary>
+/// Block type for service_location in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "service_location";
+
+    /// <summary>
+    /// The allowed_media_source_address_prefixes attribute.
+    /// </summary>
+    [TerraformArgument("allowed_media_source_address_prefixes")]
+    public TerraformSet<string>? AllowedMediaSourceAddressPrefixes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_media_source_address_prefixes").ResolveNodes(ctx));
+        set => SetArgument("allowed_media_source_address_prefixes", value);
+    }
+
+    /// <summary>
+    /// The allowed_signaling_source_address_prefixes attribute.
+    /// </summary>
+    [TerraformArgument("allowed_signaling_source_address_prefixes")]
+    public TerraformSet<string>? AllowedSignalingSourceAddressPrefixes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_signaling_source_address_prefixes").ResolveNodes(ctx));
+        set => SetArgument("allowed_signaling_source_address_prefixes", value);
+    }
+
+    /// <summary>
+    /// The esrp_addresses attribute.
+    /// </summary>
+    [TerraformArgument("esrp_addresses")]
+    public TerraformSet<string>? EsrpAddresses
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "esrp_addresses").ResolveNodes(ctx));
+        set => SetArgument("esrp_addresses", value);
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    [TerraformArgument("location")]
+    public required TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+        set => SetArgument("location", value);
+    }
+
+    /// <summary>
+    /// The operator_addresses attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAddresses is required")]
+    [TerraformArgument("operator_addresses")]
+    public required TerraformSet<string> OperatorAddresses
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "operator_addresses").ResolveNodes(ctx));
+        set => SetArgument("operator_addresses", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    [TerraformArgument("create")]
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    [TerraformArgument("delete")]
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    [TerraformArgument("read")]
+    public TerraformValue<string>? Read
+    {
+        get => new TerraformReference<string>(this, "read");
+        set => SetArgument("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    [TerraformArgument("update")]
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+/// <summary>
+/// Manages a azurerm_voice_services_communications_gateway resource.
+/// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
+public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
+{
+    public AzurermVoiceServicesCommunicationsGateway(string name) : base("azurerm_voice_services_communications_gateway", name)
+    {
+    }
+
+    /// <summary>
+    /// The api_bridge attribute.
+    /// </summary>
+    [TerraformArgument("api_bridge")]
+    public TerraformValue<string>? ApiBridge
+    {
+        get => new TerraformReference<string>(this, "api_bridge");
+        set => SetArgument("api_bridge", value);
+    }
+
+    /// <summary>
+    /// The auto_generated_domain_name_label_scope attribute.
+    /// </summary>
+    [TerraformArgument("auto_generated_domain_name_label_scope")]
+    public TerraformValue<string>? AutoGeneratedDomainNameLabelScope
+    {
+        get => new TerraformReference<string>(this, "auto_generated_domain_name_label_scope");
+        set => SetArgument("auto_generated_domain_name_label_scope", value);
+    }
+
+    /// <summary>
+    /// The codecs attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codecs is required")]
+    [TerraformArgument("codecs")]
+    public required TerraformValue<string> Codecs
+    {
+        get => new TerraformReference<string>(this, "codecs");
+        set => SetArgument("codecs", value);
+    }
+
+    /// <summary>
+    /// The connectivity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connectivity is required")]
+    [TerraformArgument("connectivity")]
+    public required TerraformValue<string> Connectivity
+    {
+        get => new TerraformReference<string>(this, "connectivity");
+        set => SetArgument("connectivity", value);
+    }
+
+    /// <summary>
+    /// The e911_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "E911Type is required")]
+    [TerraformArgument("e911_type")]
+    public required TerraformValue<string> E911Type
+    {
+        get => new TerraformReference<string>(this, "e911_type");
+        set => SetArgument("e911_type", value);
+    }
+
+    /// <summary>
+    /// The emergency_dial_strings attribute.
+    /// </summary>
+    [TerraformArgument("emergency_dial_strings")]
+    public TerraformList<string>? EmergencyDialStrings
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "emergency_dial_strings").ResolveNodes(ctx));
+        set => SetArgument("emergency_dial_strings", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [TerraformArgument("id")]
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    [TerraformArgument("location")]
+    public required TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+        set => SetArgument("location", value);
+    }
+
+    /// <summary>
+    /// The microsoft_teams_voicemail_pilot_number attribute.
+    /// </summary>
+    [TerraformArgument("microsoft_teams_voicemail_pilot_number")]
+    public TerraformValue<string>? MicrosoftTeamsVoicemailPilotNumber
+    {
+        get => new TerraformReference<string>(this, "microsoft_teams_voicemail_pilot_number");
+        set => SetArgument("microsoft_teams_voicemail_pilot_number", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    [TerraformArgument("name")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The on_prem_mcp_enabled attribute.
+    /// </summary>
+    [TerraformArgument("on_prem_mcp_enabled")]
+    public TerraformValue<bool>? OnPremMcpEnabled
+    {
+        get => new TerraformReference<bool>(this, "on_prem_mcp_enabled");
+        set => SetArgument("on_prem_mcp_enabled", value);
+    }
+
+    /// <summary>
+    /// The platforms attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platforms is required")]
+    [TerraformArgument("platforms")]
+    public TerraformList<string>? Platforms
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "platforms").ResolveNodes(ctx));
+        set => SetArgument("platforms", value);
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    [TerraformArgument("resource_group_name")]
+    public required TerraformValue<string> ResourceGroupName
+    {
+        get => new TerraformReference<string>(this, "resource_group_name");
+        set => SetArgument("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    [TerraformArgument("tags")]
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// Block for service_location.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLocation is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceLocation block(s) required")]
+    [TerraformArgument("service_location")]
+    public required TerraformSet<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock> ServiceLocation { get; set; } = new();
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    [TerraformArgument("timeouts")]
+    public AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock Timeouts { get; set; } = new();
+
+}

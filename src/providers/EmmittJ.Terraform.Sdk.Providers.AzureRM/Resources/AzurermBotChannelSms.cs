@@ -1,0 +1,159 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
+// This is the key to natural Terraform syntax
+// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
+// The value that was SET is only used during serialization
+
+// Providers: Getter returns stored value
+// Providers are not referenced in HCL
+// Use required getter if property is required or non-nullable
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermBotChannelSmsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    [TerraformArgument("create")]
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    [TerraformArgument("delete")]
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    [TerraformArgument("read")]
+    public TerraformValue<string>? Read
+    {
+        get => new TerraformReference<string>(this, "read");
+        set => SetArgument("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    [TerraformArgument("update")]
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+/// <summary>
+/// Manages a azurerm_bot_channel_sms resource.
+/// </summary>
+public class AzurermBotChannelSms : TerraformResource
+{
+    public AzurermBotChannelSms(string name) : base("azurerm_bot_channel_sms", name)
+    {
+    }
+
+    /// <summary>
+    /// The bot_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
+    [TerraformArgument("bot_name")]
+    public required TerraformValue<string> BotName
+    {
+        get => new TerraformReference<string>(this, "bot_name");
+        set => SetArgument("bot_name", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [TerraformArgument("id")]
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    [TerraformArgument("location")]
+    public required TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+        set => SetArgument("location", value);
+    }
+
+    /// <summary>
+    /// The phone_number attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
+    [TerraformArgument("phone_number")]
+    public required TerraformValue<string> PhoneNumber
+    {
+        get => new TerraformReference<string>(this, "phone_number");
+        set => SetArgument("phone_number", value);
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    [TerraformArgument("resource_group_name")]
+    public required TerraformValue<string> ResourceGroupName
+    {
+        get => new TerraformReference<string>(this, "resource_group_name");
+        set => SetArgument("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// The sms_channel_account_security_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmsChannelAccountSecurityId is required")]
+    [TerraformArgument("sms_channel_account_security_id")]
+    public required TerraformValue<string> SmsChannelAccountSecurityId
+    {
+        get => new TerraformReference<string>(this, "sms_channel_account_security_id");
+        set => SetArgument("sms_channel_account_security_id", value);
+    }
+
+    /// <summary>
+    /// The sms_channel_auth_token attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmsChannelAuthToken is required")]
+    [TerraformArgument("sms_channel_auth_token")]
+    public required TerraformValue<string> SmsChannelAuthToken
+    {
+        get => new TerraformReference<string>(this, "sms_channel_auth_token");
+        set => SetArgument("sms_channel_auth_token", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    [TerraformArgument("timeouts")]
+    public AzurermBotChannelSmsTimeoutsBlock Timeouts { get; set; } = new();
+
+}
