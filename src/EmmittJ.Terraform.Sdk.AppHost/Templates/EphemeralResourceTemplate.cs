@@ -4,7 +4,8 @@ namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 public class EphemeralResourceTemplate : TerraformBlockTemplate
 {
-    public EphemeralResourceTemplate(string templatePath) : base(templatePath)
+    public EphemeralResourceTemplate(TerraformCodeGenOptions options)
+        : base(Path.Combine(options.TemplatesDirectory, "ephemeral_resource.mustache"))
     {
     }
 

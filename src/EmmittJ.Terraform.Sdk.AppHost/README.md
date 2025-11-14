@@ -1,6 +1,6 @@
 # Terraform SDK Code Generation - Aspire Integration
 
-This project uses .NET Aspire's distributed application model and pipeline system for orchestrating Terraform provider code generation.
+This project uses .NET Aspire's distributed application model and eventing system for orchestrating Terraform provider code generation.
 
 ## Architecture
 
@@ -10,17 +10,55 @@ This project uses .NET Aspire's distributed application model and pipeline syste
 
 - Aspire AppHost that orchestrates the code generation process
 - Contains all code generation logic (parsers, templates, schema)
-- Defines custom Aspire resources: `TerraformProviderResource`, `TerraformResourceResource`, `TerraformDataSourceResource`
-- Implements `IDistributedApplicationLifecycleHook` to integrate with Aspire's pipeline system
+- Defines custom Aspire resources: `TerraformProviderResource`
+- Implements `IDistributedApplicationEventingSubscriber` to integrate with Aspire's eventing system
 - Provides extension methods for adding Terraform providers to the AppHost
+
+### Architectural Layers
+
+**Phases 1-3 Complete - Core Infrastructure:**
+
+1. **Infrastructure Layer** (`Infrastructure/`) ✅
+
+   - `IFileSystem` / `FileSystemWrapper`: Testable file operations
+   - `ITerraformCli` / `TerraformCliExecutor`: Testable Terraform CLI execution
+
+2. **Schema Layer** (`Schema/`) ✅
+
+   - `ISchemaParser`: Interface for parsing Terraform provider schemas
+   - `ProviderSchema.cs`: JSON schema models matching Terraform specification
+   - `SchemaParser.cs`: Current implementation (to be refactored to use ModelBuilder)
+
+3. **Code Generation Layer** (`CodeGen/`) ✅
+
+   - `ITypeMapper` / `TypeMapper`: Maps Terraform types → C# types (extracted from SchemaParser)
+   - `IModelBuilder` / `ModelBuilder`: Transforms schema models → code generation models
+   - `NamingConventions`: String utilities (PascalCase, camelCase, ClassName)
+
+4. **Template Layer** (`Templates/`) ✅
+
+   - `ITemplateRenderer` / `MustacheTemplateRenderer`: Template rendering with Stubble
+   - `ViewModelTransformer`: Transforms models → template view models (extracted from TemplateHelpers)
+   - Mustache templates in `Files/`
+   - Template classes (ResourceTemplate, DataSourceTemplate, etc.)
+
+5. **Configuration** ✅
+   - `TerraformCodeGenOptions`: Centralized configuration options
+
+**Remaining Work:**
+
+- Phase 4: Aspire eventing infrastructure (Environment resources, contexts)
+- Phase 6: Service registration, update existing code to use new components
 
 ### Key Features
 
-- **Pipeline-based execution**: Each provider runs as an independent pipeline step
-- **Parallel processing**: Multiple providers can be processed concurrently
+- **Eventing-based execution**: Triggered on `BeforeStartEvent` during publish mode
+- **Testable design**: All external dependencies behind interfaces
+- **Type safety**: Compile-time type mapping with `ITypeMapper`
 - **Progress tracking**: Aspire Dashboard shows real-time progress of each generation step
-- **Error handling**: Granular error reporting per provider with detailed task breakdowns
+- **Error handling**: Granular error reporting per provider
 - **Extensibility**: Easy to add new providers or customize generation behavior
+- **Following Aspire Patterns**: Aligned with Kubernetes/Azure AppContainers infrastructure extensions
 
 ## Usage
 

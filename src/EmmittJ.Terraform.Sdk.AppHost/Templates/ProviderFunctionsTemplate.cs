@@ -10,9 +10,9 @@ public class ProviderFunctionsTemplate
     private static string? _templateCache;
     private readonly string _templatePath;
 
-    public ProviderFunctionsTemplate(string templatePath)
+    public ProviderFunctionsTemplate(TerraformCodeGenOptions options)
     {
-        _templatePath = templatePath;
+        _templatePath = Path.Combine(options.TemplatesDirectory, "provider_functions.mustache");
     }
 
     private string LoadTemplate()

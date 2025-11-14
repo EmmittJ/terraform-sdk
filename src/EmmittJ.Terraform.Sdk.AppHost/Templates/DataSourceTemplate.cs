@@ -4,7 +4,8 @@ namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 public class DataSourceTemplate : TerraformBlockTemplate
 {
-    public DataSourceTemplate(string templatePath) : base(templatePath)
+    public DataSourceTemplate(TerraformCodeGenOptions options)
+        : base(Path.Combine(options.TemplatesDirectory, "datasource.mustache"))
     {
     }
 

@@ -4,7 +4,8 @@ namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 public class ResourceTemplate : TerraformBlockTemplate
 {
-    public ResourceTemplate(string templatePath) : base(templatePath)
+    public ResourceTemplate(TerraformCodeGenOptions options)
+        : base(Path.Combine(options.TemplatesDirectory, "resource.mustache"))
     {
     }
 

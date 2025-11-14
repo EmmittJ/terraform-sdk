@@ -4,7 +4,7 @@ using EmmittJ.Terraform.Sdk.AppHost.Schema;
 
 namespace EmmittJ.Terraform.Sdk.AppHost.Parsers;
 
-public class SchemaParser
+public class SchemaParser : ISchemaParser
 {
     public ProviderSchemaRoot ParseSchema(string schemaJson)
     {
