@@ -38,6 +38,33 @@ public static class TemplateHelpers
         return csharpType;
     }
 
+    public static bool IsCollectionType(string csharpType)
+    {
+        return csharpType.StartsWith("TerraformList<") ||
+               csharpType.StartsWith("TerraformMap<") ||
+               csharpType.StartsWith("TerraformSet<");
+    }
+
+    public static string GetCollectionElementType(string csharpType)
+    {
+        // Extract element type from collection type
+        // e.g., "TerraformList<string>" => "string"
+        // e.g., "TerraformMap<string>" => "string"
+        if (csharpType.StartsWith("TerraformList<") && csharpType.EndsWith(">"))
+        {
+            return csharpType.Substring("TerraformList<".Length, csharpType.Length - "TerraformList<".Length - 1);
+        }
+        if (csharpType.StartsWith("TerraformMap<") && csharpType.EndsWith(">"))
+        {
+            return csharpType.Substring("TerraformMap<".Length, csharpType.Length - "TerraformMap<".Length - 1);
+        }
+        if (csharpType.StartsWith("TerraformSet<") && csharpType.EndsWith(">"))
+        {
+            return csharpType.Substring("TerraformSet<".Length, csharpType.Length - "TerraformSet<".Length - 1);
+        }
+        return csharpType;
+    }
+
     public static string GetSetterValue(PropertyModel property)
     {
         // Since we're using native collections, just pass the value through
@@ -45,7 +72,7 @@ public static class TemplateHelpers
         return "value";
     }
 
-    public static object PreparePropertyForTemplate(PropertyModel property)
+    public static object PreparePropertyForTemplate(PropertyModel property, bool isNestedBlockProperty = false)
     {
         // Property classification for new property system:
         // 1. Required Arguments: IsRequired=true, IsOptional=false, IsComputed=false (settable, must be set)
@@ -71,9 +98,15 @@ public static class TemplateHelpers
         // - Property is not a collection (collections can't be required in C#)
         bool useRequiredKeyword = property.IsRequired && !property.IsCollection;
 
-        // Check if property name conflicts with TerraformMap<object> methods
+        // Check if property name conflicts with TerraformMap<object> methods or base class properties
         // TerraformBlock inherits from TerraformMap<object>, which has an Add(string, object) method
-        bool needsNewKeyword = property.Name == "Add";
+        // TerraformResource has a ResourceType property
+        // Note: Nested block properties only conflict with "Add", not "ResourceType" (they don't inherit from TerraformResource)
+        bool needsNewKeyword = isNestedBlockProperty
+            ? property.Name == "Add"
+            : property.Name is "Add" or "ResourceType";
+
+        bool isCollectionType = IsCollectionType(property.CSharpType);
 
         return new
         {
@@ -96,7 +129,10 @@ public static class TemplateHelpers
             IsComputedAttribute = isComputedAttribute, // Pure computed attributes (read-only)
             IsRequiredArgument = isRequiredArgument,
             IsOptionalArgument = isOptionalArgument,
-            IsOptionalAndComputed = isOptionalAndComputed
+            IsOptionalAndComputed = isOptionalAndComputed,
+            IsCollectionType = isCollectionType, // Is TerraformList, TerraformMap, or TerraformSet
+            CollectionElementType = isCollectionType ? GetCollectionElementType(property.CSharpType) : string.Empty,
+            CollectionTypeName = isCollectionType ? property.CSharpType.Substring(0, property.CSharpType.IndexOf('<')) : string.Empty
         };
     }
 
@@ -142,8 +178,10 @@ public static class TemplateHelpers
             _ => block.ClassName
         };
 
-        // Check if block property name conflicts with TerraformMap<object> methods
-        bool needsNewKeyword = block.Name == "Add";
+        // Check if block property name conflicts with TerraformMap<object> methods or TerraformResource properties
+        // - Nested blocks (defined inside a Resource/DataSource) that are named "Add" conflict with TerraformMap<object>.Add
+        // - Resource/DataSource blocks named "ResourceType" conflict with TerraformResource.ResourceType
+        bool needsNewKeyword = block.Name is "Add" or "ResourceType";
 
         // Single blocks need blockLabel parameter in constructor: new("label")
         // Collection blocks use parameterless constructor: new()
@@ -168,7 +206,7 @@ public static class TemplateHelpers
             NeedsNewKeyword = needsNewKeyword,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,
-            Properties = block.Properties.Select(PreparePropertyForTemplate).ToList()
+            Properties = block.Properties.Select(p => PreparePropertyForTemplate(p, isNestedBlockProperty: true)).ToList()
         };
     }
 }

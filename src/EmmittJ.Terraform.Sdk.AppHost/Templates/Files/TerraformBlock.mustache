@@ -2,6 +2,15 @@ using EmmittJ.Terraform.Sdk;
 
 namespace {{Namespace}};
 
+// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
+// This is the key to natural Terraform syntax
+// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
+// The value that was SET is only used during serialization
+
+// Providers: Getter returns stored value
+// Providers are not referenced in HCL
+// Use required getter if property is required or non-nullable
+
 {{#BlockTypes}}
 /// <summary>
 /// Block type for {{TerraformName}} in {{../ClassName}}.
@@ -10,7 +19,7 @@ namespace {{Namespace}};
 {{#IsDeprecated}}
 [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
-public partial class {{ClassName}} : TerraformBlock
+public class {{ClassName}} : TerraformBlock
 {
     /// <summary>
     /// Gets the block type.
@@ -30,26 +39,68 @@ public partial class {{ClassName}} : TerraformBlock
 {{/IsDeprecated}}
     [TerraformArgument("{{TerraformName}}")]
 {{#IsRequiredArgument}}
-    // Required argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
-    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}partial {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}partial {{{PropertyWrapper}}}? {{Name}} { get; set; }
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}}? {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/UseNullable}}
 {{/IsRequiredArgument}}
 {{#IsOptionalArgument}}
-    // Optional argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
-    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}partial {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}partial {{{PropertyWrapper}}}? {{Name}} { get; set; }
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}}? {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
-    // Optional+Computed - source generator will implement get/set
-    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}partial {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/IsOptionalAndComputed}}
 {{/IsComputedAttribute}}
 
@@ -67,7 +118,7 @@ public partial class {{ClassName}} : TerraformBlock
 {{#RequiresUnreferencedCode}}
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 {{/RequiresUnreferencedCode}}
-public partial class {{ClassName}} : {{BaseClassName}}
+public class {{ClassName}} : {{BaseClassName}}
 {
     public {{ClassName}}(string name) : base("{{TerraformType}}", name)
     {
@@ -85,30 +136,79 @@ public partial class {{ClassName}} : {{BaseClassName}}
 {{/IsDeprecated}}
     [TerraformArgument("{{TerraformName}}")]
 {{#IsRequiredArgument}}
-    // Required argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
-    public required partial {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public partial {{{PropertyWrapper}}}? {{Name}} { get; set; }
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}}? {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/UseNullable}}
 {{/IsRequiredArgument}}
 {{#IsOptionalArgument}}
-    // Optional argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
-    public required partial {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public partial {{{PropertyWrapper}}}? {{Name}} { get; set; }
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}}? {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
-    // Optional+Computed - source generator will implement get/set
-    public partial {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
 {{/IsOptionalAndComputed}}
 {{#IsComputedAttribute}}
-    // Computed attribute - source generator will implement read-only get
-    public partial {{{PropertyWrapper}}} {{Name}} { get; }
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+    }
 {{/IsComputedAttribute}}
 
 {{/Properties}}
@@ -147,8 +247,15 @@ public partial class {{ClassName}} : {{BaseClassName}}
     /// {{Description}}
     /// </summary>
     [TerraformArgument("{{TerraformName}}")]
-    // Output-only attribute - source generator will implement read-only get
-    public partial {{{PropertyWrapper}}} {{Name}} { get; }
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+    }
 
 {{/OutputAttributes}}
 }

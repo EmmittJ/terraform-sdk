@@ -17,6 +17,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// };
 /// </code>
 /// </example>
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/expressions/references"/></para>
+/// </remarks>
 public class TerraformReference<T> : TerraformValue<T>
 {
     private readonly TerraformBlock _block;

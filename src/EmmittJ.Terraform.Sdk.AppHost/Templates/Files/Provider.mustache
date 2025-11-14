@@ -19,16 +19,6 @@ public partial class {{ClassName}} : TerraformProvider
     /// <param name="name">The name of the provider instance. Defaults to "{{ProviderName}}".</param>
     public {{ClassName}}(string name = "{{ProviderName}}") : base(name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-{{#ConfigurationAttributes}}
-{{#IsArgument}}
-        SetOutput("{{TerraformName}}");
-{{/IsArgument}}
-{{/ConfigurationAttributes}}
     }
 {{#ConfigurationAttributes}}
 

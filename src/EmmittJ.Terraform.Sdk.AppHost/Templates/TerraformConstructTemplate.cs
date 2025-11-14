@@ -49,8 +49,8 @@ public abstract class TerraformBlockTemplate
             IsResource = baseClassName == "TerraformResource",
             IsDataSource = baseClassName == "TerraformDataSource",
             IsEphemeralResource = baseClassName == "TerraformEphemeralResource",
-            Properties = model.Properties.Select(TemplateHelpers.PreparePropertyForTemplate).ToList(),
-            OutputAttributes = model.OutputAttributes.Select(TemplateHelpers.PreparePropertyForTemplate).ToList(),
+            Properties = model.Properties.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList(),
+            OutputAttributes = model.OutputAttributes.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList(),
             BlockTypes = model.BlockTypes.Select(TemplateHelpers.PrepareBlockTypeForTemplate).ToList()
         };
 

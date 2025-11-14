@@ -38,7 +38,7 @@ public class ProviderTemplate
             Description = providerConfig.Description != null ? TemplateHelpers.EscapeXmlDoc(providerConfig.Description) : null,
             ResourceCount = providerConfig.ResourceCount,
             DataSourceCount = providerConfig.DataSourceCount,
-            ConfigurationAttributes = providerConfig.ConfigurationAttributes.Select(TemplateHelpers.PreparePropertyForTemplate).ToList()
+            ConfigurationAttributes = providerConfig.ConfigurationAttributes.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList()
         };
 
         return Renderer.Render(template, data);
