@@ -38,6 +38,33 @@ public class PropertyModel
     public bool IsDeprecated { get; set; }
     public bool IsCollection { get; set; }
     public bool IsValueType { get; set; }
+
+    /// <summary>
+    /// If this property has a nested type structure, this contains the nested struct definition.
+    /// </summary>
+    public NestedStructModel? NestedStruct { get; set; }
+}
+
+/// <summary>
+/// Represents a nested struct type within an attribute.
+/// </summary>
+public class NestedStructModel
+{
+    public required string ClassName { get; set; }
+    public required string NestingMode { get; set; }
+    public List<PropertyModel> Properties { get; set; } = new();
+
+    /// <summary>
+    /// Gets the C# type for the property based on nesting mode.
+    /// </summary>
+    public string PropertyType => NestingMode switch
+    {
+        "single" => ClassName,
+        "list" => $"List<{ClassName}>",
+        "set" => $"HashSet<{ClassName}>",
+        "map" => $"Dictionary<string, {ClassName}>",
+        _ => ClassName
+    };
 }
 
 public class BlockTypeModel

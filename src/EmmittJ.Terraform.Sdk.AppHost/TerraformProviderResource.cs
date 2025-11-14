@@ -186,6 +186,19 @@ public sealed class TerraformProviderResource : Resource
         var configAttributes = new List<Models.PropertyModel>();
         if (providerSchema.Provider?.Block != null)
         {
+            // Inject 'alias' attribute if not already present
+            // This allows users to create multiple instances of the same provider
+            if (!providerSchema.Provider.Block.Attributes.ContainsKey("alias"))
+            {
+                providerSchema.Provider.Block.Attributes["alias"] = new Schema.SchemaAttribute
+                {
+                    Type = "string",
+                    Description = "Alias name for this provider instance. Use this to create multiple instances of the same provider.",
+                    Optional = true,
+                    Computed = false
+                };
+            }
+
             foreach (var (attrName, attr) in providerSchema.Provider.Block.Attributes)
             {
                 var property = services.ModelBuilder.BuildPropertyModel(attr, attrName);

@@ -81,6 +81,9 @@ public class SchemaAttribute
     [JsonPropertyName("type")]
     public object? Type { get; set; }
 
+    [JsonPropertyName("nested_type")]
+    public SchemaNestedType? NestedType { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
@@ -101,6 +104,25 @@ public class SchemaAttribute
 
     [JsonPropertyName("deprecated")]
     public bool Deprecated { get; set; }
+}
+
+/// <summary>
+/// Nested type definition for attributes with complex structures.
+/// See: https://developer.hashicorp.com/terraform/plugin/framework/handling-data/attributes#nested-attribute-types
+/// </summary>
+public class SchemaNestedType
+{
+    [JsonPropertyName("nesting_mode")]
+    public string NestingMode { get; set; } = string.Empty;
+
+    [JsonPropertyName("attributes")]
+    public Dictionary<string, SchemaAttribute> Attributes { get; set; } = new();
+
+    [JsonPropertyName("min_items")]
+    public int? MinItems { get; set; }
+
+    [JsonPropertyName("max_items")]
+    public int? MaxItems { get; set; }
 }
 
 /// <summary>
