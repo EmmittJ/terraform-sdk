@@ -195,6 +195,23 @@ aspire publish
 
 **Important**: Do NOT manually edit generated provider code - it will be overwritten on next generation.
 
+### Terraform Documentation Links
+
+Always include official Terraform documentation links in XML docs using `<para>Spec: <see href="..."/></para>`:
+
+```csharp
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/resources"/></para>
+/// </remarks>
+```
+
+**Key Documentation Areas**:
+
+- Blocks: `/language/resources`, `/language/data-sources`, `/language/values/variables`, `/language/values/outputs`, `/language/values/locals`, `/language/modules/syntax`, `/language/providers/configuration`, `/language/import`, `/language/modules/develop/refactoring`, `/language/resources/ephemeral`, `/language/settings`, `/language/checks`
+- Meta-arguments: `/language/meta-arguments` (count, for_each, depends_on, provider, lifecycle)
+- Expressions: `/language/expressions/types`, `/language/expressions/references`, `/language/expressions/operators`
+- Functions: `/language/functions`
+
 ## 🎨 Terraform SDK Patterns
 
 ### Values System (`TerraformValue<T>`)
