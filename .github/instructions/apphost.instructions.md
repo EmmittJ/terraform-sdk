@@ -1,5 +1,5 @@
 ---
-applyTo: "src/EmmittJ.Terraform.Sdk.AppHost/**"
+applyTo: "**/src/EmmittJ.Terraform.Sdk.AppHost/**"
 ---
 
 # Code Generation / AppHost Development

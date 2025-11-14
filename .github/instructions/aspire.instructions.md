@@ -1,5 +1,5 @@
 ---
-applyTo: "src/EmmittJ.Aspire.Hosting.Terraform/**"
+applyTo: "**/src/EmmittJ.Aspire.Hosting.Terraform/**"
 ---
 
 # Aspire Integration Development

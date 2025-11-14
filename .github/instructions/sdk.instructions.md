@@ -1,5 +1,5 @@
 ---
-applyTo: "src/EmmittJ.Terraform.Sdk/**"
+applyTo: "**/src/EmmittJ.Terraform.Sdk/**"
 ---
 
 # Core SDK Development Instructions
