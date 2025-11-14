@@ -13,6 +13,11 @@ namespace EmmittJ.Terraform.Sdk;
 public class TerraformProviderMetaBlock : TerraformBlock
 {
     /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "provider_meta";
+
+    /// <summary>
     /// Gets the provider name this metadata is for (e.g., "my-provider").
     /// </summary>
     public string ProviderName { get; }
@@ -21,7 +26,7 @@ public class TerraformProviderMetaBlock : TerraformBlock
     /// Initializes a new instance of TerraformProviderMetaBlock.
     /// </summary>
     /// <param name="providerName">The provider name this metadata is for.</param>
-    public TerraformProviderMetaBlock(string providerName) : base("provider_meta")
+    public TerraformProviderMetaBlock(string providerName)
     {
         ProviderName = providerName ?? throw new ArgumentNullException(nameof(providerName));
     }

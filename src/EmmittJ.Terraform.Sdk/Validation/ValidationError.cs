@@ -53,19 +53,10 @@ public sealed class ValidationError
 
         if (Block != null)
         {
-            if (Block is ITerraformTopLevelBlock topLevelBlock)
-            {
-                // Use BlockType and BlockLabels from interface
-                var blockIdentifier = topLevelBlock.BlockLabels.Length > 0
-                    ? $"{topLevelBlock.BlockType} \"{string.Join("\" \"", topLevelBlock.BlockLabels)}\""
-                    : topLevelBlock.BlockType;
-                parts.Add($"Block: {blockIdentifier}");
-            }
-            else
-            {
-                // Fallback for nested blocks
-                parts.Add($"Block: {Block.GetType().Name}");
-            }
+            var blockIdentifier = Block.BlockLabels.Length > 0
+                ? $"{Block.BlockType} \"{string.Join("\" \"", Block.BlockLabels)}\""
+                : Block.BlockType;
+            parts.Add($"Block: {blockIdentifier}");
         }
 
         if (!string.IsNullOrEmpty(PropertyName))

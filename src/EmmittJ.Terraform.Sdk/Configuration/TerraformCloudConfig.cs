@@ -6,12 +6,14 @@ namespace EmmittJ.Terraform.Sdk;
 /// Mutually exclusive with backend configuration.
 /// See: https://developer.hashicorp.com/terraform/language/block/terraform#cloud
 /// </summary>
-public partial class TerraformCloudBlock : TerraformBlock
+public partial class TerraformCloudBlock : ITerraformResolvable
 {
+    private readonly Dictionary<string, ITerraformValue> _properties = new();
+
     /// <summary>
     /// Initializes a new instance of TerraformCloudBlock.
     /// </summary>
-    public TerraformCloudBlock() : base("cloud") { }
+    public TerraformCloudBlock() { }
 
     /// <summary>
     /// Gets or sets the name of the organization to connect to.
@@ -43,6 +45,55 @@ public partial class TerraformCloudBlock : TerraformBlock
     /// </summary>
     [TerraformArgument("workspaces")]
     public partial CloudWorkspacesBlock? Workspaces { get; set; }
+
+    /// <summary>
+    /// Cloud block resolves as an object: cloud = { ... }
+    /// </summary>
+    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var map = new TerraformMapExpression();
+
+        foreach (var kvp in _properties)
+        {
+            var key = kvp.Key;
+            var value = kvp.Value;
+
+            var resolvedNodes = value.ResolveNodes(context).ToList();
+            if (resolvedNodes.Count == 1 && resolvedNodes[0] is TerraformExpression expr)
+            {
+                map.Add(key, expr);
+            }
+        }
+
+        yield return map;
+    }
+
+    /// <summary>
+    /// Gets a property value.
+    /// </summary>
+    protected T? GetPropertyValue<T>(string key)
+        => _properties.TryGetValue(key, out var value) && value is T typedValue ? typedValue : default;
+
+    /// <summary>
+    /// Gets a required property value.
+    /// </summary>
+    protected T GetRequiredPropertyValue<T>(string key)
+        => GetPropertyValue<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is not set.");
+
+    /// <summary>
+    /// Sets a property value.
+    /// </summary>
+    protected void SetPropertyValue(string key, ITerraformValue? value)
+    {
+        if (value is not null)
+        {
+            _properties[key] = value;
+        }
+        else if (_properties.ContainsKey(key))
+        {
+            _properties.Remove(key);
+        }
+    }
 }
 
 /// <summary>
@@ -50,12 +101,19 @@ public partial class TerraformCloudBlock : TerraformBlock
 /// Specifies metadata for matching workspaces in HCP Terraform.
 /// See: https://developer.hashicorp.com/terraform/language/block/terraform#workspaces
 /// </summary>
-public partial class CloudWorkspacesBlock : TerraformBlock
+public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValue
 {
+    private readonly Dictionary<string, ITerraformValue> _properties = new();
+
     /// <summary>
     /// Initializes a new instance of CloudWorkspacesBlock.
     /// </summary>
-    public CloudWorkspacesBlock() : base("workspaces") { }
+    public CloudWorkspacesBlock() { }
+
+    /// <summary>
+    /// Gets whether this value has content.
+    /// </summary>
+    public bool HasValue => true;
 
     /// <summary>
     /// Gets or sets the workspace name to associate the configuration with.
@@ -82,4 +140,53 @@ public partial class CloudWorkspacesBlock : TerraformBlock
     /// </summary>
     [TerraformArgument("project")]
     public partial TerraformValue<string>? Project { get; set; }
+
+    /// <summary>
+    /// Workspaces block resolves as an object: workspaces = { ... }
+    /// </summary>
+    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var map = new TerraformMapExpression();
+
+        foreach (var kvp in _properties)
+        {
+            var key = kvp.Key;
+            var value = kvp.Value;
+
+            var resolvedNodes = value.ResolveNodes(context).ToList();
+            if (resolvedNodes.Count == 1 && resolvedNodes[0] is TerraformExpression expr)
+            {
+                map.Add(key, expr);
+            }
+        }
+
+        yield return map;
+    }
+
+    /// <summary>
+    /// Gets a property value.
+    /// </summary>
+    protected T? GetPropertyValue<T>(string key)
+        => _properties.TryGetValue(key, out var value) && value is T typedValue ? typedValue : default;
+
+    /// <summary>
+    /// Gets a required property value.
+    /// </summary>
+    protected T GetRequiredPropertyValue<T>(string key)
+        => GetPropertyValue<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is not set.");
+
+    /// <summary>
+    /// Sets a property value.
+    /// </summary>
+    protected void SetPropertyValue(string key, ITerraformValue? value)
+    {
+        if (value is not null)
+        {
+            _properties[key] = value;
+        }
+        else if (_properties.ContainsKey(key))
+        {
+            _properties.Remove(key);
+        }
+    }
 }

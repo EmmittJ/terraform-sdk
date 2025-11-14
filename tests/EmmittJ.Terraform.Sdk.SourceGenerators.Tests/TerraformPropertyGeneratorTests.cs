@@ -171,26 +171,26 @@ namespace TestNamespace;
 
 public partial class TestBlock : TerraformBlock
 {
-    public TestBlock(string blockLabel) : base(blockLabel) { }
+    public override string BlockType => \"test\";
 
-    [TerraformArgument(""primary_connection_string"")]
+    [TerraformArgument(\"\"primary_connection_string\"\")]
     public partial TerraformValue<string> PrimaryConnectionString { get; }
 }
 ";
 
         // Act
-        var (diagnostics, output) = GetGeneratedOutput(source);
+        var(diagnostics, output) = GetGeneratedOutput(source);
 
         // Assert
         return Verify(new { diagnostics = diagnostics.Select(d => d.ToString()), output });
     }
 
     [Fact]
-    public Task GeneratesReferenceGetterForResourceReadOnlyProperty()
-    {
-        // Arrange
-        // Resources should return references for read-only (output) properties
-        var source = @"
+public Task GeneratesReferenceGetterForResourceReadOnlyProperty()
+{
+    // Arrange
+    // Resources should return references for read-only (output) properties
+    var source = @"
 using EmmittJ.Terraform.Sdk;
 
 namespace TestNamespace;
@@ -204,46 +204,46 @@ public partial class AzurermRedisCache : TerraformResource
 }
 ";
 
-        // Act
-        var (diagnostics, output) = GetGeneratedOutput(source);
+    // Act
+    var (diagnostics, output) = GetGeneratedOutput(source);
 
-        // Assert
-        return Verify(new { diagnostics = diagnostics.Select(d => d.ToString()), output });
-    }
+    // Assert
+    return Verify(new { diagnostics = diagnostics.Select(d => d.ToString()), output });
+}
 
-    private static (ImmutableArray<Diagnostic> Diagnostics, string Output) GetGeneratedOutput(string source)
-    {
-        var syntaxTree = CSharpSyntaxTree.ParseText(source);
+private static (ImmutableArray<Diagnostic> Diagnostics, string Output) GetGeneratedOutput(string source)
+{
+    var syntaxTree = CSharpSyntaxTree.ParseText(source);
 
-        var references = AppDomain.CurrentDomain.GetAssemblies()
-            .Where(assembly => !assembly.IsDynamic && !string.IsNullOrWhiteSpace(assembly.Location))
-            .Select(assembly => MetadataReference.CreateFromFile(assembly.Location))
-            .ToList();
+    var references = AppDomain.CurrentDomain.GetAssemblies()
+        .Where(assembly => !assembly.IsDynamic && !string.IsNullOrWhiteSpace(assembly.Location))
+        .Select(assembly => MetadataReference.CreateFromFile(assembly.Location))
+        .ToList();
 
-        // Add reference to our SDK assembly
-        var sdkAssembly = typeof(TerraformResource).Assembly;
-        references.Add(MetadataReference.CreateFromFile(sdkAssembly.Location));
+    // Add reference to our SDK assembly
+    var sdkAssembly = typeof(TerraformResource).Assembly;
+    references.Add(MetadataReference.CreateFromFile(sdkAssembly.Location));
 
-        var compilation = CSharpCompilation.Create(
-            "TestAssembly",
-            new[] { syntaxTree },
-            references,
-            new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+    var compilation = CSharpCompilation.Create(
+        "TestAssembly",
+        new[] { syntaxTree },
+        references,
+        new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
-        var generator = new TerraformPropertyGenerator();
-        var driver = CSharpGeneratorDriver.Create(generator);
+    var generator = new TerraformPropertyGenerator();
+    var driver = CSharpGeneratorDriver.Create(generator);
 
-        driver = (CSharpGeneratorDriver)driver.RunGeneratorsAndUpdateCompilation(
-            compilation,
-            out var outputCompilation,
-            out var diagnostics);
+    driver = (CSharpGeneratorDriver)driver.RunGeneratorsAndUpdateCompilation(
+        compilation,
+        out var outputCompilation,
+        out var diagnostics);
 
-        var runResult = driver.GetRunResult();
+    var runResult = driver.GetRunResult();
 
-        var output = runResult.GeneratedTrees.Length > 0
-            ? runResult.GeneratedTrees[0].ToString()
-            : string.Empty;
+    var output = runResult.GeneratedTrees.Length > 0
+        ? runResult.GeneratedTrees[0].ToString()
+        : string.Empty;
 
-        return (diagnostics, output);
-    }
+    return (diagnostics, output);
+}
 }

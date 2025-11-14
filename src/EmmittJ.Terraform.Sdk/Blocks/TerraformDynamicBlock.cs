@@ -11,10 +11,15 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
     where TContent : TerraformBlock
 {
     /// <summary>
-    /// Gets the block type name for blocks being generated (e.g., "ingress", "egress").
-    /// Extracted from the Content block's BlockLabel.
+    /// Gets the block type.
     /// </summary>
-    public string BlockTypeToGenerate => Content.BlockLabel ?? throw new InvalidOperationException("Dynamic block content must have a BlockLabel");
+    public override string BlockType => "dynamic";
+
+    /// <summary>
+    /// Gets the block type name for blocks being generated (e.g., "ingress", "egress").
+    /// Extracted from the Content block's BlockType.
+    /// </summary>
+    public string BlockTypeToGenerate => Content.BlockType;
 
     /// <summary>
     /// Gets the strongly-typed content - this IS the block being generated.
@@ -47,7 +52,6 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
     /// <param name="content">The content template for each generated block</param>
     /// <param name="forEach">The collection to iterate over</param>
     public TerraformDynamicBlock(TContent content, ITerraformValue forEach)
-        : base("dynamic")
     {
         Content = content ?? throw new ArgumentNullException(nameof(content));
         ForEach = forEach ?? throw new ArgumentNullException(nameof(forEach));

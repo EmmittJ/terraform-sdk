@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Ephemeral resources are used for temporary credentials, tokens, and secrets
 /// that don't persist in the Terraform state file.
 /// </summary>
-public class TerraformEphemeralResource(string type, string name) : TerraformBlock(""), ITerraformTopLevelBlock
+public class TerraformEphemeralResource(string type, string name) : TerraformBlock()
 {
     /// <summary>
     /// Gets the type of this ephemeral resource (e.g., "random_id").
@@ -20,12 +20,12 @@ public class TerraformEphemeralResource(string type, string name) : TerraformBlo
     /// <summary>
     /// Gets the block type keyword for ephemeral resources.
     /// </summary>
-    public string BlockType => "ephemeral";
+    public override string BlockType => "ephemeral";
 
     /// <summary>
     /// Gets the block labels for this ephemeral resource.
     /// </summary>
-    public string[] BlockLabels => [ResourceType, ResourceName];
+    public override string[] BlockLabels => [ResourceType, ResourceName];
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
@@ -37,6 +37,6 @@ public class TerraformEphemeralResource(string type, string name) : TerraformBlo
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 }

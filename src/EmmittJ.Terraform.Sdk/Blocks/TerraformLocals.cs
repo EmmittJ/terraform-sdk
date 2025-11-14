@@ -5,19 +5,19 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Represents a Terraform locals block containing local values.
 /// </summary>
-public class TerraformLocals : TerraformBlock, ITerraformTopLevelBlock
+public class TerraformLocals : TerraformBlock
 {
     /// <summary>
     /// Gets the block type keyword for locals.
     /// </summary>
-    public string BlockType => "locals";
+    public override string BlockType => "locals";
 
     /// <summary>
-    /// Gets the block labels for this locals block (none).
+    /// Gets the block labels (locals blocks have none).
     /// </summary>
-    public string[] BlockLabels => [];
+    public override string[] BlockLabels => [];
 
-    public TerraformLocals() : base("") { }
+    public TerraformLocals() { }
 
     /// <summary>
     /// Sets a local value for serialization.
@@ -58,6 +58,6 @@ public class TerraformLocals : TerraformBlock, ITerraformTopLevelBlock
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 }

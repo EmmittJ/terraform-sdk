@@ -9,17 +9,17 @@ namespace EmmittJ.Terraform.Sdk;
 /// Reference: https://developer.hashicorp.com/terraform/language/modules/develop/refactoring
 /// Requires: Terraform 1.1+
 /// </remarks>
-public class TerraformMovedBlock : TerraformBlock, ITerraformTopLevelBlock
+public class TerraformMovedBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the block type keyword for moved blocks.
     /// </summary>
-    public string BlockType => "moved";
+    public override string BlockType => "moved";
 
     /// <summary>
-    /// Gets the block labels for this moved block (none).
+    /// Gets the block labels (moved blocks have none).
     /// </summary>
-    public string[] BlockLabels => [];
+    public override string[] BlockLabels => [];
 
     /// <summary>
     /// Gets the previous address of the resource or module.
@@ -63,7 +63,7 @@ public class TerraformMovedBlock : TerraformBlock, ITerraformTopLevelBlock
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 
     /// <inheritdoc/>

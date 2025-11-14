@@ -16,21 +16,6 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     /// <returns>A temporary context.</returns>
     public static TerraformContext Temporary() => new(new() { Name = "temp" });
 
-    /// <summary>
-    /// Creates a temporary context for testing or one-off resolution with a serializable item.
-    /// </summary>
-    /// <param name="serializable">Optional serializable to prepare immediately.</param>
-    /// <returns>A temporary context with the serializable prepared (if provided).</returns>
-    public static TerraformContext Temporary(ITerraformSerializable? serializable = null)
-    {
-        var context = new TerraformContext(new() { Name = "temp" });
-        if (serializable != null)
-        {
-            serializable.Prepare(context);
-        }
-        return context;
-    }
-
     private int _indentLevel = 0;
     private TerraformBlock? _currentBlock;
     private readonly DependencyGraph _dependencyGraph = new();

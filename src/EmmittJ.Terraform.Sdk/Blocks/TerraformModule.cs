@@ -16,8 +16,7 @@ public partial class TerraformModule :
     ITerraformHasDependsOn,
     ITerraformHasCount,
     ITerraformHasForEach,
-    ITerraformHasProviders,
-    ITerraformTopLevelBlock
+    ITerraformHasProviders
 {
     /// <summary>
     /// Gets the module name.
@@ -27,18 +26,18 @@ public partial class TerraformModule :
     /// <summary>
     /// Gets the block type keyword for modules.
     /// </summary>
-    public string BlockType => "module";
+    public override string BlockType => "module";
 
     /// <summary>
-    /// Gets the block labels for this module.
+    /// Gets the block labels (just the module name).
     /// </summary>
-    public string[] BlockLabels => [Name];
+    public override string[] BlockLabels => [Name];
 
     /// <summary>
     /// Initializes a new instance of TerraformModule.
     /// </summary>
     /// <param name="name">The name of the module instance.</param>
-    public TerraformModule(string name) : base("")
+    public TerraformModule(string name)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
     }
@@ -71,6 +70,6 @@ public partial class TerraformModule :
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 }

@@ -11,7 +11,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// infrastructure objects, such as virtual networks, compute instances, or higher-level components
 /// such as DNS records.
 /// </remarks>
-public partial class TerraformResource : TerraformBlock, ITerraformTopLevelBlock,
+public partial class TerraformResource : TerraformBlock,
     ITerraformHasCount,
     ITerraformHasForEach,
     ITerraformHasDependsOn,
@@ -31,19 +31,19 @@ public partial class TerraformResource : TerraformBlock, ITerraformTopLevelBlock
     /// <summary>
     /// Gets the block type keyword for resources.
     /// </summary>
-    public string BlockType => "resource";
+    public override string BlockType => "resource";
 
     /// <summary>
     /// Gets the block labels for this resource.
     /// </summary>
-    public string[] BlockLabels => [ResourceType, ResourceName];
+    public override string[] BlockLabels => [ResourceType, ResourceName];
 
     /// <summary>
     /// Initializes a new instance of TerraformResource.
     /// </summary>
     /// <param name="type">The resource type (e.g., "aws_vpc").</param>
     /// <param name="name">The resource name.</param>
-    public TerraformResource(string type, string name) : base("")
+    public TerraformResource(string type, string name)
     {
         ResourceType = type ?? throw new ArgumentNullException(nameof(type));
         ResourceName = name ?? throw new ArgumentNullException(nameof(name));
@@ -63,6 +63,6 @@ public partial class TerraformResource : TerraformBlock, ITerraformTopLevelBlock
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 }

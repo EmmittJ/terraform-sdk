@@ -7,22 +7,22 @@ namespace EmmittJ.Terraform.Sdk;
 /// Represents the terraform {} settings block.
 /// This is a top-level Terraform block that configures Terraform itself.
 /// </summary>
-public partial class TerraformSettings : TerraformBlock, ITerraformTopLevelBlock, ITerraformPreparable
+public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
 {
     /// <summary>
     /// Gets the block type keyword for the terraform block.
     /// </summary>
-    public string BlockType => "terraform";
+    public override string BlockType => "terraform";
 
     /// <summary>
-    /// Gets the block labels for the terraform block (none).
+    /// Gets the block labels (terraform blocks have none).
     /// </summary>
-    public string[] BlockLabels => [];
+    public override string[] BlockLabels => [];
 
     /// <summary>
     /// Initializes a new instance of TerraformSettings.
     /// </summary>
-    public TerraformSettings() : base("") { }
+    public TerraformSettings() { }
 
     /// <summary>
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
@@ -32,9 +32,10 @@ public partial class TerraformSettings : TerraformBlock, ITerraformTopLevelBlock
 
     /// <summary>
     /// Gets or sets the backend configuration for remote state storage.
-    /// This is a nested block, not a property.
+    /// This is a nested block.
     /// </summary>
-    public TerraformBackend? Backend { get; set; }
+    [TerraformArgument("backend")]
+    public partial TerraformBackend? Backend { get; set; }
 
     /// <summary>
     /// Gets or sets the cloud block configuration (for Terraform Cloud/Enterprise).
@@ -75,6 +76,16 @@ public partial class TerraformSettings : TerraformBlock, ITerraformTopLevelBlock
     }
 
     /// <summary>
+    /// Resolves the terraform settings block to child syntax nodes.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        // Base implementation handles all [TerraformArgument] properties
+        // Backend and Cloud will override their ResolveNodes to render as nested blocks
+        yield return new TerraformBlockNode(BlockType, BlockLabels, base.ResolveNodes(context));
+    }
+
+    /// <summary>
     /// Cannot generate reference to terraform settings blocks.
     /// </summary>
     public override TerraformExpression AsReference()
@@ -88,9 +99,14 @@ public partial class TerraformSettings : TerraformBlock, ITerraformTopLevelBlock
 public partial class ProviderRequirement : TerraformBlock
 {
     /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "provider";
+
+    /// <summary>
     /// Initializes a new instance of ProviderRequirement.
     /// </summary>
-    public ProviderRequirement() : base("") { }
+    public ProviderRequirement() { }
 
     /// <summary>
     /// Gets or sets the provider source (e.g., "hashicorp/aws", "hashicorp/azurerm").

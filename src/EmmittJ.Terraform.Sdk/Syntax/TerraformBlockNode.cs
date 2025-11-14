@@ -3,14 +3,16 @@ using System.Text;
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a nested block in HCL: label { ... }
+/// Represents a block in HCL with a label and optional additional labels.
+/// Used for both top-level blocks (resource, data, etc.) and nested blocks (lifecycle, tags, etc.).
 /// </summary>
 /// <example>
-/// tags {
-///   Name = "Example"
-///   Environment = "Production"
+/// Top-level block:
+/// resource "aws_vpc" "main" {
+///   cidr_block = "10.0.0.0/16"
 /// }
 ///
+/// Nested block:
 /// lifecycle {
 ///   create_before_destroy = true
 /// }
@@ -18,14 +20,19 @@ namespace EmmittJ.Terraform.Sdk;
 public sealed class TerraformBlockNode : TerraformSyntaxNode
 {
     /// <summary>
-    /// The block label (e.g., "tags", "lifecycle")
+    /// The block type keyword (e.g., "resource", "backend", "provider", "lifecycle", "tags").
+    /// This is the first identifier that starts the block.
     /// </summary>
-    public string Label { get; }
+    public string BlockType { get; }
 
     /// <summary>
-    /// Additional labels for blocks that need them (e.g., dynamic blocks)
+    /// Block labels that follow the block type.
+    /// For resource blocks: ["aws_vpc", "main"] → resource "aws_vpc" "main"
+    /// For backend blocks: ["s3"] → backend "s3"
+    /// For nested blocks without labels: [] → lifecycle { }
+    /// Labels are always quoted in the output.
     /// </summary>
-    public IReadOnlyList<string> AdditionalLabels { get; }
+    public IReadOnlyList<string> Labels { get; }
 
     /// <summary>
     /// Child nodes within this block
@@ -35,14 +42,27 @@ public sealed class TerraformBlockNode : TerraformSyntaxNode
     /// <summary>
     /// Creates a new block node.
     /// </summary>
-    /// <param name="label">The block label</param>
+    /// <param name="blockType">The block type keyword (e.g., "resource", "backend", "lifecycle")</param>
     /// <param name="children">Child nodes within this block</param>
-    /// <param name="additionalLabels">Additional labels for the block</param>
-    public TerraformBlockNode(string label, IEnumerable<TerraformSyntaxNode> children, params string[] additionalLabels)
+    /// <param name="labels">Labels for the block (will be quoted in output)</param>
+    public TerraformBlockNode(string blockType, IEnumerable<TerraformSyntaxNode> children, params string[] labels)
     {
-        Label = label ?? throw new ArgumentNullException(nameof(label));
+        BlockType = blockType ?? throw new ArgumentNullException(nameof(blockType));
+        Labels = labels ?? Array.Empty<string>();
         Children = children ?? throw new ArgumentNullException(nameof(children));
-        AdditionalLabels = additionalLabels ?? Array.Empty<string>();
+    }
+
+    /// <summary>
+    /// Creates a new block node with labels as a list.
+    /// </summary>
+    /// <param name="blockType">The block type keyword</param>
+    /// <param name="labels">Labels for the block (will be quoted in output)</param>
+    /// <param name="children">Child nodes within this block</param>
+    public TerraformBlockNode(string blockType, IReadOnlyList<string> labels, IEnumerable<TerraformSyntaxNode> children)
+    {
+        BlockType = blockType ?? throw new ArgumentNullException(nameof(blockType));
+        Labels = labels ?? Array.Empty<string>();
+        Children = children ?? throw new ArgumentNullException(nameof(children));
     }
 
     /// <summary>
@@ -52,12 +72,12 @@ public sealed class TerraformBlockNode : TerraformSyntaxNode
     {
         var sb = new StringBuilder();
 
-        // Block header: label [additional_labels...] {
-        sb.Append(Label);
-        foreach (var additionalLabel in AdditionalLabels)
+        // Block header: block_type "label1" "label2" {
+        sb.Append(BlockType);
+        foreach (var label in Labels)
         {
             sb.Append(' ');
-            sb.Append(additionalLabel);
+            sb.Append(label);
         }
         sb.AppendLine(" {");
 
@@ -72,7 +92,8 @@ public sealed class TerraformBlockNode : TerraformSyntaxNode
             }
         }
 
-        // Closing brace
+        // Closing brace (at same indentation as opening)
+        sb.Append(context.Indent);
         sb.Append('}');
 
         return sb.ToString();

@@ -5,7 +5,10 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformConditionBlock : TerraformBlock
 {
-    private readonly string _blockType;
+    /// <summary>
+    /// Gets the block type (e.g., "precondition", "postcondition", "validation").
+    /// </summary>
+    public override string BlockType { get; }
 
     public TerraformConditionBlock(string blockType, string condition, string errorMessage)
     {
@@ -16,10 +19,8 @@ public class TerraformConditionBlock : TerraformBlock
         if (string.IsNullOrWhiteSpace(errorMessage))
             throw new ArgumentException("Error message cannot be null or empty.", nameof(errorMessage));
 
-        _blockType = blockType;
+        BlockType = blockType;
         this["condition"] = TerraformExpression.Raw(condition);
         this["error_message"] = errorMessage;
     }
-
-    protected internal override string? BlockLabel => _blockType;
 }

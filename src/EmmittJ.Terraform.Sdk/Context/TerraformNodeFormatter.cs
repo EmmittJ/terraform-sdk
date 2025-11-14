@@ -61,15 +61,15 @@ public class TerraformNodeFormatter : ITerraformNodeFormatter
         // 4. Regular blocks (alphabetically)
         var regularBlocks = nodeList
             .OfType<TerraformBlockNode>()
-            .Where(n => !_metaArgumentBlocks.Contains(n.Label))
-            .OrderBy(n => n.Label);
+            .Where(n => !_metaArgumentBlocks.Contains(n.BlockType))
+            .OrderBy(n => n.BlockType);
         sorted.AddRange(regularBlocks);
 
         // 5. Blank line before meta-argument blocks (if any)
         var metaBlocks = nodeList
             .OfType<TerraformBlockNode>()
-            .Where(n => _metaArgumentBlocks.Contains(n.Label))
-            .OrderBy(n => n.Label)
+            .Where(n => _metaArgumentBlocks.Contains(n.BlockType))
+            .OrderBy(n => n.BlockType)
             .ToList();
 
         if (metaBlocks.Any())

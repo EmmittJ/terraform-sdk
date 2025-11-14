@@ -16,8 +16,7 @@ public partial class TerraformDataSource :
     ITerraformHasDependsOn,
     ITerraformHasProvider,
     ITerraformHasCount,
-    ITerraformHasForEach,
-    ITerraformTopLevelBlock
+    ITerraformHasForEach
 {
     /// <summary>
     /// Gets the data source type (e.g., "aws_ami", "azurerm_client_config").
@@ -32,19 +31,19 @@ public partial class TerraformDataSource :
     /// <summary>
     /// Gets the block type keyword for data sources.
     /// </summary>
-    public string BlockType => "data";
+    public override string BlockType => "data";
 
     /// <summary>
     /// Gets the block labels for this data source.
     /// </summary>
-    public string[] BlockLabels => [DataSourceType, DataSourceName];
+    public override string[] BlockLabels => [DataSourceType, DataSourceName];
 
     /// <summary>
     /// Initializes a new instance of TerraformDataSource.
     /// </summary>
     /// <param name="type">The data source type (e.g., "aws_ami").</param>
     /// <param name="name">The data source name.</param>
-    public TerraformDataSource(string type, string name) : base("")
+    public TerraformDataSource(string type, string name)
     {
         DataSourceType = type ?? throw new ArgumentNullException(nameof(type));
         DataSourceName = name ?? throw new ArgumentNullException(nameof(name));
@@ -64,6 +63,6 @@ public partial class TerraformDataSource :
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 }

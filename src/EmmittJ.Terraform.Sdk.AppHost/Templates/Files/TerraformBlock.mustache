@@ -10,8 +10,13 @@ namespace {{Namespace}};
 {{#IsDeprecated}}
 [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
-public partial class {{ClassName}}() : TerraformBlock("{{TerraformName}}")
+public partial class {{ClassName}} : TerraformBlock
 {
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "{{TerraformName}}";
+
 {{#Properties}}
 {{^IsComputedAttribute}}
     /// <summary>

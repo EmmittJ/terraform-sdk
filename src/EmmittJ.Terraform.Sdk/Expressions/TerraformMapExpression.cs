@@ -302,12 +302,12 @@ public class TerraformMapExpression : TerraformExpression,
             // All other values are expressions that can be rendered as arguments
             else if (value is TerraformExpression expr)
             {
-                sb.AppendLine($"{context.Indent}{key}{base.AssignmentOperator}{expr.ToHcl(context)}");
+                sb.AppendLine($"{context.Indent}{key} = {expr.ToHcl(context)}");
             }
             else
             {
                 // Other syntax nodes that aren't expressions
-                sb.AppendLine($"{context.Indent}{key}{base.AssignmentOperator}{value.ToHcl(context)}");
+                sb.AppendLine($"{context.Indent}{key} = {value.ToHcl(context)}");
             }
         }
 

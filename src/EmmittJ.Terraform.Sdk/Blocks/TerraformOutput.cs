@@ -11,7 +11,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// and can expose information for other Terraform configurations to use.
 /// Output values support the depends_on meta-argument.
 /// </remarks>
-public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, ITerraformTopLevelBlock
+public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
 {
     /// <summary>
     /// Gets the output name.
@@ -21,18 +21,18 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
     /// <summary>
     /// Gets the block type keyword for outputs.
     /// </summary>
-    public string BlockType => "output";
+    public override string BlockType => "output";
 
     /// <summary>
-    /// Gets the block labels for this output.
+    /// Gets the block labels (just the output name).
     /// </summary>
-    public string[] BlockLabels => [Name];
+    public override string[] BlockLabels => [Name];
 
     /// <summary>
     /// Initializes a new instance of TerraformOutput.
     /// </summary>
     /// <param name="name">The output name.</param>
-    public TerraformOutput(string name) : base("")
+    public TerraformOutput(string name)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
     }
@@ -121,7 +121,7 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
         }
 
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 
     /// <summary>

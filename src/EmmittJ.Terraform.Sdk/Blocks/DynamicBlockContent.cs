@@ -15,10 +15,16 @@ namespace EmmittJ.Terraform.Sdk;
 public class DynamicBlockContent : TerraformBlock
 {
     /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType { get; }
+
+    /// <summary>
     /// Creates a new DynamicBlockContent with the specified block type.
     /// </summary>
     /// <param name="blockType">The type of block being generated (e.g., "setting", "ingress", "egress")</param>
-    public DynamicBlockContent(string blockType) : base(blockType)
+    public DynamicBlockContent(string blockType)
     {
+        BlockType = blockType ?? throw new ArgumentNullException(nameof(blockType));
     }
 }

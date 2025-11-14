@@ -11,7 +11,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// the module's own source code. This functionality allows you to share modules across
 /// different Terraform configurations, making your module composable and reusable.
 /// </remarks>
-public partial class TerraformVariable : TerraformBlock, ITerraformTopLevelBlock
+public partial class TerraformVariable : TerraformBlock
 {
     /// <summary>
     /// Gets the name of the variable.
@@ -21,18 +21,18 @@ public partial class TerraformVariable : TerraformBlock, ITerraformTopLevelBlock
     /// <summary>
     /// Gets the block type keyword for variables.
     /// </summary>
-    public string BlockType => "variable";
+    public override string BlockType => "variable";
 
     /// <summary>
-    /// Gets the block labels for this variable.
+    /// Gets the block labels (just the variable name).
     /// </summary>
-    public string[] BlockLabels => [Name];
+    public override string[] BlockLabels => [Name];
 
     /// <summary>
     /// Initializes a new instance of TerraformVariable.
     /// </summary>
     /// <param name="name">The variable name.</param>
-    public TerraformVariable(string name) : base("")
+    public TerraformVariable(string name)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
     }
@@ -135,7 +135,7 @@ public partial class TerraformVariable : TerraformBlock, ITerraformTopLevelBlock
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 
     /// <summary>

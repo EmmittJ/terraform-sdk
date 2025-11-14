@@ -33,17 +33,17 @@ namespace EmmittJ.Terraform.Sdk;
 /// );
 /// </code>
 /// </example>
-public class TerraformImportBlock : TerraformBlock, ITerraformTopLevelBlock
+public class TerraformImportBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the block type keyword for import blocks.
     /// </summary>
-    public string BlockType => "import";
+    public override string BlockType => "import";
 
     /// <summary>
     /// Gets the block labels for this import block (none).
     /// </summary>
-    public string[] BlockLabels => [];
+    public override string[] BlockLabels => [];
 
     /// <summary>
     /// The resource address where the imported object should be placed in the state.
@@ -107,7 +107,7 @@ public class TerraformImportBlock : TerraformBlock, ITerraformTopLevelBlock
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 
     /// <inheritdoc/>

@@ -11,7 +11,9 @@ public class DynamicBlockIntegrationTests
     // Mock nested block for testing typed dynamic blocks
     private class TestNestedBlock : TerraformBlock
     {
-        public TestNestedBlock() : base("test_block") { }
+        public override string BlockType => "test_block";
+
+        public TestNestedBlock() : base() { }
 
         public TerraformValue<string>? Name
         {
@@ -29,7 +31,9 @@ public class DynamicBlockIntegrationTests
     // Mock resource for testing
     private class TestResource : TerraformBlock
     {
-        public TestResource() : base("test_resource") { }
+        public override string BlockType => "test_resource";
+
+        public TestResource() : base() { }
     }
 
     [Fact]

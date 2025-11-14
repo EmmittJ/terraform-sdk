@@ -196,13 +196,9 @@ public sealed class DependencyGraph
     /// </summary>
     private static string GetBlockName(TerraformBlock block)
     {
-        if (block is ITerraformTopLevelBlock topLevelBlock)
-        {
-            return topLevelBlock.BlockLabels.Length > 0
-                ? $"{topLevelBlock.BlockType}.{string.Join(".", topLevelBlock.BlockLabels)}"
-                : topLevelBlock.BlockType;
-        }
-        return block.GetType().Name;
+        return block.BlockLabels.Length > 0
+            ? $"{block.BlockType}.{string.Join(".", block.BlockLabels)}"
+            : block.BlockType;
     }
 
     /// <summary>

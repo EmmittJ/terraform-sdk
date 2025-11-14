@@ -28,6 +28,16 @@ public class TerraformCheckBlock : TerraformBlock
     private readonly List<TerraformAssertBlock> _asserts = new();
 
     /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "check";
+
+    /// <summary>
+    /// Gets the block labels (just the check name).
+    /// </summary>
+    public override string[] BlockLabels => [Name];
+
+    /// <summary>
     /// Gets the name of the check block.
     /// </summary>
     public string Name { get; }
@@ -37,7 +47,7 @@ public class TerraformCheckBlock : TerraformBlock
     /// </summary>
     /// <param name="name">The name of the check block.</param>
     /// <exception cref="ArgumentException">Thrown when name is null or empty.</exception>
-    public TerraformCheckBlock(string name) : base("")
+    public TerraformCheckBlock(string name)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Check block name cannot be null or empty.", nameof(name));
@@ -99,6 +109,11 @@ public class TerraformCheckBlock : TerraformBlock
 public class TerraformAssertBlock : TerraformBlock
 {
     /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "assert";
+
+    /// <summary>
     /// Gets or sets the condition expression that must evaluate to true.
     /// </summary>
     [TerraformArgument("condition")]
@@ -116,7 +131,7 @@ public class TerraformAssertBlock : TerraformBlock
     /// <param name="condition">The condition expression that must be true.</param>
     /// <param name="errorMessage">The error message to display on failure.</param>
     /// <exception cref="ArgumentException">Thrown when condition or errorMessage is null or empty.</exception>
-    public TerraformAssertBlock(string condition, string errorMessage) : base("")
+    public TerraformAssertBlock(string condition, string errorMessage)
     {
         if (string.IsNullOrWhiteSpace(condition))
             throw new ArgumentException("Assert condition cannot be null or empty.", nameof(condition));

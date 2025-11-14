@@ -8,11 +8,14 @@ namespace EmmittJ.Terraform.Sdk;
 public class TerraformLifecycleConfig : TerraformBlock
 {
     /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "lifecycle";
+
+    /// <summary>
     /// Initializes a new instance of the TerraformLifecycleConfig class.
     /// </summary>
     public TerraformLifecycleConfig()
     {
     }
-
-    protected internal override string? BlockLabel => "lifecycle";
 }

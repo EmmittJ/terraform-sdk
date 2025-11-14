@@ -10,7 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Providers are plugins that Terraform uses to create and manage resources.
 /// Each provider adds a set of resource types and/or data sources that Terraform can manage.
 /// </remarks>
-public partial class TerraformProvider : TerraformBlock, ITerraformTopLevelBlock
+public partial class TerraformProvider : TerraformBlock
 {
     /// <summary>
     /// Gets the provider name.
@@ -20,18 +20,18 @@ public partial class TerraformProvider : TerraformBlock, ITerraformTopLevelBlock
     /// <summary>
     /// Gets the block type keyword for providers.
     /// </summary>
-    public string BlockType => "provider";
+    public override string BlockType => "provider";
 
     /// <summary>
-    /// Gets the block labels for this provider.
+    /// Gets the block labels (just the provider name).
     /// </summary>
-    public string[] BlockLabels => [Name];
+    public override string[] BlockLabels => [Name];
 
     /// <summary>
     /// Initializes a new instance of TerraformProvider.
     /// </summary>
     /// <param name="name">The provider name (e.g., "aws", "azurerm").</param>
-    public TerraformProvider(string name) : base("")
+    public TerraformProvider(string name)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
     }
@@ -56,6 +56,6 @@ public partial class TerraformProvider : TerraformBlock, ITerraformTopLevelBlock
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
         var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformTopLevelBlockNode(BlockType, BlockLabels, children);
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 }

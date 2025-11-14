@@ -9,15 +9,8 @@ namespace EmmittJ.Terraform.Sdk;
 /// Examples: literals, references, function calls, operators, conditionals
 /// Not examples: resource blocks, property assignments, nested blocks (those are BlockNode/ArgumentNode)
 /// </remarks>
-public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformSerializable, ITerraformResolvable
+public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformResolvable
 {
-    /// <summary>
-    /// The assignment operator used when rendering properties.
-    /// Default is " = " for object expressions.
-    /// Override to " " (space) for block expressions (no equals sign).
-    /// </summary>
-    public virtual string AssignmentOperator => " = ";
-
     /// <summary>
     /// Preparation phase - prepares nested expressions and records dependencies.
     /// Override this in derived classes that contain nested resolvable expressions.
@@ -45,15 +38,6 @@ public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformSeria
     /// Overrides the abstract method from TerraformSyntaxNode.
     /// </summary>
     public abstract override string ToHcl(ITerraformContext context);
-
-    /// <summary>
-    /// Explicit implementation of ITerraformSerializable.ToHcl to handle nullable context parameter.
-    /// Delegates to the non-nullable ToHcl method with a temporary context if needed.
-    /// </summary>
-    string ITerraformSerializable.ToHcl(ITerraformContext? context)
-    {
-        return ToHcl(context ?? TerraformContext.Temporary(this));
-    }
 
     public override string ToString()
         => throw new NotImplementedException("Use ToHcl() to render the expression to HCL string.");

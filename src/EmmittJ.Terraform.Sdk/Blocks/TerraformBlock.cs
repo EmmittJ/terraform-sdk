@@ -7,29 +7,31 @@ namespace EmmittJ.Terraform.Sdk;
 /// All generated block classes should inherit from this.
 /// </summary>
 /// <remarks>
-/// Note: While blocks inherit from TerraformMap&lt;object&gt;, they are primarily used for their
-/// property storage and resolution capabilities. The map-like interface (indexer, Add methods)
-/// is not typically used directly in block classes. This design allows maximum code reuse
-/// of the existing TerraformMap infrastructure without duplicating property storage logic.
-/// TerraformBlock uses a different approach (direct Dictionary storage) which will be
-/// unified in a future refactoring.
+/// Blocks inherit from TerraformMap&lt;object&gt; primarily for property storage and resolution.
+/// The map-like interface (indexer, Add methods) is not typically used directly in block classes.
+/// This design maximizes code reuse of the TerraformMap infrastructure without duplicating
+/// property storage logic.
 /// </remarks>
 public abstract class TerraformBlock : TerraformMap<object>
 {
     /// <summary>
-    /// Gets the Terraform block label (e.g., "timeouts", "tags").
-    /// This is set during construction and used during HCL serialization.
-    /// For top-level blocks, this may be empty. Can be overridden by derived classes.
+    /// Gets the block type keyword (e.g., "resource", "data", "lifecycle", "timeouts").
+    /// For top-level blocks, this is the first keyword ("resource", "data", "provider").
+    /// For nested blocks, this is the block name ("lifecycle", "timeouts", "tags").
     /// </summary>
-    internal protected virtual string? BlockLabel { get; }
+    public abstract string BlockType { get; }
+
+    /// <summary>
+    /// Gets the block labels (e.g., ["aws_vpc", "main"] for resources).
+    /// Returns empty array for blocks without labels.
+    /// </summary>
+    public virtual string[] BlockLabels => [];
 
     /// <summary>
     /// Initializes a new instance of TerraformBlock.
     /// </summary>
-    /// <param name="blockLabel">The Terraform block label (e.g., "timeouts"). Can be empty for top-level blocks.</param>
-    protected TerraformBlock(string blockLabel = "") : base()
+    protected TerraformBlock() : base()
     {
-        BlockLabel = blockLabel;
     }
 
     /// <summary>
@@ -118,7 +120,7 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// Override in derived classes to provide specific reference formats (e.g., "resource.type.name").
     /// </summary>
     public virtual TerraformExpression AsReference()
-        => TerraformExpression.Identifier(BlockLabel);
+        => TerraformExpression.Identifier(BlockType);
 
     /// <summary>
     /// Resolves this block to multiple syntax nodes (arguments + nested blocks).
@@ -141,7 +143,7 @@ public abstract class TerraformBlock : TerraformMap<object>
             else if (terraformValue.Resolvable is TerraformBlock nestedBlock)
             {
                 var blockNode = new TerraformBlockNode(
-                    nestedBlock.BlockLabel ?? key,
+                    nestedBlock.BlockType,
                     nestedBlock.ResolveNodes(context)
                 );
                 nodes.Add(blockNode);
