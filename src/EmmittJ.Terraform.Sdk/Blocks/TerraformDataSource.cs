@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Data sources support a subset of meta-arguments: depends_on and provider.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/data-sources"/></para>
 /// </remarks>
-public partial class TerraformDataSource :
+public class TerraformDataSource :
     TerraformBlock,
     ITerraformHasDependsOn,
     ITerraformHasProvider,
@@ -66,5 +66,48 @@ public partial class TerraformDataSource :
     {
         var children = base.ResolveNodes(context).ToList();
         yield return new TerraformBlockNode(BlockType, BlockLabels, children);
+    }
+
+    // Meta-argument properties
+
+    /// <summary>
+    /// Gets or sets the list of resources this depends on.
+    /// Use this meta-argument when a data source relies on some other resource's behavior
+    /// but doesn't access any of that resource's data in its arguments.
+    /// </summary>
+    public TerraformList<string>? DependsOn
+    {
+        get => GetArgument<TerraformList<string>?>("depends_on");
+        set => SetArgument("depends_on", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the provider meta-argument.
+    /// Specifies which provider configuration to use, overriding Terraform's default behavior.
+    /// </summary>
+    public TerraformValue<string>? Provider
+    {
+        get => GetArgument<TerraformValue<string>?>("provider");
+        set => SetArgument("provider", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the count meta-argument.
+    /// Accepts a whole number, and creates that many instances of the data source.
+    /// </summary>
+    public TerraformValue<int>? Count
+    {
+        get => GetArgument<TerraformValue<int>?>("count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the for_each meta-argument.
+    /// Accepts a map or a set of strings, and creates an instance for each item.
+    /// </summary>
+    public TerraformValue<object>? ForEach
+    {
+        get => GetArgument<TerraformValue<object>?>("for_each");
+        set => SetArgument("for_each", value);
     }
 }

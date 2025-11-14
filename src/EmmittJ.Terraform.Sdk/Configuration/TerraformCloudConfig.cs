@@ -21,7 +21,11 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// Can be overridden by TF_CLOUD_ORGANIZATION environment variable.
     /// </summary>
     [TerraformArgument("organization")]
-    public partial TerraformValue<string>? Organization { get; set; }
+    public TerraformValue<string>? Organization
+    {
+        get => GetArgument<TerraformValue<string>?>("organization");
+        set => SetArgument("organization", value);
+    }
 
     /// <summary>
     /// Gets or sets the hostname for a Terraform Enterprise deployment.
@@ -29,14 +33,22 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// Can be overridden by TF_CLOUD_HOSTNAME environment variable.
     /// </summary>
     [TerraformArgument("hostname")]
-    public partial TerraformValue<string>? Hostname { get; set; }
+    public TerraformValue<string>? Hostname
+    {
+        get => GetArgument<TerraformValue<string>?>("hostname");
+        set => SetArgument("hostname", value);
+    }
 
     /// <summary>
     /// Gets or sets the authentication token for HCP Terraform.
     /// We recommend omitting this and using 'terraform login' or CLI config file instead.
     /// </summary>
     [TerraformArgument("token")]
-    public partial TerraformValue<string>? Token { get; set; }
+    public TerraformValue<string>? Token
+    {
+        get => GetArgument<TerraformValue<string>?>("token");
+        set => SetArgument("token", value);
+    }
 
     /// <summary>
     /// Gets or sets the workspaces block configuration.
@@ -44,7 +56,11 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// Specifies which workspace(s) to associate with this configuration.
     /// </summary>
     [TerraformArgument("workspaces")]
-    public partial CloudWorkspacesBlock? Workspaces { get; set; }
+    public CloudWorkspacesBlock? Workspaces
+    {
+        get => GetArgument<CloudWorkspacesBlock?>("workspaces");
+        set => SetArgument("workspaces", value);
+    }
 
     /// <summary>
     /// Cloud block resolves as an object: cloud = { ... }
@@ -71,19 +87,19 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// <summary>
     /// Gets a property value.
     /// </summary>
-    protected T? GetPropertyValue<T>(string key)
+    protected T? GetArgument<T>(string key)
         => _properties.TryGetValue(key, out var value) && value is T typedValue ? typedValue : default;
 
     /// <summary>
     /// Gets a required property value.
     /// </summary>
-    protected T GetRequiredPropertyValue<T>(string key)
-        => GetPropertyValue<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is not set.");
+    protected T GetRequiredArgument<T>(string key)
+        => GetArgument<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is not set.");
 
     /// <summary>
     /// Sets a property value.
     /// </summary>
-    protected void SetPropertyValue(string key, ITerraformValue? value)
+    protected void SetArgument(string key, ITerraformValue? value)
     {
         if (value is not null)
         {
@@ -121,7 +137,11 @@ public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValu
     /// Can be overridden by TF_WORKSPACE environment variable.
     /// </summary>
     [TerraformArgument("name")]
-    public partial TerraformValue<string>? Name { get; set; }
+    public TerraformValue<string>? Name
+    {
+        get => GetArgument<TerraformValue<string>?>("name");
+        set => SetArgument("name", value);
+    }
 
     /// <summary>
     /// Gets or sets workspace tags for matching multiple workspaces.
@@ -131,7 +151,11 @@ public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValu
     /// For newer versions, can be key-value pairs using object syntax.
     /// </summary>
     [TerraformArgument("tags")]
-    public partial TerraformList<string>? Tags { get; set; }
+    public TerraformList<string>? Tags
+    {
+        get => GetArgument<TerraformList<string>?>("tags");
+        set => SetArgument("tags", value);
+    }
 
     /// <summary>
     /// Gets or sets the name of an HCP Terraform project.
@@ -139,7 +163,11 @@ public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValu
     /// Can be overridden by TF_CLOUD_PROJECT environment variable.
     /// </summary>
     [TerraformArgument("project")]
-    public partial TerraformValue<string>? Project { get; set; }
+    public TerraformValue<string>? Project
+    {
+        get => GetArgument<TerraformValue<string>?>("project");
+        set => SetArgument("project", value);
+    }
 
     /// <summary>
     /// Workspaces block resolves as an object: workspaces = { ... }
@@ -166,19 +194,19 @@ public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValu
     /// <summary>
     /// Gets a property value.
     /// </summary>
-    protected T? GetPropertyValue<T>(string key)
+    protected T? GetArgument<T>(string key)
         => _properties.TryGetValue(key, out var value) && value is T typedValue ? typedValue : default;
 
     /// <summary>
     /// Gets a required property value.
     /// </summary>
-    protected T GetRequiredPropertyValue<T>(string key)
-        => GetPropertyValue<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is not set.");
+    protected T GetRequiredArgument<T>(string key)
+        => GetArgument<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is not set.");
 
     /// <summary>
     /// Sets a property value.
     /// </summary>
-    protected void SetPropertyValue(string key, ITerraformValue? value)
+    protected void SetArgument(string key, ITerraformValue? value)
     {
         if (value is not null)
         {

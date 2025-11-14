@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// such as DNS records.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/resources"/></para>
 /// </remarks>
-public partial class TerraformResource : TerraformBlock,
+public class TerraformResource : TerraformBlock,
     ITerraformHasCount,
     ITerraformHasForEach,
     ITerraformHasDependsOn,
@@ -66,5 +66,58 @@ public partial class TerraformResource : TerraformBlock,
     {
         var children = base.ResolveNodes(context).ToList();
         yield return new TerraformBlockNode(BlockType, BlockLabels, children);
+    }
+
+    // Meta-argument properties
+
+    /// <summary>
+    /// Gets or sets the count meta-argument.
+    /// Accepts a whole number, and creates that many instances of the resource.
+    /// </summary>
+    public TerraformValue<int>? Count
+    {
+        get => GetArgument<TerraformValue<int>?>("count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the for_each meta-argument.
+    /// Accepts a map or a set of strings, and creates an instance for each item.
+    /// </summary>
+    public TerraformValue<object>? ForEach
+    {
+        get => GetArgument<TerraformValue<object>?>("for_each");
+        set => SetArgument("for_each", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the list of resources this depends on.
+    /// Use this meta-argument when a resource relies on some other resource's behavior
+    /// but doesn't access any of that resource's data in its arguments.
+    /// </summary>
+    public TerraformList<string>? DependsOn
+    {
+        get => GetArgument<TerraformList<string>?>("depends_on");
+        set => SetArgument("depends_on", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the provider meta-argument.
+    /// Specifies which provider configuration to use, overriding Terraform's default behavior.
+    /// </summary>
+    public TerraformValue<string>? Provider
+    {
+        get => GetArgument<TerraformValue<string>?>("provider");
+        set => SetArgument("provider", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the lifecycle configuration for this resource.
+    /// Allows customization of lifecycle behavior including create_before_destroy, prevent_destroy, and ignore_changes.
+    /// </summary>
+    public TerraformLifecycleConfig? Lifecycle
+    {
+        get => GetArgument<TerraformLifecycleConfig?>("lifecycle");
+        set => SetArgument("lifecycle", value);
     }
 }

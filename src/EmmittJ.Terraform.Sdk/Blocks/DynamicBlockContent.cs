@@ -8,8 +8,8 @@ namespace EmmittJ.Terraform.Sdk;
 /// <example>
 /// // Create dynamic block for "setting" without a SettingBlock class
 /// var content = new DynamicBlockContent("setting");
-/// content.SetPropertyValue("namespace", TerraformExpression.Identifier("setting.value.namespace"));
-/// content.SetPropertyValue("name", TerraformExpression.Identifier("setting.value.name"));
+/// content.SetArgument("namespace", TerraformExpression.Identifier("setting.value.namespace"));
+/// content.SetArgument("name", TerraformExpression.Identifier("setting.value.name"));
 /// var dynamicBlock = new TerraformDynamicBlock(content, var.settings);
 /// </example>
 public class DynamicBlockContent : TerraformBlock

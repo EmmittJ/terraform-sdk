@@ -297,8 +297,8 @@ Blocks inherit from `TerraformMap<object>` for property storage:
 ```csharp
 public abstract class TerraformBlock : TerraformMap<object>
 {
-    // Source-generated properties use SetPropertyValue/GetPropertyValue
-    public void SetPropertyValue(string terraformName, object? value)
+    // Source-generated properties use SetArgument/GetArgument
+    public void SetArgument(string terraformName, object? value)
     {
         if (value is ITerraformValue tfValue)
             this[terraformName] = TerraformValue<object>.Lazy(ctx => tfValue.ResolveNodes(ctx));

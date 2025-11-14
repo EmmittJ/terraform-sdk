@@ -17,14 +17,14 @@ public class DynamicBlockIntegrationTests
 
         public TerraformValue<string>? Name
         {
-            get => GetPropertyValue<TerraformValue<string>?>("name");
-            set => SetPropertyValue("name", value);
+            get => GetArgument<TerraformValue<string>?>("name");
+            set => SetArgument("name", value);
         }
 
         public TerraformValue<int>? Port
         {
-            get => GetPropertyValue<TerraformValue<int>?>("port");
-            set => SetPropertyValue("port", value);
+            get => GetArgument<TerraformValue<int>?>("port");
+            set => SetArgument("port", value);
         }
     }
 
@@ -67,8 +67,8 @@ public class DynamicBlockIntegrationTests
 
         // Act
         var dynamicBlock = new TerraformDynamicBlock("setting", variableRef);
-        dynamicBlock.Content.SetPropertyValue("key", TerraformExpression.Identifier("setting.value.key"));
-        dynamicBlock.Content.SetPropertyValue("value", TerraformExpression.Identifier("setting.value.value"));
+        dynamicBlock.Content.SetArgument("key", TerraformExpression.Identifier("setting.value.key"));
+        dynamicBlock.Content.SetArgument("value", TerraformExpression.Identifier("setting.value.value"));
 
         // Assert
         Assert.Equal("setting", dynamicBlock.BlockTypeToGenerate);
@@ -148,8 +148,8 @@ public class DynamicBlockIntegrationTests
         var variable = new TerraformVariable("settings");
         var variableRef = TerraformValue.FromExpression<object>(variable.AsReference());
         var dynamicBlock = new TerraformDynamicBlock("setting", variableRef);
-        dynamicBlock.Content.SetPropertyValue("namespace", TerraformExpression.Identifier("setting.value.ns"));
-        dynamicBlock.Content.SetPropertyValue("name", TerraformExpression.Identifier("setting.value.name"));
+        dynamicBlock.Content.SetArgument("namespace", TerraformExpression.Identifier("setting.value.ns"));
+        dynamicBlock.Content.SetArgument("name", TerraformExpression.Identifier("setting.value.name"));
         dynamicBlock.Iterator = "setting";
 
         var context = TerraformContext.Temporary();

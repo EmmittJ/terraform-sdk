@@ -40,7 +40,7 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// </summary>
     /// <param name="terraformName">The Terraform argument name (from [TerraformArgument("name")] attribute).</param>
     /// <param name="value">The value to store (TerraformValue&lt;T&gt;, TerraformList&lt;T&gt;, nested blocks, etc.).</param>
-    public void SetPropertyValue(string terraformName, object? value)
+    public void SetArgument(string terraformName, object? value)
     {
         if (value == null)
             return;
@@ -80,7 +80,7 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// <typeparam name="T">The property type.</typeparam>
     /// <param name="terraformName">The Terraform property name.</param>
     /// <returns>The stored value or null.</returns>
-    public T? GetPropertyValue<T>(string terraformName)
+    public T? GetArgument<T>(string terraformName)
     {
         try
         {
@@ -108,9 +108,9 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// <param name="terraformName">The Terraform property name.</param>
     /// <returns>The stored value.</returns>
     /// <exception cref="InvalidOperationException">Thrown when a required property has not been set.</exception>
-    protected T GetRequiredPropertyValue<T>(string terraformName)
+    protected T GetRequiredArgument<T>(string terraformName)
     {
-        return GetPropertyValue<T>(terraformName)
+        return GetArgument<T>(terraformName)
             ?? throw new InvalidOperationException($"Required property '{terraformName}' has not been set.");
     }
 

@@ -29,7 +29,7 @@ public class TerraformLocals : TerraformBlock
     /// <param name="value">The value to set.</param>
     public void Set(string name, object value)
     {
-        SetPropertyValue(name, value);
+        SetArgument(name, value);
     }
 
     /// <summary>

@@ -43,8 +43,8 @@ public partial class TerraformVariable : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => GetPropertyValue<TerraformValue<string>?>("description");
-        set => SetPropertyValue("description", value);
+        get => GetArgument<TerraformValue<string>?>("description");
+        set => SetArgument("description", value);
     }
 
     /// <summary>
@@ -53,8 +53,8 @@ public partial class TerraformVariable : TerraformBlock
     /// </summary>
     public TerraformValue<object>? Default
     {
-        get => GetPropertyValue<TerraformValue<object>?>("default");
-        set => SetPropertyValue("default", value);
+        get => GetArgument<TerraformValue<object>?>("default");
+        set => SetArgument("default", value);
     }
 
     /// <summary>
@@ -62,8 +62,8 @@ public partial class TerraformVariable : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => GetPropertyValue<TerraformValue<string>?>("type");
-        set => SetPropertyValue("type", value);
+        get => GetArgument<TerraformValue<string>?>("type");
+        set => SetArgument("type", value);
     }
 
     /// <summary>
@@ -71,8 +71,8 @@ public partial class TerraformVariable : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Sensitive
     {
-        get => GetPropertyValue<TerraformValue<bool>?>("sensitive");
-        set => SetPropertyValue("sensitive", value);
+        get => GetArgument<TerraformValue<bool>?>("sensitive");
+        set => SetArgument("sensitive", value);
     }
 
     /// <summary>
@@ -82,8 +82,8 @@ public partial class TerraformVariable : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Nullable
     {
-        get => GetPropertyValue<TerraformValue<bool>?>("nullable");
-        set => SetPropertyValue("nullable", value);
+        get => GetArgument<TerraformValue<bool>?>("nullable");
+        set => SetArgument("nullable", value);
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public partial class TerraformVariable : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Ephemeral
     {
-        get => GetPropertyValue<TerraformValue<bool>?>("ephemeral");
-        set => SetPropertyValue("ephemeral", value);
+        get => GetArgument<TerraformValue<bool>?>("ephemeral");
+        set => SetArgument("ephemeral", value);
     }
 
     /// <summary>
@@ -104,8 +104,8 @@ public partial class TerraformVariable : TerraformBlock
     /// </summary>
     public TerraformList<TerraformConditionBlock> Validations
     {
-        get => GetPropertyValue<TerraformList<TerraformConditionBlock>?>("validation") ?? new TerraformList<TerraformConditionBlock>();
-        set => SetPropertyValue("validation", value);
+        get => GetArgument<TerraformList<TerraformConditionBlock>?>("validation") ?? new TerraformList<TerraformConditionBlock>();
+        set => SetArgument("validation", value);
     }
 
     /// <summary>

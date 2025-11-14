@@ -31,34 +31,54 @@ public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
     /// </summary>
     [TerraformArgument("required_version")]
-    public partial TerraformValue<string>? RequiredVersion { get; set; }
+    public TerraformValue<string>? RequiredVersion
+    {
+        get => GetArgument<TerraformValue<string>?>("required_version");
+        set => SetArgument("required_version", value);
+    }
 
     /// <summary>
     /// Gets or sets the backend configuration for remote state storage.
     /// This is a nested block.
     /// </summary>
     [TerraformArgument("backend")]
-    public partial TerraformBackend? Backend { get; set; }
+    public TerraformBackend? Backend
+    {
+        get => GetArgument<TerraformBackend?>("backend");
+        set => SetArgument("backend", value);
+    }
 
     /// <summary>
     /// Gets or sets the cloud block configuration (for Terraform Cloud/Enterprise).
     /// Mutually exclusive with Backend.
     /// </summary>
     [TerraformArgument("cloud")]
-    public partial TerraformCloudBlock? Cloud { get; set; }
+    public TerraformCloudBlock? Cloud
+    {
+        get => GetArgument<TerraformCloudBlock?>("cloud");
+        set => SetArgument("cloud", value);
+    }
 
     /// <summary>
     /// Gets or sets the experiments list - experimental features to enable.
     /// </summary>
     [TerraformArgument("experiments")]
-    public partial TerraformList<string>? Experiments { get; set; }
+    public TerraformList<string>? Experiments
+    {
+        get => GetArgument<TerraformList<string>?>("experiments");
+        set => SetArgument("experiments", value);
+    }
 
     /// <summary>
     /// Gets or sets the required_providers block as a map.
     /// Each key is the local provider name, value is the provider requirement.
     /// </summary>
     [TerraformArgument("required_providers")]
-    public partial TerraformMap<ProviderRequirement>? RequiredProviders { get; set; }
+    public TerraformMap<ProviderRequirement>? RequiredProviders
+    {
+        get => GetArgument<TerraformMap<ProviderRequirement>?>("required_providers");
+        set => SetArgument("required_providers", value);
+    }
 
     /// <summary>
     /// Gets or sets the provider_meta blocks.
@@ -115,11 +135,19 @@ public partial class ProviderRequirement : TerraformBlock
     /// Gets or sets the provider source (e.g., "hashicorp/aws", "hashicorp/azurerm").
     /// </summary>
     [TerraformArgument("source")]
-    public required partial TerraformValue<string> Source { get; set; }
+    public required TerraformValue<string> Source
+    {
+        get => GetRequiredArgument<TerraformValue<string>>("source");
+        set => SetArgument("source", value);
+    }
 
     /// <summary>
     /// Gets or sets the version constraint (e.g., "~> 5.0", ">= 4.0.0").
     /// </summary>
     [TerraformArgument("version")]
-    public partial TerraformValue<string>? Version { get; set; }
+    public TerraformValue<string>? Version
+    {
+        get => GetArgument<TerraformValue<string>?>("version");
+        set => SetArgument("version", value);
+    }
 }

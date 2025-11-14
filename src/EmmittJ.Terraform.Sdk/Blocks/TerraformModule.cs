@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Modules support depends_on, count, and for_each meta-arguments.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/modules/syntax"/></para>
 /// </remarks>
-public partial class TerraformModule :
+public class TerraformModule :
     TerraformBlock,
     ITerraformHasDependsOn,
     ITerraformHasCount,
@@ -72,5 +72,48 @@ public partial class TerraformModule :
     {
         var children = base.ResolveNodes(context).ToList();
         yield return new TerraformBlockNode(BlockType, BlockLabels, children);
+    }
+
+    // Meta-argument properties
+
+    /// <summary>
+    /// Gets or sets the list of resources this depends on.
+    /// Use this meta-argument when a module relies on some other resource's behavior
+    /// but doesn't access any of that resource's data in its arguments.
+    /// </summary>
+    public TerraformList<string>? DependsOn
+    {
+        get => GetArgument<TerraformList<string>?>("depends_on");
+        set => SetArgument("depends_on", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the count meta-argument.
+    /// Accepts a whole number, and creates that many instances of the module.
+    /// </summary>
+    public TerraformValue<int>? Count
+    {
+        get => GetArgument<TerraformValue<int>?>("count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the for_each meta-argument.
+    /// Accepts a map or a set of strings, and creates an instance for each item.
+    /// </summary>
+    public TerraformValue<object>? ForEach
+    {
+        get => GetArgument<TerraformValue<object>?>("for_each");
+        set => SetArgument("for_each", value);
+    }
+
+    /// <summary>
+    /// Gets or sets the provider mappings for this module.
+    /// Maps child module provider configuration names to parent provider configuration references.
+    /// </summary>
+    public TerraformMap<string>? Providers
+    {
+        get => GetArgument<TerraformMap<string>?>("providers");
+        set => SetArgument("providers", value);
     }
 }

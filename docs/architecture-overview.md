@@ -331,7 +331,7 @@ Blocks form the structural backbone:
 ```
 TerraformBlock (abstract base)
     ├── Property storage via TerraformMap<object>
-    ├── SetPropertyValue/GetPropertyValue for source generators
+    ├── SetArgument/GetArgument for source generators
     └── AsReference() for dependency tracking
 
 TerraformResource : TerraformBlock, ITerraformTopLevelBlock
@@ -414,8 +414,8 @@ public partial class AwsVpc : TerraformResource
     [TerraformArgument("cidr_block")]
     public TerraformValue<string>? CidrBlock
     {
-        get => GetPropertyValue<TerraformValue<string>>("cidr_block");
-        set => SetPropertyValue("cidr_block", value);
+        get => GetArgument<TerraformValue<string>>("cidr_block");
+        set => SetArgument("cidr_block", value);
     }
 }
 ```

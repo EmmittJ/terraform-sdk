@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Output values support the depends_on meta-argument.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/values/outputs"/></para>
 /// </remarks>
-public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
+public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
 {
     /// <summary>
     /// Gets the output name.
@@ -44,8 +44,8 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// </summary>
     public TerraformValue<object>? Value
     {
-        get => GetPropertyValue<TerraformValue<object>?>("value");
-        set => SetPropertyValue("value", value);
+        get => GetArgument<TerraformValue<object>?>("value");
+        set => SetArgument("value", value);
     }
 
     /// <summary>
@@ -53,8 +53,8 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => GetPropertyValue<TerraformValue<string>?>("description");
-        set => SetPropertyValue("description", value);
+        get => GetArgument<TerraformValue<string>?>("description");
+        set => SetArgument("description", value);
     }
 
     /// <summary>
@@ -62,8 +62,8 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// </summary>
     public TerraformValue<bool>? Sensitive
     {
-        get => GetPropertyValue<TerraformValue<bool>?>("sensitive");
-        set => SetPropertyValue("sensitive", value);
+        get => GetArgument<TerraformValue<bool>?>("sensitive");
+        set => SetArgument("sensitive", value);
     }
 
     /// <summary>
@@ -75,8 +75,8 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// </summary>
     public TerraformValue<bool>? Ephemeral
     {
-        get => GetPropertyValue<TerraformValue<bool>?>("ephemeral");
-        set => SetPropertyValue("ephemeral", value);
+        get => GetArgument<TerraformValue<bool>?>("ephemeral");
+        set => SetArgument("ephemeral", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// </summary>
     public TerraformList<TerraformConditionBlock> Preconditions
     {
-        get => GetPropertyValue<TerraformList<TerraformConditionBlock>?>("precondition") ?? new TerraformList<TerraformConditionBlock>();
-        set => SetPropertyValue("precondition", value);
+        get => GetArgument<TerraformList<TerraformConditionBlock>?>("precondition") ?? new TerraformList<TerraformConditionBlock>();
+        set => SetArgument("precondition", value);
     }
 
     /// <summary>
@@ -116,7 +116,7 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// </summary>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        if (GetPropertyValue<TerraformValue<object>?>("value") == null)
+        if (GetArgument<TerraformValue<object>?>("value") == null)
         {
             throw new InvalidOperationException($"Output '{Name}' must have a value set before it can be synthesized. Use the Value property to set the output value.");
         }
@@ -133,4 +133,17 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// <returns>A TerraformExpression representing the output reference.</returns>
     public static implicit operator TerraformExpression(TerraformOutput output)
         => output.AsReference();
+
+    // Meta-argument properties
+
+    /// <summary>
+    /// Gets or sets the list of resources this depends on.
+    /// Use this meta-argument when an output relies on some other resource's behavior
+    /// but doesn't access any of that resource's data in its arguments.
+    /// </summary>
+    public TerraformList<string>? DependsOn
+    {
+        get => GetArgument<TerraformList<string>?>("depends_on");
+        set => SetArgument("depends_on", value);
+    }
 }

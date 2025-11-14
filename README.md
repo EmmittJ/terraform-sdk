@@ -250,8 +250,8 @@ var settingsRef = TerraformValue.FromExpression<object>(settings.AsReference());
 
 // Create dynamic block
 var dynamicBlock = new TerraformDynamicBlock("setting", settingsRef);
-dynamicBlock.Content.SetPropertyValue("key", TerraformExpression.Identifier("setting.value.key"));
-dynamicBlock.Content.SetPropertyValue("value", TerraformExpression.Identifier("setting.value.value"));
+dynamicBlock.Content.SetArgument("key", TerraformExpression.Identifier("setting.value.key"));
+dynamicBlock.Content.SetArgument("value", TerraformExpression.Identifier("setting.value.value"));
 
 resource.SetDynamicBlock("setting", dynamicBlock);
 ```

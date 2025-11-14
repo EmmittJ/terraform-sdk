@@ -60,7 +60,7 @@ public static class TerraformDynamicBlockExtensions
 
         // Store using the block type name from the dynamic block
         // The property storage system already handles TerraformBlock instances
-        parentBlock.SetPropertyValue(dynamicBlock.BlockTypeToGenerate, dynamicBlock);
+        parentBlock.SetArgument(dynamicBlock.BlockTypeToGenerate, dynamicBlock);
     }
 
     /// <summary>
@@ -86,6 +86,6 @@ public static class TerraformDynamicBlockExtensions
         if (dynamicBlock == null)
             throw new ArgumentNullException(nameof(dynamicBlock));
 
-        parentBlock.SetPropertyValue(dynamicBlock.BlockTypeToGenerate, dynamicBlock);
+        parentBlock.SetArgument(dynamicBlock.BlockTypeToGenerate, dynamicBlock);
     }
 }

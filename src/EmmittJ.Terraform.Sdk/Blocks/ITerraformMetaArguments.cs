@@ -47,9 +47,9 @@ public interface ITerraformHasForEach
 public interface ITerraformHasDependsOn
 {
     /// <summary>
-    /// Gets the list of dependencies for this block.
+    /// Gets or sets the list of dependencies for this block.
     /// </summary>
-    List<string> DependsOn { get; }
+    TerraformList<string>? DependsOn { get; set; }
 }
 
 /// <summary>
@@ -65,7 +65,7 @@ public interface ITerraformHasProvider
     /// <summary>
     /// Gets or sets the provider meta-argument value.
     /// </summary>
-    string? Provider { get; set; }
+    TerraformValue<string>? Provider { get; set; }
 }
 
 /// <summary>
@@ -97,9 +97,9 @@ public interface ITerraformHasLifecycle
 public interface ITerraformHasProviders
 {
     /// <summary>
-    /// Gets the provider mappings for this module.
+    /// Gets or sets the provider mappings for this module.
     /// Key: child module's provider configuration name
     /// Value: reference to parent module's provider configuration
     /// </summary>
-    Dictionary<string, string> Providers { get; }
+    TerraformMap<string>? Providers { get; set; }
 }
