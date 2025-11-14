@@ -41,8 +41,8 @@ public class ModelBuilder : IModelBuilder
             }
             else
             {
-                // Input properties
-                model.Properties.Add(property);
+                // Input arguments
+                model.Arguments.Add(property);
             }
         }
 
@@ -99,7 +99,7 @@ public class ModelBuilder : IModelBuilder
         // Parse block attributes
         foreach (var (attrName, attr) in blockType.Block.Attributes)
         {
-            model.Properties.Add(BuildPropertyModel(attr, attrName));
+            model.Arguments.Add(BuildPropertyModel(attr, attrName));
         }
 
         return model;

@@ -4,24 +4,15 @@ using EmmittJ.Terraform.Sdk.AppHost.Models;
 
 namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
-public class ProviderFunctionsTemplate
+public class ProviderFunctionsTemplate(TerraformCodeGenOptions options)
 {
     private static readonly StubbleVisitorRenderer Renderer = new StubbleBuilder().Build();
     private static string? _templateCache;
-    private readonly string _templatePath;
-
-    public ProviderFunctionsTemplate(TerraformCodeGenOptions options)
-    {
-        _templatePath = Path.Combine(options.TemplatesDirectory, "provider_functions.mustache");
-    }
+    private readonly string _templatePath = Path.Combine(options.TemplatesDirectory, "provider_functions.mustache");
 
     private string LoadTemplate()
     {
-        if (_templateCache == null)
-        {
-            var templateFile = Path.Combine(_templatePath, "ProviderFunctions.mustache");
-            _templateCache = File.ReadAllText(templateFile);
-        }
+        _templateCache ??= File.ReadAllText(_templatePath);
         return _templateCache;
     }
 

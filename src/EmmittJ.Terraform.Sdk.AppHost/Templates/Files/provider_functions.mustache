@@ -1,0 +1,27 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace {{Namespace}};
+
+/// <summary>
+/// Provider functions for {{ProviderName}}.
+/// </summary>
+public static class {{ClassName}}
+{
+{{#Functions}}
+    /// <summary>
+    /// {{Description}}
+    /// </summary>
+{{#Parameters}}
+    /// <param name="{{Name}}">{{Description}}</param>
+{{/Parameters}}
+    /// <returns>{{ReturnDescription}}</returns>
+{{#IsDeprecated}}
+    [Obsolete("This function is deprecated.")]
+{{/IsDeprecated}}
+    public static {{{ReturnType}}} {{Name}}({{#Parameters}}{{{Type}}} {{Name}}{{^IsLast}}, {{/IsLast}}{{/Parameters}})
+    {
+        return new TerraformFunctionCall<{{{ReturnType}}}>("{{ProviderName}}", "{{TerraformName}}", {{#Parameters}}{{Name}}{{^IsLast}}, {{/IsLast}}{{/Parameters}});
+    }
+
+{{/Functions}}
+}

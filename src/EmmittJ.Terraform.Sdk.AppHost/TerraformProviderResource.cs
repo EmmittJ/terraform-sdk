@@ -28,55 +28,52 @@ public sealed class TerraformProviderResource : Resource
         Version = version;
 
         // Add pipeline step annotation to generate code for this provider
-        Annotations.Add(new PipelineStepAnnotation((factoryContext) =>
-        {
-            return Task.FromResult(CreateSteps(factoryContext));
-        }));
+        Annotations.Add(new PipelineStepAnnotation(CreateSteps));
     }
 
-    private IEnumerable<PipelineStep> CreateSteps(PipelineStepFactoryContext factoryContext)
+    private List<PipelineStep> CreateSteps(PipelineStepFactoryContext factoryContext)
     {
-        var model = factoryContext.PipelineContext.Model;
+        var steps = new List<PipelineStep>();
 
         // Find the code gen environment
-        var environment = model.Resources.OfType<TerraformCodeGenEnvironmentResource>().FirstOrDefault();
-        if (environment is null)
-        {
-            throw new InvalidOperationException(
-                $"No {nameof(TerraformCodeGenEnvironmentResource)} found in the model. " +
-                $"Add one by calling AddTerraformCodeGenEnvironment().");
-        }
+        var model = factoryContext.PipelineContext.Model;
+        var environment = model.Resources.OfType<TerraformCodeGenEnvironmentResource>().FirstOrDefault()
+                ?? throw new InvalidOperationException($"No {nameof(TerraformCodeGenEnvironmentResource)} found in the model. Add one by calling AddTerraformCodeGenEnvironment().");
 
         // Step 1: Generate schema
         var generateSchemaStep = new PipelineStep
         {
             Name = $"generate-schema-{ProviderName}",
             Action = async context => await GenerateSchemaAsync(context, environment).ConfigureAwait(false),
-            Tags = [TerraformCodeGenPipelineTags.GenerateSchema]
+            Tags = [TerraformCodeGenPipelineTags.GenerateSchema],
+            DependsOnSteps = [WellKnownPipelineSteps.PublishPrereq],
+            RequiredBySteps = [WellKnownPipelineSteps.Publish]
         };
-        generateSchemaStep.DependsOn(WellKnownPipelineSteps.PublishPrereq);
-        generateSchemaStep.RequiredBy(WellKnownPipelineSteps.Publish);
-        yield return generateSchemaStep;
+        steps.Add(generateSchemaStep);
 
         // Step 2: Parse schema
         var parseSchemaStep = new PipelineStep
         {
             Name = $"parse-schema-{ProviderName}",
             Action = async context => await ParseSchemaAsync(context, environment).ConfigureAwait(false),
-            Tags = [TerraformCodeGenPipelineTags.ParseSchema]
+            Tags = [TerraformCodeGenPipelineTags.ParseSchema],
+            DependsOnSteps = [generateSchemaStep.Name],
+            RequiredBySteps = [WellKnownPipelineSteps.Publish]
         };
-        parseSchemaStep.DependsOn(generateSchemaStep);
-        yield return parseSchemaStep;
+        steps.Add(parseSchemaStep);
 
         // Step 3: Generate code
         var generateCodeStep = new PipelineStep
         {
             Name = $"generate-code-{ProviderName}",
             Action = async context => await GenerateCodeAsync(context, environment).ConfigureAwait(false),
-            Tags = [TerraformCodeGenPipelineTags.GenerateCode]
+            Tags = [TerraformCodeGenPipelineTags.GenerateCode],
+            DependsOnSteps = [parseSchemaStep.Name],
+            RequiredBySteps = [WellKnownPipelineSteps.Publish]
         };
-        generateCodeStep.DependsOn(parseSchemaStep);
-        yield return generateCodeStep;
+        steps.Add(generateCodeStep);
+
+        return steps;
     }
 
     private async Task GenerateSchemaAsync(
@@ -216,7 +213,7 @@ provider ""{ProviderName}"" {{
             Description = providerSchema.Provider?.Block?.Description,
             ResourceCount = providerSchema.ResourceSchemas.Count,
             DataSourceCount = providerSchema.DataSourceSchemas.Count,
-            ConfigurationAttributes = configAttributes
+            Arguments = configAttributes
         };
 
         var providerCode = services.ProviderTemplate.Generate(providerModel);
@@ -267,7 +264,7 @@ provider ""{ProviderName}"" {{
         TerraformCodeGenServices services,
         CancellationToken cancellationToken)
     {
-        var templatePath = Path.Combine(services.Options.TemplatesDirectory, "Provider.csproj.mustache");
+        var templatePath = Path.Combine(services.Options.TemplatesDirectory, "provider.csproj.mustache");
         var projectContent = await services.FileSystem.ReadAllTextAsync(templatePath, cancellationToken);
         var projectPath = Path.Combine(outputDirectory, $"{providerNamespace}.csproj");
         await services.FileSystem.WriteAllTextAsync(projectPath, projectContent, cancellationToken);
@@ -284,12 +281,7 @@ provider ""{ProviderName}"" {{
 /// <summary>
 /// Annotation that holds the parsed Terraform provider schema.
 /// </summary>
-internal class TerraformParsedSchemaAnnotation : IResourceAnnotation
+internal class TerraformParsedSchemaAnnotation(Schema.ProviderSchema providerSchema) : IResourceAnnotation
 {
-    public Schema.ProviderSchema ProviderSchema { get; }
-
-    public TerraformParsedSchemaAnnotation(Schema.ProviderSchema providerSchema)
-    {
-        ProviderSchema = providerSchema;
-    }
+    public Schema.ProviderSchema ProviderSchema { get; } = providerSchema;
 }

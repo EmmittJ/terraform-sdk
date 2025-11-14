@@ -7,24 +7,15 @@ namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 /// <summary>
 /// Base template for generating Terraform block classes (resources, data sources, ephemeral resources).
 /// </summary>
-public abstract class TerraformBlockTemplate
+public abstract class TerraformBlockTemplate(string templatePath)
 {
     private static readonly StubbleVisitorRenderer Renderer = new StubbleBuilder().Build();
-    private readonly string _templatePath;
+    private readonly string _templatePath = templatePath;
     private string? _templateCache;
-
-    protected TerraformBlockTemplate(string templatePath)
-    {
-        _templatePath = templatePath;
-    }
 
     private string LoadTemplate()
     {
-        if (_templateCache == null)
-        {
-            var templateFile = Path.Combine(_templatePath, "TerraformBlock.mustache");
-            _templateCache = File.ReadAllText(templateFile);
-        }
+        _templateCache ??= File.ReadAllText(_templatePath);
         return _templateCache;
     }
 
@@ -49,7 +40,7 @@ public abstract class TerraformBlockTemplate
             IsResource = baseClassName == "TerraformResource",
             IsDataSource = baseClassName == "TerraformDataSource",
             IsEphemeralResource = baseClassName == "TerraformEphemeralResource",
-            Properties = model.Properties.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList(),
+            Properties = model.Arguments.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList(),
             OutputAttributes = model.OutputAttributes.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList(),
             BlockTypes = model.BlockTypes.Select(TemplateHelpers.PrepareBlockTypeForTemplate).ToList()
         };

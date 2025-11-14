@@ -1,0 +1,87 @@
+{{^IsComputedAttribute}}
+    /// <summary>
+    /// {{Description}}
+    /// </summary>
+{{#IsRequired}}
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "{{Name}} is required")]
+{{/IsRequired}}
+{{#IsDeprecated}}
+    [Obsolete("This property is deprecated.")]
+{{/IsDeprecated}}
+    [TerraformArgument("{{TerraformName}}")]
+{{#IsRequiredArgument}}
+{{#UseRequiredKeyword}}
+    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
+{{/UseRequiredKeyword}}
+{{#UseNullable}}
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}}? {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
+{{/UseNullable}}
+{{/IsRequiredArgument}}
+{{#IsOptionalArgument}}
+{{#UseRequiredKeyword}}
+    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
+{{/UseRequiredKeyword}}
+{{#UseNullable}}
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}}? {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
+{{/UseNullable}}
+{{/IsOptionalArgument}}
+{{#IsOptionalAndComputed}}
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+        set => SetArgument("{{TerraformName}}", value);
+    }
+{{/IsOptionalAndComputed}}
+{{#IsComputedOnly}}
+    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    {
+{{#IsCollectionType}}
+        get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
+{{/IsCollectionType}}
+{{^IsCollectionType}}
+        get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
+{{/IsCollectionType}}
+    }
+{{/IsComputedOnly}}
+{{/IsComputedAttribute}}

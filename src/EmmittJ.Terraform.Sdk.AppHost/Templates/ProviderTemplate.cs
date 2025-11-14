@@ -4,24 +4,15 @@ using EmmittJ.Terraform.Sdk.AppHost.Models;
 
 namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
-public class ProviderTemplate
+public class ProviderTemplate(TerraformCodeGenOptions options)
 {
     private static readonly StubbleVisitorRenderer Renderer = new StubbleBuilder().Build();
     private static string? _templateCache;
-    private readonly string _templatePath;
-
-    public ProviderTemplate(TerraformCodeGenOptions options)
-    {
-        _templatePath = Path.Combine(options.TemplatesDirectory, "provider.mustache");
-    }
+    private readonly string _templatePath = Path.Combine(options.TemplatesDirectory, "provider.mustache");
 
     private string LoadTemplate()
     {
-        if (_templateCache == null)
-        {
-            var templateFile = Path.Combine(_templatePath, "Provider.mustache");
-            _templateCache = File.ReadAllText(templateFile);
-        }
+        _templateCache ??= File.ReadAllText(_templatePath);
         return _templateCache;
     }
 
@@ -38,7 +29,7 @@ public class ProviderTemplate
             Description = providerConfig.Description != null ? TemplateHelpers.EscapeXmlDoc(providerConfig.Description) : null,
             ResourceCount = providerConfig.ResourceCount,
             DataSourceCount = providerConfig.DataSourceCount,
-            ConfigurationAttributes = providerConfig.ConfigurationAttributes.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList()
+            Arguments = providerConfig.Arguments.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList()
         };
 
         return Renderer.Render(template, data);

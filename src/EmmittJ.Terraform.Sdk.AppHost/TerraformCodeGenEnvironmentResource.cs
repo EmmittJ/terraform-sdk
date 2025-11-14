@@ -7,7 +7,10 @@ namespace EmmittJ.Terraform.Sdk.AppHost;
 /// <summary>
 /// Represents a Terraform code generation environment resource.
 /// </summary>
-public class TerraformCodeGenEnvironmentResource : Resource
+/// <remarks>
+/// Initializes a new instance of the <see cref="TerraformCodeGenEnvironmentResource"/> class.
+/// </remarks>
+public class TerraformCodeGenEnvironmentResource(string name) : Resource(name)
 {
     /// <summary>
     /// Gets or sets the output directory for generated provider code.
@@ -23,13 +26,4 @@ public class TerraformCodeGenEnvironmentResource : Resource
     /// Gets or sets the base namespace for generated provider code.
     /// </summary>
     public string Namespace { get; set; } = "EmmittJ.Terraform.Sdk.Providers";
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformCodeGenEnvironmentResource"/> class.
-    /// </summary>
-    public TerraformCodeGenEnvironmentResource(string name) : base(name)
-    {
-        // The provider resources themselves have PipelineStepAnnotation that creates the steps
-        // This environment resource doesn't need to do anything - it just provides configuration
-    }
 }

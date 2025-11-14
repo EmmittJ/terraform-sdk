@@ -20,26 +20,8 @@ public partial class {{ClassName}} : TerraformProvider
     public {{ClassName}}(string name = "{{ProviderName}}") : base(name)
     {
     }
-{{#ConfigurationAttributes}}
 
-    /// <summary>
-    /// {{Description}}
-    /// {{#IsRequired}}(Required){{/IsRequired}}{{#IsOptional}}(Optional){{/IsOptional}}{{#IsComputed}}(Computed){{/IsComputed}}{{#IsSensitive}} (Sensitive){{/IsSensitive}}
-    /// </summary>
-{{#IsDeprecated}}
-    [Obsolete("This property is deprecated.")]
-{{/IsDeprecated}}
-    [TerraformArgument("{{TerraformName}}")]
-{{#IsArgument}}
-{{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
-{{/UseRequiredKeyword}}
-{{#UseNullable}}
-    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
-{{/UseNullable}}
-{{/IsArgument}}
-{{^IsArgument}}
-    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
-{{/IsArgument}}
-{{/ConfigurationAttributes}}
+{{#Arguments}}
+{{>_argument}}
+{{/Arguments}}
 }

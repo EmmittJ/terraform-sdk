@@ -1,0 +1,33 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace {{Namespace}};
+
+{{#BlockTypes}}
+{{>_block}}
+
+{{/BlockTypes}}
+/// <summary>
+/// Represents a {{TerraformName}} Terraform ephemeral resource.
+/// {{#Description}}
+/// {{Description}}
+/// {{/Description}}
+/// Ephemeral resources are used for temporary credentials, tokens, and secrets.
+/// </summary>
+{{#IsDeprecated}}
+[Obsolete("This ephemeral resource is deprecated.")]
+{{/IsDeprecated}}
+public partial class {{ClassName}} : TerraformEphemeralResource
+{
+    /// <summary>
+    /// Initializes a new instance of the <see cref="{{ClassName}}"/> class.
+    /// </summary>
+    /// <param name="stack">The Terraform stack this ephemeral resource belongs to.</param>
+    /// <param name="name">The unique name for this ephemeral resource instance.</param>
+    public {{ClassName}}(TerraformStack stack, string name) : base(stack, "{{TerraformName}}", name)
+    {
+    }
+
+{{#Arguments}}
+{{>_argument}}
+{{/Arguments}}
+}

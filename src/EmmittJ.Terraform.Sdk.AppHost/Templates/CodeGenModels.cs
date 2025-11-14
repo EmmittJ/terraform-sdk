@@ -9,7 +9,7 @@ public class ProviderConfig
     public string? Description { get; set; }
     public int ResourceCount { get; set; }
     public int DataSourceCount { get; set; }
-    public List<PropertyModel> ConfigurationAttributes { get; set; } = new();
+    public List<PropertyModel> Arguments { get; set; } = new();
 }
 
 public class ResourceModel
@@ -18,7 +18,7 @@ public class ResourceModel
     public required string TerraformType { get; set; }
     public required string ClassName { get; set; }
     public required string Description { get; set; }
-    public List<PropertyModel> Properties { get; set; } = new();
+    public List<PropertyModel> Arguments { get; set; } = new();
     public List<PropertyModel> OutputAttributes { get; set; } = new();
     public List<BlockTypeModel> BlockTypes { get; set; } = new();
     public bool IsDeprecated { get; set; }
@@ -46,7 +46,7 @@ public class BlockTypeModel
     public required string TerraformName { get; set; }
     public required string ClassName { get; set; }
     public required string NestingMode { get; set; }
-    public List<PropertyModel> Properties { get; set; } = new();
+    public List<PropertyModel> Arguments { get; set; } = new();
     public int? MinItems { get; set; }
     public int? MaxItems { get; set; }
     public bool IsDeprecated { get; set; }

@@ -1,0 +1,32 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace {{Namespace}};
+
+{{#BlockTypes}}
+{{>_block}}
+
+{{/BlockTypes}}
+/// <summary>
+/// Represents a {{TerraformName}} Terraform resource.
+/// {{#Description}}
+/// {{Description}}
+/// {{/Description}}
+/// </summary>
+{{#IsDeprecated}}
+[Obsolete("This resource is deprecated.")]
+{{/IsDeprecated}}
+public partial class {{ClassName}} : TerraformResource
+{
+    /// <summary>
+    /// Initializes a new instance of the <see cref="{{ClassName}}"/> class.
+    /// </summary>
+    /// <param name="stack">The Terraform stack this resource belongs to.</param>
+    /// <param name="name">The unique name for this resource instance.</param>
+    public {{ClassName}}(TerraformStack stack, string name) : base(stack, "{{TerraformName}}", name)
+    {
+    }
+
+{{#Arguments}}
+{{>_argument}}
+{{/Arguments}}
+}

@@ -44,8 +44,8 @@ public class SchemaParser : ISchemaParser
                 }
                 else
                 {
-                    // Input properties
-                    resource.Properties.Add(property);
+                    // Input arguments
+                    resource.Arguments.Add(property);
                 }
             }
 
@@ -88,8 +88,8 @@ public class SchemaParser : ISchemaParser
                 }
                 else
                 {
-                    // Filter/input properties
-                    dataSource.Properties.Add(property);
+                    // Filter/input arguments
+                    dataSource.Arguments.Add(property);
                 }
             }
 
@@ -132,8 +132,8 @@ public class SchemaParser : ISchemaParser
                 }
                 else
                 {
-                    // Input properties
-                    ephemeralResource.Properties.Add(property);
+                    // Input arguments
+                    ephemeralResource.Arguments.Add(property);
                 }
             }
 
@@ -195,7 +195,7 @@ public class SchemaParser : ISchemaParser
         // Parse block attributes
         foreach (var (attrName, attr) in blockType.Block.Attributes)
         {
-            model.Properties.Add(ParseAttribute(attrName, attr));
+            model.Arguments.Add(ParseAttribute(attrName, attr));
         }
 
         return model;
