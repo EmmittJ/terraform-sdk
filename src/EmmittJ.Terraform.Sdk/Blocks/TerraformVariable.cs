@@ -10,7 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Input variables let you customize aspects of Terraform modules without altering
 /// the module's own source code. This functionality allows you to share modules across
 /// different Terraform configurations, making your module composable and reusable.
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/values/variables"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/variable"/></para>
 /// </remarks>
 public partial class TerraformVariable : TerraformBlock
 {

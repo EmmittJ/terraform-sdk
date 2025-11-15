@@ -7,8 +7,30 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 /// <remarks>
 /// Requires: Terraform 1.1+
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/modules/develop/refactoring"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/moved"/></para>
+/// <para>
+/// The moved block has two required arguments:
+/// - from (required): The previous address of the resource
+/// - to (required): The new address for the resource
+/// </para>
 /// </remarks>
+/// <example>
+/// <code>
+/// // Move a resource to a new name
+/// var moved = new TerraformMovedBlock
+/// {
+///     From = "aws_instance.a",
+///     To = "aws_instance.b"
+/// };
+///
+/// // Move a resource into a module
+/// var moved = new TerraformMovedBlock
+/// {
+///     From = "aws_instance.example",
+///     To = "module.instances.aws_instance.example"
+/// };
+/// </code>
+/// </example>
 public class TerraformMovedBlock : TerraformBlock
 {
     /// <summary>
@@ -22,40 +44,22 @@ public class TerraformMovedBlock : TerraformBlock
     public override string[] BlockLabels => [];
 
     /// <summary>
-    /// Gets the previous address of the resource or module.
+    /// The previous address of the resource, module, or resource instance.
     /// </summary>
-    public string From { get; }
-
-    /// <summary>
-    /// Gets the new address of the resource or module.
-    /// </summary>
-    public string To { get; }
-
-    /// <summary>
-    /// Creates a new moved block with the specified from and to addresses.
-    /// </summary>
-    /// <param name="from">The previous address (e.g., "aws_instance.example", "module.old_name")</param>
-    /// <param name="to">The new address (e.g., "aws_instance.renamed", "module.new_name")</param>
-    public TerraformMovedBlock(string from, string to)
+    public required TerraformValue<string> From
     {
-        if (string.IsNullOrWhiteSpace(from))
-            throw new ArgumentException("From address cannot be null or empty", nameof(from));
-        if (string.IsNullOrWhiteSpace(to))
-            throw new ArgumentException("To address cannot be null or empty", nameof(to));
-
-        From = from;
-        To = to;
-
-        // Initialize properties
-        FromProperty = new MovedAddressProperty(from);
-        ToProperty = new MovedAddressProperty(to);
+        get => GetRequiredArgument<TerraformValue<string>>("from");
+        set => SetArgument("from", value);
     }
 
-    [TerraformArgument("from")]
-    public MovedAddressProperty FromProperty { get; set; }
-
-    [TerraformArgument("to")]
-    public MovedAddressProperty ToProperty { get; set; }
+    /// <summary>
+    /// The new address for the resource, module, or resource instance.
+    /// </summary>
+    public required TerraformValue<string> To
+    {
+        get => GetRequiredArgument<TerraformValue<string>>("to");
+        set => SetArgument("to", value);
+    }
 
     /// <summary>
     /// Resolves this moved block to a top-level block node.
@@ -67,47 +71,8 @@ public class TerraformMovedBlock : TerraformBlock
     }
 
     /// <inheritdoc/>
-    public override TerraformExpression AsReference()
+    public override TerraformReferenceExpression AsReference()
     {
-        throw new NotSupportedException("Moved blocks cannot be referenced.");
-    }
-}
-
-/// <summary>
-/// Represents an address property for moved blocks.
-/// This renders without quotes since addresses are references, not strings.
-/// </summary>
-public class MovedAddressProperty : ITerraformResolvable
-{
-    private readonly string _address;
-
-    public MovedAddressProperty(string address)
-    {
-        _address = address ?? throw new ArgumentNullException(nameof(address));
-    }
-
-    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        // Return a literal expression that renders without quotes
-        yield return new MovedAddressExpression(_address);
-    }
-}
-
-/// <summary>
-/// Expression that renders a moved block address without quotes.
-/// </summary>
-internal class MovedAddressExpression : TerraformExpression
-{
-    private readonly string _address;
-
-    public MovedAddressExpression(string address)
-    {
-        _address = address;
-    }
-
-    public override string ToHcl(ITerraformContext? context = null)
-    {
-        // Render the address as-is without quotes
-        return _address;
+        throw new NotSupportedException("Moved blocks cannot be referenced in expressions.");
     }
 }

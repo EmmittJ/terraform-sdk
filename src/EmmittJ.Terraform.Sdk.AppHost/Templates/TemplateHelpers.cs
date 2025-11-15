@@ -162,11 +162,10 @@ public static class TemplateHelpers
         // - List/Set blocks with MinItems = 1 should be required (must have at least 1 item)
         bool isRequired = block.MinItems == 1;
 
-        // All blocks (single and collections) should be non-nullable with initialization
-        // This eliminates null checks and makes the API cleaner
+        // Required blocks use 'required' keyword and GetRequiredArgument
+        // Optional blocks are nullable and use GetArgument with ?? new()
         bool useRequiredKeyword = isRequired;
-        bool useNullable = false; // No blocks are nullable - all have = new() initializers
-        bool useInitializer = true; // All blocks get = new() or = new("label") initializer
+        bool useNullable = !isRequired;
 
         if (isRequired && block.NestingMode != "single")
         {
@@ -202,7 +201,6 @@ public static class TemplateHelpers
             IsRequired = isRequired,
             UseRequiredKeyword = useRequiredKeyword,
             UseNullable = useNullable,
-            UseInitializer = useInitializer,
             UseBlockLabelInInitializer = useBlockLabelInInitializer,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,

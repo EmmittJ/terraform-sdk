@@ -10,7 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Data sources allow Terraform to use information defined outside of Terraform, defined by another
 /// separate Terraform configuration, or modified by functions.
 /// Data sources support a subset of meta-arguments: depends_on and provider.
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/data-sources"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/data"/></para>
 /// </remarks>
 public class TerraformDataSource :
     TerraformBlock,

@@ -20,4 +20,7 @@ public partial class {{ClassName}}(string name) : TerraformResource("{{{Terrafor
 {{#Arguments}}
 {{>_argument}}
 {{/Arguments}}
+{{#BlockTypes}}
+{{>_blockproperty}}
+{{/BlockTypes}}
 }

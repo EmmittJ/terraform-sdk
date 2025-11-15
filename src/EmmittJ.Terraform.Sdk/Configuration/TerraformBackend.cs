@@ -4,6 +4,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// Represents a Terraform backend configuration for remote state storage.
 /// Backends determine where Terraform stores its state data.
 /// </summary>
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/terraform#backend"/></para>
+/// </remarks>
 public partial class TerraformBackend : TerraformBlock
 {
     /// <summary>

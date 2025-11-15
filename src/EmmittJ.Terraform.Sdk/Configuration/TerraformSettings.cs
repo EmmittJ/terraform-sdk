@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// This is a top-level Terraform block that configures Terraform itself.
 /// </summary>
 /// <remarks>
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/settings"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/terraform"/></para>
 /// </remarks>
 public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
 {
@@ -30,7 +30,6 @@ public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
     /// <summary>
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
     /// </summary>
-    [TerraformArgument("required_version")]
     public TerraformValue<string>? RequiredVersion
     {
         get => GetArgument<TerraformValue<string>?>("required_version");
@@ -41,7 +40,6 @@ public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
     /// Gets or sets the backend configuration for remote state storage.
     /// This is a nested block.
     /// </summary>
-    [TerraformArgument("backend")]
     public TerraformBackend? Backend
     {
         get => GetArgument<TerraformBackend?>("backend");
@@ -52,7 +50,6 @@ public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
     /// Gets or sets the cloud block configuration (for Terraform Cloud/Enterprise).
     /// Mutually exclusive with Backend.
     /// </summary>
-    [TerraformArgument("cloud")]
     public TerraformCloudBlock? Cloud
     {
         get => GetArgument<TerraformCloudBlock?>("cloud");
@@ -62,7 +59,6 @@ public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
     /// <summary>
     /// Gets or sets the experiments list - experimental features to enable.
     /// </summary>
-    [TerraformArgument("experiments")]
     public TerraformList<string>? Experiments
     {
         get => GetArgument<TerraformList<string>?>("experiments");
@@ -73,7 +69,6 @@ public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
     /// Gets or sets the required_providers block as a map.
     /// Each key is the local provider name, value is the provider requirement.
     /// </summary>
-    [TerraformArgument("required_providers")]
     public TerraformMap<ProviderRequirement>? RequiredProviders
     {
         get => GetArgument<TerraformMap<ProviderRequirement>?>("required_providers");
@@ -103,7 +98,6 @@ public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
     /// </summary>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Base implementation handles all [TerraformArgument] properties
         // Backend and Cloud will override their ResolveNodes to render as nested blocks
         yield return new TerraformBlockNode(BlockType, BlockLabels, base.ResolveNodes(context));
     }
@@ -134,7 +128,6 @@ public partial class ProviderRequirement : TerraformBlock
     /// <summary>
     /// Gets or sets the provider source (e.g., "hashicorp/aws", "hashicorp/azurerm").
     /// </summary>
-    [TerraformArgument("source")]
     public required TerraformValue<string> Source
     {
         get => GetRequiredArgument<TerraformValue<string>>("source");
@@ -144,7 +137,6 @@ public partial class ProviderRequirement : TerraformBlock
     /// <summary>
     /// Gets or sets the version constraint (e.g., "~> 5.0", ">= 4.0.0").
     /// </summary>
-    [TerraformArgument("version")]
     public TerraformValue<string>? Version
     {
         get => GetArgument<TerraformValue<string>?>("version");

@@ -20,4 +20,7 @@ public partial class {{ClassName}}(string name) : TerraformDataSource("{{{Terraf
 {{#Arguments}}
 {{>_argument}}
 {{/Arguments}}
+{{#BlockTypes}}
+{{>_blockproperty}}
+{{/BlockTypes}}
 }

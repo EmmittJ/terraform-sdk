@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Check blocks can contain scoped data sources and multiple assert blocks.
 /// </summary>
 /// <remarks>
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/checks"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/check"/></para>
 /// </remarks>
 /// <example>
 /// <code>
@@ -155,14 +155,12 @@ public class TerraformAssertBlock : TerraformBlock
     /// The condition can reference nested data sources, variables, resources, data sources,
     /// or module outputs within the current module.
     /// </summary>
-    [TerraformArgument("condition")]
     public TerraformValue<TerraformExpression>? Condition { get; set; }
 
     /// <summary>
     /// Gets or sets the error message to display when the condition evaluates to false.
     /// Terraform displays this message as a warning but continues the operation.
     /// </summary>
-    [TerraformArgument("error_message")]
     public TerraformValue<string>? ErrorMessage { get; set; }
 
     /// <summary>

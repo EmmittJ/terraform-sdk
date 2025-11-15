@@ -15,7 +15,6 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// A features block as defined below.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Features is required")]
-    [TerraformArgument("features")]
     public required AzurermProviderFeaturesBlock Features
     {
         get => new TerraformReference<AzurermProviderFeaturesBlock>(this, "features");
@@ -24,7 +23,6 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// <summary>
     /// The Subscription ID which should be used.
     /// </summary>
-    [TerraformArgument("subscription_id")]
     public TerraformString? SubscriptionId
     {
         get => new TerraformReference<TerraformString>(this, "subscription_id");

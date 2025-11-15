@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// This is typically used by official modules to provide usage statistics to the provider.
 /// </summary>
 /// <remarks>
-/// Reference: https://developer.hashicorp.com/terraform/internals/provider-meta
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/meta-arguments/provider"/></para>
 /// </remarks>
 public class TerraformProviderMetaBlock : TerraformBlock
 {

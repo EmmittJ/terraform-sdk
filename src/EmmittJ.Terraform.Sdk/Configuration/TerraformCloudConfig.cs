@@ -4,8 +4,10 @@ namespace EmmittJ.Terraform.Sdk;
 /// Represents the cloud block configuration for HCP Terraform or Terraform Enterprise.
 /// Provides state storage, remote execution, and other cloud-based features.
 /// Mutually exclusive with backend configuration.
-/// See: https://developer.hashicorp.com/terraform/language/block/terraform#cloud
 /// </summary>
+/// <remarks>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/terraform#cloud"/></para>
+/// </remarks>
 public partial class TerraformCloudBlock : ITerraformResolvable
 {
     private readonly Dictionary<string, ITerraformValue> _properties = new();
@@ -20,7 +22,6 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// Required when connecting to HCP Terraform.
     /// Can be overridden by TF_CLOUD_ORGANIZATION environment variable.
     /// </summary>
-    [TerraformArgument("organization")]
     public TerraformValue<string>? Organization
     {
         get => GetArgument<TerraformValue<string>?>("organization");
@@ -32,7 +33,6 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// Default: "app.terraform.io" (HCP Terraform)
     /// Can be overridden by TF_CLOUD_HOSTNAME environment variable.
     /// </summary>
-    [TerraformArgument("hostname")]
     public TerraformValue<string>? Hostname
     {
         get => GetArgument<TerraformValue<string>?>("hostname");
@@ -43,7 +43,6 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// Gets or sets the authentication token for HCP Terraform.
     /// We recommend omitting this and using 'terraform login' or CLI config file instead.
     /// </summary>
-    [TerraformArgument("token")]
     public TerraformValue<string>? Token
     {
         get => GetArgument<TerraformValue<string>?>("token");
@@ -55,7 +54,6 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// Required when connecting to HCP Terraform.
     /// Specifies which workspace(s) to associate with this configuration.
     /// </summary>
-    [TerraformArgument("workspaces")]
     public CloudWorkspacesBlock? Workspaces
     {
         get => GetArgument<CloudWorkspacesBlock?>("workspaces");
@@ -136,7 +134,6 @@ public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValu
     /// Mutually exclusive with Tags.
     /// Can be overridden by TF_WORKSPACE environment variable.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => GetArgument<TerraformValue<string>?>("name");
@@ -150,7 +147,6 @@ public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValu
     /// For Terraform &lt; 1.10 or TFE &lt; v202411-1, use simple string tags.
     /// For newer versions, can be key-value pairs using object syntax.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformList<string>? Tags
     {
         get => GetArgument<TerraformList<string>?>("tags");
@@ -162,7 +158,6 @@ public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValu
     /// All workspaces using this configuration are created in this project.
     /// Can be overridden by TF_CLOUD_PROJECT environment variable.
     /// </summary>
-    [TerraformArgument("project")]
     public TerraformValue<string>? Project
     {
         get => GetArgument<TerraformValue<string>?>("project");

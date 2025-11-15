@@ -17,7 +17,6 @@ public class AzurermVirtualNetworkSubnetBlock : TerraformBlock
     /// The name of the subnet.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformString Name
     {
         get => new TerraformReference<TerraformString>(this, "name");
@@ -27,7 +26,6 @@ public class AzurermVirtualNetworkSubnetBlock : TerraformBlock
     /// The address prefix to use for the subnet.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
-    [TerraformArgument("address_prefix")]
     public required TerraformString AddressPrefix
     {
         get => new TerraformReference<TerraformString>(this, "address_prefix");
@@ -45,7 +43,6 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     /// The name of the virtual network.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformString Name
     {
         get => new TerraformReference<TerraformString>(this, "name");

@@ -1,0 +1,28 @@
+    /// <summary>
+    /// {{Name}} block (nesting mode: {{NestingMode}}).
+{{#IsRequired}}
+    /// This block is required.
+{{/IsRequired}}
+    /// </summary>
+{{#HasValidation}}
+{{#ValidationAttributes}}
+    {{{.}}}
+{{/ValidationAttributes}}
+{{/HasValidation}}
+{{#IsDeprecated}}
+    [Obsolete("This block is deprecated.")]
+{{/IsDeprecated}}
+{{#IsRequired}}
+    public required {{{ClassName}}} {{Name}}
+    {
+        get => GetRequiredArgument<{{{ClassName}}}>("{{TerraformName}}");
+        set => SetArgument("{{TerraformName}}", value);
+    }
+{{/IsRequired}}
+{{^IsRequired}}
+    public {{{ClassName}}}? {{Name}}
+    {
+        get => GetArgument<{{{ClassName}}}>("{{TerraformName}}");
+        set => SetArgument("{{TerraformName}}", value);
+    }
+{{/IsRequired}}

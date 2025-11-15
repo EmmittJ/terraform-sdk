@@ -6,34 +6,35 @@ namespace EmmittJ.Terraform.Sdk;
 /// imported into Terraform's state without requiring separate terraform import commands.
 /// </summary>
 /// <remarks>
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/import"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/import"/></para>
+/// <para>
+/// The import block has the following arguments:
+/// - to (required): The resource address where the imported object should be imported to
+/// - id (optional): The provider-specific ID of the object being imported (mutually exclusive with identity)
+/// - identity (optional): A map of attributes that uniquely identifies a resource (mutually exclusive with id)
+/// - for_each (meta-argument): Import multiple similar resources
+/// - provider (meta-argument): Specify which provider configuration to use
+/// </para>
 /// </remarks>
 /// <example>
 /// <code>
-/// // Basic import
-/// var import = new TerraformImportBlock(
-///     to: "aws_instance.example",
-///     id: "i-1234567890abcdef0"
-/// );
+/// // Import using ID
+/// var import = new TerraformImportBlock
+/// {
+///     To = "aws_s3_bucket.this",
+///     Id = "example-bucket"
+/// };
 ///
-/// // With explicit provider
-/// var import = new TerraformImportBlock(
-///     to: "aws_instance.example",
-///     id: "i-1234567890abcdef0",
-///     provider: "aws.west"
-/// );
-///
-/// // With count index
-/// var import = new TerraformImportBlock(
-///     to: "aws_instance.example[0]",
-///     id: "i-1234567890abcdef0"
-/// );
-///
-/// // With for_each key
-/// var import = new TerraformImportBlock(
-///     to: "aws_instance.web[\"primary\"]",
-///     id: "i-1234567890abcdef0"
-/// );
+/// // Import using identity attributes
+/// var import = new TerraformImportBlock
+/// {
+///     To = "aws_instance.example",
+///     Identity = new Dictionary&lt;string, object&gt;
+///     {
+///         ["name"] = "my-instance",
+///         ["region"] = "us-west-2"
+///     }
+/// };
 /// </code>
 /// </example>
 public class TerraformImportBlock : TerraformBlock
@@ -49,60 +50,36 @@ public class TerraformImportBlock : TerraformBlock
     public override string[] BlockLabels => [];
 
     /// <summary>
-    /// The resource address where the imported object should be placed in the state.
-    /// Supports count/for_each indexing (e.g., "aws_instance.example[0]").
+    /// The resource address where the imported object should be imported to.
+    /// This must be a resource address that exists in your configuration.
     /// </summary>
-    public string To { get; }
-
-    /// <summary>
-    /// The provider-specific identifier for the object to import.
-    /// The format depends on the resource type (e.g., AWS instance ID, Azure resource ID).
-    /// </summary>
-    public string Id { get; }
-
-    /// <summary>
-    /// Optional explicit provider configuration to use for the import.
-    /// Useful when you have multiple provider configurations (e.g., "aws.west").
-    /// </summary>
-    public string? Provider { get; }
-
-    /// <summary>
-    /// Creates a new Terraform import block.
-    /// </summary>
-    /// <param name="to">The resource address where the imported object should be placed.</param>
-    /// <param name="id">The provider-specific identifier for the object to import.</param>
-    /// <param name="provider">Optional explicit provider configuration to use.</param>
-    /// <exception cref="ArgumentException">Thrown when to or id is null or empty.</exception>
-    public TerraformImportBlock(string to, string id, string? provider = null)
+    public required TerraformValue<string> To
     {
-        if (string.IsNullOrWhiteSpace(to))
-            throw new ArgumentException("Import 'to' address cannot be null or empty.", nameof(to));
-
-        if (string.IsNullOrWhiteSpace(id))
-            throw new ArgumentException("Import 'id' cannot be null or empty.", nameof(id));
-
-        To = to;
-        Id = id;
-        Provider = provider;
-
-        // Initialize properties using implicit conversions
-        ToProperty = new ImportAddressProperty(to);
-        IdProperty = id;
-
-        if (!string.IsNullOrWhiteSpace(provider))
-        {
-            ProviderProperty = new ImportAddressProperty(provider);
-        }
+        get => GetRequiredArgument<TerraformValue<string>>("to");
+        set => SetArgument("to", value);
     }
 
-    [TerraformArgument("to")]
-    public ImportAddressProperty ToProperty { get; set; }
+    /// <summary>
+    /// The provider-specific ID of the object being imported.
+    /// The format of this ID depends on the resource type and provider.
+    /// Mutually exclusive with <see cref="Identity"/>.
+    /// </summary>
+    public TerraformValue<string>? Id
+    {
+        get => GetArgument<TerraformValue<string>>("id");
+        set => SetArgument("id", value);
+    }
 
-    [TerraformArgument("id")]
-    public TerraformValue<string> IdProperty { get; set; }
-
-    [TerraformArgument("provider")]
-    public ImportAddressProperty? ProviderProperty { get; set; }
+    /// <summary>
+    /// A map of attributes that uniquely identifies a resource.
+    /// The keys are specific to the resource type and provider.
+    /// Mutually exclusive with <see cref="Id"/>.
+    /// </summary>
+    public TerraformValue<IDictionary<string, object>>? Identity
+    {
+        get => GetArgument<TerraformValue<IDictionary<string, object>>>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
     /// Resolves this import block to a top-level block node.
@@ -117,42 +94,5 @@ public class TerraformImportBlock : TerraformBlock
     public override TerraformReferenceExpression AsReference()
     {
         throw new NotSupportedException("Import blocks cannot be referenced in expressions.");
-    }
-}
-
-/// <summary>
-/// Internal property type for import block addresses that renders without quotes.
-/// </summary>
-public class ImportAddressProperty : ITerraformResolvable
-{
-    private readonly string _address;
-
-    public ImportAddressProperty(string address)
-    {
-        _address = address;
-    }
-
-    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        yield return new ImportAddressExpression(_address);
-    }
-}
-
-/// <summary>
-/// Internal expression type that renders addresses without quotes.
-/// </summary>
-internal class ImportAddressExpression : TerraformExpression
-{
-    private readonly string _address;
-
-    public ImportAddressExpression(string address)
-    {
-        _address = address;
-    }
-
-    public override string ToHcl(ITerraformContext? context = null)
-    {
-        // Return the address as-is, without quotes
-        return _address;
     }
 }

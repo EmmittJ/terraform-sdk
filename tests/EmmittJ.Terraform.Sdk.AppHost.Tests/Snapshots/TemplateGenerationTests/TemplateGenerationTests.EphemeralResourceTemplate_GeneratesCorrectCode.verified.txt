@@ -13,7 +13,6 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformEphemeralReso
     /// The ID of the Key Vault.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformArgument("key_vault_id")]
     public required TerraformString KeyVaultId
     {
         get => new TerraformReference<TerraformString>(this, "key_vault_id");
@@ -23,7 +22,6 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformEphemeralReso
     /// The name of the secret.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformString Name
     {
         get => new TerraformReference<TerraformString>(this, "name");

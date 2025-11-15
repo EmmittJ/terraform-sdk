@@ -10,7 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Output values make information about your infrastructure available on the command line,
 /// and can expose information for other Terraform configurations to use.
 /// Output values support the depends_on meta-argument.
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/values/outputs"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/output"/></para>
 /// </remarks>
 public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
 {

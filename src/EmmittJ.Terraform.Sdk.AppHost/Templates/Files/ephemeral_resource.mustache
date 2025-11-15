@@ -21,4 +21,7 @@ public partial class {{ClassName}}(string name) : TerraformEphemeralResource("{{
 {{#Arguments}}
 {{>_argument}}
 {{/Arguments}}
+{{#BlockTypes}}
+{{>_blockproperty}}
+{{/BlockTypes}}
 }

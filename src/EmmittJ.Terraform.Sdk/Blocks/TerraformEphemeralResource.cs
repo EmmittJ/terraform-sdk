@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// that don't persist in the Terraform state file.
 /// </summary>
 /// <remarks>
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/resources/ephemeral"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/ephemeral"/></para>
 /// </remarks>
 public class TerraformEphemeralResource(string type, string name) : TerraformBlock()
 {

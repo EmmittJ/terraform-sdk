@@ -10,7 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Resources are the most important element in Terraform. Each resource block describes one or more
 /// infrastructure objects, such as virtual networks, compute instances, or higher-level components
 /// such as DNS records.
-/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/resources"/></para>
+/// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/resource"/></para>
 /// </remarks>
 public class TerraformResource : TerraformBlock,
     ITerraformHasCount,
