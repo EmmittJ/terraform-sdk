@@ -125,7 +125,12 @@ public partial class TerraformVariable : TerraformBlock
     public TerraformVariable AddValidation(string condition, string errorMessage)
     {
         var validations = Validations;
-        validations.Add(new TerraformConditionBlock("validation", condition, errorMessage));
+        var validationBlock = new TerraformConditionBlock("validation")
+        {
+            Condition = TerraformExpression.Raw(condition),
+            ErrorMessage = errorMessage
+        };
+        validations.Add(validationBlock);
         Validations = validations;
         return this;
     }
@@ -148,3 +153,4 @@ public partial class TerraformVariable : TerraformBlock
     public static implicit operator TerraformExpression(TerraformVariable variable)
         => variable.AsReference();
 }
+

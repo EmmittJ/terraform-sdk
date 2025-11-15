@@ -45,20 +45,7 @@ public class TerraformCheckBlock : TerraformBlock
     /// <summary>
     /// Gets the name of the check block.
     /// </summary>
-    public string Name { get; }
-
-    /// <summary>
-    /// Creates a new Terraform check block.
-    /// </summary>
-    /// <param name="name">The name of the check block.</param>
-    /// <exception cref="ArgumentException">Thrown when name is null or empty.</exception>
-    public TerraformCheckBlock(string name)
-    {
-        if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("Check block name cannot be null or empty.", nameof(name));
-
-        Name = name;
-    }
+    public required string Name { get; init; }
 
     /// <summary>
     /// Adds a scoped data source to the check block.
@@ -155,13 +142,21 @@ public class TerraformAssertBlock : TerraformBlock
     /// The condition can reference nested data sources, variables, resources, data sources,
     /// or module outputs within the current module.
     /// </summary>
-    public TerraformValue<TerraformExpression>? Condition { get; set; }
+    public required TerraformExpression Condition
+    {
+        get => GetRequiredArgument<TerraformExpression>("condition");
+        set => SetArgument("condition", value);
+    }
 
     /// <summary>
     /// Gets or sets the error message to display when the condition evaluates to false.
     /// Terraform displays this message as a warning but continues the operation.
     /// </summary>
-    public TerraformValue<string>? ErrorMessage { get; set; }
+    public required TerraformValue<string> ErrorMessage
+    {
+        get => GetRequiredArgument<TerraformValue<string>>("error_message");
+        set => SetArgument("error_message", value);
+    }
 
     /// <summary>
     /// Creates a new assert block.
@@ -177,7 +172,7 @@ public class TerraformAssertBlock : TerraformBlock
         if (string.IsNullOrWhiteSpace(errorMessage))
             throw new ArgumentException("Assert error message cannot be null or empty.", nameof(errorMessage));
 
-        Condition = TerraformValue.FromExpression<TerraformExpression>(TerraformExpression.Raw(condition));
+        Condition = TerraformExpression.Raw(condition);
         ErrorMessage = errorMessage;
     }
 

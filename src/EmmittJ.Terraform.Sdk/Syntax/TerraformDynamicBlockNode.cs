@@ -39,15 +39,6 @@ public class TerraformDynamicBlockNode : TerraformSyntaxNode
     }
 
     /// <summary>
-    /// Preparation phase - prepares nested expressions.
-    /// </summary>
-    public void Prepare(ITerraformContext context)
-    {
-        _forEach.Prepare(context);
-        _content.Prepare(context);
-    }
-
-    /// <summary>
     /// Renders the dynamic block to HCL syntax.
     /// Example output:
     /// dynamic "ingress" {

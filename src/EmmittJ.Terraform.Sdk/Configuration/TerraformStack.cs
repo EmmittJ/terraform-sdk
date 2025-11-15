@@ -45,29 +45,11 @@ public class TerraformStack
     public IReadOnlyList<TerraformBlock> Blocks => _blocks.AsReadOnly();
 
     /// <summary>
-    /// Compiles all blocks to HCL using two-pass resolution.
-    /// Pass 1: Prepare - collect dependencies, validate structure
-    /// Pass 2: Resolve - generate HCL
+    /// Compiles all blocks to HCL.
     /// </summary>
     public string ToHcl()
     {
         var context = new TerraformContext(this);
-
-        // Pass 1: Prepare - collect dependencies, track references
-        _terraform?.Prepare(context);
-
-        foreach (var block in _blocks)
-        {
-            using (context.SetCurrentBlock(block))
-            {
-                if (block is ITerraformPreparable preparable)
-                {
-                    preparable.Prepare(context);
-                }
-            }
-        }
-
-        // Pass 2: Resolve - generate HCL
         var sb = new System.Text.StringBuilder();
 
         // Render terraform block first if present
@@ -138,41 +120,6 @@ public class TerraformStack
             }
         }
 
-        // Build dependency graph by preparing all blocks
-        var context = new TerraformContext(this);
-        _terraform?.Prepare(context);
-
-        foreach (var block in _blocks)
-        {
-            using (context.SetCurrentBlock(block))
-            {
-                if (block is ITerraformPreparable preparable)
-                {
-                    try
-                    {
-                        preparable.Prepare(context);
-                    }
-                    catch (Exception ex)
-                    {
-                        errors.Add(new ValidationError(
-                            $"Error during preparation: {ex.Message}",
-                            ValidationSeverity.Error,
-                            block));
-                    }
-                }
-            }
-        }
-
-        // Check for circular dependencies
-        var cycles = context.DependencyGraph.FindCycles();
-        foreach (var cycle in cycles)
-        {
-            var cycleDescription = string.Join(" -> ", cycle.Select(GetBlockName));
-            errors.Add(new ValidationError(
-                $"Circular dependency detected: {cycleDescription} -> {GetBlockName(cycle[0])}",
-                ValidationSeverity.Error));
-        }
-
         // Check for duplicate names (resources, data sources, modules, etc.)
         var nameGroups = _blocks
             .Select(c => new
@@ -195,23 +142,6 @@ public class TerraformStack
                 ValidationSeverity.Error,
                 group.First().Block,
                 "Name"));
-        }
-
-        // Validate reference targets exist within the configuration
-        var allBlocks = _blocks.ToHashSet();
-        foreach (var block in _blocks)
-        {
-            var dependencies = context.DependencyGraph.GetDependsOn(block);
-            foreach (var dependency in dependencies)
-            {
-                if (!allBlocks.Contains(dependency))
-                {
-                    errors.Add(new ValidationError(
-                        $"{GetBlockName(block)} references {GetBlockName(dependency)} which is not in the configuration",
-                        ValidationSeverity.Error,
-                        block));
-                }
-            }
         }
 
         return new ValidationResult(errors);

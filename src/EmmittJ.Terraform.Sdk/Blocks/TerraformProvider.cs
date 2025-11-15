@@ -40,8 +40,11 @@ public partial class TerraformProvider : TerraformBlock
     /// <summary>
     /// Gets or sets the alias for this provider instance.
     /// </summary>
-    [TerraformArgument("alias")]
-    public TerraformValue<string>? Alias { get; set; }
+    public TerraformValue<string>? Alias
+    {
+        get => GetArgument<TerraformValue<string>?>("alias");
+        set => SetArgument("alias", value);
+    }
 
     /// <summary>
     /// Generates a reference to this provider.

@@ -11,10 +11,7 @@ public interface ITerraformContext
     /// </summary>
     TerraformStack Scope { get; }
 
-    /// <summary>
-    /// Gets the dependency graph being built during the Prepare phase.
-    /// </summary>
-    DependencyGraph DependencyGraph { get; }
+
 
     /// <summary>
     /// Gets the current indentation level.
@@ -40,18 +37,9 @@ public interface ITerraformContext
 
     /// <summary>
     /// Sets the current block being prepared/resolved and returns a disposable scope.
-    /// Used for automatic dependency tracking.
-    /// The block is automatically added to the dependency graph.
     /// Use with 'using' statement for automatic scope management.
     /// </summary>
     /// <param name="block">The current block.</param>
     /// <returns>A disposable that clears the current block when disposed.</returns>
     IDisposable SetCurrentBlock(TerraformBlock? block);
-
-    /// <summary>
-    /// Records a dependency from the current block to another block.
-    /// Called automatically when resolving references during the Prepare phase.
-    /// </summary>
-    /// <param name="dependency">The block being depended upon.</param>
-    void RecordDependency(TerraformBlock dependency);
 }

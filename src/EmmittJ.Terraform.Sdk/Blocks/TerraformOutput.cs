@@ -9,7 +9,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// Output values make information about your infrastructure available on the command line,
 /// and can expose information for other Terraform configurations to use.
-/// Output values support the depends_on meta-argument.
+/// Output values support the depends_on meta-argument and precondition blocks.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/output"/></para>
 /// </remarks>
 public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
@@ -42,9 +42,9 @@ public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// Gets or sets the output value.
     /// Can be a literal value or an expression.
     /// </summary>
-    public TerraformValue<object>? Value
+    public required TerraformValue<object> Value
     {
-        get => GetArgument<TerraformValue<object>?>("value");
+        get => GetRequiredArgument<TerraformValue<object>>("value");
         set => SetArgument("value", value);
     }
 
@@ -106,7 +106,12 @@ public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     public TerraformOutput AddPrecondition(string condition, string errorMessage)
     {
         var preconditions = Preconditions;
-        preconditions.Add(new TerraformConditionBlock("precondition", condition, errorMessage));
+        var preconditionBlock = new TerraformConditionBlock("precondition")
+        {
+            Condition = TerraformExpression.Raw(condition),
+            ErrorMessage = errorMessage
+        };
+        preconditions.Add(preconditionBlock);
         Preconditions = preconditions;
         return this;
     }
@@ -147,3 +152,4 @@ public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
         set => SetArgument("depends_on", value);
     }
 }
+

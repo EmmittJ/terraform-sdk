@@ -9,7 +9,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// Modules are containers for multiple resources that are used together.
 /// A module consists of a collection of .tf files kept together in a directory.
-/// Modules support depends_on, count, and for_each meta-arguments.
+/// Modules support depends_on, count, for_each, and providers meta-arguments.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/module"/></para>
 /// </remarks>
 public class TerraformModule :
@@ -47,15 +47,21 @@ public class TerraformModule :
     /// Gets or sets the source of the module.
     /// Can be a local path, registry source, git URL, etc.
     /// </summary>
-    [TerraformArgument("source")]
-    public required TerraformValue<string> Source { get; set; }
+    public required TerraformValue<string> Source
+    {
+        get => GetRequiredArgument<TerraformValue<string>>("source");
+        set => SetArgument("source", value);
+    }
 
     /// <summary>
     /// Gets or sets the version constraint for the module (optional).
     /// Only applicable for registry modules.
     /// </summary>
-    [TerraformArgument("version")]
-    public TerraformValue<string>? Version { get; set; }
+    public TerraformValue<string>? Version
+    {
+        get => GetArgument<TerraformValue<string>?>("version");
+        set => SetArgument("version", value);
+    }
 
     /// <summary>
     /// Generates a reference to this module (e.g., "module.vpc").

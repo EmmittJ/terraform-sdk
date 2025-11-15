@@ -20,17 +20,10 @@ public class TerraformLocals : TerraformBlock
     /// </summary>
     public override string[] BlockLabels => [];
 
-    public TerraformLocals() { }
-
     /// <summary>
-    /// Sets a local value for serialization.
+    /// Initializes a new instance of TerraformLocals.
     /// </summary>
-    /// <param name="name">The local value name.</param>
-    /// <param name="value">The value to set.</param>
-    public void Set(string name, object value)
-    {
-        SetArgument(name, value);
-    }
+    public TerraformLocals() { }
 
     /// <summary>
     /// Gets a reference to a local value.

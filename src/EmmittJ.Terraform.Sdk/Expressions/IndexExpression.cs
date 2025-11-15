@@ -36,19 +36,6 @@ internal class IndexExpression : TerraformExpression
         _index = index ?? throw new ArgumentNullException(nameof(index));
     }
 
-    public override void Prepare(ITerraformContext context)
-    {
-        if (_source is ITerraformPreparable sourcePreparable)
-        {
-            sourcePreparable.Prepare(context);
-        }
-
-        if (_index is ITerraformPreparable indexPreparable)
-        {
-            indexPreparable.Prepare(context);
-        }
-    }
-
     public override string ToHcl(ITerraformContext context)
     {
         var sourceHcl = _source.ToHcl(context);

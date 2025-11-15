@@ -15,15 +15,6 @@ internal class TerraformIdentifierExpression<T> : TerraformExpression
         _resolver = resolver ?? (v => v?.ToString() ?? throw new InvalidOperationException("Value.ToString() returned null"));
     }
 
-    public override void Prepare(ITerraformContext context)
-    {
-        // Ensure the value is prepared before we resolve (only for dynamic identifiers)
-        if (_value is ITerraformPreparable preparable)
-        {
-            preparable.Prepare(context);
-        }
-    }
-
     public override string ToHcl(ITerraformContext context)
     {
         // Dynamic identifier

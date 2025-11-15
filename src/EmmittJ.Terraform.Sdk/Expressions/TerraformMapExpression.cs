@@ -240,22 +240,7 @@ public class TerraformMapExpression : TerraformExpression,
 
     #endregion
 
-    #region Two-Phase Resolution
-
-    /// <summary>
-    /// Preparation phase - prepares all nested expressions and records dependencies for references.
-    /// </summary>
-    public new void Prepare(ITerraformContext context)
-    {
-        // Prepare any nested resolvable expressions
-        foreach (var (_, expr) in _properties)
-        {
-            if (expr is ITerraformPreparable preparable)
-            {
-                preparable.Prepare(context);
-            }
-        }
-    }
+    #region HCL Rendering
 
     /// <summary>
     /// Converts the object to HCL syntax with proper indentation.

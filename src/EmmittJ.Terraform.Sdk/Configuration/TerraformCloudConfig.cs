@@ -8,9 +8,12 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/terraform#cloud"/></para>
 /// </remarks>
-public partial class TerraformCloudBlock : ITerraformResolvable
+public partial class TerraformCloudBlock : TerraformBlock
 {
-    private readonly Dictionary<string, ITerraformValue> _properties = new();
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cloud";
 
     /// <summary>
     /// Initializes a new instance of TerraformCloudBlock.
@@ -63,50 +66,9 @@ public partial class TerraformCloudBlock : ITerraformResolvable
     /// <summary>
     /// Cloud block resolves as an object: cloud = { ... }
     /// </summary>
-    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        var map = new TerraformMapExpression();
-
-        foreach (var kvp in _properties)
-        {
-            var key = kvp.Key;
-            var value = kvp.Value;
-
-            var resolvedNodes = value.ResolveNodes(context).ToList();
-            if (resolvedNodes.Count == 1 && resolvedNodes[0] is TerraformExpression expr)
-            {
-                map.Add(key, expr);
-            }
-        }
-
-        yield return map;
-    }
-
-    /// <summary>
-    /// Gets a property value.
-    /// </summary>
-    protected T? GetArgument<T>(string key)
-        => _properties.TryGetValue(key, out var value) && value is T typedValue ? typedValue : default;
-
-    /// <summary>
-    /// Gets a required property value.
-    /// </summary>
-    protected T GetRequiredArgument<T>(string key)
-        => GetArgument<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is not set.");
-
-    /// <summary>
-    /// Sets a property value.
-    /// </summary>
-    protected void SetArgument(string key, ITerraformValue? value)
-    {
-        if (value is not null)
-        {
-            _properties[key] = value;
-        }
-        else if (_properties.ContainsKey(key))
-        {
-            _properties.Remove(key);
-        }
+        yield return new TerraformBlockNode(BlockType, BlockLabels, base.ResolveNodes(context));
     }
 }
 
@@ -115,19 +77,17 @@ public partial class TerraformCloudBlock : ITerraformResolvable
 /// Specifies metadata for matching workspaces in HCP Terraform.
 /// See: https://developer.hashicorp.com/terraform/language/block/terraform#workspaces
 /// </summary>
-public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValue
+public partial class CloudWorkspacesBlock : TerraformBlock
 {
-    private readonly Dictionary<string, ITerraformValue> _properties = new();
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "workspaces";
 
     /// <summary>
     /// Initializes a new instance of CloudWorkspacesBlock.
     /// </summary>
     public CloudWorkspacesBlock() { }
-
-    /// <summary>
-    /// Gets whether this value has content.
-    /// </summary>
-    public bool HasValue => true;
 
     /// <summary>
     /// Gets or sets the workspace name to associate the configuration with.
@@ -165,51 +125,10 @@ public partial class CloudWorkspacesBlock : ITerraformResolvable, ITerraformValu
     }
 
     /// <summary>
-    /// Workspaces block resolves as an object: workspaces = { ... }
+    /// Workspaces block resolves as a nested block: workspaces { ... }
     /// </summary>
-    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        var map = new TerraformMapExpression();
-
-        foreach (var kvp in _properties)
-        {
-            var key = kvp.Key;
-            var value = kvp.Value;
-
-            var resolvedNodes = value.ResolveNodes(context).ToList();
-            if (resolvedNodes.Count == 1 && resolvedNodes[0] is TerraformExpression expr)
-            {
-                map.Add(key, expr);
-            }
-        }
-
-        yield return map;
-    }
-
-    /// <summary>
-    /// Gets a property value.
-    /// </summary>
-    protected T? GetArgument<T>(string key)
-        => _properties.TryGetValue(key, out var value) && value is T typedValue ? typedValue : default;
-
-    /// <summary>
-    /// Gets a required property value.
-    /// </summary>
-    protected T GetRequiredArgument<T>(string key)
-        => GetArgument<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is not set.");
-
-    /// <summary>
-    /// Sets a property value.
-    /// </summary>
-    protected void SetArgument(string key, ITerraformValue? value)
-    {
-        if (value is not null)
-        {
-            _properties[key] = value;
-        }
-        else if (_properties.ContainsKey(key))
-        {
-            _properties.Remove(key);
-        }
+        yield return new TerraformBlockNode(BlockType, BlockLabels, base.ResolveNodes(context));
     }
 }

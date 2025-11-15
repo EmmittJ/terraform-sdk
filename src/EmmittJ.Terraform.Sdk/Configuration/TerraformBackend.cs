@@ -15,6 +15,11 @@ public partial class TerraformBackend : TerraformBlock
     public override string BlockType => "backend";
 
     /// <summary>
+    /// Gets the block labels (backend type as a quoted label).
+    /// </summary>
+    public override string[] BlockLabels => [Type];
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="TerraformBackend"/> class.
     /// </summary>
     /// <param name="type">The backend type (e.g., "s3", "azurerm", "remote", "local", "gcs").</param>
@@ -29,19 +34,13 @@ public partial class TerraformBackend : TerraformBlock
     public string Type { get; }
 
     /// <summary>
-    /// Resolves to a block node with the backend type as a quoted label.
+    /// Resolves to a block node with the backend type as a label.
     /// Renders as: backend "s3" { ... }
     /// </summary>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Backend block structure: backend "type" { ... }
-        // BlockType = "backend", Labels = ["s3"]
         var children = base.ResolveNodes(context);
-        yield return new TerraformBlockNode(
-            "backend",           // Block type
-            children,
-            $"\"{Type}\""       // Label (the backend type, quoted)
-        );
+        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
     }
 
     /// <summary>

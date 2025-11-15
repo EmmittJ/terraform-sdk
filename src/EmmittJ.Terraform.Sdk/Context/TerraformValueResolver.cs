@@ -3,12 +3,12 @@ using System.Collections;
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Centralized logic for preparing and resolving any value type that can be stored in Terraform properties.
+/// Centralized logic for resolving any value type that can be stored in Terraform properties.
 /// Handles: TerraformValue&lt;T&gt;, ITerraformResolvable, collections (List, HashSet, Dictionary), and plain values.
 /// </summary>
 /// <remarks>
 /// This is the single source of truth for value resolution logic. Used by:
-/// - TerraformBlock.Prepare() and RenderProperties()
+/// - TerraformBlock.ResolveNodes()
 /// - Any other container that stores heterogeneous property values
 ///
 /// Example value types handled:
@@ -20,46 +20,6 @@ namespace EmmittJ.Terraform.Sdk;
 /// </remarks>
 public static class TerraformValueResolver
 {
-    /// <summary>
-    /// Prepares a value and all nested preparable values.
-    /// Recursively traverses collections and dictionaries to prepare all nested items.
-    /// </summary>
-    /// <param name="value">The value to prepare (can be any type)</param>
-    /// <param name="context">The context for dependency tracking</param>
-    public static void PrepareValue(object? value, ITerraformContext context)
-    {
-        if (value == null)
-        {
-            return;
-        }
-
-        // Direct preparable
-        if (value is ITerraformPreparable preparable)
-        {
-            preparable.Prepare(context);
-            return;
-        }
-
-        // Collection of preparables - need to check the actual items
-        if (value is IEnumerable enumerable and not string)
-        {
-            foreach (var item in enumerable)
-            {
-                PrepareValue(item, context);
-            }
-            return;
-        }
-
-        // Dictionary values
-        if (value is IDictionary dictionary)
-        {
-            foreach (var item in dictionary.Values)
-            {
-                PrepareValue(item, context);
-            }
-        }
-    }
-
     /// <summary>
     /// Resolves a value to a TerraformExpression.
     /// Pattern matching order is critical:

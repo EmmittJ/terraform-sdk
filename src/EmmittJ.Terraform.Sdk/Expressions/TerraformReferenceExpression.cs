@@ -23,17 +23,6 @@ public class TerraformReferenceExpression(TerraformBlock source, string? propert
     public string? PropertyPath { get; } = propertyPath;
 
     /// <summary>
-    /// Preparation phase - records the dependency.
-    /// </summary>
-    public override void Prepare(ITerraformContext context)
-    {
-        if (context is TerraformContext terraformContext)
-        {
-            terraformContext.RecordDependency(Source);
-        }
-    }
-
-    /// <summary>
     /// Resolves this reference to a concrete TerraformExpression.
     /// Builds the reference expression by appending property path segments if present.
     /// </summary>

@@ -10,7 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/terraform"/></para>
 /// </remarks>
-public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
+public partial class TerraformSettings : TerraformBlock
 {
     /// <summary>
     /// Gets the block type keyword for the terraform block.
@@ -80,18 +80,6 @@ public partial class TerraformSettings : TerraformBlock, ITerraformPreparable
     /// Provider metadata allows modules to pass provider-specific information independently of provider configuration.
     /// </summary>
     public TerraformList<TerraformProviderMetaBlock>? ProviderMetas { get; set; }
-
-    /// <inheritdoc />
-    public void Prepare(ITerraformContext context)
-    {
-        if (context == null)
-        {
-            throw new ArgumentNullException(nameof(context));
-        }
-
-        // Prepare any nested blocks if needed
-        // This is called during the prepare phase of the stack compilation
-    }
 
     /// <summary>
     /// Resolves the terraform settings block to child syntax nodes.

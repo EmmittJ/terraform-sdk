@@ -12,15 +12,6 @@ namespace EmmittJ.Terraform.Sdk;
 public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformResolvable
 {
     /// <summary>
-    /// Preparation phase - prepares nested expressions and records dependencies.
-    /// Override this in derived classes that contain nested resolvable expressions.
-    /// </summary>
-    public virtual void Prepare(ITerraformContext context)
-    {
-        // Base implementation does nothing - leaf expressions don't need preparation
-    }
-
-    /// <summary>
     /// Expressions resolve to themselves (single node).
     /// Implements ITerraformResolvable - expressions are already resolved.
     /// </summary>

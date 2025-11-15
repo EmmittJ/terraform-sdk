@@ -18,7 +18,6 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
 
     private int _indentLevel = 0;
     private TerraformBlock? _currentBlock;
-    private readonly DependencyGraph _dependencyGraph = new();
 
     /// <inheritdoc/>
     public TerraformStack Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
@@ -32,31 +31,17 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     /// <inheritdoc/>
     public ITerraformNodeFormatter Formatter { get; } = new TerraformNodeFormatter();
 
-    /// <summary>
-    /// Gets the dependency graph being built during the Prepare phase.
-    /// </summary>
-    public DependencyGraph DependencyGraph => _dependencyGraph;
+
 
     /// <inheritdoc/>
     public IDisposable SetCurrentBlock(TerraformBlock? block)
     {
         var previousBlock = _currentBlock;
         _currentBlock = block;
-        if (block != null)
-        {
-            _dependencyGraph.AddBlock(block);
-        }
         return new BlockScope(this, previousBlock);
     }
 
-    /// <inheritdoc/>
-    public void RecordDependency(TerraformBlock dependency)
-    {
-        if (_currentBlock != null && dependency != _currentBlock)
-        {
-            _dependencyGraph.AddDependency(_currentBlock, dependency);
-        }
-    }
+
 
     /// <inheritdoc/>
     public IDisposable PushIndent()
