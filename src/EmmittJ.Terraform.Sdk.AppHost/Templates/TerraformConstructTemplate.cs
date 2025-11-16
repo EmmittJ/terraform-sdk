@@ -20,7 +20,7 @@ public abstract class TerraformBlockTemplate(string templatePath)
         {
             // Get the directory containing the templates for partial resolution
             var templateDirectory = Path.GetDirectoryName(_templatePath) ?? throw new InvalidOperationException("Template path has no directory");
-            
+
             // Load all partial templates
             _partials = new Dictionary<string, string>();
             foreach (var partialFile in Directory.GetFiles(templateDirectory, "_*.mustache"))
@@ -28,7 +28,7 @@ public abstract class TerraformBlockTemplate(string templatePath)
                 var partialName = Path.GetFileNameWithoutExtension(partialFile);
                 _partials[partialName] = File.ReadAllText(partialFile);
             }
-            
+
             _renderer = new StubbleBuilder()
                 .Configure(settings =>
                 {
