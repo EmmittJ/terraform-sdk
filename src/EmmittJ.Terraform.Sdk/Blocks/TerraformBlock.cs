@@ -48,31 +48,6 @@ public abstract class TerraformBlock : TerraformMap<object>
     }
 
     /// <summary>
-    /// Called by source-generated property setters to store argument values.
-    /// Accepts object? to handle variance issues (e.g., TerraformValue&lt;int&gt; when base expects TerraformValue&lt;object&gt;).
-    /// </summary>
-    /// <param name="terraformName">The Terraform argument name.</param>
-    /// <param name="value">The value to store (TerraformValue&lt;T&gt;, TerraformList&lt;T&gt;, nested blocks, etc.).</param>
-    public void SetArgument(string terraformName, object? value)
-    {
-        if (value == null)
-            return;
-
-        // Handle ITerraformValue (includes TerraformValue<T>, TerraformMap, TerraformList, etc.)
-        // Unwrap and rewrap as TerraformValue<object> to avoid double-wrapping and handle variance
-        if (value is ITerraformValue tfValue)
-        {
-            // Use Lazy to defer resolution and avoid wrapping the ITerraformValue itself
-            base.SetArgument(terraformName, TerraformValue<object>.Lazy(ctx => tfValue.ResolveNodes(ctx)));
-        }
-        else
-        {
-            // For primitives and other types, use the implicit conversion
-            base.SetArgument(terraformName, value);
-        }
-    }
-
-    /// <summary>
     /// Creates a reference expression to this block.
     /// Default implementation returns a simple identifier.
     /// Override in derived classes to provide specific reference formats (e.g., "resource.type.name").

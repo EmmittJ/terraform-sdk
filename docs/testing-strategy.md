@@ -150,7 +150,7 @@ public class TerraformExpressionTests
     [InlineData(123, "123")]
     [InlineData(true, "true")]
     [InlineData(false, "false")]
-    public void LiteralExpression_GeneratesCorrectHCL(object value, string expectedHcl)
+    public void LiteralExpression(object value, string expectedHcl)
     {
         var expr = TerraformExpression.Literal(value);
         var context = CreateContext();

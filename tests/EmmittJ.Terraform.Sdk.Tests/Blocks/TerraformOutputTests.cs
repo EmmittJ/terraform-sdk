@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk.Tests.Blocks;
 public class TerraformOutputTests
 {
     [Fact]
-    public Task TerraformOutput_WithLiteralValue_GeneratesCorrectHCL()
+    public Task TerraformOutput_WithLiteralValue()
     {
         var output = new TerraformOutput("example_output")
         {
@@ -23,11 +23,11 @@ public class TerraformOutputTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(output, context);
 
-        return Verify(hcl).UseMethodName("TerraformOutput_WithLiteralValue");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformOutput_WithResourceReference_GeneratesCorrectHCL()
+    public Task TerraformOutput_WithResourceReference()
     {
         var stack = new TerraformStack { Name = "test" };
         var context = new TerraformContext(stack);
@@ -44,11 +44,11 @@ public class TerraformOutputTests
 
         var hcl = TerraformTestHelpers.RenderBlock(output, context);
 
-        return Verify(hcl).UseMethodName("TerraformOutput_WithResourceReference");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformOutput_Sensitive_GeneratesCorrectHCL()
+    public Task TerraformOutput_Sensitive()
     {
         var output = new TerraformOutput("database_password")
         {
@@ -60,11 +60,11 @@ public class TerraformOutputTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(output, context);
 
-        return Verify(hcl).UseMethodName("TerraformOutput_Sensitive");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformOutput_WithComplexValue_GeneratesCorrectHCL()
+    public Task TerraformOutput_WithComplexValue()
     {
         var detailsMap = new TerraformMapExpression();
         detailsMap.Add("id", TerraformExpression.Literal("i-1234567890abcdef0"));
@@ -79,11 +79,11 @@ public class TerraformOutputTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(output, context);
 
-        return Verify(hcl).UseMethodName("TerraformOutput_WithComplexValue");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformOutput_WithDependsOn_GeneratesCorrectHCL()
+    public Task TerraformOutput_WithDependsOn()
     {
         var output = new TerraformOutput("vpc_id")
         {
@@ -94,6 +94,6 @@ public class TerraformOutputTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(output, context);
 
-        return Verify(hcl).UseMethodName("TerraformOutput_WithDependsOn");
+        return Verify(hcl);
     }
 }

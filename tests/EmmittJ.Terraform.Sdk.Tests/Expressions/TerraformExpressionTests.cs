@@ -17,7 +17,7 @@ public class TerraformExpressionTests
     [InlineData("test", "\"test\"")]
     [InlineData("hello world", "\"hello world\"")]
     [InlineData("", "\"\"")]
-    public void LiteralExpression_String_GeneratesCorrectHCL(string value, string expectedHcl)
+    public void LiteralExpression_String(string value, string expectedHcl)
     {
         var expr = TerraformExpression.Literal(value);
         var context = CreateContext();
@@ -32,7 +32,7 @@ public class TerraformExpressionTests
     [InlineData(42, "42")]
     [InlineData(-100, "-100")]
     [InlineData(int.MaxValue, "2147483647")]
-    public void LiteralExpression_Integer_GeneratesCorrectHCL(int value, string expectedHcl)
+    public void LiteralExpression_Integer(int value, string expectedHcl)
     {
         var expr = TerraformExpression.Literal(value);
         var context = CreateContext();
@@ -45,7 +45,7 @@ public class TerraformExpressionTests
     [Theory]
     [InlineData(true, "true")]
     [InlineData(false, "false")]
-    public void LiteralExpression_Boolean_GeneratesCorrectHCL(bool value, string expectedHcl)
+    public void LiteralExpression_Boolean(bool value, string expectedHcl)
     {
         var expr = TerraformExpression.Literal(value);
         var context = CreateContext();
@@ -56,7 +56,7 @@ public class TerraformExpressionTests
     }
 
     [Fact]
-    public void LiteralExpression_Null_GeneratesCorrectHCL()
+    public void LiteralExpression_Null()
     {
         var expr = TerraformExpression.Literal<string?>(null);
         var context = CreateContext();
@@ -70,7 +70,7 @@ public class TerraformExpressionTests
     [InlineData(3.14, "3.14")]
     [InlineData(0.0, "0")]
     [InlineData(-2.5, "-2.5")]
-    public void LiteralExpression_Double_GeneratesCorrectHCL(double value, string expectedHcl)
+    public void LiteralExpression_Double(double value, string expectedHcl)
     {
         var expr = TerraformExpression.Literal(value);
         var context = CreateContext();
@@ -81,18 +81,18 @@ public class TerraformExpressionTests
     }
 
     [Fact]
-    public Task ListExpression_Empty_GeneratesCorrectHCL()
+    public Task ListExpression_Empty()
     {
         var expr = TerraformExpression.List();
         var context = CreateContext();
 
         var hcl = expr.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("ListExpression_Empty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task ListExpression_WithStrings_GeneratesCorrectHCL()
+    public Task ListExpression_WithStrings()
     {
         var expr = TerraformExpression.List(
             TerraformExpression.Literal("item1"),
@@ -103,11 +103,11 @@ public class TerraformExpressionTests
 
         var hcl = expr.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("ListExpression_WithStrings");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task ListExpression_WithMixedTypes_GeneratesCorrectHCL()
+    public Task ListExpression_WithMixedTypes()
     {
         var expr = TerraformExpression.List(
             TerraformExpression.Literal("string"),
@@ -118,22 +118,22 @@ public class TerraformExpressionTests
 
         var hcl = expr.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("ListExpression_WithMixedTypes");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task MapExpression_Empty_GeneratesCorrectHCL()
+    public Task MapExpression_Empty()
     {
         var expr = new TerraformMapExpression();
         var context = CreateContext();
 
         var hcl = expr.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("MapExpression_Empty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task MapExpression_WithSimpleValues_GeneratesCorrectHCL()
+    public Task MapExpression_WithSimpleValues()
     {
         var map = new TerraformMapExpression();
         map.Add("name", TerraformExpression.Literal("example"));
@@ -143,11 +143,11 @@ public class TerraformExpressionTests
         var context = CreateContext();
         var hcl = map.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("MapExpression_WithSimpleValues");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task MapExpression_WithNestedMap_GeneratesCorrectHCL()
+    public Task MapExpression_WithNestedMap()
     {
         var innerMap = new TerraformMapExpression();
         innerMap.Add("inner_key", TerraformExpression.Literal("inner_value"));
@@ -159,11 +159,11 @@ public class TerraformExpressionTests
         var context = CreateContext();
         var hcl = outerMap.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("MapExpression_WithNestedMap");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task MapExpression_WithNestedList_GeneratesCorrectHCL()
+    public Task MapExpression_WithNestedList()
     {
         var list = TerraformExpression.List(
             TerraformExpression.Literal("item1"),
@@ -177,11 +177,11 @@ public class TerraformExpressionTests
         var context = CreateContext();
         var hcl = map.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("MapExpression_WithNestedList");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task ListExpression_WithNestedMaps_GeneratesCorrectHCL()
+    public Task ListExpression_WithNestedMaps()
     {
         var map1 = new TerraformMapExpression();
         map1.Add("name", TerraformExpression.Literal("first"));
@@ -194,7 +194,7 @@ public class TerraformExpressionTests
         var context = CreateContext();
         var hcl = list.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("ListExpression_WithNestedMaps");
+        return Verify(hcl);
     }
 
     [Fact]
@@ -209,7 +209,7 @@ public class TerraformExpressionTests
     }
 
     [Fact]
-    public void IdentifierExpression_GeneratesCorrectHCL()
+    public void IdentifierExpression()
     {
         var expr = TerraformExpression.Identifier("aws_vpc.main.id");
         var context = CreateContext();
@@ -220,29 +220,29 @@ public class TerraformExpressionTests
     }
 
     [Fact]
-    public Task FunctionCallExpression_WithNoArgs_GeneratesCorrectHCL()
+    public Task FunctionCallExpression_WithNoArgs()
     {
         var expr = TerraformExpressionExtensions.Call("timestamp");
         var context = CreateContext();
 
         var hcl = expr.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("FunctionCallExpression_WithNoArgs");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task FunctionCallExpression_WithSingleArg_GeneratesCorrectHCL()
+    public Task FunctionCallExpression_WithSingleArg()
     {
         var expr = TerraformExpressionExtensions.Call("file", TerraformExpression.Literal("path/to/file.txt"));
         var context = CreateContext();
 
         var hcl = expr.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("FunctionCallExpression_WithSingleArg");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task FunctionCallExpression_WithMultipleArgs_GeneratesCorrectHCL()
+    public Task FunctionCallExpression_WithMultipleArgs()
     {
         var expr = TerraformExpressionExtensions.Call("join",
             TerraformExpression.Literal(", "),
@@ -255,6 +255,6 @@ public class TerraformExpressionTests
 
         var hcl = expr.ToHcl(context);
 
-        return Verify(hcl).UseMethodName("FunctionCallExpression_WithMultipleArgs");
+        return Verify(hcl);
     }
 }

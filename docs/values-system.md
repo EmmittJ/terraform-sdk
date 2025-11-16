@@ -293,10 +293,8 @@ public abstract class TerraformBlock : TerraformMap<object>
     // Source-generated properties use SetArgument/GetArgument
     public void SetArgument(string terraformName, object? value)
     {
-        if (value is ITerraformValue tfValue)
-            this[terraformName] = TerraformValue<object>.Lazy(ctx => tfValue.ResolveNodes(ctx));
-        else if (value is ITerraformResolvable resolvable)
-            this[terraformName] = new TerraformValue<object>(resolvable);
+        if (value is ITerraformResolvable resolvable)
+            this[terraformName] = TerraformValue<object>.Lazy(ctx => resolvable.ResolveNodes(ctx));
         else
             this[terraformName] = value;  // Implicit conversion to TerraformValue<object>
     }

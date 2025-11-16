@@ -12,17 +12,17 @@ namespace EmmittJ.Terraform.Sdk.Tests.Configuration;
 public class TerraformStackTests
 {
     [Fact]
-    public Task TerraformStack_Empty_GeneratesCorrectHCL()
+    public Task TerraformStack_Empty()
     {
         var stack = new TerraformStack { Name = "empty" };
 
         var hcl = stack.ToHcl();
 
-        return Verify(hcl).UseMethodName("TerraformStack_Empty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformStack_SingleResource_GeneratesCorrectHCL()
+    public Task TerraformStack_SingleResource()
     {
         var stack = new TerraformStack { Name = "single" };
 
@@ -34,11 +34,11 @@ public class TerraformStackTests
 
         var hcl = stack.ToHcl();
 
-        return Verify(hcl).UseMethodName("TerraformStack_SingleResource");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformStack_MultipleResources_GeneratesCorrectHCL()
+    public Task TerraformStack_MultipleResources()
     {
         var stack = new TerraformStack { Name = "multiple" };
 
@@ -58,11 +58,11 @@ public class TerraformStackTests
 
         var hcl = stack.ToHcl();
 
-        return Verify(hcl).UseMethodName("TerraformStack_MultipleResources");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformStack_WithReferences_GeneratesCorrectHCL()
+    public Task TerraformStack_WithReferences()
     {
         var stack = new TerraformStack { Name = "references" };
 
@@ -86,11 +86,11 @@ public class TerraformStackTests
 
         var hcl = stack.ToHcl();
 
-        return Verify(hcl).UseMethodName("TerraformStack_WithReferences");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformStack_WithVariablesAndOutputs_GeneratesCorrectHCL()
+    public Task TerraformStack_WithVariablesAndOutputs()
     {
         var stack = new TerraformStack { Name = "complete" };
 
@@ -136,11 +136,11 @@ public class TerraformStackTests
 
         var hcl = stack.ToHcl();
 
-        return Verify(hcl).UseMethodName("TerraformStack_WithVariablesAndOutputs");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformStack_WithComplexStructure_GeneratesCorrectHCL()
+    public Task TerraformStack_WithComplexStructure()
     {
         var stack = new TerraformStack { Name = "complex" };
 
@@ -213,11 +213,11 @@ public class TerraformStackTests
 
         var hcl = stack.ToHcl();
 
-        return Verify(hcl).UseMethodName("TerraformStack_WithComplexStructure");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformStack_WithMetaArguments_GeneratesCorrectHCL()
+    public Task TerraformStack_WithMetaArguments()
     {
         var stack = new TerraformStack { Name = "meta" };
 
@@ -231,11 +231,11 @@ public class TerraformStackTests
 
         var hcl = stack.ToHcl();
 
-        return Verify(hcl).UseMethodName("TerraformStack_WithMetaArguments");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformStack_WithProviderBlock_GeneratesCorrectHCL()
+    public Task TerraformStack_WithProviderBlock()
     {
         var stack = new TerraformStack { Name = "provider" };
 
@@ -253,6 +253,6 @@ public class TerraformStackTests
 
         var hcl = stack.ToHcl();
 
-        return Verify(hcl).UseMethodName("TerraformStack_WithProviderBlock");
+        return Verify(hcl);
     }
 }

@@ -35,11 +35,6 @@ public class TerraformValue<T> : ITerraformValue
     }
 
     /// <summary>
-    /// Gets whether this TerraformValue has a value.
-    /// </summary>
-    public bool HasValue => _resolvable != null;
-
-    /// <summary>
     /// Resolve this value to syntax nodes.
     /// Values typically resolve to a single expression node.
     /// </summary>
@@ -80,24 +75,6 @@ public class TerraformValue<T> : ITerraformValue
     /// This is explicitly for when T != TerraformExpression to avoid ambiguity.
     /// </summary>
     public static implicit operator TerraformValue<T>(TerraformExpression expression)
-        => new TerraformValue<T>(expression);
-}
-
-/// <summary>
-/// Static helper class for creating TerraformValue instances.
-/// </summary>
-public static class TerraformValue
-{
-    /// <summary>
-    /// Create a TerraformValue from a literal value.
-    /// </summary>
-    public static TerraformValue<T> FromLiteral<T>(T? value)
-        => new TerraformValue<T>(new TerraformLiteralValue<T>(value));
-
-    /// <summary>
-    /// Create a TerraformValue from an expression.
-    /// </summary>
-    public static TerraformValue<T> FromExpression<T>(TerraformExpression expression)
         => new TerraformValue<T>(expression);
 }
 

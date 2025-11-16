@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk.Tests.Blocks;
 public class TerraformVariableTests
 {
     [Fact]
-    public Task TerraformVariable_WithStringType_GeneratesCorrectHCL()
+    public Task TerraformVariable_WithStringType()
     {
         var variable = new TerraformVariable("region")
         {
@@ -24,11 +24,11 @@ public class TerraformVariableTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(variable, context);
 
-        return Verify(hcl).UseMethodName("TerraformVariable_WithStringType");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformVariable_WithNumberType_GeneratesCorrectHCL()
+    public Task TerraformVariable_WithNumberType()
     {
         var variable = new TerraformVariable("instance_count")
         {
@@ -40,11 +40,11 @@ public class TerraformVariableTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(variable, context);
 
-        return Verify(hcl).UseMethodName("TerraformVariable_WithNumberType");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformVariable_WithBoolType_GeneratesCorrectHCL()
+    public Task TerraformVariable_WithBoolType()
     {
         var variable = new TerraformVariable("enable_monitoring")
         {
@@ -56,11 +56,11 @@ public class TerraformVariableTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(variable, context);
 
-        return Verify(hcl).UseMethodName("TerraformVariable_WithBoolType");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformVariable_WithListType_GeneratesCorrectHCL()
+    public Task TerraformVariable_WithListType()
     {
         var variable = new TerraformVariable("availability_zones");
         variable.Type = "list(string)";
@@ -73,11 +73,11 @@ public class TerraformVariableTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(variable, context);
 
-        return Verify(hcl).UseMethodName("TerraformVariable_WithListType");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformVariable_WithMapType_GeneratesCorrectHCL()
+    public Task TerraformVariable_WithMapType()
     {
         var variable = new TerraformVariable("tags");
         variable.Type = "map(string)";
@@ -89,11 +89,11 @@ public class TerraformVariableTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(variable, context);
 
-        return Verify(hcl).UseMethodName("TerraformVariable_WithMapType");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformVariable_WithoutDefault_GeneratesCorrectHCL()
+    public Task TerraformVariable_WithoutDefault()
     {
         var variable = new TerraformVariable("secret_key")
         {
@@ -105,11 +105,11 @@ public class TerraformVariableTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(variable, context);
 
-        return Verify(hcl).UseMethodName("TerraformVariable_WithoutDefault");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformVariable_WithValidation_GeneratesCorrectHCL()
+    public Task TerraformVariable_WithValidation()
     {
         var variable = new TerraformVariable("instance_type")
         {
@@ -126,6 +126,6 @@ public class TerraformVariableTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(variable, context);
 
-        return Verify(hcl).UseMethodName("TerraformVariable_WithValidation");
+        return Verify(hcl);
     }
 }

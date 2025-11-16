@@ -1,1 +1,0 @@
-﻿Literal type 'Guid' is not supported for HCL generation. Supported primitive types: string, int, long, short, byte, bool, float, double, decimal. For complex types, use TerraformExpression.Map() for objects or TerraformExpression.List() for collections. Value was: 12345678-1234-1234-1234-123456789abc

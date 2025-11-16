@@ -90,44 +90,22 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     /// </summary>
     /// <param name="key">The key name.</param>
     /// <param name="value">The value to store (TerraformValue&lt;T&gt;, TerraformExpression, TerraformList&lt;T&gt;, etc.).</param>
-    public void SetArgument(string key, TerraformValue<T>? value)
+    public void SetArgument(string key, object? value)
     {
-        if (value == null)
+        if (value is null)
+        {
+            _elements.Remove(key);
             return;
+        }
 
-        // Handle TerraformExpression directly - avoid double-wrapping
-        if (value is TerraformExpression expr)
+        _elements[key] = value switch
         {
-            _elements[key] = TerraformValue.FromExpression<T>(expr);
-        }
-        // Handle ITerraformValue (includes TerraformValue<T>, TerraformMap, TerraformList, etc.)
-        // Unwrap and rewrap as TerraformValue<T> to avoid double-wrapping
-        // When a TerraformValue<int> is passed as object, we can't use implicit conversion to TerraformValue<T>
-        // because that would wrap the TerraformValue<int> instance itself as a literal object
-        else if (value is ITerraformValue tfValue)
-        {
-            // ITerraformValue is ITerraformResolvable, so we can resolve and rewrap
-            _elements[key] = TerraformValue<T>.Lazy(ctx => tfValue.ResolveNodes(ctx));
-        }
-        // Handle ITerraformResolvable
-        else if (value is ITerraformResolvable resolvable)
-        {
-            _elements[key] = new TerraformValue<T>(resolvable);
-        }
-        // Handle TerraformValue<T> being passed directly (already the right type)
-        else if (value is TerraformValue<T> tfValueT)
-        {
-            _elements[key] = tfValueT;
-        }
-        else
-        {
-            // Use implicit conversion from T to TerraformValue<T>
-            // This will wrap the value as a literal
-            // We rely on the implicit conversion operator which handles the wrapping
-            _elements[key] = value;
-        }
+            TerraformValue<T> tfValueT => tfValueT,
+            ITerraformResolvable resolvable => new TerraformValue<T>(resolvable),
+            T t => new TerraformLiteralValue<T>(t),
+            _ => throw new ArgumentException($"Invalid value type for TerraformMap<{typeof(T).Name}>: {value.GetType().Name}", nameof(value)),
+        };
     }
-
 
     /// <summary>
     /// Called by source-generated property getters to retrieve stored values.

@@ -59,11 +59,7 @@ internal class LiteralExpression<T>(T value) : TerraformExpression
             string s => $"\"{EscapeString(s)}\"",
             int or long or short or byte => _value.ToString() ?? string.Empty,
             float or double or decimal => _value.ToString() ?? string.Empty,
-            _ => throw new NotSupportedException(
-                $"Literal type '{typeof(T).Name}' is not supported for HCL generation. " +
-                $"Supported primitive types: string, int, long, short, byte, bool, float, double, decimal. " +
-                $"For complex types, use TerraformExpression.Map() for objects or TerraformExpression.List() for collections. " +
-                $"Value was: {(_value?.ToString() ?? "null")}")
+            _ => _value.ToString() ?? string.Empty,
         };
     }
 

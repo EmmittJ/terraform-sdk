@@ -23,7 +23,7 @@ public class TerraformCollectionTests
         Assert.Single(nodes);
         var hcl = nodes[0].ToHcl(context);
 
-        return Verify(hcl).UseMethodName("TerraformList_WithStrings");
+        return Verify(hcl);
     }
 
     [Fact]
@@ -37,7 +37,7 @@ public class TerraformCollectionTests
         Assert.Single(nodes);
         var hcl = nodes[0].ToHcl(context);
 
-        return Verify(hcl).UseMethodName("TerraformList_WithIntegers");
+        return Verify(hcl);
     }
 
     [Fact]
@@ -51,7 +51,7 @@ public class TerraformCollectionTests
         Assert.Single(nodes);
         var hcl = nodes[0].ToHcl(context);
 
-        return Verify(hcl).UseMethodName("TerraformList_Empty");
+        return Verify(hcl);
     }
 
     [Fact]
@@ -70,7 +70,7 @@ public class TerraformCollectionTests
         Assert.Single(nodes);
         var hcl = nodes[0].ToHcl(context);
 
-        return Verify(hcl).UseMethodName("TerraformMap_WithStringValues");
+        return Verify(hcl);
     }
 
     [Fact]
@@ -89,7 +89,7 @@ public class TerraformCollectionTests
         Assert.Single(nodes);
         var hcl = nodes[0].ToHcl(context);
 
-        return Verify(hcl).UseMethodName("TerraformMap_WithIntegerValues");
+        return Verify(hcl);
     }
 
     [Fact]
@@ -103,7 +103,7 @@ public class TerraformCollectionTests
         Assert.Single(nodes);
         var hcl = nodes[0].ToHcl(context);
 
-        return Verify(hcl).UseMethodName("TerraformMap_Empty");
+        return Verify(hcl);
     }
 
     [Fact]
@@ -117,6 +117,6 @@ public class TerraformCollectionTests
         Assert.Single(nodes);
         var hcl = nodes[0].ToHcl(context);
 
-        return Verify(hcl).UseMethodName("TerraformSet_WithStrings");
+        return Verify(hcl);
     }
 }

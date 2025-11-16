@@ -15,59 +15,6 @@ public class ErrorMessageQualityTests
     private static ITerraformContext CreateContext() => TerraformContext.Temporary();
 
     [Fact]
-    public Task UnsupportedType_Object_ErrorMessage()
-    {
-        var ex = GetException(() =>
-        {
-            TerraformValue<object> value = new object();
-            var nodes = value.ResolveNodes(CreateContext()).ToList();
-            nodes[0].ToHcl(CreateContext());
-        });
-
-        return Verify(ex.Message);
-    }
-
-    [Fact]
-    public Task UnsupportedType_DateTime_ErrorMessage()
-    {
-        var ex = GetException(() =>
-        {
-            TerraformValue<DateTime> value = new DateTime(2025, 1, 15, 10, 30, 45);
-            var nodes = value.ResolveNodes(CreateContext()).ToList();
-            nodes[0].ToHcl(CreateContext());
-        });
-
-        return Verify(ex.Message);
-    }
-
-    [Fact]
-    public Task UnsupportedType_Guid_ErrorMessage()
-    {
-        var ex = GetException(() =>
-        {
-            TerraformValue<Guid> value = new Guid("12345678-1234-1234-1234-123456789abc");
-            var nodes = value.ResolveNodes(CreateContext()).ToList();
-            nodes[0].ToHcl(CreateContext());
-        });
-
-        return Verify(ex.Message);
-    }
-
-    [Fact]
-    public Task UnsupportedType_CustomClass_ErrorMessage()
-    {
-        var ex = GetException(() =>
-        {
-            var customObject = new TestCustomClass { Value = "test" };
-            TerraformValue<TestCustomClass> value = customObject;
-            var nodes = value.ResolveNodes(CreateContext()).ToList();
-            nodes[0].ToHcl(CreateContext());
-        });
-
-        return Verify(ex.Message);
-    }
-
-    [Fact]
     public Task OutputWithoutValue_ErrorMessage()
     {
         var ex = GetException(() =>
@@ -111,11 +58,6 @@ public class ErrorMessageQualityTests
             return ex;
         }
     }
-}
-
-file class TestCustomClass
-{
-    public string Value { get; set; } = string.Empty;
 }
 
 file class EmptyTerraformValue<T> : TerraformValue<T>

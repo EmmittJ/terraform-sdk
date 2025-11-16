@@ -13,18 +13,18 @@ namespace EmmittJ.Terraform.Sdk.Tests.Blocks;
 public class TerraformResourceTests
 {
     [Fact]
-    public Task TerraformResource_Empty_GeneratesCorrectHCL()
+    public Task TerraformResource_Empty()
     {
         var resource = new TerraformResource("aws_instance", "example");
         var context = TerraformTestHelpers.CreateContext();
 
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_Empty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformResource_WithStringProperty_GeneratesCorrectHCL()
+    public Task TerraformResource_WithStringProperty()
     {
         var resource = new TerraformResource("aws_instance", "example");
         resource["ami"] = "ami-12345678";
@@ -33,11 +33,11 @@ public class TerraformResourceTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_WithStringProperty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformResource_WithNumberProperty_GeneratesCorrectHCL()
+    public Task TerraformResource_WithNumberProperty()
     {
         var resource = new TerraformResource("aws_instance", "example");
         resource["count"] = 3;
@@ -46,11 +46,11 @@ public class TerraformResourceTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_WithNumberProperty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformResource_WithBooleanProperty_GeneratesCorrectHCL()
+    public Task TerraformResource_WithBooleanProperty()
     {
         var resource = new TerraformResource("aws_instance", "example");
         resource["monitoring"] = true;
@@ -59,11 +59,11 @@ public class TerraformResourceTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_WithBooleanProperty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformResource_WithListProperty_GeneratesCorrectHCL()
+    public Task TerraformResource_WithListProperty()
     {
         var resource = new TerraformResource("aws_security_group", "example");
         var ingressMap = new TerraformMapExpression();
@@ -75,11 +75,11 @@ public class TerraformResourceTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_WithListProperty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformResource_WithMapProperty_GeneratesCorrectHCL()
+    public Task TerraformResource_WithMapProperty()
     {
         var resource = new TerraformResource("aws_instance", "example");
         var tagsMap = new TerraformMapExpression();
@@ -91,11 +91,11 @@ public class TerraformResourceTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_WithMapProperty");
+        return Verify(hcl);
     }
 
     [Fact]
-    public Task TerraformResource_WithComplexNestedStructure_GeneratesCorrectHCL()
+    public Task TerraformResource_WithComplexNestedStructure()
     {
         var resource = new TerraformResource("aws_launch_template", "example");
         resource["name"] = "example-template";
@@ -116,7 +116,7 @@ public class TerraformResourceTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_WithComplexNestedStructure");
+        return Verify(hcl);
     }
 
     // TODO: Re-enable after implementing resource output property generation
@@ -126,7 +126,7 @@ public class TerraformResourceTests
     // 2. Implement dynamic property generation based on provider schemas
     /*
     [Fact]
-    public Task TerraformResource_WithReference_GeneratesCorrectHCL()
+    public Task TerraformResource_WithReference()
     {
         var stack = new TerraformStack { Name = "test" };
         var context = new TerraformContext(stack);
@@ -142,12 +142,12 @@ public class TerraformResourceTests
 
         var hcl = TerraformTestHelpers.RenderBlock(subnet, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_WithReference");
+        return Verify(hcl);
     }
     */
 
     [Fact]
-    public Task TerraformResource_WithMetaArguments_GeneratesCorrectHCL()
+    public Task TerraformResource_WithMetaArguments()
     {
         var resource = new TerraformResource("aws_instance", "example");
         resource["ami"] = "ami-12345678";
@@ -158,6 +158,6 @@ public class TerraformResourceTests
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
 
-        return Verify(hcl).UseMethodName("TerraformResource_WithMetaArguments");
+        return Verify(hcl);
     }
 }
