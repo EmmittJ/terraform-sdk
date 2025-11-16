@@ -266,6 +266,14 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The guid attribute.
+    /// </summary>
+    public TerraformValue<string> Guid
+    {
+        get => new TerraformReference<string>(this, "guid");
+    }
+
+    /// <summary>
     /// DdosProtectionPlan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionPlan block(s) allowed")]

@@ -221,6 +221,14 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The alias attribute.
+    /// </summary>
+    public TerraformValue<string> Alias
+    {
+        get => new TerraformReference<string>(this, "alias");
+    }
+
+    /// <summary>
     /// NatIpConfiguration block (nesting mode: list).
     /// This block is required.
     /// </summary>

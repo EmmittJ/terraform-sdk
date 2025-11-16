@@ -212,6 +212,14 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The maximum_number_of_workers attribute.
+    /// </summary>
+    public TerraformValue<double> MaximumNumberOfWorkers
+    {
+        get => new TerraformReference<double>(this, "maximum_number_of_workers");
+    }
+
+    /// <summary>
     /// Sku block (nesting mode: list).
     /// This block is required.
     /// </summary>

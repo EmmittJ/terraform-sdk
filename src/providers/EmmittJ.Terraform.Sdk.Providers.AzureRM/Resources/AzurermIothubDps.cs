@@ -277,6 +277,30 @@ public partial class AzurermIothubDps(string name) : TerraformResource("azurerm_
     }
 
     /// <summary>
+    /// The device_provisioning_host_name attribute.
+    /// </summary>
+    public TerraformValue<string> DeviceProvisioningHostName
+    {
+        get => new TerraformReference<string>(this, "device_provisioning_host_name");
+    }
+
+    /// <summary>
+    /// The id_scope attribute.
+    /// </summary>
+    public TerraformValue<string> IdScope
+    {
+        get => new TerraformReference<string>(this, "id_scope");
+    }
+
+    /// <summary>
+    /// The service_operations_host_name attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceOperationsHostName
+    {
+        get => new TerraformReference<string>(this, "service_operations_host_name");
+    }
+
+    /// <summary>
     /// IpFilterRule block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermIothubDpsIpFilterRuleBlock>? IpFilterRule

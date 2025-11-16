@@ -60,6 +60,14 @@ public partial class AzurermCosmosdbRestorableDatabaseAccountsDataSource(string 
     }
 
     /// <summary>
+    /// The accounts attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Accounts
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "accounts").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock? Timeouts

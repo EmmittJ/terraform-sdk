@@ -301,6 +301,22 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     }
 
     /// <summary>
+    /// The http_listener_ids attribute.
+    /// </summary>
+    public TerraformList<string> HttpListenerIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "http_listener_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The path_based_rule_ids attribute.
+    /// </summary>
+    public TerraformList<string> PathBasedRuleIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "path_based_rule_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// CustomRules block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermWebApplicationFirewallPolicyCustomRulesBlock>? CustomRules

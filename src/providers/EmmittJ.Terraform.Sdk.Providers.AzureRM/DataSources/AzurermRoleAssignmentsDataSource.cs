@@ -77,6 +77,14 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     }
 
     /// <summary>
+    /// The role_assignments attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> RoleAssignments
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "role_assignments").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRoleAssignmentsDataSourceTimeoutsBlock? Timeouts

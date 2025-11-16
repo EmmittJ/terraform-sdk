@@ -60,6 +60,14 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     }
 
     /// <summary>
+    /// The connections attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Connections
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connections").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock? Timeouts

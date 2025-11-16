@@ -192,6 +192,78 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The circuit attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Circuit
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "circuit").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The hcx_cloud_manager_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> HcxCloudManagerEndpoint
+    {
+        get => new TerraformReference<string>(this, "hcx_cloud_manager_endpoint");
+    }
+
+    /// <summary>
+    /// The management_subnet_cidr attribute.
+    /// </summary>
+    public TerraformValue<string> ManagementSubnetCidr
+    {
+        get => new TerraformReference<string>(this, "management_subnet_cidr");
+    }
+
+    /// <summary>
+    /// The nsxt_certificate_thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> NsxtCertificateThumbprint
+    {
+        get => new TerraformReference<string>(this, "nsxt_certificate_thumbprint");
+    }
+
+    /// <summary>
+    /// The nsxt_manager_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> NsxtManagerEndpoint
+    {
+        get => new TerraformReference<string>(this, "nsxt_manager_endpoint");
+    }
+
+    /// <summary>
+    /// The provisioning_subnet_cidr attribute.
+    /// </summary>
+    public TerraformValue<string> ProvisioningSubnetCidr
+    {
+        get => new TerraformReference<string>(this, "provisioning_subnet_cidr");
+    }
+
+    /// <summary>
+    /// The vcenter_certificate_thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> VcenterCertificateThumbprint
+    {
+        get => new TerraformReference<string>(this, "vcenter_certificate_thumbprint");
+    }
+
+    /// <summary>
+    /// The vcsa_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> VcsaEndpoint
+    {
+        get => new TerraformReference<string>(this, "vcsa_endpoint");
+    }
+
+    /// <summary>
+    /// The vmotion_subnet_cidr attribute.
+    /// </summary>
+    public TerraformValue<string> VmotionSubnetCidr
+    {
+        get => new TerraformReference<string>(this, "vmotion_subnet_cidr");
+    }
+
+    /// <summary>
     /// ManagementCluster block (nesting mode: list).
     /// This block is required.
     /// </summary>

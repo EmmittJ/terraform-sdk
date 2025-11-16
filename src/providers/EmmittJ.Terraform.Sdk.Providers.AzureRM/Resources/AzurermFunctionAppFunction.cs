@@ -157,6 +157,62 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The URL of the configuration JSON.
+    /// </summary>
+    public TerraformValue<string> ConfigUrl
+    {
+        get => new TerraformReference<string>(this, "config_url");
+    }
+
+    /// <summary>
+    /// The invocation URL.
+    /// </summary>
+    public TerraformValue<string> InvocationUrl
+    {
+        get => new TerraformReference<string>(this, "invocation_url");
+    }
+
+    /// <summary>
+    /// The Script root path URL.
+    /// </summary>
+    public TerraformValue<string> ScriptRootPathUrl
+    {
+        get => new TerraformReference<string>(this, "script_root_path_url");
+    }
+
+    /// <summary>
+    /// The script URL.
+    /// </summary>
+    public TerraformValue<string> ScriptUrl
+    {
+        get => new TerraformReference<string>(this, "script_url");
+    }
+
+    /// <summary>
+    /// The URL for the Secrets File.
+    /// </summary>
+    public TerraformValue<string> SecretsFileUrl
+    {
+        get => new TerraformReference<string>(this, "secrets_file_url");
+    }
+
+    /// <summary>
+    /// The Test data URL.
+    /// </summary>
+    public TerraformValue<string> TestDataUrl
+    {
+        get => new TerraformReference<string>(this, "test_data_url");
+    }
+
+    /// <summary>
+    /// The function URL.
+    /// </summary>
+    public TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+    }
+
+    /// <summary>
     /// File block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermFunctionAppFunctionFileBlock>? File

@@ -150,6 +150,14 @@ public partial class AzurermPimActiveRoleAssignment(string name) : TerraformReso
     }
 
     /// <summary>
+    /// Type of principal to which the role will be assigned
+    /// </summary>
+    public TerraformValue<string> PrincipalType
+    {
+        get => new TerraformReference<string>(this, "principal_type");
+    }
+
+    /// <summary>
     /// Schedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]

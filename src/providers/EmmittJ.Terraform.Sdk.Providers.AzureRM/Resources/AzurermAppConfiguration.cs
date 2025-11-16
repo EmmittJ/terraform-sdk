@@ -297,6 +297,46 @@ public partial class AzurermAppConfiguration(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
+
+    /// <summary>
+    /// The primary_read_key attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PrimaryReadKey
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "primary_read_key").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The primary_write_key attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PrimaryWriteKey
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "primary_write_key").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The secondary_read_key attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SecondaryReadKey
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "secondary_read_key").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The secondary_write_key attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SecondaryWriteKey
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "secondary_write_key").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]

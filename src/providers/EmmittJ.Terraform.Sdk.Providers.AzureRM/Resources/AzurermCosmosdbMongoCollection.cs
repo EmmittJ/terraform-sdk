@@ -197,6 +197,14 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     }
 
     /// <summary>
+    /// The system_indexes attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SystemIndexes
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "system_indexes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]

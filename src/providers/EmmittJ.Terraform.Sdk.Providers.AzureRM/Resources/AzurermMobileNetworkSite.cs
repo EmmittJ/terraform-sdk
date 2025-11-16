@@ -106,6 +106,14 @@ public partial class AzurermMobileNetworkSite(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The network_function_ids attribute.
+    /// </summary>
+    public TerraformList<string> NetworkFunctionIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_function_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMobileNetworkSiteTimeoutsBlock? Timeouts

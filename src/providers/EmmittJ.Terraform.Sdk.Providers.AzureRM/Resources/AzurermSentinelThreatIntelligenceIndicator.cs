@@ -345,6 +345,70 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     }
 
     /// <summary>
+    /// The created_on attribute.
+    /// </summary>
+    public TerraformValue<string> CreatedOn
+    {
+        get => new TerraformReference<string>(this, "created_on");
+    }
+
+    /// <summary>
+    /// The defanged attribute.
+    /// </summary>
+    public TerraformValue<bool> Defanged
+    {
+        get => new TerraformReference<bool>(this, "defanged");
+    }
+
+    /// <summary>
+    /// The external_id attribute.
+    /// </summary>
+    public TerraformValue<string> ExternalId
+    {
+        get => new TerraformReference<string>(this, "external_id");
+    }
+
+    /// <summary>
+    /// The external_last_updated_time_utc attribute.
+    /// </summary>
+    public TerraformValue<string> ExternalLastUpdatedTimeUtc
+    {
+        get => new TerraformReference<string>(this, "external_last_updated_time_utc");
+    }
+
+    /// <summary>
+    /// The guid attribute.
+    /// </summary>
+    public TerraformValue<string> Guid
+    {
+        get => new TerraformReference<string>(this, "guid");
+    }
+
+    /// <summary>
+    /// The indicator_type attribute.
+    /// </summary>
+    public TerraformList<string> IndicatorType
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "indicator_type").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The last_updated_time_utc attribute.
+    /// </summary>
+    public TerraformValue<string> LastUpdatedTimeUtc
+    {
+        get => new TerraformReference<string>(this, "last_updated_time_utc");
+    }
+
+    /// <summary>
+    /// The parsed_pattern attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ParsedPattern
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "parsed_pattern").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// ExternalReference block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>? ExternalReference

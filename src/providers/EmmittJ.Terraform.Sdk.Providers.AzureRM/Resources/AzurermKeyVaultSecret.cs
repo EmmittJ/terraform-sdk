@@ -150,6 +150,38 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceId
+    {
+        get => new TerraformReference<string>(this, "resource_id");
+    }
+
+    /// <summary>
+    /// The resource_versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceVersionlessId
+    {
+        get => new TerraformReference<string>(this, "resource_versionless_id");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
+    /// The versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> VersionlessId
+    {
+        get => new TerraformReference<string>(this, "versionless_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultSecretTimeoutsBlock? Timeouts

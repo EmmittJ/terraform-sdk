@@ -235,6 +235,14 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     }
 
     /// <summary>
+    /// The partition_ids attribute.
+    /// </summary>
+    public TerraformSet<string> PartitionIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "partition_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// CaptureDescription block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CaptureDescription block(s) allowed")]

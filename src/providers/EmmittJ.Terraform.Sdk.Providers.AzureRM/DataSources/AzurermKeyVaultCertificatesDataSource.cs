@@ -59,6 +59,22 @@ public partial class AzurermKeyVaultCertificatesDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The certificates attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Certificates
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificates").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The names attribute.
+    /// </summary>
+    public TerraformList<string> Names
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "names").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultCertificatesDataSourceTimeoutsBlock? Timeouts

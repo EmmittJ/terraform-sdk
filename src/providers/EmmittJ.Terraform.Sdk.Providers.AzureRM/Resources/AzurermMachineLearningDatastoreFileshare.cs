@@ -142,6 +142,14 @@ public partial class AzurermMachineLearningDatastoreFileshare(string name) : Ter
     }
 
     /// <summary>
+    /// The is_default attribute.
+    /// </summary>
+    public TerraformValue<bool> IsDefault
+    {
+        get => new TerraformReference<bool>(this, "is_default");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMachineLearningDatastoreFileshareTimeoutsBlock? Timeouts

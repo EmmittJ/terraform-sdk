@@ -129,6 +129,14 @@ public partial class AzurermNetworkProfile(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The container_network_interface_ids attribute.
+    /// </summary>
+    public TerraformList<string> ContainerNetworkInterfaceIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "container_network_interface_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// ContainerNetworkInterface block (nesting mode: list).
     /// This block is required.
     /// </summary>

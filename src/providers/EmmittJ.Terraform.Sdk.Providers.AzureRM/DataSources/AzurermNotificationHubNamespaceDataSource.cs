@@ -60,6 +60,54 @@ public partial class AzurermNotificationHubNamespaceDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The namespace_type attribute.
+    /// </summary>
+    public TerraformValue<string> NamespaceType
+    {
+        get => new TerraformReference<string>(this, "namespace_type");
+    }
+
+    /// <summary>
+    /// The servicebus_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> ServicebusEndpoint
+    {
+        get => new TerraformReference<string>(this, "servicebus_endpoint");
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Sku
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "sku").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNotificationHubNamespaceDataSourceTimeoutsBlock? Timeouts

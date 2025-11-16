@@ -70,6 +70,38 @@ public partial class AzurermVirtualHubConnectionDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The internet_security_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> InternetSecurityEnabled
+    {
+        get => new TerraformReference<bool>(this, "internet_security_enabled");
+    }
+
+    /// <summary>
+    /// The remote_virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string> RemoteVirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "remote_virtual_network_id");
+    }
+
+    /// <summary>
+    /// The routing attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Routing
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "routing").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_hub_id attribute.
+    /// </summary>
+    public TerraformValue<string> VirtualHubId
+    {
+        get => new TerraformReference<string>(this, "virtual_hub_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermVirtualHubConnectionDataSourceTimeoutsBlock? Timeouts

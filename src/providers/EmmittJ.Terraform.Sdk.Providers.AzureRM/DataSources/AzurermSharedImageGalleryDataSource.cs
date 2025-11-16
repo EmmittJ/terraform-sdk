@@ -60,6 +60,46 @@ public partial class AzurermSharedImageGalleryDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The image_names attribute.
+    /// </summary>
+    public TerraformList<string> ImageNames
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "image_names").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The unique_name attribute.
+    /// </summary>
+    public TerraformValue<string> UniqueName
+    {
+        get => new TerraformReference<string>(this, "unique_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSharedImageGalleryDataSourceTimeoutsBlock? Timeouts

@@ -133,6 +133,14 @@ public partial class AzurermNatGateway(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The resource_guid attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceGuid
+    {
+        get => new TerraformReference<string>(this, "resource_guid");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNatGatewayTimeoutsBlock? Timeouts

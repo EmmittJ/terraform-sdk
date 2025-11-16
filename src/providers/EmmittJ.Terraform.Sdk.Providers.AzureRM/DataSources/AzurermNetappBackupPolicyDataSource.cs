@@ -70,6 +70,54 @@ public partial class AzurermNetappBackupPolicyDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The daily_backups_to_keep attribute.
+    /// </summary>
+    public TerraformValue<double> DailyBackupsToKeep
+    {
+        get => new TerraformReference<double>(this, "daily_backups_to_keep");
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The monthly_backups_to_keep attribute.
+    /// </summary>
+    public TerraformValue<double> MonthlyBackupsToKeep
+    {
+        get => new TerraformReference<double>(this, "monthly_backups_to_keep");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The weekly_backups_to_keep attribute.
+    /// </summary>
+    public TerraformValue<double> WeeklyBackupsToKeep
+    {
+        get => new TerraformReference<double>(this, "weekly_backups_to_keep");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetappBackupPolicyDataSourceTimeoutsBlock? Timeouts

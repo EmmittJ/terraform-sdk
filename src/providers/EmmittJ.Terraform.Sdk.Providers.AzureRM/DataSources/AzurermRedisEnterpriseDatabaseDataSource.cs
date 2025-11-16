@@ -61,6 +61,38 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource(string name) : Ter
     }
 
     /// <summary>
+    /// The linked_database_group_nickname attribute.
+    /// </summary>
+    public TerraformValue<string> LinkedDatabaseGroupNickname
+    {
+        get => new TerraformReference<string>(this, "linked_database_group_nickname");
+    }
+
+    /// <summary>
+    /// The linked_database_id attribute.
+    /// </summary>
+    public TerraformList<string> LinkedDatabaseId
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "linked_database_id").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
+
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock? Timeouts

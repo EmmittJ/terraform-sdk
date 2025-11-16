@@ -1039,6 +1039,14 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     }
 
     /// <summary>
+    /// The unique_id attribute.
+    /// </summary>
+    public TerraformValue<string> UniqueId
+    {
+        get => new TerraformReference<string>(this, "unique_id");
+    }
+
+    /// <summary>
     /// AdditionalCapabilities block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]

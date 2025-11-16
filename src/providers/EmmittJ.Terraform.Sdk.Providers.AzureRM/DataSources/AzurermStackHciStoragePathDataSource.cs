@@ -60,6 +60,38 @@ public partial class AzurermStackHciStoragePathDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The custom_location_id attribute.
+    /// </summary>
+    public TerraformValue<string> CustomLocationId
+    {
+        get => new TerraformReference<string>(this, "custom_location_id");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStackHciStoragePathDataSourceTimeoutsBlock? Timeouts

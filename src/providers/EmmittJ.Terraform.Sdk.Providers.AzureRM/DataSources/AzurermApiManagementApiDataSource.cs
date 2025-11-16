@@ -80,6 +80,102 @@ public partial class AzurermApiManagementApiDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The is_current attribute.
+    /// </summary>
+    public TerraformValue<bool> IsCurrent
+    {
+        get => new TerraformReference<bool>(this, "is_current");
+    }
+
+    /// <summary>
+    /// The is_online attribute.
+    /// </summary>
+    public TerraformValue<bool> IsOnline
+    {
+        get => new TerraformReference<bool>(this, "is_online");
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+    }
+
+    /// <summary>
+    /// The protocols attribute.
+    /// </summary>
+    public TerraformList<string> Protocols
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The service_url attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceUrl
+    {
+        get => new TerraformReference<string>(this, "service_url");
+    }
+
+    /// <summary>
+    /// The soap_pass_through attribute.
+    /// </summary>
+    public TerraformValue<bool> SoapPassThrough
+    {
+        get => new TerraformReference<bool>(this, "soap_pass_through");
+    }
+
+    /// <summary>
+    /// The subscription_key_parameter_names attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SubscriptionKeyParameterNames
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "subscription_key_parameter_names").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The subscription_required attribute.
+    /// </summary>
+    public TerraformValue<bool> SubscriptionRequired
+    {
+        get => new TerraformReference<bool>(this, "subscription_required");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
+    /// The version_set_id attribute.
+    /// </summary>
+    public TerraformValue<string> VersionSetId
+    {
+        get => new TerraformReference<string>(this, "version_set_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementApiDataSourceTimeoutsBlock? Timeouts

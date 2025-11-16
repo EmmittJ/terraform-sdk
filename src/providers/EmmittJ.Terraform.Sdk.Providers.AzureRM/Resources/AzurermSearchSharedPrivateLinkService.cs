@@ -116,6 +116,14 @@ public partial class AzurermSearchSharedPrivateLinkService(string name) : Terraf
     }
 
     /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformValue<string> Status
+    {
+        get => new TerraformReference<string>(this, "status");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSearchSharedPrivateLinkServiceTimeoutsBlock? Timeouts

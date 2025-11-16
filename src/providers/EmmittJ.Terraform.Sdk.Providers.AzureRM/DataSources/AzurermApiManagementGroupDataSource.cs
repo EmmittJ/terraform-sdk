@@ -70,6 +70,38 @@ public partial class AzurermApiManagementGroupDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The external_id attribute.
+    /// </summary>
+    public TerraformValue<string> ExternalId
+    {
+        get => new TerraformReference<string>(this, "external_id");
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementGroupDataSourceTimeoutsBlock? Timeouts

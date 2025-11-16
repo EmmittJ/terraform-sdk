@@ -60,6 +60,118 @@ public partial class AzurermMonitorScheduledQueryRulesAlertDataSource(string nam
     }
 
     /// <summary>
+    /// The action attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> Action
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "action").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The authorized_resource_ids attribute.
+    /// </summary>
+    public TerraformSet<string> AuthorizedResourceIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "authorized_resource_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The data_source_id attribute.
+    /// </summary>
+    public TerraformValue<string> DataSourceId
+    {
+        get => new TerraformReference<string>(this, "data_source_id");
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+    }
+
+    /// <summary>
+    /// The frequency attribute.
+    /// </summary>
+    public TerraformValue<double> Frequency
+    {
+        get => new TerraformReference<double>(this, "frequency");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The query attribute.
+    /// </summary>
+    public TerraformValue<string> Query
+    {
+        get => new TerraformReference<string>(this, "query");
+    }
+
+    /// <summary>
+    /// The query_type attribute.
+    /// </summary>
+    public TerraformValue<string> QueryType
+    {
+        get => new TerraformReference<string>(this, "query_type");
+    }
+
+    /// <summary>
+    /// The severity attribute.
+    /// </summary>
+    public TerraformValue<double> Severity
+    {
+        get => new TerraformReference<double>(this, "severity");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The throttling attribute.
+    /// </summary>
+    public TerraformValue<double> Throttling
+    {
+        get => new TerraformReference<double>(this, "throttling");
+    }
+
+    /// <summary>
+    /// The time_window attribute.
+    /// </summary>
+    public TerraformValue<double> TimeWindow
+    {
+        get => new TerraformReference<double>(this, "time_window");
+    }
+
+    /// <summary>
+    /// The trigger attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> Trigger
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "trigger").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock? Timeouts

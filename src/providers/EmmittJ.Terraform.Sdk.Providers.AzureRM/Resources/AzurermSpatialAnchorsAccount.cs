@@ -107,6 +107,22 @@ public partial class AzurermSpatialAnchorsAccount(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The account_domain attribute.
+    /// </summary>
+    public TerraformValue<string> AccountDomain
+    {
+        get => new TerraformReference<string>(this, "account_domain");
+    }
+
+    /// <summary>
+    /// The account_id attribute.
+    /// </summary>
+    public TerraformValue<string> AccountId
+    {
+        get => new TerraformReference<string>(this, "account_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSpatialAnchorsAccountTimeoutsBlock? Timeouts

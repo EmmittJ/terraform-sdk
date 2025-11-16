@@ -60,6 +60,22 @@ public partial class AzurermDataShareAccountDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataShareAccountDataSourceTimeoutsBlock? Timeouts

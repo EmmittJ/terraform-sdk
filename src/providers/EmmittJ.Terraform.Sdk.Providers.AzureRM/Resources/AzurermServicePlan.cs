@@ -180,6 +180,22 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    public TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+    }
+
+    /// <summary>
+    /// The reserved attribute.
+    /// </summary>
+    public TerraformValue<bool> Reserved
+    {
+        get => new TerraformReference<bool>(this, "reserved");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermServicePlanTimeoutsBlock? Timeouts

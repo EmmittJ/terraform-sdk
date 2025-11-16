@@ -69,6 +69,78 @@ public partial class AzurermCognitiveAccountDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    public TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+    }
+
+    /// <summary>
+    /// The local_auth_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> LocalAuthEnabled
+    {
+        get => new TerraformReference<bool>(this, "local_auth_enabled");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
+
+    /// <summary>
+    /// The qna_runtime_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> QnaRuntimeEndpoint
+    {
+        get => new TerraformReference<string>(this, "qna_runtime_endpoint");
+    }
+
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCognitiveAccountDataSourceTimeoutsBlock? Timeouts

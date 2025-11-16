@@ -106,6 +106,14 @@ public partial class AzurermApplicationLoadBalancer(string name) : TerraformReso
     }
 
     /// <summary>
+    /// The primary_configuration_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryConfigurationEndpoint
+    {
+        get => new TerraformReference<string>(this, "primary_configuration_endpoint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApplicationLoadBalancerTimeoutsBlock? Timeouts

@@ -115,6 +115,22 @@ public partial class AzurermIpGroup(string name) : TerraformResource("azurerm_ip
     }
 
     /// <summary>
+    /// The firewall_ids attribute.
+    /// </summary>
+    public TerraformList<string> FirewallIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "firewall_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The firewall_policy_ids attribute.
+    /// </summary>
+    public TerraformList<string> FirewallPolicyIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "firewall_policy_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermIpGroupTimeoutsBlock? Timeouts

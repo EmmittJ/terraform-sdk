@@ -59,6 +59,14 @@ public partial class AzurermStorageContainersDataSource(string name) : Terraform
     }
 
     /// <summary>
+    /// The containers attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Containers
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "containers").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageContainersDataSourceTimeoutsBlock? Timeouts

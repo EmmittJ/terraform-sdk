@@ -116,6 +116,46 @@ public partial class AzurermFunctionAppHybridConnection(string name) : Terraform
     }
 
     /// <summary>
+    /// The name of the Relay Namespace.
+    /// </summary>
+    public TerraformValue<string> NamespaceName
+    {
+        get => new TerraformReference<string>(this, "namespace_name");
+    }
+
+    /// <summary>
+    /// The name of the Relay in use.
+    /// </summary>
+    public TerraformValue<string> RelayName
+    {
+        get => new TerraformReference<string>(this, "relay_name");
+    }
+
+    /// <summary>
+    /// The Primary Access Key for the `send_key_name`
+    /// </summary>
+    public TerraformValue<string> SendKeyValue
+    {
+        get => new TerraformReference<string>(this, "send_key_value");
+    }
+
+    /// <summary>
+    /// The Service Bus Namespace.
+    /// </summary>
+    public TerraformValue<string> ServiceBusNamespace
+    {
+        get => new TerraformReference<string>(this, "service_bus_namespace");
+    }
+
+    /// <summary>
+    /// The suffix for the endpoint.
+    /// </summary>
+    public TerraformValue<string> ServiceBusSuffix
+    {
+        get => new TerraformReference<string>(this, "service_bus_suffix");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermFunctionAppHybridConnectionTimeoutsBlock? Timeouts

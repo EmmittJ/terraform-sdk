@@ -60,6 +60,46 @@ public partial class AzurermMobileNetworkDataSource(string name) : TerraformData
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The mobile_country_code attribute.
+    /// </summary>
+    public TerraformValue<string> MobileCountryCode
+    {
+        get => new TerraformReference<string>(this, "mobile_country_code");
+    }
+
+    /// <summary>
+    /// The mobile_network_code attribute.
+    /// </summary>
+    public TerraformValue<string> MobileNetworkCode
+    {
+        get => new TerraformReference<string>(this, "mobile_network_code");
+    }
+
+    /// <summary>
+    /// The service_key attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceKey
+    {
+        get => new TerraformReference<string>(this, "service_key");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMobileNetworkDataSourceTimeoutsBlock? Timeouts

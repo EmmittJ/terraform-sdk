@@ -116,6 +116,14 @@ public partial class AzurermSignalrSharedPrivateLinkResource(string name) : Terr
     }
 
     /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformValue<string> Status
+    {
+        get => new TerraformReference<string>(this, "status");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock? Timeouts

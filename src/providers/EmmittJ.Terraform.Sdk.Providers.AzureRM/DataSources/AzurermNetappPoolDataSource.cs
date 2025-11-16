@@ -70,6 +70,54 @@ public partial class AzurermNetappPoolDataSource(string name) : TerraformDataSou
     }
 
     /// <summary>
+    /// The cool_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> CoolAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "cool_access_enabled");
+    }
+
+    /// <summary>
+    /// The custom_throughput_mibps attribute.
+    /// </summary>
+    public TerraformValue<double> CustomThroughputMibps
+    {
+        get => new TerraformReference<double>(this, "custom_throughput_mibps");
+    }
+
+    /// <summary>
+    /// The encryption_type attribute.
+    /// </summary>
+    public TerraformValue<string> EncryptionType
+    {
+        get => new TerraformReference<string>(this, "encryption_type");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The service_level attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceLevel
+    {
+        get => new TerraformReference<string>(this, "service_level");
+    }
+
+    /// <summary>
+    /// The size_in_tb attribute.
+    /// </summary>
+    public TerraformValue<double> SizeInTb
+    {
+        get => new TerraformReference<double>(this, "size_in_tb");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetappPoolDataSourceTimeoutsBlock? Timeouts

@@ -175,6 +175,14 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     }
 
     /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
+
+    /// <summary>
     /// InboundIpRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(16, ErrorMessage = "Maximum 16 InboundIpRule block(s) allowed")]

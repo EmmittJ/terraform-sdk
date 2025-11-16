@@ -60,6 +60,46 @@ public partial class AzurermDataShareDatasetDataLakeGen2DataSource(string name) 
     }
 
     /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The file_path attribute.
+    /// </summary>
+    public TerraformValue<string> FilePath
+    {
+        get => new TerraformReference<string>(this, "file_path");
+    }
+
+    /// <summary>
+    /// The file_system_name attribute.
+    /// </summary>
+    public TerraformValue<string> FileSystemName
+    {
+        get => new TerraformReference<string>(this, "file_system_name");
+    }
+
+    /// <summary>
+    /// The folder_path attribute.
+    /// </summary>
+    public TerraformValue<string> FolderPath
+    {
+        get => new TerraformReference<string>(this, "folder_path");
+    }
+
+    /// <summary>
+    /// The storage_account_id attribute.
+    /// </summary>
+    public TerraformValue<string> StorageAccountId
+    {
+        get => new TerraformReference<string>(this, "storage_account_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock? Timeouts

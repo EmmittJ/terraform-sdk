@@ -107,6 +107,14 @@ public partial class AzurermAutomationDscNodeconfiguration(string name) : Terraf
     }
 
     /// <summary>
+    /// The configuration_name attribute.
+    /// </summary>
+    public TerraformValue<string> ConfigurationName
+    {
+        get => new TerraformReference<string>(this, "configuration_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationDscNodeconfigurationTimeoutsBlock? Timeouts

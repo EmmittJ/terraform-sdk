@@ -198,6 +198,30 @@ public partial class AzurermDnsZone(string name) : TerraformResource("azurerm_dn
     }
 
     /// <summary>
+    /// The max_number_of_record_sets attribute.
+    /// </summary>
+    public TerraformValue<double> MaxNumberOfRecordSets
+    {
+        get => new TerraformReference<double>(this, "max_number_of_record_sets");
+    }
+
+    /// <summary>
+    /// The name_servers attribute.
+    /// </summary>
+    public TerraformSet<string> NameServers
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "name_servers").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The number_of_record_sets attribute.
+    /// </summary>
+    public TerraformValue<double> NumberOfRecordSets
+    {
+        get => new TerraformReference<double>(this, "number_of_record_sets");
+    }
+
+    /// <summary>
     /// SoaRecord block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoaRecord block(s) allowed")]

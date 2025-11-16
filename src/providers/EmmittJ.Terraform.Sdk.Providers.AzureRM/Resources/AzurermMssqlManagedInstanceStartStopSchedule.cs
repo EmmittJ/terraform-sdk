@@ -148,6 +148,22 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) :
     }
 
     /// <summary>
+    /// The next_execution_time attribute.
+    /// </summary>
+    public TerraformValue<string> NextExecutionTime
+    {
+        get => new TerraformReference<string>(this, "next_execution_time");
+    }
+
+    /// <summary>
+    /// The next_run_action attribute.
+    /// </summary>
+    public TerraformValue<string> NextRunAction
+    {
+        get => new TerraformReference<string>(this, "next_run_action");
+    }
+
+    /// <summary>
     /// Schedule block (nesting mode: list).
     /// This block is required.
     /// </summary>

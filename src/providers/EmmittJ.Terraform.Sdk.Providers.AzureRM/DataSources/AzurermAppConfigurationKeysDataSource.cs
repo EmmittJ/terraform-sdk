@@ -68,6 +68,14 @@ public partial class AzurermAppConfigurationKeysDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The items attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Items
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "items").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAppConfigurationKeysDataSourceTimeoutsBlock? Timeouts

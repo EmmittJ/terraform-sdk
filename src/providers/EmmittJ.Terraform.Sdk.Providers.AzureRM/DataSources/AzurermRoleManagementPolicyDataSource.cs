@@ -60,6 +60,54 @@ public partial class AzurermRoleManagementPolicyDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The activation rules of the policy
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ActivationRules
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "activation_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The rules for active assignment of the policy
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ActiveAssignmentRules
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "active_assignment_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The Description of the policy
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The rules for eligible assignment of the policy
+    /// </summary>
+    public TerraformList<TerraformMap<object>> EligibleAssignmentRules
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "eligible_assignment_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The name of the policy
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// The notification rules of the policy
+    /// </summary>
+    public TerraformList<TerraformMap<object>> NotificationRules
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "notification_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRoleManagementPolicyDataSourceTimeoutsBlock? Timeouts

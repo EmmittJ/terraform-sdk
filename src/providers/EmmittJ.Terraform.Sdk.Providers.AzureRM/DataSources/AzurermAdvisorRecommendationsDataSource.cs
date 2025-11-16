@@ -58,6 +58,14 @@ public partial class AzurermAdvisorRecommendationsDataSource(string name) : Terr
     }
 
     /// <summary>
+    /// The recommendations attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Recommendations
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "recommendations").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAdvisorRecommendationsDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,78 @@ public partial class AzurermMonitorDataCollectionEndpointDataSource(string name)
     }
 
     /// <summary>
+    /// The configuration_access_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> ConfigurationAccessEndpoint
+    {
+        get => new TerraformReference<string>(this, "configuration_access_endpoint");
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The immutable_id attribute.
+    /// </summary>
+    public TerraformValue<string> ImmutableId
+    {
+        get => new TerraformReference<string>(this, "immutable_id");
+    }
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    public TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The logs_ingestion_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> LogsIngestionEndpoint
+    {
+        get => new TerraformReference<string>(this, "logs_ingestion_endpoint");
+    }
+
+    /// <summary>
+    /// The metrics_ingestion_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> MetricsIngestionEndpoint
+    {
+        get => new TerraformReference<string>(this, "metrics_ingestion_endpoint");
+    }
+
+    /// <summary>
+    /// The public_network_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> PublicNetworkAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMonitorDataCollectionEndpointDataSourceTimeoutsBlock? Timeouts

@@ -183,6 +183,86 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The e attribute.
+    /// </summary>
+    public TerraformValue<string> E
+    {
+        get => new TerraformReference<string>(this, "e");
+    }
+
+    /// <summary>
+    /// The n attribute.
+    /// </summary>
+    public TerraformValue<string> N
+    {
+        get => new TerraformReference<string>(this, "n");
+    }
+
+    /// <summary>
+    /// The public_key_openssh attribute.
+    /// </summary>
+    public TerraformValue<string> PublicKeyOpenssh
+    {
+        get => new TerraformReference<string>(this, "public_key_openssh");
+    }
+
+    /// <summary>
+    /// The public_key_pem attribute.
+    /// </summary>
+    public TerraformValue<string> PublicKeyPem
+    {
+        get => new TerraformReference<string>(this, "public_key_pem");
+    }
+
+    /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceId
+    {
+        get => new TerraformReference<string>(this, "resource_id");
+    }
+
+    /// <summary>
+    /// The resource_versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceVersionlessId
+    {
+        get => new TerraformReference<string>(this, "resource_versionless_id");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
+    /// The versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> VersionlessId
+    {
+        get => new TerraformReference<string>(this, "versionless_id");
+    }
+
+    /// <summary>
+    /// The x attribute.
+    /// </summary>
+    public TerraformValue<string> X
+    {
+        get => new TerraformReference<string>(this, "x");
+    }
+
+    /// <summary>
+    /// The y attribute.
+    /// </summary>
+    public TerraformValue<string> Y
+    {
+        get => new TerraformReference<string>(this, "y");
+    }
+
+    /// <summary>
     /// RotationPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationPolicy block(s) allowed")]

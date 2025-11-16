@@ -78,6 +78,14 @@ public partial class AzurermMssqlServerDnsAlias(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The dns_record attribute.
+    /// </summary>
+    public TerraformValue<string> DnsRecord
+    {
+        get => new TerraformReference<string>(this, "dns_record");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMssqlServerDnsAliasTimeoutsBlock? Timeouts

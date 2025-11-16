@@ -70,6 +70,22 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource(string name)
     }
 
     /// <summary>
+    /// The application_consistent_snapshot_frequency_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double> ApplicationConsistentSnapshotFrequencyInMinutes
+    {
+        get => new TerraformReference<double>(this, "application_consistent_snapshot_frequency_in_minutes");
+    }
+
+    /// <summary>
+    /// The recovery_point_retention_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double> RecoveryPointRetentionInMinutes
+    {
+        get => new TerraformReference<double>(this, "recovery_point_retention_in_minutes");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock? Timeouts

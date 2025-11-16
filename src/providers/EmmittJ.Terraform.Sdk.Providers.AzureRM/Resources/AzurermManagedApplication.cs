@@ -206,6 +206,14 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The outputs attribute.
+    /// </summary>
+    public TerraformMap<string> Outputs
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "outputs").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]

@@ -60,6 +60,14 @@ public partial class AzurermEventhubSasDataSource(string name) : TerraformDataSo
     }
 
     /// <summary>
+    /// The sas attribute.
+    /// </summary>
+    public TerraformValue<string> Sas
+    {
+        get => new TerraformReference<string>(this, "sas");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermEventhubSasDataSourceTimeoutsBlock? Timeouts

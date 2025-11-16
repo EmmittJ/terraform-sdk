@@ -96,6 +96,14 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     }
 
     /// <summary>
+    /// The last_output_time attribute.
+    /// </summary>
+    public TerraformValue<string> LastOutputTime
+    {
+        get => new TerraformReference<string>(this, "last_output_time");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStreamAnalyticsJobScheduleTimeoutsBlock? Timeouts

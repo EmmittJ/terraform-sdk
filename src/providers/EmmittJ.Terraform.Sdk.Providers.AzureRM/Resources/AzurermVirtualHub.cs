@@ -193,6 +193,30 @@ public partial class AzurermVirtualHub(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The default_route_table_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultRouteTableId
+    {
+        get => new TerraformReference<string>(this, "default_route_table_id");
+    }
+
+    /// <summary>
+    /// The virtual_router_asn attribute.
+    /// </summary>
+    public TerraformValue<double> VirtualRouterAsn
+    {
+        get => new TerraformReference<double>(this, "virtual_router_asn");
+    }
+
+    /// <summary>
+    /// The virtual_router_ips attribute.
+    /// </summary>
+    public TerraformList<string> VirtualRouterIps
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_router_ips").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Route block (nesting mode: set).
     /// </summary>
     public TerraformSet<AzurermVirtualHubRouteBlock>? Route

@@ -70,6 +70,38 @@ public partial class AzurermNetappVolumeGroupOracleDataSource(string name) : Ter
     }
 
     /// <summary>
+    /// The application_identifier attribute.
+    /// </summary>
+    public TerraformValue<string> ApplicationIdentifier
+    {
+        get => new TerraformReference<string>(this, "application_identifier");
+    }
+
+    /// <summary>
+    /// The group_description attribute.
+    /// </summary>
+    public TerraformValue<string> GroupDescription
+    {
+        get => new TerraformReference<string>(this, "group_description");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The volume attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Volume
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "volume").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock? Timeouts

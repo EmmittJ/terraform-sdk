@@ -263,6 +263,14 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     }
 
     /// <summary>
+    /// The panorama attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Panorama
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "panorama").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// DestinationNat block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock>? DestinationNat

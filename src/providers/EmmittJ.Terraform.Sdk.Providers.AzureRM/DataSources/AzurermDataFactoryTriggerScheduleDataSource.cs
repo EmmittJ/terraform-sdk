@@ -60,6 +60,86 @@ public partial class AzurermDataFactoryTriggerScheduleDataSource(string name) : 
     }
 
     /// <summary>
+    /// The activated attribute.
+    /// </summary>
+    public TerraformValue<bool> Activated
+    {
+        get => new TerraformReference<bool>(this, "activated");
+    }
+
+    /// <summary>
+    /// The annotations attribute.
+    /// </summary>
+    public TerraformList<string> Annotations
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The end_time attribute.
+    /// </summary>
+    public TerraformValue<string> EndTime
+    {
+        get => new TerraformReference<string>(this, "end_time");
+    }
+
+    /// <summary>
+    /// The frequency attribute.
+    /// </summary>
+    public TerraformValue<string> Frequency
+    {
+        get => new TerraformReference<string>(this, "frequency");
+    }
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    public TerraformValue<double> Interval
+    {
+        get => new TerraformReference<double>(this, "interval");
+    }
+
+    /// <summary>
+    /// The pipeline_name attribute.
+    /// </summary>
+    public TerraformValue<string> PipelineName
+    {
+        get => new TerraformReference<string>(this, "pipeline_name");
+    }
+
+    /// <summary>
+    /// The schedule attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Schedule
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "schedule").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The start_time attribute.
+    /// </summary>
+    public TerraformValue<string> StartTime
+    {
+        get => new TerraformReference<string>(this, "start_time");
+    }
+
+    /// <summary>
+    /// The time_zone attribute.
+    /// </summary>
+    public TerraformValue<string> TimeZone
+    {
+        get => new TerraformReference<string>(this, "time_zone");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock? Timeouts

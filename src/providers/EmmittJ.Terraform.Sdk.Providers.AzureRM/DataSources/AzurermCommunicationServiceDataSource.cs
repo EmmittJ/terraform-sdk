@@ -60,6 +60,70 @@ public partial class AzurermCommunicationServiceDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The data_location attribute.
+    /// </summary>
+    public TerraformValue<string> DataLocation
+    {
+        get => new TerraformReference<string>(this, "data_location");
+    }
+
+    /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformValue<string> Hostname
+    {
+        get => new TerraformReference<string>(this, "hostname");
+    }
+
+    /// <summary>
+    /// The immutable_resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> ImmutableResourceId
+    {
+        get => new TerraformReference<string>(this, "immutable_resource_id");
+    }
+
+    /// <summary>
+    /// The primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_connection_string");
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+    }
+
+    /// <summary>
+    /// The secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_connection_string");
+    }
+
+    /// <summary>
+    /// The secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryKey
+    {
+        get => new TerraformReference<string>(this, "secondary_key");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCommunicationServiceDataSourceTimeoutsBlock? Timeouts

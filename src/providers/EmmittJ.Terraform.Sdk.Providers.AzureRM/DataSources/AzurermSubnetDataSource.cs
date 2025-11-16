@@ -70,6 +70,70 @@ public partial class AzurermSubnetDataSource(string name) : TerraformDataSource(
     }
 
     /// <summary>
+    /// The address_prefix attribute.
+    /// </summary>
+    public TerraformValue<string> AddressPrefix
+    {
+        get => new TerraformReference<string>(this, "address_prefix");
+    }
+
+    /// <summary>
+    /// The address_prefixes attribute.
+    /// </summary>
+    public TerraformList<string> AddressPrefixes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The default_outbound_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> DefaultOutboundAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "default_outbound_access_enabled");
+    }
+
+    /// <summary>
+    /// The network_security_group_id attribute.
+    /// </summary>
+    public TerraformValue<string> NetworkSecurityGroupId
+    {
+        get => new TerraformReference<string>(this, "network_security_group_id");
+    }
+
+    /// <summary>
+    /// The private_endpoint_network_policies attribute.
+    /// </summary>
+    public TerraformValue<string> PrivateEndpointNetworkPolicies
+    {
+        get => new TerraformReference<string>(this, "private_endpoint_network_policies");
+    }
+
+    /// <summary>
+    /// The private_link_service_network_policies_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> PrivateLinkServiceNetworkPoliciesEnabled
+    {
+        get => new TerraformReference<bool>(this, "private_link_service_network_policies_enabled");
+    }
+
+    /// <summary>
+    /// The route_table_id attribute.
+    /// </summary>
+    public TerraformValue<string> RouteTableId
+    {
+        get => new TerraformReference<string>(this, "route_table_id");
+    }
+
+    /// <summary>
+    /// The service_endpoints attribute.
+    /// </summary>
+    public TerraformList<string> ServiceEndpoints
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_endpoints").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSubnetDataSourceTimeoutsBlock? Timeouts

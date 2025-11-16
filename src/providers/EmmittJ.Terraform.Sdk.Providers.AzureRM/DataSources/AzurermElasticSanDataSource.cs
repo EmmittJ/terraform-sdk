@@ -60,6 +60,94 @@ public partial class AzurermElasticSanDataSource(string name) : TerraformDataSou
     }
 
     /// <summary>
+    /// The base_size_in_tib attribute.
+    /// </summary>
+    public TerraformValue<double> BaseSizeInTib
+    {
+        get => new TerraformReference<double>(this, "base_size_in_tib");
+    }
+
+    /// <summary>
+    /// The extended_size_in_tib attribute.
+    /// </summary>
+    public TerraformValue<double> ExtendedSizeInTib
+    {
+        get => new TerraformReference<double>(this, "extended_size_in_tib");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Sku
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "sku").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The total_iops attribute.
+    /// </summary>
+    public TerraformValue<double> TotalIops
+    {
+        get => new TerraformReference<double>(this, "total_iops");
+    }
+
+    /// <summary>
+    /// The total_mbps attribute.
+    /// </summary>
+    public TerraformValue<double> TotalMbps
+    {
+        get => new TerraformReference<double>(this, "total_mbps");
+    }
+
+    /// <summary>
+    /// The total_size_in_tib attribute.
+    /// </summary>
+    public TerraformValue<double> TotalSizeInTib
+    {
+        get => new TerraformReference<double>(this, "total_size_in_tib");
+    }
+
+    /// <summary>
+    /// The total_volume_size_in_gib attribute.
+    /// </summary>
+    public TerraformValue<double> TotalVolumeSizeInGib
+    {
+        get => new TerraformReference<double>(this, "total_volume_size_in_gib");
+    }
+
+    /// <summary>
+    /// The volume_group_count attribute.
+    /// </summary>
+    public TerraformValue<double> VolumeGroupCount
+    {
+        get => new TerraformReference<double>(this, "volume_group_count");
+    }
+
+    /// <summary>
+    /// The zones attribute.
+    /// </summary>
+    public TerraformList<string> Zones
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermElasticSanDataSourceTimeoutsBlock? Timeouts

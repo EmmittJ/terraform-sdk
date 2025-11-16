@@ -115,6 +115,30 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     }
 
     /// <summary>
+    /// The from_sender_domain attribute.
+    /// </summary>
+    public TerraformValue<string> FromSenderDomain
+    {
+        get => new TerraformReference<string>(this, "from_sender_domain");
+    }
+
+    /// <summary>
+    /// The mail_from_sender_domain attribute.
+    /// </summary>
+    public TerraformValue<string> MailFromSenderDomain
+    {
+        get => new TerraformReference<string>(this, "mail_from_sender_domain");
+    }
+
+    /// <summary>
+    /// The verification_records attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> VerificationRecords
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "verification_records").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermEmailCommunicationServiceDomainTimeoutsBlock? Timeouts

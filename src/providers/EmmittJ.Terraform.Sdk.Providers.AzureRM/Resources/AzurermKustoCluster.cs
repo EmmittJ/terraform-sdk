@@ -438,6 +438,22 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The data_ingestion_uri attribute.
+    /// </summary>
+    public TerraformValue<string> DataIngestionUri
+    {
+        get => new TerraformReference<string>(this, "data_ingestion_uri");
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    public TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

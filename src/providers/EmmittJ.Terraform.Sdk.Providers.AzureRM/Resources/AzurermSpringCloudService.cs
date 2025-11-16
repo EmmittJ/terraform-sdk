@@ -438,6 +438,30 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The outbound_public_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> OutboundPublicIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_public_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The required_network_traffic_rules attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> RequiredNetworkTrafficRules
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "required_network_traffic_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The service_registry_id attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceRegistryId
+    {
+        get => new TerraformReference<string>(this, "service_registry_id");
+    }
+
+    /// <summary>
     /// ConfigServerGitSetting block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigServerGitSetting block(s) allowed")]

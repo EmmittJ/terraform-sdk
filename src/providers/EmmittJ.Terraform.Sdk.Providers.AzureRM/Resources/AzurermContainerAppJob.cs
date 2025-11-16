@@ -408,6 +408,22 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     }
 
     /// <summary>
+    /// The event_stream_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> EventStreamEndpoint
+    {
+        get => new TerraformReference<string>(this, "event_stream_endpoint");
+    }
+
+    /// <summary>
+    /// The outbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> OutboundIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// EventTriggerConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventTriggerConfig block(s) allowed")]

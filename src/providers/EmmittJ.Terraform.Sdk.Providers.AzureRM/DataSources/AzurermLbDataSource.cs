@@ -60,6 +60,54 @@ public partial class AzurermLbDataSource(string name) : TerraformDataSource("azu
     }
 
     /// <summary>
+    /// The frontend_ip_configuration attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> FrontendIpConfiguration
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "frontend_ip_configuration").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The private_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> PrivateIpAddress
+    {
+        get => new TerraformReference<string>(this, "private_ip_address");
+    }
+
+    /// <summary>
+    /// The private_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> PrivateIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformValue<string> Sku
+    {
+        get => new TerraformReference<string>(this, "sku");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLbDataSourceTimeoutsBlock? Timeouts

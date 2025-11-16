@@ -78,6 +78,14 @@ public partial class AzurermPostgresqlFlexibleServerBackup(string name) : Terraf
     }
 
     /// <summary>
+    /// The completed_time attribute.
+    /// </summary>
+    public TerraformValue<string> CompletedTime
+    {
+        get => new TerraformReference<string>(this, "completed_time");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPostgresqlFlexibleServerBackupTimeoutsBlock? Timeouts

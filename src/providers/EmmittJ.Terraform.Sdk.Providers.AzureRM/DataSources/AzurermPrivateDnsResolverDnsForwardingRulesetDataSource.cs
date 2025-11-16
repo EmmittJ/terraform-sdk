@@ -60,6 +60,30 @@ public partial class AzurermPrivateDnsResolverDnsForwardingRulesetDataSource(str
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The private_dns_resolver_outbound_endpoint_ids attribute.
+    /// </summary>
+    public TerraformList<string> PrivateDnsResolverOutboundEndpointIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_dns_resolver_outbound_endpoint_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateDnsResolverDnsForwardingRulesetDataSourceTimeoutsBlock? Timeouts

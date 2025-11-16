@@ -141,6 +141,14 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     }
 
     /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSecurityCenterAssessmentPolicyTimeoutsBlock? Timeouts

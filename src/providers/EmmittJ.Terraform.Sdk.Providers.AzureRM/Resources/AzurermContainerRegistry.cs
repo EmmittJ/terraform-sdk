@@ -322,6 +322,38 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The admin_password attribute.
+    /// </summary>
+    public TerraformValue<string> AdminPassword
+    {
+        get => new TerraformReference<string>(this, "admin_password");
+    }
+
+    /// <summary>
+    /// The admin_username attribute.
+    /// </summary>
+    public TerraformValue<string> AdminUsername
+    {
+        get => new TerraformReference<string>(this, "admin_username");
+    }
+
+    /// <summary>
+    /// The data_endpoint_host_names attribute.
+    /// </summary>
+    public TerraformSet<string> DataEndpointHostNames
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_endpoint_host_names").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The login_server attribute.
+    /// </summary>
+    public TerraformValue<string> LoginServer
+    {
+        get => new TerraformReference<string>(this, "login_server");
+    }
+
+    /// <summary>
     /// Georeplications block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermContainerRegistryGeoreplicationsBlock>? Georeplications

@@ -142,6 +142,14 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     }
 
     /// <summary>
+    /// The load_balancer_rules attribute.
+    /// </summary>
+    public TerraformSet<string> LoadBalancerRules
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "load_balancer_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLbProbeTimeoutsBlock? Timeouts

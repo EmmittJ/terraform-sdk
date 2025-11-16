@@ -60,6 +60,14 @@ public partial class AzurermDevCenterEnvironmentTypeDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevCenterEnvironmentTypeDataSourceTimeoutsBlock? Timeouts

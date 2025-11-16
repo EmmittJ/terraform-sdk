@@ -60,6 +60,22 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource(strin
     }
 
     /// <summary>
+    /// The metadata attribute.
+    /// </summary>
+    public TerraformMap<string> Metadata
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string> VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock? Timeouts

@@ -88,6 +88,14 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The sas_url attribute.
+    /// </summary>
+    public TerraformValue<string> SasUrl
+    {
+        get => new TerraformReference<string>(this, "sas_url");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermManagedDiskSasTokenTimeoutsBlock? Timeouts

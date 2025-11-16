@@ -50,6 +50,30 @@ public partial class AzurermResourceGroupDataSource(string name) : TerraformData
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The managed_by attribute.
+    /// </summary>
+    public TerraformValue<string> ManagedBy
+    {
+        get => new TerraformReference<string>(this, "managed_by");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermResourceGroupDataSourceTimeoutsBlock? Timeouts

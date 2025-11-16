@@ -136,6 +136,22 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// The public_data attribute.
+    /// </summary>
+    public TerraformValue<string> PublicData
+    {
+        get => new TerraformReference<string>(this, "public_data");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermBatchCertificateTimeoutsBlock? Timeouts

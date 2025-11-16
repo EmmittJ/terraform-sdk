@@ -403,6 +403,54 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The disk_encryption_set_id attribute.
+    /// </summary>
+    public TerraformValue<string> DiskEncryptionSetId
+    {
+        get => new TerraformReference<string>(this, "disk_encryption_set_id");
+    }
+
+    /// <summary>
+    /// The managed_disk_identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ManagedDiskIdentity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_disk_identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The managed_resource_group_id attribute.
+    /// </summary>
+    public TerraformValue<string> ManagedResourceGroupId
+    {
+        get => new TerraformReference<string>(this, "managed_resource_group_id");
+    }
+
+    /// <summary>
+    /// The storage_account_identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> StorageAccountIdentity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "storage_account_identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    public TerraformValue<string> WorkspaceId
+    {
+        get => new TerraformReference<string>(this, "workspace_id");
+    }
+
+    /// <summary>
+    /// The workspace_url attribute.
+    /// </summary>
+    public TerraformValue<string> WorkspaceUrl
+    {
+        get => new TerraformReference<string>(this, "workspace_url");
+    }
+
+    /// <summary>
     /// CustomParameters block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomParameters block(s) allowed")]

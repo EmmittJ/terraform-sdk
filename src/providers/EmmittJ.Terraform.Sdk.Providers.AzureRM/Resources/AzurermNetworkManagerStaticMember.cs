@@ -88,6 +88,14 @@ public partial class AzurermNetworkManagerStaticMember(string name) : TerraformR
     }
 
     /// <summary>
+    /// The region attribute.
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetworkManagerStaticMemberTimeoutsBlock? Timeouts

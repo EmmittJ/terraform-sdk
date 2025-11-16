@@ -60,6 +60,46 @@ public partial class AzurermDevCenterDevBoxDefinitionDataSource(string name) : T
     }
 
     /// <summary>
+    /// The hibernate_support_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> HibernateSupportEnabled
+    {
+        get => new TerraformReference<bool>(this, "hibernate_support_enabled");
+    }
+
+    /// <summary>
+    /// The image_reference_id attribute.
+    /// </summary>
+    public TerraformValue<string> ImageReferenceId
+    {
+        get => new TerraformReference<string>(this, "image_reference_id");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevCenterDevBoxDefinitionDataSourceTimeoutsBlock? Timeouts

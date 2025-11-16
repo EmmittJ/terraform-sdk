@@ -160,6 +160,14 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     }
 
     /// <summary>
+    /// The is_default attribute.
+    /// </summary>
+    public TerraformValue<bool> IsDefault
+    {
+        get => new TerraformReference<bool>(this, "is_default");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock? Timeouts

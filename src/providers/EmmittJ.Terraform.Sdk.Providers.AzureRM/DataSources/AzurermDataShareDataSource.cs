@@ -60,6 +60,38 @@ public partial class AzurermDataShareDataSource(string name) : TerraformDataSour
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    public TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+    }
+
+    /// <summary>
+    /// The snapshot_schedule attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SnapshotSchedule
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "snapshot_schedule").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The terms attribute.
+    /// </summary>
+    public TerraformValue<string> Terms
+    {
+        get => new TerraformReference<string>(this, "terms");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataShareDataSourceTimeoutsBlock? Timeouts

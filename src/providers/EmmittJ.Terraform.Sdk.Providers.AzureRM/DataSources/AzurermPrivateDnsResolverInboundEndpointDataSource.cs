@@ -60,6 +60,30 @@ public partial class AzurermPrivateDnsResolverInboundEndpointDataSource(string n
     }
 
     /// <summary>
+    /// The ip_configurations attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> IpConfigurations
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_configurations").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateDnsResolverInboundEndpointDataSourceTimeoutsBlock? Timeouts

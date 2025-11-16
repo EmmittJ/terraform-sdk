@@ -50,6 +50,14 @@ public partial class AzurermOracleAutonomousDatabaseBackupsDataSource(string nam
     }
 
     /// <summary>
+    /// The autonomous_database_backups attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> AutonomousDatabaseBackups
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "autonomous_database_backups").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlock? Timeouts

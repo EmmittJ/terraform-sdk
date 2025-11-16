@@ -70,6 +70,22 @@ public partial class AzurermTemplateSpecVersionDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The template_body attribute.
+    /// </summary>
+    public TerraformValue<string> TemplateBody
+    {
+        get => new TerraformReference<string>(this, "template_body");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermTemplateSpecVersionDataSourceTimeoutsBlock? Timeouts

@@ -70,6 +70,38 @@ public partial class AzurermBatchCertificateDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The format attribute.
+    /// </summary>
+    public TerraformValue<string> Format
+    {
+        get => new TerraformReference<string>(this, "format");
+    }
+
+    /// <summary>
+    /// The public_data attribute.
+    /// </summary>
+    public TerraformValue<string> PublicData
+    {
+        get => new TerraformReference<string>(this, "public_data");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+    /// <summary>
+    /// The thumbprint_algorithm attribute.
+    /// </summary>
+    public TerraformValue<string> ThumbprintAlgorithm
+    {
+        get => new TerraformReference<string>(this, "thumbprint_algorithm");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermBatchCertificateDataSourceTimeoutsBlock? Timeouts

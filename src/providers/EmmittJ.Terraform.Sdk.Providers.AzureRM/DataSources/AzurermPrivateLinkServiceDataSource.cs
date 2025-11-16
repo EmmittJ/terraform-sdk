@@ -60,6 +60,70 @@ public partial class AzurermPrivateLinkServiceDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The alias attribute.
+    /// </summary>
+    public TerraformValue<string> Alias
+    {
+        get => new TerraformReference<string>(this, "alias");
+    }
+
+    /// <summary>
+    /// The auto_approval_subscription_ids attribute.
+    /// </summary>
+    public TerraformList<string> AutoApprovalSubscriptionIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "auto_approval_subscription_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The enable_proxy_protocol attribute.
+    /// </summary>
+    public TerraformValue<bool> EnableProxyProtocol
+    {
+        get => new TerraformReference<bool>(this, "enable_proxy_protocol");
+    }
+
+    /// <summary>
+    /// The load_balancer_frontend_ip_configuration_ids attribute.
+    /// </summary>
+    public TerraformList<string> LoadBalancerFrontendIpConfigurationIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "load_balancer_frontend_ip_configuration_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The nat_ip_configuration attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> NatIpConfiguration
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "nat_ip_configuration").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The visibility_subscription_ids attribute.
+    /// </summary>
+    public TerraformList<string> VisibilitySubscriptionIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "visibility_subscription_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateLinkServiceDataSourceTimeoutsBlock? Timeouts

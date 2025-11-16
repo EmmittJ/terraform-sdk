@@ -718,6 +718,14 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The cluster_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> ClusterEndpoint
+    {
+        get => new TerraformReference<string>(this, "cluster_endpoint");
+    }
+
+    /// <summary>
     /// AzureActiveDirectory block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]

@@ -50,6 +50,14 @@ public partial class AzurermWebPubsubPrivateLinkResourceDataSource(string name) 
     }
 
     /// <summary>
+    /// The shared_private_link_resource_types attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SharedPrivateLinkResourceTypes
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "shared_private_link_resource_types").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermWebPubsubPrivateLinkResourceDataSourceTimeoutsBlock? Timeouts

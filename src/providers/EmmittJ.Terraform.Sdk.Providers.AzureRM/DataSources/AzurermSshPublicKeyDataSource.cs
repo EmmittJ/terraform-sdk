@@ -69,6 +69,14 @@ public partial class AzurermSshPublicKeyDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The public_key attribute.
+    /// </summary>
+    public TerraformValue<string> PublicKey
+    {
+        get => new TerraformReference<string>(this, "public_key");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSshPublicKeyDataSourceTimeoutsBlock? Timeouts

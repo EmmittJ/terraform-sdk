@@ -214,6 +214,22 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     }
 
     /// <summary>
+    /// The hsm_uri attribute.
+    /// </summary>
+    public TerraformValue<string> HsmUri
+    {
+        get => new TerraformReference<string>(this, "hsm_uri");
+    }
+
+    /// <summary>
+    /// The security_domain_encrypted_data attribute.
+    /// </summary>
+    public TerraformValue<string> SecurityDomainEncryptedData
+    {
+        get => new TerraformReference<string>(this, "security_domain_encrypted_data");
+    }
+
+    /// <summary>
     /// NetworkAcls block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]

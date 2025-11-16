@@ -88,6 +88,22 @@ public partial class AzurermExpressRouteCircuitAuthorization(string name) : Terr
     }
 
     /// <summary>
+    /// The authorization_key attribute.
+    /// </summary>
+    public TerraformValue<string> AuthorizationKey
+    {
+        get => new TerraformReference<string>(this, "authorization_key");
+    }
+
+    /// <summary>
+    /// The authorization_use_status attribute.
+    /// </summary>
+    public TerraformValue<string> AuthorizationUseStatus
+    {
+        get => new TerraformReference<string>(this, "authorization_use_status");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermExpressRouteCircuitAuthorizationTimeoutsBlock? Timeouts

@@ -86,6 +86,14 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The timestamp of the last successful swap with `Production`
+    /// </summary>
+    public TerraformValue<string> LastSuccessfulSwap
+    {
+        get => new TerraformReference<string>(this, "last_successful_swap");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermWebAppActiveSlotTimeoutsBlock? Timeouts

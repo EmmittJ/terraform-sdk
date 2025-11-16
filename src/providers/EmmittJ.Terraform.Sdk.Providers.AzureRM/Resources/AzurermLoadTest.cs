@@ -186,6 +186,14 @@ public partial class AzurermLoadTest(string name) : TerraformResource("azurerm_l
     }
 
     /// <summary>
+    /// The data_plane_uri attribute.
+    /// </summary>
+    public TerraformValue<string> DataPlaneUri
+    {
+        get => new TerraformReference<string>(this, "data_plane_uri");
+    }
+
+    /// <summary>
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]

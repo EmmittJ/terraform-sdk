@@ -60,6 +60,78 @@ public partial class AzurermBatchAccountDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The account_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> AccountEndpoint
+    {
+        get => new TerraformReference<string>(this, "account_endpoint");
+    }
+
+    /// <summary>
+    /// The encryption attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Encryption
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The key_vault_reference attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> KeyVaultReference
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "key_vault_reference").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The pool_allocation_mode attribute.
+    /// </summary>
+    public TerraformValue<string> PoolAllocationMode
+    {
+        get => new TerraformReference<string>(this, "pool_allocation_mode");
+    }
+
+    /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
+
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
+
+    /// <summary>
+    /// The storage_account_id attribute.
+    /// </summary>
+    public TerraformValue<string> StorageAccountId
+    {
+        get => new TerraformReference<string>(this, "storage_account_id");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermBatchAccountDataSourceTimeoutsBlock? Timeouts

@@ -399,6 +399,46 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     }
 
     /// <summary>
+    /// The deployment_id attribute.
+    /// </summary>
+    public TerraformValue<string> DeploymentId
+    {
+        get => new TerraformReference<string>(this, "deployment_id");
+    }
+
+    /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceId
+    {
+        get => new TerraformReference<string>(this, "resource_id");
+    }
+
+    /// <summary>
+    /// The sync_owner attribute.
+    /// </summary>
+    public TerraformValue<string> SyncOwner
+    {
+        get => new TerraformReference<string>(this, "sync_owner");
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<double> Version
+    {
+        get => new TerraformReference<double>(this, "version");
+    }
+
+    /// <summary>
     /// InitialReplicaSet block (nesting mode: list).
     /// This block is required.
     /// </summary>

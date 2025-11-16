@@ -60,6 +60,70 @@ public partial class AzurermEventgridSystemTopicDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The metric_arm_resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> MetricArmResourceId
+    {
+        get => new TerraformReference<string>(this, "metric_arm_resource_id");
+    }
+
+    /// <summary>
+    /// The metric_resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> MetricResourceId
+    {
+        get => new TerraformReference<string>(this, "metric_resource_id");
+    }
+
+    /// <summary>
+    /// The source_arm_resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> SourceArmResourceId
+    {
+        get => new TerraformReference<string>(this, "source_arm_resource_id");
+    }
+
+    /// <summary>
+    /// The source_resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> SourceResourceId
+    {
+        get => new TerraformReference<string>(this, "source_resource_id");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The topic_type attribute.
+    /// </summary>
+    public TerraformValue<string> TopicType
+    {
+        get => new TerraformReference<string>(this, "topic_type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermEventgridSystemTopicDataSourceTimeoutsBlock? Timeouts

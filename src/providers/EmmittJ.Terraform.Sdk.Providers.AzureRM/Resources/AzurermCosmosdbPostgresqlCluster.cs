@@ -309,6 +309,22 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     }
 
     /// <summary>
+    /// The earliest_restore_time attribute.
+    /// </summary>
+    public TerraformValue<string> EarliestRestoreTime
+    {
+        get => new TerraformReference<string>(this, "earliest_restore_time");
+    }
+
+    /// <summary>
+    /// The servers attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Servers
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "servers").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// MaintenanceWindow block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]

@@ -125,6 +125,14 @@ public partial class AzurermAutomationCertificate(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationCertificateTimeoutsBlock? Timeouts

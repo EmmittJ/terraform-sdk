@@ -186,6 +186,14 @@ public partial class AzurermCdnFrontdoorProfile(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The resource_guid attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceGuid
+    {
+        get => new TerraformReference<string>(this, "resource_guid");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

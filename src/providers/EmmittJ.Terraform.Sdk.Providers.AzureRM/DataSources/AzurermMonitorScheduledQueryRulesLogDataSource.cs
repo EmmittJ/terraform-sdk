@@ -60,6 +60,62 @@ public partial class AzurermMonitorScheduledQueryRulesLogDataSource(string name)
     }
 
     /// <summary>
+    /// The authorized_resource_ids attribute.
+    /// </summary>
+    public TerraformSet<string> AuthorizedResourceIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "authorized_resource_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The criteria attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> Criteria
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "criteria").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The data_source_id attribute.
+    /// </summary>
+    public TerraformValue<string> DataSourceId
+    {
+        get => new TerraformReference<string>(this, "data_source_id");
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMonitorScheduledQueryRulesLogDataSourceTimeoutsBlock? Timeouts

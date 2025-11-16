@@ -69,6 +69,22 @@ public partial class AzurermIothubDataSource(string name) : TerraformDataSource(
     }
 
     /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformValue<string> Hostname
+    {
+        get => new TerraformReference<string>(this, "hostname");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermIothubDataSourceTimeoutsBlock? Timeouts

@@ -87,6 +87,14 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfo(string name) 
     }
 
     /// <summary>
+    /// The token attribute.
+    /// </summary>
+    public TerraformValue<string> Token
+    {
+        get => new TerraformReference<string>(this, "token");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock? Timeouts

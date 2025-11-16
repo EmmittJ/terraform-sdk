@@ -108,6 +108,46 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     }
 
     /// <summary>
+    /// The ip attribute.
+    /// </summary>
+    public TerraformValue<string> Ip
+    {
+        get => new TerraformReference<string>(this, "ip");
+    }
+
+    /// <summary>
+    /// The last_seen_date_time attribute.
+    /// </summary>
+    public TerraformValue<string> LastSeenDateTime
+    {
+        get => new TerraformReference<string>(this, "last_seen_date_time");
+    }
+
+    /// <summary>
+    /// The registration_date_time attribute.
+    /// </summary>
+    public TerraformValue<string> RegistrationDateTime
+    {
+        get => new TerraformReference<string>(this, "registration_date_time");
+    }
+
+    /// <summary>
+    /// The worker_name attribute.
+    /// </summary>
+    public TerraformValue<string> WorkerName
+    {
+        get => new TerraformReference<string>(this, "worker_name");
+    }
+
+    /// <summary>
+    /// The worker_type attribute.
+    /// </summary>
+    public TerraformValue<string> WorkerType
+    {
+        get => new TerraformReference<string>(this, "worker_type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationHybridRunbookWorkerTimeoutsBlock? Timeouts

@@ -50,6 +50,38 @@ public partial class AzurermNginxConfigurationDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The config_file attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> ConfigFile
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "config_file").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The package_data attribute.
+    /// </summary>
+    public TerraformValue<string> PackageData
+    {
+        get => new TerraformReference<string>(this, "package_data");
+    }
+
+    /// <summary>
+    /// The protected_file attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> ProtectedFile
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "protected_file").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The root_file attribute.
+    /// </summary>
+    public TerraformValue<string> RootFile
+    {
+        get => new TerraformReference<string>(this, "root_file");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNginxConfigurationDataSourceTimeoutsBlock? Timeouts

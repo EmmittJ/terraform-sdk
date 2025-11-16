@@ -79,6 +79,54 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     }
 
     /// <summary>
+    /// The access_tier attribute.
+    /// </summary>
+    public TerraformValue<string> AccessTier
+    {
+        get => new TerraformReference<string>(this, "access_tier");
+    }
+
+    /// <summary>
+    /// The content_md5 attribute.
+    /// </summary>
+    public TerraformValue<string> ContentMd5
+    {
+        get => new TerraformReference<string>(this, "content_md5");
+    }
+
+    /// <summary>
+    /// The content_type attribute.
+    /// </summary>
+    public TerraformValue<string> ContentType
+    {
+        get => new TerraformReference<string>(this, "content_type");
+    }
+
+    /// <summary>
+    /// The encryption_scope attribute.
+    /// </summary>
+    public TerraformValue<string> EncryptionScope
+    {
+        get => new TerraformReference<string>(this, "encryption_scope");
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageBlobDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,38 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource(string name) : T
     }
 
     /// <summary>
+    /// The account_id attribute.
+    /// </summary>
+    public TerraformValue<string> AccountId
+    {
+        get => new TerraformReference<string>(this, "account_id");
+    }
+
+    /// <summary>
+    /// The admin attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Admin
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "admin").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The org_id attribute.
+    /// </summary>
+    public TerraformValue<string> OrgId
+    {
+        get => new TerraformReference<string>(this, "org_id");
+    }
+
+    /// <summary>
+    /// The provider_name attribute.
+    /// </summary>
+    public TerraformValue<string> ProviderName
+    {
+        get => new TerraformReference<string>(this, "provider_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock? Timeouts

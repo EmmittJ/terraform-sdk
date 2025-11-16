@@ -60,6 +60,54 @@ public partial class AzurermAutomationAccountDataSource(string name) : Terraform
     }
 
     /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
+
+    /// <summary>
+    /// The hybrid_service_url attribute.
+    /// </summary>
+    public TerraformValue<string> HybridServiceUrl
+    {
+        get => new TerraformReference<string>(this, "hybrid_service_url");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+    }
+
+    /// <summary>
+    /// The private_endpoint_connection attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PrivateEndpointConnection
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_endpoint_connection").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryKey
+    {
+        get => new TerraformReference<string>(this, "secondary_key");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationAccountDataSourceTimeoutsBlock? Timeouts

@@ -535,6 +535,22 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> IpAddress
+    {
+        get => new TerraformReference<string>(this, "ip_address");
+    }
+
+    /// <summary>
     /// Container block (nesting mode: list).
     /// This block is required.
     /// </summary>

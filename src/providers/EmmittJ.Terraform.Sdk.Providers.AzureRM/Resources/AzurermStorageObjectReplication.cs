@@ -146,6 +146,22 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     }
 
     /// <summary>
+    /// The destination_object_replication_id attribute.
+    /// </summary>
+    public TerraformValue<string> DestinationObjectReplicationId
+    {
+        get => new TerraformReference<string>(this, "destination_object_replication_id");
+    }
+
+    /// <summary>
+    /// The source_object_replication_id attribute.
+    /// </summary>
+    public TerraformValue<string> SourceObjectReplicationId
+    {
+        get => new TerraformReference<string>(this, "source_object_replication_id");
+    }
+
+    /// <summary>
     /// Rules block (nesting mode: set).
     /// This block is required.
     /// </summary>

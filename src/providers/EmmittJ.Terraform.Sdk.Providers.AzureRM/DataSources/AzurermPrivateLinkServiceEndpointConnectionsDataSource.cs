@@ -60,6 +60,30 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSource(stri
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The private_endpoint_connections attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PrivateEndpointConnections
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_endpoint_connections").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The service_name attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceName
+    {
+        get => new TerraformReference<string>(this, "service_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateLinkServiceEndpointConnectionsDataSourceTimeoutsBlock? Timeouts

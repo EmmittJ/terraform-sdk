@@ -153,6 +153,22 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     }
 
     /// <summary>
+    /// The address_space_prefixes attribute.
+    /// </summary>
+    public TerraformList<string> AddressSpacePrefixes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_space_prefixes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string> VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock? Timeouts

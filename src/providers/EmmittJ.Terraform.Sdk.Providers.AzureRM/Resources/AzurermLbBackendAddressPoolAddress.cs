@@ -114,6 +114,14 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     }
 
     /// <summary>
+    /// The inbound_nat_rule_port_mapping attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> InboundNatRulePortMapping
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "inbound_nat_rule_port_mapping").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLbBackendAddressPoolAddressTimeoutsBlock? Timeouts

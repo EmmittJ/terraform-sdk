@@ -96,6 +96,22 @@ public partial class AzurermSynapseIntegrationRuntimeSelfHosted(string name) : T
     }
 
     /// <summary>
+    /// The authorization_key_primary attribute.
+    /// </summary>
+    public TerraformValue<string> AuthorizationKeyPrimary
+    {
+        get => new TerraformReference<string>(this, "authorization_key_primary");
+    }
+
+    /// <summary>
+    /// The authorization_key_secondary attribute.
+    /// </summary>
+    public TerraformValue<string> AuthorizationKeySecondary
+    {
+        get => new TerraformReference<string>(this, "authorization_key_secondary");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock? Timeouts

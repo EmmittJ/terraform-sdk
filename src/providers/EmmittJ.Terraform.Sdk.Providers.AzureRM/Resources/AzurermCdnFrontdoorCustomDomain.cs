@@ -147,6 +147,22 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     }
 
     /// <summary>
+    /// The expiration_date attribute.
+    /// </summary>
+    public TerraformValue<string> ExpirationDate
+    {
+        get => new TerraformReference<string>(this, "expiration_date");
+    }
+
+    /// <summary>
+    /// The validation_token attribute.
+    /// </summary>
+    public TerraformValue<string> ValidationToken
+    {
+        get => new TerraformReference<string>(this, "validation_token");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCdnFrontdoorCustomDomainTimeoutsBlock? Timeouts

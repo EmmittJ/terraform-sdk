@@ -128,6 +128,22 @@ public partial class AzurermKustoClusterPrincipalAssignment(string name) : Terra
     }
 
     /// <summary>
+    /// The principal_name attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalName
+    {
+        get => new TerraformReference<string>(this, "principal_name");
+    }
+
+    /// <summary>
+    /// The tenant_name attribute.
+    /// </summary>
+    public TerraformValue<string> TenantName
+    {
+        get => new TerraformReference<string>(this, "tenant_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKustoClusterPrincipalAssignmentTimeoutsBlock? Timeouts

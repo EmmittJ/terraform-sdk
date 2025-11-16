@@ -67,6 +67,14 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource(string nam
     }
 
     /// <summary>
+    /// The configs attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Configs
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "configs").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock? Timeouts

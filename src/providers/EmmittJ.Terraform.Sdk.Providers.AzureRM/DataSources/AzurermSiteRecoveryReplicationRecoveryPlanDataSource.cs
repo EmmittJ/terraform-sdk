@@ -60,6 +60,46 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource(string
     }
 
     /// <summary>
+    /// The azure_to_azure_settings attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> AzureToAzureSettings
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "azure_to_azure_settings").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The failover_deployment_model attribute.
+    /// </summary>
+    public TerraformValue<string> FailoverDeploymentModel
+    {
+        get => new TerraformReference<string>(this, "failover_deployment_model");
+    }
+
+    /// <summary>
+    /// The recovery_group attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> RecoveryGroup
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "recovery_group").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The source_recovery_fabric_id attribute.
+    /// </summary>
+    public TerraformValue<string> SourceRecoveryFabricId
+    {
+        get => new TerraformReference<string>(this, "source_recovery_fabric_id");
+    }
+
+    /// <summary>
+    /// The target_recovery_fabric_id attribute.
+    /// </summary>
+    public TerraformValue<string> TargetRecoveryFabricId
+    {
+        get => new TerraformReference<string>(this, "target_recovery_fabric_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock? Timeouts

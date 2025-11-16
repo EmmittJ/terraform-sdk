@@ -70,6 +70,54 @@ public partial class AzurermBlueprintPublishedVersionDataSource(string name) : T
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The last_modified attribute.
+    /// </summary>
+    public TerraformValue<string> LastModified
+    {
+        get => new TerraformReference<string>(this, "last_modified");
+    }
+
+    /// <summary>
+    /// The target_scope attribute.
+    /// </summary>
+    public TerraformValue<string> TargetScope
+    {
+        get => new TerraformReference<string>(this, "target_scope");
+    }
+
+    /// <summary>
+    /// The time_created attribute.
+    /// </summary>
+    public TerraformValue<string> TimeCreated
+    {
+        get => new TerraformReference<string>(this, "time_created");
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock? Timeouts

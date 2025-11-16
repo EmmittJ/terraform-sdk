@@ -209,6 +209,14 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     }
 
     /// <summary>
+    /// The sql_filter_compatibility_level attribute.
+    /// </summary>
+    public TerraformValue<double> SqlFilterCompatibilityLevel
+    {
+        get => new TerraformReference<double>(this, "sql_filter_compatibility_level");
+    }
+
+    /// <summary>
     /// CorrelationFilter block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorrelationFilter block(s) allowed")]

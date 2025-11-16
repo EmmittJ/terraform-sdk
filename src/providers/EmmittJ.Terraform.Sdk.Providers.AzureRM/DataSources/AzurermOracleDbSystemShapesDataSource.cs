@@ -59,6 +59,14 @@ public partial class AzurermOracleDbSystemShapesDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The db_system_shapes attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> DbSystemShapes
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_system_shapes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermOracleDbSystemShapesDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,54 @@ public partial class AzurermMonitorWorkspaceDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The default_data_collection_endpoint_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultDataCollectionEndpointId
+    {
+        get => new TerraformReference<string>(this, "default_data_collection_endpoint_id");
+    }
+
+    /// <summary>
+    /// The default_data_collection_rule_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultDataCollectionRuleId
+    {
+        get => new TerraformReference<string>(this, "default_data_collection_rule_id");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The public_network_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> PublicNetworkAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+    }
+
+    /// <summary>
+    /// The query_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> QueryEndpoint
+    {
+        get => new TerraformReference<string>(this, "query_endpoint");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMonitorWorkspaceDataSourceTimeoutsBlock? Timeouts

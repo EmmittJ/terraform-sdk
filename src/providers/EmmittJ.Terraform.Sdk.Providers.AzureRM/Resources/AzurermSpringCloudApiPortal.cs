@@ -181,6 +181,14 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+    }
+
+    /// <summary>
     /// Sso block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]

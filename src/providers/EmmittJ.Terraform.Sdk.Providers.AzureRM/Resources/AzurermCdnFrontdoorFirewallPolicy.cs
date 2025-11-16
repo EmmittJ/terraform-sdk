@@ -323,6 +323,14 @@ public partial class AzurermCdnFrontdoorFirewallPolicy(string name) : TerraformR
     }
 
     /// <summary>
+    /// The frontend_endpoint_ids attribute.
+    /// </summary>
+    public TerraformList<string> FrontendEndpointIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "frontend_endpoint_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// CustomRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]

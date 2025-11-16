@@ -70,6 +70,62 @@ public partial class AzurermHealthcareServiceDataSource(string name) : Terraform
     }
 
     /// <summary>
+    /// The access_policy_object_ids attribute.
+    /// </summary>
+    public TerraformSet<string> AccessPolicyObjectIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "access_policy_object_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The authentication_configuration attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> AuthenticationConfiguration
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authentication_configuration").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The cors_configuration attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CorsConfiguration
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cors_configuration").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The cosmosdb_key_vault_key_versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> CosmosdbKeyVaultKeyVersionlessId
+    {
+        get => new TerraformReference<string>(this, "cosmosdb_key_vault_key_versionless_id");
+    }
+
+    /// <summary>
+    /// The cosmosdb_throughput attribute.
+    /// </summary>
+    public TerraformValue<double> CosmosdbThroughput
+    {
+        get => new TerraformReference<double>(this, "cosmosdb_throughput");
+    }
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    public TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermHealthcareServiceDataSourceTimeoutsBlock? Timeouts

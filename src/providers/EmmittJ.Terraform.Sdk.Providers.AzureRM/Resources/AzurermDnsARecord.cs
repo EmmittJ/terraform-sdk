@@ -134,6 +134,14 @@ public partial class AzurermDnsARecord(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDnsARecordTimeoutsBlock? Timeouts

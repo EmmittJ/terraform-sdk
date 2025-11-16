@@ -69,6 +69,38 @@ public partial class AzurermMapsAccountDataSource(string name) : TerraformDataSo
     }
 
     /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
+
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
+    /// The x_ms_client_id attribute.
+    /// </summary>
+    public TerraformValue<string> XMsClientId
+    {
+        get => new TerraformReference<string>(this, "x_ms_client_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMapsAccountDataSourceTimeoutsBlock? Timeouts

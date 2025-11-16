@@ -214,6 +214,14 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The connection_strings attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ConnectionStrings
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connection_strings").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMongoClusterTimeoutsBlock? Timeouts

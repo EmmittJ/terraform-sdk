@@ -80,6 +80,14 @@ public partial class AzurermEventhubConsumerGroupDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The user_metadata attribute.
+    /// </summary>
+    public TerraformValue<string> UserMetadata
+    {
+        get => new TerraformReference<string>(this, "user_metadata");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermEventhubConsumerGroupDataSourceTimeoutsBlock? Timeouts

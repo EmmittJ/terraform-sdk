@@ -70,6 +70,38 @@ public partial class AzurermKustoDatabaseDataSource(string name) : TerraformData
     }
 
     /// <summary>
+    /// The hot_cache_period attribute.
+    /// </summary>
+    public TerraformValue<string> HotCachePeriod
+    {
+        get => new TerraformReference<string>(this, "hot_cache_period");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The size attribute.
+    /// </summary>
+    public TerraformValue<double> Size
+    {
+        get => new TerraformReference<double>(this, "size");
+    }
+
+    /// <summary>
+    /// The soft_delete_period attribute.
+    /// </summary>
+    public TerraformValue<string> SoftDeletePeriod
+    {
+        get => new TerraformReference<string>(this, "soft_delete_period");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKustoDatabaseDataSourceTimeoutsBlock? Timeouts

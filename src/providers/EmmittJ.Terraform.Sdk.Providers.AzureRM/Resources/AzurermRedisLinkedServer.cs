@@ -108,6 +108,22 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The geo_replicated_primary_host_name attribute.
+    /// </summary>
+    public TerraformValue<string> GeoReplicatedPrimaryHostName
+    {
+        get => new TerraformReference<string>(this, "geo_replicated_primary_host_name");
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRedisLinkedServerTimeoutsBlock? Timeouts

@@ -160,6 +160,14 @@ public partial class AzurermPublicIpPrefix(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The ip_prefix attribute.
+    /// </summary>
+    public TerraformValue<string> IpPrefix
+    {
+        get => new TerraformReference<string>(this, "ip_prefix");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPublicIpPrefixTimeoutsBlock? Timeouts

@@ -159,6 +159,14 @@ public partial class AzurermDnsCaaRecord(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
     /// Record block (nesting mode: set).
     /// This block is required.
     /// </summary>

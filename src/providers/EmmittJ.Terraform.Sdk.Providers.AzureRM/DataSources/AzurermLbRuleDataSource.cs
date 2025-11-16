@@ -60,6 +60,112 @@ public partial class AzurermLbRuleDataSource(string name) : TerraformDataSource(
     }
 
     /// <summary>
+    /// The backend_address_pool_id attribute.
+    /// </summary>
+    public TerraformValue<string> BackendAddressPoolId
+    {
+        get => new TerraformReference<string>(this, "backend_address_pool_id");
+    }
+
+    /// <summary>
+    /// The backend_port attribute.
+    /// </summary>
+    public TerraformValue<double> BackendPort
+    {
+        get => new TerraformReference<double>(this, "backend_port");
+    }
+
+    /// <summary>
+    /// The disable_outbound_snat attribute.
+    /// </summary>
+    public TerraformValue<bool> DisableOutboundSnat
+    {
+        get => new TerraformReference<bool>(this, "disable_outbound_snat");
+    }
+
+    /// <summary>
+    /// The enable_floating_ip attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<bool> EnableFloatingIp
+    {
+        get => new TerraformReference<bool>(this, "enable_floating_ip");
+    }
+
+    /// <summary>
+    /// The enable_tcp_reset attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<bool> EnableTcpReset
+    {
+        get => new TerraformReference<bool>(this, "enable_tcp_reset");
+    }
+
+    /// <summary>
+    /// The floating_ip_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> FloatingIpEnabled
+    {
+        get => new TerraformReference<bool>(this, "floating_ip_enabled");
+    }
+
+    /// <summary>
+    /// The frontend_ip_configuration_name attribute.
+    /// </summary>
+    public TerraformValue<string> FrontendIpConfigurationName
+    {
+        get => new TerraformReference<string>(this, "frontend_ip_configuration_name");
+    }
+
+    /// <summary>
+    /// The frontend_port attribute.
+    /// </summary>
+    public TerraformValue<double> FrontendPort
+    {
+        get => new TerraformReference<double>(this, "frontend_port");
+    }
+
+    /// <summary>
+    /// The idle_timeout_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double> IdleTimeoutInMinutes
+    {
+        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
+    }
+
+    /// <summary>
+    /// The load_distribution attribute.
+    /// </summary>
+    public TerraformValue<string> LoadDistribution
+    {
+        get => new TerraformReference<string>(this, "load_distribution");
+    }
+
+    /// <summary>
+    /// The probe_id attribute.
+    /// </summary>
+    public TerraformValue<string> ProbeId
+    {
+        get => new TerraformReference<string>(this, "probe_id");
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    public TerraformValue<string> Protocol
+    {
+        get => new TerraformReference<string>(this, "protocol");
+    }
+
+    /// <summary>
+    /// The tcp_reset_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> TcpResetEnabled
+    {
+        get => new TerraformReference<bool>(this, "tcp_reset_enabled");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLbRuleDataSourceTimeoutsBlock? Timeouts

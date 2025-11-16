@@ -288,6 +288,14 @@ public partial class AzurermManagedRedis(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformValue<string> Hostname
+    {
+        get => new TerraformReference<string>(this, "hostname");
+    }
+
+    /// <summary>
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]

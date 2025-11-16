@@ -182,6 +182,22 @@ public partial class AzurermStaticSite(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The api_key attribute.
+    /// </summary>
+    public TerraformValue<string> ApiKey
+    {
+        get => new TerraformReference<string>(this, "api_key");
+    }
+
+    /// <summary>
+    /// The default_host_name attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultHostName
+    {
+        get => new TerraformReference<string>(this, "default_host_name");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

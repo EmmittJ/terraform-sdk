@@ -60,6 +60,14 @@ public partial class AzurermNetworkManagerNetworkGroupDataSource(string name) : 
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetworkManagerNetworkGroupDataSourceTimeoutsBlock? Timeouts

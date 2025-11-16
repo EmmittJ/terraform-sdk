@@ -60,6 +60,22 @@ public partial class AzurermApiManagementGatewayDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The location_data attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> LocationData
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "location_data").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementGatewayDataSourceTimeoutsBlock? Timeouts

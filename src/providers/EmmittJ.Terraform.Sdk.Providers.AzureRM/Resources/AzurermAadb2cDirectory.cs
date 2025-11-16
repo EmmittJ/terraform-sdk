@@ -134,6 +134,30 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     }
 
     /// <summary>
+    /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
+    /// </summary>
+    public TerraformValue<string> BillingType
+    {
+        get => new TerraformReference<string>(this, "billing_type");
+    }
+
+    /// <summary>
+    /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
+    /// </summary>
+    public TerraformValue<string> EffectiveStartDate
+    {
+        get => new TerraformReference<string>(this, "effective_start_date");
+    }
+
+    /// <summary>
+    /// The Tenant ID for the B2C tenant.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAadb2cDirectoryTimeoutsBlock? Timeouts

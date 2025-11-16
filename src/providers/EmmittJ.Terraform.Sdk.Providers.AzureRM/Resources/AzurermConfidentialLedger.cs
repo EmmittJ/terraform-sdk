@@ -192,6 +192,22 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The identity_service_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> IdentityServiceEndpoint
+    {
+        get => new TerraformReference<string>(this, "identity_service_endpoint");
+    }
+
+    /// <summary>
+    /// The ledger_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> LedgerEndpoint
+    {
+        get => new TerraformReference<string>(this, "ledger_endpoint");
+    }
+
+    /// <summary>
     /// AzureadBasedServicePrincipal block (nesting mode: list).
     /// This block is required.
     /// </summary>

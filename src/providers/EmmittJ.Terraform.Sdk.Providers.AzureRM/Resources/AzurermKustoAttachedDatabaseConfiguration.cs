@@ -212,6 +212,14 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     }
 
     /// <summary>
+    /// The attached_database_names attribute.
+    /// </summary>
+    public TerraformList<string> AttachedDatabaseNames
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "attached_database_names").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Sharing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]

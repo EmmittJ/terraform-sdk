@@ -70,6 +70,30 @@ public partial class AzurermAutomationVariableIntDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The encrypted attribute.
+    /// </summary>
+    public TerraformValue<bool> Encrypted
+    {
+        get => new TerraformReference<bool>(this, "encrypted");
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformValue<double> Value
+    {
+        get => new TerraformReference<double>(this, "value");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationVariableIntDataSourceTimeoutsBlock? Timeouts

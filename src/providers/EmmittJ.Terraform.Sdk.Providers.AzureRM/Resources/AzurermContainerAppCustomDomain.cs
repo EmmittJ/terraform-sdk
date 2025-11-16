@@ -96,6 +96,14 @@ public partial class AzurermContainerAppCustomDomain(string name) : TerraformRes
     }
 
     /// <summary>
+    /// The container_app_environment_managed_certificate_id attribute.
+    /// </summary>
+    public TerraformValue<string> ContainerAppEnvironmentManagedCertificateId
+    {
+        get => new TerraformReference<string>(this, "container_app_environment_managed_certificate_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermContainerAppCustomDomainTimeoutsBlock? Timeouts

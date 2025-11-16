@@ -60,6 +60,22 @@ public partial class AzurermEventhubClusterDataSource(string name) : TerraformDa
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermEventhubClusterDataSourceTimeoutsBlock? Timeouts

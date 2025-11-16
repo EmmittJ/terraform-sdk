@@ -17,9 +17,9 @@ namespace {{Namespace}};
 {{/IsDeprecated}}
 public partial class {{ClassName}}(string name) : TerraformResource("{{{TerraformType}}}", name)
 {
-{{#Arguments}}
+{{#AllArguments}}
 {{>_argument}}
-{{/Arguments}}
+{{/AllArguments}}
 {{#BlockTypes}}
 {{>_blockproperty}}
 {{/BlockTypes}}

@@ -50,6 +50,14 @@ public partial class AzurermDataFactoryTriggerSchedulesDataSource(string name) :
     }
 
     /// <summary>
+    /// The items attribute.
+    /// </summary>
+    public TerraformList<string> Items
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "items").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataFactoryTriggerSchedulesDataSourceTimeoutsBlock? Timeouts

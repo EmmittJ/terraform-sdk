@@ -466,6 +466,70 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     }
 
     /// <summary>
+    /// The event_hub_events_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> EventHubEventsEndpoint
+    {
+        get => new TerraformReference<string>(this, "event_hub_events_endpoint");
+    }
+
+    /// <summary>
+    /// The event_hub_events_namespace attribute.
+    /// </summary>
+    public TerraformValue<string> EventHubEventsNamespace
+    {
+        get => new TerraformReference<string>(this, "event_hub_events_namespace");
+    }
+
+    /// <summary>
+    /// The event_hub_events_path attribute.
+    /// </summary>
+    public TerraformValue<string> EventHubEventsPath
+    {
+        get => new TerraformReference<string>(this, "event_hub_events_path");
+    }
+
+    /// <summary>
+    /// The event_hub_operations_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> EventHubOperationsEndpoint
+    {
+        get => new TerraformReference<string>(this, "event_hub_operations_endpoint");
+    }
+
+    /// <summary>
+    /// The event_hub_operations_path attribute.
+    /// </summary>
+    public TerraformValue<string> EventHubOperationsPath
+    {
+        get => new TerraformReference<string>(this, "event_hub_operations_path");
+    }
+
+    /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformValue<string> Hostname
+    {
+        get => new TerraformReference<string>(this, "hostname");
+    }
+
+    /// <summary>
+    /// The shared_access_policy attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SharedAccessPolicy
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "shared_access_policy").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
     /// CloudToDevice block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudToDevice block(s) allowed")]

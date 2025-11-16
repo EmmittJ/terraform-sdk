@@ -151,6 +151,22 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The attestation_uri attribute.
+    /// </summary>
+    public TerraformValue<string> AttestationUri
+    {
+        get => new TerraformReference<string>(this, "attestation_uri");
+    }
+
+    /// <summary>
+    /// The trust_model attribute.
+    /// </summary>
+    public TerraformValue<string> TrustModel
+    {
+        get => new TerraformReference<string>(this, "trust_model");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAttestationProviderTimeoutsBlock? Timeouts

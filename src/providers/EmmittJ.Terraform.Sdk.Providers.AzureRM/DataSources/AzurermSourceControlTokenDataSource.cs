@@ -50,6 +50,22 @@ public partial class AzurermSourceControlTokenDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The token attribute.
+    /// </summary>
+    public TerraformValue<string> Token
+    {
+        get => new TerraformReference<string>(this, "token");
+    }
+
+    /// <summary>
+    /// The token_secret attribute.
+    /// </summary>
+    public TerraformValue<string> TokenSecret
+    {
+        get => new TerraformReference<string>(this, "token_secret");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSourceControlTokenDataSourceTimeoutsBlock? Timeouts

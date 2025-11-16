@@ -60,6 +60,62 @@ public partial class AzurermDevCenterNetworkConnectionDataSource(string name) : 
     }
 
     /// <summary>
+    /// The domain_join_type attribute.
+    /// </summary>
+    public TerraformValue<string> DomainJoinType
+    {
+        get => new TerraformReference<string>(this, "domain_join_type");
+    }
+
+    /// <summary>
+    /// The domain_name attribute.
+    /// </summary>
+    public TerraformValue<string> DomainName
+    {
+        get => new TerraformReference<string>(this, "domain_name");
+    }
+
+    /// <summary>
+    /// The domain_username attribute.
+    /// </summary>
+    public TerraformValue<string> DomainUsername
+    {
+        get => new TerraformReference<string>(this, "domain_username");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The organization_unit attribute.
+    /// </summary>
+    public TerraformValue<string> OrganizationUnit
+    {
+        get => new TerraformReference<string>(this, "organization_unit");
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string> SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevCenterNetworkConnectionDataSourceTimeoutsBlock? Timeouts

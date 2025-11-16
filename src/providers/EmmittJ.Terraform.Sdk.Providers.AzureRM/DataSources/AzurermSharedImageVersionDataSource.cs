@@ -98,6 +98,54 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The exclude_from_latest attribute.
+    /// </summary>
+    public TerraformValue<bool> ExcludeFromLatest
+    {
+        get => new TerraformReference<bool>(this, "exclude_from_latest");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The managed_image_id attribute.
+    /// </summary>
+    public TerraformValue<string> ManagedImageId
+    {
+        get => new TerraformReference<string>(this, "managed_image_id");
+    }
+
+    /// <summary>
+    /// The os_disk_image_size_gb attribute.
+    /// </summary>
+    public TerraformValue<double> OsDiskImageSizeGb
+    {
+        get => new TerraformReference<double>(this, "os_disk_image_size_gb");
+    }
+
+    /// <summary>
+    /// The os_disk_snapshot_id attribute.
+    /// </summary>
+    public TerraformValue<string> OsDiskSnapshotId
+    {
+        get => new TerraformReference<string>(this, "os_disk_snapshot_id");
+    }
+
+    /// <summary>
+    /// The target_region attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> TargetRegion
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "target_region").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSharedImageVersionDataSourceTimeoutsBlock? Timeouts

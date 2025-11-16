@@ -115,6 +115,14 @@ public partial class AzurermSpringCloudCertificate(string name) : TerraformResou
     }
 
     /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSpringCloudCertificateTimeoutsBlock? Timeouts

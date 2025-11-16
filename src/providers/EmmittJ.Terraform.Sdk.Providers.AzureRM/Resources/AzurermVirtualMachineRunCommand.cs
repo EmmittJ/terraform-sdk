@@ -310,6 +310,14 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     }
 
     /// <summary>
+    /// The instance_view attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> InstanceView
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_view").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// ErrorBlobManagedIdentity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorBlobManagedIdentity block(s) allowed")]

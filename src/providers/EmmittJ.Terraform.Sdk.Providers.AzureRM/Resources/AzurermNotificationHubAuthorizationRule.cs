@@ -134,6 +134,38 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     }
 
     /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
+
+    /// <summary>
+    /// The primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_connection_string");
+    }
+
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
+
+    /// <summary>
+    /// The secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_connection_string");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNotificationHubAuthorizationRuleTimeoutsBlock? Timeouts

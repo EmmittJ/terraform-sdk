@@ -60,6 +60,86 @@ public partial class AzurermServicebusNamespaceDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The capacity attribute.
+    /// </summary>
+    public TerraformValue<double> Capacity
+    {
+        get => new TerraformReference<double>(this, "capacity");
+    }
+
+    /// <summary>
+    /// The default_primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "default_primary_connection_string");
+    }
+
+    /// <summary>
+    /// The default_primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPrimaryKey
+    {
+        get => new TerraformReference<string>(this, "default_primary_key");
+    }
+
+    /// <summary>
+    /// The default_secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "default_secondary_connection_string");
+    }
+
+    /// <summary>
+    /// The default_secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSecondaryKey
+    {
+        get => new TerraformReference<string>(this, "default_secondary_key");
+    }
+
+    /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The premium_messaging_partitions attribute.
+    /// </summary>
+    public TerraformValue<double> PremiumMessagingPartitions
+    {
+        get => new TerraformReference<double>(this, "premium_messaging_partitions");
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformValue<string> Sku
+    {
+        get => new TerraformReference<string>(this, "sku");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermServicebusNamespaceDataSourceTimeoutsBlock? Timeouts

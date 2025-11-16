@@ -70,6 +70,38 @@ public partial class AzurermDatabaseMigrationProjectDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The source_platform attribute.
+    /// </summary>
+    public TerraformValue<string> SourcePlatform
+    {
+        get => new TerraformReference<string>(this, "source_platform");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The target_platform attribute.
+    /// </summary>
+    public TerraformValue<string> TargetPlatform
+    {
+        get => new TerraformReference<string>(this, "target_platform");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock? Timeouts

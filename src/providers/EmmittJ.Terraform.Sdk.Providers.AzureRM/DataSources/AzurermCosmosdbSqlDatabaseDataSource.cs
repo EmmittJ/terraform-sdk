@@ -70,6 +70,22 @@ public partial class AzurermCosmosdbSqlDatabaseDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The autoscale_settings attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> AutoscaleSettings
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "autoscale_settings").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The throughput attribute.
+    /// </summary>
+    public TerraformValue<double> Throughput
+    {
+        get => new TerraformReference<double>(this, "throughput");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCosmosdbSqlDatabaseDataSourceTimeoutsBlock? Timeouts

@@ -314,6 +314,22 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The fully_qualified_domain_name attribute.
+    /// </summary>
+    public TerraformValue<string> FullyQualifiedDomainName
+    {
+        get => new TerraformReference<string>(this, "fully_qualified_domain_name");
+    }
+
+    /// <summary>
+    /// The restorable_dropped_database_ids attribute.
+    /// </summary>
+    public TerraformList<string> RestorableDroppedDatabaseIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "restorable_dropped_database_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AzureadAdministrator block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureadAdministrator block(s) allowed")]

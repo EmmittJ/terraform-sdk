@@ -297,6 +297,22 @@ public partial class AzurermDevTestWindowsVirtualMachine(string name) : Terrafor
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The unique_identifier attribute.
+    /// </summary>
+    public TerraformValue<string> UniqueIdentifier
+    {
+        get => new TerraformReference<string>(this, "unique_identifier");
+    }
+
+    /// <summary>
     /// GalleryImageReference block (nesting mode: list).
     /// This block is required.
     /// </summary>

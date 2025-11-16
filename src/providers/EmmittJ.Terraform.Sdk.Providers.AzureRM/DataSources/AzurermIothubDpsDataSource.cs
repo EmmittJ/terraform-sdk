@@ -69,6 +69,46 @@ public partial class AzurermIothubDpsDataSource(string name) : TerraformDataSour
     }
 
     /// <summary>
+    /// The allocation_policy attribute.
+    /// </summary>
+    public TerraformValue<string> AllocationPolicy
+    {
+        get => new TerraformReference<string>(this, "allocation_policy");
+    }
+
+    /// <summary>
+    /// The device_provisioning_host_name attribute.
+    /// </summary>
+    public TerraformValue<string> DeviceProvisioningHostName
+    {
+        get => new TerraformReference<string>(this, "device_provisioning_host_name");
+    }
+
+    /// <summary>
+    /// The id_scope attribute.
+    /// </summary>
+    public TerraformValue<string> IdScope
+    {
+        get => new TerraformReference<string>(this, "id_scope");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The service_operations_host_name attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceOperationsHostName
+    {
+        get => new TerraformReference<string>(this, "service_operations_host_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermIothubDpsDataSourceTimeoutsBlock? Timeouts

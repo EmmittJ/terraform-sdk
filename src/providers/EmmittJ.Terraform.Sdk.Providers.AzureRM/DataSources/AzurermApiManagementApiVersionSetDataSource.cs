@@ -70,6 +70,46 @@ public partial class AzurermApiManagementApiVersionSetDataSource(string name) : 
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The version_header_name attribute.
+    /// </summary>
+    public TerraformValue<string> VersionHeaderName
+    {
+        get => new TerraformReference<string>(this, "version_header_name");
+    }
+
+    /// <summary>
+    /// The version_query_name attribute.
+    /// </summary>
+    public TerraformValue<string> VersionQueryName
+    {
+        get => new TerraformReference<string>(this, "version_query_name");
+    }
+
+    /// <summary>
+    /// The versioning_scheme attribute.
+    /// </summary>
+    public TerraformValue<string> VersioningScheme
+    {
+        get => new TerraformReference<string>(this, "versioning_scheme");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementApiVersionSetDataSourceTimeoutsBlock? Timeouts

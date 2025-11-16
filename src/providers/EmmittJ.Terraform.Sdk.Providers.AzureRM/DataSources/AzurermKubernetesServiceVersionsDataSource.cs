@@ -68,6 +68,30 @@ public partial class AzurermKubernetesServiceVersionsDataSource(string name) : T
     }
 
     /// <summary>
+    /// The default_version attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultVersion
+    {
+        get => new TerraformReference<string>(this, "default_version");
+    }
+
+    /// <summary>
+    /// The latest_version attribute.
+    /// </summary>
+    public TerraformValue<string> LatestVersion
+    {
+        get => new TerraformReference<string>(this, "latest_version");
+    }
+
+    /// <summary>
+    /// The versions attribute.
+    /// </summary>
+    public TerraformList<string> Versions
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "versions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock? Timeouts

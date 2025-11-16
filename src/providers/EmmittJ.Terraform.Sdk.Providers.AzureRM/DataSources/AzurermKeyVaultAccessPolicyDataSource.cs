@@ -50,6 +50,30 @@ public partial class AzurermKeyVaultAccessPolicyDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The certificate_permissions attribute.
+    /// </summary>
+    public TerraformList<string> CertificatePermissions
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate_permissions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The key_permissions attribute.
+    /// </summary>
+    public TerraformList<string> KeyPermissions
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "key_permissions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The secret_permissions attribute.
+    /// </summary>
+    public TerraformList<string> SecretPermissions
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "secret_permissions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultAccessPolicyDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,54 @@ public partial class AzurermDevCenterProjectEnvironmentTypeDataSource(string nam
     }
 
     /// <summary>
+    /// The creator_role_assignment_roles attribute.
+    /// </summary>
+    public TerraformSet<string> CreatorRoleAssignmentRoles
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "creator_role_assignment_roles").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The deployment_target_id attribute.
+    /// </summary>
+    public TerraformValue<string> DeploymentTargetId
+    {
+        get => new TerraformReference<string>(this, "deployment_target_id");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The user_role_assignment attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> UserRoleAssignment
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "user_role_assignment").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock? Timeouts

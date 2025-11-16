@@ -70,6 +70,38 @@ public partial class AzurermCosmosdbSqlRoleDefinitionDataSource(string name) : T
     }
 
     /// <summary>
+    /// The assignable_scopes attribute.
+    /// </summary>
+    public TerraformSet<string> AssignableScopes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "assignable_scopes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> Permissions
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "permissions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCosmosdbSqlRoleDefinitionDataSourceTimeoutsBlock? Timeouts

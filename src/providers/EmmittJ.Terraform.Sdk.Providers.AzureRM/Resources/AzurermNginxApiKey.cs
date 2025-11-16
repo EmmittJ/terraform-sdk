@@ -107,6 +107,14 @@ public partial class AzurermNginxApiKey(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The hint attribute.
+    /// </summary>
+    public TerraformValue<string> Hint
+    {
+        get => new TerraformReference<string>(this, "hint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNginxApiKeyTimeoutsBlock? Timeouts

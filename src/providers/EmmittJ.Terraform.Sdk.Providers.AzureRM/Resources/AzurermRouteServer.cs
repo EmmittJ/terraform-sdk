@@ -154,6 +154,30 @@ public partial class AzurermRouteServer(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The routing_state attribute.
+    /// </summary>
+    public TerraformValue<string> RoutingState
+    {
+        get => new TerraformReference<string>(this, "routing_state");
+    }
+
+    /// <summary>
+    /// The virtual_router_asn attribute.
+    /// </summary>
+    public TerraformValue<double> VirtualRouterAsn
+    {
+        get => new TerraformReference<double>(this, "virtual_router_asn");
+    }
+
+    /// <summary>
+    /// The virtual_router_ips attribute.
+    /// </summary>
+    public TerraformSet<string> VirtualRouterIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "virtual_router_ips").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRouteServerTimeoutsBlock? Timeouts

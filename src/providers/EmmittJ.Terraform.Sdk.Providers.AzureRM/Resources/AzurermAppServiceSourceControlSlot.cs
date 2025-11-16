@@ -152,6 +152,22 @@ public partial class AzurermAppServiceSourceControlSlot(string name) : Terraform
     }
 
     /// <summary>
+    /// The SCM Type in use. This value is decoded by the service from the repository information supplied.
+    /// </summary>
+    public TerraformValue<string> ScmType
+    {
+        get => new TerraformReference<string>(this, "scm_type");
+    }
+
+    /// <summary>
+    /// Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
+    /// </summary>
+    public TerraformValue<bool> UsesGithubAction
+    {
+        get => new TerraformReference<bool>(this, "uses_github_action");
+    }
+
+    /// <summary>
     /// GithubActionConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubActionConfiguration block(s) allowed")]

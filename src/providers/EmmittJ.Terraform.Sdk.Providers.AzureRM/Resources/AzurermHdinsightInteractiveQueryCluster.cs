@@ -623,6 +623,22 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     }
 
     /// <summary>
+    /// The https_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> HttpsEndpoint
+    {
+        get => new TerraformReference<string>(this, "https_endpoint");
+    }
+
+    /// <summary>
+    /// The ssh_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> SshEndpoint
+    {
+        get => new TerraformReference<string>(this, "ssh_endpoint");
+    }
+
+    /// <summary>
     /// ComponentVersion block (nesting mode: list).
     /// This block is required.
     /// </summary>

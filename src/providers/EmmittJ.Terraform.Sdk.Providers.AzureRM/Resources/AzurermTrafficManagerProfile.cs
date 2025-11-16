@@ -244,6 +244,14 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
     /// DnsConfig block (nesting mode: list).
     /// This block is required.
     /// </summary>

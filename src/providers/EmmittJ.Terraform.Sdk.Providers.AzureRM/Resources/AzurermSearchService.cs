@@ -254,6 +254,38 @@ public partial class AzurermSearchService(string name) : TerraformResource("azur
     }
 
     /// <summary>
+    /// The customer_managed_key_encryption_compliance_status attribute.
+    /// </summary>
+    public TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus
+    {
+        get => new TerraformReference<string>(this, "customer_managed_key_encryption_compliance_status");
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+    }
+
+    /// <summary>
+    /// The query_keys attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> QueryKeys
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "query_keys").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryKey
+    {
+        get => new TerraformReference<string>(this, "secondary_key");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

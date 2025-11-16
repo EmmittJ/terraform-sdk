@@ -60,6 +60,46 @@ public partial class AzurermUserAssignedIdentityDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    public TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermUserAssignedIdentityDataSourceTimeoutsBlock? Timeouts

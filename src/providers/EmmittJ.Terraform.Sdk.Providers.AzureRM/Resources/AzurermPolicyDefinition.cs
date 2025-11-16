@@ -152,6 +152,14 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The role_definition_ids attribute.
+    /// </summary>
+    public TerraformList<string> RoleDefinitionIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "role_definition_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPolicyDefinitionTimeoutsBlock? Timeouts

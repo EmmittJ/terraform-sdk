@@ -458,6 +458,14 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     }
 
     /// <summary>
+    /// The console_url attribute.
+    /// </summary>
+    public TerraformValue<string> ConsoleUrl
+    {
+        get => new TerraformReference<string>(this, "console_url");
+    }
+
+    /// <summary>
     /// ApiServerProfile block (nesting mode: list).
     /// This block is required.
     /// </summary>

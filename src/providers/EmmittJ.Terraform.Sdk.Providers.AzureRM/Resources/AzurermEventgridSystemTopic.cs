@@ -183,6 +183,22 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The metric_arm_resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> MetricArmResourceId
+    {
+        get => new TerraformReference<string>(this, "metric_arm_resource_id");
+    }
+
+    /// <summary>
+    /// The metric_resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> MetricResourceId
+    {
+        get => new TerraformReference<string>(this, "metric_resource_id");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

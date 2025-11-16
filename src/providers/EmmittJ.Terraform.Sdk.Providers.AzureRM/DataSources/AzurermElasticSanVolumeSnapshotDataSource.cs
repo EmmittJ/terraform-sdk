@@ -60,6 +60,30 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The source_id attribute.
+    /// </summary>
+    public TerraformValue<string> SourceId
+    {
+        get => new TerraformReference<string>(this, "source_id");
+    }
+
+    /// <summary>
+    /// The source_volume_size_in_gib attribute.
+    /// </summary>
+    public TerraformValue<double> SourceVolumeSizeInGib
+    {
+        get => new TerraformReference<double>(this, "source_volume_size_in_gib");
+    }
+
+    /// <summary>
+    /// The volume_name attribute.
+    /// </summary>
+    public TerraformValue<string> VolumeName
+    {
+        get => new TerraformReference<string>(this, "volume_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock? Timeouts

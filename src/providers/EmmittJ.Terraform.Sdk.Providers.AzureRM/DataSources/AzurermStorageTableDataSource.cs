@@ -51,6 +51,30 @@ public partial class AzurermStorageTableDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The acl attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> Acl
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "acl").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageTableDataSourceTimeoutsBlock? Timeouts

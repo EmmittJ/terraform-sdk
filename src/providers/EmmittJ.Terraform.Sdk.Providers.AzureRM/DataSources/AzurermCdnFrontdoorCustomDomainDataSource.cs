@@ -70,6 +70,54 @@ public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The cdn_frontdoor_profile_id attribute.
+    /// </summary>
+    public TerraformValue<string> CdnFrontdoorProfileId
+    {
+        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
+    }
+
+    /// <summary>
+    /// The dns_zone_id attribute.
+    /// </summary>
+    public TerraformValue<string> DnsZoneId
+    {
+        get => new TerraformReference<string>(this, "dns_zone_id");
+    }
+
+    /// <summary>
+    /// The expiration_date attribute.
+    /// </summary>
+    public TerraformValue<string> ExpirationDate
+    {
+        get => new TerraformReference<string>(this, "expiration_date");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    public TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+    }
+
+    /// <summary>
+    /// The tls attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Tls
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "tls").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The validation_token attribute.
+    /// </summary>
+    public TerraformValue<string> ValidationToken
+    {
+        get => new TerraformReference<string>(this, "validation_token");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock? Timeouts

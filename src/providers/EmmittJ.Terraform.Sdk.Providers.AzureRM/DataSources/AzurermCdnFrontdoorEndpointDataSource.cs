@@ -70,6 +70,30 @@ public partial class AzurermCdnFrontdoorEndpointDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    public TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCdnFrontdoorEndpointDataSourceTimeoutsBlock? Timeouts

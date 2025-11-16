@@ -115,6 +115,14 @@ public partial class AzurermStorageSync(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The registered_servers attribute.
+    /// </summary>
+    public TerraformList<string> RegisteredServers
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "registered_servers").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageSyncTimeoutsBlock? Timeouts

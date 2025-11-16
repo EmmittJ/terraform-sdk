@@ -70,6 +70,38 @@ public partial class AzurermPrivateDnsAaaaRecordDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The records attribute.
+    /// </summary>
+    public TerraformSet<string> Records
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "records").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ttl attribute.
+    /// </summary>
+    public TerraformValue<double> Ttl
+    {
+        get => new TerraformReference<double>(this, "ttl");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateDnsAaaaRecordDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,46 @@ public partial class AzurermDiskEncryptionSetDataSource(string name) : Terraform
     }
 
     /// <summary>
+    /// The auto_key_rotation_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> AutoKeyRotationEnabled
+    {
+        get => new TerraformReference<bool>(this, "auto_key_rotation_enabled");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The key_vault_key_url attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultKeyUrl
+    {
+        get => new TerraformReference<string>(this, "key_vault_key_url");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDiskEncryptionSetDataSourceTimeoutsBlock? Timeouts

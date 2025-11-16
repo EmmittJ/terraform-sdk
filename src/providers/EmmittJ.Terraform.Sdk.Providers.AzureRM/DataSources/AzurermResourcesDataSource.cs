@@ -76,6 +76,14 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     }
 
     /// <summary>
+    /// The resources attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Resources
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resources").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermResourcesDataSourceTimeoutsBlock? Timeouts

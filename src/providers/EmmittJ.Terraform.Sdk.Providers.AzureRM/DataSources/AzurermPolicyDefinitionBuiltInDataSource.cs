@@ -67,6 +67,70 @@ public partial class AzurermPolicyDefinitionBuiltInDataSource(string name) : Ter
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The metadata attribute.
+    /// </summary>
+    public TerraformValue<string> Metadata
+    {
+        get => new TerraformReference<string>(this, "metadata");
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    public TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string> Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+    }
+
+    /// <summary>
+    /// The policy_rule attribute.
+    /// </summary>
+    public TerraformValue<string> PolicyRule
+    {
+        get => new TerraformReference<string>(this, "policy_rule");
+    }
+
+    /// <summary>
+    /// The policy_type attribute.
+    /// </summary>
+    public TerraformValue<string> PolicyType
+    {
+        get => new TerraformReference<string>(this, "policy_type");
+    }
+
+    /// <summary>
+    /// The role_definition_ids attribute.
+    /// </summary>
+    public TerraformList<string> RoleDefinitionIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "role_definition_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPolicyDefinitionBuiltInDataSourceTimeoutsBlock? Timeouts

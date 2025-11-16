@@ -96,6 +96,14 @@ public partial class AzurermApplicationInsightsApiKey(string name) : TerraformRe
     }
 
     /// <summary>
+    /// The api_key attribute.
+    /// </summary>
+    public TerraformValue<string> ApiKey
+    {
+        get => new TerraformReference<string>(this, "api_key");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApplicationInsightsApiKeyTimeoutsBlock? Timeouts

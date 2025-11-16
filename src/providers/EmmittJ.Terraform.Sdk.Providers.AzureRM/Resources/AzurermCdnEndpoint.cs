@@ -337,6 +337,14 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
     /// DeliveryRule block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermCdnEndpointDeliveryRuleBlock>? DeliveryRule

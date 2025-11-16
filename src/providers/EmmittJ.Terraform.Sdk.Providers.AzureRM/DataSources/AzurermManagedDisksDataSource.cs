@@ -50,6 +50,14 @@ public partial class AzurermManagedDisksDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The disk attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Disk
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "disk").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermManagedDisksDataSourceTimeoutsBlock? Timeouts

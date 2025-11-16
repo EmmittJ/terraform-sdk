@@ -60,6 +60,54 @@ public partial class AzurermCdnFrontdoorProfileDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The log_scrubbing_rule attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> LogScrubbingRule
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "log_scrubbing_rule").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The resource_guid attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceGuid
+    {
+        get => new TerraformReference<string>(this, "resource_guid");
+    }
+
+    /// <summary>
+    /// The response_timeout_seconds attribute.
+    /// </summary>
+    public TerraformValue<double> ResponseTimeoutSeconds
+    {
+        get => new TerraformReference<double>(this, "response_timeout_seconds");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCdnFrontdoorProfileDataSourceTimeoutsBlock? Timeouts

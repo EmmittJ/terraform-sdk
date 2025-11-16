@@ -105,6 +105,14 @@ public partial class AzurermCdnFrontdoorEndpoint(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    public TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCdnFrontdoorEndpointTimeoutsBlock? Timeouts

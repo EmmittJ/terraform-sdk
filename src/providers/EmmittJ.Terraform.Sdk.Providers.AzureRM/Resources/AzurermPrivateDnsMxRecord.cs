@@ -148,6 +148,14 @@ public partial class AzurermPrivateDnsMxRecord(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
     /// Record block (nesting mode: set).
     /// This block is required.
     /// </summary>

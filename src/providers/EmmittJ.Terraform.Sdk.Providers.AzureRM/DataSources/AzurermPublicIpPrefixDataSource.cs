@@ -60,6 +60,62 @@ public partial class AzurermPublicIpPrefixDataSource(string name) : TerraformDat
     }
 
     /// <summary>
+    /// The ip_prefix attribute.
+    /// </summary>
+    public TerraformValue<string> IpPrefix
+    {
+        get => new TerraformReference<string>(this, "ip_prefix");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The prefix_length attribute.
+    /// </summary>
+    public TerraformValue<double> PrefixLength
+    {
+        get => new TerraformReference<double>(this, "prefix_length");
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformValue<string> Sku
+    {
+        get => new TerraformReference<string>(this, "sku");
+    }
+
+    /// <summary>
+    /// The sku_tier attribute.
+    /// </summary>
+    public TerraformValue<string> SkuTier
+    {
+        get => new TerraformReference<string>(this, "sku_tier");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The zones attribute.
+    /// </summary>
+    public TerraformList<string> Zones
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPublicIpPrefixDataSourceTimeoutsBlock? Timeouts

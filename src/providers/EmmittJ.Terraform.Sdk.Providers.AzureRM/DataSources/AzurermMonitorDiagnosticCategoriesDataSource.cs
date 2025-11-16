@@ -50,6 +50,30 @@ public partial class AzurermMonitorDiagnosticCategoriesDataSource(string name) :
     }
 
     /// <summary>
+    /// The log_category_groups attribute.
+    /// </summary>
+    public TerraformSet<string> LogCategoryGroups
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "log_category_groups").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The log_category_types attribute.
+    /// </summary>
+    public TerraformSet<string> LogCategoryTypes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "log_category_types").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The metrics attribute.
+    /// </summary>
+    public TerraformSet<string> Metrics
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "metrics").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock? Timeouts

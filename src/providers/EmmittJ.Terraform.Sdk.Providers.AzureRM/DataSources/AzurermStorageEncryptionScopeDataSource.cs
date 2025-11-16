@@ -60,6 +60,22 @@ public partial class AzurermStorageEncryptionScopeDataSource(string name) : Terr
     }
 
     /// <summary>
+    /// The key_vault_key_id attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultKeyId
+    {
+        get => new TerraformReference<string>(this, "key_vault_key_id");
+    }
+
+    /// <summary>
+    /// The source attribute.
+    /// </summary>
+    public TerraformValue<string> Source
+    {
+        get => new TerraformReference<string>(this, "source");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageEncryptionScopeDataSourceTimeoutsBlock? Timeouts

@@ -126,6 +126,14 @@ public partial class AzurermKeyVaultManagedStorageAccountSasTokenDefinition(stri
     }
 
     /// <summary>
+    /// The secret_id attribute.
+    /// </summary>
+    public TerraformValue<string> SecretId
+    {
+        get => new TerraformReference<string>(this, "secret_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultManagedStorageAccountSasTokenDefinitionTimeoutsBlock? Timeouts

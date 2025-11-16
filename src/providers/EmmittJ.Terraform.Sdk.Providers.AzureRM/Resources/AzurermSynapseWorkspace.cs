@@ -456,6 +456,14 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The connectivity_endpoints attribute.
+    /// </summary>
+    public TerraformMap<string> ConnectivityEndpoints
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "connectivity_endpoints").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AzureDevopsRepo block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureDevopsRepo block(s) allowed")]

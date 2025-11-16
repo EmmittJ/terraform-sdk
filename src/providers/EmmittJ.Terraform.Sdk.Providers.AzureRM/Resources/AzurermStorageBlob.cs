@@ -206,6 +206,14 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageBlobTimeoutsBlock? Timeouts

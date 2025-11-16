@@ -152,6 +152,14 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     }
 
     /// <summary>
+    /// The versioned_id attribute.
+    /// </summary>
+    public TerraformValue<string> VersionedId
+    {
+        get => new TerraformReference<string>(this, "versioned_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock? Timeouts

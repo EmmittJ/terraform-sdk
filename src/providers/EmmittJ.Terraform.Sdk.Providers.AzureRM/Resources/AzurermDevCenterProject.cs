@@ -182,6 +182,14 @@ public partial class AzurermDevCenterProject(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The dev_center_uri attribute.
+    /// </summary>
+    public TerraformValue<string> DevCenterUri
+    {
+        get => new TerraformReference<string>(this, "dev_center_uri");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

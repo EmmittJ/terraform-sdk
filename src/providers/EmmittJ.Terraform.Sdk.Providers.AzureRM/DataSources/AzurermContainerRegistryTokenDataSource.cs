@@ -70,6 +70,22 @@ public partial class AzurermContainerRegistryTokenDataSource(string name) : Terr
     }
 
     /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+    }
+
+    /// <summary>
+    /// The scope_map_id attribute.
+    /// </summary>
+    public TerraformValue<string> ScopeMapId
+    {
+        get => new TerraformReference<string>(this, "scope_map_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermContainerRegistryTokenDataSourceTimeoutsBlock? Timeouts

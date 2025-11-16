@@ -116,6 +116,14 @@ public partial class AzurermDataShareDatasetDataLakeGen2(string name) : Terrafor
     }
 
     /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataShareDatasetDataLakeGen2TimeoutsBlock? Timeouts

@@ -437,6 +437,22 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     }
 
     /// <summary>
+    /// The error_code attribute.
+    /// </summary>
+    public TerraformValue<string> ErrorCode
+    {
+        get => new TerraformReference<string>(this, "error_code");
+    }
+
+    /// <summary>
+    /// The error_message attribute.
+    /// </summary>
+    public TerraformValue<string> ErrorMessage
+    {
+        get => new TerraformReference<string>(this, "error_message");
+    }
+
+    /// <summary>
     /// Linux block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Linux block(s) allowed")]

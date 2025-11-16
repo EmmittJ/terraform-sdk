@@ -60,6 +60,46 @@ public partial class AzurermDataShareDatasetBlobStorageDataSource(string name) :
     }
 
     /// <summary>
+    /// The container_name attribute.
+    /// </summary>
+    public TerraformValue<string> ContainerName
+    {
+        get => new TerraformReference<string>(this, "container_name");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The file_path attribute.
+    /// </summary>
+    public TerraformValue<string> FilePath
+    {
+        get => new TerraformReference<string>(this, "file_path");
+    }
+
+    /// <summary>
+    /// The folder_path attribute.
+    /// </summary>
+    public TerraformValue<string> FolderPath
+    {
+        get => new TerraformReference<string>(this, "folder_path");
+    }
+
+    /// <summary>
+    /// The storage_account attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> StorageAccount
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "storage_account").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock? Timeouts

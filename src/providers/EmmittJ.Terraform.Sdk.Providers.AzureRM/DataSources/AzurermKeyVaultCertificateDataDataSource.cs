@@ -69,6 +69,62 @@ public partial class AzurermKeyVaultCertificateDataDataSource(string name) : Ter
     }
 
     /// <summary>
+    /// The certificates_count attribute.
+    /// </summary>
+    public TerraformValue<double> CertificatesCount
+    {
+        get => new TerraformReference<double>(this, "certificates_count");
+    }
+
+    /// <summary>
+    /// The expires attribute.
+    /// </summary>
+    public TerraformValue<string> Expires
+    {
+        get => new TerraformReference<string>(this, "expires");
+    }
+
+    /// <summary>
+    /// The hex attribute.
+    /// </summary>
+    public TerraformValue<string> Hex
+    {
+        get => new TerraformReference<string>(this, "hex");
+    }
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    public TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+    }
+
+    /// <summary>
+    /// The not_before attribute.
+    /// </summary>
+    public TerraformValue<string> NotBefore
+    {
+        get => new TerraformReference<string>(this, "not_before");
+    }
+
+    /// <summary>
+    /// The pem attribute.
+    /// </summary>
+    public TerraformValue<string> Pem
+    {
+        get => new TerraformReference<string>(this, "pem");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock? Timeouts

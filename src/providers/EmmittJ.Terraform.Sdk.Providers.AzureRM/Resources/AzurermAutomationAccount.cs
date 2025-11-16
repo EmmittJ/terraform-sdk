@@ -224,6 +224,46 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The dsc_primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> DscPrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "dsc_primary_access_key");
+    }
+
+    /// <summary>
+    /// The dsc_secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> DscSecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "dsc_secondary_access_key");
+    }
+
+    /// <summary>
+    /// The dsc_server_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> DscServerEndpoint
+    {
+        get => new TerraformReference<string>(this, "dsc_server_endpoint");
+    }
+
+    /// <summary>
+    /// The hybrid_service_url attribute.
+    /// </summary>
+    public TerraformValue<string> HybridServiceUrl
+    {
+        get => new TerraformReference<string>(this, "hybrid_service_url");
+    }
+
+    /// <summary>
+    /// The private_endpoint_connection attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PrivateEndpointConnection
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_endpoint_connection").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Encryption block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermAutomationAccountEncryptionBlock>? Encryption

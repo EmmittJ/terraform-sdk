@@ -50,6 +50,14 @@ public partial class AzurermExtendedLocationsDataSource(string name) : Terraform
     }
 
     /// <summary>
+    /// The extended_locations attribute.
+    /// </summary>
+    public TerraformList<string> ExtendedLocations
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "extended_locations").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermExtendedLocationsDataSourceTimeoutsBlock? Timeouts

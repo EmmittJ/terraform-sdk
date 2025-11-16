@@ -60,6 +60,54 @@ public partial class AzurermNetworkManagerDataSource(string name) : TerraformDat
     }
 
     /// <summary>
+    /// The cross_tenant_scopes attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CrossTenantScopes
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cross_tenant_scopes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Scope
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scope").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The scope_accesses attribute.
+    /// </summary>
+    public TerraformList<string> ScopeAccesses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scope_accesses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetworkManagerDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,126 @@ public partial class AzurermKeyVaultKeyDataSource(string name) : TerraformDataSo
     }
 
     /// <summary>
+    /// The curve attribute.
+    /// </summary>
+    public TerraformValue<string> Curve
+    {
+        get => new TerraformReference<string>(this, "curve");
+    }
+
+    /// <summary>
+    /// The e attribute.
+    /// </summary>
+    public TerraformValue<string> E
+    {
+        get => new TerraformReference<string>(this, "e");
+    }
+
+    /// <summary>
+    /// The key_opts attribute.
+    /// </summary>
+    public TerraformList<string> KeyOpts
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "key_opts").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The key_size attribute.
+    /// </summary>
+    public TerraformValue<double> KeySize
+    {
+        get => new TerraformReference<double>(this, "key_size");
+    }
+
+    /// <summary>
+    /// The key_type attribute.
+    /// </summary>
+    public TerraformValue<string> KeyType
+    {
+        get => new TerraformReference<string>(this, "key_type");
+    }
+
+    /// <summary>
+    /// The n attribute.
+    /// </summary>
+    public TerraformValue<string> N
+    {
+        get => new TerraformReference<string>(this, "n");
+    }
+
+    /// <summary>
+    /// The public_key_openssh attribute.
+    /// </summary>
+    public TerraformValue<string> PublicKeyOpenssh
+    {
+        get => new TerraformReference<string>(this, "public_key_openssh");
+    }
+
+    /// <summary>
+    /// The public_key_pem attribute.
+    /// </summary>
+    public TerraformValue<string> PublicKeyPem
+    {
+        get => new TerraformReference<string>(this, "public_key_pem");
+    }
+
+    /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceId
+    {
+        get => new TerraformReference<string>(this, "resource_id");
+    }
+
+    /// <summary>
+    /// The resource_versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceVersionlessId
+    {
+        get => new TerraformReference<string>(this, "resource_versionless_id");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
+    /// The versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> VersionlessId
+    {
+        get => new TerraformReference<string>(this, "versionless_id");
+    }
+
+    /// <summary>
+    /// The x attribute.
+    /// </summary>
+    public TerraformValue<string> X
+    {
+        get => new TerraformReference<string>(this, "x");
+    }
+
+    /// <summary>
+    /// The y attribute.
+    /// </summary>
+    public TerraformValue<string> Y
+    {
+        get => new TerraformReference<string>(this, "y");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultKeyDataSourceTimeoutsBlock? Timeouts

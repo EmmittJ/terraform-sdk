@@ -60,6 +60,70 @@ public partial class AzurermDynatraceMonitorDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The environment_properties attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> EnvironmentProperties
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "environment_properties").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The marketplace_subscription attribute.
+    /// </summary>
+    public TerraformValue<string> MarketplaceSubscription
+    {
+        get => new TerraformReference<string>(this, "marketplace_subscription");
+    }
+
+    /// <summary>
+    /// The monitoring_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> MonitoringEnabled
+    {
+        get => new TerraformReference<bool>(this, "monitoring_enabled");
+    }
+
+    /// <summary>
+    /// The plan attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Plan
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "plan").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The user attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> User
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "user").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDynatraceMonitorDataSourceTimeoutsBlock? Timeouts

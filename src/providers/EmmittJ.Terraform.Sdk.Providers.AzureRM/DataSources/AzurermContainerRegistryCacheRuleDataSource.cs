@@ -60,6 +60,30 @@ public partial class AzurermContainerRegistryCacheRuleDataSource(string name) : 
     }
 
     /// <summary>
+    /// The credential_set_id attribute.
+    /// </summary>
+    public TerraformValue<string> CredentialSetId
+    {
+        get => new TerraformReference<string>(this, "credential_set_id");
+    }
+
+    /// <summary>
+    /// The source_repo attribute.
+    /// </summary>
+    public TerraformValue<string> SourceRepo
+    {
+        get => new TerraformReference<string>(this, "source_repo");
+    }
+
+    /// <summary>
+    /// The target_repo attribute.
+    /// </summary>
+    public TerraformValue<string> TargetRepo
+    {
+        get => new TerraformReference<string>(this, "target_repo");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock? Timeouts

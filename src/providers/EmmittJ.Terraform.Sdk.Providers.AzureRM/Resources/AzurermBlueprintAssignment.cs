@@ -200,6 +200,38 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The blueprint_name attribute.
+    /// </summary>
+    public TerraformValue<string> BlueprintName
+    {
+        get => new TerraformReference<string>(this, "blueprint_name");
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// This block is required.
     /// </summary>

@@ -70,6 +70,14 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The entity attribute.
+    /// </summary>
+    public TerraformMap<string> Entity
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "entity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageTableEntityDataSourceTimeoutsBlock? Timeouts

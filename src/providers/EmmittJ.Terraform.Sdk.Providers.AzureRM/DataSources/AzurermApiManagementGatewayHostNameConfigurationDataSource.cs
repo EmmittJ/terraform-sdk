@@ -70,6 +70,54 @@ public partial class AzurermApiManagementGatewayHostNameConfigurationDataSource(
     }
 
     /// <summary>
+    /// The certificate_id attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateId
+    {
+        get => new TerraformReference<string>(this, "certificate_id");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    public TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+    }
+
+    /// <summary>
+    /// The http2_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Http2Enabled
+    {
+        get => new TerraformReference<bool>(this, "http2_enabled");
+    }
+
+    /// <summary>
+    /// The request_client_certificate_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> RequestClientCertificateEnabled
+    {
+        get => new TerraformReference<bool>(this, "request_client_certificate_enabled");
+    }
+
+    /// <summary>
+    /// The tls10_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Tls10Enabled
+    {
+        get => new TerraformReference<bool>(this, "tls10_enabled");
+    }
+
+    /// <summary>
+    /// The tls11_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Tls11Enabled
+    {
+        get => new TerraformReference<bool>(this, "tls11_enabled");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementGatewayHostNameConfigurationDataSourceTimeoutsBlock? Timeouts

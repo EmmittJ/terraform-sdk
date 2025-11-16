@@ -141,6 +141,86 @@ public partial class AzurermKeyVaultCertificate(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The certificate_attribute attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CertificateAttribute
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificate_attribute").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The certificate_data attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateData
+    {
+        get => new TerraformReference<string>(this, "certificate_data");
+    }
+
+    /// <summary>
+    /// The certificate_data_base64 attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateDataBase64
+    {
+        get => new TerraformReference<string>(this, "certificate_data_base64");
+    }
+
+    /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
+    /// The resource_manager_versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceManagerVersionlessId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_versionless_id");
+    }
+
+    /// <summary>
+    /// The secret_id attribute.
+    /// </summary>
+    public TerraformValue<string> SecretId
+    {
+        get => new TerraformReference<string>(this, "secret_id");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
+    /// The versionless_id attribute.
+    /// </summary>
+    public TerraformValue<string> VersionlessId
+    {
+        get => new TerraformReference<string>(this, "versionless_id");
+    }
+
+    /// <summary>
+    /// The versionless_secret_id attribute.
+    /// </summary>
+    public TerraformValue<string> VersionlessSecretId
+    {
+        get => new TerraformReference<string>(this, "versionless_secret_id");
+    }
+
+    /// <summary>
     /// Certificate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]

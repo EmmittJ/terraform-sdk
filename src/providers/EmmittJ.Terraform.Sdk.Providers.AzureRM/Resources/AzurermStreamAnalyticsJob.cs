@@ -304,6 +304,14 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The job_id attribute.
+    /// </summary>
+    public TerraformValue<string> JobId
+    {
+        get => new TerraformReference<string>(this, "job_id");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

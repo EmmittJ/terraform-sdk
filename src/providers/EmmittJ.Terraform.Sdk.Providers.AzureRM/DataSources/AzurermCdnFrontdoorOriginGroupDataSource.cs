@@ -70,6 +70,46 @@ public partial class AzurermCdnFrontdoorOriginGroupDataSource(string name) : Ter
     }
 
     /// <summary>
+    /// The cdn_frontdoor_profile_id attribute.
+    /// </summary>
+    public TerraformValue<string> CdnFrontdoorProfileId
+    {
+        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
+    }
+
+    /// <summary>
+    /// The health_probe attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> HealthProbe
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "health_probe").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The load_balancing attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> LoadBalancing
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "load_balancing").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The restore_traffic_time_to_healed_or_new_endpoint_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double> RestoreTrafficTimeToHealedOrNewEndpointInMinutes
+    {
+        get => new TerraformReference<double>(this, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
+    }
+
+    /// <summary>
+    /// The session_affinity_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> SessionAffinityEnabled
+    {
+        get => new TerraformReference<bool>(this, "session_affinity_enabled");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCdnFrontdoorOriginGroupDataSourceTimeoutsBlock? Timeouts

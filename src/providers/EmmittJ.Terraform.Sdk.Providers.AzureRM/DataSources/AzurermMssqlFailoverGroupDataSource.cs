@@ -60,6 +60,46 @@ public partial class AzurermMssqlFailoverGroupDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The databases attribute.
+    /// </summary>
+    public TerraformSet<string> Databases
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "databases").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The partner_server attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PartnerServer
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "partner_server").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The read_write_endpoint_failover_policy attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ReadWriteEndpointFailoverPolicy
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "read_write_endpoint_failover_policy").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The readonly_endpoint_failover_policy_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled
+    {
+        get => new TerraformReference<bool>(this, "readonly_endpoint_failover_policy_enabled");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMssqlFailoverGroupDataSourceTimeoutsBlock? Timeouts

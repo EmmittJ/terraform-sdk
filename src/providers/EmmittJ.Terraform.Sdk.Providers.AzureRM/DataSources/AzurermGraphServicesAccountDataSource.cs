@@ -60,6 +60,30 @@ public partial class AzurermGraphServicesAccountDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The application_id attribute.
+    /// </summary>
+    public TerraformValue<string> ApplicationId
+    {
+        get => new TerraformReference<string>(this, "application_id");
+    }
+
+    /// <summary>
+    /// The billing_plan_id attribute.
+    /// </summary>
+    public TerraformValue<string> BillingPlanId
+    {
+        get => new TerraformReference<string>(this, "billing_plan_id");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermGraphServicesAccountDataSourceTimeoutsBlock? Timeouts

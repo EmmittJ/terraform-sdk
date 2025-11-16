@@ -117,6 +117,22 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The title attribute.
+    /// </summary>
+    public TerraformValue<string> Title
+    {
+        get => new TerraformReference<string>(this, "title");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementEmailTemplateTimeoutsBlock? Timeouts

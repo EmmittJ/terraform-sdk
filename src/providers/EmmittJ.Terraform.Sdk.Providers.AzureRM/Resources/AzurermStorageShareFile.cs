@@ -150,6 +150,14 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The content_length attribute.
+    /// </summary>
+    public TerraformValue<double> ContentLength
+    {
+        get => new TerraformReference<double>(this, "content_length");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageShareFileTimeoutsBlock? Timeouts

@@ -60,6 +60,54 @@ public partial class AzurermAadb2cDirectoryDataSource(string name) : TerraformDa
     }
 
     /// <summary>
+    /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
+    /// </summary>
+    public TerraformValue<string> BillingType
+    {
+        get => new TerraformReference<string>(this, "billing_type");
+    }
+
+    /// <summary>
+    /// Location in which the B2C tenant is hosted and data resides.
+    /// </summary>
+    public TerraformValue<string> DataResidencyLocation
+    {
+        get => new TerraformReference<string>(this, "data_residency_location");
+    }
+
+    /// <summary>
+    /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
+    /// </summary>
+    public TerraformValue<string> EffectiveStartDate
+    {
+        get => new TerraformReference<string>(this, "effective_start_date");
+    }
+
+    /// <summary>
+    /// Billing SKU for the B2C tenant.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The Tenant ID for the B2C tenant.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAadb2cDirectoryDataSourceTimeoutsBlock? Timeouts

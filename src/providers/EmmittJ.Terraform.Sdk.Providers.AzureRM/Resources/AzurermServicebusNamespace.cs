@@ -300,6 +300,46 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The default_primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "default_primary_connection_string");
+    }
+
+    /// <summary>
+    /// The default_primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPrimaryKey
+    {
+        get => new TerraformReference<string>(this, "default_primary_key");
+    }
+
+    /// <summary>
+    /// The default_secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "default_secondary_connection_string");
+    }
+
+    /// <summary>
+    /// The default_secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSecondaryKey
+    {
+        get => new TerraformReference<string>(this, "default_secondary_key");
+    }
+
+    /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
+
+    /// <summary>
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]

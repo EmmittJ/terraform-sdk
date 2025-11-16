@@ -163,6 +163,14 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The role_definition_resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> RoleDefinitionResourceId
+    {
+        get => new TerraformReference<string>(this, "role_definition_resource_id");
+    }
+
+    /// <summary>
     /// Permissions block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermRoleDefinitionPermissionsBlock>? Permissions

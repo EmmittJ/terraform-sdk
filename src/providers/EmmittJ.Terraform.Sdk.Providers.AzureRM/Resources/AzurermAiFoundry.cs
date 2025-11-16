@@ -301,6 +301,22 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     }
 
     /// <summary>
+    /// The discovery_url attribute.
+    /// </summary>
+    public TerraformValue<string> DiscoveryUrl
+    {
+        get => new TerraformReference<string>(this, "discovery_url");
+    }
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    public TerraformValue<string> WorkspaceId
+    {
+        get => new TerraformReference<string>(this, "workspace_id");
+    }
+
+    /// <summary>
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]

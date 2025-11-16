@@ -190,6 +190,14 @@ public partial class AzurermArcKubernetesClusterExtension(string name) : Terrafo
     }
 
     /// <summary>
+    /// The current_version attribute.
+    /// </summary>
+    public TerraformValue<string> CurrentVersion
+    {
+        get => new TerraformReference<string>(this, "current_version");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// This block is required.
     /// </summary>

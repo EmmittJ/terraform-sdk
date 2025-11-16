@@ -230,6 +230,46 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The access_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> AccessEndpoint
+    {
+        get => new TerraformReference<string>(this, "access_endpoint");
+    }
+
+    /// <summary>
+    /// The connector_endpoint_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> ConnectorEndpointIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connector_endpoint_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The connector_outbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> ConnectorOutboundIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connector_outbound_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The workflow_endpoint_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> WorkflowEndpointIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "workflow_endpoint_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The workflow_outbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> WorkflowOutboundIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "workflow_outbound_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AccessControl block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControl block(s) allowed")]

@@ -163,6 +163,14 @@ public partial class AzurermLogAnalyticsCluster(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The cluster_id attribute.
+    /// </summary>
+    public TerraformValue<string> ClusterId
+    {
+        get => new TerraformReference<string>(this, "cluster_id");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// This block is required.
     /// </summary>

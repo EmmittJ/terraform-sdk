@@ -88,6 +88,14 @@ public partial class AzurermSignalrServiceCustomCertificate(string name) : Terra
     }
 
     /// <summary>
+    /// The certificate_version attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateVersion
+    {
+        get => new TerraformReference<string>(this, "certificate_version");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSignalrServiceCustomCertificateTimeoutsBlock? Timeouts

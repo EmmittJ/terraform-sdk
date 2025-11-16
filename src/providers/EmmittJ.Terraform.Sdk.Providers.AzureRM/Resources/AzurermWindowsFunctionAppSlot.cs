@@ -1013,6 +1013,78 @@ public partial class AzurermWindowsFunctionAppSlot(string name) : TerraformResou
     }
 
     /// <summary>
+    /// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
+    /// </summary>
+    public TerraformValue<string> CustomDomainVerificationId
+    {
+        get => new TerraformReference<string>(this, "custom_domain_verification_id");
+    }
+
+    /// <summary>
+    /// The default hostname of the Windows Function App Slot.
+    /// </summary>
+    public TerraformValue<string> DefaultHostname
+    {
+        get => new TerraformReference<string>(this, "default_hostname");
+    }
+
+    /// <summary>
+    /// The hosting_environment_id attribute.
+    /// </summary>
+    public TerraformValue<string> HostingEnvironmentId
+    {
+        get => new TerraformReference<string>(this, "hosting_environment_id");
+    }
+
+    /// <summary>
+    /// The Kind value for this Windows Function App Slot.
+    /// </summary>
+    public TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+    }
+
+    /// <summary>
+    /// A list of outbound IP addresses. For example `[&amp;quot;52.23.25.3&amp;quot;, &amp;quot;52.143.43.12&amp;quot;]`.
+    /// </summary>
+    public TerraformList<string> OutboundIpAddressList
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip_address_list").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
+    /// </summary>
+    public TerraformValue<string> OutboundIpAddresses
+    {
+        get => new TerraformReference<string>(this, "outbound_ip_addresses");
+    }
+
+    /// <summary>
+    /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&amp;quot;52.23.25.3&amp;quot;, &amp;quot;52.143.43.12&amp;quot;]`.
+    /// </summary>
+    public TerraformList<string> PossibleOutboundIpAddressList
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "possible_outbound_ip_address_list").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&amp;quot;52.23.25.3&amp;quot;, &amp;quot;52.143.43.12&amp;quot;,&amp;quot;52.143.43.17&amp;quot;]`.
+    /// </summary>
+    public TerraformValue<string> PossibleOutboundIpAddresses
+    {
+        get => new TerraformReference<string>(this, "possible_outbound_ip_addresses");
+    }
+
+    /// <summary>
+    /// The site_credential attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SiteCredential
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "site_credential").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]

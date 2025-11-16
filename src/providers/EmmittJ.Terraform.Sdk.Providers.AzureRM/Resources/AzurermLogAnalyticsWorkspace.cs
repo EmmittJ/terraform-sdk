@@ -263,6 +263,30 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The primary_shared_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimarySharedKey
+    {
+        get => new TerraformReference<string>(this, "primary_shared_key");
+    }
+
+    /// <summary>
+    /// The secondary_shared_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondarySharedKey
+    {
+        get => new TerraformReference<string>(this, "secondary_shared_key");
+    }
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    public TerraformValue<string> WorkspaceId
+    {
+        get => new TerraformReference<string>(this, "workspace_id");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

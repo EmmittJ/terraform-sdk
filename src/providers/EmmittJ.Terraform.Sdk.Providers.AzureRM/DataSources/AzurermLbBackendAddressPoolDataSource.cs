@@ -60,6 +60,46 @@ public partial class AzurermLbBackendAddressPoolDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The backend_address attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> BackendAddress
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "backend_address").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The backend_ip_configurations attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> BackendIpConfigurations
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "backend_ip_configurations").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The inbound_nat_rules attribute.
+    /// </summary>
+    public TerraformList<string> InboundNatRules
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "inbound_nat_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The load_balancing_rules attribute.
+    /// </summary>
+    public TerraformList<string> LoadBalancingRules
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "load_balancing_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The outbound_rules attribute.
+    /// </summary>
+    public TerraformList<string> OutboundRules
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLbBackendAddressPoolDataSourceTimeoutsBlock? Timeouts

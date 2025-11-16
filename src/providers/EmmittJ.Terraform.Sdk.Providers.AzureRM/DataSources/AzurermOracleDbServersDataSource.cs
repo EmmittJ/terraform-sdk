@@ -60,6 +60,14 @@ public partial class AzurermOracleDbServersDataSource(string name) : TerraformDa
     }
 
     /// <summary>
+    /// The db_servers attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> DbServers
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_servers").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermOracleDbServersDataSourceTimeoutsBlock? Timeouts

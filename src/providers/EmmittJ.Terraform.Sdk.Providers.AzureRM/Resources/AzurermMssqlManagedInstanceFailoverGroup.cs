@@ -157,6 +157,22 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     }
 
     /// <summary>
+    /// The partner_region attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PartnerRegion
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "partner_region").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The role attribute.
+    /// </summary>
+    public TerraformValue<string> Role
+    {
+        get => new TerraformReference<string>(this, "role");
+    }
+
+    /// <summary>
     /// ReadWriteEndpointFailoverPolicy block (nesting mode: list).
     /// This block is required.
     /// </summary>

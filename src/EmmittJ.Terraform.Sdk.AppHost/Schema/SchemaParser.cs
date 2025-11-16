@@ -29,7 +29,7 @@ public class SchemaParser : ISchemaParser
         keywords.Add("yield");
         keywords.Add("partial");
         keywords.Add("global");
-        
+
         return keywords;
     }
 
@@ -55,7 +55,7 @@ public class SchemaParser : ISchemaParser
     private static HashSet<string> GetReservedClassNames()
     {
         var reserved = new HashSet<string>(CSharpReservedKeywords, StringComparer.OrdinalIgnoreCase);
-        
+
         // Add common type names that could collide
         reserved.Add("license");  // Collides with LICENSE file on case-insensitive filesystems
         reserved.Add("version");  // Collides for certain package systems
@@ -66,7 +66,7 @@ public class SchemaParser : ISchemaParser
         reserved.Add("variable"); // Terraform variable
         reserved.Add("output");   // Terraform output
         reserved.Add("locals");   // Terraform locals
-        
+
         return reserved;
     }    // Tracks struct definitions to detect recursive loops
     private readonly Dictionary<string, NestedStructModel> _structRegistry = new();

@@ -79,6 +79,14 @@ public partial class AzurermSharedImageVersionsDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The images attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Images
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "images").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSharedImageVersionsDataSourceTimeoutsBlock? Timeouts

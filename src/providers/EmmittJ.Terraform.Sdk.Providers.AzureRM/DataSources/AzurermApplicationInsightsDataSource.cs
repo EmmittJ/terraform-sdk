@@ -60,6 +60,70 @@ public partial class AzurermApplicationInsightsDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The app_id attribute.
+    /// </summary>
+    public TerraformValue<string> AppId
+    {
+        get => new TerraformReference<string>(this, "app_id");
+    }
+
+    /// <summary>
+    /// The application_type attribute.
+    /// </summary>
+    public TerraformValue<string> ApplicationType
+    {
+        get => new TerraformReference<string>(this, "application_type");
+    }
+
+    /// <summary>
+    /// The connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> ConnectionString
+    {
+        get => new TerraformReference<string>(this, "connection_string");
+    }
+
+    /// <summary>
+    /// The instrumentation_key attribute.
+    /// </summary>
+    public TerraformValue<string> InstrumentationKey
+    {
+        get => new TerraformReference<string>(this, "instrumentation_key");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    public TerraformValue<double> RetentionInDays
+    {
+        get => new TerraformReference<double>(this, "retention_in_days");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    public TerraformValue<string> WorkspaceId
+    {
+        get => new TerraformReference<string>(this, "workspace_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApplicationInsightsDataSourceTimeoutsBlock? Timeouts

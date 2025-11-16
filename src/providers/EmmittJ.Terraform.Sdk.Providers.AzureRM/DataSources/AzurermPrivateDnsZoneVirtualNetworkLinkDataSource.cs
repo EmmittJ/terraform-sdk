@@ -70,6 +70,38 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource(string na
     }
 
     /// <summary>
+    /// The registration_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> RegistrationEnabled
+    {
+        get => new TerraformReference<bool>(this, "registration_enabled");
+    }
+
+    /// <summary>
+    /// The resolution_policy attribute.
+    /// </summary>
+    public TerraformValue<string> ResolutionPolicy
+    {
+        get => new TerraformReference<string>(this, "resolution_policy");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string> VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateDnsZoneVirtualNetworkLinkDataSourceTimeoutsBlock? Timeouts

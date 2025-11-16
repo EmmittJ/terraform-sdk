@@ -60,6 +60,38 @@ public partial class AzurermAttestationProviderDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The attestation_uri attribute.
+    /// </summary>
+    public TerraformValue<string> AttestationUri
+    {
+        get => new TerraformReference<string>(this, "attestation_uri");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The trust_model attribute.
+    /// </summary>
+    public TerraformValue<string> TrustModel
+    {
+        get => new TerraformReference<string>(this, "trust_model");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAttestationProviderDataSourceTimeoutsBlock? Timeouts

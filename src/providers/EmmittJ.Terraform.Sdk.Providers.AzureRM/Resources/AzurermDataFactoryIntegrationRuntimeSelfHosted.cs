@@ -128,6 +128,22 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     }
 
     /// <summary>
+    /// The primary_authorization_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAuthorizationKey
+    {
+        get => new TerraformReference<string>(this, "primary_authorization_key");
+    }
+
+    /// <summary>
+    /// The secondary_authorization_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAuthorizationKey
+    {
+        get => new TerraformReference<string>(this, "secondary_authorization_key");
+    }
+
+    /// <summary>
     /// RbacAuthorization block (nesting mode: set).
     /// </summary>
     public TerraformSet<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>? RbacAuthorization

@@ -179,6 +179,14 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     }
 
     /// <summary>
+    /// The seed_node_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> SeedNodeIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "seed_node_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCosmosdbCassandraDatacenterTimeoutsBlock? Timeouts

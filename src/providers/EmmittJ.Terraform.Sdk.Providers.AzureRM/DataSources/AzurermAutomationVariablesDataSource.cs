@@ -50,6 +50,62 @@ public partial class AzurermAutomationVariablesDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The bool attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> BoolAttribute
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "bool").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The datetime attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Datetime
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "datetime").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The encrypted attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Encrypted
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encrypted").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The int attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> IntAttribute
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "int").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The null attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> NullAttribute
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "null").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The object attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ObjectAttribute
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "object").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The string attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> StringAttribute
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "string").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationVariablesDataSourceTimeoutsBlock? Timeouts

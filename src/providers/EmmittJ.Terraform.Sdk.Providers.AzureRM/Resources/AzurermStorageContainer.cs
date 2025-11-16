@@ -132,6 +132,31 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The has_immutability_policy attribute.
+    /// </summary>
+    public TerraformValue<bool> HasImmutabilityPolicy
+    {
+        get => new TerraformReference<bool>(this, "has_immutability_policy");
+    }
+
+    /// <summary>
+    /// The has_legal_hold attribute.
+    /// </summary>
+    public TerraformValue<bool> HasLegalHold
+    {
+        get => new TerraformReference<bool>(this, "has_legal_hold");
+    }
+
+    /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageContainerTimeoutsBlock? Timeouts

@@ -70,6 +70,46 @@ public partial class AzurermApiManagementUserDataSource(string name) : Terraform
     }
 
     /// <summary>
+    /// The email attribute.
+    /// </summary>
+    public TerraformValue<string> Email
+    {
+        get => new TerraformReference<string>(this, "email");
+    }
+
+    /// <summary>
+    /// The first_name attribute.
+    /// </summary>
+    public TerraformValue<string> FirstName
+    {
+        get => new TerraformReference<string>(this, "first_name");
+    }
+
+    /// <summary>
+    /// The last_name attribute.
+    /// </summary>
+    public TerraformValue<string> LastName
+    {
+        get => new TerraformReference<string>(this, "last_name");
+    }
+
+    /// <summary>
+    /// The note attribute.
+    /// </summary>
+    public TerraformValue<string> Note
+    {
+        get => new TerraformReference<string>(this, "note");
+    }
+
+    /// <summary>
+    /// The state attribute.
+    /// </summary>
+    public TerraformValue<string> State
+    {
+        get => new TerraformReference<string>(this, "state");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementUserDataSourceTimeoutsBlock? Timeouts

@@ -69,6 +69,62 @@ public partial class AzurermAppConfigurationKeyDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The content_type attribute.
+    /// </summary>
+    public TerraformValue<string> ContentType
+    {
+        get => new TerraformReference<string>(this, "content_type");
+    }
+
+    /// <summary>
+    /// The etag attribute.
+    /// </summary>
+    public TerraformValue<string> Etag
+    {
+        get => new TerraformReference<string>(this, "etag");
+    }
+
+    /// <summary>
+    /// The locked attribute.
+    /// </summary>
+    public TerraformValue<bool> Locked
+    {
+        get => new TerraformReference<bool>(this, "locked");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+    }
+
+    /// <summary>
+    /// The vault_key_reference attribute.
+    /// </summary>
+    public TerraformValue<string> VaultKeyReference
+    {
+        get => new TerraformReference<string>(this, "vault_key_reference");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAppConfigurationKeyDataSourceTimeoutsBlock? Timeouts

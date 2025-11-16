@@ -116,6 +116,14 @@ public partial class AzurermTrustedSigningAccount(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The account_uri attribute.
+    /// </summary>
+    public TerraformValue<string> AccountUri
+    {
+        get => new TerraformReference<string>(this, "account_uri");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermTrustedSigningAccountTimeoutsBlock? Timeouts

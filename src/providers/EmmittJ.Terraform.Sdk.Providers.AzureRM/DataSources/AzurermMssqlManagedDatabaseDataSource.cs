@@ -60,6 +60,46 @@ public partial class AzurermMssqlManagedDatabaseDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The long_term_retention_policy attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> LongTermRetentionPolicy
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "long_term_retention_policy").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The managed_instance_name attribute.
+    /// </summary>
+    public TerraformValue<string> ManagedInstanceName
+    {
+        get => new TerraformReference<string>(this, "managed_instance_name");
+    }
+
+    /// <summary>
+    /// The point_in_time_restore attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PointInTimeRestore
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "point_in_time_restore").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceGroupName
+    {
+        get => new TerraformReference<string>(this, "resource_group_name");
+    }
+
+    /// <summary>
+    /// The short_term_retention_days attribute.
+    /// </summary>
+    public TerraformValue<double> ShortTermRetentionDays
+    {
+        get => new TerraformReference<double>(this, "short_term_retention_days");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock? Timeouts

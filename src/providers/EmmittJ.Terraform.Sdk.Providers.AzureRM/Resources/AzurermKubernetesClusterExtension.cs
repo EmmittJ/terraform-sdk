@@ -212,6 +212,22 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     }
 
     /// <summary>
+    /// The aks_assigned_identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> AksAssignedIdentity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "aks_assigned_identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The current_version attribute.
+    /// </summary>
+    public TerraformValue<string> CurrentVersion
+    {
+        get => new TerraformReference<string>(this, "current_version");
+    }
+
+    /// <summary>
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]

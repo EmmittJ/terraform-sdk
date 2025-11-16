@@ -206,6 +206,30 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The app_id attribute.
+    /// </summary>
+    public TerraformValue<string> AppId
+    {
+        get => new TerraformReference<string>(this, "app_id");
+    }
+
+    /// <summary>
+    /// The connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> ConnectionString
+    {
+        get => new TerraformReference<string>(this, "connection_string");
+    }
+
+    /// <summary>
+    /// The instrumentation_key attribute.
+    /// </summary>
+    public TerraformValue<string> InstrumentationKey
+    {
+        get => new TerraformReference<string>(this, "instrumentation_key");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApplicationInsightsTimeoutsBlock? Timeouts

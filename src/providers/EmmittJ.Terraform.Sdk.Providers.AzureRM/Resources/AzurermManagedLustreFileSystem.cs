@@ -338,6 +338,14 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     }
 
     /// <summary>
+    /// The mgs_address attribute.
+    /// </summary>
+    public TerraformValue<string> MgsAddress
+    {
+        get => new TerraformReference<string>(this, "mgs_address");
+    }
+
+    /// <summary>
     /// EncryptionKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionKey block(s) allowed")]

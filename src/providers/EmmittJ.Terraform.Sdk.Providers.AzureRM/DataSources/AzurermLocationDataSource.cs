@@ -50,6 +50,22 @@ public partial class AzurermLocationDataSource(string name) : TerraformDataSourc
     }
 
     /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The zone_mappings attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ZoneMappings
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "zone_mappings").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLocationDataSourceTimeoutsBlock? Timeouts

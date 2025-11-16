@@ -50,6 +50,14 @@ public partial class AzurermOracleAdbsCharacterSetsDataSource(string name) : Ter
     }
 
     /// <summary>
+    /// The character_sets attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CharacterSets
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "character_sets").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermOracleAdbsCharacterSetsDataSourceTimeoutsBlock? Timeouts

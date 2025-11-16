@@ -60,6 +60,14 @@ public partial class AzurermDevCenterAttachedNetworkDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The network_connection_id attribute.
+    /// </summary>
+    public TerraformValue<string> NetworkConnectionId
+    {
+        get => new TerraformReference<string>(this, "network_connection_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevCenterAttachedNetworkDataSourceTimeoutsBlock? Timeouts

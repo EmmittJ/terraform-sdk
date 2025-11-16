@@ -135,6 +135,14 @@ public partial class AzurermRedisEnterpriseCluster(string name) : TerraformResou
     }
 
     /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformValue<string> Hostname
+    {
+        get => new TerraformReference<string>(this, "hostname");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRedisEnterpriseClusterTimeoutsBlock? Timeouts

@@ -60,6 +60,78 @@ public partial class AzurermFirewallPolicyDataSource(string name) : TerraformDat
     }
 
     /// <summary>
+    /// The base_policy_id attribute.
+    /// </summary>
+    public TerraformValue<string> BasePolicyId
+    {
+        get => new TerraformReference<string>(this, "base_policy_id");
+    }
+
+    /// <summary>
+    /// The child_policies attribute.
+    /// </summary>
+    public TerraformList<string> ChildPolicies
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "child_policies").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The dns attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Dns
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dns").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The firewalls attribute.
+    /// </summary>
+    public TerraformList<string> Firewalls
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "firewalls").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The rule_collection_groups attribute.
+    /// </summary>
+    public TerraformList<string> RuleCollectionGroups
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "rule_collection_groups").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The threat_intelligence_allowlist attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ThreatIntelligenceAllowlist
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "threat_intelligence_allowlist").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The threat_intelligence_mode attribute.
+    /// </summary>
+    public TerraformValue<string> ThreatIntelligenceMode
+    {
+        get => new TerraformReference<string>(this, "threat_intelligence_mode");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermFirewallPolicyDataSourceTimeoutsBlock? Timeouts

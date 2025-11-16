@@ -60,6 +60,38 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The quota_size_in_kib attribute.
+    /// </summary>
+    public TerraformValue<double> QuotaSizeInKib
+    {
+        get => new TerraformReference<double>(this, "quota_size_in_kib");
+    }
+
+    /// <summary>
+    /// The quota_target attribute.
+    /// </summary>
+    public TerraformValue<string> QuotaTarget
+    {
+        get => new TerraformReference<string>(this, "quota_target");
+    }
+
+    /// <summary>
+    /// The quota_type attribute.
+    /// </summary>
+    public TerraformValue<string> QuotaType
+    {
+        get => new TerraformReference<string>(this, "quota_type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock? Timeouts

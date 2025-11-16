@@ -142,6 +142,14 @@ public partial class AzurermResourceGroupTemplateDeployment(string name) : Terra
     }
 
     /// <summary>
+    /// The output_content attribute.
+    /// </summary>
+    public TerraformValue<string> OutputContent
+    {
+        get => new TerraformReference<string>(this, "output_content");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermResourceGroupTemplateDeploymentTimeoutsBlock? Timeouts

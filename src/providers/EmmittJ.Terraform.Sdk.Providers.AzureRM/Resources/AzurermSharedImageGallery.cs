@@ -138,6 +138,14 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The unique_name attribute.
+    /// </summary>
+    public TerraformValue<string> UniqueName
+    {
+        get => new TerraformReference<string>(this, "unique_name");
+    }
+
+    /// <summary>
     /// Sharing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]

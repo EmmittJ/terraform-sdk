@@ -471,6 +471,30 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The public_network_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> PublicNetworkAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+    }
+
+    /// <summary>
+    /// The replica_capacity attribute.
+    /// </summary>
+    public TerraformValue<double> ReplicaCapacity
+    {
+        get => new TerraformReference<double>(this, "replica_capacity");
+    }
+
+    /// <summary>
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]

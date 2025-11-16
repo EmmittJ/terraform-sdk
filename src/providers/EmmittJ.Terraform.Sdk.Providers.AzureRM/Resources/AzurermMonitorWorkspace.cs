@@ -115,6 +115,30 @@ public partial class AzurermMonitorWorkspace(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The default_data_collection_endpoint_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultDataCollectionEndpointId
+    {
+        get => new TerraformReference<string>(this, "default_data_collection_endpoint_id");
+    }
+
+    /// <summary>
+    /// The default_data_collection_rule_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultDataCollectionRuleId
+    {
+        get => new TerraformReference<string>(this, "default_data_collection_rule_id");
+    }
+
+    /// <summary>
+    /// The query_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> QueryEndpoint
+    {
+        get => new TerraformReference<string>(this, "query_endpoint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMonitorWorkspaceTimeoutsBlock? Timeouts

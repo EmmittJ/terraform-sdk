@@ -612,6 +612,14 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The mount_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> MountIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "mount_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// CoolAccess block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoolAccess block(s) allowed")]

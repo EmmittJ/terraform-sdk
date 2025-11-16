@@ -50,6 +50,14 @@ public partial class AzurermOracleDbNodesDataSource(string name) : TerraformData
     }
 
     /// <summary>
+    /// The db_nodes attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> DbNodes
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_nodes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermOracleDbNodesDataSourceTimeoutsBlock? Timeouts

@@ -77,6 +77,14 @@ public partial class AzurermPublicIpsDataSource(string name) : TerraformDataSour
     }
 
     /// <summary>
+    /// The public_ips attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PublicIps
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "public_ips").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPublicIpsDataSourceTimeoutsBlock? Timeouts

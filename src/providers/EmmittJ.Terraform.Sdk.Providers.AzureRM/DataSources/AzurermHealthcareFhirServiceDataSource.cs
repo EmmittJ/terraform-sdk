@@ -69,6 +69,70 @@ public partial class AzurermHealthcareFhirServiceDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The access_policy_object_ids attribute.
+    /// </summary>
+    public TerraformList<string> AccessPolicyObjectIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access_policy_object_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The authentication attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Authentication
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authentication").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The configuration_export_storage_account_name attribute.
+    /// </summary>
+    public TerraformValue<string> ConfigurationExportStorageAccountName
+    {
+        get => new TerraformReference<string>(this, "configuration_export_storage_account_name");
+    }
+
+    /// <summary>
+    /// The container_registry_login_server_url attribute.
+    /// </summary>
+    public TerraformList<string> ContainerRegistryLoginServerUrl
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "container_registry_login_server_url").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The cors attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Cors
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cors").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    public TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermHealthcareFhirServiceDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,78 @@ public partial class AzurermContainerRegistryDataSource(string name) : Terraform
     }
 
     /// <summary>
+    /// The admin_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> AdminEnabled
+    {
+        get => new TerraformReference<bool>(this, "admin_enabled");
+    }
+
+    /// <summary>
+    /// The admin_password attribute.
+    /// </summary>
+    public TerraformValue<string> AdminPassword
+    {
+        get => new TerraformReference<string>(this, "admin_password");
+    }
+
+    /// <summary>
+    /// The admin_username attribute.
+    /// </summary>
+    public TerraformValue<string> AdminUsername
+    {
+        get => new TerraformReference<string>(this, "admin_username");
+    }
+
+    /// <summary>
+    /// The data_endpoint_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> DataEndpointEnabled
+    {
+        get => new TerraformReference<bool>(this, "data_endpoint_enabled");
+    }
+
+    /// <summary>
+    /// The data_endpoint_host_names attribute.
+    /// </summary>
+    public TerraformSet<string> DataEndpointHostNames
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_endpoint_host_names").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The login_server attribute.
+    /// </summary>
+    public TerraformValue<string> LoginServer
+    {
+        get => new TerraformReference<string>(this, "login_server");
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformValue<string> Sku
+    {
+        get => new TerraformReference<string>(this, "sku");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermContainerRegistryDataSourceTimeoutsBlock? Timeouts

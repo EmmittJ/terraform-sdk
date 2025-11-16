@@ -403,6 +403,22 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The hostname_actual attribute.
+    /// </summary>
+    public TerraformValue<string> HostnameActual
+    {
+        get => new TerraformReference<string>(this, "hostname_actual");
+    }
+
+    /// <summary>
+    /// The ocid attribute.
+    /// </summary>
+    public TerraformValue<string> Ocid
+    {
+        get => new TerraformReference<string>(this, "ocid");
+    }
+
+    /// <summary>
     /// DataCollectionOptions block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCollectionOptions block(s) allowed")]

@@ -60,6 +60,46 @@ public partial class AzurermDedicatedHostGroupDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The automatic_placement_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> AutomaticPlacementEnabled
+    {
+        get => new TerraformReference<bool>(this, "automatic_placement_enabled");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The platform_fault_domain_count attribute.
+    /// </summary>
+    public TerraformValue<double> PlatformFaultDomainCount
+    {
+        get => new TerraformReference<double>(this, "platform_fault_domain_count");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The zones attribute.
+    /// </summary>
+    public TerraformList<string> Zones
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDedicatedHostGroupDataSourceTimeoutsBlock? Timeouts

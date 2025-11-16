@@ -116,6 +116,14 @@ public partial class AzurermHealthbot(string name) : TerraformResource("azurerm_
     }
 
     /// <summary>
+    /// The bot_management_portal_url attribute.
+    /// </summary>
+    public TerraformValue<string> BotManagementPortalUrl
+    {
+        get => new TerraformReference<string>(this, "bot_management_portal_url");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermHealthbotTimeoutsBlock? Timeouts

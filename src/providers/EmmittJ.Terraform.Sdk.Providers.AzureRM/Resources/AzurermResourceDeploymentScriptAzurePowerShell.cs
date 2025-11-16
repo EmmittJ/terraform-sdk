@@ -318,6 +318,14 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     }
 
     /// <summary>
+    /// The outputs attribute.
+    /// </summary>
+    public TerraformValue<string> Outputs
+    {
+        get => new TerraformReference<string>(this, "outputs");
+    }
+
+    /// <summary>
     /// Container block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Container block(s) allowed")]

@@ -60,6 +60,70 @@ public partial class AzurermVirtualWanDataSource(string name) : TerraformDataSou
     }
 
     /// <summary>
+    /// The allow_branch_to_branch_traffic attribute.
+    /// </summary>
+    public TerraformValue<bool> AllowBranchToBranchTraffic
+    {
+        get => new TerraformReference<bool>(this, "allow_branch_to_branch_traffic");
+    }
+
+    /// <summary>
+    /// The disable_vpn_encryption attribute.
+    /// </summary>
+    public TerraformValue<bool> DisableVpnEncryption
+    {
+        get => new TerraformReference<bool>(this, "disable_vpn_encryption");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The office365_local_breakout_category attribute.
+    /// </summary>
+    public TerraformValue<string> Office365LocalBreakoutCategory
+    {
+        get => new TerraformReference<string>(this, "office365_local_breakout_category");
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformValue<string> Sku
+    {
+        get => new TerraformReference<string>(this, "sku");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_hub_ids attribute.
+    /// </summary>
+    public TerraformList<string> VirtualHubIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_hub_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The vpn_site_ids attribute.
+    /// </summary>
+    public TerraformList<string> VpnSiteIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "vpn_site_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermVirtualWanDataSourceTimeoutsBlock? Timeouts

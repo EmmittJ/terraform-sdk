@@ -108,6 +108,14 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(
     }
 
     /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceId
+    {
+        get => new TerraformReference<string>(this, "resource_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsBlock? Timeouts

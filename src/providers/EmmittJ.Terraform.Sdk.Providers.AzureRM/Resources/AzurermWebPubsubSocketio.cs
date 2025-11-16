@@ -267,6 +267,70 @@ public partial class AzurermWebPubsubSocketio(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The external_ip attribute.
+    /// </summary>
+    public TerraformValue<string> ExternalIp
+    {
+        get => new TerraformReference<string>(this, "external_ip");
+    }
+
+    /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformValue<string> Hostname
+    {
+        get => new TerraformReference<string>(this, "hostname");
+    }
+
+    /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
+
+    /// <summary>
+    /// The primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_connection_string");
+    }
+
+    /// <summary>
+    /// The public_port attribute.
+    /// </summary>
+    public TerraformValue<double> PublicPort
+    {
+        get => new TerraformReference<double>(this, "public_port");
+    }
+
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
+
+    /// <summary>
+    /// The secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_connection_string");
+    }
+
+    /// <summary>
+    /// The server_port attribute.
+    /// </summary>
+    public TerraformValue<double> ServerPort
+    {
+        get => new TerraformReference<double>(this, "server_port");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

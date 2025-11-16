@@ -67,6 +67,38 @@ public partial class AzurermRoleDefinitionDataSource(string name) : TerraformDat
     }
 
     /// <summary>
+    /// The assignable_scopes attribute.
+    /// </summary>
+    public TerraformList<string> AssignableScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "assignable_scopes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Permissions
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "permissions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRoleDefinitionDataSourceTimeoutsBlock? Timeouts

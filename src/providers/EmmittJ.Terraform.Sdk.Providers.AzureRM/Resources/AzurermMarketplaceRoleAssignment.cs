@@ -140,6 +140,14 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     }
 
     /// <summary>
+    /// The principal_type attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalType
+    {
+        get => new TerraformReference<string>(this, "principal_type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMarketplaceRoleAssignmentTimeoutsBlock? Timeouts

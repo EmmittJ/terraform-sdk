@@ -97,6 +97,14 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     }
 
     /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock? Timeouts

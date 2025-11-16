@@ -86,6 +86,70 @@ public partial class AzurermAppServiceManagedCertificate(string name) : Terrafor
     }
 
     /// <summary>
+    /// The canonical_name attribute.
+    /// </summary>
+    public TerraformValue<string> CanonicalName
+    {
+        get => new TerraformReference<string>(this, "canonical_name");
+    }
+
+    /// <summary>
+    /// The expiration_date attribute.
+    /// </summary>
+    public TerraformValue<string> ExpirationDate
+    {
+        get => new TerraformReference<string>(this, "expiration_date");
+    }
+
+    /// <summary>
+    /// The friendly_name attribute.
+    /// </summary>
+    public TerraformValue<string> FriendlyName
+    {
+        get => new TerraformReference<string>(this, "friendly_name");
+    }
+
+    /// <summary>
+    /// The host_names attribute.
+    /// </summary>
+    public TerraformList<string> HostNames
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "host_names").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The issue_date attribute.
+    /// </summary>
+    public TerraformValue<string> IssueDate
+    {
+        get => new TerraformReference<string>(this, "issue_date");
+    }
+
+    /// <summary>
+    /// The issuer attribute.
+    /// </summary>
+    public TerraformValue<string> Issuer
+    {
+        get => new TerraformReference<string>(this, "issuer");
+    }
+
+    /// <summary>
+    /// The subject_name attribute.
+    /// </summary>
+    public TerraformValue<string> SubjectName
+    {
+        get => new TerraformReference<string>(this, "subject_name");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAppServiceManagedCertificateTimeoutsBlock? Timeouts

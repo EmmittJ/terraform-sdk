@@ -70,6 +70,22 @@ public partial class AzurermContainerRegistryScopeMapDataSource(string name) : T
     }
 
     /// <summary>
+    /// The actions attribute.
+    /// </summary>
+    public TerraformList<string> Actions
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock? Timeouts

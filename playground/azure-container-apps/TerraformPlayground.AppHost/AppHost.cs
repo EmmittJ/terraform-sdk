@@ -237,7 +237,7 @@ db.PublishAsTerraform((stack, resource) =>
 
     var timeouts = new TerraformOutput("postgres_timeouts")
     {
-        Value = database.Timeouts.Read ?? "default"
+        Value = database.Timeouts?.Read ?? "default"
     };
 });
 

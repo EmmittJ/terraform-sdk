@@ -122,6 +122,14 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The Tenant ID to which the subscription belongs
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSubscriptionTimeoutsBlock? Timeouts

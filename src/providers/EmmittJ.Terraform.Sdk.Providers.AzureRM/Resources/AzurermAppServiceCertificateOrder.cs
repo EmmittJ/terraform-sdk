@@ -160,6 +160,78 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     }
 
     /// <summary>
+    /// The app_service_certificate_not_renewable_reasons attribute.
+    /// </summary>
+    public TerraformList<string> AppServiceCertificateNotRenewableReasons
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "app_service_certificate_not_renewable_reasons").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The certificates attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Certificates
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificates").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The domain_verification_token attribute.
+    /// </summary>
+    public TerraformValue<string> DomainVerificationToken
+    {
+        get => new TerraformReference<string>(this, "domain_verification_token");
+    }
+
+    /// <summary>
+    /// The expiration_time attribute.
+    /// </summary>
+    public TerraformValue<string> ExpirationTime
+    {
+        get => new TerraformReference<string>(this, "expiration_time");
+    }
+
+    /// <summary>
+    /// The intermediate_thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> IntermediateThumbprint
+    {
+        get => new TerraformReference<string>(this, "intermediate_thumbprint");
+    }
+
+    /// <summary>
+    /// The is_private_key_external attribute.
+    /// </summary>
+    public TerraformValue<bool> IsPrivateKeyExternal
+    {
+        get => new TerraformReference<bool>(this, "is_private_key_external");
+    }
+
+    /// <summary>
+    /// The root_thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> RootThumbprint
+    {
+        get => new TerraformReference<string>(this, "root_thumbprint");
+    }
+
+    /// <summary>
+    /// The signed_certificate_thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> SignedCertificateThumbprint
+    {
+        get => new TerraformReference<string>(this, "signed_certificate_thumbprint");
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformValue<string> Status
+    {
+        get => new TerraformReference<string>(this, "status");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAppServiceCertificateOrderTimeoutsBlock? Timeouts

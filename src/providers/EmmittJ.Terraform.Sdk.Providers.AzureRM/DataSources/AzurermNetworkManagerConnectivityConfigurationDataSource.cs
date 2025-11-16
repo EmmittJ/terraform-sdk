@@ -60,6 +60,54 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource(st
     }
 
     /// <summary>
+    /// The applies_to_group attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> AppliesToGroup
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "applies_to_group").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The connectivity_topology attribute.
+    /// </summary>
+    public TerraformValue<string> ConnectivityTopology
+    {
+        get => new TerraformReference<string>(this, "connectivity_topology");
+    }
+
+    /// <summary>
+    /// The delete_existing_peering_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> DeleteExistingPeeringEnabled
+    {
+        get => new TerraformReference<bool>(this, "delete_existing_peering_enabled");
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The global_mesh_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> GlobalMeshEnabled
+    {
+        get => new TerraformReference<bool>(this, "global_mesh_enabled");
+    }
+
+    /// <summary>
+    /// The hub attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Hub
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hub").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlock? Timeouts

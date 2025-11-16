@@ -132,6 +132,14 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The cdn_frontdoor_rule_set_name attribute.
+    /// </summary>
+    public TerraformValue<string> CdnFrontdoorRuleSetName
+    {
+        get => new TerraformReference<string>(this, "cdn_frontdoor_rule_set_name");
+    }
+
+    /// <summary>
     /// Actions block (nesting mode: list).
     /// This block is required.
     /// </summary>

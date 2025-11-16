@@ -228,6 +228,30 @@ public partial class AzurermMapsAccount(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
+
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
+
+    /// <summary>
+    /// The x_ms_client_id attribute.
+    /// </summary>
+    public TerraformValue<string> XMsClientId
+    {
+        get => new TerraformReference<string>(this, "x_ms_client_id");
+    }
+
+    /// <summary>
     /// Cors block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]

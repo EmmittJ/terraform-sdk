@@ -155,6 +155,14 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The cross_tenant_scopes attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CrossTenantScopes
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cross_tenant_scopes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Scope block (nesting mode: list).
     /// This block is required.
     /// </summary>

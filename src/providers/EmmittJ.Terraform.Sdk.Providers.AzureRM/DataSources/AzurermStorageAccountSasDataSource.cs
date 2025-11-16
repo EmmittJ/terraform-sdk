@@ -306,6 +306,14 @@ public partial class AzurermStorageAccountSasDataSource(string name) : Terraform
     }
 
     /// <summary>
+    /// The sas attribute.
+    /// </summary>
+    public TerraformValue<string> Sas
+    {
+        get => new TerraformReference<string>(this, "sas");
+    }
+
+    /// <summary>
     /// Permissions block (nesting mode: list).
     /// This block is required.
     /// </summary>

@@ -78,6 +78,46 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The dns_config attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> DnsConfig
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dns_config").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The monitor_config attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> MonitorConfig
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "monitor_config").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The profile_status attribute.
+    /// </summary>
+    public TerraformValue<string> ProfileStatus
+    {
+        get => new TerraformReference<string>(this, "profile_status");
+    }
+
+    /// <summary>
+    /// The traffic_routing_method attribute.
+    /// </summary>
+    public TerraformValue<string> TrafficRoutingMethod
+    {
+        get => new TerraformReference<string>(this, "traffic_routing_method");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermTrafficManagerProfileDataSourceTimeoutsBlock? Timeouts

@@ -105,6 +105,23 @@ public partial class AzurermStorageQueue(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageQueueTimeoutsBlock? Timeouts

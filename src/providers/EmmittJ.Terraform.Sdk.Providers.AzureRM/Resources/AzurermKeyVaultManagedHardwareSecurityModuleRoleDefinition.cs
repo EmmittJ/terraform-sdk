@@ -154,6 +154,22 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     }
 
     /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
+    /// The role_type attribute.
+    /// </summary>
+    public TerraformValue<string> RoleType
+    {
+        get => new TerraformReference<string>(this, "role_type");
+    }
+
+    /// <summary>
     /// Permission block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>? Permission

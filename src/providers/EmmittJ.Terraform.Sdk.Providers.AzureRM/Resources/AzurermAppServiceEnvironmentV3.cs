@@ -184,6 +184,78 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     }
 
     /// <summary>
+    /// The dns_suffix attribute.
+    /// </summary>
+    public TerraformValue<string> DnsSuffix
+    {
+        get => new TerraformReference<string>(this, "dns_suffix");
+    }
+
+    /// <summary>
+    /// The external_inbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> ExternalInboundIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "external_inbound_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The inbound_network_dependencies attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> InboundNetworkDependencies
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "inbound_network_dependencies").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The internal_inbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> InternalInboundIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "internal_inbound_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ip_ssl_address_count attribute.
+    /// </summary>
+    public TerraformValue<double> IpSslAddressCount
+    {
+        get => new TerraformReference<double>(this, "ip_ssl_address_count");
+    }
+
+    /// <summary>
+    /// The linux_outbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> LinuxOutboundIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "linux_outbound_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The pricing_tier attribute.
+    /// </summary>
+    public TerraformValue<string> PricingTier
+    {
+        get => new TerraformReference<string>(this, "pricing_tier");
+    }
+
+    /// <summary>
+    /// The windows_outbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> WindowsOutboundIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "windows_outbound_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// ClusterSetting block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermAppServiceEnvironmentV3ClusterSettingBlock>? ClusterSetting

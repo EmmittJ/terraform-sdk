@@ -69,6 +69,118 @@ public partial class AzurermActiveDirectoryDomainServiceDataSource(string name) 
     }
 
     /// <summary>
+    /// The deployment_id attribute.
+    /// </summary>
+    public TerraformValue<string> DeploymentId
+    {
+        get => new TerraformReference<string>(this, "deployment_id");
+    }
+
+    /// <summary>
+    /// The domain_configuration_type attribute.
+    /// </summary>
+    public TerraformValue<string> DomainConfigurationType
+    {
+        get => new TerraformReference<string>(this, "domain_configuration_type");
+    }
+
+    /// <summary>
+    /// The domain_name attribute.
+    /// </summary>
+    public TerraformValue<string> DomainName
+    {
+        get => new TerraformReference<string>(this, "domain_name");
+    }
+
+    /// <summary>
+    /// The filtered_sync_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> FilteredSyncEnabled
+    {
+        get => new TerraformReference<bool>(this, "filtered_sync_enabled");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The notifications attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Notifications
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "notifications").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The replica_sets attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ReplicaSets
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "replica_sets").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceId
+    {
+        get => new TerraformReference<string>(this, "resource_id");
+    }
+
+    /// <summary>
+    /// The secure_ldap attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SecureLdap
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "secure_ldap").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The security attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Security
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "security").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformValue<string> Sku
+    {
+        get => new TerraformReference<string>(this, "sku");
+    }
+
+    /// <summary>
+    /// The sync_owner attribute.
+    /// </summary>
+    public TerraformValue<string> SyncOwner
+    {
+        get => new TerraformReference<string>(this, "sync_owner");
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<double> Version
+    {
+        get => new TerraformReference<double>(this, "version");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock? Timeouts

@@ -69,6 +69,38 @@ public partial class AzurermNetworkServiceTagsDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The address_prefixes attribute.
+    /// </summary>
+    public TerraformList<string> AddressPrefixes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ipv4_cidrs attribute.
+    /// </summary>
+    public TerraformList<string> Ipv4Cidrs
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipv4_cidrs").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ipv6_cidrs attribute.
+    /// </summary>
+    public TerraformList<string> Ipv6Cidrs
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipv6_cidrs").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetworkServiceTagsDataSourceTimeoutsBlock? Timeouts

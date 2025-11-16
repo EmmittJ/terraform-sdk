@@ -153,6 +153,14 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     }
 
     /// <summary>
+    /// The servicebus_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> ServicebusEndpoint
+    {
+        get => new TerraformReference<string>(this, "servicebus_endpoint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNotificationHubNamespaceTimeoutsBlock? Timeouts

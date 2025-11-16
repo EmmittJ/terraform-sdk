@@ -133,6 +133,38 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     }
 
     /// <summary>
+    /// The configuration_access_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> ConfigurationAccessEndpoint
+    {
+        get => new TerraformReference<string>(this, "configuration_access_endpoint");
+    }
+
+    /// <summary>
+    /// The immutable_id attribute.
+    /// </summary>
+    public TerraformValue<string> ImmutableId
+    {
+        get => new TerraformReference<string>(this, "immutable_id");
+    }
+
+    /// <summary>
+    /// The logs_ingestion_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> LogsIngestionEndpoint
+    {
+        get => new TerraformReference<string>(this, "logs_ingestion_endpoint");
+    }
+
+    /// <summary>
+    /// The metrics_ingestion_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> MetricsIngestionEndpoint
+    {
+        get => new TerraformReference<string>(this, "metrics_ingestion_endpoint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMonitorDataCollectionEndpointTimeoutsBlock? Timeouts

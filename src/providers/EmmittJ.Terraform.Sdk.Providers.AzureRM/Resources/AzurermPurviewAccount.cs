@@ -181,6 +181,62 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The atlas_kafka_endpoint_primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> AtlasKafkaEndpointPrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "atlas_kafka_endpoint_primary_connection_string");
+    }
+
+    /// <summary>
+    /// The atlas_kafka_endpoint_secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> AtlasKafkaEndpointSecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "atlas_kafka_endpoint_secondary_connection_string");
+    }
+
+    /// <summary>
+    /// The aws_external_id attribute.
+    /// </summary>
+    public TerraformValue<string> AwsExternalId
+    {
+        get => new TerraformReference<string>(this, "aws_external_id");
+    }
+
+    /// <summary>
+    /// The catalog_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> CatalogEndpoint
+    {
+        get => new TerraformReference<string>(this, "catalog_endpoint");
+    }
+
+    /// <summary>
+    /// The guardian_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> GuardianEndpoint
+    {
+        get => new TerraformReference<string>(this, "guardian_endpoint");
+    }
+
+    /// <summary>
+    /// The managed_resources attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ManagedResources
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_resources").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The scan_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> ScanEndpoint
+    {
+        get => new TerraformReference<string>(this, "scan_endpoint");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// This block is required.
     /// </summary>

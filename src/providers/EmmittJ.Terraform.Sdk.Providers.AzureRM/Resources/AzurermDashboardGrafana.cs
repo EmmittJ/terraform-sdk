@@ -331,6 +331,30 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
+
+    /// <summary>
+    /// The grafana_version attribute.
+    /// </summary>
+    public TerraformValue<string> GrafanaVersion
+    {
+        get => new TerraformReference<string>(this, "grafana_version");
+    }
+
+    /// <summary>
+    /// The outbound_ip attribute.
+    /// </summary>
+    public TerraformList<string> OutboundIp
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AzureMonitorWorkspaceIntegrations block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock>? AzureMonitorWorkspaceIntegrations

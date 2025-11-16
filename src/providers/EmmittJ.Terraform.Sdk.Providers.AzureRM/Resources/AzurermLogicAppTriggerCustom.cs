@@ -97,6 +97,14 @@ public partial class AzurermLogicAppTriggerCustom(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The callback_url attribute.
+    /// </summary>
+    public TerraformValue<string> CallbackUrl
+    {
+        get => new TerraformReference<string>(this, "callback_url");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLogicAppTriggerCustomTimeoutsBlock? Timeouts

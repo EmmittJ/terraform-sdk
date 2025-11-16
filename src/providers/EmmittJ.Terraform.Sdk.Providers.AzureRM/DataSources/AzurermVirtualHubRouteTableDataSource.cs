@@ -70,6 +70,30 @@ public partial class AzurermVirtualHubRouteTableDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The labels attribute.
+    /// </summary>
+    public TerraformSet<string> Labels
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "labels").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The route attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Route
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "route").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_hub_id attribute.
+    /// </summary>
+    public TerraformValue<string> VirtualHubId
+    {
+        get => new TerraformReference<string>(this, "virtual_hub_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermVirtualHubRouteTableDataSourceTimeoutsBlock? Timeouts

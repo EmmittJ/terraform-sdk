@@ -144,6 +144,14 @@ public partial class AzurermAutomationDscConfiguration(string name) : TerraformR
     }
 
     /// <summary>
+    /// The state attribute.
+    /// </summary>
+    public TerraformValue<string> State
+    {
+        get => new TerraformReference<string>(this, "state");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationDscConfigurationTimeoutsBlock? Timeouts

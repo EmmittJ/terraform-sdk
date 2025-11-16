@@ -184,6 +184,14 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The ip_configuration attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> IpConfiguration
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_configuration").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// BgpSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]

@@ -69,6 +69,86 @@ public partial class AzurermPrivateDnsSoaRecordDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The email attribute.
+    /// </summary>
+    public TerraformValue<string> Email
+    {
+        get => new TerraformReference<string>(this, "email");
+    }
+
+    /// <summary>
+    /// The expire_time attribute.
+    /// </summary>
+    public TerraformValue<double> ExpireTime
+    {
+        get => new TerraformReference<double>(this, "expire_time");
+    }
+
+    /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    public TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+    }
+
+    /// <summary>
+    /// The minimum_ttl attribute.
+    /// </summary>
+    public TerraformValue<double> MinimumTtl
+    {
+        get => new TerraformReference<double>(this, "minimum_ttl");
+    }
+
+    /// <summary>
+    /// The refresh_time attribute.
+    /// </summary>
+    public TerraformValue<double> RefreshTime
+    {
+        get => new TerraformReference<double>(this, "refresh_time");
+    }
+
+    /// <summary>
+    /// The retry_time attribute.
+    /// </summary>
+    public TerraformValue<double> RetryTime
+    {
+        get => new TerraformReference<double>(this, "retry_time");
+    }
+
+    /// <summary>
+    /// The serial_number attribute.
+    /// </summary>
+    public TerraformValue<double> SerialNumber
+    {
+        get => new TerraformReference<double>(this, "serial_number");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ttl attribute.
+    /// </summary>
+    public TerraformValue<double> Ttl
+    {
+        get => new TerraformReference<double>(this, "ttl");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateDnsSoaRecordDataSourceTimeoutsBlock? Timeouts

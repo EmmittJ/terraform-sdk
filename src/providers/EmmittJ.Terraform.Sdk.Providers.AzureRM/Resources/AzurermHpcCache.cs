@@ -441,6 +441,14 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     }
 
     /// <summary>
+    /// The mount_addresses attribute.
+    /// </summary>
+    public TerraformList<string> MountAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "mount_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// DefaultAccessPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAccessPolicy block(s) allowed")]

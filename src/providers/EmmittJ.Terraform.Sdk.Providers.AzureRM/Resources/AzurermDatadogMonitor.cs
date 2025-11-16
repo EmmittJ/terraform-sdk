@@ -291,6 +291,14 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The marketplace_subscription_status attribute.
+    /// </summary>
+    public TerraformValue<string> MarketplaceSubscriptionStatus
+    {
+        get => new TerraformReference<string>(this, "marketplace_subscription_status");
+    }
+
+    /// <summary>
     /// DatadogOrganization block (nesting mode: list).
     /// This block is required.
     /// </summary>

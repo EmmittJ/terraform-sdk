@@ -106,6 +106,14 @@ public partial class AzurermGraphServicesAccount(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The billing_plan_id attribute.
+    /// </summary>
+    public TerraformValue<string> BillingPlanId
+    {
+        get => new TerraformReference<string>(this, "billing_plan_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermGraphServicesAccountTimeoutsBlock? Timeouts

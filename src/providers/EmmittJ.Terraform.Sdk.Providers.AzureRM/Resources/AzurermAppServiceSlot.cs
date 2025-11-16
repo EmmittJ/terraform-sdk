@@ -744,6 +744,22 @@ public partial class AzurermAppServiceSlot(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The default_site_hostname attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSiteHostname
+    {
+        get => new TerraformReference<string>(this, "default_site_hostname");
+    }
+
+    /// <summary>
+    /// The site_credential attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SiteCredential
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "site_credential").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]

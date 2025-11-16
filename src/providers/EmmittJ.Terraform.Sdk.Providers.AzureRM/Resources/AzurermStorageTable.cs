@@ -110,6 +110,14 @@ public partial class AzurermStorageTable(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The Resource Manager ID of this Storage Table.
+    /// </summary>
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
     /// Acl block (nesting mode: set).
     /// </summary>
     public TerraformSet<AzurermStorageTableAclBlock>? Acl

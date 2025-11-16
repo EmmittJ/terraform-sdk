@@ -96,6 +96,14 @@ public partial class AzurermEventgridPartnerRegistration(string name) : Terrafor
     }
 
     /// <summary>
+    /// The partner_registration_id attribute.
+    /// </summary>
+    public TerraformValue<string> PartnerRegistrationId
+    {
+        get => new TerraformReference<string>(this, "partner_registration_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermEventgridPartnerRegistrationTimeoutsBlock? Timeouts

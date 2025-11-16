@@ -115,6 +115,14 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     }
 
     /// <summary>
+    /// The login_url attribute.
+    /// </summary>
+    public TerraformValue<string> LoginUrl
+    {
+        get => new TerraformReference<string>(this, "login_url");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDatadogMonitorSsoConfigurationTimeoutsBlock? Timeouts

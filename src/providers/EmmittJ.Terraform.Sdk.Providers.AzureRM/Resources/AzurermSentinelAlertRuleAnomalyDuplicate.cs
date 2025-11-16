@@ -321,6 +321,86 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     }
 
     /// <summary>
+    /// The anomaly_settings_version attribute.
+    /// </summary>
+    public TerraformValue<double> AnomalySettingsVersion
+    {
+        get => new TerraformReference<double>(this, "anomaly_settings_version");
+    }
+
+    /// <summary>
+    /// The anomaly_version attribute.
+    /// </summary>
+    public TerraformValue<string> AnomalyVersion
+    {
+        get => new TerraformReference<string>(this, "anomaly_version");
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The frequency attribute.
+    /// </summary>
+    public TerraformValue<string> Frequency
+    {
+        get => new TerraformReference<string>(this, "frequency");
+    }
+
+    /// <summary>
+    /// The is_default_settings attribute.
+    /// </summary>
+    public TerraformValue<bool> IsDefaultSettings
+    {
+        get => new TerraformReference<bool>(this, "is_default_settings");
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// The required_data_connector attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> RequiredDataConnector
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "required_data_connector").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The settings_definition_id attribute.
+    /// </summary>
+    public TerraformValue<string> SettingsDefinitionId
+    {
+        get => new TerraformReference<string>(this, "settings_definition_id");
+    }
+
+    /// <summary>
+    /// The tactics attribute.
+    /// </summary>
+    public TerraformList<string> Tactics
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tactics").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The techniques attribute.
+    /// </summary>
+    public TerraformList<string> Techniques
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "techniques").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// MultiSelectObservation block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>? MultiSelectObservation

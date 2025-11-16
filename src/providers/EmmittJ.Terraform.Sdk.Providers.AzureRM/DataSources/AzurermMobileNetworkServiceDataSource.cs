@@ -60,6 +60,46 @@ public partial class AzurermMobileNetworkServiceDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The pcc_rule attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PccRule
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "pcc_rule").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The service_precedence attribute.
+    /// </summary>
+    public TerraformValue<double> ServicePrecedence
+    {
+        get => new TerraformReference<double>(this, "service_precedence");
+    }
+
+    /// <summary>
+    /// The service_qos_policy attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ServiceQosPolicy
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_qos_policy").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMobileNetworkServiceDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,46 @@ public partial class AzurermRouteTableDataSource(string name) : TerraformDataSou
     }
 
     /// <summary>
+    /// The bgp_route_propagation_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> BgpRoutePropagationEnabled
+    {
+        get => new TerraformReference<bool>(this, "bgp_route_propagation_enabled");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The route attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Route
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "route").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The subnets attribute.
+    /// </summary>
+    public TerraformSet<string> Subnets
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRouteTableDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,126 @@ public partial class AzurermStreamAnalyticsJobDataSource(string name) : Terrafor
     }
 
     /// <summary>
+    /// The compatibility_level attribute.
+    /// </summary>
+    public TerraformValue<string> CompatibilityLevel
+    {
+        get => new TerraformReference<string>(this, "compatibility_level");
+    }
+
+    /// <summary>
+    /// The data_locale attribute.
+    /// </summary>
+    public TerraformValue<string> DataLocale
+    {
+        get => new TerraformReference<string>(this, "data_locale");
+    }
+
+    /// <summary>
+    /// The events_late_arrival_max_delay_in_seconds attribute.
+    /// </summary>
+    public TerraformValue<double> EventsLateArrivalMaxDelayInSeconds
+    {
+        get => new TerraformReference<double>(this, "events_late_arrival_max_delay_in_seconds");
+    }
+
+    /// <summary>
+    /// The events_out_of_order_max_delay_in_seconds attribute.
+    /// </summary>
+    public TerraformValue<double> EventsOutOfOrderMaxDelayInSeconds
+    {
+        get => new TerraformReference<double>(this, "events_out_of_order_max_delay_in_seconds");
+    }
+
+    /// <summary>
+    /// The events_out_of_order_policy attribute.
+    /// </summary>
+    public TerraformValue<string> EventsOutOfOrderPolicy
+    {
+        get => new TerraformReference<string>(this, "events_out_of_order_policy");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The job_id attribute.
+    /// </summary>
+    public TerraformValue<string> JobId
+    {
+        get => new TerraformReference<string>(this, "job_id");
+    }
+
+    /// <summary>
+    /// The last_output_time attribute.
+    /// </summary>
+    public TerraformValue<string> LastOutputTime
+    {
+        get => new TerraformReference<string>(this, "last_output_time");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The output_error_policy attribute.
+    /// </summary>
+    public TerraformValue<string> OutputErrorPolicy
+    {
+        get => new TerraformReference<string>(this, "output_error_policy");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
+    /// The start_mode attribute.
+    /// </summary>
+    public TerraformValue<string> StartMode
+    {
+        get => new TerraformReference<string>(this, "start_mode");
+    }
+
+    /// <summary>
+    /// The start_time attribute.
+    /// </summary>
+    public TerraformValue<string> StartTime
+    {
+        get => new TerraformReference<string>(this, "start_time");
+    }
+
+    /// <summary>
+    /// The streaming_units attribute.
+    /// </summary>
+    public TerraformValue<double> StreamingUnits
+    {
+        get => new TerraformReference<double>(this, "streaming_units");
+    }
+
+    /// <summary>
+    /// The transformation_query attribute.
+    /// </summary>
+    public TerraformValue<string> TransformationQuery
+    {
+        get => new TerraformReference<string>(this, "transformation_query");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStreamAnalyticsJobDataSourceTimeoutsBlock? Timeouts

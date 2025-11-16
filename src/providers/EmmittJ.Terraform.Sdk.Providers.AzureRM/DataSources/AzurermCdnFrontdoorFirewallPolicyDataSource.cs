@@ -60,6 +60,62 @@ public partial class AzurermCdnFrontdoorFirewallPolicyDataSource(string name) : 
     }
 
     /// <summary>
+    /// The captcha_cookie_expiration_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double> CaptchaCookieExpirationInMinutes
+    {
+        get => new TerraformReference<double>(this, "captcha_cookie_expiration_in_minutes");
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+    }
+
+    /// <summary>
+    /// The frontend_endpoint_ids attribute.
+    /// </summary>
+    public TerraformList<string> FrontendEndpointIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "frontend_endpoint_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The js_challenge_cookie_expiration_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double> JsChallengeCookieExpirationInMinutes
+    {
+        get => new TerraformReference<double>(this, "js_challenge_cookie_expiration_in_minutes");
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    public TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+    }
+
+    /// <summary>
+    /// The redirect_url attribute.
+    /// </summary>
+    public TerraformValue<string> RedirectUrl
+    {
+        get => new TerraformReference<string>(this, "redirect_url");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock? Timeouts

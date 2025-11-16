@@ -156,6 +156,23 @@ public partial class AzurermStorageShare(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+    }
+
+    /// <summary>
     /// Acl block (nesting mode: set).
     /// </summary>
     public TerraformSet<AzurermStorageShareAclBlock>? Acl

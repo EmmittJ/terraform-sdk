@@ -58,6 +58,14 @@ public partial class AzurermSubscriptionsDataSource(string name) : TerraformData
     }
 
     /// <summary>
+    /// The subscriptions attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Subscriptions
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "subscriptions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSubscriptionsDataSourceTimeoutsBlock? Timeouts

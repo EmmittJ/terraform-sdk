@@ -97,6 +97,14 @@ public partial class AzurermAdvisorSuppression(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The suppression_id attribute.
+    /// </summary>
+    public TerraformValue<string> SuppressionId
+    {
+        get => new TerraformReference<string>(this, "suppression_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAdvisorSuppressionTimeoutsBlock? Timeouts

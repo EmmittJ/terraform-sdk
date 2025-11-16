@@ -60,6 +60,70 @@ public partial class AzurermMaintenanceConfigurationDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The in_guest_user_patch_mode attribute.
+    /// </summary>
+    public TerraformValue<string> InGuestUserPatchMode
+    {
+        get => new TerraformReference<string>(this, "in_guest_user_patch_mode");
+    }
+
+    /// <summary>
+    /// The install_patches attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> InstallPatches
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "install_patches").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The properties attribute.
+    /// </summary>
+    public TerraformMap<string> Properties
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    public TerraformValue<string> Scope
+    {
+        get => new TerraformReference<string>(this, "scope");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The visibility attribute.
+    /// </summary>
+    public TerraformValue<string> Visibility
+    {
+        get => new TerraformReference<string>(this, "visibility");
+    }
+
+    /// <summary>
+    /// The window attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Window
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "window").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMaintenanceConfigurationDataSourceTimeoutsBlock? Timeouts

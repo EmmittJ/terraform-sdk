@@ -106,6 +106,30 @@ public partial class AzurermUserAssignedIdentity(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    public TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+    }
+
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermUserAssignedIdentityTimeoutsBlock? Timeouts

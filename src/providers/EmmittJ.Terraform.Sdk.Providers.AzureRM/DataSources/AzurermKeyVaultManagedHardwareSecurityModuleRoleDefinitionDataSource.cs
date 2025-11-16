@@ -60,6 +60,54 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionD
     }
 
     /// <summary>
+    /// The assignable_scopes attribute.
+    /// </summary>
+    public TerraformList<string> AssignableScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "assignable_scopes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The permission attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Permission
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "permission").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
+    /// The role_name attribute.
+    /// </summary>
+    public TerraformValue<string> RoleName
+    {
+        get => new TerraformReference<string>(this, "role_name");
+    }
+
+    /// <summary>
+    /// The role_type attribute.
+    /// </summary>
+    public TerraformValue<string> RoleType
+    {
+        get => new TerraformReference<string>(this, "role_type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourceTimeoutsBlock? Timeouts

@@ -344,6 +344,14 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The public_network_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> PublicNetworkAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+    }
+
+    /// <summary>
     /// Authentication block (nesting mode: list).
     /// This block is required.
     /// </summary>

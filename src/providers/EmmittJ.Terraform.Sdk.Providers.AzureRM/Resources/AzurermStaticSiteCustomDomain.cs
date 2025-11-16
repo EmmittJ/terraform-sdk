@@ -88,6 +88,14 @@ public partial class AzurermStaticSiteCustomDomain(string name) : TerraformResou
     }
 
     /// <summary>
+    /// The validation_token attribute.
+    /// </summary>
+    public TerraformValue<string> ValidationToken
+    {
+        get => new TerraformReference<string>(this, "validation_token");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStaticSiteCustomDomainTimeoutsBlock? Timeouts

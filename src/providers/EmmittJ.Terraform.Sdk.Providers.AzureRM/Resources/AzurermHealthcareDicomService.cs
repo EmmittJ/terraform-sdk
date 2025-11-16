@@ -272,6 +272,30 @@ public partial class AzurermHealthcareDicomService(string name) : TerraformResou
     }
 
     /// <summary>
+    /// The authentication attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Authentication
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authentication").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The private_endpoint attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> PrivateEndpoint
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "private_endpoint").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The service_url attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceUrl
+    {
+        get => new TerraformReference<string>(this, "service_url");
+    }
+
+    /// <summary>
     /// Cors block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]

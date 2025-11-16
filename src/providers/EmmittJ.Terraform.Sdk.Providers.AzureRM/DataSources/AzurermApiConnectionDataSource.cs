@@ -60,6 +60,46 @@ public partial class AzurermApiConnectionDataSource(string name) : TerraformData
     }
 
     /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The managed_api_id attribute.
+    /// </summary>
+    public TerraformValue<string> ManagedApiId
+    {
+        get => new TerraformReference<string>(this, "managed_api_id");
+    }
+
+    /// <summary>
+    /// The parameter_values attribute.
+    /// </summary>
+    public TerraformMap<string> ParameterValues
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameter_values").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiConnectionDataSourceTimeoutsBlock? Timeouts

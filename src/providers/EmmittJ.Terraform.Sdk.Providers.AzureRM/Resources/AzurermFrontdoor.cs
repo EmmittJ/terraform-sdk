@@ -469,6 +469,70 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     }
 
     /// <summary>
+    /// The backend_pool_health_probes attribute.
+    /// </summary>
+    public TerraformMap<string> BackendPoolHealthProbes
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pool_health_probes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The backend_pool_load_balancing_settings attribute.
+    /// </summary>
+    public TerraformMap<string> BackendPoolLoadBalancingSettings
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pool_load_balancing_settings").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The backend_pools attribute.
+    /// </summary>
+    public TerraformMap<string> BackendPools
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pools").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The cname attribute.
+    /// </summary>
+    public TerraformValue<string> Cname
+    {
+        get => new TerraformReference<string>(this, "cname");
+    }
+
+    /// <summary>
+    /// The explicit_resource_order attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ExplicitResourceOrder
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "explicit_resource_order").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The frontend_endpoints attribute.
+    /// </summary>
+    public TerraformMap<string> FrontendEndpoints
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "frontend_endpoints").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The header_frontdoor_id attribute.
+    /// </summary>
+    public TerraformValue<string> HeaderFrontdoorId
+    {
+        get => new TerraformReference<string>(this, "header_frontdoor_id");
+    }
+
+    /// <summary>
+    /// The routing_rules attribute.
+    /// </summary>
+    public TerraformMap<string> RoutingRules
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "routing_rules").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// BackendPool block (nesting mode: list).
     /// This block is required.
     /// </summary>

@@ -190,6 +190,14 @@ public partial class AzurermAiFoundryProject(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The project_id attribute.
+    /// </summary>
+    public TerraformValue<string> ProjectId
+    {
+        get => new TerraformReference<string>(this, "project_id");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

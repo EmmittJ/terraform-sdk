@@ -405,6 +405,30 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The ethertype attribute.
+    /// </summary>
+    public TerraformValue<string> Ethertype
+    {
+        get => new TerraformReference<string>(this, "ethertype");
+    }
+
+    /// <summary>
+    /// The guid attribute.
+    /// </summary>
+    public TerraformValue<string> Guid
+    {
+        get => new TerraformReference<string>(this, "guid");
+    }
+
+    /// <summary>
+    /// The mtu attribute.
+    /// </summary>
+    public TerraformValue<string> Mtu
+    {
+        get => new TerraformReference<string>(this, "mtu");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

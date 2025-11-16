@@ -248,6 +248,14 @@ public partial class AzurermBastionHost(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The dns_name attribute.
+    /// </summary>
+    public TerraformValue<string> DnsName
+    {
+        get => new TerraformReference<string>(this, "dns_name");
+    }
+
+    /// <summary>
     /// IpConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]

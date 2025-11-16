@@ -149,6 +149,14 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     }
 
     /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
     /// StorageAccount block (nesting mode: list).
     /// This block is required.
     /// </summary>

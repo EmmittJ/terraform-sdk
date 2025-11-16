@@ -126,6 +126,14 @@ public partial class AzurermMobileNetwork(string name) : TerraformResource("azur
     }
 
     /// <summary>
+    /// The service_key attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceKey
+    {
+        get => new TerraformReference<string>(this, "service_key");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMobileNetworkTimeoutsBlock? Timeouts

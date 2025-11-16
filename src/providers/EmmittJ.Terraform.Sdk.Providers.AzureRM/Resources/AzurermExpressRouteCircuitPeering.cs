@@ -262,6 +262,38 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     }
 
     /// <summary>
+    /// The azure_asn attribute.
+    /// </summary>
+    public TerraformValue<double> AzureAsn
+    {
+        get => new TerraformReference<double>(this, "azure_asn");
+    }
+
+    /// <summary>
+    /// The gateway_manager_etag attribute.
+    /// </summary>
+    public TerraformValue<string> GatewayManagerEtag
+    {
+        get => new TerraformReference<string>(this, "gateway_manager_etag");
+    }
+
+    /// <summary>
+    /// The primary_azure_port attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAzurePort
+    {
+        get => new TerraformReference<string>(this, "primary_azure_port");
+    }
+
+    /// <summary>
+    /// The secondary_azure_port attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAzurePort
+    {
+        get => new TerraformReference<string>(this, "secondary_azure_port");
+    }
+
+    /// <summary>
     /// Ipv6 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ipv6 block(s) allowed")]

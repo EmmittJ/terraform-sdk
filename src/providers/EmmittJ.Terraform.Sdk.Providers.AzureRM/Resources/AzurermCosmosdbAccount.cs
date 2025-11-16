@@ -699,6 +699,126 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     }
 
     /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+    }
+
+    /// <summary>
+    /// The primary_mongodb_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryMongodbConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_mongodb_connection_string");
+    }
+
+    /// <summary>
+    /// The primary_readonly_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryReadonlyKey
+    {
+        get => new TerraformReference<string>(this, "primary_readonly_key");
+    }
+
+    /// <summary>
+    /// The primary_readonly_mongodb_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryReadonlyMongodbConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_readonly_mongodb_connection_string");
+    }
+
+    /// <summary>
+    /// The primary_readonly_sql_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryReadonlySqlConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_readonly_sql_connection_string");
+    }
+
+    /// <summary>
+    /// The primary_sql_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimarySqlConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_sql_connection_string");
+    }
+
+    /// <summary>
+    /// The read_endpoints attribute.
+    /// </summary>
+    public TerraformList<string> ReadEndpoints
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "read_endpoints").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryKey
+    {
+        get => new TerraformReference<string>(this, "secondary_key");
+    }
+
+    /// <summary>
+    /// The secondary_mongodb_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryMongodbConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_mongodb_connection_string");
+    }
+
+    /// <summary>
+    /// The secondary_readonly_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryReadonlyKey
+    {
+        get => new TerraformReference<string>(this, "secondary_readonly_key");
+    }
+
+    /// <summary>
+    /// The secondary_readonly_mongodb_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryReadonlyMongodbConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_readonly_mongodb_connection_string");
+    }
+
+    /// <summary>
+    /// The secondary_readonly_sql_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryReadonlySqlConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_readonly_sql_connection_string");
+    }
+
+    /// <summary>
+    /// The secondary_sql_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondarySqlConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_sql_connection_string");
+    }
+
+    /// <summary>
+    /// The write_endpoints attribute.
+    /// </summary>
+    public TerraformList<string> WriteEndpoints
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "write_endpoints").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AnalyticalStorage block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnalyticalStorage block(s) allowed")]

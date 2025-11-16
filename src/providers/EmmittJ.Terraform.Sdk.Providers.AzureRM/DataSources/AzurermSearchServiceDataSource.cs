@@ -60,6 +60,78 @@ public partial class AzurermSearchServiceDataSource(string name) : TerraformData
     }
 
     /// <summary>
+    /// The customer_managed_key_encryption_compliance_status attribute.
+    /// </summary>
+    public TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus
+    {
+        get => new TerraformReference<string>(this, "customer_managed_key_encryption_compliance_status");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The partition_count attribute.
+    /// </summary>
+    public TerraformValue<double> PartitionCount
+    {
+        get => new TerraformReference<double>(this, "partition_count");
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+    }
+
+    /// <summary>
+    /// The public_network_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> PublicNetworkAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+    }
+
+    /// <summary>
+    /// The query_keys attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> QueryKeys
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "query_keys").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The replica_count attribute.
+    /// </summary>
+    public TerraformValue<double> ReplicaCount
+    {
+        get => new TerraformReference<double>(this, "replica_count");
+    }
+
+    /// <summary>
+    /// The secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryKey
+    {
+        get => new TerraformReference<string>(this, "secondary_key");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSearchServiceDataSourceTimeoutsBlock? Timeouts

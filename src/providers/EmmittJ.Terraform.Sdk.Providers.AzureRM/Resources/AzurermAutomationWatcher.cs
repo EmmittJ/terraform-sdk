@@ -163,6 +163,14 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformValue<string> Status
+    {
+        get => new TerraformReference<string>(this, "status");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationWatcherTimeoutsBlock? Timeouts

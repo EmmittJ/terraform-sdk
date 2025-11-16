@@ -60,6 +60,30 @@ public partial class AzurermStorageSyncDataSource(string name) : TerraformDataSo
     }
 
     /// <summary>
+    /// The incoming_traffic_policy attribute.
+    /// </summary>
+    public TerraformValue<string> IncomingTrafficPolicy
+    {
+        get => new TerraformReference<string>(this, "incoming_traffic_policy");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageSyncDataSourceTimeoutsBlock? Timeouts

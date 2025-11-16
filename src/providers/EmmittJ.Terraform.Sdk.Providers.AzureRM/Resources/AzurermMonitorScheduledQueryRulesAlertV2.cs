@@ -377,6 +377,30 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2(string name) : Ter
     }
 
     /// <summary>
+    /// The created_with_api_version attribute.
+    /// </summary>
+    public TerraformValue<string> CreatedWithApiVersion
+    {
+        get => new TerraformReference<string>(this, "created_with_api_version");
+    }
+
+    /// <summary>
+    /// The is_a_legacy_log_analytics_rule attribute.
+    /// </summary>
+    public TerraformValue<bool> IsALegacyLogAnalyticsRule
+    {
+        get => new TerraformReference<bool>(this, "is_a_legacy_log_analytics_rule");
+    }
+
+    /// <summary>
+    /// The is_workspace_alerts_storage_configured attribute.
+    /// </summary>
+    public TerraformValue<bool> IsWorkspaceAlertsStorageConfigured
+    {
+        get => new TerraformReference<bool>(this, "is_workspace_alerts_storage_configured");
+    }
+
+    /// <summary>
     /// Action block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]

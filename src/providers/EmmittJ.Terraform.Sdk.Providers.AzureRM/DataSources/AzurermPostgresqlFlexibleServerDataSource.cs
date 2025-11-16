@@ -60,6 +60,94 @@ public partial class AzurermPostgresqlFlexibleServerDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The administrator_login attribute.
+    /// </summary>
+    public TerraformValue<string> AdministratorLogin
+    {
+        get => new TerraformReference<string>(this, "administrator_login");
+    }
+
+    /// <summary>
+    /// The auto_grow_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> AutoGrowEnabled
+    {
+        get => new TerraformReference<bool>(this, "auto_grow_enabled");
+    }
+
+    /// <summary>
+    /// The backup_retention_days attribute.
+    /// </summary>
+    public TerraformValue<double> BackupRetentionDays
+    {
+        get => new TerraformReference<double>(this, "backup_retention_days");
+    }
+
+    /// <summary>
+    /// The delegated_subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string> DelegatedSubnetId
+    {
+        get => new TerraformReference<string>(this, "delegated_subnet_id");
+    }
+
+    /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The public_network_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> PublicNetworkAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
+    /// The storage_mb attribute.
+    /// </summary>
+    public TerraformValue<double> StorageMb
+    {
+        get => new TerraformReference<double>(this, "storage_mb");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPostgresqlFlexibleServerDataSourceTimeoutsBlock? Timeouts

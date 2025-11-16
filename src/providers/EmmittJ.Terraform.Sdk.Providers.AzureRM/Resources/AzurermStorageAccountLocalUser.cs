@@ -179,6 +179,22 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     }
 
     /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+    }
+
+    /// <summary>
+    /// The sid attribute.
+    /// </summary>
+    public TerraformValue<string> Sid
+    {
+        get => new TerraformReference<string>(this, "sid");
+    }
+
+    /// <summary>
     /// PermissionScope block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermStorageAccountLocalUserPermissionScopeBlock>? PermissionScope

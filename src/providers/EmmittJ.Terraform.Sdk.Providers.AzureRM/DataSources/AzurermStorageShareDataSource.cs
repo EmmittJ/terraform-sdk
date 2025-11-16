@@ -106,6 +106,23 @@ public partial class AzurermStorageShareDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The quota attribute.
+    /// </summary>
+    public TerraformValue<double> Quota
+    {
+        get => new TerraformReference<double>(this, "quota");
+    }
+
+    /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
     /// Acl block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermStorageShareDataSourceAclBlock>? Acl

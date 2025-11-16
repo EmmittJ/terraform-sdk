@@ -197,6 +197,38 @@ public partial class AzurermPrivateDnsZone(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The max_number_of_record_sets attribute.
+    /// </summary>
+    public TerraformValue<double> MaxNumberOfRecordSets
+    {
+        get => new TerraformReference<double>(this, "max_number_of_record_sets");
+    }
+
+    /// <summary>
+    /// The max_number_of_virtual_network_links attribute.
+    /// </summary>
+    public TerraformValue<double> MaxNumberOfVirtualNetworkLinks
+    {
+        get => new TerraformReference<double>(this, "max_number_of_virtual_network_links");
+    }
+
+    /// <summary>
+    /// The max_number_of_virtual_network_links_with_registration attribute.
+    /// </summary>
+    public TerraformValue<double> MaxNumberOfVirtualNetworkLinksWithRegistration
+    {
+        get => new TerraformReference<double>(this, "max_number_of_virtual_network_links_with_registration");
+    }
+
+    /// <summary>
+    /// The number_of_record_sets attribute.
+    /// </summary>
+    public TerraformValue<double> NumberOfRecordSets
+    {
+        get => new TerraformReference<double>(this, "number_of_record_sets");
+    }
+
+    /// <summary>
     /// SoaRecord block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoaRecord block(s) allowed")]

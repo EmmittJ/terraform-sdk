@@ -60,6 +60,46 @@ public partial class AzurermKustoClusterDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The data_ingestion_uri attribute.
+    /// </summary>
+    public TerraformValue<string> DataIngestionUri
+    {
+        get => new TerraformReference<string>(this, "data_ingestion_uri");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    public TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKustoClusterDataSourceTimeoutsBlock? Timeouts

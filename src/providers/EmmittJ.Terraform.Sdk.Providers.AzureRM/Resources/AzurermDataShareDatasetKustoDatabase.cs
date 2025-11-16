@@ -88,6 +88,22 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     }
 
     /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The kusto_cluster_location attribute.
+    /// </summary>
+    public TerraformValue<string> KustoClusterLocation
+    {
+        get => new TerraformReference<string>(this, "kusto_cluster_location");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataShareDatasetKustoDatabaseTimeoutsBlock? Timeouts

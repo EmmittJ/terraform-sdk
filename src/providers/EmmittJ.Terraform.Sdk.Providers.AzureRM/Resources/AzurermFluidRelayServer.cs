@@ -196,6 +196,54 @@ public partial class AzurermFluidRelayServer(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The frs_tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> FrsTenantId
+    {
+        get => new TerraformReference<string>(this, "frs_tenant_id");
+    }
+
+    /// <summary>
+    /// The orderer_endpoints attribute.
+    /// </summary>
+    public TerraformList<string> OrdererEndpoints
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "orderer_endpoints").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+    }
+
+    /// <summary>
+    /// The secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryKey
+    {
+        get => new TerraformReference<string>(this, "secondary_key");
+    }
+
+    /// <summary>
+    /// The service_endpoints attribute.
+    /// </summary>
+    public TerraformList<string> ServiceEndpoints
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_endpoints").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The storage_endpoints attribute.
+    /// </summary>
+    public TerraformList<string> StorageEndpoints
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "storage_endpoints").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]

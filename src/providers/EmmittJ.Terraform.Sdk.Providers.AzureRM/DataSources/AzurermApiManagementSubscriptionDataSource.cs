@@ -60,6 +60,70 @@ public partial class AzurermApiManagementSubscriptionDataSource(string name) : T
     }
 
     /// <summary>
+    /// The allow_tracing attribute.
+    /// </summary>
+    public TerraformValue<bool> AllowTracing
+    {
+        get => new TerraformReference<bool>(this, "allow_tracing");
+    }
+
+    /// <summary>
+    /// The api_id attribute.
+    /// </summary>
+    public TerraformValue<string> ApiId
+    {
+        get => new TerraformReference<string>(this, "api_id");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+    }
+
+    /// <summary>
+    /// The product_id attribute.
+    /// </summary>
+    public TerraformValue<string> ProductId
+    {
+        get => new TerraformReference<string>(this, "product_id");
+    }
+
+    /// <summary>
+    /// The secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryKey
+    {
+        get => new TerraformReference<string>(this, "secondary_key");
+    }
+
+    /// <summary>
+    /// The state attribute.
+    /// </summary>
+    public TerraformValue<string> State
+    {
+        get => new TerraformReference<string>(this, "state");
+    }
+
+    /// <summary>
+    /// The user_id attribute.
+    /// </summary>
+    public TerraformValue<string> UserId
+    {
+        get => new TerraformReference<string>(this, "user_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementSubscriptionDataSourceTimeoutsBlock? Timeouts

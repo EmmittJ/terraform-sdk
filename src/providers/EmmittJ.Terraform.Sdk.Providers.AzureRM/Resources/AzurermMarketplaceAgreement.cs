@@ -88,6 +88,22 @@ public partial class AzurermMarketplaceAgreement(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The license_text_link attribute.
+    /// </summary>
+    public TerraformValue<string> LicenseTextLink
+    {
+        get => new TerraformReference<string>(this, "license_text_link");
+    }
+
+    /// <summary>
+    /// The privacy_policy_link attribute.
+    /// </summary>
+    public TerraformValue<string> PrivacyPolicyLink
+    {
+        get => new TerraformReference<string>(this, "privacy_policy_link");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMarketplaceAgreementTimeoutsBlock? Timeouts

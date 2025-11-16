@@ -1749,6 +1749,14 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The private_endpoint_connection attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> PrivateEndpointConnection
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "private_endpoint_connection").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AuthenticationCertificate block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermApplicationGatewayAuthenticationCertificateBlock>? AuthenticationCertificate

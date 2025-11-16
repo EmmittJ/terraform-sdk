@@ -201,6 +201,14 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     }
 
     /// <summary>
+    /// The trusted_launch_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> TrustedLaunchEnabled
+    {
+        get => new TerraformReference<bool>(this, "trusted_launch_enabled");
+    }
+
+    /// <summary>
     /// EncryptionSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSettings block(s) allowed")]

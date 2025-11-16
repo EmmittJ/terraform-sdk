@@ -191,6 +191,14 @@ public partial class AzurermApplicationInsightsWebTest(string name) : TerraformR
     }
 
     /// <summary>
+    /// The synthetic_monitor_id attribute.
+    /// </summary>
+    public TerraformValue<string> SyntheticMonitorId
+    {
+        get => new TerraformReference<string>(this, "synthetic_monitor_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApplicationInsightsWebTestTimeoutsBlock? Timeouts

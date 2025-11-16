@@ -91,6 +91,14 @@ public partial class AzurermCdnFrontdoorSecret(string name) : TerraformResource(
     }
 
     /// <summary>
+    /// The cdn_frontdoor_profile_name attribute.
+    /// </summary>
+    public TerraformValue<string> CdnFrontdoorProfileName
+    {
+        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_name");
+    }
+
+    /// <summary>
     /// Secret block (nesting mode: list).
     /// This block is required.
     /// </summary>

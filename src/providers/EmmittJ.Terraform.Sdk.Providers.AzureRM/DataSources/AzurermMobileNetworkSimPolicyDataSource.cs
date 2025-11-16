@@ -60,6 +60,62 @@ public partial class AzurermMobileNetworkSimPolicyDataSource(string name) : Terr
     }
 
     /// <summary>
+    /// The default_slice_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSliceId
+    {
+        get => new TerraformReference<string>(this, "default_slice_id");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The rat_frequency_selection_priority_index attribute.
+    /// </summary>
+    public TerraformValue<double> RatFrequencySelectionPriorityIndex
+    {
+        get => new TerraformReference<double>(this, "rat_frequency_selection_priority_index");
+    }
+
+    /// <summary>
+    /// The registration_timer_in_seconds attribute.
+    /// </summary>
+    public TerraformValue<double> RegistrationTimerInSeconds
+    {
+        get => new TerraformReference<double>(this, "registration_timer_in_seconds");
+    }
+
+    /// <summary>
+    /// The slice attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Slice
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "slice").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The user_equipment_aggregate_maximum_bit_rate attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> UserEquipmentAggregateMaximumBitRate
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "user_equipment_aggregate_maximum_bit_rate").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock? Timeouts

@@ -60,6 +60,86 @@ public partial class AzurermPolicyAssignmentDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The enforce attribute.
+    /// </summary>
+    public TerraformValue<bool> Enforce
+    {
+        get => new TerraformReference<bool>(this, "enforce");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The metadata attribute.
+    /// </summary>
+    public TerraformValue<string> Metadata
+    {
+        get => new TerraformReference<string>(this, "metadata");
+    }
+
+    /// <summary>
+    /// The non_compliance_message attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> NonComplianceMessage
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "non_compliance_message").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The not_scopes attribute.
+    /// </summary>
+    public TerraformList<string> NotScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_scopes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string> Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+    }
+
+    /// <summary>
+    /// The policy_definition_id attribute.
+    /// </summary>
+    public TerraformValue<string> PolicyDefinitionId
+    {
+        get => new TerraformReference<string>(this, "policy_definition_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPolicyAssignmentDataSourceTimeoutsBlock? Timeouts

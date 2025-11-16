@@ -50,6 +50,14 @@ public partial class AzurermStorageManagementPolicyDataSource(string name) : Ter
     }
 
     /// <summary>
+    /// The rule attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Rule
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "rule").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermStorageManagementPolicyDataSourceTimeoutsBlock? Timeouts

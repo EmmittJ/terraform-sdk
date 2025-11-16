@@ -106,6 +106,14 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     }
 
     /// <summary>
+    /// The virtual_ip attribute.
+    /// </summary>
+    public TerraformValue<string> VirtualIp
+    {
+        get => new TerraformReference<string>(this, "virtual_ip");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAppServiceCustomHostnameBindingTimeoutsBlock? Timeouts

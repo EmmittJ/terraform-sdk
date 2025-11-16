@@ -60,6 +60,86 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource(string na
     }
 
     /// <summary>
+    /// The dns_addresses attribute.
+    /// </summary>
+    public TerraformList<string> DnsAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The network_address_port_translation attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> NetworkAddressPortTranslation
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_address_port_translation").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The user_equipment_address_pool_prefixes attribute.
+    /// </summary>
+    public TerraformList<string> UserEquipmentAddressPoolPrefixes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_equipment_address_pool_prefixes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The user_equipment_static_address_pool_prefixes attribute.
+    /// </summary>
+    public TerraformList<string> UserEquipmentStaticAddressPoolPrefixes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_equipment_static_address_pool_prefixes").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The user_plane_access_ipv4_address attribute.
+    /// </summary>
+    public TerraformValue<string> UserPlaneAccessIpv4Address
+    {
+        get => new TerraformReference<string>(this, "user_plane_access_ipv4_address");
+    }
+
+    /// <summary>
+    /// The user_plane_access_ipv4_gateway attribute.
+    /// </summary>
+    public TerraformValue<string> UserPlaneAccessIpv4Gateway
+    {
+        get => new TerraformReference<string>(this, "user_plane_access_ipv4_gateway");
+    }
+
+    /// <summary>
+    /// The user_plane_access_ipv4_subnet attribute.
+    /// </summary>
+    public TerraformValue<string> UserPlaneAccessIpv4Subnet
+    {
+        get => new TerraformReference<string>(this, "user_plane_access_ipv4_subnet");
+    }
+
+    /// <summary>
+    /// The user_plane_access_name attribute.
+    /// </summary>
+    public TerraformValue<string> UserPlaneAccessName
+    {
+        get => new TerraformReference<string>(this, "user_plane_access_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock? Timeouts

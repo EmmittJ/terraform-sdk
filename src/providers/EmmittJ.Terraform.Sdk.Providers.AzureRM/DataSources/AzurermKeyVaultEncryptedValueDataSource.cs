@@ -78,6 +78,14 @@ public partial class AzurermKeyVaultEncryptedValueDataSource(string name) : Terr
     }
 
     /// <summary>
+    /// The decoded_plain_text_value attribute.
+    /// </summary>
+    public TerraformValue<string> DecodedPlainTextValue
+    {
+        get => new TerraformReference<string>(this, "decoded_plain_text_value");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock? Timeouts

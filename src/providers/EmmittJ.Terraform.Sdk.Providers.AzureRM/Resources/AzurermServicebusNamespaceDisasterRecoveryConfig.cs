@@ -106,6 +106,38 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfig(string nam
     }
 
     /// <summary>
+    /// The default_primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPrimaryKey
+    {
+        get => new TerraformReference<string>(this, "default_primary_key");
+    }
+
+    /// <summary>
+    /// The default_secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSecondaryKey
+    {
+        get => new TerraformReference<string>(this, "default_secondary_key");
+    }
+
+    /// <summary>
+    /// The primary_connection_string_alias attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryConnectionStringAlias
+    {
+        get => new TerraformReference<string>(this, "primary_connection_string_alias");
+    }
+
+    /// <summary>
+    /// The secondary_connection_string_alias attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryConnectionStringAlias
+    {
+        get => new TerraformReference<string>(this, "secondary_connection_string_alias");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock? Timeouts

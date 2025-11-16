@@ -175,6 +175,54 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     }
 
     /// <summary>
+    /// The elastic_cloud_deployment_id attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticCloudDeploymentId
+    {
+        get => new TerraformReference<string>(this, "elastic_cloud_deployment_id");
+    }
+
+    /// <summary>
+    /// The elastic_cloud_sso_default_url attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticCloudSsoDefaultUrl
+    {
+        get => new TerraformReference<string>(this, "elastic_cloud_sso_default_url");
+    }
+
+    /// <summary>
+    /// The elastic_cloud_user_id attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticCloudUserId
+    {
+        get => new TerraformReference<string>(this, "elastic_cloud_user_id");
+    }
+
+    /// <summary>
+    /// The elasticsearch_service_url attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticsearchServiceUrl
+    {
+        get => new TerraformReference<string>(this, "elasticsearch_service_url");
+    }
+
+    /// <summary>
+    /// The kibana_service_url attribute.
+    /// </summary>
+    public TerraformValue<string> KibanaServiceUrl
+    {
+        get => new TerraformReference<string>(this, "kibana_service_url");
+    }
+
+    /// <summary>
+    /// The kibana_sso_uri attribute.
+    /// </summary>
+    public TerraformValue<string> KibanaSsoUri
+    {
+        get => new TerraformReference<string>(this, "kibana_sso_uri");
+    }
+
+    /// <summary>
     /// Logs block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]

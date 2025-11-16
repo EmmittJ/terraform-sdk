@@ -96,6 +96,22 @@ public partial class AzurermOracleResourceAnchor(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The linked_compartment_id attribute.
+    /// </summary>
+    public TerraformValue<string> LinkedCompartmentId
+    {
+        get => new TerraformReference<string>(this, "linked_compartment_id");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermOracleResourceAnchorTimeoutsBlock? Timeouts

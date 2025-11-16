@@ -116,6 +116,14 @@ public partial class AzurermNetworkManagerScopeConnection(string name) : Terrafo
     }
 
     /// <summary>
+    /// The connection_state attribute.
+    /// </summary>
+    public TerraformValue<string> ConnectionState
+    {
+        get => new TerraformReference<string>(this, "connection_state");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetworkManagerScopeConnectionTimeoutsBlock? Timeouts

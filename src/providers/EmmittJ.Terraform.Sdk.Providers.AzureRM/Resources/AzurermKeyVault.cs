@@ -301,6 +301,14 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     }
 
     /// <summary>
+    /// The vault_uri attribute.
+    /// </summary>
+    public TerraformValue<string> VaultUri
+    {
+        get => new TerraformReference<string>(this, "vault_uri");
+    }
+
+    /// <summary>
     /// Contact block (nesting mode: set).
     /// </summary>
     [Obsolete("This block is deprecated.")]

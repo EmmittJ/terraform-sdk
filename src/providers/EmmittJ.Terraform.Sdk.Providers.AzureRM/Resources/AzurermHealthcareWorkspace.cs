@@ -106,6 +106,14 @@ public partial class AzurermHealthcareWorkspace(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The private_endpoint_connection attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> PrivateEndpointConnection
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "private_endpoint_connection").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermHealthcareWorkspaceTimeoutsBlock? Timeouts

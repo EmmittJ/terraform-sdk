@@ -70,6 +70,30 @@ public partial class AzurermBatchApplicationDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The allow_updates attribute.
+    /// </summary>
+    public TerraformValue<bool> AllowUpdates
+    {
+        get => new TerraformReference<bool>(this, "allow_updates");
+    }
+
+    /// <summary>
+    /// The default_version attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultVersion
+    {
+        get => new TerraformReference<string>(this, "default_version");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermBatchApplicationDataSourceTimeoutsBlock? Timeouts

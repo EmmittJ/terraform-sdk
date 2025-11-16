@@ -152,6 +152,14 @@ public partial class AzurermDataFactoryLinkedServiceAzureSearch(string name) : T
     }
 
     /// <summary>
+    /// The encrypted_credential attribute.
+    /// </summary>
+    public TerraformValue<string> EncryptedCredential
+    {
+        get => new TerraformReference<string>(this, "encrypted_credential");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataFactoryLinkedServiceAzureSearchTimeoutsBlock? Timeouts

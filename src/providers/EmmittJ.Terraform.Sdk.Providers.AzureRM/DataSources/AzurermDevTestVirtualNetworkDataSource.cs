@@ -70,6 +70,30 @@ public partial class AzurermDevTestVirtualNetworkDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The allowed_subnets attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> AllowedSubnets
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "allowed_subnets").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The subnet_overrides attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SubnetOverrides
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "subnet_overrides").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The unique_identifier attribute.
+    /// </summary>
+    public TerraformValue<string> UniqueIdentifier
+    {
+        get => new TerraformReference<string>(this, "unique_identifier");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock? Timeouts

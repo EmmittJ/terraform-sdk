@@ -290,6 +290,14 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     }
 
     /// <summary>
+    /// The immutable_id attribute.
+    /// </summary>
+    public TerraformValue<string> ImmutableId
+    {
+        get => new TerraformReference<string>(this, "immutable_id");
+    }
+
+    /// <summary>
     /// DataFlow block (nesting mode: list).
     /// This block is required.
     /// </summary>

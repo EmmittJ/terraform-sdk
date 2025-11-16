@@ -90,6 +90,14 @@ public partial class AzurermNetappSnapshotDataSource(string name) : TerraformDat
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetappSnapshotDataSourceTimeoutsBlock? Timeouts

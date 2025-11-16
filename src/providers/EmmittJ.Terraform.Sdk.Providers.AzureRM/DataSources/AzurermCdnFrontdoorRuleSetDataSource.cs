@@ -70,6 +70,14 @@ public partial class AzurermCdnFrontdoorRuleSetDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The cdn_frontdoor_profile_id attribute.
+    /// </summary>
+    public TerraformValue<string> CdnFrontdoorProfileId
+    {
+        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermCdnFrontdoorRuleSetDataSourceTimeoutsBlock? Timeouts

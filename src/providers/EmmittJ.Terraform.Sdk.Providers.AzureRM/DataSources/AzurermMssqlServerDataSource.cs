@@ -60,6 +60,78 @@ public partial class AzurermMssqlServerDataSource(string name) : TerraformDataSo
     }
 
     /// <summary>
+    /// The administrator_login attribute.
+    /// </summary>
+    public TerraformValue<string> AdministratorLogin
+    {
+        get => new TerraformReference<string>(this, "administrator_login");
+    }
+
+    /// <summary>
+    /// The express_vulnerability_assessment_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> ExpressVulnerabilityAssessmentEnabled
+    {
+        get => new TerraformReference<bool>(this, "express_vulnerability_assessment_enabled");
+    }
+
+    /// <summary>
+    /// The fully_qualified_domain_name attribute.
+    /// </summary>
+    public TerraformValue<string> FullyQualifiedDomainName
+    {
+        get => new TerraformReference<string>(this, "fully_qualified_domain_name");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The restorable_dropped_database_ids attribute.
+    /// </summary>
+    public TerraformList<string> RestorableDroppedDatabaseIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "restorable_dropped_database_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The transparent_data_encryption_key_vault_key_id attribute.
+    /// </summary>
+    public TerraformValue<string> TransparentDataEncryptionKeyVaultKeyId
+    {
+        get => new TerraformReference<string>(this, "transparent_data_encryption_key_vault_key_id");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMssqlServerDataSourceTimeoutsBlock? Timeouts

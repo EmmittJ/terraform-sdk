@@ -78,6 +78,14 @@ public partial class AzurermChaosStudioCapability(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The urn attribute.
+    /// </summary>
+    public TerraformValue<string> Urn
+    {
+        get => new TerraformReference<string>(this, "urn");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermChaosStudioCapabilityTimeoutsBlock? Timeouts

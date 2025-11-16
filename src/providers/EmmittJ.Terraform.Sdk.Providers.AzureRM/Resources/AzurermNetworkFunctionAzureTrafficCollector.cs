@@ -106,6 +106,22 @@ public partial class AzurermNetworkFunctionAzureTrafficCollector(string name) : 
     }
 
     /// <summary>
+    /// The collector_policy_ids attribute.
+    /// </summary>
+    public TerraformList<string> CollectorPolicyIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "collector_policy_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_hub_id attribute.
+    /// </summary>
+    public TerraformList<string> VirtualHubId
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_hub_id").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetworkFunctionAzureTrafficCollectorTimeoutsBlock? Timeouts

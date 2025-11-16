@@ -61,6 +61,38 @@ public partial class AzurermSpatialAnchorsAccountDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The account_domain attribute.
+    /// </summary>
+    public TerraformValue<string> AccountDomain
+    {
+        get => new TerraformReference<string>(this, "account_domain");
+    }
+
+    /// <summary>
+    /// The account_id attribute.
+    /// </summary>
+    public TerraformValue<string> AccountId
+    {
+        get => new TerraformReference<string>(this, "account_id");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSpatialAnchorsAccountDataSourceTimeoutsBlock? Timeouts

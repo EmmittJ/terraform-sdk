@@ -130,6 +130,38 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The target_iqn attribute.
+    /// </summary>
+    public TerraformValue<string> TargetIqn
+    {
+        get => new TerraformReference<string>(this, "target_iqn");
+    }
+
+    /// <summary>
+    /// The target_portal_hostname attribute.
+    /// </summary>
+    public TerraformValue<string> TargetPortalHostname
+    {
+        get => new TerraformReference<string>(this, "target_portal_hostname");
+    }
+
+    /// <summary>
+    /// The target_portal_port attribute.
+    /// </summary>
+    public TerraformValue<double> TargetPortalPort
+    {
+        get => new TerraformReference<double>(this, "target_portal_port");
+    }
+
+    /// <summary>
+    /// The volume_id attribute.
+    /// </summary>
+    public TerraformValue<string> VolumeId
+    {
+        get => new TerraformReference<string>(this, "volume_id");
+    }
+
+    /// <summary>
     /// CreateSource block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateSource block(s) allowed")]

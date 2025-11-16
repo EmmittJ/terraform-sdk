@@ -270,6 +270,14 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     }
 
     /// <summary>
+    /// The synthetic_monitor_id attribute.
+    /// </summary>
+    public TerraformValue<string> SyntheticMonitorId
+    {
+        get => new TerraformReference<string>(this, "synthetic_monitor_id");
+    }
+
+    /// <summary>
     /// Request block (nesting mode: list).
     /// This block is required.
     /// </summary>

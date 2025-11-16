@@ -60,6 +60,46 @@ public partial class AzurermElasticSanVolumeGroupDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The encryption attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Encryption
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The encryption_type attribute.
+    /// </summary>
+    public TerraformValue<string> EncryptionType
+    {
+        get => new TerraformReference<string>(this, "encryption_type");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The network_rule attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> NetworkRule
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_rule").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The protocol_type attribute.
+    /// </summary>
+    public TerraformValue<string> ProtocolType
+    {
+        get => new TerraformReference<string>(this, "protocol_type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermElasticSanVolumeGroupDataSourceTimeoutsBlock? Timeouts

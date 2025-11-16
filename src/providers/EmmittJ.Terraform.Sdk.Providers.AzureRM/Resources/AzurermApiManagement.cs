@@ -841,6 +841,70 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     }
 
     /// <summary>
+    /// The developer_portal_url attribute.
+    /// </summary>
+    public TerraformValue<string> DeveloperPortalUrl
+    {
+        get => new TerraformReference<string>(this, "developer_portal_url");
+    }
+
+    /// <summary>
+    /// The gateway_regional_url attribute.
+    /// </summary>
+    public TerraformValue<string> GatewayRegionalUrl
+    {
+        get => new TerraformReference<string>(this, "gateway_regional_url");
+    }
+
+    /// <summary>
+    /// The gateway_url attribute.
+    /// </summary>
+    public TerraformValue<string> GatewayUrl
+    {
+        get => new TerraformReference<string>(this, "gateway_url");
+    }
+
+    /// <summary>
+    /// The management_api_url attribute.
+    /// </summary>
+    public TerraformValue<string> ManagementApiUrl
+    {
+        get => new TerraformReference<string>(this, "management_api_url");
+    }
+
+    /// <summary>
+    /// The portal_url attribute.
+    /// </summary>
+    public TerraformValue<string> PortalUrl
+    {
+        get => new TerraformReference<string>(this, "portal_url");
+    }
+
+    /// <summary>
+    /// The private_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> PrivateIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The public_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> PublicIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The scm_url attribute.
+    /// </summary>
+    public TerraformValue<string> ScmUrl
+    {
+        get => new TerraformReference<string>(this, "scm_url");
+    }
+
+    /// <summary>
     /// AdditionalLocation block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermApiManagementAdditionalLocationBlock>? AdditionalLocation

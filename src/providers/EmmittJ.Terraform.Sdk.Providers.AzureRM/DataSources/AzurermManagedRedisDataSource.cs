@@ -60,6 +60,70 @@ public partial class AzurermManagedRedisDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The customer_managed_key attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CustomerManagedKey
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "customer_managed_key").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The default_database attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> DefaultDatabase
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "default_database").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The high_availability_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> HighAvailabilityEnabled
+    {
+        get => new TerraformReference<bool>(this, "high_availability_enabled");
+    }
+
+    /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformValue<string> Hostname
+    {
+        get => new TerraformReference<string>(this, "hostname");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermManagedRedisDataSourceTimeoutsBlock? Timeouts

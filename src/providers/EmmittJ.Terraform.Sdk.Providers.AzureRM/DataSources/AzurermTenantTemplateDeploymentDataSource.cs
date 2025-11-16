@@ -50,6 +50,14 @@ public partial class AzurermTenantTemplateDeploymentDataSource(string name) : Te
     }
 
     /// <summary>
+    /// The output_content attribute.
+    /// </summary>
+    public TerraformValue<string> OutputContent
+    {
+        get => new TerraformReference<string>(this, "output_content");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermTenantTemplateDeploymentDataSourceTimeoutsBlock? Timeouts

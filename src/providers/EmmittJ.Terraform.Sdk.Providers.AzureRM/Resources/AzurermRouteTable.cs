@@ -124,6 +124,14 @@ public partial class AzurermRouteTable(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The subnets attribute.
+    /// </summary>
+    public TerraformSet<string> Subnets
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermRouteTableTimeoutsBlock? Timeouts

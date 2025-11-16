@@ -211,6 +211,22 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The service_key attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceKey
+    {
+        get => new TerraformReference<string>(this, "service_key");
+    }
+
+    /// <summary>
+    /// The service_provider_provisioning_state attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceProviderProvisioningState
+    {
+        get => new TerraformReference<string>(this, "service_provider_provisioning_state");
+    }
+
+    /// <summary>
     /// Sku block (nesting mode: list).
     /// This block is required.
     /// </summary>

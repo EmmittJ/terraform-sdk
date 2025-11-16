@@ -125,6 +125,14 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The resource_manager_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceManagerId
+    {
+        get => new TerraformReference<string>(this, "resource_manager_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAutomationJobScheduleTimeoutsBlock? Timeouts

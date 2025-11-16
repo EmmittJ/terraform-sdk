@@ -456,6 +456,46 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     }
 
     /// <summary>
+    /// The ID of the Custom Domain Verification for this Container App.
+    /// </summary>
+    public TerraformValue<string> CustomDomainVerificationId
+    {
+        get => new TerraformReference<string>(this, "custom_domain_verification_id");
+    }
+
+    /// <summary>
+    /// The FQDN of the Latest Revision of the Container App.
+    /// </summary>
+    public TerraformValue<string> LatestRevisionFqdn
+    {
+        get => new TerraformReference<string>(this, "latest_revision_fqdn");
+    }
+
+    /// <summary>
+    /// The name of the latest Container Revision.
+    /// </summary>
+    public TerraformValue<string> LatestRevisionName
+    {
+        get => new TerraformReference<string>(this, "latest_revision_name");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The outbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> OutboundIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Dapr block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dapr block(s) allowed")]

@@ -50,6 +50,22 @@ public partial class AzurermKeyVaultSecretsDataSource(string name) : TerraformDa
     }
 
     /// <summary>
+    /// The names attribute.
+    /// </summary>
+    public TerraformList<string> Names
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "names").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The secrets attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Secrets
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "secrets").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKeyVaultSecretsDataSourceTimeoutsBlock? Timeouts

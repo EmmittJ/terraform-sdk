@@ -893,6 +893,46 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The private_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> PrivateIpAddress
+    {
+        get => new TerraformReference<string>(this, "private_ip_address");
+    }
+
+    /// <summary>
+    /// The private_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> PrivateIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The public_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> PublicIpAddress
+    {
+        get => new TerraformReference<string>(this, "public_ip_address");
+    }
+
+    /// <summary>
+    /// The public_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> PublicIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_machine_id attribute.
+    /// </summary>
+    public TerraformValue<string> VirtualMachineId
+    {
+        get => new TerraformReference<string>(this, "virtual_machine_id");
+    }
+
+    /// <summary>
     /// AdditionalCapabilities block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]

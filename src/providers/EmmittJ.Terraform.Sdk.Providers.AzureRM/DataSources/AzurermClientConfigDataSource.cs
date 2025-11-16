@@ -40,6 +40,38 @@ public partial class AzurermClientConfigDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    public TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+    }
+
+    /// <summary>
+    /// The object_id attribute.
+    /// </summary>
+    public TerraformValue<string> ObjectId
+    {
+        get => new TerraformReference<string>(this, "object_id");
+    }
+
+    /// <summary>
+    /// The subscription_id attribute.
+    /// </summary>
+    public TerraformValue<string> SubscriptionId
+    {
+        get => new TerraformReference<string>(this, "subscription_id");
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermClientConfigDataSourceTimeoutsBlock? Timeouts

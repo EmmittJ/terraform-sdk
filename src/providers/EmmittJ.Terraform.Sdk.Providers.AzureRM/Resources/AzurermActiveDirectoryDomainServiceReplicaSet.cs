@@ -88,6 +88,30 @@ public partial class AzurermActiveDirectoryDomainServiceReplicaSet(string name) 
     }
 
     /// <summary>
+    /// The domain_controller_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> DomainControllerIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domain_controller_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The external_access_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> ExternalAccessIpAddress
+    {
+        get => new TerraformReference<string>(this, "external_access_ip_address");
+    }
+
+    /// <summary>
+    /// The service_status attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceStatus
+    {
+        get => new TerraformReference<string>(this, "service_status");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock? Timeouts

@@ -70,6 +70,62 @@ public partial class AzurermSpringCloudAppDataSource(string name) : TerraformDat
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The https_only attribute.
+    /// </summary>
+    public TerraformValue<bool> HttpsOnly
+    {
+        get => new TerraformReference<bool>(this, "https_only");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The is_public attribute.
+    /// </summary>
+    public TerraformValue<bool> IsPublic
+    {
+        get => new TerraformReference<bool>(this, "is_public");
+    }
+
+    /// <summary>
+    /// The persistent_disk attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PersistentDisk
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "persistent_disk").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tls_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> TlsEnabled
+    {
+        get => new TerraformReference<bool>(this, "tls_enabled");
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSpringCloudAppDataSourceTimeoutsBlock? Timeouts

@@ -236,6 +236,54 @@ public partial class AzurermEventhubNamespace(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The default_primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "default_primary_connection_string");
+    }
+
+    /// <summary>
+    /// The default_primary_connection_string_alias attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPrimaryConnectionStringAlias
+    {
+        get => new TerraformReference<string>(this, "default_primary_connection_string_alias");
+    }
+
+    /// <summary>
+    /// The default_primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPrimaryKey
+    {
+        get => new TerraformReference<string>(this, "default_primary_key");
+    }
+
+    /// <summary>
+    /// The default_secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "default_secondary_connection_string");
+    }
+
+    /// <summary>
+    /// The default_secondary_connection_string_alias attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSecondaryConnectionStringAlias
+    {
+        get => new TerraformReference<string>(this, "default_secondary_connection_string_alias");
+    }
+
+    /// <summary>
+    /// The default_secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultSecondaryKey
+    {
+        get => new TerraformReference<string>(this, "default_secondary_key");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

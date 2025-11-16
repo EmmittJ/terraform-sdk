@@ -60,6 +60,14 @@ public partial class AzurermDevCenterGalleryDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The shared_gallery_id attribute.
+    /// </summary>
+    public TerraformValue<string> SharedGalleryId
+    {
+        get => new TerraformReference<string>(this, "shared_gallery_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevCenterGalleryDataSourceTimeoutsBlock? Timeouts

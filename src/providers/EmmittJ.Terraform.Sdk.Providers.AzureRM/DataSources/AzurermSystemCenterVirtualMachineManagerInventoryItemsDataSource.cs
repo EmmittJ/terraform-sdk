@@ -60,6 +60,14 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     }
 
     /// <summary>
+    /// The inventory_items attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> InventoryItems
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "inventory_items").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock? Timeouts

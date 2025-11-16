@@ -60,6 +60,30 @@ public partial class AzurermDataShareDatasetKustoClusterDataSource(string name) 
     }
 
     /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The kusto_cluster_id attribute.
+    /// </summary>
+    public TerraformValue<string> KustoClusterId
+    {
+        get => new TerraformReference<string>(this, "kusto_cluster_id");
+    }
+
+    /// <summary>
+    /// The kusto_cluster_location attribute.
+    /// </summary>
+    public TerraformValue<string> KustoClusterLocation
+    {
+        get => new TerraformReference<string>(this, "kusto_cluster_location");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock? Timeouts

@@ -45,7 +45,6 @@ internal static class ServiceCollectionExtensions
 
         // Templates
         services.AddSingleton<ITemplateRenderer, MustacheTemplateRenderer>();
-        services.AddSingleton<ViewModelTransformer>();
 
         // Template classes
         services.AddSingleton<Templates.ResourceTemplate>();

@@ -210,6 +210,22 @@ public partial class AzurermLbNatRule(string name) : TerraformResource("azurerm_
     }
 
     /// <summary>
+    /// The backend_ip_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> BackendIpConfigurationId
+    {
+        get => new TerraformReference<string>(this, "backend_ip_configuration_id");
+    }
+
+    /// <summary>
+    /// The frontend_ip_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> FrontendIpConfigurationId
+    {
+        get => new TerraformReference<string>(this, "frontend_ip_configuration_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLbNatRuleTimeoutsBlock? Timeouts

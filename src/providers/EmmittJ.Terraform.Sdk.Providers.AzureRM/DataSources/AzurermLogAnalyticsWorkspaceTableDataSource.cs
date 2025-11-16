@@ -60,6 +60,30 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource(string name) : 
     }
 
     /// <summary>
+    /// The plan attribute.
+    /// </summary>
+    public TerraformValue<string> Plan
+    {
+        get => new TerraformReference<string>(this, "plan");
+    }
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    public TerraformValue<double> RetentionInDays
+    {
+        get => new TerraformReference<double>(this, "retention_in_days");
+    }
+
+    /// <summary>
+    /// The total_retention_in_days attribute.
+    /// </summary>
+    public TerraformValue<double> TotalRetentionInDays
+    {
+        get => new TerraformReference<double>(this, "total_retention_in_days");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock? Timeouts

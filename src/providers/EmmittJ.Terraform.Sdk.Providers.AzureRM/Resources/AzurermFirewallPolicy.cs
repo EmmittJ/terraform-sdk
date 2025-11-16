@@ -443,6 +443,30 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The child_policies attribute.
+    /// </summary>
+    public TerraformList<string> ChildPolicies
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "child_policies").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The firewalls attribute.
+    /// </summary>
+    public TerraformList<string> Firewalls
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "firewalls").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The rule_collection_groups attribute.
+    /// </summary>
+    public TerraformList<string> RuleCollectionGroups
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "rule_collection_groups").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Dns block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]

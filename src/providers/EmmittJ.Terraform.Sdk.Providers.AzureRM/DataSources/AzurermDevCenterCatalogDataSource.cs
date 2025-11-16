@@ -60,6 +60,22 @@ public partial class AzurermDevCenterCatalogDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The catalog_adogit attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CatalogAdogit
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "catalog_adogit").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The catalog_github attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CatalogGithub
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "catalog_github").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevCenterCatalogDataSourceTimeoutsBlock? Timeouts

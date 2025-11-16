@@ -70,6 +70,38 @@ public partial class AzurermDnsSrvRecordDataSource(string name) : TerraformDataS
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The record attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> Record
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "record").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ttl attribute.
+    /// </summary>
+    public TerraformValue<double> Ttl
+    {
+        get => new TerraformReference<double>(this, "ttl");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDnsSrvRecordDataSourceTimeoutsBlock? Timeouts

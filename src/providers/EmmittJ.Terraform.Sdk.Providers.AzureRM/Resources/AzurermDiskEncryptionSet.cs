@@ -199,6 +199,14 @@ public partial class AzurermDiskEncryptionSet(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The key_vault_key_url attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultKeyUrl
+    {
+        get => new TerraformReference<string>(this, "key_vault_key_url");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// This block is required.
     /// </summary>

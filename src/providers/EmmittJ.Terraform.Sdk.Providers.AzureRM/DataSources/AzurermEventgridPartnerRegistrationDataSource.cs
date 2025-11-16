@@ -60,6 +60,22 @@ public partial class AzurermEventgridPartnerRegistrationDataSource(string name) 
     }
 
     /// <summary>
+    /// The partner_registration_id attribute.
+    /// </summary>
+    public TerraformValue<string> PartnerRegistrationId
+    {
+        get => new TerraformReference<string>(this, "partner_registration_id");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermEventgridPartnerRegistrationDataSourceTimeoutsBlock? Timeouts

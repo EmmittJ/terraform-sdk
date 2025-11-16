@@ -60,6 +60,54 @@ public partial class AzurermContainerAppEnvironmentCertificateDataSource(string 
     }
 
     /// <summary>
+    /// The expiration date for the Certificate.
+    /// </summary>
+    public TerraformValue<string> ExpirationDate
+    {
+        get => new TerraformReference<string>(this, "expiration_date");
+    }
+
+    /// <summary>
+    /// The date of issue for the Certificate.
+    /// </summary>
+    public TerraformValue<string> IssueDate
+    {
+        get => new TerraformReference<string>(this, "issue_date");
+    }
+
+    /// <summary>
+    /// The Certificate Issuer.
+    /// </summary>
+    public TerraformValue<string> Issuer
+    {
+        get => new TerraformReference<string>(this, "issuer");
+    }
+
+    /// <summary>
+    /// The Subject Name for the Certificate.
+    /// </summary>
+    public TerraformValue<string> SubjectName
+    {
+        get => new TerraformReference<string>(this, "subject_name");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The Thumbprint of the Certificate.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermContainerAppEnvironmentCertificateDataSourceTimeoutsBlock? Timeouts

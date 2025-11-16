@@ -106,6 +106,54 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The artifacts_storage_account_id attribute.
+    /// </summary>
+    public TerraformValue<string> ArtifactsStorageAccountId
+    {
+        get => new TerraformReference<string>(this, "artifacts_storage_account_id");
+    }
+
+    /// <summary>
+    /// The default_premium_storage_account_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultPremiumStorageAccountId
+    {
+        get => new TerraformReference<string>(this, "default_premium_storage_account_id");
+    }
+
+    /// <summary>
+    /// The default_storage_account_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultStorageAccountId
+    {
+        get => new TerraformReference<string>(this, "default_storage_account_id");
+    }
+
+    /// <summary>
+    /// The key_vault_id attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultId
+    {
+        get => new TerraformReference<string>(this, "key_vault_id");
+    }
+
+    /// <summary>
+    /// The premium_data_disk_storage_account_id attribute.
+    /// </summary>
+    public TerraformValue<string> PremiumDataDiskStorageAccountId
+    {
+        get => new TerraformReference<string>(this, "premium_data_disk_storage_account_id");
+    }
+
+    /// <summary>
+    /// The unique_identifier attribute.
+    /// </summary>
+    public TerraformValue<string> UniqueIdentifier
+    {
+        get => new TerraformReference<string>(this, "unique_identifier");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDevTestLabTimeoutsBlock? Timeouts

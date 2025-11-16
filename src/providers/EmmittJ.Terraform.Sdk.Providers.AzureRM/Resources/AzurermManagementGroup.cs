@@ -103,6 +103,14 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     }
 
     /// <summary>
+    /// The tenant_scoped_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantScopedId
+    {
+        get => new TerraformReference<string>(this, "tenant_scoped_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermManagementGroupTimeoutsBlock? Timeouts

@@ -70,6 +70,38 @@ public partial class AzurermNotificationHubDataSource(string name) : TerraformDa
     }
 
     /// <summary>
+    /// The apns_credential attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ApnsCredential
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "apns_credential").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The gcm_credential attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> GcmCredential
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "gcm_credential").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNotificationHubDataSourceTimeoutsBlock? Timeouts

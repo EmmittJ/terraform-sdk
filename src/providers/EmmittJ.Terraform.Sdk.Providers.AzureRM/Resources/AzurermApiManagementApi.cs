@@ -425,6 +425,22 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The is_current attribute.
+    /// </summary>
+    public TerraformValue<bool> IsCurrent
+    {
+        get => new TerraformReference<bool>(this, "is_current");
+    }
+
+    /// <summary>
+    /// The is_online attribute.
+    /// </summary>
+    public TerraformValue<bool> IsOnline
+    {
+        get => new TerraformReference<bool>(this, "is_online");
+    }
+
+    /// <summary>
     /// Contact block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Contact block(s) allowed")]

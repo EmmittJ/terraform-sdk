@@ -60,6 +60,54 @@ public partial class AzurermExpressRouteCircuitDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The peerings attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Peerings
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "peerings").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The service_key attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceKey
+    {
+        get => new TerraformReference<string>(this, "service_key");
+    }
+
+    /// <summary>
+    /// The service_provider_properties attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ServiceProviderProperties
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_provider_properties").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The service_provider_provisioning_state attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceProviderProvisioningState
+    {
+        get => new TerraformReference<string>(this, "service_provider_provisioning_state");
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Sku
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "sku").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermExpressRouteCircuitDataSourceTimeoutsBlock? Timeouts

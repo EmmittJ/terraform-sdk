@@ -187,6 +187,30 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The sim_state attribute.
+    /// </summary>
+    public TerraformValue<string> SimState
+    {
+        get => new TerraformReference<string>(this, "sim_state");
+    }
+
+    /// <summary>
+    /// The vendor_key_fingerprint attribute.
+    /// </summary>
+    public TerraformValue<string> VendorKeyFingerprint
+    {
+        get => new TerraformReference<string>(this, "vendor_key_fingerprint");
+    }
+
+    /// <summary>
+    /// The vendor_name attribute.
+    /// </summary>
+    public TerraformValue<string> VendorName
+    {
+        get => new TerraformReference<string>(this, "vendor_name");
+    }
+
+    /// <summary>
     /// StaticIpConfiguration block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermMobileNetworkSimStaticIpConfigurationBlock>? StaticIpConfiguration

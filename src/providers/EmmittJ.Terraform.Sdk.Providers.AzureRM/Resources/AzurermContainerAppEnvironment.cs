@@ -286,6 +286,54 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     }
 
     /// <summary>
+    /// The ID of the Custom Domain Verification for this Container App Environment.
+    /// </summary>
+    public TerraformValue<string> CustomDomainVerificationId
+    {
+        get => new TerraformReference<string>(this, "custom_domain_verification_id");
+    }
+
+    /// <summary>
+    /// The default publicly resolvable name of this Container App Environment
+    /// </summary>
+    public TerraformValue<string> DefaultDomain
+    {
+        get => new TerraformReference<string>(this, "default_domain");
+    }
+
+    /// <summary>
+    /// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
+    /// </summary>
+    public TerraformValue<string> DockerBridgeCidr
+    {
+        get => new TerraformReference<string>(this, "docker_bridge_cidr");
+    }
+
+    /// <summary>
+    /// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
+    /// </summary>
+    public TerraformValue<string> PlatformReservedCidr
+    {
+        get => new TerraformReference<string>(this, "platform_reserved_cidr");
+    }
+
+    /// <summary>
+    /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+    /// </summary>
+    public TerraformValue<string> PlatformReservedDnsIpAddress
+    {
+        get => new TerraformReference<string>(this, "platform_reserved_dns_ip_address");
+    }
+
+    /// <summary>
+    /// The Static IP Address of the Environment.
+    /// </summary>
+    public TerraformValue<string> StaticIpAddress
+    {
+        get => new TerraformReference<string>(this, "static_ip_address");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

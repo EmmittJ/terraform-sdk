@@ -105,6 +105,94 @@ public partial class AzurermElasticCloudElasticsearchDataSource(string name) : T
     }
 
     /// <summary>
+    /// The elastic_cloud_deployment_id attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticCloudDeploymentId
+    {
+        get => new TerraformReference<string>(this, "elastic_cloud_deployment_id");
+    }
+
+    /// <summary>
+    /// The elastic_cloud_email_address attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticCloudEmailAddress
+    {
+        get => new TerraformReference<string>(this, "elastic_cloud_email_address");
+    }
+
+    /// <summary>
+    /// The elastic_cloud_sso_default_url attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticCloudSsoDefaultUrl
+    {
+        get => new TerraformReference<string>(this, "elastic_cloud_sso_default_url");
+    }
+
+    /// <summary>
+    /// The elastic_cloud_user_id attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticCloudUserId
+    {
+        get => new TerraformReference<string>(this, "elastic_cloud_user_id");
+    }
+
+    /// <summary>
+    /// The elasticsearch_service_url attribute.
+    /// </summary>
+    public TerraformValue<string> ElasticsearchServiceUrl
+    {
+        get => new TerraformReference<string>(this, "elasticsearch_service_url");
+    }
+
+    /// <summary>
+    /// The kibana_service_url attribute.
+    /// </summary>
+    public TerraformValue<string> KibanaServiceUrl
+    {
+        get => new TerraformReference<string>(this, "kibana_service_url");
+    }
+
+    /// <summary>
+    /// The kibana_sso_uri attribute.
+    /// </summary>
+    public TerraformValue<string> KibanaSsoUri
+    {
+        get => new TerraformReference<string>(this, "kibana_sso_uri");
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The monitoring_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> MonitoringEnabled
+    {
+        get => new TerraformReference<bool>(this, "monitoring_enabled");
+    }
+
+    /// <summary>
+    /// The sku_name attribute.
+    /// </summary>
+    public TerraformValue<string> SkuName
+    {
+        get => new TerraformReference<string>(this, "sku_name");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Logs block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermElasticCloudElasticsearchDataSourceLogsBlock>? Logs

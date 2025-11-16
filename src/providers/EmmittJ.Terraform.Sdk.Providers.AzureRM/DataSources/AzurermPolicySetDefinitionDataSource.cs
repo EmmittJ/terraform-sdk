@@ -67,6 +67,62 @@ public partial class AzurermPolicySetDefinitionDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The metadata attribute.
+    /// </summary>
+    public TerraformValue<string> Metadata
+    {
+        get => new TerraformReference<string>(this, "metadata");
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string> Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+    }
+
+    /// <summary>
+    /// The policy_definition_group attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PolicyDefinitionGroup
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "policy_definition_group").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The policy_definition_reference attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PolicyDefinitionReference
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "policy_definition_reference").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The policy_definitions attribute.
+    /// </summary>
+    public TerraformValue<string> PolicyDefinitions
+    {
+        get => new TerraformReference<string>(this, "policy_definitions");
+    }
+
+    /// <summary>
+    /// The policy_type attribute.
+    /// </summary>
+    public TerraformValue<string> PolicyType
+    {
+        get => new TerraformReference<string>(this, "policy_type");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPolicySetDefinitionDataSourceTimeoutsBlock? Timeouts

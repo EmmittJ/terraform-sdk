@@ -60,6 +60,54 @@ public partial class AzurermBlueprintDefinitionDataSource(string name) : Terrafo
     }
 
     /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+    }
+
+    /// <summary>
+    /// The last_modified attribute.
+    /// </summary>
+    public TerraformValue<string> LastModified
+    {
+        get => new TerraformReference<string>(this, "last_modified");
+    }
+
+    /// <summary>
+    /// The target_scope attribute.
+    /// </summary>
+    public TerraformValue<string> TargetScope
+    {
+        get => new TerraformReference<string>(this, "target_scope");
+    }
+
+    /// <summary>
+    /// The time_created attribute.
+    /// </summary>
+    public TerraformValue<string> TimeCreated
+    {
+        get => new TerraformReference<string>(this, "time_created");
+    }
+
+    /// <summary>
+    /// The versions attribute.
+    /// </summary>
+    public TerraformList<string> Versions
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "versions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermBlueprintDefinitionDataSourceTimeoutsBlock? Timeouts

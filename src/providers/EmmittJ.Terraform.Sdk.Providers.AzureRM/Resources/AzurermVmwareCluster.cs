@@ -107,6 +107,22 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     }
 
     /// <summary>
+    /// The cluster_number attribute.
+    /// </summary>
+    public TerraformValue<double> ClusterNumber
+    {
+        get => new TerraformReference<double>(this, "cluster_number");
+    }
+
+    /// <summary>
+    /// The hosts attribute.
+    /// </summary>
+    public TerraformList<string> Hosts
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "hosts").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermVmwareClusterTimeoutsBlock? Timeouts

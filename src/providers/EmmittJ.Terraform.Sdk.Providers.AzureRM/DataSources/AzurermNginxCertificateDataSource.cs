@@ -60,6 +60,70 @@ public partial class AzurermNginxCertificateDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The certificate_virtual_path attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateVirtualPath
+    {
+        get => new TerraformReference<string>(this, "certificate_virtual_path");
+    }
+
+    /// <summary>
+    /// The error_code attribute.
+    /// </summary>
+    public TerraformValue<string> ErrorCode
+    {
+        get => new TerraformReference<string>(this, "error_code");
+    }
+
+    /// <summary>
+    /// The error_message attribute.
+    /// </summary>
+    public TerraformValue<string> ErrorMessage
+    {
+        get => new TerraformReference<string>(this, "error_message");
+    }
+
+    /// <summary>
+    /// The key_vault_secret_creation_date attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultSecretCreationDate
+    {
+        get => new TerraformReference<string>(this, "key_vault_secret_creation_date");
+    }
+
+    /// <summary>
+    /// The key_vault_secret_id attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultSecretId
+    {
+        get => new TerraformReference<string>(this, "key_vault_secret_id");
+    }
+
+    /// <summary>
+    /// The key_vault_secret_version attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultSecretVersion
+    {
+        get => new TerraformReference<string>(this, "key_vault_secret_version");
+    }
+
+    /// <summary>
+    /// The key_virtual_path attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVirtualPath
+    {
+        get => new TerraformReference<string>(this, "key_virtual_path");
+    }
+
+    /// <summary>
+    /// The sha1_thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Sha1Thumbprint
+    {
+        get => new TerraformReference<string>(this, "sha1_thumbprint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNginxCertificateDataSourceTimeoutsBlock? Timeouts

@@ -126,6 +126,30 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     }
 
     /// <summary>
+    /// The time_created attribute.
+    /// </summary>
+    public TerraformValue<string> TimeCreated
+    {
+        get => new TerraformReference<string>(this, "time_created");
+    }
+
+    /// <summary>
+    /// The time_modified attribute.
+    /// </summary>
+    public TerraformValue<string> TimeModified
+    {
+        get => new TerraformReference<string>(this, "time_modified");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApplicationInsightsAnalyticsItemTimeoutsBlock? Timeouts

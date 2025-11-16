@@ -195,6 +195,14 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     }
 
     /// <summary>
+    /// The server_full_name attribute.
+    /// </summary>
+    public TerraformValue<string> ServerFullName
+    {
+        get => new TerraformReference<string>(this, "server_full_name");
+    }
+
+    /// <summary>
     /// Ipv4FirewallRule block (nesting mode: set).
     /// </summary>
     public TerraformSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>? Ipv4FirewallRule

@@ -341,6 +341,22 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+    }
+
+    /// <summary>
     /// CustomPersistentDisk block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermSpringCloudAppCustomPersistentDiskBlock>? CustomPersistentDisk

@@ -116,6 +116,14 @@ public partial class AzurermDataboxEdgeDevice(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The device_properties attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> DeviceProperties
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "device_properties").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataboxEdgeDeviceTimeoutsBlock? Timeouts

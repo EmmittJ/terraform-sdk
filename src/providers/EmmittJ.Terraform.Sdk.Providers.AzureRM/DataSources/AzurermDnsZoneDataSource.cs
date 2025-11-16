@@ -59,6 +59,38 @@ public partial class AzurermDnsZoneDataSource(string name) : TerraformDataSource
     }
 
     /// <summary>
+    /// The max_number_of_record_sets attribute.
+    /// </summary>
+    public TerraformValue<double> MaxNumberOfRecordSets
+    {
+        get => new TerraformReference<double>(this, "max_number_of_record_sets");
+    }
+
+    /// <summary>
+    /// The name_servers attribute.
+    /// </summary>
+    public TerraformSet<string> NameServers
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "name_servers").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The number_of_record_sets attribute.
+    /// </summary>
+    public TerraformValue<double> NumberOfRecordSets
+    {
+        get => new TerraformReference<double>(this, "number_of_record_sets");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDnsZoneDataSourceTimeoutsBlock? Timeouts

@@ -126,6 +126,14 @@ public partial class AzurermPrivateDnsPtrRecord(string name) : TerraformResource
     }
 
     /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermPrivateDnsPtrRecordTimeoutsBlock? Timeouts

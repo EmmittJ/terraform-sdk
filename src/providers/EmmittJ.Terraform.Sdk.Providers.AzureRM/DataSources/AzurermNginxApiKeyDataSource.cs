@@ -60,6 +60,22 @@ public partial class AzurermNginxApiKeyDataSource(string name) : TerraformDataSo
     }
 
     /// <summary>
+    /// The end_date_time attribute.
+    /// </summary>
+    public TerraformValue<string> EndDateTime
+    {
+        get => new TerraformReference<string>(this, "end_date_time");
+    }
+
+    /// <summary>
+    /// The hint attribute.
+    /// </summary>
+    public TerraformValue<string> Hint
+    {
+        get => new TerraformReference<string>(this, "hint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNginxApiKeyDataSourceTimeoutsBlock? Timeouts

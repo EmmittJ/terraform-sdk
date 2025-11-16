@@ -60,6 +60,14 @@ public partial class AzurermManagedApplicationDefinitionDataSource(string name) 
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermManagedApplicationDefinitionDataSourceTimeoutsBlock? Timeouts

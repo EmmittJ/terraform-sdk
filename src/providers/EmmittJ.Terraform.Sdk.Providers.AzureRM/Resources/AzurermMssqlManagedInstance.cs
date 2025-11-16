@@ -391,6 +391,22 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     }
 
     /// <summary>
+    /// The dns_zone attribute.
+    /// </summary>
+    public TerraformValue<string> DnsZone
+    {
+        get => new TerraformReference<string>(this, "dns_zone");
+    }
+
+    /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
     /// AzureActiveDirectoryAdministrator block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectoryAdministrator block(s) allowed")]

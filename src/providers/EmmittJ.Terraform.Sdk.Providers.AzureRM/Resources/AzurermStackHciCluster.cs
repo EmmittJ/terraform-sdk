@@ -172,6 +172,30 @@ public partial class AzurermStackHciCluster(string name) : TerraformResource("az
     }
 
     /// <summary>
+    /// The cloud_id attribute.
+    /// </summary>
+    public TerraformValue<string> CloudId
+    {
+        get => new TerraformReference<string>(this, "cloud_id");
+    }
+
+    /// <summary>
+    /// The resource_provider_object_id attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceProviderObjectId
+    {
+        get => new TerraformReference<string>(this, "resource_provider_object_id");
+    }
+
+    /// <summary>
+    /// The service_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> ServiceEndpoint
+    {
+        get => new TerraformReference<string>(this, "service_endpoint");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

@@ -404,6 +404,30 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     }
 
     /// <summary>
+    /// The dataplane_api_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> DataplaneApiEndpoint
+    {
+        get => new TerraformReference<string>(this, "dataplane_api_endpoint");
+    }
+
+    /// <summary>
+    /// The ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> IpAddress
+    {
+        get => new TerraformReference<string>(this, "ip_address");
+    }
+
+    /// <summary>
+    /// The nginx_version attribute.
+    /// </summary>
+    public TerraformValue<string> NginxVersion
+    {
+        get => new TerraformReference<string>(this, "nginx_version");
+    }
+
+    /// <summary>
     /// AutoScaleProfile block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermNginxDeploymentAutoScaleProfileBlock>? AutoScaleProfile

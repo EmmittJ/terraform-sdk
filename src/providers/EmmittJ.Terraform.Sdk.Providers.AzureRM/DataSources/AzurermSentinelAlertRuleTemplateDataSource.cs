@@ -68,6 +68,30 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource(string name) : T
     }
 
     /// <summary>
+    /// The nrt_template attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> NrtTemplate
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "nrt_template").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The scheduled_template attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ScheduledTemplate
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scheduled_template").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The security_incident_template attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SecurityIncidentTemplate
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "security_incident_template").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock? Timeouts

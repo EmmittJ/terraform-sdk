@@ -114,6 +114,54 @@ public partial class AzurermServicebusTopicAuthorizationRule(string name) : Terr
     }
 
     /// <summary>
+    /// The primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_connection_string");
+    }
+
+    /// <summary>
+    /// The primary_connection_string_alias attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryConnectionStringAlias
+    {
+        get => new TerraformReference<string>(this, "primary_connection_string_alias");
+    }
+
+    /// <summary>
+    /// The primary_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryKey
+    {
+        get => new TerraformReference<string>(this, "primary_key");
+    }
+
+    /// <summary>
+    /// The secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_connection_string");
+    }
+
+    /// <summary>
+    /// The secondary_connection_string_alias attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryConnectionStringAlias
+    {
+        get => new TerraformReference<string>(this, "secondary_connection_string_alias");
+    }
+
+    /// <summary>
+    /// The secondary_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryKey
+    {
+        get => new TerraformReference<string>(this, "secondary_key");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermServicebusTopicAuthorizationRuleTimeoutsBlock? Timeouts

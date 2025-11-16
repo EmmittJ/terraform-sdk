@@ -126,6 +126,14 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     }
 
     /// <summary>
+    /// The export_rule_id attribute.
+    /// </summary>
+    public TerraformValue<string> ExportRuleId
+    {
+        get => new TerraformReference<string>(this, "export_rule_id");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermLogAnalyticsDataExportRuleTimeoutsBlock? Timeouts

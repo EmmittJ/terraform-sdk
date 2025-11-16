@@ -154,6 +154,14 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     }
 
     /// <summary>
+    /// The unique_identifier attribute.
+    /// </summary>
+    public TerraformValue<string> UniqueIdentifier
+    {
+        get => new TerraformReference<string>(this, "unique_identifier");
+    }
+
+    /// <summary>
     /// Subnet block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]

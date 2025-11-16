@@ -96,6 +96,14 @@ public partial class AzurermApplicationLoadBalancerFrontend(string name) : Terra
     }
 
     /// <summary>
+    /// The fully_qualified_domain_name attribute.
+    /// </summary>
+    public TerraformValue<string> FullyQualifiedDomainName
+    {
+        get => new TerraformReference<string>(this, "fully_qualified_domain_name");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApplicationLoadBalancerFrontendTimeoutsBlock? Timeouts

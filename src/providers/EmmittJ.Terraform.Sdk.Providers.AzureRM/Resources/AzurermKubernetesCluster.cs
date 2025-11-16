@@ -2015,6 +2015,94 @@ public partial class AzurermKubernetesCluster(string name) : TerraformResource("
     }
 
     /// <summary>
+    /// The current_kubernetes_version attribute.
+    /// </summary>
+    public TerraformValue<string> CurrentKubernetesVersion
+    {
+        get => new TerraformReference<string>(this, "current_kubernetes_version");
+    }
+
+    /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
+
+    /// <summary>
+    /// The http_application_routing_zone_name attribute.
+    /// </summary>
+    public TerraformValue<string> HttpApplicationRoutingZoneName
+    {
+        get => new TerraformReference<string>(this, "http_application_routing_zone_name");
+    }
+
+    /// <summary>
+    /// The kube_admin_config attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> KubeAdminConfig
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "kube_admin_config").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The kube_admin_config_raw attribute.
+    /// </summary>
+    public TerraformValue<string> KubeAdminConfigRaw
+    {
+        get => new TerraformReference<string>(this, "kube_admin_config_raw");
+    }
+
+    /// <summary>
+    /// The kube_config attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> KubeConfig
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "kube_config").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The kube_config_raw attribute.
+    /// </summary>
+    public TerraformValue<string> KubeConfigRaw
+    {
+        get => new TerraformReference<string>(this, "kube_config_raw");
+    }
+
+    /// <summary>
+    /// The node_resource_group_id attribute.
+    /// </summary>
+    public TerraformValue<string> NodeResourceGroupId
+    {
+        get => new TerraformReference<string>(this, "node_resource_group_id");
+    }
+
+    /// <summary>
+    /// The oidc_issuer_url attribute.
+    /// </summary>
+    public TerraformValue<string> OidcIssuerUrl
+    {
+        get => new TerraformReference<string>(this, "oidc_issuer_url");
+    }
+
+    /// <summary>
+    /// The portal_fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> PortalFqdn
+    {
+        get => new TerraformReference<string>(this, "portal_fqdn");
+    }
+
+    /// <summary>
+    /// The private_fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> PrivateFqdn
+    {
+        get => new TerraformReference<string>(this, "private_fqdn");
+    }
+
+    /// <summary>
     /// AciConnectorLinux block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AciConnectorLinux block(s) allowed")]

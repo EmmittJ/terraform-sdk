@@ -106,6 +106,14 @@ public partial class AzurermNetworkDdosProtectionPlan(string name) : TerraformRe
     }
 
     /// <summary>
+    /// The virtual_network_ids attribute.
+    /// </summary>
+    public TerraformList<string> VirtualNetworkIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_network_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermNetworkDdosProtectionPlanTimeoutsBlock? Timeouts

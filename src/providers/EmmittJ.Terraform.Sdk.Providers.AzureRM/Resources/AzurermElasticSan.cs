@@ -166,6 +166,46 @@ public partial class AzurermElasticSan(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The total_iops attribute.
+    /// </summary>
+    public TerraformValue<double> TotalIops
+    {
+        get => new TerraformReference<double>(this, "total_iops");
+    }
+
+    /// <summary>
+    /// The total_mbps attribute.
+    /// </summary>
+    public TerraformValue<double> TotalMbps
+    {
+        get => new TerraformReference<double>(this, "total_mbps");
+    }
+
+    /// <summary>
+    /// The total_size_in_tib attribute.
+    /// </summary>
+    public TerraformValue<double> TotalSizeInTib
+    {
+        get => new TerraformReference<double>(this, "total_size_in_tib");
+    }
+
+    /// <summary>
+    /// The total_volume_size_in_gib attribute.
+    /// </summary>
+    public TerraformValue<double> TotalVolumeSizeInGib
+    {
+        get => new TerraformReference<double>(this, "total_volume_size_in_gib");
+    }
+
+    /// <summary>
+    /// The volume_group_count attribute.
+    /// </summary>
+    public TerraformValue<double> VolumeGroupCount
+    {
+        get => new TerraformReference<double>(this, "volume_group_count");
+    }
+
+    /// <summary>
     /// Sku block (nesting mode: list).
     /// This block is required.
     /// </summary>

@@ -60,6 +60,62 @@ public partial class AzurermVirtualNetworkPeeringDataSource(string name) : Terra
     }
 
     /// <summary>
+    /// The allow_forwarded_traffic attribute.
+    /// </summary>
+    public TerraformValue<bool> AllowForwardedTraffic
+    {
+        get => new TerraformReference<bool>(this, "allow_forwarded_traffic");
+    }
+
+    /// <summary>
+    /// The allow_gateway_transit attribute.
+    /// </summary>
+    public TerraformValue<bool> AllowGatewayTransit
+    {
+        get => new TerraformReference<bool>(this, "allow_gateway_transit");
+    }
+
+    /// <summary>
+    /// The allow_virtual_network_access attribute.
+    /// </summary>
+    public TerraformValue<bool> AllowVirtualNetworkAccess
+    {
+        get => new TerraformReference<bool>(this, "allow_virtual_network_access");
+    }
+
+    /// <summary>
+    /// The only_ipv6_peering_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> OnlyIpv6PeeringEnabled
+    {
+        get => new TerraformReference<bool>(this, "only_ipv6_peering_enabled");
+    }
+
+    /// <summary>
+    /// The peer_complete_virtual_networks_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> PeerCompleteVirtualNetworksEnabled
+    {
+        get => new TerraformReference<bool>(this, "peer_complete_virtual_networks_enabled");
+    }
+
+    /// <summary>
+    /// The remote_virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string> RemoteVirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "remote_virtual_network_id");
+    }
+
+    /// <summary>
+    /// The use_remote_gateways attribute.
+    /// </summary>
+    public TerraformValue<bool> UseRemoteGateways
+    {
+        get => new TerraformReference<bool>(this, "use_remote_gateways");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock? Timeouts

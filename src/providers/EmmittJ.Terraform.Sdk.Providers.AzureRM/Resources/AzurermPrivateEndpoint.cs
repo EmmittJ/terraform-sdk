@@ -294,6 +294,30 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     }
 
     /// <summary>
+    /// The custom_dns_configs attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> CustomDnsConfigs
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "custom_dns_configs").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The network_interface attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> NetworkInterface
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_interface").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The private_dns_zone_configs attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> PrivateDnsZoneConfigs
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_dns_zone_configs").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// IpConfiguration block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermPrivateEndpointIpConfigurationBlock>? IpConfiguration

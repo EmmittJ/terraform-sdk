@@ -498,6 +498,62 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     }
 
     /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformValue<string> Hostname
+    {
+        get => new TerraformReference<string>(this, "hostname");
+    }
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformValue<double> Port
+    {
+        get => new TerraformReference<double>(this, "port");
+    }
+
+    /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
+
+    /// <summary>
+    /// The primary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "primary_connection_string");
+    }
+
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
+
+    /// <summary>
+    /// The secondary_connection_string attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryConnectionString
+    {
+        get => new TerraformReference<string>(this, "secondary_connection_string");
+    }
+
+    /// <summary>
+    /// The ssl_port attribute.
+    /// </summary>
+    public TerraformValue<double> SslPort
+    {
+        get => new TerraformReference<double>(this, "ssl_port");
+    }
+
+    /// <summary>
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]

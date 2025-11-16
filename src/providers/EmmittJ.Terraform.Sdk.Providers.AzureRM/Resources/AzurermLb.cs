@@ -278,6 +278,22 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     }
 
     /// <summary>
+    /// The private_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> PrivateIpAddress
+    {
+        get => new TerraformReference<string>(this, "private_ip_address");
+    }
+
+    /// <summary>
+    /// The private_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> PrivateIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// FrontendIpConfiguration block (nesting mode: list).
     /// </summary>
     public TerraformList<AzurermLbFrontendIpConfigurationBlock>? FrontendIpConfiguration

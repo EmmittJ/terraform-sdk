@@ -60,6 +60,46 @@ public partial class AzurermDataProtectionBackupVaultDataSource(string name) : T
     }
 
     /// <summary>
+    /// The datastore_type attribute.
+    /// </summary>
+    public TerraformValue<string> DatastoreType
+    {
+        get => new TerraformReference<string>(this, "datastore_type");
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Identity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The redundancy attribute.
+    /// </summary>
+    public TerraformValue<string> Redundancy
+    {
+        get => new TerraformReference<string>(this, "redundancy");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermDataProtectionBackupVaultDataSourceTimeoutsBlock? Timeouts

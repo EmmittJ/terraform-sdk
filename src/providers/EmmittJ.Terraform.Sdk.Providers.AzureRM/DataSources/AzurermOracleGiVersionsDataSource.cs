@@ -68,6 +68,14 @@ public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformD
     }
 
     /// <summary>
+    /// The versions attribute.
+    /// </summary>
+    public TerraformList<string> Versions
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "versions").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermOracleGiVersionsDataSourceTimeoutsBlock? Timeouts

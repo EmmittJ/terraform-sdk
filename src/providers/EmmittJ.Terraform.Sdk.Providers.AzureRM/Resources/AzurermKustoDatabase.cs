@@ -125,6 +125,14 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     }
 
     /// <summary>
+    /// The size attribute.
+    /// </summary>
+    public TerraformValue<double> Size
+    {
+        get => new TerraformReference<double>(this, "size");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermKustoDatabaseTimeoutsBlock? Timeouts

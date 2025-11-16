@@ -256,6 +256,54 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     }
 
     /// <summary>
+    /// The applied_dns_servers attribute.
+    /// </summary>
+    public TerraformList<string> AppliedDnsServers
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "applied_dns_servers").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The internal_domain_name_suffix attribute.
+    /// </summary>
+    public TerraformValue<string> InternalDomainNameSuffix
+    {
+        get => new TerraformReference<string>(this, "internal_domain_name_suffix");
+    }
+
+    /// <summary>
+    /// The mac_address attribute.
+    /// </summary>
+    public TerraformValue<string> MacAddress
+    {
+        get => new TerraformReference<string>(this, "mac_address");
+    }
+
+    /// <summary>
+    /// The private_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> PrivateIpAddress
+    {
+        get => new TerraformReference<string>(this, "private_ip_address");
+    }
+
+    /// <summary>
+    /// The private_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> PrivateIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_ip_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The virtual_machine_id attribute.
+    /// </summary>
+    public TerraformValue<string> VirtualMachineId
+    {
+        get => new TerraformReference<string>(this, "virtual_machine_id");
+    }
+
+    /// <summary>
     /// IpConfiguration block (nesting mode: list).
     /// This block is required.
     /// </summary>

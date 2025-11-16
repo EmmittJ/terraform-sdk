@@ -60,6 +60,46 @@ public partial class AzurermAvailabilitySetDataSource(string name) : TerraformDa
     }
 
     /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
+
+    /// <summary>
+    /// The managed attribute.
+    /// </summary>
+    public TerraformValue<bool> Managed
+    {
+        get => new TerraformReference<bool>(this, "managed");
+    }
+
+    /// <summary>
+    /// The platform_fault_domain_count attribute.
+    /// </summary>
+    public TerraformValue<double> PlatformFaultDomainCount
+    {
+        get => new TerraformReference<double>(this, "platform_fault_domain_count");
+    }
+
+    /// <summary>
+    /// The platform_update_domain_count attribute.
+    /// </summary>
+    public TerraformValue<double> PlatformUpdateDomainCount
+    {
+        get => new TerraformReference<double>(this, "platform_update_domain_count");
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string> Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermAvailabilitySetDataSourceTimeoutsBlock? Timeouts

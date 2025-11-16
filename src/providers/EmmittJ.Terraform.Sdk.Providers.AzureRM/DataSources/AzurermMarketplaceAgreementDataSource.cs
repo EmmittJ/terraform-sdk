@@ -70,6 +70,30 @@ public partial class AzurermMarketplaceAgreementDataSource(string name) : Terraf
     }
 
     /// <summary>
+    /// The accepted attribute.
+    /// </summary>
+    public TerraformValue<bool> Accepted
+    {
+        get => new TerraformReference<bool>(this, "accepted");
+    }
+
+    /// <summary>
+    /// The license_text_link attribute.
+    /// </summary>
+    public TerraformValue<string> LicenseTextLink
+    {
+        get => new TerraformReference<string>(this, "license_text_link");
+    }
+
+    /// <summary>
+    /// The privacy_policy_link attribute.
+    /// </summary>
+    public TerraformValue<string> PrivacyPolicyLink
+    {
+        get => new TerraformReference<string>(this, "privacy_policy_link");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermMarketplaceAgreementDataSourceTimeoutsBlock? Timeouts

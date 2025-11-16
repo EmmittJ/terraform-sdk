@@ -203,6 +203,62 @@ public partial class AzurermArcKubernetesProvisionedCluster(string name) : Terra
     }
 
     /// <summary>
+    /// The agent_version attribute.
+    /// </summary>
+    public TerraformValue<string> AgentVersion
+    {
+        get => new TerraformReference<string>(this, "agent_version");
+    }
+
+    /// <summary>
+    /// The distribution attribute.
+    /// </summary>
+    public TerraformValue<string> Distribution
+    {
+        get => new TerraformReference<string>(this, "distribution");
+    }
+
+    /// <summary>
+    /// The infrastructure attribute.
+    /// </summary>
+    public TerraformValue<string> Infrastructure
+    {
+        get => new TerraformReference<string>(this, "infrastructure");
+    }
+
+    /// <summary>
+    /// The kubernetes_version attribute.
+    /// </summary>
+    public TerraformValue<string> KubernetesVersion
+    {
+        get => new TerraformReference<string>(this, "kubernetes_version");
+    }
+
+    /// <summary>
+    /// The offering attribute.
+    /// </summary>
+    public TerraformValue<string> Offering
+    {
+        get => new TerraformReference<string>(this, "offering");
+    }
+
+    /// <summary>
+    /// The total_core_count attribute.
+    /// </summary>
+    public TerraformValue<double> TotalCoreCount
+    {
+        get => new TerraformReference<double>(this, "total_core_count");
+    }
+
+    /// <summary>
+    /// The total_node_count attribute.
+    /// </summary>
+    public TerraformValue<double> TotalNodeCount
+    {
+        get => new TerraformReference<double>(this, "total_node_count");
+    }
+
+    /// <summary>
     /// AzureActiveDirectory block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]

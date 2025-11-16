@@ -655,6 +655,54 @@ public partial class AzurermFunctionApp(string name) : TerraformResource("azurer
     }
 
     /// <summary>
+    /// The custom_domain_verification_id attribute.
+    /// </summary>
+    public TerraformValue<string> CustomDomainVerificationId
+    {
+        get => new TerraformReference<string>(this, "custom_domain_verification_id");
+    }
+
+    /// <summary>
+    /// The default_hostname attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultHostname
+    {
+        get => new TerraformReference<string>(this, "default_hostname");
+    }
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    public TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+    }
+
+    /// <summary>
+    /// The outbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformValue<string> OutboundIpAddresses
+    {
+        get => new TerraformReference<string>(this, "outbound_ip_addresses");
+    }
+
+    /// <summary>
+    /// The possible_outbound_ip_addresses attribute.
+    /// </summary>
+    public TerraformValue<string> PossibleOutboundIpAddresses
+    {
+        get => new TerraformReference<string>(this, "possible_outbound_ip_addresses");
+    }
+
+    /// <summary>
+    /// The site_credential attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> SiteCredential
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "site_credential").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]

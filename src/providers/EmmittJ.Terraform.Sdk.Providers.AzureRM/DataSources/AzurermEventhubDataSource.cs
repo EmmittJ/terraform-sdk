@@ -70,6 +70,22 @@ public partial class AzurermEventhubDataSource(string name) : TerraformDataSourc
     }
 
     /// <summary>
+    /// The partition_count attribute.
+    /// </summary>
+    public TerraformValue<double> PartitionCount
+    {
+        get => new TerraformReference<double>(this, "partition_count");
+    }
+
+    /// <summary>
+    /// The partition_ids attribute.
+    /// </summary>
+    public TerraformList<string> PartitionIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "partition_ids").ResolveNodes(ctx));
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermEventhubDataSourceTimeoutsBlock? Timeouts

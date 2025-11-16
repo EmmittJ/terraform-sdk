@@ -133,6 +133,30 @@ public partial class AzurermApiManagementCertificate(string name) : TerraformRes
     }
 
     /// <summary>
+    /// The expiration attribute.
+    /// </summary>
+    public TerraformValue<string> Expiration
+    {
+        get => new TerraformReference<string>(this, "expiration");
+    }
+
+    /// <summary>
+    /// The subject attribute.
+    /// </summary>
+    public TerraformValue<string> Subject
+    {
+        get => new TerraformReference<string>(this, "subject");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+    /// <summary>
     /// Timeouts block (nesting mode: single).
     /// </summary>
     public AzurermApiManagementCertificateTimeoutsBlock? Timeouts
