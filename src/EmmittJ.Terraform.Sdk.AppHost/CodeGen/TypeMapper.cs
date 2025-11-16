@@ -137,12 +137,7 @@ public class TypeMapper : ITypeMapper
     public bool IsValueType(string csharpType)
     {
         // Extract the inner type from TerraformValue<T> if present
-        if (csharpType.StartsWith("TerraformValue<"))
-        {
-            var innerType = csharpType.Substring("TerraformValue<".Length, csharpType.Length - "TerraformValue<".Length - 1);
-            return innerType == "bool" || innerType == "double" || innerType == "int" || innerType == "long" || innerType == "float";
-        }
-
-        return csharpType == "bool" || csharpType == "double" || csharpType == "int" || csharpType == "long" || csharpType == "float";
+        var innerType = Templates.TemplateHelpers.GetInnerType(csharpType);
+        return innerType == "bool" || innerType == "double" || innerType == "int" || innerType == "long" || innerType == "float";
     }
 }

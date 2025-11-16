@@ -336,13 +336,8 @@ public class SchemaParser : ISchemaParser
         var isCollection = csharpType.Contains("List<") || csharpType.Contains("Dictionary<") || csharpType.Contains("HashSet<");
 
         // Extract the inner type from TerraformValue<T> or collection types
-        var isValueType = false;
-        if (csharpType.StartsWith("TerraformValue<"))
-        {
-            // Extract T from TerraformValue<T>
-            var innerType = csharpType.Substring("TerraformValue<".Length, csharpType.Length - "TerraformValue<".Length - 1);
-            isValueType = innerType == "bool" || innerType == "double" || innerType == "int" || innerType == "long" || innerType == "float";
-        }
+        var innerType = Templates.TemplateHelpers.GetInnerType(csharpType);
+        var isValueType = innerType == "bool" || innerType == "double" || innerType == "int" || innerType == "long" || innerType == "float";
 
         return new PropertyModel
         {
