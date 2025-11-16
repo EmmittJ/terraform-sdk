@@ -51,19 +51,34 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     }
 
     /// <summary>
-    /// Override resolution to handle nested TerraformValue&lt;T&gt; elements.
-    /// This preserves unknowns during serialization.
+    /// Override resolution to handle nested elements.
+    /// If elements are TerraformBlocks, returns them directly as multiple blocks.
+    /// Otherwise wraps elements in a list expression.
     /// </summary>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Resolve each element individually - take first node as expression
-        var resolvedElements = new List<TerraformSyntaxNode>();
-        foreach (var e in _elements)
+        var resolved = new List<TerraformSyntaxNode>();
+        foreach (var element in _elements)
         {
-            var nodes = e.ResolveNodes(context);
-            resolvedElements.AddRange(nodes);
+            var nodes = element.ResolveNodes(context);
+            resolved.AddRange(nodes);
         }
-        yield return TerraformExpression.List(resolvedElements);
+        var formatted = context.Formatter.Format(resolved);
+
+        // Check if T is a TerraformBlock type - if so, resolve as multiple nested blocks
+        // Otherwise, resolve as a list expression
+        var elementType = typeof(T);
+        if (typeof(TerraformBlock).IsAssignableFrom(elementType))
+        {
+            foreach (var node in formatted)
+            {
+                yield return node;
+            }
+        }
+        else
+        {
+            yield return TerraformExpression.List(resolved);
+        }
     }
 
     // Add method for collection initializer syntax
