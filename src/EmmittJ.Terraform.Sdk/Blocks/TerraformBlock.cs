@@ -37,7 +37,7 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// <summary>
     /// Indexer for block property access.
     /// Getter returns a reference to the property for resource/block attribute references.
-    /// Setter stores the value using the base TerraformMap indexer.
+    /// Setter delegates to base TerraformMap.SetArgument which handles ITerraformValue unwrapping.
     /// </summary>
     /// <param name="key">The property name.</param>
     /// <returns>A reference to the property that resolves to the correct HCL identifier.</returns>
@@ -49,7 +49,7 @@ public abstract class TerraformBlock : TerraformMap<object>
 
     /// <summary>
     /// Called by source-generated property setters to store argument values.
-    /// Uses the base TerraformMap&lt;object&gt; indexer to store values in the _elements dictionary.
+    /// Accepts object? to handle variance issues (e.g., TerraformValue&lt;int&gt; when base expects TerraformValue&lt;object&gt;).
     /// </summary>
     /// <param name="terraformName">The Terraform argument name.</param>
     /// <param name="value">The value to store (TerraformValue&lt;T&gt;, TerraformList&lt;T&gt;, nested blocks, etc.).</param>
@@ -58,75 +58,18 @@ public abstract class TerraformBlock : TerraformMap<object>
         if (value == null)
             return;
 
-        // Handle TerraformExpression directly - avoid double-wrapping
-        if (value is TerraformExpression expr)
+        // Handle ITerraformValue (includes TerraformValue<T>, TerraformMap, TerraformList, etc.)
+        // Unwrap and rewrap as TerraformValue<object> to avoid double-wrapping and handle variance
+        if (value is ITerraformValue tfValue)
         {
-            this[terraformName] = TerraformValue.FromExpression<object>(expr);
-        }
-        // Handle TerraformValue<T> - unwrap and rewrap as TerraformValue<object> to avoid double-wrapping
-        // When a TerraformValue<int> is passed as object, we can't use implicit conversion to TerraformValue<object>
-        // because that would wrap the TerraformValue<int> instance itself as a literal object
-        else if (value is ITerraformValue tfValue)
-        {
-            // ITerraformValue is ITerraformResolvable, so we can resolve and rewrap
-            this[terraformName] = TerraformValue<object>.Lazy(ctx => tfValue.ResolveNodes(ctx));
-        }
-        // Handle ITerraformResolvable
-        else if (value is ITerraformResolvable resolvable)
-        {
-            this[terraformName] = new TerraformValue<object>(resolvable);
+            // Use Lazy to defer resolution and avoid wrapping the ITerraformValue itself
+            base.SetArgument(terraformName, TerraformValue<object>.Lazy(ctx => tfValue.ResolveNodes(ctx)));
         }
         else
         {
-            // Use the indexer from base TerraformMap<object>
-            // The indexer expects TerraformValue<object>, and there's an implicit conversion from object to TerraformValue<object>
-            // So we can pass the value directly and it will be wrapped automatically
-            this[terraformName] = value;
+            // For primitives and other types, use the implicit conversion
+            base.SetArgument(terraformName, value);
         }
-    }
-
-    /// <summary>
-    /// Called by source-generated property getters to retrieve stored values.
-    /// Returns null if the property was never set.
-    /// Uses the base TerraformMap&lt;object&gt; indexer to retrieve values from the _elements dictionary.
-    /// </summary>
-    /// <typeparam name="T">The property type.</typeparam>
-    /// <param name="terraformName">The Terraform property name.</param>
-    /// <returns>The stored value or null.</returns>
-    public T? GetArgument<T>(string terraformName)
-    {
-        try
-        {
-            // Use the indexer from base TerraformMap<object>
-            // The indexer returns a TerraformValue<object>
-            var terraformValue = this[terraformName];
-
-            // The TerraformValue<object> is just a wrapper around the actual value
-            // We need to unwrap it to get the original value back
-            // Since TerraformValue<T> doesn't expose its inner value directly,
-            // and we stored the value as-is (which got wrapped), we can cast the wrapper itself
-            return terraformValue is T directValue ? directValue : default;
-        }
-        catch (KeyNotFoundException)
-        {
-            return default;
-        }
-    }
-
-    /// <summary>
-    /// Called by source-generated property getters for required properties.
-    /// Throws if the property was never set.
-    /// </summary>
-    /// <typeparam name="T">The property type.</typeparam>
-    /// <param name="terraformName">The Terraform property name.</param>
-    /// <returns>The stored value.</returns>
-    /// <exception cref="InvalidOperationException">Thrown when a required property has not been set.</exception>
-    protected T GetRequiredArgument<T>(string terraformName)
-    {
-        return GetArgument<T>(terraformName)
-            ?? throw new InvalidOperationException(
-                $"Required property '{terraformName}' has not been set on {GetType().Name}. " +
-                $"Set this property using block[\"{terraformName}\"] = value before calling ToHcl().");
     }
 
     /// <summary>

@@ -111,7 +111,7 @@ public class TerraformStackTests
         var instance = new TerraformResource("aws_instance", "web");
         instance["ami"] = "ami-12345678";
         instance["instance_type"] = TerraformExpression.Raw("var.instance_type");
-        instance["tags"] = new Dictionary<string, string>
+        instance["tags"] = new TerraformMap<object>
         {
             ["Name"] = "Web Server"
         };
@@ -178,23 +178,23 @@ public class TerraformStackTests
         var securityGroup = new TerraformResource("aws_security_group", "web");
         securityGroup["name"] = "web-sg";
         securityGroup["vpc_id"] = vpc["id"];
-        securityGroup["ingress"] = new[]
+        securityGroup["ingress"] = new TerraformList<TerraformMap<object>>(new[]
         {
-            new Dictionary<string, object>
+            new TerraformMap<object>
             {
                 ["from_port"] = 80,
                 ["to_port"] = 80,
                 ["protocol"] = "tcp",
-                ["cidr_blocks"] = new[] { "0.0.0.0/0" }
+                ["cidr_blocks"] = new TerraformList<string>(new[] { "0.0.0.0/0" })
             },
-            new Dictionary<string, object>
+            new TerraformMap<object>
             {
                 ["from_port"] = 443,
                 ["to_port"] = 443,
                 ["protocol"] = "tcp",
-                ["cidr_blocks"] = new[] { "0.0.0.0/0" }
+                ["cidr_blocks"] = new TerraformList<string>(new[] { "0.0.0.0/0" })
             }
-        };
+        });
 
         // EC2 Instance
         var instance = new TerraformResource("aws_instance", "web");

@@ -76,8 +76,8 @@ public class ErrorMessageQualityTests
             var context = new TerraformContext(stack);
             var output = new TerraformOutput("test_output") { Value = null! };
 
-            // This will fail when trying to get the required value
-            _ = output.Value;
+            // This will fail during HCL rendering when the required value is missing
+            _ = output.ResolveNodes(context).ToList();
         });
 
         return Verify(ex.Message);
