@@ -4,9 +4,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Interface for types that can be resolved to Terraform syntax nodes.
 /// </summary>
 /// <remarks>
-/// Resolution is the second phase of two-phase compilation:
-/// 1. Prepare: Collect dependencies, validate structure
-/// 2. Resolve: Generate syntax nodes that will be rendered to HCL
+/// Resolution generates syntax nodes that will be rendered to HCL.
 ///
 /// Blocks return multiple nodes (properties + nested blocks).
 /// Values/expressions return single nodes.

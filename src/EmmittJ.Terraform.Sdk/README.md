@@ -549,8 +549,7 @@ string hcl = config.ToHcl();
 
 #### Error Handling
 
-- [x] Custom exception hierarchy (`TerraformException`, `TerraformStackException`, `TerraformValidationException`)
-- [x] `ValidationResult` and `ValidationError` types
+- [x] Custom exception hierarchy (`TerraformException`, `TerraformStackException`)
 
 #### Infrastructure
 

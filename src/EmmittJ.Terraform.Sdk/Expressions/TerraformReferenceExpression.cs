@@ -4,7 +4,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Represents a semantic reference to another Terraform block.
 /// This tracks relationships between blocks for dependency analysis and validation.
 /// Extends TerraformExpression so it can be stored directly while maintaining metadata.
-/// Records dependencies during Prepare and resolves to HCL string during ToHcl.
+/// Resolves to HCL identifier string during ToHcl.
 /// </summary>
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/expressions/references"/></para>

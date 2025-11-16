@@ -89,19 +89,12 @@ TerraformExpression.Literal("us-west-2")      // Expressions layer
 "\"us-west-2\""                               // Syntax layer (HCL output)
 ```
 
-### Two-Phase Resolution System
-
-Inspired by Terraform CDK and AWS CDK:
-
-1. **Prepare Phase**: Track dependencies, validate structure, build dependency graph
-2. **Resolve Phase**: Generate syntax nodes, sort by dependencies, render to HCL
-
 ```csharp
-// References automatically track dependencies during Prepare
-subnet["vpc_id"] = vpc["id"];  // Records: subnet depends on vpc
+// References generate correct HCL identifiers
+subnet["vpc_id"] = vpc["id"];  // Resolves to: aws_vpc.main.id
 
-// Resolution ensures correct ordering
-stack.ToHcl();  // VPC rendered before Subnet
+// Resolution generates valid HCL
+stack.ToHcl();  // Both resources rendered with correct references
 ```
 
 ### Key Design Principles
@@ -216,7 +209,7 @@ When working on a task, you may encounter subtasks that are out of context or re
 ### Key Concepts to Understand
 
 - **Polymorphic values** - Type-safe value representation via `TerraformValue<T>`
-- **Two-phase resolution** - Prepare → Resolve pattern
+- **Resolution system** - Single-pass resolution to HCL
 - **Compositional AST** - Expression nodes that build HCL syntax
 - **Reference system** - Inter-resource dependencies
 - **Source generation** - Compile-time code generation

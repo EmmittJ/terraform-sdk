@@ -419,8 +419,6 @@ The complete pipeline from user code to HCL:
 User Code (C#)
     ↓
 TerraformBlock/TerraformValue (High-level API)
-    ↓ Prepare Phase
-Dependency Tracking
     ↓ Resolve Phase
 TerraformSyntaxNode Tree
     ↓ ToHcl Phase
@@ -439,10 +437,7 @@ var vpc = new TerraformResource("aws_vpc", "main")
 // 2. Added to stack
 stack.Add(vpc);
 
-// 3. Prepare phase - collect dependencies
-stack.Prepare(context);
-
-// 4. Resolve phase - generate syntax tree
+// 3. Resolve phase - generate syntax tree
 var nodes = stack.ResolveNodes(context);
 // Returns: TerraformTopLevelBlockNode containing ArgumentNodes
 

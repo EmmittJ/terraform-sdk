@@ -15,7 +15,6 @@ The EmmittJ Terraform SDK is a .NET library that enables infrastructure-as-code 
 - 🔒 **Type-safe** - Compile-time validation using C# type system
 - 🎯 **Polymorphic value system** - No null reference exceptions, automatic type inference
 - 📝 **IntelliSense support** - Full IDE support with documentation
-- 🔄 **Two-phase resolution** - Intelligent dependency tracking and validation
 - 🏛️ **Compositional AST** - Build complex HCL from simple expression nodes
 - 🌐 **Multi-cloud** - AWS, Azure, GCP support via auto-generated providers
 - 🔌 **Aspire integration** - Deploy infrastructure with .NET Aspire
@@ -173,26 +172,16 @@ new TerraformBlockNode("tags", children)
 - Automatic node ordering (meta-arguments first)
 - Self-rendering nodes
 
-### Two-Phase Resolution
+### Resolution System
 
-Inspired by Terraform CDK and AWS CDK, the SDK uses two-pass compilation:
-
-1. **Prepare Phase** - Collect dependencies, track references, validate structure
-2. **Resolve Phase** - Generate HCL expressions and output
-
-This enables:
-
-- Circular dependency detection
-- Intelligent reference resolution
-- Compile-time validation
-- Optimized HCL generation
+The SDK uses a single-pass resolution approach to generate HCL:
 
 ```csharp
-// References automatically track dependencies
-subnet["vpc_id"] = vpc["id"];  // Records: subnet depends on vpc
+// References generate correct HCL identifiers
+subnet["vpc_id"] = vpc["id"];  // Resolves to: aws_vpc.main.id
 
-// Resolution ensures correct ordering
-stack.ToHcl();  // VPC rendered before Subnet
+// Resolution generates valid HCL
+stack.ToHcl();  // VPC and Subnet both rendered with correct references
 ```
 
 **For detailed architecture documentation, see:**
@@ -416,9 +405,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-Inspired by:
+Inspired by [Terraform CDK](https://developer.hashicorp.com/terraform/cdktf) and [AWS CDK](https://aws.amazon.com/cdk/).
 
-- [Terraform CDK](https://developer.hashicorp.com/terraform/cdktf) - Similar two-phase resolution concepts
 - [AWS CDK](https://aws.amazon.com/cdk/) - Compositional AST and construct patterns
 - [Pulumi](https://www.pulumi.com/) - Infrastructure as code with real programming languages
 

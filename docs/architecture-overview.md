@@ -97,9 +97,9 @@ var arg = new TerraformArgumentNode("region", TerraformExpression.Literal("us-we
 // Renders: region = "us-west-2"
 ```
 
-## Two-Phase Resolution System
+## Resolution System
 
-Inspired by Terraform CDK and AWS CDK, the SDK uses a two-pass compilation approach:
+The SDK uses a single-pass resolution approach:
 
 ```
 ┌──────────────────┐
@@ -109,25 +109,14 @@ Inspired by Terraform CDK and AWS CDK, the SDK uses a two-pass compilation appro
          │
          ↓
 ┌──────────────────┐
-│  PHASE 1:        │
-│  PREPARE         │
-│  • Track deps    │
-│  • Validate      │
-│  • Build graph   │
-└────────┬─────────┘
-         │
-         ↓
-┌──────────────────┐
-│  PHASE 2:        │
 │  RESOLVE         │
 │  • Gen nodes     │
-│  • Sort blocks   │
+│  • Build AST     │
 │  • Order refs    │
 └────────┬─────────┘
          │
          ↓
 ┌──────────────────┐
-│  PHASE 3:        │
 │  RENDER          │
 │  • Gen HCL       │
 │  • Format        │
@@ -138,41 +127,15 @@ Inspired by Terraform CDK and AWS CDK, the SDK uses a two-pass compilation appro
     HCL Output
 ```
 
-### Phase 1: Prepare
+### Resolve Phase
 
-**When:** `stack.Prepare(context)`
-
-**Purpose:** Analyze configuration and build dependency graph
-
-**Activities:**
-
-- Visit all blocks via `ITerraformPreparable.Prepare()`
-- Record dependencies when references are resolved
-- Build dependency graph for validation
-- Detect circular dependencies
-
-**Example:**
-
-```csharp
-var subnet = new TerraformResource("aws_subnet", "public")
-{
-    ["vpc_id"] = vpc["id"]  // Records dependency: subnet → vpc
-};
-
-stack.Prepare(context);
-// Dependency graph now contains: subnet depends on vpc
-```
-
-### Phase 2: Resolve
-
-**When:** `stack.ToHcl()` (automatic after prepare)
+**When:** `stack.ToHcl()`
 
 **Purpose:** Generate syntax node tree
 
 **Activities:**
 
 - Call `ResolveNodes(context)` on all blocks
-- Sort blocks by dependencies (topological sort)
 - Generate `TerraformSyntaxNode` tree
 - Order nodes for readability (meta-arguments first, etc.)
 
@@ -185,7 +148,7 @@ var nodes = vpc.ResolveNodes(context);
 // - TerraformBlockNode("tags", ...)
 ```
 
-### Phase 3: Render
+### Render Phase
 
 **When:** Automatic during `ToHcl()`
 
@@ -227,23 +190,6 @@ public interface ITerraformResolvable
 - `TerraformBlock` - resolves to argument and block nodes
 - `TerraformStack` - resolves to top-level block nodes
 
-### ITerraformPreparable
-
-Participates in the prepare phase:
-
-```csharp
-public interface ITerraformPreparable
-{
-    void Prepare(ITerraformContext context);
-}
-```
-
-**Implemented by:**
-
-- `TerraformResource` - registers in dependency graph
-- `TerraformDataSource` - registers in dependency graph
-- `TerraformModule` - registers in dependency graph
-
 ### ITerraformContext
 
 Provides resolution environment:
@@ -251,12 +197,12 @@ Provides resolution environment:
 ```csharp
 public interface ITerraformContext
 {
-    TerraformStack Scope { get; }           // Current stack
-    DependencyGraph DependencyGraph { get; } // Dependency tracking
-    int IndentLevel { get; }                 // Current indentation
-    string Indent { get; }                   // Indentation string
-    IDisposable PushIndent();                // Increase indentation
-    void RecordDependency(TerraformBlock dependency); // Track refs
+    TerraformStack Scope { get; }                  // Current stack
+    int IndentLevel { get; }                       // Current indentation
+    string Indent { get; }                         // Indentation string
+    ITerraformNodeFormatter Formatter { get; }     // Node sorting
+    IDisposable PushIndent();                      // Increase indentation
+    IDisposable SetCurrentBlock(TerraformBlock? block); // Set context block
 }
 ```
 
@@ -282,13 +228,13 @@ var subnet = new TerraformResource("aws_subnet", "public")
 stack.Add(vpc);
 stack.Add(subnet);
 
-// 3. Generate HCL (triggers prepare → resolve → render)
+// 3. Generate HCL (triggers resolve → render)
 var hcl = stack.ToHcl();
 
 // Internal flow:
-// - Prepare: Track dependency subnet → vpc
 // - Resolve: Generate syntax nodes for each resource
 // - Render: Format nodes as HCL with proper indentation
+// Note: Terraform itself handles dependency ordering
 ```
 
 ### Resolution Chain
@@ -348,41 +294,6 @@ TerraformModule : TerraformBlock, ITerraformTopLevelBlock
 
 TerraformProvider : TerraformBlock, ITerraformTopLevelBlock
     └── Provider configurations
-```
-
-## Dependency Management
-
-### Dependency Graph
-
-```csharp
-public class DependencyGraph
-{
-    // Track dependencies between blocks
-    public void AddDependency(TerraformBlock from, TerraformBlock to);
-
-    // Topological sort for correct ordering
-    public IEnumerable<TerraformBlock> TopologicalSort();
-
-    // Detect circular dependencies
-    public void Validate();
-}
-```
-
-### Automatic Dependency Tracking
-
-```csharp
-// When a reference is resolved:
-subnet["vpc_id"] = vpc["id"]
-
-// During Prepare phase:
-// 1. subnet.Prepare() is called
-// 2. vpc["id"] reference is visited
-// 3. context.RecordDependency(vpc) is called
-// 4. Graph now contains: subnet → vpc
-
-// During Resolve phase:
-// 1. TopologicalSort() ensures vpc comes before subnet
-// 2. Generated HCL has correct ordering
 ```
 
 ## Source Generation
@@ -637,7 +548,7 @@ Each layer has one responsibility:
 - Use implicit conversions
 - Let polymorphism handle dispatch
 - Build expressions compositionally
-- Use the two-phase resolution pattern
+- Use the resolution pattern for HCL generation
 
 ### ❌ Don't
 
@@ -654,7 +565,7 @@ Recommended order for understanding the SDK:
 1. **Values System** - Start with type-safe value storage
 2. **Expressions System** - Learn compositional syntax building
 3. **Syntax System** - Understand HCL rendering
-4. **Two-Phase Resolution** - See how it all connects
+4. **Resolution System** - See how values resolve to HCL
 5. **Blocks System** - Work with resources and modules
 6. **Source Generation** - Understand code generation
 7. **Provider Generation** - Learn schema-to-C# transformation

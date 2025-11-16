@@ -103,7 +103,7 @@ var tags = new TerraformMap<string>
 
 ### TerraformReference\<T\>
 
-Represents a reference to another resource's attribute. Automatically tracks dependencies during the Prepare phase.
+Represents a reference to another resource's attribute.
 
 ```csharp
 var vpc = new TerraformResource("aws_vpc", "main")
@@ -118,13 +118,9 @@ var subnet = new TerraformResource("aws_subnet", "public")
 };
 ```
 
-**Dependency Tracking:**
+**Reference Resolution:**
 
-When a reference is resolved during the Prepare phase, the SDK automatically:
-
-1. Records the dependency relationship
-2. Validates no circular dependencies exist
-3. Orders resources correctly in generated HCL
+When a reference is resolved, the SDK generates the appropriate HCL identifier:
 
 ## ITerraformResolvable Interface
 
@@ -137,10 +133,10 @@ public interface ITerraformResolvable
 }
 ```
 
-This interface is key to the **two-phase resolution system**:
+This interface enables the **resolution system**:
 
-1. **Prepare Phase**: Values are stored but not evaluated
-2. **Resolve Phase**: Values are resolved to syntax nodes for HCL generation
+- Values are stored but not evaluated at creation time
+- During `stack.ToHcl()`, values are resolved to syntax nodes for HCL generation
 
 ### Resolution Lifecycle
 
@@ -148,10 +144,7 @@ This interface is key to the **two-phase resolution system**:
 // 1. Creation - value is stored but not evaluated
 var value = new TerraformValue<string>(vpc["id"]);
 
-// 2. Prepare - dependencies are tracked (happens during stack.Prepare())
-context.RecordDependency(vpc);
-
-// 3. Resolve - syntax nodes are generated (happens during stack.ToHcl())
+// 2. Resolve - syntax nodes are generated (happens during stack.ToHcl())
 var nodes = value.ResolveNodes(context);  // Returns TerraformExpression nodes
 ```
 
@@ -336,7 +329,6 @@ The Values system integrates with:
 - **Syntax**: Resolution produces `TerraformSyntaxNode` instances
 - **Blocks**: Blocks store values and resolve them during HCL generation
 - **Context**: `ITerraformContext` provides resolution environment
-- **Validation**: Dependency graph tracks references between values
 
 ## Future Enhancements
 

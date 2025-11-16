@@ -36,7 +36,7 @@ public interface ITerraformContext
     IDisposable PushIndent();
 
     /// <summary>
-    /// Sets the current block being prepared/resolved and returns a disposable scope.
+    /// Sets the current block being resolved and returns a disposable scope.
     /// Use with 'using' statement for automatic scope management.
     /// </summary>
     /// <param name="block">The current block.</param>

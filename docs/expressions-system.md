@@ -12,9 +12,6 @@ The Expressions system provides the compositional building blocks for representi
 // Expressions ARE syntax nodes (they extend TerraformSyntaxNode)
 public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformSerializable, ITerraformResolvable
 {
-    // All expressions can be prepared (dependency tracking)
-    public virtual void Prepare(ITerraformContext context);
-
     // Expressions resolve to themselves (they're already syntax nodes)
     public virtual IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context);
 
@@ -309,23 +306,11 @@ ConditionalExpression (syntax node)
 
 **Note:** Each node in this tree is a `TerraformSyntaxNode`. This is an AST (Abstract Syntax Tree), not to be confused with .NET's `System.Linq.Expressions.Expression` trees used for LINQ.
 
-## Two-Phase Resolution Process
+## Resolution Process
 
-Expressions, like all AST nodes, participate in the **two-phase resolution system**:
+Expressions, like all AST nodes, participate in the **resolution system**:
 
-### Phase 1: Prepare
-
-```csharp
-public virtual void Prepare(ITerraformContext context)
-{
-    // Override in expressions that contain nested resolvables
-    // Example: ForExpression prepares collection and result expressions
-}
-```
-
-Most leaf expressions (literals, identifiers) don't need preparation. Composite expressions (ForExpression, ConditionalExpression) prepare their children.
-
-### Phase 2: Resolve
+### Resolve Phase
 
 ```csharp
 public virtual IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
@@ -336,7 +321,7 @@ public virtual IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext c
 
 **Why return themselves?** Because `TerraformExpression` extends `TerraformSyntaxNode`, expressions ARE already AST nodes ready for rendering. They don't need to be transformed into something else.
 
-### Phase 3: Render
+### Render Phase
 
 ```csharp
 public abstract string ToHcl(ITerraformContext context);
