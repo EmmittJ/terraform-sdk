@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for agent_setting in .
@@ -26,7 +17,6 @@ public class AzurermContainerRegistryTaskAgentSettingBlock : TerraformBlock
     /// The cpu attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
-    [TerraformArgument("cpu")]
     public required TerraformValue<double> Cpu
     {
         get => new TerraformReference<double>(this, "cpu");
@@ -49,7 +39,6 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -60,7 +49,6 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -71,7 +59,6 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -81,7 +68,6 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     /// <summary>
     /// The update_trigger_endpoint attribute.
     /// </summary>
-    [TerraformArgument("update_trigger_endpoint")]
     public TerraformValue<string>? UpdateTriggerEndpoint
     {
         get => new TerraformReference<string>(this, "update_trigger_endpoint");
@@ -91,7 +77,6 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     /// <summary>
     /// The update_trigger_payload_type attribute.
     /// </summary>
-    [TerraformArgument("update_trigger_payload_type")]
     public TerraformValue<string>? UpdateTriggerPayloadType
     {
         get => new TerraformReference<string>(this, "update_trigger_payload_type");
@@ -114,7 +99,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// <summary>
     /// The arguments attribute.
     /// </summary>
-    [TerraformArgument("arguments")]
     public TerraformMap<string>? Arguments
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "arguments").ResolveNodes(ctx));
@@ -124,7 +108,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// <summary>
     /// The cache_enabled attribute.
     /// </summary>
-    [TerraformArgument("cache_enabled")]
     public TerraformValue<bool>? CacheEnabled
     {
         get => new TerraformReference<bool>(this, "cache_enabled");
@@ -135,7 +118,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// The context_access_token attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextAccessToken is required")]
-    [TerraformArgument("context_access_token")]
     public required TerraformValue<string> ContextAccessToken
     {
         get => new TerraformReference<string>(this, "context_access_token");
@@ -146,7 +128,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// The context_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextPath is required")]
-    [TerraformArgument("context_path")]
     public required TerraformValue<string> ContextPath
     {
         get => new TerraformReference<string>(this, "context_path");
@@ -157,7 +138,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// The dockerfile_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DockerfilePath is required")]
-    [TerraformArgument("dockerfile_path")]
     public required TerraformValue<string> DockerfilePath
     {
         get => new TerraformReference<string>(this, "dockerfile_path");
@@ -167,7 +147,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// <summary>
     /// The image_names attribute.
     /// </summary>
-    [TerraformArgument("image_names")]
     public TerraformList<string>? ImageNames
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "image_names").ResolveNodes(ctx));
@@ -177,7 +156,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// <summary>
     /// The push_enabled attribute.
     /// </summary>
-    [TerraformArgument("push_enabled")]
     public TerraformValue<bool>? PushEnabled
     {
         get => new TerraformReference<bool>(this, "push_enabled");
@@ -187,7 +165,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// <summary>
     /// The secret_arguments attribute.
     /// </summary>
-    [TerraformArgument("secret_arguments")]
     public TerraformMap<string>? SecretArguments
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secret_arguments").ResolveNodes(ctx));
@@ -197,7 +174,6 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// <summary>
     /// The target attribute.
     /// </summary>
-    [TerraformArgument("target")]
     public TerraformValue<string>? Target
     {
         get => new TerraformReference<string>(this, "target");
@@ -220,7 +196,6 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// <summary>
     /// The context_access_token attribute.
     /// </summary>
-    [TerraformArgument("context_access_token")]
     public TerraformValue<string>? ContextAccessToken
     {
         get => new TerraformReference<string>(this, "context_access_token");
@@ -230,7 +205,6 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// <summary>
     /// The context_path attribute.
     /// </summary>
-    [TerraformArgument("context_path")]
     public TerraformValue<string>? ContextPath
     {
         get => new TerraformReference<string>(this, "context_path");
@@ -240,7 +214,6 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// <summary>
     /// The secret_values attribute.
     /// </summary>
-    [TerraformArgument("secret_values")]
     public TerraformMap<string>? SecretValues
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secret_values").ResolveNodes(ctx));
@@ -251,7 +224,6 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// The task_content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskContent is required")]
-    [TerraformArgument("task_content")]
     public required TerraformValue<string> TaskContent
     {
         get => new TerraformReference<string>(this, "task_content");
@@ -261,7 +233,6 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// <summary>
     /// The value_content attribute.
     /// </summary>
-    [TerraformArgument("value_content")]
     public TerraformValue<string>? ValueContent
     {
         get => new TerraformReference<string>(this, "value_content");
@@ -271,8 +242,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// <summary>
     /// The values attribute.
     /// </summary>
-    [TerraformArgument("values")]
-    public TerraformMap<string>? Values
+    public TerraformMap<string>? ValuesAttribute
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "values").ResolveNodes(ctx));
         set => SetArgument("values", value);
@@ -294,7 +264,6 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// <summary>
     /// The context_access_token attribute.
     /// </summary>
-    [TerraformArgument("context_access_token")]
     public TerraformValue<string>? ContextAccessToken
     {
         get => new TerraformReference<string>(this, "context_access_token");
@@ -304,7 +273,6 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// <summary>
     /// The context_path attribute.
     /// </summary>
-    [TerraformArgument("context_path")]
     public TerraformValue<string>? ContextPath
     {
         get => new TerraformReference<string>(this, "context_path");
@@ -314,7 +282,6 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// <summary>
     /// The secret_values attribute.
     /// </summary>
-    [TerraformArgument("secret_values")]
     public TerraformMap<string>? SecretValues
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secret_values").ResolveNodes(ctx));
@@ -325,7 +292,6 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// The task_file_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskFilePath is required")]
-    [TerraformArgument("task_file_path")]
     public required TerraformValue<string> TaskFilePath
     {
         get => new TerraformReference<string>(this, "task_file_path");
@@ -335,7 +301,6 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// <summary>
     /// The value_file_path attribute.
     /// </summary>
-    [TerraformArgument("value_file_path")]
     public TerraformValue<string>? ValueFilePath
     {
         get => new TerraformReference<string>(this, "value_file_path");
@@ -345,8 +310,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// <summary>
     /// The values attribute.
     /// </summary>
-    [TerraformArgument("values")]
-    public TerraformMap<string>? Values
+    public TerraformMap<string>? ValuesAttribute
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "values").ResolveNodes(ctx));
         set => SetArgument("values", value);
@@ -368,20 +332,32 @@ public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -404,7 +380,6 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    [TerraformArgument("architecture")]
     public TerraformValue<string>? Architecture
     {
         get => new TerraformReference<string>(this, "architecture");
@@ -415,7 +390,6 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
     /// The os attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Os is required")]
-    [TerraformArgument("os")]
     public required TerraformValue<string> Os
     {
         get => new TerraformReference<string>(this, "os");
@@ -425,7 +399,6 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
     /// <summary>
     /// The variant attribute.
     /// </summary>
-    [TerraformArgument("variant")]
     public TerraformValue<string>? Variant
     {
         get => new TerraformReference<string>(this, "variant");
@@ -461,7 +434,6 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     /// <summary>
     /// The branch attribute.
     /// </summary>
-    [TerraformArgument("branch")]
     public TerraformValue<string>? Branch
     {
         get => new TerraformReference<string>(this, "branch");
@@ -471,7 +443,6 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -482,7 +453,6 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     /// The events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
-    [TerraformArgument("events")]
     public TerraformList<string>? Events
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "events").ResolveNodes(ctx));
@@ -493,7 +463,6 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -504,7 +473,6 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     /// The repository_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
-    [TerraformArgument("repository_url")]
     public required TerraformValue<string> RepositoryUrl
     {
         get => new TerraformReference<string>(this, "repository_url");
@@ -515,7 +483,6 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     /// The source_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
-    [TerraformArgument("source_type")]
     public required TerraformValue<string> SourceType
     {
         get => new TerraformReference<string>(this, "source_type");
@@ -538,7 +505,6 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -548,7 +514,6 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -558,7 +523,6 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -568,7 +532,6 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -591,7 +554,6 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -602,7 +564,6 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -613,7 +574,6 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     /// The schedule attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
-    [TerraformArgument("schedule")]
     public required TerraformValue<string> Schedule
     {
         get => new TerraformReference<string>(this, "schedule");
@@ -623,19 +583,14 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_container_registry_task Terraform resource.
 /// Manages a azurerm_container_registry_task resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermContainerRegistryTask : TerraformResource
+public partial class AzurermContainerRegistryTask(string name) : TerraformResource("azurerm_container_registry_task", name)
 {
-    public AzurermContainerRegistryTask(string name) : base("azurerm_container_registry_task", name)
-    {
-    }
-
     /// <summary>
     /// The agent_pool_name attribute.
     /// </summary>
-    [TerraformArgument("agent_pool_name")]
     public TerraformValue<string>? AgentPoolName
     {
         get => new TerraformReference<string>(this, "agent_pool_name");
@@ -646,7 +601,6 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// The container_registry_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
-    [TerraformArgument("container_registry_id")]
     public required TerraformValue<string> ContainerRegistryId
     {
         get => new TerraformReference<string>(this, "container_registry_id");
@@ -656,7 +610,6 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -666,7 +619,6 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -676,7 +628,6 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// <summary>
     /// The is_system_task attribute.
     /// </summary>
-    [TerraformArgument("is_system_task")]
     public TerraformValue<bool>? IsSystemTask
     {
         get => new TerraformReference<bool>(this, "is_system_task");
@@ -686,7 +637,6 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// <summary>
     /// The log_template attribute.
     /// </summary>
-    [TerraformArgument("log_template")]
     public TerraformValue<string>? LogTemplate
     {
         get => new TerraformReference<string>(this, "log_template");
@@ -697,7 +647,6 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -707,7 +656,6 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -717,7 +665,6 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("timeout_in_seconds")]
     public TerraformValue<double>? TimeoutInSeconds
     {
         get => new TerraformReference<double>(this, "timeout_in_seconds");
@@ -725,88 +672,110 @@ public class AzurermContainerRegistryTask : TerraformResource
     }
 
     /// <summary>
-    /// Block for agent_setting.
-    /// Nesting mode: list
+    /// AgentSetting block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AgentSetting block(s) allowed")]
-    [TerraformArgument("agent_setting")]
-    public TerraformList<AzurermContainerRegistryTaskAgentSettingBlock> AgentSetting { get; set; } = new();
+    public AzurermContainerRegistryTaskAgentSettingBlock? AgentSetting
+    {
+        get => GetArgument<AzurermContainerRegistryTaskAgentSettingBlock>("agent_setting");
+        set => SetArgument("agent_setting", value);
+    }
 
     /// <summary>
-    /// Block for base_image_trigger.
-    /// Nesting mode: list
+    /// BaseImageTrigger block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BaseImageTrigger block(s) allowed")]
-    [TerraformArgument("base_image_trigger")]
-    public TerraformList<AzurermContainerRegistryTaskBaseImageTriggerBlock> BaseImageTrigger { get; set; } = new();
+    public AzurermContainerRegistryTaskBaseImageTriggerBlock? BaseImageTrigger
+    {
+        get => GetArgument<AzurermContainerRegistryTaskBaseImageTriggerBlock>("base_image_trigger");
+        set => SetArgument("base_image_trigger", value);
+    }
 
     /// <summary>
-    /// Block for docker_step.
-    /// Nesting mode: list
+    /// DockerStep block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerStep block(s) allowed")]
-    [TerraformArgument("docker_step")]
-    public TerraformList<AzurermContainerRegistryTaskDockerStepBlock> DockerStep { get; set; } = new();
+    public AzurermContainerRegistryTaskDockerStepBlock? DockerStep
+    {
+        get => GetArgument<AzurermContainerRegistryTaskDockerStepBlock>("docker_step");
+        set => SetArgument("docker_step", value);
+    }
 
     /// <summary>
-    /// Block for encoded_step.
-    /// Nesting mode: list
+    /// EncodedStep block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncodedStep block(s) allowed")]
-    [TerraformArgument("encoded_step")]
-    public TerraformList<AzurermContainerRegistryTaskEncodedStepBlock> EncodedStep { get; set; } = new();
+    public AzurermContainerRegistryTaskEncodedStepBlock? EncodedStep
+    {
+        get => GetArgument<AzurermContainerRegistryTaskEncodedStepBlock>("encoded_step");
+        set => SetArgument("encoded_step", value);
+    }
 
     /// <summary>
-    /// Block for file_step.
-    /// Nesting mode: list
+    /// FileStep block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileStep block(s) allowed")]
-    [TerraformArgument("file_step")]
-    public TerraformList<AzurermContainerRegistryTaskFileStepBlock> FileStep { get; set; } = new();
+    public AzurermContainerRegistryTaskFileStepBlock? FileStep
+    {
+        get => GetArgument<AzurermContainerRegistryTaskFileStepBlock>("file_step");
+        set => SetArgument("file_step", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermContainerRegistryTaskIdentityBlock> Identity { get; set; } = new();
+    public AzurermContainerRegistryTaskIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermContainerRegistryTaskIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for platform.
-    /// Nesting mode: list
+    /// Platform block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
-    [TerraformArgument("platform")]
-    public TerraformList<AzurermContainerRegistryTaskPlatformBlock> Platform { get; set; } = new();
+    public AzurermContainerRegistryTaskPlatformBlock? Platform
+    {
+        get => GetArgument<AzurermContainerRegistryTaskPlatformBlock>("platform");
+        set => SetArgument("platform", value);
+    }
 
     /// <summary>
-    /// Block for registry_credential.
-    /// Nesting mode: list
+    /// RegistryCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistryCredential block(s) allowed")]
-    [TerraformArgument("registry_credential")]
-    public TerraformList<AzurermContainerRegistryTaskRegistryCredentialBlock> RegistryCredential { get; set; } = new();
+    public AzurermContainerRegistryTaskRegistryCredentialBlock? RegistryCredential
+    {
+        get => GetArgument<AzurermContainerRegistryTaskRegistryCredentialBlock>("registry_credential");
+        set => SetArgument("registry_credential", value);
+    }
 
     /// <summary>
-    /// Block for source_trigger.
-    /// Nesting mode: list
+    /// SourceTrigger block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("source_trigger")]
-    public TerraformList<AzurermContainerRegistryTaskSourceTriggerBlock> SourceTrigger { get; set; } = new();
+    public AzurermContainerRegistryTaskSourceTriggerBlock? SourceTrigger
+    {
+        get => GetArgument<AzurermContainerRegistryTaskSourceTriggerBlock>("source_trigger");
+        set => SetArgument("source_trigger", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerRegistryTaskTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermContainerRegistryTaskTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermContainerRegistryTaskTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for timer_trigger.
-    /// Nesting mode: list
+    /// TimerTrigger block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("timer_trigger")]
-    public TerraformList<AzurermContainerRegistryTaskTimerTriggerBlock> TimerTrigger { get; set; } = new();
+    public AzurermContainerRegistryTaskTimerTriggerBlock? TimerTrigger
+    {
+        get => GetArgument<AzurermContainerRegistryTaskTimerTriggerBlock>("timer_trigger");
+        set => SetArgument("timer_trigger", value);
+    }
 
 }

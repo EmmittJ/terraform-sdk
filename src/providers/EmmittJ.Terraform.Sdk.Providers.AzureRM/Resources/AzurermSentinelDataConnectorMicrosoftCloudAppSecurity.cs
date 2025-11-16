@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurityTimeoutsBlock 
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurityTimeoutsBlock 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurityTimeoutsBlock 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurityTimeoutsBlock 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurityTimeoutsBlock 
 }
 
 /// <summary>
+/// Represents a azurerm_sentinel_data_connector_microsoft_cloud_app_security Terraform resource.
 /// Manages a azurerm_sentinel_data_connector_microsoft_cloud_app_security resource.
 /// </summary>
-public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity : TerraformResource
+public partial class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity(string name) : TerraformResource("azurerm_sentinel_data_connector_microsoft_cloud_app_security", name)
 {
-    public AzurermSentinelDataConnectorMicrosoftCloudAppSecurity(string name) : base("azurerm_sentinel_data_connector_microsoft_cloud_app_security", name)
-    {
-    }
-
     /// <summary>
     /// The alerts_enabled attribute.
     /// </summary>
-    [TerraformArgument("alerts_enabled")]
     public TerraformValue<bool>? AlertsEnabled
     {
         get => new TerraformReference<bool>(this, "alerts_enabled");
@@ -86,7 +69,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity : TerraformRe
     /// <summary>
     /// The discovery_logs_enabled attribute.
     /// </summary>
-    [TerraformArgument("discovery_logs_enabled")]
     public TerraformValue<bool>? DiscoveryLogsEnabled
     {
         get => new TerraformReference<bool>(this, "discovery_logs_enabled");
@@ -96,7 +78,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -107,7 +88,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity : TerraformRe
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    [TerraformArgument("log_analytics_workspace_id")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
         get => new TerraformReference<string>(this, "log_analytics_workspace_id");
@@ -118,7 +98,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity : TerraformRe
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -128,7 +107,6 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity : TerraformRe
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformArgument("tenant_id")]
     public TerraformValue<string> TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -136,10 +114,12 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity : TerraformRe
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSentinelDataConnectorMicrosoftCloudAppSecurityTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSentinelDataConnectorMicrosoftCloudAppSecurityTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSentinelDataConnectorMicrosoftCloudAppSecurityTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_datadog_monitor_sso_configuration Terraform resource.
 /// Manages a azurerm_datadog_monitor_sso_configuration resource.
 /// </summary>
-public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
+public partial class AzurermDatadogMonitorSsoConfiguration(string name) : TerraformResource("azurerm_datadog_monitor_sso_configuration", name)
 {
-    public AzurermDatadogMonitorSsoConfiguration(string name) : base("azurerm_datadog_monitor_sso_configuration", name)
-    {
-    }
-
     /// <summary>
     /// The datadog_monitor_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
-    [TerraformArgument("datadog_monitor_id")]
     public required TerraformValue<string> DatadogMonitorId
     {
         get => new TerraformReference<string>(this, "datadog_monitor_id");
@@ -88,7 +71,6 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// The enterprise_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnterpriseApplicationId is required")]
-    [TerraformArgument("enterprise_application_id")]
     public required TerraformValue<string> EnterpriseApplicationId
     {
         get => new TerraformReference<string>(this, "enterprise_application_id");
@@ -98,7 +80,6 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -108,7 +89,6 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -118,7 +98,6 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// <summary>
     /// The single_sign_on attribute.
     /// </summary>
-    [TerraformArgument("single_sign_on")]
     public TerraformValue<string> SingleSignOn
     {
         get => new TerraformReference<string>(this, "single_sign_on");
@@ -129,7 +108,6 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// The single_sign_on_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("single_sign_on_enabled")]
     public TerraformValue<string> SingleSignOnEnabled
     {
         get => new TerraformReference<string>(this, "single_sign_on_enabled");
@@ -137,19 +115,12 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDatadogMonitorSsoConfigurationTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The login_url attribute.
-    /// </summary>
-    [TerraformArgument("login_url")]
-    public TerraformValue<string> LoginUrl
+    public AzurermDatadogMonitorSsoConfigurationTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "login_url");
+        get => GetArgument<AzurermDatadogMonitorSsoConfigurationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

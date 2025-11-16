@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicyTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicyTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicyTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicyTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermApplicationLoadBalancerSecurityPolicyTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_application_load_balancer_security_policy Terraform resource.
 /// Manages a azurerm_application_load_balancer_security_policy resource.
 /// </summary>
-public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
+public partial class AzurermApplicationLoadBalancerSecurityPolicy(string name) : TerraformResource("azurerm_application_load_balancer_security_policy", name)
 {
-    public AzurermApplicationLoadBalancerSecurityPolicy(string name) : base("azurerm_application_load_balancer_security_policy", name)
-    {
-    }
-
     /// <summary>
     /// The application_load_balancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationLoadBalancerId is required")]
-    [TerraformArgument("application_load_balancer_id")]
     public required TerraformValue<string> ApplicationLoadBalancerId
     {
         get => new TerraformReference<string>(this, "application_load_balancer_id");
@@ -87,7 +70,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -109,7 +90,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -119,7 +99,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -130,7 +109,6 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     /// The web_application_firewall_policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebApplicationFirewallPolicyId is required")]
-    [TerraformArgument("web_application_firewall_policy_id")]
     public required TerraformValue<string> WebApplicationFirewallPolicyId
     {
         get => new TerraformReference<string>(this, "web_application_firewall_policy_id");
@@ -138,10 +116,12 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApplicationLoadBalancerSecurityPolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApplicationLoadBalancerSecurityPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApplicationLoadBalancerSecurityPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

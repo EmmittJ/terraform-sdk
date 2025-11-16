@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_cosmosdb_sql_dedicated_gateway Terraform resource.
 /// Manages a azurerm_cosmosdb_sql_dedicated_gateway resource.
 /// </summary>
-public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
+public partial class AzurermCosmosdbSqlDedicatedGateway(string name) : TerraformResource("azurerm_cosmosdb_sql_dedicated_gateway", name)
 {
-    public AzurermCosmosdbSqlDedicatedGateway(string name) : base("azurerm_cosmosdb_sql_dedicated_gateway", name)
-    {
-    }
-
     /// <summary>
     /// The cosmosdb_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
-    [TerraformArgument("cosmosdb_account_id")]
     public required TerraformValue<string> CosmosdbAccountId
     {
         get => new TerraformReference<string>(this, "cosmosdb_account_id");
@@ -87,7 +70,6 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     /// The instance_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
-    [TerraformArgument("instance_count")]
     public required TerraformValue<double> InstanceCount
     {
         get => new TerraformReference<double>(this, "instance_count");
@@ -109,7 +90,6 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     /// The instance_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceSize is required")]
-    [TerraformArgument("instance_size")]
     public required TerraformValue<string> InstanceSize
     {
         get => new TerraformReference<string>(this, "instance_size");
@@ -117,10 +97,12 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

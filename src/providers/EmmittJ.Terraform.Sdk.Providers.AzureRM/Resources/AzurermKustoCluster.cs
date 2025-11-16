@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -62,7 +65,6 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     /// The image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
-    [TerraformArgument("image")]
     public required TerraformValue<string> Image
     {
         get => new TerraformReference<string>(this, "image");
@@ -73,7 +75,6 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -98,7 +99,6 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     /// The image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
-    [TerraformArgument("image")]
     public required TerraformValue<string> Image
     {
         get => new TerraformReference<string>(this, "image");
@@ -109,7 +109,6 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -133,7 +132,6 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     /// The maximum_instances attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumInstances is required")]
-    [TerraformArgument("maximum_instances")]
     public required TerraformValue<double> MaximumInstances
     {
         get => new TerraformReference<double>(this, "maximum_instances");
@@ -144,7 +142,6 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     /// The minimum_instances attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumInstances is required")]
-    [TerraformArgument("minimum_instances")]
     public required TerraformValue<double> MinimumInstances
     {
         get => new TerraformReference<double>(this, "minimum_instances");
@@ -167,7 +164,6 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    [TerraformArgument("capacity")]
     public TerraformValue<double> Capacity
     {
         get => new TerraformReference<double>(this, "capacity");
@@ -178,7 +174,6 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -201,7 +196,6 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -211,7 +205,6 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -221,7 +214,6 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -231,7 +223,6 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -256,7 +247,6 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     /// The data_management_public_ip_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataManagementPublicIpId is required")]
-    [TerraformArgument("data_management_public_ip_id")]
     public required TerraformValue<string> DataManagementPublicIpId
     {
         get => new TerraformReference<string>(this, "data_management_public_ip_id");
@@ -267,7 +257,6 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     /// The engine_public_ip_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnginePublicIpId is required")]
-    [TerraformArgument("engine_public_ip_id")]
     public required TerraformValue<string> EnginePublicIpId
     {
         get => new TerraformReference<string>(this, "engine_public_ip_id");
@@ -278,7 +267,6 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -288,19 +276,14 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_kusto_cluster Terraform resource.
 /// Manages a azurerm_kusto_cluster resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermKustoCluster : TerraformResource
+public partial class AzurermKustoCluster(string name) : TerraformResource("azurerm_kusto_cluster", name)
 {
-    public AzurermKustoCluster(string name) : base("azurerm_kusto_cluster", name)
-    {
-    }
-
     /// <summary>
     /// The allowed_fqdns attribute.
     /// </summary>
-    [TerraformArgument("allowed_fqdns")]
     public TerraformList<string>? AllowedFqdns
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_fqdns").ResolveNodes(ctx));
@@ -310,7 +293,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The allowed_ip_ranges attribute.
     /// </summary>
-    [TerraformArgument("allowed_ip_ranges")]
     public TerraformList<string>? AllowedIpRanges
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_ip_ranges").ResolveNodes(ctx));
@@ -320,7 +302,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The auto_stop_enabled attribute.
     /// </summary>
-    [TerraformArgument("auto_stop_enabled")]
     public TerraformValue<bool>? AutoStopEnabled
     {
         get => new TerraformReference<bool>(this, "auto_stop_enabled");
@@ -330,7 +311,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The disk_encryption_enabled attribute.
     /// </summary>
-    [TerraformArgument("disk_encryption_enabled")]
     public TerraformValue<bool>? DiskEncryptionEnabled
     {
         get => new TerraformReference<bool>(this, "disk_encryption_enabled");
@@ -340,7 +320,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The double_encryption_enabled attribute.
     /// </summary>
-    [TerraformArgument("double_encryption_enabled")]
     public TerraformValue<bool>? DoubleEncryptionEnabled
     {
         get => new TerraformReference<bool>(this, "double_encryption_enabled");
@@ -350,7 +329,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -361,7 +339,6 @@ public class AzurermKustoCluster : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -372,7 +349,6 @@ public class AzurermKustoCluster : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -382,7 +358,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
-    [TerraformArgument("outbound_network_access_restricted")]
     public TerraformValue<bool>? OutboundNetworkAccessRestricted
     {
         get => new TerraformReference<bool>(this, "outbound_network_access_restricted");
@@ -392,7 +367,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The public_ip_type attribute.
     /// </summary>
-    [TerraformArgument("public_ip_type")]
     public TerraformValue<string>? PublicIpType
     {
         get => new TerraformReference<string>(this, "public_ip_type");
@@ -402,7 +376,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -412,7 +385,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The purge_enabled attribute.
     /// </summary>
-    [TerraformArgument("purge_enabled")]
     public TerraformValue<bool>? PurgeEnabled
     {
         get => new TerraformReference<bool>(this, "purge_enabled");
@@ -423,7 +395,6 @@ public class AzurermKustoCluster : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -433,7 +404,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The streaming_ingestion_enabled attribute.
     /// </summary>
-    [TerraformArgument("streaming_ingestion_enabled")]
     public TerraformValue<bool>? StreamingIngestionEnabled
     {
         get => new TerraformReference<bool>(this, "streaming_ingestion_enabled");
@@ -443,7 +413,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -453,7 +422,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The trusted_external_tenants attribute.
     /// </summary>
-    [TerraformArgument("trusted_external_tenants")]
     public TerraformList<string> TrustedExternalTenants
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_external_tenants").ResolveNodes(ctx));
@@ -463,7 +431,6 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformArgument("zones")]
     public TerraformSet<string>? Zones
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
@@ -471,78 +438,75 @@ public class AzurermKustoCluster : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermKustoClusterIdentityBlock> Identity { get; set; } = new();
+    public AzurermKustoClusterIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermKustoClusterIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for language_extension.
-    /// Nesting mode: list
+    /// LanguageExtension block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("language_extension")]
-    public TerraformList<AzurermKustoClusterLanguageExtensionBlock> LanguageExtension { get; set; } = new();
+    public AzurermKustoClusterLanguageExtensionBlock? LanguageExtension
+    {
+        get => GetArgument<AzurermKustoClusterLanguageExtensionBlock>("language_extension");
+        set => SetArgument("language_extension", value);
+    }
 
     /// <summary>
-    /// Block for language_extensions.
-    /// Nesting mode: list
+    /// LanguageExtensions block (nesting mode: list).
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    [TerraformArgument("language_extensions")]
-    public TerraformList<AzurermKustoClusterLanguageExtensionsBlock> LanguageExtensions { get; set; } = new();
+    public AzurermKustoClusterLanguageExtensionsBlock? LanguageExtensions
+    {
+        get => GetArgument<AzurermKustoClusterLanguageExtensionsBlock>("language_extensions");
+        set => SetArgument("language_extensions", value);
+    }
 
     /// <summary>
-    /// Block for optimized_auto_scale.
-    /// Nesting mode: list
+    /// OptimizedAutoScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OptimizedAutoScale block(s) allowed")]
-    [TerraformArgument("optimized_auto_scale")]
-    public TerraformList<AzurermKustoClusterOptimizedAutoScaleBlock> OptimizedAutoScale { get; set; } = new();
+    public AzurermKustoClusterOptimizedAutoScaleBlock? OptimizedAutoScale
+    {
+        get => GetArgument<AzurermKustoClusterOptimizedAutoScaleBlock>("optimized_auto_scale");
+        set => SetArgument("optimized_auto_scale", value);
+    }
 
     /// <summary>
-    /// Block for sku.
-    /// Nesting mode: list
+    /// Sku block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    [TerraformArgument("sku")]
-    public required TerraformList<AzurermKustoClusterSkuBlock> Sku { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKustoClusterTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// Block for virtual_network_configuration.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
-    [Obsolete("This block is deprecated.")]
-    [TerraformArgument("virtual_network_configuration")]
-    public TerraformList<AzurermKustoClusterVirtualNetworkConfigurationBlock> VirtualNetworkConfiguration { get; set; } = new();
-
-    /// <summary>
-    /// The data_ingestion_uri attribute.
-    /// </summary>
-    [TerraformArgument("data_ingestion_uri")]
-    public TerraformValue<string> DataIngestionUri
+    public required AzurermKustoClusterSkuBlock Sku
     {
-        get => new TerraformReference<string>(this, "data_ingestion_uri");
+        get => GetRequiredArgument<AzurermKustoClusterSkuBlock>("sku");
+        set => SetArgument("sku", value);
     }
 
     /// <summary>
-    /// The uri attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("uri")]
-    public TerraformValue<string> Uri
+    public AzurermKustoClusterTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<AzurermKustoClusterTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+    /// <summary>
+    /// VirtualNetworkConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
+    public AzurermKustoClusterVirtualNetworkConfigurationBlock? VirtualNetworkConfiguration
+    {
+        get => GetArgument<AzurermKustoClusterVirtualNetworkConfigurationBlock>("virtual_network_configuration");
+        set => SetArgument("virtual_network_configuration", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for repository in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// <summary>
     /// The ca_certificate_id attribute.
     /// </summary>
-    [TerraformArgument("ca_certificate_id")]
     public TerraformValue<string>? CaCertificateId
     {
         get => new TerraformReference<string>(this, "ca_certificate_id");
@@ -35,7 +25,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// <summary>
     /// The host_key attribute.
     /// </summary>
-    [TerraformArgument("host_key")]
     public TerraformValue<string>? HostKey
     {
         get => new TerraformReference<string>(this, "host_key");
@@ -45,7 +34,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// <summary>
     /// The host_key_algorithm attribute.
     /// </summary>
-    [TerraformArgument("host_key_algorithm")]
     public TerraformValue<string>? HostKeyAlgorithm
     {
         get => new TerraformReference<string>(this, "host_key_algorithm");
@@ -56,7 +44,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// The label attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Label is required")]
-    [TerraformArgument("label")]
     public required TerraformValue<string> Label
     {
         get => new TerraformReference<string>(this, "label");
@@ -67,7 +54,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -77,7 +63,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformArgument("password")]
     public TerraformValue<string>? Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -88,7 +73,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// The patterns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Patterns is required")]
-    [TerraformArgument("patterns")]
     public required TerraformSet<string> Patterns
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "patterns").ResolveNodes(ctx));
@@ -98,7 +82,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    [TerraformArgument("private_key")]
     public TerraformValue<string>? PrivateKey
     {
         get => new TerraformReference<string>(this, "private_key");
@@ -108,7 +91,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// <summary>
     /// The search_paths attribute.
     /// </summary>
-    [TerraformArgument("search_paths")]
     public TerraformSet<string>? SearchPaths
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "search_paths").ResolveNodes(ctx));
@@ -118,7 +100,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// <summary>
     /// The strict_host_key_checking attribute.
     /// </summary>
-    [TerraformArgument("strict_host_key_checking")]
     public TerraformValue<bool>? StrictHostKeyChecking
     {
         get => new TerraformReference<bool>(this, "strict_host_key_checking");
@@ -129,7 +110,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformArgument("uri")]
     public required TerraformValue<string> Uri
     {
         get => new TerraformReference<string>(this, "uri");
@@ -139,7 +119,6 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// <summary>
     /// The username attribute.
     /// </summary>
-    [TerraformArgument("username")]
     public TerraformValue<string>? Username
     {
         get => new TerraformReference<string>(this, "username");
@@ -162,7 +141,6 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -172,7 +150,6 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -182,7 +159,6 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -192,7 +168,6 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -202,18 +177,14 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_configuration_service Terraform resource.
 /// Manages a azurerm_spring_cloud_configuration_service resource.
 /// </summary>
-public class AzurermSpringCloudConfigurationService : TerraformResource
+public partial class AzurermSpringCloudConfigurationService(string name) : TerraformResource("azurerm_spring_cloud_configuration_service", name)
 {
-    public AzurermSpringCloudConfigurationService(string name) : base("azurerm_spring_cloud_configuration_service", name)
-    {
-    }
-
     /// <summary>
     /// The generation attribute.
     /// </summary>
-    [TerraformArgument("generation")]
     public TerraformValue<string>? Generation
     {
         get => new TerraformReference<string>(this, "generation");
@@ -223,7 +194,6 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -234,7 +204,6 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -244,7 +213,6 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// <summary>
     /// The refresh_interval_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("refresh_interval_in_seconds")]
     public TerraformValue<double>? RefreshIntervalInSeconds
     {
         get => new TerraformReference<double>(this, "refresh_interval_in_seconds");
@@ -255,7 +223,6 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    [TerraformArgument("spring_cloud_service_id")]
     public required TerraformValue<string> SpringCloudServiceId
     {
         get => new TerraformReference<string>(this, "spring_cloud_service_id");
@@ -263,17 +230,21 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     }
 
     /// <summary>
-    /// Block for repository.
-    /// Nesting mode: list
+    /// Repository block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("repository")]
-    public TerraformList<AzurermSpringCloudConfigurationServiceRepositoryBlock> Repository { get; set; } = new();
+    public AzurermSpringCloudConfigurationServiceRepositoryBlock? Repository
+    {
+        get => GetArgument<AzurermSpringCloudConfigurationServiceRepositoryBlock>("repository");
+        set => SetArgument("repository", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudConfigurationServiceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSpringCloudConfigurationServiceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSpringCloudConfigurationServiceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

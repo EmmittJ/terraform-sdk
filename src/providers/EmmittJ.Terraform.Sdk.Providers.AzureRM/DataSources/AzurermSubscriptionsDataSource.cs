@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSubscriptionsDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermSubscriptionsDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_subscriptions Terraform data source.
 /// Retrieves information about a azurerm_subscriptions.
 /// </summary>
-public class AzurermSubscriptionsDataSource : TerraformDataSource
+public partial class AzurermSubscriptionsDataSource(string name) : TerraformDataSource("azurerm_subscriptions", name)
 {
-    public AzurermSubscriptionsDataSource(string name) : base("azurerm_subscriptions", name)
-    {
-    }
-
     /// <summary>
     /// The display_name_contains attribute.
     /// </summary>
-    [TerraformArgument("display_name_contains")]
     public TerraformValue<string>? DisplayNameContains
     {
         get => new TerraformReference<string>(this, "display_name_contains");
@@ -56,7 +42,6 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
     /// <summary>
     /// The display_name_prefix attribute.
     /// </summary>
-    [TerraformArgument("display_name_prefix")]
     public TerraformValue<string>? DisplayNamePrefix
     {
         get => new TerraformReference<string>(this, "display_name_prefix");
@@ -66,7 +51,6 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -74,19 +58,12 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSubscriptionsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The subscriptions attribute.
-    /// </summary>
-    [TerraformArgument("subscriptions")]
-    public TerraformList<object> Subscriptions
+    public AzurermSubscriptionsDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "subscriptions").ResolveNodes(ctx));
+        get => GetArgument<AzurermSubscriptionsDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

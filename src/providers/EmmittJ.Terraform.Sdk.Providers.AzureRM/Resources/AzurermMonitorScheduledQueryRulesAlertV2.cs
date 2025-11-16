@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for action in .
@@ -25,7 +16,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : TerraformBloc
     /// <summary>
     /// The action_groups attribute.
     /// </summary>
-    [TerraformArgument("action_groups")]
     public TerraformList<string>? ActionGroups
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "action_groups").ResolveNodes(ctx));
@@ -35,7 +25,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : TerraformBloc
     /// <summary>
     /// The custom_properties attribute.
     /// </summary>
-    [TerraformArgument("custom_properties")]
     public TerraformMap<string>? CustomProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_properties").ResolveNodes(ctx));
@@ -58,7 +47,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBl
     /// <summary>
     /// The metric_measure_column attribute.
     /// </summary>
-    [TerraformArgument("metric_measure_column")]
     public TerraformValue<string>? MetricMeasureColumn
     {
         get => new TerraformReference<string>(this, "metric_measure_column");
@@ -68,9 +56,8 @@ public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBl
     /// <summary>
     /// The operator attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
-    [TerraformArgument("operator")]
-    public required TerraformValue<string> Operator
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
     {
         get => new TerraformReference<string>(this, "operator");
         set => SetArgument("operator", value);
@@ -80,7 +67,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBl
     /// The query attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
-    [TerraformArgument("query")]
     public required TerraformValue<string> Query
     {
         get => new TerraformReference<string>(this, "query");
@@ -90,7 +76,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBl
     /// <summary>
     /// The resource_id_column attribute.
     /// </summary>
-    [TerraformArgument("resource_id_column")]
     public TerraformValue<string>? ResourceIdColumn
     {
         get => new TerraformReference<string>(this, "resource_id_column");
@@ -101,7 +86,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBl
     /// The threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
-    [TerraformArgument("threshold")]
     public required TerraformValue<double> Threshold
     {
         get => new TerraformReference<double>(this, "threshold");
@@ -112,7 +96,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBl
     /// The time_aggregation_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeAggregationMethod is required")]
-    [TerraformArgument("time_aggregation_method")]
     public required TerraformValue<string> TimeAggregationMethod
     {
         get => new TerraformReference<string>(this, "time_aggregation_method");
@@ -135,20 +118,32 @@ public class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : TerraformBl
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -171,7 +166,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -181,7 +175,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -191,7 +184,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -201,7 +193,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -211,19 +202,14 @@ public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_scheduled_query_rules_alert_v2 Terraform resource.
 /// Manages a azurerm_monitor_scheduled_query_rules_alert_v2 resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
+public partial class AzurermMonitorScheduledQueryRulesAlertV2(string name) : TerraformResource("azurerm_monitor_scheduled_query_rules_alert_v2", name)
 {
-    public AzurermMonitorScheduledQueryRulesAlertV2(string name) : base("azurerm_monitor_scheduled_query_rules_alert_v2", name)
-    {
-    }
-
     /// <summary>
     /// The auto_mitigation_enabled attribute.
     /// </summary>
-    [TerraformArgument("auto_mitigation_enabled")]
     public TerraformValue<bool>? AutoMitigationEnabled
     {
         get => new TerraformReference<bool>(this, "auto_mitigation_enabled");
@@ -233,7 +219,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -243,7 +228,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformArgument("display_name")]
     public TerraformValue<string>? DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -253,7 +237,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -264,7 +247,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// The evaluation_frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationFrequency is required")]
-    [TerraformArgument("evaluation_frequency")]
     public required TerraformValue<string> EvaluationFrequency
     {
         get => new TerraformReference<string>(this, "evaluation_frequency");
@@ -274,7 +256,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -285,7 +266,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -295,7 +275,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The mute_actions_after_alert_duration attribute.
     /// </summary>
-    [TerraformArgument("mute_actions_after_alert_duration")]
     public TerraformValue<string>? MuteActionsAfterAlertDuration
     {
         get => new TerraformReference<string>(this, "mute_actions_after_alert_duration");
@@ -306,7 +285,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -316,7 +294,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The query_time_range_override attribute.
     /// </summary>
-    [TerraformArgument("query_time_range_override")]
     public TerraformValue<string>? QueryTimeRangeOverride
     {
         get => new TerraformReference<string>(this, "query_time_range_override");
@@ -327,7 +304,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -338,7 +314,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    [TerraformArgument("scopes")]
     public TerraformList<string>? Scopes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
@@ -349,7 +324,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// The severity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
-    [TerraformArgument("severity")]
     public required TerraformValue<double> Severity
     {
         get => new TerraformReference<double>(this, "severity");
@@ -359,7 +333,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The skip_query_validation attribute.
     /// </summary>
-    [TerraformArgument("skip_query_validation")]
     public TerraformValue<bool>? SkipQueryValidation
     {
         get => new TerraformReference<bool>(this, "skip_query_validation");
@@ -369,7 +342,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -379,7 +351,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The target_resource_types attribute.
     /// </summary>
-    [TerraformArgument("target_resource_types")]
     public TerraformList<string>? TargetResourceTypes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "target_resource_types").ResolveNodes(ctx));
@@ -390,7 +361,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// The window_duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowDuration is required")]
-    [TerraformArgument("window_duration")]
     public required TerraformValue<string> WindowDuration
     {
         get => new TerraformReference<string>(this, "window_duration");
@@ -400,7 +370,6 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The workspace_alerts_storage_enabled attribute.
     /// </summary>
-    [TerraformArgument("workspace_alerts_storage_enabled")]
     public TerraformValue<bool>? WorkspaceAlertsStorageEnabled
     {
         get => new TerraformReference<bool>(this, "workspace_alerts_storage_enabled");
@@ -408,62 +377,44 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     }
 
     /// <summary>
-    /// Block for action.
-    /// Nesting mode: list
+    /// Action block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
-    [TerraformArgument("action")]
-    public TerraformList<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock> Action { get; set; } = new();
+    public AzurermMonitorScheduledQueryRulesAlertV2ActionBlock? Action
+    {
+        get => GetArgument<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock>("action");
+        set => SetArgument("action", value);
+    }
 
     /// <summary>
-    /// Block for criteria.
-    /// Nesting mode: list
+    /// Criteria block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
-    [TerraformArgument("criteria")]
-    public required TerraformList<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock> Criteria { get; set; } = new();
+    public required AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock Criteria
+    {
+        get => GetRequiredArgument<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock>("criteria");
+        set => SetArgument("criteria", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The created_with_api_version attribute.
-    /// </summary>
-    [TerraformArgument("created_with_api_version")]
-    public TerraformValue<string> CreatedWithApiVersion
+    public AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock? Identity
     {
-        get => new TerraformReference<string>(this, "created_with_api_version");
+        get => GetArgument<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock>("identity");
+        set => SetArgument("identity", value);
     }
 
     /// <summary>
-    /// The is_a_legacy_log_analytics_rule attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("is_a_legacy_log_analytics_rule")]
-    public TerraformValue<bool> IsALegacyLogAnalyticsRule
+    public AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<bool>(this, "is_a_legacy_log_analytics_rule");
-    }
-
-    /// <summary>
-    /// The is_workspace_alerts_storage_configured attribute.
-    /// </summary>
-    [TerraformArgument("is_workspace_alerts_storage_configured")]
-    public TerraformValue<bool> IsWorkspaceAlertsStorageConfigured
-    {
-        get => new TerraformReference<bool>(this, "is_workspace_alerts_storage_configured");
+        get => GetArgument<AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

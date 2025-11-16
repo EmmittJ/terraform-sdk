@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermContainerRegistryTokenDataSourceTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermContainerRegistryTokenDataSourceTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_container_registry_token Terraform data source.
 /// Retrieves information about a azurerm_container_registry_token.
 /// </summary>
-public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
+public partial class AzurermContainerRegistryTokenDataSource(string name) : TerraformDataSource("azurerm_container_registry_token", name)
 {
-    public AzurermContainerRegistryTokenDataSource(string name) : base("azurerm_container_registry_token", name)
-    {
-    }
-
     /// <summary>
     /// The container_registry_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryName is required")]
-    [TerraformArgument("container_registry_name")]
     public required TerraformValue<string> ContainerRegistryName
     {
         get => new TerraformReference<string>(this, "container_registry_name");
@@ -57,7 +43,6 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -68,7 +53,6 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -79,7 +63,6 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -87,28 +70,12 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerRegistryTokenDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The enabled attribute.
-    /// </summary>
-    [TerraformArgument("enabled")]
-    public TerraformValue<bool> Enabled
+    public AzurermContainerRegistryTokenDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<bool>(this, "enabled");
-    }
-
-    /// <summary>
-    /// The scope_map_id attribute.
-    /// </summary>
-    [TerraformArgument("scope_map_id")]
-    public TerraformValue<string> ScopeMapId
-    {
-        get => new TerraformReference<string>(this, "scope_map_id");
+        get => GetArgument<AzurermContainerRegistryTokenDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

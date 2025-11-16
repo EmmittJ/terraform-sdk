@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_ip_group_cidr Terraform resource.
 /// Manages a azurerm_ip_group_cidr resource.
 /// </summary>
-public class AzurermIpGroupCidr : TerraformResource
+public partial class AzurermIpGroupCidr(string name) : TerraformResource("azurerm_ip_group_cidr", name)
 {
-    public AzurermIpGroupCidr(string name) : base("azurerm_ip_group_cidr", name)
-    {
-    }
-
     /// <summary>
     /// The cidr attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
-    [TerraformArgument("cidr")]
     public required TerraformValue<string> Cidr
     {
         get => new TerraformReference<string>(this, "cidr");
@@ -77,7 +61,6 @@ public class AzurermIpGroupCidr : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -88,7 +71,6 @@ public class AzurermIpGroupCidr : TerraformResource
     /// The ip_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpGroupId is required")]
-    [TerraformArgument("ip_group_id")]
     public required TerraformValue<string> IpGroupId
     {
         get => new TerraformReference<string>(this, "ip_group_id");
@@ -96,10 +78,12 @@ public class AzurermIpGroupCidr : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIpGroupCidrTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermIpGroupCidrTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermIpGroupCidrTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

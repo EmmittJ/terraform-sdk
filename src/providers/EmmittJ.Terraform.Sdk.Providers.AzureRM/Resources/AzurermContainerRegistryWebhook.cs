@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_container_registry_webhook Terraform resource.
 /// Manages a azurerm_container_registry_webhook resource.
 /// </summary>
-public class AzurermContainerRegistryWebhook : TerraformResource
+public partial class AzurermContainerRegistryWebhook(string name) : TerraformResource("azurerm_container_registry_webhook", name)
 {
-    public AzurermContainerRegistryWebhook(string name) : base("azurerm_container_registry_webhook", name)
-    {
-    }
-
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    [TerraformArgument("actions")]
     public required TerraformSet<string> Actions
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "actions").ResolveNodes(ctx));
@@ -87,7 +70,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// <summary>
     /// The custom_headers attribute.
     /// </summary>
-    [TerraformArgument("custom_headers")]
     public TerraformMap<string>? CustomHeaders
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_headers").ResolveNodes(ctx));
@@ -97,7 +79,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -108,7 +89,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -119,7 +99,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -130,7 +109,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// The registry_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryName is required")]
-    [TerraformArgument("registry_name")]
     public required TerraformValue<string> RegistryName
     {
         get => new TerraformReference<string>(this, "registry_name");
@@ -141,7 +119,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -151,7 +128,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    [TerraformArgument("scope")]
     public TerraformValue<string>? Scope
     {
         get => new TerraformReference<string>(this, "scope");
@@ -162,7 +138,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// The service_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
-    [TerraformArgument("service_uri")]
     public required TerraformValue<string> ServiceUri
     {
         get => new TerraformReference<string>(this, "service_uri");
@@ -172,7 +147,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformArgument("status")]
     public TerraformValue<string>? Status
     {
         get => new TerraformReference<string>(this, "status");
@@ -182,7 +156,6 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -190,10 +163,12 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerRegistryWebhookTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermContainerRegistryWebhookTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermContainerRegistryWebhookTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

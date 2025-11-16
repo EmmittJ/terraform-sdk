@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for application_rule_collection in .
@@ -26,7 +17,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformArgument("action")]
     public required TerraformValue<string> Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -37,7 +27,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -48,7 +37,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -72,7 +60,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock : Te
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformArgument("action")]
     public required TerraformValue<string> Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -83,7 +70,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock : Te
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -94,7 +80,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock : Te
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -118,7 +103,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock 
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformArgument("action")]
     public required TerraformValue<string> Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -129,7 +113,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock 
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -140,7 +123,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock 
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -163,7 +145,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -173,7 +154,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -183,7 +163,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -193,7 +172,6 @@ public class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -203,19 +181,15 @@ public class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_firewall_policy_rule_collection_group Terraform resource.
 /// Manages a azurerm_firewall_policy_rule_collection_group resource.
 /// </summary>
-public class AzurermFirewallPolicyRuleCollectionGroup : TerraformResource
+public partial class AzurermFirewallPolicyRuleCollectionGroup(string name) : TerraformResource("azurerm_firewall_policy_rule_collection_group", name)
 {
-    public AzurermFirewallPolicyRuleCollectionGroup(string name) : base("azurerm_firewall_policy_rule_collection_group", name)
-    {
-    }
-
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicyId is required")]
-    [TerraformArgument("firewall_policy_id")]
     public required TerraformValue<string> FirewallPolicyId
     {
         get => new TerraformReference<string>(this, "firewall_policy_id");
@@ -225,7 +199,6 @@ public class AzurermFirewallPolicyRuleCollectionGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -236,7 +209,6 @@ public class AzurermFirewallPolicyRuleCollectionGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -247,7 +219,6 @@ public class AzurermFirewallPolicyRuleCollectionGroup : TerraformResource
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -255,31 +226,39 @@ public class AzurermFirewallPolicyRuleCollectionGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for application_rule_collection.
-    /// Nesting mode: list
+    /// ApplicationRuleCollection block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("application_rule_collection")]
-    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock> ApplicationRuleCollection { get; set; } = new();
+    public AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock? ApplicationRuleCollection
+    {
+        get => GetArgument<AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock>("application_rule_collection");
+        set => SetArgument("application_rule_collection", value);
+    }
 
     /// <summary>
-    /// Block for nat_rule_collection.
-    /// Nesting mode: list
+    /// NatRuleCollection block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("nat_rule_collection")]
-    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock> NatRuleCollection { get; set; } = new();
+    public AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock? NatRuleCollection
+    {
+        get => GetArgument<AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock>("nat_rule_collection");
+        set => SetArgument("nat_rule_collection", value);
+    }
 
     /// <summary>
-    /// Block for network_rule_collection.
-    /// Nesting mode: list
+    /// NetworkRuleCollection block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("network_rule_collection")]
-    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock> NetworkRuleCollection { get; set; } = new();
+    public AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock? NetworkRuleCollection
+    {
+        get => GetArgument<AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock>("network_rule_collection");
+        set => SetArgument("network_rule_collection", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

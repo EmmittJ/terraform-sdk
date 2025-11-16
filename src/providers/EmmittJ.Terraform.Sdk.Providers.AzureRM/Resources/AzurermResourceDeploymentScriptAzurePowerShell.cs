@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for container in .
@@ -25,7 +16,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellContainerBlock : Terr
     /// <summary>
     /// The container_group_name attribute.
     /// </summary>
-    [TerraformArgument("container_group_name")]
     public TerraformValue<string>? ContainerGroupName
     {
         get => new TerraformReference<string>(this, "container_group_name");
@@ -49,7 +39,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -59,7 +48,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
     /// <summary>
     /// The secure_value attribute.
     /// </summary>
-    [TerraformArgument("secure_value")]
     public TerraformValue<string>? SecureValue
     {
         get => new TerraformReference<string>(this, "secure_value");
@@ -69,7 +57,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformArgument("value")]
     public TerraformValue<string>? Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -93,7 +80,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : Terra
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    [TerraformArgument("identity_ids")]
     public required TerraformSet<string> IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
@@ -104,7 +90,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : Terra
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -128,7 +113,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock :
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformArgument("key")]
     public required TerraformValue<string> Key
     {
         get => new TerraformReference<string>(this, "key");
@@ -139,7 +123,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock :
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -162,7 +145,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -172,7 +154,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -182,7 +163,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -192,7 +172,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -202,19 +181,14 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
 }
 
 /// <summary>
+/// Represents a azurerm_resource_deployment_script_azure_power_shell Terraform resource.
 /// Manages a azurerm_resource_deployment_script_azure_power_shell resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
+public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name) : TerraformResource("azurerm_resource_deployment_script_azure_power_shell", name)
 {
-    public AzurermResourceDeploymentScriptAzurePowerShell(string name) : base("azurerm_resource_deployment_script_azure_power_shell", name)
-    {
-    }
-
     /// <summary>
     /// The cleanup_preference attribute.
     /// </summary>
-    [TerraformArgument("cleanup_preference")]
     public TerraformValue<string>? CleanupPreference
     {
         get => new TerraformReference<string>(this, "cleanup_preference");
@@ -224,7 +198,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The command_line attribute.
     /// </summary>
-    [TerraformArgument("command_line")]
     public TerraformValue<string>? CommandLine
     {
         get => new TerraformReference<string>(this, "command_line");
@@ -234,7 +207,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    [TerraformArgument("force_update_tag")]
     public TerraformValue<string>? ForceUpdateTag
     {
         get => new TerraformReference<string>(this, "force_update_tag");
@@ -244,7 +216,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -255,7 +226,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -266,7 +236,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -276,7 +245,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The primary_script_uri attribute.
     /// </summary>
-    [TerraformArgument("primary_script_uri")]
     public TerraformValue<string>? PrimaryScriptUri
     {
         get => new TerraformReference<string>(this, "primary_script_uri");
@@ -287,7 +255,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -298,7 +265,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// The retention_interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInterval is required")]
-    [TerraformArgument("retention_interval")]
     public required TerraformValue<string> RetentionInterval
     {
         get => new TerraformReference<string>(this, "retention_interval");
@@ -308,7 +274,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The script_content attribute.
     /// </summary>
-    [TerraformArgument("script_content")]
     public TerraformValue<string>? ScriptContent
     {
         get => new TerraformReference<string>(this, "script_content");
@@ -318,7 +283,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The supporting_script_uris attribute.
     /// </summary>
-    [TerraformArgument("supporting_script_uris")]
     public TerraformList<string>? SupportingScriptUris
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supporting_script_uris").ResolveNodes(ctx));
@@ -328,7 +292,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -338,7 +301,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    [TerraformArgument("timeout")]
     public TerraformValue<string>? Timeout
     {
         get => new TerraformReference<string>(this, "timeout");
@@ -349,7 +311,6 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -357,50 +318,51 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     }
 
     /// <summary>
-    /// Block for container.
-    /// Nesting mode: list
+    /// Container block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Container block(s) allowed")]
-    [TerraformArgument("container")]
-    public TerraformList<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock> Container { get; set; } = new();
+    public AzurermResourceDeploymentScriptAzurePowerShellContainerBlock? Container
+    {
+        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock>("container");
+        set => SetArgument("container", value);
+    }
 
     /// <summary>
-    /// Block for environment_variable.
-    /// Nesting mode: set
+    /// EnvironmentVariable block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("environment_variable")]
-    public TerraformSet<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock> EnvironmentVariable { get; set; } = new();
+    public AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock? EnvironmentVariable
+    {
+        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock>("environment_variable");
+        set => SetArgument("environment_variable", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock> Identity { get; set; } = new();
+    public AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for storage_account.
-    /// Nesting mode: list
+    /// StorageAccount block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
-    [TerraformArgument("storage_account")]
-    public TerraformList<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock> StorageAccount { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The outputs attribute.
-    /// </summary>
-    [TerraformArgument("outputs")]
-    public TerraformValue<string> Outputs
+    public AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock? StorageAccount
     {
-        get => new TerraformReference<string>(this, "outputs");
+        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock>("storage_account");
+        set => SetArgument("storage_account", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for create_source in .
@@ -26,7 +17,6 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     /// The source_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceId is required")]
-    [TerraformArgument("source_id")]
     public required TerraformValue<string> SourceId
     {
         get => new TerraformReference<string>(this, "source_id");
@@ -37,7 +27,6 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     /// The source_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
-    [TerraformArgument("source_type")]
     public required TerraformValue<string> SourceType
     {
         get => new TerraformReference<string>(this, "source_type");
@@ -60,7 +49,6 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,19 +85,14 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_elastic_san_volume Terraform resource.
 /// Manages a azurerm_elastic_san_volume resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermElasticSanVolume : TerraformResource
+public partial class AzurermElasticSanVolume(string name) : TerraformResource("azurerm_elastic_san_volume", name)
 {
-    public AzurermElasticSanVolume(string name) : base("azurerm_elastic_san_volume", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -123,7 +103,6 @@ public class AzurermElasticSanVolume : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -134,7 +113,6 @@ public class AzurermElasticSanVolume : TerraformResource
     /// The size_in_gib attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
-    [TerraformArgument("size_in_gib")]
     public required TerraformValue<double> SizeInGib
     {
         get => new TerraformReference<double>(this, "size_in_gib");
@@ -145,7 +123,6 @@ public class AzurermElasticSanVolume : TerraformResource
     /// The volume_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
-    [TerraformArgument("volume_group_id")]
     public required TerraformValue<string> VolumeGroupId
     {
         get => new TerraformReference<string>(this, "volume_group_id");
@@ -153,54 +130,22 @@ public class AzurermElasticSanVolume : TerraformResource
     }
 
     /// <summary>
-    /// Block for create_source.
-    /// Nesting mode: list
+    /// CreateSource block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateSource block(s) allowed")]
-    [TerraformArgument("create_source")]
-    public TerraformList<AzurermElasticSanVolumeCreateSourceBlock> CreateSource { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermElasticSanVolumeTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The target_iqn attribute.
-    /// </summary>
-    [TerraformArgument("target_iqn")]
-    public TerraformValue<string> TargetIqn
+    public AzurermElasticSanVolumeCreateSourceBlock? CreateSource
     {
-        get => new TerraformReference<string>(this, "target_iqn");
+        get => GetArgument<AzurermElasticSanVolumeCreateSourceBlock>("create_source");
+        set => SetArgument("create_source", value);
     }
 
     /// <summary>
-    /// The target_portal_hostname attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("target_portal_hostname")]
-    public TerraformValue<string> TargetPortalHostname
+    public AzurermElasticSanVolumeTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "target_portal_hostname");
-    }
-
-    /// <summary>
-    /// The target_portal_port attribute.
-    /// </summary>
-    [TerraformArgument("target_portal_port")]
-    public TerraformValue<double> TargetPortalPort
-    {
-        get => new TerraformReference<double>(this, "target_portal_port");
-    }
-
-    /// <summary>
-    /// The volume_id attribute.
-    /// </summary>
-    [TerraformArgument("volume_id")]
-    public TerraformValue<string> VolumeId
-    {
-        get => new TerraformReference<string>(this, "volume_id");
+        get => GetArgument<AzurermElasticSanVolumeTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

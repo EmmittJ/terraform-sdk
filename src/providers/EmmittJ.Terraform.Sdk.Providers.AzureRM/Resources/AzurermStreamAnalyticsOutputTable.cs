@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_stream_analytics_output_table Terraform resource.
 /// Manages a azurerm_stream_analytics_output_table resource.
 /// </summary>
-public class AzurermStreamAnalyticsOutputTable : TerraformResource
+public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformResource("azurerm_stream_analytics_output_table", name)
 {
-    public AzurermStreamAnalyticsOutputTable(string name) : base("azurerm_stream_analytics_output_table", name)
-    {
-    }
-
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
-    [TerraformArgument("batch_size")]
     public required TerraformValue<double> BatchSize
     {
         get => new TerraformReference<double>(this, "batch_size");
@@ -87,7 +70,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// <summary>
     /// The columns_to_remove attribute.
     /// </summary>
-    [TerraformArgument("columns_to_remove")]
     public TerraformList<string>? ColumnsToRemove
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "columns_to_remove").ResolveNodes(ctx));
@@ -97,7 +79,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -108,7 +89,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -119,7 +99,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// The partition_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
-    [TerraformArgument("partition_key")]
     public required TerraformValue<string> PartitionKey
     {
         get => new TerraformReference<string>(this, "partition_key");
@@ -130,7 +109,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -141,7 +119,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// The row_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
-    [TerraformArgument("row_key")]
     public required TerraformValue<string> RowKey
     {
         get => new TerraformReference<string>(this, "row_key");
@@ -152,7 +129,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// The storage_account_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
-    [TerraformArgument("storage_account_key")]
     public required TerraformValue<string> StorageAccountKey
     {
         get => new TerraformReference<string>(this, "storage_account_key");
@@ -163,7 +139,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    [TerraformArgument("storage_account_name")]
     public required TerraformValue<string> StorageAccountName
     {
         get => new TerraformReference<string>(this, "storage_account_name");
@@ -174,7 +149,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// The stream_analytics_job_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
-    [TerraformArgument("stream_analytics_job_name")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
         get => new TerraformReference<string>(this, "stream_analytics_job_name");
@@ -185,7 +159,6 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// The table attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
-    [TerraformArgument("table")]
     public required TerraformValue<string> Table
     {
         get => new TerraformReference<string>(this, "table");
@@ -193,10 +166,12 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStreamAnalyticsOutputTableTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStreamAnalyticsOutputTableTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStreamAnalyticsOutputTableTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

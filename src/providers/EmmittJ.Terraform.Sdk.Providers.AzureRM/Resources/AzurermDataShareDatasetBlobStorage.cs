@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for storage_account in .
@@ -26,7 +17,6 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -37,7 +27,6 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -48,7 +37,6 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    [TerraformArgument("subscription_id")]
     public required TerraformValue<string> SubscriptionId
     {
         get => new TerraformReference<string>(this, "subscription_id");
@@ -71,7 +59,6 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -81,7 +68,6 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -91,7 +77,6 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -101,20 +86,15 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_data_share_dataset_blob_storage Terraform resource.
 /// Manages a azurerm_data_share_dataset_blob_storage resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataShareDatasetBlobStorage : TerraformResource
+public partial class AzurermDataShareDatasetBlobStorage(string name) : TerraformResource("azurerm_data_share_dataset_blob_storage", name)
 {
-    public AzurermDataShareDatasetBlobStorage(string name) : base("azurerm_data_share_dataset_blob_storage", name)
-    {
-    }
-
     /// <summary>
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    [TerraformArgument("container_name")]
     public required TerraformValue<string> ContainerName
     {
         get => new TerraformReference<string>(this, "container_name");
@@ -125,7 +105,6 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     /// The data_share_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
-    [TerraformArgument("data_share_id")]
     public required TerraformValue<string> DataShareId
     {
         get => new TerraformReference<string>(this, "data_share_id");
@@ -135,7 +114,6 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    [TerraformArgument("file_path")]
     public TerraformValue<string>? FilePath
     {
         get => new TerraformReference<string>(this, "file_path");
@@ -145,7 +123,6 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    [TerraformArgument("folder_path")]
     public TerraformValue<string>? FolderPath
     {
         get => new TerraformReference<string>(this, "folder_path");
@@ -155,7 +132,6 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -166,7 +142,6 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -174,29 +149,25 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     }
 
     /// <summary>
-    /// Block for storage_account.
-    /// Nesting mode: list
+    /// StorageAccount block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccount is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageAccount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
-    [TerraformArgument("storage_account")]
-    public required TerraformList<AzurermDataShareDatasetBlobStorageStorageAccountBlock> StorageAccount { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataShareDatasetBlobStorageTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The display_name attribute.
-    /// </summary>
-    [TerraformArgument("display_name")]
-    public TerraformValue<string> DisplayName
+    public required AzurermDataShareDatasetBlobStorageStorageAccountBlock StorageAccount
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetRequiredArgument<AzurermDataShareDatasetBlobStorageStorageAccountBlock>("storage_account");
+        set => SetArgument("storage_account", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermDataShareDatasetBlobStorageTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataShareDatasetBlobStorageTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

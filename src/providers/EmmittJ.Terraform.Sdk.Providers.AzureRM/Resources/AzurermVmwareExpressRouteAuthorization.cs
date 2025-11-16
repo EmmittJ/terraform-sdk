@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_vmware_express_route_authorization Terraform resource.
 /// Manages a azurerm_vmware_express_route_authorization resource.
 /// </summary>
-public class AzurermVmwareExpressRouteAuthorization : TerraformResource
+public partial class AzurermVmwareExpressRouteAuthorization(string name) : TerraformResource("azurerm_vmware_express_route_authorization", name)
 {
-    public AzurermVmwareExpressRouteAuthorization(string name) : base("azurerm_vmware_express_route_authorization", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -88,7 +71,6 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
     /// The private_cloud_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateCloudId is required")]
-    [TerraformArgument("private_cloud_id")]
     public required TerraformValue<string> PrivateCloudId
     {
         get => new TerraformReference<string>(this, "private_cloud_id");
@@ -96,28 +78,12 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVmwareExpressRouteAuthorizationTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The express_route_authorization_id attribute.
-    /// </summary>
-    [TerraformArgument("express_route_authorization_id")]
-    public TerraformValue<string> ExpressRouteAuthorizationId
+    public AzurermVmwareExpressRouteAuthorizationTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "express_route_authorization_id");
-    }
-
-    /// <summary>
-    /// The express_route_authorization_key attribute.
-    /// </summary>
-    [TerraformArgument("express_route_authorization_key")]
-    public TerraformValue<string> ExpressRouteAuthorizationKey
-    {
-        get => new TerraformReference<string>(this, "express_route_authorization_key");
+        get => GetArgument<AzurermVmwareExpressRouteAuthorizationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

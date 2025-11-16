@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermEventgridNamespaceIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +64,6 @@ public class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBlock
     /// <summary>
     /// The action attribute.
     /// </summary>
-    [TerraformArgument("action")]
     public TerraformValue<string>? Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -72,7 +74,6 @@ public class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBlock
     /// The ip_mask attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
-    [TerraformArgument("ip_mask")]
     public required TerraformValue<string> IpMask
     {
         get => new TerraformReference<string>(this, "ip_mask");
@@ -95,7 +96,6 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -105,7 +105,6 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -115,7 +114,6 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -125,7 +123,6 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -148,7 +145,6 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
     /// <summary>
     /// The alternative_authentication_name_source attribute.
     /// </summary>
-    [TerraformArgument("alternative_authentication_name_source")]
     public TerraformList<string>? AlternativeAuthenticationNameSource
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "alternative_authentication_name_source").ResolveNodes(ctx));
@@ -158,7 +154,6 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
     /// <summary>
     /// The maximum_client_sessions_per_authentication_name attribute.
     /// </summary>
-    [TerraformArgument("maximum_client_sessions_per_authentication_name")]
     public TerraformValue<double>? MaximumClientSessionsPerAuthenticationName
     {
         get => new TerraformReference<double>(this, "maximum_client_sessions_per_authentication_name");
@@ -168,7 +163,6 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
     /// <summary>
     /// The maximum_session_expiry_in_hours attribute.
     /// </summary>
-    [TerraformArgument("maximum_session_expiry_in_hours")]
     public TerraformValue<double>? MaximumSessionExpiryInHours
     {
         get => new TerraformReference<double>(this, "maximum_session_expiry_in_hours");
@@ -178,7 +172,6 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
     /// <summary>
     /// The route_topic_id attribute.
     /// </summary>
-    [TerraformArgument("route_topic_id")]
     public TerraformValue<string>? RouteTopicId
     {
         get => new TerraformReference<string>(this, "route_topic_id");
@@ -188,19 +181,14 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
 }
 
 /// <summary>
+/// Represents a azurerm_eventgrid_namespace Terraform resource.
 /// Manages a azurerm_eventgrid_namespace resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermEventgridNamespace : TerraformResource
+public partial class AzurermEventgridNamespace(string name) : TerraformResource("azurerm_eventgrid_namespace", name)
 {
-    public AzurermEventgridNamespace(string name) : base("azurerm_eventgrid_namespace", name)
-    {
-    }
-
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    [TerraformArgument("capacity")]
     public TerraformValue<double>? Capacity
     {
         get => new TerraformReference<double>(this, "capacity");
@@ -210,7 +198,6 @@ public class AzurermEventgridNamespace : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -221,7 +208,6 @@ public class AzurermEventgridNamespace : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -232,7 +218,6 @@ public class AzurermEventgridNamespace : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -242,7 +227,6 @@ public class AzurermEventgridNamespace : TerraformResource
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    [TerraformArgument("public_network_access")]
     public TerraformValue<string>? PublicNetworkAccess
     {
         get => new TerraformReference<string>(this, "public_network_access");
@@ -253,7 +237,6 @@ public class AzurermEventgridNamespace : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -263,7 +246,6 @@ public class AzurermEventgridNamespace : TerraformResource
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformArgument("sku")]
     public TerraformValue<string>? Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -273,7 +255,6 @@ public class AzurermEventgridNamespace : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -281,33 +262,41 @@ public class AzurermEventgridNamespace : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermEventgridNamespaceIdentityBlock> Identity { get; set; } = new();
+    public AzurermEventgridNamespaceIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermEventgridNamespaceIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for inbound_ip_rule.
-    /// Nesting mode: list
+    /// InboundIpRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(128, ErrorMessage = "Maximum 128 InboundIpRule block(s) allowed")]
-    [TerraformArgument("inbound_ip_rule")]
-    public TerraformList<AzurermEventgridNamespaceInboundIpRuleBlock> InboundIpRule { get; set; } = new();
+    public AzurermEventgridNamespaceInboundIpRuleBlock? InboundIpRule
+    {
+        get => GetArgument<AzurermEventgridNamespaceInboundIpRuleBlock>("inbound_ip_rule");
+        set => SetArgument("inbound_ip_rule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermEventgridNamespaceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermEventgridNamespaceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermEventgridNamespaceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for topic_spaces_configuration.
-    /// Nesting mode: list
+    /// TopicSpacesConfiguration block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("topic_spaces_configuration")]
-    public TerraformList<AzurermEventgridNamespaceTopicSpacesConfigurationBlock> TopicSpacesConfiguration { get; set; } = new();
+    public AzurermEventgridNamespaceTopicSpacesConfigurationBlock? TopicSpacesConfiguration
+    {
+        get => GetArgument<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>("topic_spaces_configuration");
+        set => SetArgument("topic_spaces_configuration", value);
+    }
 
 }

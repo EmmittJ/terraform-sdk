@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermTemplateSpecVersionDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermTemplateSpecVersionDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_template_spec_version Terraform data source.
 /// Retrieves information about a azurerm_template_spec_version.
 /// </summary>
-public class AzurermTemplateSpecVersionDataSource : TerraformDataSource
+public partial class AzurermTemplateSpecVersionDataSource(string name) : TerraformDataSource("azurerm_template_spec_version", name)
 {
-    public AzurermTemplateSpecVersionDataSource(string name) : base("azurerm_template_spec_version", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermTemplateSpecVersionDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermTemplateSpecVersionDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -79,7 +63,6 @@ public class AzurermTemplateSpecVersionDataSource : TerraformDataSource
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -87,28 +70,12 @@ public class AzurermTemplateSpecVersionDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermTemplateSpecVersionDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
+    public AzurermTemplateSpecVersionDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The template_body attribute.
-    /// </summary>
-    [TerraformArgument("template_body")]
-    public TerraformValue<string> TemplateBody
-    {
-        get => new TerraformReference<string>(this, "template_body");
+        get => GetArgument<AzurermTemplateSpecVersionDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

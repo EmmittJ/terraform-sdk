@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for schema_column in .
@@ -25,7 +16,6 @@ public class AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock : TerraformBloc
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -36,7 +26,6 @@ public class AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock : TerraformBloc
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -46,7 +35,6 @@ public class AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock : TerraformBloc
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -69,7 +57,6 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -79,7 +66,6 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -89,7 +75,6 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -99,7 +84,6 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -109,18 +93,14 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_dataset_azure_blob Terraform resource.
 /// Manages a azurerm_data_factory_dataset_azure_blob resource.
 /// </summary>
-public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
+public partial class AzurermDataFactoryDatasetAzureBlob(string name) : TerraformResource("azurerm_data_factory_dataset_azure_blob", name)
 {
-    public AzurermDataFactoryDatasetAzureBlob(string name) : base("azurerm_data_factory_dataset_azure_blob", name)
-    {
-    }
-
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -130,7 +110,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -141,7 +120,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -151,7 +129,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -161,7 +138,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_filename_enabled")]
     public TerraformValue<bool>? DynamicFilenameEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_filename_enabled");
@@ -171,7 +147,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_path_enabled")]
     public TerraformValue<bool>? DynamicPathEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_path_enabled");
@@ -181,7 +156,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    [TerraformArgument("filename")]
     public TerraformValue<string>? Filename
     {
         get => new TerraformReference<string>(this, "filename");
@@ -191,7 +165,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    [TerraformArgument("folder")]
     public TerraformValue<string>? Folder
     {
         get => new TerraformReference<string>(this, "folder");
@@ -201,7 +174,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -212,7 +184,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformArgument("linked_service_name")]
     public required TerraformValue<string> LinkedServiceName
     {
         get => new TerraformReference<string>(this, "linked_service_name");
@@ -223,7 +194,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -233,7 +203,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -243,7 +212,6 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformArgument("path")]
     public TerraformValue<string>? Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -251,17 +219,21 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     }
 
     /// <summary>
-    /// Block for schema_column.
-    /// Nesting mode: list
+    /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("schema_column")]
-    public TerraformList<AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock> SchemaColumn { get; set; } = new();
+    public AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock? SchemaColumn
+    {
+        get => GetArgument<AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock>("schema_column");
+        set => SetArgument("schema_column", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryDatasetAzureBlobTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryDatasetAzureBlobTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryDatasetAzureBlobTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

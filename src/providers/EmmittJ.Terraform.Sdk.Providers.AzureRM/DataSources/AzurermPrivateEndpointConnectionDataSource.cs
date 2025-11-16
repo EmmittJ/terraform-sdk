@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_private_endpoint_connection Terraform data source.
 /// Retrieves information about a azurerm_private_endpoint_connection.
 /// </summary>
-public class AzurermPrivateEndpointConnectionDataSource : TerraformDataSource
+public partial class AzurermPrivateEndpointConnectionDataSource(string name) : TerraformDataSource("azurerm_private_endpoint_connection", name)
 {
-    public AzurermPrivateEndpointConnectionDataSource(string name) : base("azurerm_private_endpoint_connection", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermPrivateEndpointConnectionDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermPrivateEndpointConnectionDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -76,37 +60,12 @@ public class AzurermPrivateEndpointConnectionDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
+    public AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The network_interface attribute.
-    /// </summary>
-    [TerraformArgument("network_interface")]
-    public TerraformList<object> NetworkInterface
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "network_interface").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The private_service_connection attribute.
-    /// </summary>
-    [TerraformArgument("private_service_connection")]
-    public TerraformList<object> PrivateServiceConnection
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "private_service_connection").ResolveNodes(ctx));
+        get => GetArgument<AzurermPrivateEndpointConnectionDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

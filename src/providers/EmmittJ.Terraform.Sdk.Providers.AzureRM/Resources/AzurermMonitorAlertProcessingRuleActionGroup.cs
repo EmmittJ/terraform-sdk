@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for condition in .
@@ -38,7 +29,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock : Terrafo
     /// <summary>
     /// The effective_from attribute.
     /// </summary>
-    [TerraformArgument("effective_from")]
     public TerraformValue<string>? EffectiveFrom
     {
         get => new TerraformReference<string>(this, "effective_from");
@@ -48,7 +38,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock : Terrafo
     /// <summary>
     /// The effective_until attribute.
     /// </summary>
-    [TerraformArgument("effective_until")]
     public TerraformValue<string>? EffectiveUntil
     {
         get => new TerraformReference<string>(this, "effective_until");
@@ -58,7 +47,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock : Terrafo
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    [TerraformArgument("time_zone")]
     public TerraformValue<string>? TimeZone
     {
         get => new TerraformReference<string>(this, "time_zone");
@@ -81,7 +69,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -91,7 +78,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -101,7 +87,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -111,7 +96,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -121,20 +105,15 @@ public class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_alert_processing_rule_action_group Terraform resource.
 /// Manages a azurerm_monitor_alert_processing_rule_action_group resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
+public partial class AzurermMonitorAlertProcessingRuleActionGroup(string name) : TerraformResource("azurerm_monitor_alert_processing_rule_action_group", name)
 {
-    public AzurermMonitorAlertProcessingRuleActionGroup(string name) : base("azurerm_monitor_alert_processing_rule_action_group", name)
-    {
-    }
-
     /// <summary>
     /// The add_action_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddActionGroupIds is required")]
-    [TerraformArgument("add_action_group_ids")]
     public TerraformList<string>? AddActionGroupIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "add_action_group_ids").ResolveNodes(ctx));
@@ -144,7 +123,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -154,7 +132,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -164,7 +141,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -175,7 +151,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -186,7 +161,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -197,7 +171,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    [TerraformArgument("scopes")]
     public TerraformList<string>? Scopes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
@@ -207,7 +180,6 @@ public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -215,26 +187,32 @@ public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for condition.
-    /// Nesting mode: list
+    /// Condition block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
-    [TerraformArgument("condition")]
-    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlock> Condition { get; set; } = new();
+    public AzurermMonitorAlertProcessingRuleActionGroupConditionBlock? Condition
+    {
+        get => GetArgument<AzurermMonitorAlertProcessingRuleActionGroupConditionBlock>("condition");
+        set => SetArgument("condition", value);
+    }
 
     /// <summary>
-    /// Block for schedule.
-    /// Nesting mode: list
+    /// Schedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    [TerraformArgument("schedule")]
-    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock> Schedule { get; set; } = new();
+    public AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock? Schedule
+    {
+        get => GetArgument<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock>("schedule");
+        set => SetArgument("schedule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

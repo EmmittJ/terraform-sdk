@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_network_security_rule Terraform resource.
 /// Manages a azurerm_network_security_rule resource.
 /// </summary>
-public class AzurermNetworkSecurityRule : TerraformResource
+public partial class AzurermNetworkSecurityRule(string name) : TerraformResource("azurerm_network_security_rule", name)
 {
-    public AzurermNetworkSecurityRule(string name) : base("azurerm_network_security_rule", name)
-    {
-    }
-
     /// <summary>
     /// The access attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
-    [TerraformArgument("access")]
     public required TerraformValue<string> Access
     {
         get => new TerraformReference<string>(this, "access");
@@ -87,7 +70,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -97,7 +79,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The destination_address_prefix attribute.
     /// </summary>
-    [TerraformArgument("destination_address_prefix")]
     public TerraformValue<string>? DestinationAddressPrefix
     {
         get => new TerraformReference<string>(this, "destination_address_prefix");
@@ -107,7 +88,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The destination_address_prefixes attribute.
     /// </summary>
-    [TerraformArgument("destination_address_prefixes")]
     public TerraformSet<string>? DestinationAddressPrefixes
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_address_prefixes").ResolveNodes(ctx));
@@ -117,7 +97,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The destination_application_security_group_ids attribute.
     /// </summary>
-    [TerraformArgument("destination_application_security_group_ids")]
     public TerraformSet<string>? DestinationApplicationSecurityGroupIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_application_security_group_ids").ResolveNodes(ctx));
@@ -127,7 +106,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The destination_port_range attribute.
     /// </summary>
-    [TerraformArgument("destination_port_range")]
     public TerraformValue<string>? DestinationPortRange
     {
         get => new TerraformReference<string>(this, "destination_port_range");
@@ -137,7 +115,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The destination_port_ranges attribute.
     /// </summary>
-    [TerraformArgument("destination_port_ranges")]
     public TerraformSet<string>? DestinationPortRanges
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_port_ranges").ResolveNodes(ctx));
@@ -148,7 +125,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// The direction attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
-    [TerraformArgument("direction")]
     public required TerraformValue<string> Direction
     {
         get => new TerraformReference<string>(this, "direction");
@@ -158,7 +134,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -169,7 +144,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -180,7 +154,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// The network_security_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupName is required")]
-    [TerraformArgument("network_security_group_name")]
     public required TerraformValue<string> NetworkSecurityGroupName
     {
         get => new TerraformReference<string>(this, "network_security_group_name");
@@ -191,7 +164,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -202,7 +174,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -213,7 +184,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -223,7 +193,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The source_address_prefix attribute.
     /// </summary>
-    [TerraformArgument("source_address_prefix")]
     public TerraformValue<string>? SourceAddressPrefix
     {
         get => new TerraformReference<string>(this, "source_address_prefix");
@@ -233,7 +202,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The source_address_prefixes attribute.
     /// </summary>
-    [TerraformArgument("source_address_prefixes")]
     public TerraformSet<string>? SourceAddressPrefixes
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_address_prefixes").ResolveNodes(ctx));
@@ -243,7 +211,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The source_application_security_group_ids attribute.
     /// </summary>
-    [TerraformArgument("source_application_security_group_ids")]
     public TerraformSet<string>? SourceApplicationSecurityGroupIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_application_security_group_ids").ResolveNodes(ctx));
@@ -253,7 +220,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The source_port_range attribute.
     /// </summary>
-    [TerraformArgument("source_port_range")]
     public TerraformValue<string>? SourcePortRange
     {
         get => new TerraformReference<string>(this, "source_port_range");
@@ -263,7 +229,6 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The source_port_ranges attribute.
     /// </summary>
-    [TerraformArgument("source_port_ranges")]
     public TerraformSet<string>? SourcePortRanges
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_port_ranges").ResolveNodes(ctx));
@@ -271,10 +236,12 @@ public class AzurermNetworkSecurityRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkSecurityRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetworkSecurityRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetworkSecurityRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

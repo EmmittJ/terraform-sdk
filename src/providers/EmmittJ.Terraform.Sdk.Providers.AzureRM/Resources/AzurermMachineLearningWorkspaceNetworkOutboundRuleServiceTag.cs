@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
 }
 
 /// <summary>
+/// Represents a azurerm_machine_learning_workspace_network_outbound_rule_service_tag Terraform resource.
 /// Manages a azurerm_machine_learning_workspace_network_outbound_rule_service_tag resource.
 /// </summary>
-public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : TerraformResource
+public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag(string name) : TerraformResource("azurerm_machine_learning_workspace_network_outbound_rule_service_tag", name)
 {
-    public AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag(string name) : base("azurerm_machine_learning_workspace_network_outbound_rule_service_tag", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -98,7 +80,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     /// The port_ranges attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRanges is required")]
-    [TerraformArgument("port_ranges")]
     public required TerraformValue<string> PortRanges
     {
         get => new TerraformReference<string>(this, "port_ranges");
@@ -109,7 +90,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -120,7 +100,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     /// The service_tag attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceTag is required")]
-    [TerraformArgument("service_tag")]
     public required TerraformValue<string> ServiceTag
     {
         get => new TerraformReference<string>(this, "service_tag");
@@ -131,7 +110,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -139,10 +117,12 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

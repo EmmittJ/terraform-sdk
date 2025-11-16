@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSubnetRouteTableAssociationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSubnetRouteTableAssociationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSubnetRouteTableAssociationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermSubnetRouteTableAssociationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_subnet_route_table_association Terraform resource.
 /// Manages a azurerm_subnet_route_table_association resource.
 /// </summary>
-public class AzurermSubnetRouteTableAssociation : TerraformResource
+public partial class AzurermSubnetRouteTableAssociation(string name) : TerraformResource("azurerm_subnet_route_table_association", name)
 {
-    public AzurermSubnetRouteTableAssociation(string name) : base("azurerm_subnet_route_table_association", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermSubnetRouteTableAssociation : TerraformResource
     /// The route_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
-    [TerraformArgument("route_table_id")]
     public required TerraformValue<string> RouteTableId
     {
         get => new TerraformReference<string>(this, "route_table_id");
@@ -88,7 +71,6 @@ public class AzurermSubnetRouteTableAssociation : TerraformResource
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -96,10 +78,12 @@ public class AzurermSubnetRouteTableAssociation : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSubnetRouteTableAssociationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSubnetRouteTableAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSubnetRouteTableAssociationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for ip_rule in .
@@ -26,7 +17,6 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
     /// The ip_mask attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
-    [TerraformArgument("ip_mask")]
     public required TerraformValue<string> IpMask
     {
         get => new TerraformReference<string>(this, "ip_mask");
@@ -37,7 +27,6 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -60,7 +49,6 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,18 +85,14 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_iotcentral_application_network_rule_set Terraform resource.
 /// Manages a azurerm_iotcentral_application_network_rule_set resource.
 /// </summary>
-public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
+public partial class AzurermIotcentralApplicationNetworkRuleSet(string name) : TerraformResource("azurerm_iotcentral_application_network_rule_set", name)
 {
-    public AzurermIotcentralApplicationNetworkRuleSet(string name) : base("azurerm_iotcentral_application_network_rule_set", name)
-    {
-    }
-
     /// <summary>
     /// The apply_to_device attribute.
     /// </summary>
-    [TerraformArgument("apply_to_device")]
     public TerraformValue<bool>? ApplyToDevice
     {
         get => new TerraformReference<bool>(this, "apply_to_device");
@@ -121,7 +102,6 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    [TerraformArgument("default_action")]
     public TerraformValue<string>? DefaultAction
     {
         get => new TerraformReference<string>(this, "default_action");
@@ -131,7 +111,6 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -142,7 +121,6 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     /// The iotcentral_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
-    [TerraformArgument("iotcentral_application_id")]
     public required TerraformValue<string> IotcentralApplicationId
     {
         get => new TerraformReference<string>(this, "iotcentral_application_id");
@@ -150,17 +128,21 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     }
 
     /// <summary>
-    /// Block for ip_rule.
-    /// Nesting mode: list
+    /// IpRule block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("ip_rule")]
-    public TerraformList<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock> IpRule { get; set; } = new();
+    public AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock? IpRule
+    {
+        get => GetArgument<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>("ip_rule");
+        set => SetArgument("ip_rule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

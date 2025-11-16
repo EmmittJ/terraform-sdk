@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for destination in .
@@ -26,7 +17,6 @@ public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
     /// The address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
-    [TerraformArgument("address")]
     public required TerraformValue<string> Address
     {
         get => new TerraformReference<string>(this, "address");
@@ -37,7 +27,6 @@ public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -60,7 +49,6 @@ public class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlock
     /// <summary>
     /// The address attribute.
     /// </summary>
-    [TerraformArgument("address")]
     public TerraformValue<string>? Address
     {
         get => new TerraformReference<string>(this, "address");
@@ -71,7 +59,6 @@ public class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -94,7 +81,6 @@ public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -104,7 +90,6 @@ public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -114,7 +99,6 @@ public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -124,7 +108,6 @@ public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -134,19 +117,14 @@ public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_network_manager_routing_rule Terraform resource.
 /// Manages a azurerm_network_manager_routing_rule resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetworkManagerRoutingRule : TerraformResource
+public partial class AzurermNetworkManagerRoutingRule(string name) : TerraformResource("azurerm_network_manager_routing_rule", name)
 {
-    public AzurermNetworkManagerRoutingRule(string name) : base("azurerm_network_manager_routing_rule", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -156,7 +134,6 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -167,7 +144,6 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -178,7 +154,6 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
     /// The rule_collection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleCollectionId is required")]
-    [TerraformArgument("rule_collection_id")]
     public required TerraformValue<string> RuleCollectionId
     {
         get => new TerraformReference<string>(this, "rule_collection_id");
@@ -186,30 +161,38 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for destination.
-    /// Nesting mode: list
+    /// Destination block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    [TerraformArgument("destination")]
-    public required TerraformList<AzurermNetworkManagerRoutingRuleDestinationBlock> Destination { get; set; } = new();
+    public required AzurermNetworkManagerRoutingRuleDestinationBlock Destination
+    {
+        get => GetRequiredArgument<AzurermNetworkManagerRoutingRuleDestinationBlock>("destination");
+        set => SetArgument("destination", value);
+    }
 
     /// <summary>
-    /// Block for next_hop.
-    /// Nesting mode: list
+    /// NextHop block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NextHop block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NextHop block(s) allowed")]
-    [TerraformArgument("next_hop")]
-    public required TerraformList<AzurermNetworkManagerRoutingRuleNextHopBlock> NextHop { get; set; } = new();
+    public required AzurermNetworkManagerRoutingRuleNextHopBlock NextHop
+    {
+        get => GetRequiredArgument<AzurermNetworkManagerRoutingRuleNextHopBlock>("next_hop");
+        set => SetArgument("next_hop", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkManagerRoutingRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetworkManagerRoutingRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetworkManagerRoutingRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

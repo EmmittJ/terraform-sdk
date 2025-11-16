@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_signalr_service_custom_domain Terraform resource.
 /// Manages a azurerm_signalr_service_custom_domain resource.
 /// </summary>
-public class AzurermSignalrServiceCustomDomain : TerraformResource
+public partial class AzurermSignalrServiceCustomDomain(string name) : TerraformResource("azurerm_signalr_service_custom_domain", name)
 {
-    public AzurermSignalrServiceCustomDomain(string name) : base("azurerm_signalr_service_custom_domain", name)
-    {
-    }
-
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    [TerraformArgument("domain_name")]
     public required TerraformValue<string> DomainName
     {
         get => new TerraformReference<string>(this, "domain_name");
@@ -77,7 +61,6 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -88,7 +71,6 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -99,7 +81,6 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     /// The signalr_custom_certificate_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrCustomCertificateId is required")]
-    [TerraformArgument("signalr_custom_certificate_id")]
     public required TerraformValue<string> SignalrCustomCertificateId
     {
         get => new TerraformReference<string>(this, "signalr_custom_certificate_id");
@@ -110,7 +91,6 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     /// The signalr_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
-    [TerraformArgument("signalr_service_id")]
     public required TerraformValue<string> SignalrServiceId
     {
         get => new TerraformReference<string>(this, "signalr_service_id");
@@ -118,10 +98,12 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSignalrServiceCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSignalrServiceCustomDomainTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSignalrServiceCustomDomainTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

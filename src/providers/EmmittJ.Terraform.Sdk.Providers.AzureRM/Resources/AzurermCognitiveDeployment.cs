@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for model in .
@@ -26,7 +17,6 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     /// The format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
-    [TerraformArgument("format")]
     public required TerraformValue<string> Format
     {
         get => new TerraformReference<string>(this, "format");
@@ -37,7 +27,6 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -47,7 +36,6 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformArgument("version")]
     public TerraformValue<string>? Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -70,7 +58,6 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    [TerraformArgument("capacity")]
     public TerraformValue<double>? Capacity
     {
         get => new TerraformReference<double>(this, "capacity");
@@ -80,7 +67,6 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// <summary>
     /// The family attribute.
     /// </summary>
-    [TerraformArgument("family")]
     public TerraformValue<string>? Family
     {
         get => new TerraformReference<string>(this, "family");
@@ -91,7 +77,6 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -101,7 +86,6 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// <summary>
     /// The size attribute.
     /// </summary>
-    [TerraformArgument("size")]
     public TerraformValue<string>? Size
     {
         get => new TerraformReference<string>(this, "size");
@@ -111,7 +95,6 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    [TerraformArgument("tier")]
     public TerraformValue<string>? Tier
     {
         get => new TerraformReference<string>(this, "tier");
@@ -134,7 +117,6 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -144,7 +126,6 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -154,7 +135,6 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -164,7 +144,6 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -174,20 +153,15 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_cognitive_deployment Terraform resource.
 /// Manages a azurerm_cognitive_deployment resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCognitiveDeployment : TerraformResource
+public partial class AzurermCognitiveDeployment(string name) : TerraformResource("azurerm_cognitive_deployment", name)
 {
-    public AzurermCognitiveDeployment(string name) : base("azurerm_cognitive_deployment", name)
-    {
-    }
-
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
-    [TerraformArgument("cognitive_account_id")]
     public required TerraformValue<string> CognitiveAccountId
     {
         get => new TerraformReference<string>(this, "cognitive_account_id");
@@ -197,7 +171,6 @@ public class AzurermCognitiveDeployment : TerraformResource
     /// <summary>
     /// The dynamic_throttling_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_throttling_enabled")]
     public TerraformValue<bool>? DynamicThrottlingEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_throttling_enabled");
@@ -207,7 +180,6 @@ public class AzurermCognitiveDeployment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -218,7 +190,6 @@ public class AzurermCognitiveDeployment : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -228,7 +199,6 @@ public class AzurermCognitiveDeployment : TerraformResource
     /// <summary>
     /// The rai_policy_name attribute.
     /// </summary>
-    [TerraformArgument("rai_policy_name")]
     public TerraformValue<string>? RaiPolicyName
     {
         get => new TerraformReference<string>(this, "rai_policy_name");
@@ -238,7 +208,6 @@ public class AzurermCognitiveDeployment : TerraformResource
     /// <summary>
     /// The version_upgrade_option attribute.
     /// </summary>
-    [TerraformArgument("version_upgrade_option")]
     public TerraformValue<string>? VersionUpgradeOption
     {
         get => new TerraformReference<string>(this, "version_upgrade_option");
@@ -246,30 +215,38 @@ public class AzurermCognitiveDeployment : TerraformResource
     }
 
     /// <summary>
-    /// Block for model.
-    /// Nesting mode: list
+    /// Model block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Model is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Model block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Model block(s) allowed")]
-    [TerraformArgument("model")]
-    public required TerraformList<AzurermCognitiveDeploymentModelBlock> Model { get; set; } = new();
+    public required AzurermCognitiveDeploymentModelBlock Model
+    {
+        get => GetRequiredArgument<AzurermCognitiveDeploymentModelBlock>("model");
+        set => SetArgument("model", value);
+    }
 
     /// <summary>
-    /// Block for sku.
-    /// Nesting mode: list
+    /// Sku block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    [TerraformArgument("sku")]
-    public required TerraformList<AzurermCognitiveDeploymentSkuBlock> Sku { get; set; } = new();
+    public required AzurermCognitiveDeploymentSkuBlock Sku
+    {
+        get => GetRequiredArgument<AzurermCognitiveDeploymentSkuBlock>("sku");
+        set => SetArgument("sku", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCognitiveDeploymentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCognitiveDeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCognitiveDeploymentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

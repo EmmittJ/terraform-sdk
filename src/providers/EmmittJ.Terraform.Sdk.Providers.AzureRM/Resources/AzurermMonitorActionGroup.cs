@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for arm_role_receiver in .
@@ -26,7 +17,6 @@ public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -37,7 +27,6 @@ public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
     /// The role_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
-    [TerraformArgument("role_id")]
     public required TerraformValue<string> RoleId
     {
         get => new TerraformReference<string>(this, "role_id");
@@ -47,7 +36,6 @@ public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    [TerraformArgument("use_common_alert_schema")]
     public TerraformValue<bool>? UseCommonAlertSchema
     {
         get => new TerraformReference<bool>(this, "use_common_alert_schema");
@@ -71,7 +59,6 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    [TerraformArgument("automation_account_id")]
     public required TerraformValue<string> AutomationAccountId
     {
         get => new TerraformReference<string>(this, "automation_account_id");
@@ -82,7 +69,6 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     /// The is_global_runbook attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsGlobalRunbook is required")]
-    [TerraformArgument("is_global_runbook")]
     public required TerraformValue<bool> IsGlobalRunbook
     {
         get => new TerraformReference<bool>(this, "is_global_runbook");
@@ -93,7 +79,6 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -104,7 +89,6 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     /// The runbook_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
-    [TerraformArgument("runbook_name")]
     public required TerraformValue<string> RunbookName
     {
         get => new TerraformReference<string>(this, "runbook_name");
@@ -115,7 +99,6 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     /// The service_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
-    [TerraformArgument("service_uri")]
     public required TerraformValue<string> ServiceUri
     {
         get => new TerraformReference<string>(this, "service_uri");
@@ -125,7 +108,6 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    [TerraformArgument("use_common_alert_schema")]
     public TerraformValue<bool>? UseCommonAlertSchema
     {
         get => new TerraformReference<bool>(this, "use_common_alert_schema");
@@ -136,7 +118,6 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
     /// The webhook_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookResourceId is required")]
-    [TerraformArgument("webhook_resource_id")]
     public required TerraformValue<string> WebhookResourceId
     {
         get => new TerraformReference<string>(this, "webhook_resource_id");
@@ -160,7 +141,6 @@ public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlock
     /// The email_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
-    [TerraformArgument("email_address")]
     public required TerraformValue<string> EmailAddress
     {
         get => new TerraformReference<string>(this, "email_address");
@@ -171,7 +151,6 @@ public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -195,7 +174,6 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     /// The function_app_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppResourceId is required")]
-    [TerraformArgument("function_app_resource_id")]
     public required TerraformValue<string> FunctionAppResourceId
     {
         get => new TerraformReference<string>(this, "function_app_resource_id");
@@ -206,7 +184,6 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    [TerraformArgument("function_name")]
     public required TerraformValue<string> FunctionName
     {
         get => new TerraformReference<string>(this, "function_name");
@@ -217,7 +194,6 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     /// The http_trigger_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpTriggerUrl is required")]
-    [TerraformArgument("http_trigger_url")]
     public required TerraformValue<string> HttpTriggerUrl
     {
         get => new TerraformReference<string>(this, "http_trigger_url");
@@ -228,7 +204,6 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -238,7 +213,6 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    [TerraformArgument("use_common_alert_schema")]
     public TerraformValue<bool>? UseCommonAlertSchema
     {
         get => new TerraformReference<bool>(this, "use_common_alert_schema");
@@ -262,7 +236,6 @@ public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
     /// The email_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
-    [TerraformArgument("email_address")]
     public required TerraformValue<string> EmailAddress
     {
         get => new TerraformReference<string>(this, "email_address");
@@ -273,7 +246,6 @@ public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -283,7 +255,6 @@ public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    [TerraformArgument("use_common_alert_schema")]
     public TerraformValue<bool>? UseCommonAlertSchema
     {
         get => new TerraformReference<bool>(this, "use_common_alert_schema");
@@ -307,7 +278,6 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     /// The event_hub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubName is required")]
-    [TerraformArgument("event_hub_name")]
     public required TerraformValue<string> EventHubName
     {
         get => new TerraformReference<string>(this, "event_hub_name");
@@ -318,7 +288,6 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     /// The event_hub_namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubNamespace is required")]
-    [TerraformArgument("event_hub_namespace")]
     public required TerraformValue<string> EventHubNamespace
     {
         get => new TerraformReference<string>(this, "event_hub_namespace");
@@ -329,7 +298,6 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -339,7 +307,6 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    [TerraformArgument("subscription_id")]
     public TerraformValue<string> SubscriptionId
     {
         get => new TerraformReference<string>(this, "subscription_id");
@@ -349,7 +316,6 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformArgument("tenant_id")]
     public TerraformValue<string> TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -359,7 +325,6 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    [TerraformArgument("use_common_alert_schema")]
     public TerraformValue<bool>? UseCommonAlertSchema
     {
         get => new TerraformReference<bool>(this, "use_common_alert_schema");
@@ -383,7 +348,6 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     /// The connection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
-    [TerraformArgument("connection_id")]
     public required TerraformValue<string> ConnectionId
     {
         get => new TerraformReference<string>(this, "connection_id");
@@ -394,7 +358,6 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -405,7 +368,6 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     /// The region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    [TerraformArgument("region")]
     public required TerraformValue<string> Region
     {
         get => new TerraformReference<string>(this, "region");
@@ -416,7 +378,6 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     /// The ticket_configuration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TicketConfiguration is required")]
-    [TerraformArgument("ticket_configuration")]
     public required TerraformValue<string> TicketConfiguration
     {
         get => new TerraformReference<string>(this, "ticket_configuration");
@@ -427,7 +388,6 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -451,7 +411,6 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
     /// The callback_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
-    [TerraformArgument("callback_url")]
     public required TerraformValue<string> CallbackUrl
     {
         get => new TerraformReference<string>(this, "callback_url");
@@ -462,7 +421,6 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -473,7 +431,6 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    [TerraformArgument("resource_id")]
     public required TerraformValue<string> ResourceId
     {
         get => new TerraformReference<string>(this, "resource_id");
@@ -483,7 +440,6 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    [TerraformArgument("use_common_alert_schema")]
     public TerraformValue<bool>? UseCommonAlertSchema
     {
         get => new TerraformReference<bool>(this, "use_common_alert_schema");
@@ -507,7 +463,6 @@ public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
     /// The country_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
-    [TerraformArgument("country_code")]
     public required TerraformValue<string> CountryCode
     {
         get => new TerraformReference<string>(this, "country_code");
@@ -518,7 +473,6 @@ public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -529,7 +483,6 @@ public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
     /// The phone_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
-    [TerraformArgument("phone_number")]
     public required TerraformValue<string> PhoneNumber
     {
         get => new TerraformReference<string>(this, "phone_number");
@@ -552,7 +505,6 @@ public class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -562,7 +514,6 @@ public class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -572,7 +523,6 @@ public class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -582,7 +532,6 @@ public class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -606,7 +555,6 @@ public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
     /// The country_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
-    [TerraformArgument("country_code")]
     public required TerraformValue<string> CountryCode
     {
         get => new TerraformReference<string>(this, "country_code");
@@ -617,7 +565,6 @@ public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -628,7 +575,6 @@ public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
     /// The phone_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
-    [TerraformArgument("phone_number")]
     public required TerraformValue<string> PhoneNumber
     {
         get => new TerraformReference<string>(this, "phone_number");
@@ -652,7 +598,6 @@ public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -663,7 +608,6 @@ public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
     /// The service_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
-    [TerraformArgument("service_uri")]
     public required TerraformValue<string> ServiceUri
     {
         get => new TerraformReference<string>(this, "service_uri");
@@ -673,7 +617,6 @@ public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    [TerraformArgument("use_common_alert_schema")]
     public TerraformValue<bool>? UseCommonAlertSchema
     {
         get => new TerraformReference<bool>(this, "use_common_alert_schema");
@@ -683,18 +626,14 @@ public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_action_group Terraform resource.
 /// Manages a azurerm_monitor_action_group resource.
 /// </summary>
-public class AzurermMonitorActionGroup : TerraformResource
+public partial class AzurermMonitorActionGroup(string name) : TerraformResource("azurerm_monitor_action_group", name)
 {
-    public AzurermMonitorActionGroup(string name) : base("azurerm_monitor_action_group", name)
-    {
-    }
-
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -704,7 +643,6 @@ public class AzurermMonitorActionGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -714,7 +652,6 @@ public class AzurermMonitorActionGroup : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformArgument("location")]
     public TerraformValue<string>? Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -725,7 +662,6 @@ public class AzurermMonitorActionGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -736,7 +672,6 @@ public class AzurermMonitorActionGroup : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -747,7 +682,6 @@ public class AzurermMonitorActionGroup : TerraformResource
     /// The short_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
-    [TerraformArgument("short_name")]
     public required TerraformValue<string> ShortName
     {
         get => new TerraformReference<string>(this, "short_name");
@@ -757,7 +691,6 @@ public class AzurermMonitorActionGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -765,87 +698,111 @@ public class AzurermMonitorActionGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for arm_role_receiver.
-    /// Nesting mode: list
+    /// ArmRoleReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("arm_role_receiver")]
-    public TerraformList<AzurermMonitorActionGroupArmRoleReceiverBlock> ArmRoleReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupArmRoleReceiverBlock? ArmRoleReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupArmRoleReceiverBlock>("arm_role_receiver");
+        set => SetArgument("arm_role_receiver", value);
+    }
 
     /// <summary>
-    /// Block for automation_runbook_receiver.
-    /// Nesting mode: list
+    /// AutomationRunbookReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("automation_runbook_receiver")]
-    public TerraformList<AzurermMonitorActionGroupAutomationRunbookReceiverBlock> AutomationRunbookReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupAutomationRunbookReceiverBlock? AutomationRunbookReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>("automation_runbook_receiver");
+        set => SetArgument("automation_runbook_receiver", value);
+    }
 
     /// <summary>
-    /// Block for azure_app_push_receiver.
-    /// Nesting mode: list
+    /// AzureAppPushReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("azure_app_push_receiver")]
-    public TerraformList<AzurermMonitorActionGroupAzureAppPushReceiverBlock> AzureAppPushReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupAzureAppPushReceiverBlock? AzureAppPushReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupAzureAppPushReceiverBlock>("azure_app_push_receiver");
+        set => SetArgument("azure_app_push_receiver", value);
+    }
 
     /// <summary>
-    /// Block for azure_function_receiver.
-    /// Nesting mode: list
+    /// AzureFunctionReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("azure_function_receiver")]
-    public TerraformList<AzurermMonitorActionGroupAzureFunctionReceiverBlock> AzureFunctionReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupAzureFunctionReceiverBlock? AzureFunctionReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupAzureFunctionReceiverBlock>("azure_function_receiver");
+        set => SetArgument("azure_function_receiver", value);
+    }
 
     /// <summary>
-    /// Block for email_receiver.
-    /// Nesting mode: list
+    /// EmailReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("email_receiver")]
-    public TerraformList<AzurermMonitorActionGroupEmailReceiverBlock> EmailReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupEmailReceiverBlock? EmailReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupEmailReceiverBlock>("email_receiver");
+        set => SetArgument("email_receiver", value);
+    }
 
     /// <summary>
-    /// Block for event_hub_receiver.
-    /// Nesting mode: list
+    /// EventHubReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("event_hub_receiver")]
-    public TerraformList<AzurermMonitorActionGroupEventHubReceiverBlock> EventHubReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupEventHubReceiverBlock? EventHubReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupEventHubReceiverBlock>("event_hub_receiver");
+        set => SetArgument("event_hub_receiver", value);
+    }
 
     /// <summary>
-    /// Block for itsm_receiver.
-    /// Nesting mode: list
+    /// ItsmReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("itsm_receiver")]
-    public TerraformList<AzurermMonitorActionGroupItsmReceiverBlock> ItsmReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupItsmReceiverBlock? ItsmReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupItsmReceiverBlock>("itsm_receiver");
+        set => SetArgument("itsm_receiver", value);
+    }
 
     /// <summary>
-    /// Block for logic_app_receiver.
-    /// Nesting mode: list
+    /// LogicAppReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("logic_app_receiver")]
-    public TerraformList<AzurermMonitorActionGroupLogicAppReceiverBlock> LogicAppReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupLogicAppReceiverBlock? LogicAppReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupLogicAppReceiverBlock>("logic_app_receiver");
+        set => SetArgument("logic_app_receiver", value);
+    }
 
     /// <summary>
-    /// Block for sms_receiver.
-    /// Nesting mode: list
+    /// SmsReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("sms_receiver")]
-    public TerraformList<AzurermMonitorActionGroupSmsReceiverBlock> SmsReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupSmsReceiverBlock? SmsReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupSmsReceiverBlock>("sms_receiver");
+        set => SetArgument("sms_receiver", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorActionGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMonitorActionGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorActionGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for voice_receiver.
-    /// Nesting mode: list
+    /// VoiceReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("voice_receiver")]
-    public TerraformList<AzurermMonitorActionGroupVoiceReceiverBlock> VoiceReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupVoiceReceiverBlock? VoiceReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupVoiceReceiverBlock>("voice_receiver");
+        set => SetArgument("voice_receiver", value);
+    }
 
     /// <summary>
-    /// Block for webhook_receiver.
-    /// Nesting mode: list
+    /// WebhookReceiver block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("webhook_receiver")]
-    public TerraformList<AzurermMonitorActionGroupWebhookReceiverBlock> WebhookReceiver { get; set; } = new();
+    public AzurermMonitorActionGroupWebhookReceiverBlock? WebhookReceiver
+    {
+        get => GetArgument<AzurermMonitorActionGroupWebhookReceiverBlock>("webhook_receiver");
+        set => SetArgument("webhook_receiver", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for serialization in .
@@ -25,7 +16,6 @@ public class AzurermStreamAnalyticsReferenceInputBlobSerializationBlock : Terraf
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    [TerraformArgument("encoding")]
     public TerraformValue<string>? Encoding
     {
         get => new TerraformReference<string>(this, "encoding");
@@ -35,7 +25,6 @@ public class AzurermStreamAnalyticsReferenceInputBlobSerializationBlock : Terraf
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    [TerraformArgument("field_delimiter")]
     public TerraformValue<string>? FieldDelimiter
     {
         get => new TerraformReference<string>(this, "field_delimiter");
@@ -46,7 +35,6 @@ public class AzurermStreamAnalyticsReferenceInputBlobSerializationBlock : Terraf
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -69,7 +57,6 @@ public class AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -79,7 +66,6 @@ public class AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -89,7 +75,6 @@ public class AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -99,7 +84,6 @@ public class AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -109,19 +93,14 @@ public class AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_stream_analytics_reference_input_blob Terraform resource.
 /// Manages a azurerm_stream_analytics_reference_input_blob resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
+public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : TerraformResource("azurerm_stream_analytics_reference_input_blob", name)
 {
-    public AzurermStreamAnalyticsReferenceInputBlob(string name) : base("azurerm_stream_analytics_reference_input_blob", name)
-    {
-    }
-
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    [TerraformArgument("authentication_mode")]
     public TerraformValue<string>? AuthenticationMode
     {
         get => new TerraformReference<string>(this, "authentication_mode");
@@ -132,7 +111,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// The date_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DateFormat is required")]
-    [TerraformArgument("date_format")]
     public required TerraformValue<string> DateFormat
     {
         get => new TerraformReference<string>(this, "date_format");
@@ -142,7 +120,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -153,7 +130,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -164,7 +140,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// The path_pattern attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
-    [TerraformArgument("path_pattern")]
     public required TerraformValue<string> PathPattern
     {
         get => new TerraformReference<string>(this, "path_pattern");
@@ -175,7 +150,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -185,7 +159,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    [TerraformArgument("storage_account_key")]
     public TerraformValue<string>? StorageAccountKey
     {
         get => new TerraformReference<string>(this, "storage_account_key");
@@ -196,7 +169,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    [TerraformArgument("storage_account_name")]
     public required TerraformValue<string> StorageAccountName
     {
         get => new TerraformReference<string>(this, "storage_account_name");
@@ -207,7 +179,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// The storage_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
-    [TerraformArgument("storage_container_name")]
     public required TerraformValue<string> StorageContainerName
     {
         get => new TerraformReference<string>(this, "storage_container_name");
@@ -218,7 +189,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// The stream_analytics_job_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
-    [TerraformArgument("stream_analytics_job_name")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
         get => new TerraformReference<string>(this, "stream_analytics_job_name");
@@ -229,7 +199,6 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     /// The time_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFormat is required")]
-    [TerraformArgument("time_format")]
     public required TerraformValue<string> TimeFormat
     {
         get => new TerraformReference<string>(this, "time_format");
@@ -237,20 +206,25 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     }
 
     /// <summary>
-    /// Block for serialization.
-    /// Nesting mode: list
+    /// Serialization block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
-    [TerraformArgument("serialization")]
-    public required TerraformList<AzurermStreamAnalyticsReferenceInputBlobSerializationBlock> Serialization { get; set; } = new();
+    public required AzurermStreamAnalyticsReferenceInputBlobSerializationBlock Serialization
+    {
+        get => GetRequiredArgument<AzurermStreamAnalyticsReferenceInputBlobSerializationBlock>("serialization");
+        set => SetArgument("serialization", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

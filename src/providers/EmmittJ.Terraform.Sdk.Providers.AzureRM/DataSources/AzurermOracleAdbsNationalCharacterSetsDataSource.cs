@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock : Ter
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock : Ter
 }
 
 /// <summary>
+/// Represents a azurerm_oracle_adbs_national_character_sets Terraform data source.
 /// Retrieves information about a azurerm_oracle_adbs_national_character_sets.
 /// </summary>
-public class AzurermOracleAdbsNationalCharacterSetsDataSource : TerraformDataSource
+public partial class AzurermOracleAdbsNationalCharacterSetsDataSource(string name) : TerraformDataSource("azurerm_oracle_adbs_national_character_sets", name)
 {
-    public AzurermOracleAdbsNationalCharacterSetsDataSource(string name) : base("azurerm_oracle_adbs_national_character_sets", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermOracleAdbsNationalCharacterSetsDataSource : TerraformDataSou
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -65,19 +50,12 @@ public class AzurermOracleAdbsNationalCharacterSetsDataSource : TerraformDataSou
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The character_sets attribute.
-    /// </summary>
-    [TerraformArgument("character_sets")]
-    public TerraformList<object> CharacterSets
+    public AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "character_sets").ResolveNodes(ctx));
+        get => GetArgument<AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

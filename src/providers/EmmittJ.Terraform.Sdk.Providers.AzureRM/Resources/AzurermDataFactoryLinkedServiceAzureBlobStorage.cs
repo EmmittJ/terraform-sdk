@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for key_vault_sas_token in .
@@ -26,7 +17,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBloc
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformArgument("linked_service_name")]
     public required TerraformValue<string> LinkedServiceName
     {
         get => new TerraformReference<string>(this, "linked_service_name");
@@ -37,7 +27,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBloc
     /// The secret_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
-    [TerraformArgument("secret_name")]
     public required TerraformValue<string> SecretName
     {
         get => new TerraformReference<string>(this, "secret_name");
@@ -61,7 +50,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLink
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformArgument("linked_service_name")]
     public required TerraformValue<string> LinkedServiceName
     {
         get => new TerraformReference<string>(this, "linked_service_name");
@@ -72,7 +60,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLink
     /// The secret_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
-    [TerraformArgument("secret_name")]
     public required TerraformValue<string> SecretName
     {
         get => new TerraformReference<string>(this, "secret_name");
@@ -95,7 +82,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : Terr
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -105,7 +91,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : Terr
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -115,7 +100,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : Terr
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -125,7 +109,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : Terr
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -135,19 +118,14 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : Terr
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_linked_service_azure_blob_storage Terraform resource.
 /// Manages a azurerm_data_factory_linked_service_azure_blob_storage resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
+public partial class AzurermDataFactoryLinkedServiceAzureBlobStorage(string name) : TerraformResource("azurerm_data_factory_linked_service_azure_blob_storage", name)
 {
-    public AzurermDataFactoryLinkedServiceAzureBlobStorage(string name) : base("azurerm_data_factory_linked_service_azure_blob_storage", name)
-    {
-    }
-
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -157,7 +135,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -167,7 +144,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    [TerraformArgument("connection_string")]
     public TerraformValue<string>? ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -177,7 +153,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The connection_string_insecure attribute.
     /// </summary>
-    [TerraformArgument("connection_string_insecure")]
     public TerraformValue<string>? ConnectionStringInsecure
     {
         get => new TerraformReference<string>(this, "connection_string_insecure");
@@ -188,7 +163,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -198,7 +172,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -208,7 +181,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -218,7 +190,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    [TerraformArgument("integration_runtime_name")]
     public TerraformValue<string>? IntegrationRuntimeName
     {
         get => new TerraformReference<string>(this, "integration_runtime_name");
@@ -229,7 +200,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -239,7 +209,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -249,7 +218,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The sas_uri attribute.
     /// </summary>
-    [TerraformArgument("sas_uri")]
     public TerraformValue<string>? SasUri
     {
         get => new TerraformReference<string>(this, "sas_uri");
@@ -259,7 +227,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The service_endpoint attribute.
     /// </summary>
-    [TerraformArgument("service_endpoint")]
     public TerraformValue<string>? ServiceEndpoint
     {
         get => new TerraformReference<string>(this, "service_endpoint");
@@ -269,7 +236,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The service_principal_id attribute.
     /// </summary>
-    [TerraformArgument("service_principal_id")]
     public TerraformValue<string>? ServicePrincipalId
     {
         get => new TerraformReference<string>(this, "service_principal_id");
@@ -279,7 +245,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The service_principal_key attribute.
     /// </summary>
-    [TerraformArgument("service_principal_key")]
     public TerraformValue<string>? ServicePrincipalKey
     {
         get => new TerraformReference<string>(this, "service_principal_key");
@@ -289,7 +254,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The storage_kind attribute.
     /// </summary>
-    [TerraformArgument("storage_kind")]
     public TerraformValue<string>? StorageKind
     {
         get => new TerraformReference<string>(this, "storage_kind");
@@ -299,7 +263,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformArgument("tenant_id")]
     public TerraformValue<string>? TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -309,7 +272,6 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     /// <summary>
     /// The use_managed_identity attribute.
     /// </summary>
-    [TerraformArgument("use_managed_identity")]
     public TerraformValue<bool>? UseManagedIdentity
     {
         get => new TerraformReference<bool>(this, "use_managed_identity");
@@ -317,26 +279,32 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
     }
 
     /// <summary>
-    /// Block for key_vault_sas_token.
-    /// Nesting mode: list
+    /// KeyVaultSasToken block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultSasToken block(s) allowed")]
-    [TerraformArgument("key_vault_sas_token")]
-    public TerraformList<AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock> KeyVaultSasToken { get; set; } = new();
+    public AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock? KeyVaultSasToken
+    {
+        get => GetArgument<AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock>("key_vault_sas_token");
+        set => SetArgument("key_vault_sas_token", value);
+    }
 
     /// <summary>
-    /// Block for service_principal_linked_key_vault_key.
-    /// Nesting mode: list
+    /// ServicePrincipalLinkedKeyVaultKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipalLinkedKeyVaultKey block(s) allowed")]
-    [TerraformArgument("service_principal_linked_key_vault_key")]
-    public TerraformList<AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock> ServicePrincipalLinkedKeyVaultKey { get; set; } = new();
+    public AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock? ServicePrincipalLinkedKeyVaultKey
+    {
+        get => GetArgument<AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock>("service_principal_linked_key_vault_key");
+        set => SetArgument("service_principal_linked_key_vault_key", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

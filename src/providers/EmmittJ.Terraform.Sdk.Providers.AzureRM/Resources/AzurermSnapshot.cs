@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for encryption_settings in .
@@ -38,7 +29,6 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -48,7 +38,6 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -58,7 +47,6 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -68,7 +56,6 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -78,20 +65,15 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_snapshot Terraform resource.
 /// Manages a azurerm_snapshot resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSnapshot : TerraformResource
+public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_snapshot", name)
 {
-    public AzurermSnapshot(string name) : base("azurerm_snapshot", name)
-    {
-    }
-
     /// <summary>
     /// The create_option attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
-    [TerraformArgument("create_option")]
     public required TerraformValue<string> CreateOption
     {
         get => new TerraformReference<string>(this, "create_option");
@@ -101,7 +83,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The disk_access_id attribute.
     /// </summary>
-    [TerraformArgument("disk_access_id")]
     public TerraformValue<string>? DiskAccessId
     {
         get => new TerraformReference<string>(this, "disk_access_id");
@@ -111,7 +92,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    [TerraformArgument("disk_size_gb")]
     public TerraformValue<double> DiskSizeGb
     {
         get => new TerraformReference<double>(this, "disk_size_gb");
@@ -121,7 +101,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -131,7 +110,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The incremental_enabled attribute.
     /// </summary>
-    [TerraformArgument("incremental_enabled")]
     public TerraformValue<bool>? IncrementalEnabled
     {
         get => new TerraformReference<bool>(this, "incremental_enabled");
@@ -142,7 +120,6 @@ public class AzurermSnapshot : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -153,7 +130,6 @@ public class AzurermSnapshot : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -163,7 +139,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The network_access_policy attribute.
     /// </summary>
-    [TerraformArgument("network_access_policy")]
     public TerraformValue<string>? NetworkAccessPolicy
     {
         get => new TerraformReference<string>(this, "network_access_policy");
@@ -173,7 +148,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -184,7 +158,6 @@ public class AzurermSnapshot : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -194,7 +167,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    [TerraformArgument("source_resource_id")]
     public TerraformValue<string>? SourceResourceId
     {
         get => new TerraformReference<string>(this, "source_resource_id");
@@ -204,7 +176,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
-    [TerraformArgument("source_uri")]
     public TerraformValue<string>? SourceUri
     {
         get => new TerraformReference<string>(this, "source_uri");
@@ -214,7 +185,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    [TerraformArgument("storage_account_id")]
     public TerraformValue<string>? StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -224,7 +194,6 @@ public class AzurermSnapshot : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -232,27 +201,22 @@ public class AzurermSnapshot : TerraformResource
     }
 
     /// <summary>
-    /// Block for encryption_settings.
-    /// Nesting mode: list
+    /// EncryptionSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSettings block(s) allowed")]
-    [TerraformArgument("encryption_settings")]
-    public TerraformList<AzurermSnapshotEncryptionSettingsBlock> EncryptionSettings { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSnapshotTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The trusted_launch_enabled attribute.
-    /// </summary>
-    [TerraformArgument("trusted_launch_enabled")]
-    public TerraformValue<bool> TrustedLaunchEnabled
+    public AzurermSnapshotEncryptionSettingsBlock? EncryptionSettings
     {
-        get => new TerraformReference<bool>(this, "trusted_launch_enabled");
+        get => GetArgument<AzurermSnapshotEncryptionSettingsBlock>("encryption_settings");
+        set => SetArgument("encryption_settings", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermSnapshotTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSnapshotTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

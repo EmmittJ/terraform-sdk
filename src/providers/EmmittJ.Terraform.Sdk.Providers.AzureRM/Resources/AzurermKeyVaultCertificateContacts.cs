@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for contact in .
@@ -26,7 +17,6 @@ public class AzurermKeyVaultCertificateContactsContactBlock : TerraformBlock
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    [TerraformArgument("email")]
     public required TerraformValue<string> Email
     {
         get => new TerraformReference<string>(this, "email");
@@ -36,7 +26,6 @@ public class AzurermKeyVaultCertificateContactsContactBlock : TerraformBlock
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -46,7 +35,6 @@ public class AzurermKeyVaultCertificateContactsContactBlock : TerraformBlock
     /// <summary>
     /// The phone attribute.
     /// </summary>
-    [TerraformArgument("phone")]
     public TerraformValue<string>? Phone
     {
         get => new TerraformReference<string>(this, "phone");
@@ -69,7 +57,6 @@ public class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -79,7 +66,6 @@ public class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -89,7 +75,6 @@ public class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -99,7 +84,6 @@ public class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -109,18 +93,14 @@ public class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_certificate_contacts Terraform resource.
 /// Manages a azurerm_key_vault_certificate_contacts resource.
 /// </summary>
-public class AzurermKeyVaultCertificateContacts : TerraformResource
+public partial class AzurermKeyVaultCertificateContacts(string name) : TerraformResource("azurerm_key_vault_certificate_contacts", name)
 {
-    public AzurermKeyVaultCertificateContacts(string name) : base("azurerm_key_vault_certificate_contacts", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -131,7 +111,6 @@ public class AzurermKeyVaultCertificateContacts : TerraformResource
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformArgument("key_vault_id")]
     public required TerraformValue<string> KeyVaultId
     {
         get => new TerraformReference<string>(this, "key_vault_id");
@@ -139,17 +118,21 @@ public class AzurermKeyVaultCertificateContacts : TerraformResource
     }
 
     /// <summary>
-    /// Block for contact.
-    /// Nesting mode: set
+    /// Contact block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("contact")]
-    public TerraformSet<AzurermKeyVaultCertificateContactsContactBlock> Contact { get; set; } = new();
+    public AzurermKeyVaultCertificateContactsContactBlock? Contact
+    {
+        get => GetArgument<AzurermKeyVaultCertificateContactsContactBlock>("contact");
+        set => SetArgument("contact", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultCertificateContactsTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermKeyVaultCertificateContactsTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermKeyVaultCertificateContactsTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMonitorPrivateLinkScopeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMonitorPrivateLinkScopeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMonitorPrivateLinkScopeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermMonitorPrivateLinkScopeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermMonitorPrivateLinkScopeTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_private_link_scope Terraform resource.
 /// Manages a azurerm_monitor_private_link_scope resource.
 /// </summary>
-public class AzurermMonitorPrivateLinkScope : TerraformResource
+public partial class AzurermMonitorPrivateLinkScope(string name) : TerraformResource("azurerm_monitor_private_link_scope", name)
 {
-    public AzurermMonitorPrivateLinkScope(string name) : base("azurerm_monitor_private_link_scope", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -86,7 +69,6 @@ public class AzurermMonitorPrivateLinkScope : TerraformResource
     /// <summary>
     /// The ingestion_access_mode attribute.
     /// </summary>
-    [TerraformArgument("ingestion_access_mode")]
     public TerraformValue<string>? IngestionAccessMode
     {
         get => new TerraformReference<string>(this, "ingestion_access_mode");
@@ -97,7 +79,6 @@ public class AzurermMonitorPrivateLinkScope : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -107,7 +88,6 @@ public class AzurermMonitorPrivateLinkScope : TerraformResource
     /// <summary>
     /// The query_access_mode attribute.
     /// </summary>
-    [TerraformArgument("query_access_mode")]
     public TerraformValue<string>? QueryAccessMode
     {
         get => new TerraformReference<string>(this, "query_access_mode");
@@ -118,7 +98,6 @@ public class AzurermMonitorPrivateLinkScope : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -128,7 +107,6 @@ public class AzurermMonitorPrivateLinkScope : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -136,10 +114,12 @@ public class AzurermMonitorPrivateLinkScope : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorPrivateLinkScopeTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMonitorPrivateLinkScopeTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorPrivateLinkScopeTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

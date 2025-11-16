@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_container_app_environment_custom_domain Terraform resource.
 /// Manages a azurerm_container_app_environment_custom_domain resource.
 /// </summary>
-public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
+public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : TerraformResource("azurerm_container_app_environment_custom_domain", name)
 {
-    public AzurermContainerAppEnvironmentCustomDomain(string name) : base("azurerm_container_app_environment_custom_domain", name)
-    {
-    }
-
     /// <summary>
     /// The Custom Domain Certificate Private Key as a base64 encoded PFX or PEM.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBlobBase64 is required")]
-    [TerraformArgument("certificate_blob_base64")]
     public required TerraformValue<string> CertificateBlobBase64
     {
         get => new TerraformReference<string>(this, "certificate_blob_base64");
@@ -88,7 +71,6 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     /// The Custom Domain Certificate password.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificatePassword is required")]
-    [TerraformArgument("certificate_password")]
     public required TerraformValue<string> CertificatePassword
     {
         get => new TerraformReference<string>(this, "certificate_password");
@@ -99,7 +81,6 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     /// The Container App Managed Environment ID to configure this Custom Domain on.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
-    [TerraformArgument("container_app_environment_id")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
         get => new TerraformReference<string>(this, "container_app_environment_id");
@@ -110,7 +91,6 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     /// The Custom Domain DNS suffix for this Container App Environment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsSuffix is required")]
-    [TerraformArgument("dns_suffix")]
     public required TerraformValue<string> DnsSuffix
     {
         get => new TerraformReference<string>(this, "dns_suffix");
@@ -120,7 +100,6 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -128,10 +107,12 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

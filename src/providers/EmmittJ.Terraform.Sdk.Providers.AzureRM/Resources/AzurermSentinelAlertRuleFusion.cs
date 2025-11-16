@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for source in .
@@ -25,7 +16,6 @@ public class AzurermSentinelAlertRuleFusionSourceBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -36,7 +26,6 @@ public class AzurermSentinelAlertRuleFusionSourceBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -59,7 +48,6 @@ public class AzurermSentinelAlertRuleFusionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermSentinelAlertRuleFusionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermSentinelAlertRuleFusionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermSentinelAlertRuleFusionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,19 +84,15 @@ public class AzurermSentinelAlertRuleFusionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_sentinel_alert_rule_fusion Terraform resource.
 /// Manages a azurerm_sentinel_alert_rule_fusion resource.
 /// </summary>
-public class AzurermSentinelAlertRuleFusion : TerraformResource
+public partial class AzurermSentinelAlertRuleFusion(string name) : TerraformResource("azurerm_sentinel_alert_rule_fusion", name)
 {
-    public AzurermSentinelAlertRuleFusion(string name) : base("azurerm_sentinel_alert_rule_fusion", name)
-    {
-    }
-
     /// <summary>
     /// The alert_rule_template_guid attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertRuleTemplateGuid is required")]
-    [TerraformArgument("alert_rule_template_guid")]
     public required TerraformValue<string> AlertRuleTemplateGuid
     {
         get => new TerraformReference<string>(this, "alert_rule_template_guid");
@@ -121,7 +102,6 @@ public class AzurermSentinelAlertRuleFusion : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -131,7 +111,6 @@ public class AzurermSentinelAlertRuleFusion : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -142,7 +121,6 @@ public class AzurermSentinelAlertRuleFusion : TerraformResource
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    [TerraformArgument("log_analytics_workspace_id")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
         get => new TerraformReference<string>(this, "log_analytics_workspace_id");
@@ -153,7 +131,6 @@ public class AzurermSentinelAlertRuleFusion : TerraformResource
     /// The name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -161,17 +138,21 @@ public class AzurermSentinelAlertRuleFusion : TerraformResource
     }
 
     /// <summary>
-    /// Block for source.
-    /// Nesting mode: list
+    /// Source block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("source")]
-    public TerraformList<AzurermSentinelAlertRuleFusionSourceBlock> Source { get; set; } = new();
+    public AzurermSentinelAlertRuleFusionSourceBlock? Source
+    {
+        get => GetArgument<AzurermSentinelAlertRuleFusionSourceBlock>("source");
+        set => SetArgument("source", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSentinelAlertRuleFusionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSentinelAlertRuleFusionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSentinelAlertRuleFusionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

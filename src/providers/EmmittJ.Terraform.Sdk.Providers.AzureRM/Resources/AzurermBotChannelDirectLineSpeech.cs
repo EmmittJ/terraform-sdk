@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_bot_channel_direct_line_speech Terraform resource.
 /// Manages a azurerm_bot_channel_direct_line_speech resource.
 /// </summary>
-public class AzurermBotChannelDirectLineSpeech : TerraformResource
+public partial class AzurermBotChannelDirectLineSpeech(string name) : TerraformResource("azurerm_bot_channel_direct_line_speech", name)
 {
-    public AzurermBotChannelDirectLineSpeech(string name) : base("azurerm_bot_channel_direct_line_speech", name)
-    {
-    }
-
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    [TerraformArgument("bot_name")]
     public required TerraformValue<string> BotName
     {
         get => new TerraformReference<string>(this, "bot_name");
@@ -87,7 +70,6 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
-    [TerraformArgument("cognitive_account_id")]
     public TerraformValue<string>? CognitiveAccountId
     {
         get => new TerraformReference<string>(this, "cognitive_account_id");
@@ -98,7 +80,6 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// The cognitive_service_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceAccessKey is required")]
-    [TerraformArgument("cognitive_service_access_key")]
     public required TerraformValue<string> CognitiveServiceAccessKey
     {
         get => new TerraformReference<string>(this, "cognitive_service_access_key");
@@ -109,7 +90,6 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// The cognitive_service_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceLocation is required")]
-    [TerraformArgument("cognitive_service_location")]
     public required TerraformValue<string> CognitiveServiceLocation
     {
         get => new TerraformReference<string>(this, "cognitive_service_location");
@@ -119,7 +99,6 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// <summary>
     /// The custom_speech_model_id attribute.
     /// </summary>
-    [TerraformArgument("custom_speech_model_id")]
     public TerraformValue<string>? CustomSpeechModelId
     {
         get => new TerraformReference<string>(this, "custom_speech_model_id");
@@ -129,7 +108,6 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// <summary>
     /// The custom_voice_deployment_id attribute.
     /// </summary>
-    [TerraformArgument("custom_voice_deployment_id")]
     public TerraformValue<string>? CustomVoiceDeploymentId
     {
         get => new TerraformReference<string>(this, "custom_voice_deployment_id");
@@ -139,7 +117,6 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -150,7 +127,6 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -161,7 +137,6 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -169,10 +144,12 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBotChannelDirectLineSpeechTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermBotChannelDirectLineSpeechTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermBotChannelDirectLineSpeechTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

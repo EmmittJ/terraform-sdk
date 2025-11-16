@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for management_network_profile in .
@@ -26,7 +17,6 @@ public class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock
     /// The network_interface_private_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfacePrivateIpAddresses is required")]
-    [TerraformArgument("network_interface_private_ip_addresses")]
     public required TerraformSet<string> NetworkInterfacePrivateIpAddresses
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "network_interface_private_ip_addresses").ResolveNodes(ctx));
@@ -37,7 +27,6 @@ public class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -61,7 +50,6 @@ public class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock : Terrafo
     /// The network_interface_private_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfacePrivateIpAddresses is required")]
-    [TerraformArgument("network_interface_private_ip_addresses")]
     public required TerraformSet<string> NetworkInterfacePrivateIpAddresses
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "network_interface_private_ip_addresses").ResolveNodes(ctx));
@@ -72,7 +60,6 @@ public class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock : Terrafo
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -95,7 +82,6 @@ public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -105,7 +91,6 @@ public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -115,7 +100,6 @@ public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -125,7 +109,6 @@ public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -135,19 +118,14 @@ public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_dedicated_hardware_security_module Terraform resource.
 /// Manages a azurerm_dedicated_hardware_security_module resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDedicatedHardwareSecurityModule : TerraformResource
+public partial class AzurermDedicatedHardwareSecurityModule(string name) : TerraformResource("azurerm_dedicated_hardware_security_module", name)
 {
-    public AzurermDedicatedHardwareSecurityModule(string name) : base("azurerm_dedicated_hardware_security_module", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -158,7 +136,6 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -169,7 +146,6 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -180,7 +156,6 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -191,7 +166,6 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformArgument("sku_name")]
     public required TerraformValue<string> SkuName
     {
         get => new TerraformReference<string>(this, "sku_name");
@@ -201,7 +175,6 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The stamp_id attribute.
     /// </summary>
-    [TerraformArgument("stamp_id")]
     public TerraformValue<string>? StampId
     {
         get => new TerraformReference<string>(this, "stamp_id");
@@ -211,7 +184,6 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -221,7 +193,6 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformArgument("zones")]
     public TerraformSet<string>? Zones
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
@@ -229,28 +200,35 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     }
 
     /// <summary>
-    /// Block for management_network_profile.
-    /// Nesting mode: list
+    /// ManagementNetworkProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementNetworkProfile block(s) allowed")]
-    [TerraformArgument("management_network_profile")]
-    public TerraformList<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock> ManagementNetworkProfile { get; set; } = new();
+    public AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock? ManagementNetworkProfile
+    {
+        get => GetArgument<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>("management_network_profile");
+        set => SetArgument("management_network_profile", value);
+    }
 
     /// <summary>
-    /// Block for network_profile.
-    /// Nesting mode: list
+    /// NetworkProfile block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    [TerraformArgument("network_profile")]
-    public required TerraformList<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock> NetworkProfile { get; set; } = new();
+    public required AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock NetworkProfile
+    {
+        get => GetRequiredArgument<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock>("network_profile");
+        set => SetArgument("network_profile", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDedicatedHardwareSecurityModuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDedicatedHardwareSecurityModuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDedicatedHardwareSecurityModuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

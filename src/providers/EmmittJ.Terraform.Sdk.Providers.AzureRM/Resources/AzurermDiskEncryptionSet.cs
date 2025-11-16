@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermDiskEncryptionSetIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +64,6 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -71,7 +73,6 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -81,7 +82,6 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -91,7 +91,6 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -101,19 +100,14 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_disk_encryption_set Terraform resource.
 /// Manages a azurerm_disk_encryption_set resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDiskEncryptionSet : TerraformResource
+public partial class AzurermDiskEncryptionSet(string name) : TerraformResource("azurerm_disk_encryption_set", name)
 {
-    public AzurermDiskEncryptionSet(string name) : base("azurerm_disk_encryption_set", name)
-    {
-    }
-
     /// <summary>
     /// The auto_key_rotation_enabled attribute.
     /// </summary>
-    [TerraformArgument("auto_key_rotation_enabled")]
     public TerraformValue<bool>? AutoKeyRotationEnabled
     {
         get => new TerraformReference<bool>(this, "auto_key_rotation_enabled");
@@ -123,7 +117,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    [TerraformArgument("encryption_type")]
     public TerraformValue<string>? EncryptionType
     {
         get => new TerraformReference<string>(this, "encryption_type");
@@ -133,7 +126,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// <summary>
     /// The federated_client_id attribute.
     /// </summary>
-    [TerraformArgument("federated_client_id")]
     public TerraformValue<string>? FederatedClientId
     {
         get => new TerraformReference<string>(this, "federated_client_id");
@@ -143,7 +135,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -153,7 +144,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_key_id")]
     public TerraformValue<string>? KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
@@ -164,7 +154,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -174,7 +163,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    [TerraformArgument("managed_hsm_key_id")]
     public TerraformValue<string>? ManagedHsmKeyId
     {
         get => new TerraformReference<string>(this, "managed_hsm_key_id");
@@ -185,7 +173,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -196,7 +183,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -206,7 +192,6 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -214,29 +199,25 @@ public class AzurermDiskEncryptionSet : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public required TerraformList<AzurermDiskEncryptionSetIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDiskEncryptionSetTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The key_vault_key_url attribute.
-    /// </summary>
-    [TerraformArgument("key_vault_key_url")]
-    public TerraformValue<string> KeyVaultKeyUrl
+    public required AzurermDiskEncryptionSetIdentityBlock Identity
     {
-        get => new TerraformReference<string>(this, "key_vault_key_url");
+        get => GetRequiredArgument<AzurermDiskEncryptionSetIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermDiskEncryptionSetTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDiskEncryptionSetTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

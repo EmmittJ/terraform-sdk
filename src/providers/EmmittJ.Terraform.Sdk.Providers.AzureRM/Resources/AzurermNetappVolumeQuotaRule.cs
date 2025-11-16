@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_netapp_volume_quota_rule Terraform resource.
 /// Manages a azurerm_netapp_volume_quota_rule resource.
 /// </summary>
-public class AzurermNetappVolumeQuotaRule : TerraformResource
+public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResource("azurerm_netapp_volume_quota_rule", name)
 {
-    public AzurermNetappVolumeQuotaRule(string name) : base("azurerm_netapp_volume_quota_rule", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -98,7 +80,6 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -109,7 +90,6 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// The quota_size_in_kib attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaSizeInKib is required")]
-    [TerraformArgument("quota_size_in_kib")]
     public required TerraformValue<double> QuotaSizeInKib
     {
         get => new TerraformReference<double>(this, "quota_size_in_kib");
@@ -119,7 +99,6 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// <summary>
     /// The quota_target attribute.
     /// </summary>
-    [TerraformArgument("quota_target")]
     public TerraformValue<string>? QuotaTarget
     {
         get => new TerraformReference<string>(this, "quota_target");
@@ -130,7 +109,6 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// The quota_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaType is required")]
-    [TerraformArgument("quota_type")]
     public required TerraformValue<string> QuotaType
     {
         get => new TerraformReference<string>(this, "quota_type");
@@ -141,7 +119,6 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// The volume_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
-    [TerraformArgument("volume_id")]
     public required TerraformValue<string> VolumeId
     {
         get => new TerraformReference<string>(this, "volume_id");
@@ -149,10 +126,12 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetappVolumeQuotaRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetappVolumeQuotaRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetappVolumeQuotaRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

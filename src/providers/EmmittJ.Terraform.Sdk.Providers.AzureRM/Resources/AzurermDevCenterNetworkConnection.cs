@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDevCenterNetworkConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDevCenterNetworkConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDevCenterNetworkConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDevCenterNetworkConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermDevCenterNetworkConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dev_center_network_connection Terraform resource.
 /// Manages a azurerm_dev_center_network_connection resource.
 /// </summary>
-public class AzurermDevCenterNetworkConnection : TerraformResource
+public partial class AzurermDevCenterNetworkConnection(string name) : TerraformResource("azurerm_dev_center_network_connection", name)
 {
-    public AzurermDevCenterNetworkConnection(string name) : base("azurerm_dev_center_network_connection", name)
-    {
-    }
-
     /// <summary>
     /// The domain_join_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainJoinType is required")]
-    [TerraformArgument("domain_join_type")]
     public required TerraformValue<string> DomainJoinType
     {
         get => new TerraformReference<string>(this, "domain_join_type");
@@ -87,7 +70,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    [TerraformArgument("domain_name")]
     public TerraformValue<string>? DomainName
     {
         get => new TerraformReference<string>(this, "domain_name");
@@ -97,7 +79,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// <summary>
     /// The domain_password attribute.
     /// </summary>
-    [TerraformArgument("domain_password")]
     public TerraformValue<string>? DomainPassword
     {
         get => new TerraformReference<string>(this, "domain_password");
@@ -107,7 +88,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// <summary>
     /// The domain_username attribute.
     /// </summary>
-    [TerraformArgument("domain_username")]
     public TerraformValue<string>? DomainUsername
     {
         get => new TerraformReference<string>(this, "domain_username");
@@ -117,7 +97,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -128,7 +107,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -139,7 +117,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -149,7 +126,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// <summary>
     /// The organization_unit attribute.
     /// </summary>
-    [TerraformArgument("organization_unit")]
     public TerraformValue<string>? OrganizationUnit
     {
         get => new TerraformReference<string>(this, "organization_unit");
@@ -160,7 +136,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -171,7 +146,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -181,7 +155,6 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -189,10 +162,12 @@ public class AzurermDevCenterNetworkConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDevCenterNetworkConnectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDevCenterNetworkConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDevCenterNetworkConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

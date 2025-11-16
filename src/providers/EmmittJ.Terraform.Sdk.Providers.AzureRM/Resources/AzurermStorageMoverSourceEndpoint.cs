@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_mover_source_endpoint Terraform resource.
 /// Manages a azurerm_storage_mover_source_endpoint resource.
 /// </summary>
-public class AzurermStorageMoverSourceEndpoint : TerraformResource
+public partial class AzurermStorageMoverSourceEndpoint(string name) : TerraformResource("azurerm_storage_mover_source_endpoint", name)
 {
-    public AzurermStorageMoverSourceEndpoint(string name) : base("azurerm_storage_mover_source_endpoint", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -86,7 +69,6 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     /// <summary>
     /// The export attribute.
     /// </summary>
-    [TerraformArgument("export")]
     public TerraformValue<string>? Export
     {
         get => new TerraformReference<string>(this, "export");
@@ -97,7 +79,6 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     /// The host attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    [TerraformArgument("host")]
     public required TerraformValue<string> Host
     {
         get => new TerraformReference<string>(this, "host");
@@ -107,7 +88,6 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -118,7 +98,6 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -128,7 +107,6 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     /// <summary>
     /// The nfs_version attribute.
     /// </summary>
-    [TerraformArgument("nfs_version")]
     public TerraformValue<string>? NfsVersion
     {
         get => new TerraformReference<string>(this, "nfs_version");
@@ -139,7 +117,6 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     /// The storage_mover_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
-    [TerraformArgument("storage_mover_id")]
     public required TerraformValue<string> StorageMoverId
     {
         get => new TerraformReference<string>(this, "storage_mover_id");
@@ -147,10 +124,12 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageMoverSourceEndpointTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStorageMoverSourceEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStorageMoverSourceEndpointTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

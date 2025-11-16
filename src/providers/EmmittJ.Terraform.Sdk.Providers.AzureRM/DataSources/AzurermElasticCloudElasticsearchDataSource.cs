@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for logs in .
@@ -22,9 +13,37 @@ public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBloc
     /// </summary>
     public override string BlockType => "logs";
 
+    /// <summary>
+    /// The filtering_tag attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> FilteringTag
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "filtering_tag").ResolveNodes(ctx));
+    }
 
+    /// <summary>
+    /// The send_activity_logs attribute.
+    /// </summary>
+    public TerraformValue<bool> SendActivityLogs
+    {
+        get => new TerraformReference<bool>(this, "send_activity_logs");
+    }
 
+    /// <summary>
+    /// The send_azuread_logs attribute.
+    /// </summary>
+    public TerraformValue<bool> SendAzureadLogs
+    {
+        get => new TerraformReference<bool>(this, "send_azuread_logs");
+    }
 
+    /// <summary>
+    /// The send_subscription_logs attribute.
+    /// </summary>
+    public TerraformValue<bool> SendSubscriptionLogs
+    {
+        get => new TerraformReference<bool>(this, "send_subscription_logs");
+    }
 
 }
 
@@ -42,7 +61,6 @@ public class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -52,18 +70,14 @@ public class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_elastic_cloud_elasticsearch Terraform data source.
 /// Retrieves information about a azurerm_elastic_cloud_elasticsearch.
 /// </summary>
-public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
+public partial class AzurermElasticCloudElasticsearchDataSource(string name) : TerraformDataSource("azurerm_elastic_cloud_elasticsearch", name)
 {
-    public AzurermElasticCloudElasticsearchDataSource(string name) : base("azurerm_elastic_cloud_elasticsearch", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -74,7 +88,6 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -85,7 +98,6 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -93,116 +105,21 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for logs.
-    /// Nesting mode: list
+    /// Logs block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("logs")]
-    public TerraformList<AzurermElasticCloudElasticsearchDataSourceLogsBlock> Logs { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The elastic_cloud_deployment_id attribute.
-    /// </summary>
-    [TerraformArgument("elastic_cloud_deployment_id")]
-    public TerraformValue<string> ElasticCloudDeploymentId
+    public AzurermElasticCloudElasticsearchDataSourceLogsBlock? Logs
     {
-        get => new TerraformReference<string>(this, "elastic_cloud_deployment_id");
+        get => GetArgument<AzurermElasticCloudElasticsearchDataSourceLogsBlock>("logs");
+        set => SetArgument("logs", value);
     }
 
     /// <summary>
-    /// The elastic_cloud_email_address attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("elastic_cloud_email_address")]
-    public TerraformValue<string> ElasticCloudEmailAddress
+    public AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "elastic_cloud_email_address");
-    }
-
-    /// <summary>
-    /// The elastic_cloud_sso_default_url attribute.
-    /// </summary>
-    [TerraformArgument("elastic_cloud_sso_default_url")]
-    public TerraformValue<string> ElasticCloudSsoDefaultUrl
-    {
-        get => new TerraformReference<string>(this, "elastic_cloud_sso_default_url");
-    }
-
-    /// <summary>
-    /// The elastic_cloud_user_id attribute.
-    /// </summary>
-    [TerraformArgument("elastic_cloud_user_id")]
-    public TerraformValue<string> ElasticCloudUserId
-    {
-        get => new TerraformReference<string>(this, "elastic_cloud_user_id");
-    }
-
-    /// <summary>
-    /// The elasticsearch_service_url attribute.
-    /// </summary>
-    [TerraformArgument("elasticsearch_service_url")]
-    public TerraformValue<string> ElasticsearchServiceUrl
-    {
-        get => new TerraformReference<string>(this, "elasticsearch_service_url");
-    }
-
-    /// <summary>
-    /// The kibana_service_url attribute.
-    /// </summary>
-    [TerraformArgument("kibana_service_url")]
-    public TerraformValue<string> KibanaServiceUrl
-    {
-        get => new TerraformReference<string>(this, "kibana_service_url");
-    }
-
-    /// <summary>
-    /// The kibana_sso_uri attribute.
-    /// </summary>
-    [TerraformArgument("kibana_sso_uri")]
-    public TerraformValue<string> KibanaSsoUri
-    {
-        get => new TerraformReference<string>(this, "kibana_sso_uri");
-    }
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The monitoring_enabled attribute.
-    /// </summary>
-    [TerraformArgument("monitoring_enabled")]
-    public TerraformValue<bool> MonitoringEnabled
-    {
-        get => new TerraformReference<bool>(this, "monitoring_enabled");
-    }
-
-    /// <summary>
-    /// The sku_name attribute.
-    /// </summary>
-    [TerraformArgument("sku_name")]
-    public TerraformValue<string> SkuName
-    {
-        get => new TerraformReference<string>(this, "sku_name");
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for inbound_ip_rule in .
@@ -25,7 +16,6 @@ public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlock
     /// <summary>
     /// The action attribute.
     /// </summary>
-    [TerraformArgument("action")]
     public TerraformValue<string>? Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -36,7 +26,6 @@ public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlock
     /// The ip_mask attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
-    [TerraformArgument("ip_mask")]
     public required TerraformValue<string> IpMask
     {
         get => new TerraformReference<string>(this, "ip_mask");
@@ -59,7 +48,6 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,19 +84,14 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_eventgrid_partner_namespace Terraform resource.
 /// Manages a azurerm_eventgrid_partner_namespace resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermEventgridPartnerNamespace : TerraformResource
+public partial class AzurermEventgridPartnerNamespace(string name) : TerraformResource("azurerm_eventgrid_partner_namespace", name)
 {
-    public AzurermEventgridPartnerNamespace(string name) : base("azurerm_eventgrid_partner_namespace", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -121,7 +101,6 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    [TerraformArgument("local_authentication_enabled")]
     public TerraformValue<bool>? LocalAuthenticationEnabled
     {
         get => new TerraformReference<bool>(this, "local_authentication_enabled");
@@ -132,7 +111,6 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -143,7 +121,6 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -154,7 +131,6 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     /// The partner_registration_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
-    [TerraformArgument("partner_registration_id")]
     public required TerraformValue<string> PartnerRegistrationId
     {
         get => new TerraformReference<string>(this, "partner_registration_id");
@@ -164,7 +140,6 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     /// <summary>
     /// The partner_topic_routing_mode attribute.
     /// </summary>
-    [TerraformArgument("partner_topic_routing_mode")]
     public TerraformValue<string>? PartnerTopicRoutingMode
     {
         get => new TerraformReference<string>(this, "partner_topic_routing_mode");
@@ -174,7 +149,6 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    [TerraformArgument("public_network_access")]
     public TerraformValue<string>? PublicNetworkAccess
     {
         get => new TerraformReference<string>(this, "public_network_access");
@@ -185,7 +159,6 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -195,7 +168,6 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -203,27 +175,22 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
     }
 
     /// <summary>
-    /// Block for inbound_ip_rule.
-    /// Nesting mode: list
+    /// InboundIpRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(16, ErrorMessage = "Maximum 16 InboundIpRule block(s) allowed")]
-    [TerraformArgument("inbound_ip_rule")]
-    public TerraformList<AzurermEventgridPartnerNamespaceInboundIpRuleBlock> InboundIpRule { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermEventgridPartnerNamespaceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The endpoint attribute.
-    /// </summary>
-    [TerraformArgument("endpoint")]
-    public TerraformValue<string> Endpoint
+    public AzurermEventgridPartnerNamespaceInboundIpRuleBlock? InboundIpRule
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<AzurermEventgridPartnerNamespaceInboundIpRuleBlock>("inbound_ip_rule");
+        set => SetArgument("inbound_ip_rule", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermEventgridPartnerNamespaceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermEventgridPartnerNamespaceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

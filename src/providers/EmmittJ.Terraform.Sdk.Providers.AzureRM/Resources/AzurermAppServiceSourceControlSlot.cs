@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for github_action_configuration in .
@@ -25,13 +16,19 @@ public class AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock : 
     /// <summary>
     /// Should the service generate the GitHub Action Workflow file. Defaults to `true`
     /// </summary>
-    [TerraformArgument("generate_workflow_file")]
     public TerraformValue<bool>? GenerateWorkflowFile
     {
         get => new TerraformReference<bool>(this, "generate_workflow_file");
         set => SetArgument("generate_workflow_file", value);
     }
 
+    /// <summary>
+    /// Denotes this action uses a Linux base image.
+    /// </summary>
+    public TerraformValue<bool> LinuxAction
+    {
+        get => new TerraformReference<bool>(this, "linux_action");
+    }
 
 }
 
@@ -49,7 +46,6 @@ public class AzurermAppServiceSourceControlSlotTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -59,7 +55,6 @@ public class AzurermAppServiceSourceControlSlotTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -69,7 +64,6 @@ public class AzurermAppServiceSourceControlSlotTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -79,19 +73,14 @@ public class AzurermAppServiceSourceControlSlotTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_app_service_source_control_slot Terraform resource.
 /// Manages a azurerm_app_service_source_control_slot resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermAppServiceSourceControlSlot : TerraformResource
+public partial class AzurermAppServiceSourceControlSlot(string name) : TerraformResource("azurerm_app_service_source_control_slot", name)
 {
-    public AzurermAppServiceSourceControlSlot(string name) : base("azurerm_app_service_source_control_slot", name)
-    {
-    }
-
     /// <summary>
     /// The URL for the repository
     /// </summary>
-    [TerraformArgument("branch")]
     public TerraformValue<string> Branch
     {
         get => new TerraformReference<string>(this, "branch");
@@ -101,7 +90,6 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -111,7 +99,6 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     /// <summary>
     /// The branch name to use for deployments.
     /// </summary>
-    [TerraformArgument("repo_url")]
     public TerraformValue<string> RepoUrl
     {
         get => new TerraformReference<string>(this, "repo_url");
@@ -121,7 +108,6 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     /// <summary>
     /// Should the Deployment Rollback be enabled? Defaults to `false`
     /// </summary>
-    [TerraformArgument("rollback_enabled")]
     public TerraformValue<bool>? RollbackEnabled
     {
         get => new TerraformReference<bool>(this, "rollback_enabled");
@@ -132,7 +118,6 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     /// The ID of the Linux or Windows Web App Slot.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
-    [TerraformArgument("slot_id")]
     public required TerraformValue<string> SlotId
     {
         get => new TerraformReference<string>(this, "slot_id");
@@ -142,7 +127,6 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     /// <summary>
     /// Should the Slot use local Git configuration.
     /// </summary>
-    [TerraformArgument("use_local_git")]
     public TerraformValue<bool>? UseLocalGit
     {
         get => new TerraformReference<bool>(this, "use_local_git");
@@ -152,7 +136,6 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     /// <summary>
     /// Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`
     /// </summary>
-    [TerraformArgument("use_manual_integration")]
     public TerraformValue<bool>? UseManualIntegration
     {
         get => new TerraformReference<bool>(this, "use_manual_integration");
@@ -162,7 +145,6 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     /// <summary>
     /// The repository specified is Mercurial. Defaults to `false`.
     /// </summary>
-    [TerraformArgument("use_mercurial")]
     public TerraformValue<bool>? UseMercurial
     {
         get => new TerraformReference<bool>(this, "use_mercurial");
@@ -170,36 +152,22 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     }
 
     /// <summary>
-    /// Block for github_action_configuration.
-    /// Nesting mode: list
+    /// GithubActionConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubActionConfiguration block(s) allowed")]
-    [TerraformArgument("github_action_configuration")]
-    public TerraformList<AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock> GithubActionConfiguration { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAppServiceSourceControlSlotTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The SCM Type in use. This value is decoded by the service from the repository information supplied.
-    /// </summary>
-    [TerraformArgument("scm_type")]
-    public TerraformValue<string> ScmType
+    public AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock? GithubActionConfiguration
     {
-        get => new TerraformReference<string>(this, "scm_type");
+        get => GetArgument<AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock>("github_action_configuration");
+        set => SetArgument("github_action_configuration", value);
     }
 
     /// <summary>
-    /// Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("uses_github_action")]
-    public TerraformValue<bool> UsesGithubAction
+    public AzurermAppServiceSourceControlSlotTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<bool>(this, "uses_github_action");
+        get => GetArgument<AzurermAppServiceSourceControlSlotTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

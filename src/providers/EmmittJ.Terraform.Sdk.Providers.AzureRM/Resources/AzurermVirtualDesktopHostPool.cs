@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for scheduled_agent_updates in .
@@ -25,7 +16,6 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -35,7 +25,6 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    [TerraformArgument("timezone")]
     public TerraformValue<string>? Timezone
     {
         get => new TerraformReference<string>(this, "timezone");
@@ -45,7 +34,6 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// <summary>
     /// The use_session_host_timezone attribute.
     /// </summary>
-    [TerraformArgument("use_session_host_timezone")]
     public TerraformValue<bool>? UseSessionHostTimezone
     {
         get => new TerraformReference<bool>(this, "use_session_host_timezone");
@@ -68,7 +56,6 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -78,7 +65,6 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -88,7 +74,6 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -98,7 +83,6 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -108,19 +92,14 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_virtual_desktop_host_pool Terraform resource.
 /// Manages a azurerm_virtual_desktop_host_pool resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermVirtualDesktopHostPool : TerraformResource
+public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResource("azurerm_virtual_desktop_host_pool", name)
 {
-    public AzurermVirtualDesktopHostPool(string name) : base("azurerm_virtual_desktop_host_pool", name)
-    {
-    }
-
     /// <summary>
     /// The custom_rdp_properties attribute.
     /// </summary>
-    [TerraformArgument("custom_rdp_properties")]
     public TerraformValue<string>? CustomRdpProperties
     {
         get => new TerraformReference<string>(this, "custom_rdp_properties");
@@ -130,7 +109,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -140,7 +118,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    [TerraformArgument("friendly_name")]
     public TerraformValue<string>? FriendlyName
     {
         get => new TerraformReference<string>(this, "friendly_name");
@@ -150,7 +127,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -161,7 +137,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// The load_balancer_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerType is required")]
-    [TerraformArgument("load_balancer_type")]
     public required TerraformValue<string> LoadBalancerType
     {
         get => new TerraformReference<string>(this, "load_balancer_type");
@@ -172,7 +147,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -182,7 +156,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The maximum_sessions_allowed attribute.
     /// </summary>
-    [TerraformArgument("maximum_sessions_allowed")]
     public TerraformValue<double>? MaximumSessionsAllowed
     {
         get => new TerraformReference<double>(this, "maximum_sessions_allowed");
@@ -193,7 +166,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -203,7 +175,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The personal_desktop_assignment_type attribute.
     /// </summary>
-    [TerraformArgument("personal_desktop_assignment_type")]
     public TerraformValue<string>? PersonalDesktopAssignmentType
     {
         get => new TerraformReference<string>(this, "personal_desktop_assignment_type");
@@ -213,7 +184,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// Preferred App Group type to display
     /// </summary>
-    [TerraformArgument("preferred_app_group_type")]
     public TerraformValue<string>? PreferredAppGroupType
     {
         get => new TerraformReference<string>(this, "preferred_app_group_type");
@@ -223,7 +193,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    [TerraformArgument("public_network_access")]
     public TerraformValue<string>? PublicNetworkAccess
     {
         get => new TerraformReference<string>(this, "public_network_access");
@@ -234,7 +203,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -244,7 +212,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The start_vm_on_connect attribute.
     /// </summary>
-    [TerraformArgument("start_vm_on_connect")]
     public TerraformValue<bool>? StartVmOnConnect
     {
         get => new TerraformReference<bool>(this, "start_vm_on_connect");
@@ -254,7 +221,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -265,7 +231,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -275,7 +240,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The validate_environment attribute.
     /// </summary>
-    [TerraformArgument("validate_environment")]
     public TerraformValue<bool>? ValidateEnvironment
     {
         get => new TerraformReference<bool>(this, "validate_environment");
@@ -285,7 +249,6 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// <summary>
     /// The vm_template attribute.
     /// </summary>
-    [TerraformArgument("vm_template")]
     public TerraformValue<string>? VmTemplate
     {
         get => new TerraformReference<string>(this, "vm_template");
@@ -293,18 +256,22 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     }
 
     /// <summary>
-    /// Block for scheduled_agent_updates.
-    /// Nesting mode: list
+    /// ScheduledAgentUpdates block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledAgentUpdates block(s) allowed")]
-    [TerraformArgument("scheduled_agent_updates")]
-    public TerraformList<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock> ScheduledAgentUpdates { get; set; } = new();
+    public AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock? ScheduledAgentUpdates
+    {
+        get => GetArgument<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock>("scheduled_agent_updates");
+        set => SetArgument("scheduled_agent_updates", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVirtualDesktopHostPoolTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermVirtualDesktopHostPoolTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermVirtualDesktopHostPoolTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

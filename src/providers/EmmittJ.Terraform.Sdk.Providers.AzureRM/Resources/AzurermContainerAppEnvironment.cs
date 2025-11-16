@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +64,6 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -71,7 +73,6 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -81,7 +82,6 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -91,7 +91,6 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -114,7 +113,6 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     /// <summary>
     /// The maximum_count attribute.
     /// </summary>
-    [TerraformArgument("maximum_count")]
     public TerraformValue<double>? MaximumCount
     {
         get => new TerraformReference<double>(this, "maximum_count");
@@ -124,7 +122,6 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     /// <summary>
     /// The minimum_count attribute.
     /// </summary>
-    [TerraformArgument("minimum_count")]
     public TerraformValue<double>? MinimumCount
     {
         get => new TerraformReference<double>(this, "minimum_count");
@@ -135,7 +132,6 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -146,7 +142,6 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     /// The workload_profile_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadProfileType is required")]
-    [TerraformArgument("workload_profile_type")]
     public required TerraformValue<string> WorkloadProfileType
     {
         get => new TerraformReference<string>(this, "workload_profile_type");
@@ -156,19 +151,14 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_container_app_environment Terraform resource.
 /// Manages a azurerm_container_app_environment resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermContainerAppEnvironment : TerraformResource
+public partial class AzurermContainerAppEnvironment(string name) : TerraformResource("azurerm_container_app_environment", name)
 {
-    public AzurermContainerAppEnvironment(string name) : base("azurerm_container_app_environment", name)
-    {
-    }
-
     /// <summary>
     /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
     /// </summary>
-    [TerraformArgument("dapr_application_insights_connection_string")]
     public TerraformValue<string>? DaprApplicationInsightsConnectionString
     {
         get => new TerraformReference<string>(this, "dapr_application_insights_connection_string");
@@ -178,7 +168,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -188,7 +177,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
     /// </summary>
-    [TerraformArgument("infrastructure_resource_group_name")]
     public TerraformValue<string>? InfrastructureResourceGroupName
     {
         get => new TerraformReference<string>(this, "infrastructure_resource_group_name");
@@ -198,7 +186,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// The existing Subnet to use for the Container Apps Control Plane. **NOTE:** The Subnet must have a `/21` or larger address space.
     /// </summary>
-    [TerraformArgument("infrastructure_subnet_id")]
     public TerraformValue<string>? InfrastructureSubnetId
     {
         get => new TerraformReference<string>(this, "infrastructure_subnet_id");
@@ -208,7 +195,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
     /// </summary>
-    [TerraformArgument("internal_load_balancer_enabled")]
     public TerraformValue<bool>? InternalLoadBalancerEnabled
     {
         get => new TerraformReference<bool>(this, "internal_load_balancer_enabled");
@@ -219,7 +205,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -229,7 +214,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
     /// </summary>
-    [TerraformArgument("log_analytics_workspace_id")]
     public TerraformValue<string>? LogAnalyticsWorkspaceId
     {
         get => new TerraformReference<string>(this, "log_analytics_workspace_id");
@@ -239,7 +223,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// The logs_destination attribute.
     /// </summary>
-    [TerraformArgument("logs_destination")]
     public TerraformValue<string> LogsDestination
     {
         get => new TerraformReference<string>(this, "logs_destination");
@@ -249,7 +232,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`. **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
     /// </summary>
-    [TerraformArgument("mutual_tls_enabled")]
     public TerraformValue<bool>? MutualTlsEnabled
     {
         get => new TerraformReference<bool>(this, "mutual_tls_enabled");
@@ -260,7 +242,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// The name of the Container Apps Managed Environment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -270,7 +251,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// The public network access setting for the Container App Environment.
     /// </summary>
-    [TerraformArgument("public_network_access")]
     public TerraformValue<string> PublicNetworkAccess
     {
         get => new TerraformReference<string>(this, "public_network_access");
@@ -281,7 +261,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -291,7 +270,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -301,7 +279,6 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
-    [TerraformArgument("zone_redundancy_enabled")]
     public TerraformValue<bool>? ZoneRedundancyEnabled
     {
         get => new TerraformReference<bool>(this, "zone_redundancy_enabled");
@@ -309,79 +286,31 @@ public class AzurermContainerAppEnvironment : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermContainerAppEnvironmentIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerAppEnvironmentTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// Block for workload_profile.
-    /// Nesting mode: set
-    /// </summary>
-    [TerraformArgument("workload_profile")]
-    public TerraformSet<AzurermContainerAppEnvironmentWorkloadProfileBlock> WorkloadProfile { get; set; } = new();
-
-    /// <summary>
-    /// The ID of the Custom Domain Verification for this Container App Environment.
-    /// </summary>
-    [TerraformArgument("custom_domain_verification_id")]
-    public TerraformValue<string> CustomDomainVerificationId
+    public AzurermContainerAppEnvironmentIdentityBlock? Identity
     {
-        get => new TerraformReference<string>(this, "custom_domain_verification_id");
+        get => GetArgument<AzurermContainerAppEnvironmentIdentityBlock>("identity");
+        set => SetArgument("identity", value);
     }
 
     /// <summary>
-    /// The default publicly resolvable name of this Container App Environment
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("default_domain")]
-    public TerraformValue<string> DefaultDomain
+    public AzurermContainerAppEnvironmentTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "default_domain");
+        get => GetArgument<AzurermContainerAppEnvironmentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
     /// <summary>
-    /// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
+    /// WorkloadProfile block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("docker_bridge_cidr")]
-    public TerraformValue<string> DockerBridgeCidr
+    public AzurermContainerAppEnvironmentWorkloadProfileBlock? WorkloadProfile
     {
-        get => new TerraformReference<string>(this, "docker_bridge_cidr");
-    }
-
-    /// <summary>
-    /// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
-    /// </summary>
-    [TerraformArgument("platform_reserved_cidr")]
-    public TerraformValue<string> PlatformReservedCidr
-    {
-        get => new TerraformReference<string>(this, "platform_reserved_cidr");
-    }
-
-    /// <summary>
-    /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
-    /// </summary>
-    [TerraformArgument("platform_reserved_dns_ip_address")]
-    public TerraformValue<string> PlatformReservedDnsIpAddress
-    {
-        get => new TerraformReference<string>(this, "platform_reserved_dns_ip_address");
-    }
-
-    /// <summary>
-    /// The Static IP Address of the Environment.
-    /// </summary>
-    [TerraformArgument("static_ip_address")]
-    public TerraformValue<string> StaticIpAddress
-    {
-        get => new TerraformReference<string>(this, "static_ip_address");
+        get => GetArgument<AzurermContainerAppEnvironmentWorkloadProfileBlock>("workload_profile");
+        set => SetArgument("workload_profile", value);
     }
 
 }

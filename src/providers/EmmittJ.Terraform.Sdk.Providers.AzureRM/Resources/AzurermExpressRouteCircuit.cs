@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for sku in .
@@ -26,7 +17,6 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
     /// The family attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
-    [TerraformArgument("family")]
     public required TerraformValue<string> Family
     {
         get => new TerraformReference<string>(this, "family");
@@ -37,7 +27,6 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
     /// The tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    [TerraformArgument("tier")]
     public required TerraformValue<string> Tier
     {
         get => new TerraformReference<string>(this, "tier");
@@ -60,7 +49,6 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,19 +85,14 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_express_route_circuit Terraform resource.
 /// Manages a azurerm_express_route_circuit resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermExpressRouteCircuit : TerraformResource
+public partial class AzurermExpressRouteCircuit(string name) : TerraformResource("azurerm_express_route_circuit", name)
 {
-    public AzurermExpressRouteCircuit(string name) : base("azurerm_express_route_circuit", name)
-    {
-    }
-
     /// <summary>
     /// The allow_classic_operations attribute.
     /// </summary>
-    [TerraformArgument("allow_classic_operations")]
     public TerraformValue<bool>? AllowClassicOperations
     {
         get => new TerraformReference<bool>(this, "allow_classic_operations");
@@ -122,7 +102,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    [TerraformArgument("authorization_key")]
     public TerraformValue<string>? AuthorizationKey
     {
         get => new TerraformReference<string>(this, "authorization_key");
@@ -132,7 +111,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The bandwidth_in_gbps attribute.
     /// </summary>
-    [TerraformArgument("bandwidth_in_gbps")]
     public TerraformValue<double>? BandwidthInGbps
     {
         get => new TerraformReference<double>(this, "bandwidth_in_gbps");
@@ -142,7 +120,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The bandwidth_in_mbps attribute.
     /// </summary>
-    [TerraformArgument("bandwidth_in_mbps")]
     public TerraformValue<double>? BandwidthInMbps
     {
         get => new TerraformReference<double>(this, "bandwidth_in_mbps");
@@ -152,7 +129,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The express_route_port_id attribute.
     /// </summary>
-    [TerraformArgument("express_route_port_id")]
     public TerraformValue<string>? ExpressRoutePortId
     {
         get => new TerraformReference<string>(this, "express_route_port_id");
@@ -162,7 +138,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -173,7 +148,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -184,7 +158,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -194,7 +167,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The peering_location attribute.
     /// </summary>
-    [TerraformArgument("peering_location")]
     public TerraformValue<string>? PeeringLocation
     {
         get => new TerraformReference<string>(this, "peering_location");
@@ -204,7 +176,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The rate_limiting_enabled attribute.
     /// </summary>
-    [TerraformArgument("rate_limiting_enabled")]
     public TerraformValue<bool>? RateLimitingEnabled
     {
         get => new TerraformReference<bool>(this, "rate_limiting_enabled");
@@ -215,7 +186,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -225,7 +195,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The service_provider_name attribute.
     /// </summary>
-    [TerraformArgument("service_provider_name")]
     public TerraformValue<string>? ServiceProviderName
     {
         get => new TerraformReference<string>(this, "service_provider_name");
@@ -235,7 +204,6 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -243,38 +211,25 @@ public class AzurermExpressRouteCircuit : TerraformResource
     }
 
     /// <summary>
-    /// Block for sku.
-    /// Nesting mode: list
+    /// Sku block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    [TerraformArgument("sku")]
-    public required TerraformList<AzurermExpressRouteCircuitSkuBlock> Sku { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermExpressRouteCircuitTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The service_key attribute.
-    /// </summary>
-    [TerraformArgument("service_key")]
-    public TerraformValue<string> ServiceKey
+    public required AzurermExpressRouteCircuitSkuBlock Sku
     {
-        get => new TerraformReference<string>(this, "service_key");
+        get => GetRequiredArgument<AzurermExpressRouteCircuitSkuBlock>("sku");
+        set => SetArgument("sku", value);
     }
 
     /// <summary>
-    /// The service_provider_provisioning_state attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("service_provider_provisioning_state")]
-    public TerraformValue<string> ServiceProviderProvisioningState
+    public AzurermExpressRouteCircuitTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "service_provider_provisioning_state");
+        get => GetArgument<AzurermExpressRouteCircuitTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

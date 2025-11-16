@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock : TerraformB
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock : TerraformB
 }
 
 /// <summary>
+/// Represents a azurerm_database_migration_project Terraform data source.
 /// Retrieves information about a azurerm_database_migration_project.
 /// </summary>
-public class AzurermDatabaseMigrationProjectDataSource : TerraformDataSource
+public partial class AzurermDatabaseMigrationProjectDataSource(string name) : TerraformDataSource("azurerm_database_migration_project", name)
 {
-    public AzurermDatabaseMigrationProjectDataSource(string name) : base("azurerm_database_migration_project", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermDatabaseMigrationProjectDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermDatabaseMigrationProjectDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -79,7 +63,6 @@ public class AzurermDatabaseMigrationProjectDataSource : TerraformDataSource
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformArgument("service_name")]
     public required TerraformValue<string> ServiceName
     {
         get => new TerraformReference<string>(this, "service_name");
@@ -87,46 +70,12 @@ public class AzurermDatabaseMigrationProjectDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
+    public AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The source_platform attribute.
-    /// </summary>
-    [TerraformArgument("source_platform")]
-    public TerraformValue<string> SourcePlatform
-    {
-        get => new TerraformReference<string>(this, "source_platform");
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The target_platform attribute.
-    /// </summary>
-    [TerraformArgument("target_platform")]
-    public TerraformValue<string> TargetPlatform
-    {
-        get => new TerraformReference<string>(this, "target_platform");
+        get => GetArgument<AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

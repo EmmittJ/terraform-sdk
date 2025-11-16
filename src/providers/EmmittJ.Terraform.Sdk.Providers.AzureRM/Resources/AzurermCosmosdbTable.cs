@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for autoscale_settings in .
@@ -25,7 +16,6 @@ public class AzurermCosmosdbTableAutoscaleSettingsBlock : TerraformBlock
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    [TerraformArgument("max_throughput")]
     public TerraformValue<double> MaxThroughput
     {
         get => new TerraformReference<double>(this, "max_throughput");
@@ -48,7 +38,6 @@ public class AzurermCosmosdbTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -58,7 +47,6 @@ public class AzurermCosmosdbTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -68,7 +56,6 @@ public class AzurermCosmosdbTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -78,7 +65,6 @@ public class AzurermCosmosdbTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -88,20 +74,15 @@ public class AzurermCosmosdbTableTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_cosmosdb_table Terraform resource.
 /// Manages a azurerm_cosmosdb_table resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCosmosdbTable : TerraformResource
+public partial class AzurermCosmosdbTable(string name) : TerraformResource("azurerm_cosmosdb_table", name)
 {
-    public AzurermCosmosdbTable(string name) : base("azurerm_cosmosdb_table", name)
-    {
-    }
-
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformArgument("account_name")]
     public required TerraformValue<string> AccountName
     {
         get => new TerraformReference<string>(this, "account_name");
@@ -111,7 +92,6 @@ public class AzurermCosmosdbTable : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -122,7 +102,6 @@ public class AzurermCosmosdbTable : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -133,7 +112,6 @@ public class AzurermCosmosdbTable : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -143,7 +121,6 @@ public class AzurermCosmosdbTable : TerraformResource
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    [TerraformArgument("throughput")]
     public TerraformValue<double> Throughput
     {
         get => new TerraformReference<double>(this, "throughput");
@@ -151,18 +128,22 @@ public class AzurermCosmosdbTable : TerraformResource
     }
 
     /// <summary>
-    /// Block for autoscale_settings.
-    /// Nesting mode: list
+    /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    [TerraformArgument("autoscale_settings")]
-    public TerraformList<AzurermCosmosdbTableAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
+    public AzurermCosmosdbTableAutoscaleSettingsBlock? AutoscaleSettings
+    {
+        get => GetArgument<AzurermCosmosdbTableAutoscaleSettingsBlock>("autoscale_settings");
+        set => SetArgument("autoscale_settings", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCosmosdbTableTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCosmosdbTableTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCosmosdbTableTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

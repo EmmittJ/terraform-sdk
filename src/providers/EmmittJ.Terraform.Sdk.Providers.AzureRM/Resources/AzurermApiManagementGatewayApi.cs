@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementGatewayApiTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermApiManagementGatewayApiTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermApiManagementGatewayApiTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermApiManagementGatewayApiTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_gateway_api Terraform resource.
 /// Manages a azurerm_api_management_gateway_api resource.
 /// </summary>
-public class AzurermApiManagementGatewayApi : TerraformResource
+public partial class AzurermApiManagementGatewayApi(string name) : TerraformResource("azurerm_api_management_gateway_api", name)
 {
-    public AzurermApiManagementGatewayApi(string name) : base("azurerm_api_management_gateway_api", name)
-    {
-    }
-
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    [TerraformArgument("api_id")]
     public required TerraformValue<string> ApiId
     {
         get => new TerraformReference<string>(this, "api_id");
@@ -78,7 +62,6 @@ public class AzurermApiManagementGatewayApi : TerraformResource
     /// The gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayId is required")]
-    [TerraformArgument("gateway_id")]
     public required TerraformValue<string> GatewayId
     {
         get => new TerraformReference<string>(this, "gateway_id");
@@ -88,7 +71,6 @@ public class AzurermApiManagementGatewayApi : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -96,10 +78,12 @@ public class AzurermApiManagementGatewayApi : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementGatewayApiTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApiManagementGatewayApiTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementGatewayApiTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

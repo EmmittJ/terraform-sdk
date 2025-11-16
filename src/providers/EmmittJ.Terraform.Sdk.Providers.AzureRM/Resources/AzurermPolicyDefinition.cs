@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_policy_definition Terraform resource.
 /// Manages a azurerm_policy_definition resource.
 /// </summary>
-public class AzurermPolicyDefinition : TerraformResource
+public partial class AzurermPolicyDefinition(string name) : TerraformResource("azurerm_policy_definition", name)
 {
-    public AzurermPolicyDefinition(string name) : base("azurerm_policy_definition", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -87,7 +70,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformArgument("display_name")]
     public required TerraformValue<string> DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -97,7 +79,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -107,7 +88,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    [TerraformArgument("management_group_id")]
     public TerraformValue<string>? ManagementGroupId
     {
         get => new TerraformReference<string>(this, "management_group_id");
@@ -117,7 +97,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformArgument("metadata")]
     public TerraformValue<string> Metadata
     {
         get => new TerraformReference<string>(this, "metadata");
@@ -128,7 +107,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    [TerraformArgument("mode")]
     public required TerraformValue<string> Mode
     {
         get => new TerraformReference<string>(this, "mode");
@@ -139,7 +117,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -149,7 +126,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformValue<string>? Parameters
     {
         get => new TerraformReference<string>(this, "parameters");
@@ -159,7 +135,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The policy_rule attribute.
     /// </summary>
-    [TerraformArgument("policy_rule")]
     public TerraformValue<string>? PolicyRule
     {
         get => new TerraformReference<string>(this, "policy_rule");
@@ -170,7 +145,6 @@ public class AzurermPolicyDefinition : TerraformResource
     /// The policy_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
-    [TerraformArgument("policy_type")]
     public required TerraformValue<string> PolicyType
     {
         get => new TerraformReference<string>(this, "policy_type");
@@ -178,19 +152,12 @@ public class AzurermPolicyDefinition : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPolicyDefinitionTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The role_definition_ids attribute.
-    /// </summary>
-    [TerraformArgument("role_definition_ids")]
-    public TerraformList<string> RoleDefinitionIds
+    public AzurermPolicyDefinitionTimeoutsBlock? Timeouts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "role_definition_ids").ResolveNodes(ctx));
+        get => GetArgument<AzurermPolicyDefinitionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

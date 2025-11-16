@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for per_database_settings in .
@@ -26,7 +17,6 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
     /// The max_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
-    [TerraformArgument("max_capacity")]
     public required TerraformValue<double> MaxCapacity
     {
         get => new TerraformReference<double>(this, "max_capacity");
@@ -37,7 +27,6 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
     /// The min_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
-    [TerraformArgument("min_capacity")]
     public required TerraformValue<double> MinCapacity
     {
         get => new TerraformReference<double>(this, "min_capacity");
@@ -61,7 +50,6 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     /// The capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
-    [TerraformArgument("capacity")]
     public required TerraformValue<double> Capacity
     {
         get => new TerraformReference<double>(this, "capacity");
@@ -71,7 +59,6 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     /// <summary>
     /// The family attribute.
     /// </summary>
-    [TerraformArgument("family")]
     public TerraformValue<string>? Family
     {
         get => new TerraformReference<string>(this, "family");
@@ -82,7 +69,6 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -93,7 +79,6 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     /// The tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    [TerraformArgument("tier")]
     public required TerraformValue<string> Tier
     {
         get => new TerraformReference<string>(this, "tier");
@@ -116,7 +101,6 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -126,7 +110,6 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -136,7 +119,6 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -146,7 +128,6 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -156,19 +137,14 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mssql_elasticpool Terraform resource.
 /// Manages a azurerm_mssql_elasticpool resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMssqlElasticpool : TerraformResource
+public partial class AzurermMssqlElasticpool(string name) : TerraformResource("azurerm_mssql_elasticpool", name)
 {
-    public AzurermMssqlElasticpool(string name) : base("azurerm_mssql_elasticpool", name)
-    {
-    }
-
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    [TerraformArgument("enclave_type")]
     public TerraformValue<string> EnclaveType
     {
         get => new TerraformReference<string>(this, "enclave_type");
@@ -178,7 +154,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -188,7 +163,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    [TerraformArgument("license_type")]
     public TerraformValue<string> LicenseType
     {
         get => new TerraformReference<string>(this, "license_type");
@@ -199,7 +173,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -209,7 +182,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
-    [TerraformArgument("maintenance_configuration_name")]
     public TerraformValue<string>? MaintenanceConfigurationName
     {
         get => new TerraformReference<string>(this, "maintenance_configuration_name");
@@ -219,7 +191,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The max_size_bytes attribute.
     /// </summary>
-    [TerraformArgument("max_size_bytes")]
     public TerraformValue<double> MaxSizeBytes
     {
         get => new TerraformReference<double>(this, "max_size_bytes");
@@ -229,7 +200,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    [TerraformArgument("max_size_gb")]
     public TerraformValue<double> MaxSizeGb
     {
         get => new TerraformReference<double>(this, "max_size_gb");
@@ -240,7 +210,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -251,7 +220,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -262,7 +230,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// The server_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
-    [TerraformArgument("server_name")]
     public required TerraformValue<string> ServerName
     {
         get => new TerraformReference<string>(this, "server_name");
@@ -272,7 +239,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -282,7 +248,6 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    [TerraformArgument("zone_redundant")]
     public TerraformValue<bool>? ZoneRedundant
     {
         get => new TerraformReference<bool>(this, "zone_redundant");
@@ -290,30 +255,38 @@ public class AzurermMssqlElasticpool : TerraformResource
     }
 
     /// <summary>
-    /// Block for per_database_settings.
-    /// Nesting mode: list
+    /// PerDatabaseSettings block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerDatabaseSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PerDatabaseSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerDatabaseSettings block(s) allowed")]
-    [TerraformArgument("per_database_settings")]
-    public required TerraformList<AzurermMssqlElasticpoolPerDatabaseSettingsBlock> PerDatabaseSettings { get; set; } = new();
+    public required AzurermMssqlElasticpoolPerDatabaseSettingsBlock PerDatabaseSettings
+    {
+        get => GetRequiredArgument<AzurermMssqlElasticpoolPerDatabaseSettingsBlock>("per_database_settings");
+        set => SetArgument("per_database_settings", value);
+    }
 
     /// <summary>
-    /// Block for sku.
-    /// Nesting mode: list
+    /// Sku block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    [TerraformArgument("sku")]
-    public required TerraformList<AzurermMssqlElasticpoolSkuBlock> Sku { get; set; } = new();
+    public required AzurermMssqlElasticpoolSkuBlock Sku
+    {
+        get => GetRequiredArgument<AzurermMssqlElasticpoolSkuBlock>("sku");
+        set => SetArgument("sku", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMssqlElasticpoolTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMssqlElasticpoolTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMssqlElasticpoolTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

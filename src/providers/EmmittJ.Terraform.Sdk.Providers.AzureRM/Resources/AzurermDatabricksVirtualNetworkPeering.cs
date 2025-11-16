@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_databricks_virtual_network_peering Terraform resource.
 /// Manages a azurerm_databricks_virtual_network_peering resource.
 /// </summary>
-public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
+public partial class AzurermDatabricksVirtualNetworkPeering(string name) : TerraformResource("azurerm_databricks_virtual_network_peering", name)
 {
-    public AzurermDatabricksVirtualNetworkPeering(string name) : base("azurerm_databricks_virtual_network_peering", name)
-    {
-    }
-
     /// <summary>
     /// The allow_forwarded_traffic attribute.
     /// </summary>
-    [TerraformArgument("allow_forwarded_traffic")]
     public TerraformValue<bool>? AllowForwardedTraffic
     {
         get => new TerraformReference<bool>(this, "allow_forwarded_traffic");
@@ -86,7 +69,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// <summary>
     /// The allow_gateway_transit attribute.
     /// </summary>
-    [TerraformArgument("allow_gateway_transit")]
     public TerraformValue<bool>? AllowGatewayTransit
     {
         get => new TerraformReference<bool>(this, "allow_gateway_transit");
@@ -96,7 +78,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// <summary>
     /// The allow_virtual_network_access attribute.
     /// </summary>
-    [TerraformArgument("allow_virtual_network_access")]
     public TerraformValue<bool>? AllowVirtualNetworkAccess
     {
         get => new TerraformReference<bool>(this, "allow_virtual_network_access");
@@ -106,7 +87,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -117,7 +97,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -128,7 +107,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// The remote_address_space_prefixes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteAddressSpacePrefixes is required")]
-    [TerraformArgument("remote_address_space_prefixes")]
     public TerraformList<string>? RemoteAddressSpacePrefixes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "remote_address_space_prefixes").ResolveNodes(ctx));
@@ -139,7 +117,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// The remote_virtual_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
-    [TerraformArgument("remote_virtual_network_id")]
     public required TerraformValue<string> RemoteVirtualNetworkId
     {
         get => new TerraformReference<string>(this, "remote_virtual_network_id");
@@ -150,7 +127,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -160,7 +136,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// <summary>
     /// The use_remote_gateways attribute.
     /// </summary>
-    [TerraformArgument("use_remote_gateways")]
     public TerraformValue<bool>? UseRemoteGateways
     {
         get => new TerraformReference<bool>(this, "use_remote_gateways");
@@ -171,7 +146,6 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -179,28 +153,12 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The address_space_prefixes attribute.
-    /// </summary>
-    [TerraformArgument("address_space_prefixes")]
-    public TerraformList<string> AddressSpacePrefixes
+    public AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock? Timeouts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_space_prefixes").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The virtual_network_id attribute.
-    /// </summary>
-    [TerraformArgument("virtual_network_id")]
-    public TerraformValue<string> VirtualNetworkId
-    {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

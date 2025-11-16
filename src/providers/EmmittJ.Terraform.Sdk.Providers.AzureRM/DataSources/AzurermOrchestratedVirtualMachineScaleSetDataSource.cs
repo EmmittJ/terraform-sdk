@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataSourceTimeoutsBlock : 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataSourceTimeoutsBlock : 
 }
 
 /// <summary>
+/// Represents a azurerm_orchestrated_virtual_machine_scale_set Terraform data source.
 /// Retrieves information about a azurerm_orchestrated_virtual_machine_scale_set.
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetDataSource : TerraformDataSource
+public partial class AzurermOrchestratedVirtualMachineScaleSetDataSource(string name) : TerraformDataSource("azurerm_orchestrated_virtual_machine_scale_set", name)
 {
-    public AzurermOrchestratedVirtualMachineScaleSetDataSource(string name) : base("azurerm_orchestrated_virtual_machine_scale_set", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataSource : TerraformData
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataSource : TerraformData
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -76,37 +60,12 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataSource : TerraformData
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermOrchestratedVirtualMachineScaleSetDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The identity attribute.
-    /// </summary>
-    [TerraformArgument("identity")]
-    public TerraformList<object> Identity
+    public AzurermOrchestratedVirtualMachineScaleSetDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "identity").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The network_interface attribute.
-    /// </summary>
-    [TerraformArgument("network_interface")]
-    public TerraformList<object> NetworkInterface
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "network_interface").ResolveNodes(ctx));
+        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

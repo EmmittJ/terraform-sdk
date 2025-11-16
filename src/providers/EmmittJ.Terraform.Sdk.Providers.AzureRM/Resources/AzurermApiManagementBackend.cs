@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for credentials in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformArgument("certificate")]
     public TerraformList<string>? Certificate
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate").ResolveNodes(ctx));
@@ -35,7 +25,6 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// <summary>
     /// The header attribute.
     /// </summary>
-    [TerraformArgument("header")]
     public TerraformMap<string>? Header
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "header").ResolveNodes(ctx));
@@ -45,7 +34,6 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// <summary>
     /// The query attribute.
     /// </summary>
-    [TerraformArgument("query")]
     public TerraformMap<string>? Query
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "query").ResolveNodes(ctx));
@@ -68,7 +56,6 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformArgument("password")]
     public TerraformValue<string>? Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -79,7 +66,6 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformArgument("url")]
     public required TerraformValue<string> Url
     {
         get => new TerraformReference<string>(this, "url");
@@ -90,7 +76,6 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    [TerraformArgument("username")]
     public required TerraformValue<string> Username
     {
         get => new TerraformReference<string>(this, "username");
@@ -113,7 +98,6 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// <summary>
     /// The client_certificate_id attribute.
     /// </summary>
-    [TerraformArgument("client_certificate_id")]
     public TerraformValue<string> ClientCertificateId
     {
         get => new TerraformReference<string>(this, "client_certificate_id");
@@ -123,7 +107,6 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// <summary>
     /// The client_certificate_thumbprint attribute.
     /// </summary>
-    [TerraformArgument("client_certificate_thumbprint")]
     public TerraformValue<string> ClientCertificateThumbprint
     {
         get => new TerraformReference<string>(this, "client_certificate_thumbprint");
@@ -134,7 +117,6 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// The management_endpoints attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementEndpoints is required")]
-    [TerraformArgument("management_endpoints")]
     public required TerraformSet<string> ManagementEndpoints
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "management_endpoints").ResolveNodes(ctx));
@@ -145,7 +127,6 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// The max_partition_resolution_retries attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPartitionResolutionRetries is required")]
-    [TerraformArgument("max_partition_resolution_retries")]
     public required TerraformValue<double> MaxPartitionResolutionRetries
     {
         get => new TerraformReference<double>(this, "max_partition_resolution_retries");
@@ -155,7 +136,6 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// <summary>
     /// The server_certificate_thumbprints attribute.
     /// </summary>
-    [TerraformArgument("server_certificate_thumbprints")]
     public TerraformSet<string>? ServerCertificateThumbprints
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "server_certificate_thumbprints").ResolveNodes(ctx));
@@ -178,7 +158,6 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -188,7 +167,6 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -198,7 +176,6 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -208,7 +185,6 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -231,7 +207,6 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
     /// <summary>
     /// The validate_certificate_chain attribute.
     /// </summary>
-    [TerraformArgument("validate_certificate_chain")]
     public TerraformValue<bool>? ValidateCertificateChain
     {
         get => new TerraformReference<bool>(this, "validate_certificate_chain");
@@ -241,7 +216,6 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
     /// <summary>
     /// The validate_certificate_name attribute.
     /// </summary>
-    [TerraformArgument("validate_certificate_name")]
     public TerraformValue<bool>? ValidateCertificateName
     {
         get => new TerraformReference<bool>(this, "validate_certificate_name");
@@ -251,20 +225,15 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_backend Terraform resource.
 /// Manages a azurerm_api_management_backend resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApiManagementBackend : TerraformResource
+public partial class AzurermApiManagementBackend(string name) : TerraformResource("azurerm_api_management_backend", name)
 {
-    public AzurermApiManagementBackend(string name) : base("azurerm_api_management_backend", name)
-    {
-    }
-
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    [TerraformArgument("api_management_name")]
     public required TerraformValue<string> ApiManagementName
     {
         get => new TerraformReference<string>(this, "api_management_name");
@@ -274,7 +243,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -284,7 +252,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -295,7 +262,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -306,7 +272,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -317,7 +282,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -327,7 +291,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    [TerraformArgument("resource_id")]
     public TerraformValue<string>? ResourceId
     {
         get => new TerraformReference<string>(this, "resource_id");
@@ -337,7 +300,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// <summary>
     /// The title attribute.
     /// </summary>
-    [TerraformArgument("title")]
     public TerraformValue<string>? Title
     {
         get => new TerraformReference<string>(this, "title");
@@ -348,7 +310,6 @@ public class AzurermApiManagementBackend : TerraformResource
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformArgument("url")]
     public required TerraformValue<string> Url
     {
         get => new TerraformReference<string>(this, "url");
@@ -356,42 +317,52 @@ public class AzurermApiManagementBackend : TerraformResource
     }
 
     /// <summary>
-    /// Block for credentials.
-    /// Nesting mode: list
+    /// Credentials block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
-    [TerraformArgument("credentials")]
-    public TerraformList<AzurermApiManagementBackendCredentialsBlock> Credentials { get; set; } = new();
+    public AzurermApiManagementBackendCredentialsBlock? Credentials
+    {
+        get => GetArgument<AzurermApiManagementBackendCredentialsBlock>("credentials");
+        set => SetArgument("credentials", value);
+    }
 
     /// <summary>
-    /// Block for proxy.
-    /// Nesting mode: list
+    /// Proxy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
-    [TerraformArgument("proxy")]
-    public TerraformList<AzurermApiManagementBackendProxyBlock> Proxy { get; set; } = new();
+    public AzurermApiManagementBackendProxyBlock? Proxy
+    {
+        get => GetArgument<AzurermApiManagementBackendProxyBlock>("proxy");
+        set => SetArgument("proxy", value);
+    }
 
     /// <summary>
-    /// Block for service_fabric_cluster.
-    /// Nesting mode: list
+    /// ServiceFabricCluster block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceFabricCluster block(s) allowed")]
-    [TerraformArgument("service_fabric_cluster")]
-    public TerraformList<AzurermApiManagementBackendServiceFabricClusterBlock> ServiceFabricCluster { get; set; } = new();
+    public AzurermApiManagementBackendServiceFabricClusterBlock? ServiceFabricCluster
+    {
+        get => GetArgument<AzurermApiManagementBackendServiceFabricClusterBlock>("service_fabric_cluster");
+        set => SetArgument("service_fabric_cluster", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementBackendTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApiManagementBackendTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementBackendTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for tls.
-    /// Nesting mode: list
+    /// Tls block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
-    [TerraformArgument("tls")]
-    public TerraformList<AzurermApiManagementBackendTlsBlock> Tls { get; set; } = new();
+    public AzurermApiManagementBackendTlsBlock? Tls
+    {
+        get => GetArgument<AzurermApiManagementBackendTlsBlock>("tls");
+        set => SetArgument("tls", value);
+    }
 
 }

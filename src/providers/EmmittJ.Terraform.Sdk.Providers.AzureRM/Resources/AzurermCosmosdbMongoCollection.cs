@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for autoscale_settings in .
@@ -25,7 +16,6 @@ public class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : TerraformBlo
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    [TerraformArgument("max_throughput")]
     public TerraformValue<double> MaxThroughput
     {
         get => new TerraformReference<double>(this, "max_throughput");
@@ -48,9 +38,8 @@ public class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlock
     /// <summary>
     /// The keys attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keys is required")]
-    [TerraformArgument("keys")]
-    public TerraformList<string>? Keys
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeysAttribute is required")]
+    public TerraformList<string>? KeysAttribute
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "keys").ResolveNodes(ctx));
         set => SetArgument("keys", value);
@@ -59,7 +48,6 @@ public class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlock
     /// <summary>
     /// The unique attribute.
     /// </summary>
-    [TerraformArgument("unique")]
     public TerraformValue<bool>? Unique
     {
         get => new TerraformReference<bool>(this, "unique");
@@ -82,7 +70,6 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -92,7 +79,6 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -102,7 +88,6 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -112,7 +97,6 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -122,20 +106,15 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_cosmosdb_mongo_collection Terraform resource.
 /// Manages a azurerm_cosmosdb_mongo_collection resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCosmosdbMongoCollection : TerraformResource
+public partial class AzurermCosmosdbMongoCollection(string name) : TerraformResource("azurerm_cosmosdb_mongo_collection", name)
 {
-    public AzurermCosmosdbMongoCollection(string name) : base("azurerm_cosmosdb_mongo_collection", name)
-    {
-    }
-
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformArgument("account_name")]
     public required TerraformValue<string> AccountName
     {
         get => new TerraformReference<string>(this, "account_name");
@@ -145,7 +124,6 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    [TerraformArgument("analytical_storage_ttl")]
     public TerraformValue<double>? AnalyticalStorageTtl
     {
         get => new TerraformReference<double>(this, "analytical_storage_ttl");
@@ -156,7 +134,6 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    [TerraformArgument("database_name")]
     public required TerraformValue<string> DatabaseName
     {
         get => new TerraformReference<string>(this, "database_name");
@@ -166,7 +143,6 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// <summary>
     /// The default_ttl_seconds attribute.
     /// </summary>
-    [TerraformArgument("default_ttl_seconds")]
     public TerraformValue<double>? DefaultTtlSeconds
     {
         get => new TerraformReference<double>(this, "default_ttl_seconds");
@@ -176,7 +152,6 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -187,7 +162,6 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -198,7 +172,6 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -208,7 +181,6 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// <summary>
     /// The shard_key attribute.
     /// </summary>
-    [TerraformArgument("shard_key")]
     public TerraformValue<string>? ShardKey
     {
         get => new TerraformReference<string>(this, "shard_key");
@@ -218,7 +190,6 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    [TerraformArgument("throughput")]
     public TerraformValue<double> Throughput
     {
         get => new TerraformReference<double>(this, "throughput");
@@ -226,34 +197,31 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     }
 
     /// <summary>
-    /// Block for autoscale_settings.
-    /// Nesting mode: list
+    /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    [TerraformArgument("autoscale_settings")]
-    public TerraformList<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
-
-    /// <summary>
-    /// Block for index.
-    /// Nesting mode: set
-    /// </summary>
-    [TerraformArgument("index")]
-    public TerraformSet<AzurermCosmosdbMongoCollectionIndexBlock> Index { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCosmosdbMongoCollectionTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The system_indexes attribute.
-    /// </summary>
-    [TerraformArgument("system_indexes")]
-    public TerraformList<object> SystemIndexes
+    public AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock? AutoscaleSettings
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "system_indexes").ResolveNodes(ctx));
+        get => GetArgument<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock>("autoscale_settings");
+        set => SetArgument("autoscale_settings", value);
+    }
+
+    /// <summary>
+    /// Index block (nesting mode: set).
+    /// </summary>
+    public AzurermCosmosdbMongoCollectionIndexBlock? Index
+    {
+        get => GetArgument<AzurermCosmosdbMongoCollectionIndexBlock>("index");
+        set => SetArgument("index", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermCosmosdbMongoCollectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCosmosdbMongoCollectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

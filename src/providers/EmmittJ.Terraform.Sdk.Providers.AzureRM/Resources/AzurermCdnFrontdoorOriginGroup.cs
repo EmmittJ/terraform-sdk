@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for health_probe in .
@@ -26,7 +17,6 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     /// The interval_in_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalInSeconds is required")]
-    [TerraformArgument("interval_in_seconds")]
     public required TerraformValue<double> IntervalInSeconds
     {
         get => new TerraformReference<double>(this, "interval_in_seconds");
@@ -36,7 +26,6 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformArgument("path")]
     public TerraformValue<string>? Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -47,7 +36,6 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -57,7 +45,6 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     /// <summary>
     /// The request_type attribute.
     /// </summary>
-    [TerraformArgument("request_type")]
     public TerraformValue<string>? RequestType
     {
         get => new TerraformReference<string>(this, "request_type");
@@ -80,7 +67,6 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// <summary>
     /// The additional_latency_in_milliseconds attribute.
     /// </summary>
-    [TerraformArgument("additional_latency_in_milliseconds")]
     public TerraformValue<double>? AdditionalLatencyInMilliseconds
     {
         get => new TerraformReference<double>(this, "additional_latency_in_milliseconds");
@@ -90,7 +76,6 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// <summary>
     /// The sample_size attribute.
     /// </summary>
-    [TerraformArgument("sample_size")]
     public TerraformValue<double>? SampleSize
     {
         get => new TerraformReference<double>(this, "sample_size");
@@ -100,7 +85,6 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// <summary>
     /// The successful_samples_required attribute.
     /// </summary>
-    [TerraformArgument("successful_samples_required")]
     public TerraformValue<double>? SuccessfulSamplesRequired
     {
         get => new TerraformReference<double>(this, "successful_samples_required");
@@ -123,7 +107,6 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -133,7 +116,6 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -143,7 +125,6 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -153,7 +134,6 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -163,20 +143,15 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_cdn_frontdoor_origin_group Terraform resource.
 /// Manages a azurerm_cdn_frontdoor_origin_group resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCdnFrontdoorOriginGroup : TerraformResource
+public partial class AzurermCdnFrontdoorOriginGroup(string name) : TerraformResource("azurerm_cdn_frontdoor_origin_group", name)
 {
-    public AzurermCdnFrontdoorOriginGroup(string name) : base("azurerm_cdn_frontdoor_origin_group", name)
-    {
-    }
-
     /// <summary>
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
-    [TerraformArgument("cdn_frontdoor_profile_id")]
     public required TerraformValue<string> CdnFrontdoorProfileId
     {
         get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
@@ -186,7 +161,6 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -197,7 +171,6 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -207,7 +180,6 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     /// <summary>
     /// The restore_traffic_time_to_healed_or_new_endpoint_in_minutes attribute.
     /// </summary>
-    [TerraformArgument("restore_traffic_time_to_healed_or_new_endpoint_in_minutes")]
     public TerraformValue<double>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes
     {
         get => new TerraformReference<double>(this, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
@@ -217,7 +189,6 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     /// <summary>
     /// The session_affinity_enabled attribute.
     /// </summary>
-    [TerraformArgument("session_affinity_enabled")]
     public TerraformValue<bool>? SessionAffinityEnabled
     {
         get => new TerraformReference<bool>(this, "session_affinity_enabled");
@@ -225,28 +196,35 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for health_probe.
-    /// Nesting mode: list
+    /// HealthProbe block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthProbe block(s) allowed")]
-    [TerraformArgument("health_probe")]
-    public TerraformList<AzurermCdnFrontdoorOriginGroupHealthProbeBlock> HealthProbe { get; set; } = new();
+    public AzurermCdnFrontdoorOriginGroupHealthProbeBlock? HealthProbe
+    {
+        get => GetArgument<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>("health_probe");
+        set => SetArgument("health_probe", value);
+    }
 
     /// <summary>
-    /// Block for load_balancing.
-    /// Nesting mode: list
+    /// LoadBalancing block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancing is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancing block(s) allowed")]
-    [TerraformArgument("load_balancing")]
-    public required TerraformList<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock> LoadBalancing { get; set; } = new();
+    public required AzurermCdnFrontdoorOriginGroupLoadBalancingBlock LoadBalancing
+    {
+        get => GetRequiredArgument<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock>("load_balancing");
+        set => SetArgument("load_balancing", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCdnFrontdoorOriginGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCdnFrontdoorOriginGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCdnFrontdoorOriginGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

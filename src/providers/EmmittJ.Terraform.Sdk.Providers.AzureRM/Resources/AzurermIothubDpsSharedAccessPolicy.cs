@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_iothub_dps_shared_access_policy Terraform resource.
 /// Manages a azurerm_iothub_dps_shared_access_policy resource.
 /// </summary>
-public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
+public partial class AzurermIothubDpsSharedAccessPolicy(string name) : TerraformResource("azurerm_iothub_dps_shared_access_policy", name)
 {
-    public AzurermIothubDpsSharedAccessPolicy(string name) : base("azurerm_iothub_dps_shared_access_policy", name)
-    {
-    }
-
     /// <summary>
     /// The enrollment_read attribute.
     /// </summary>
-    [TerraformArgument("enrollment_read")]
     public TerraformValue<bool>? EnrollmentRead
     {
         get => new TerraformReference<bool>(this, "enrollment_read");
@@ -86,7 +69,6 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// <summary>
     /// The enrollment_write attribute.
     /// </summary>
-    [TerraformArgument("enrollment_write")]
     public TerraformValue<bool>? EnrollmentWrite
     {
         get => new TerraformReference<bool>(this, "enrollment_write");
@@ -96,7 +78,6 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -107,7 +88,6 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// The iothub_dps_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubDpsName is required")]
-    [TerraformArgument("iothub_dps_name")]
     public required TerraformValue<string> IothubDpsName
     {
         get => new TerraformReference<string>(this, "iothub_dps_name");
@@ -118,7 +98,6 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -128,7 +107,6 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// <summary>
     /// The registration_read attribute.
     /// </summary>
-    [TerraformArgument("registration_read")]
     public TerraformValue<bool>? RegistrationRead
     {
         get => new TerraformReference<bool>(this, "registration_read");
@@ -138,7 +116,6 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// <summary>
     /// The registration_write attribute.
     /// </summary>
-    [TerraformArgument("registration_write")]
     public TerraformValue<bool>? RegistrationWrite
     {
         get => new TerraformReference<bool>(this, "registration_write");
@@ -149,7 +126,6 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -159,7 +135,6 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// <summary>
     /// The service_config attribute.
     /// </summary>
-    [TerraformArgument("service_config")]
     public TerraformValue<bool>? ServiceConfig
     {
         get => new TerraformReference<bool>(this, "service_config");
@@ -167,46 +142,12 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIothubDpsSharedAccessPolicyTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The primary_connection_string attribute.
-    /// </summary>
-    [TerraformArgument("primary_connection_string")]
-    public TerraformValue<string> PrimaryConnectionString
+    public AzurermIothubDpsSharedAccessPolicyTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "primary_connection_string");
-    }
-
-    /// <summary>
-    /// The primary_key attribute.
-    /// </summary>
-    [TerraformArgument("primary_key")]
-    public TerraformValue<string> PrimaryKey
-    {
-        get => new TerraformReference<string>(this, "primary_key");
-    }
-
-    /// <summary>
-    /// The secondary_connection_string attribute.
-    /// </summary>
-    [TerraformArgument("secondary_connection_string")]
-    public TerraformValue<string> SecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string");
-    }
-
-    /// <summary>
-    /// The secondary_key attribute.
-    /// </summary>
-    [TerraformArgument("secondary_key")]
-    public TerraformValue<string> SecondaryKey
-    {
-        get => new TerraformReference<string>(this, "secondary_key");
+        get => GetArgument<AzurermIothubDpsSharedAccessPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

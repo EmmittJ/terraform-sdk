@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_lb_probe Terraform resource.
 /// Manages a azurerm_lb_probe resource.
 /// </summary>
-public class AzurermLbProbe : TerraformResource
+public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb_probe", name)
 {
-    public AzurermLbProbe(string name) : base("azurerm_lb_probe", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -86,7 +69,6 @@ public class AzurermLbProbe : TerraformResource
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("interval_in_seconds")]
     public TerraformValue<double>? IntervalInSeconds
     {
         get => new TerraformReference<double>(this, "interval_in_seconds");
@@ -97,7 +79,6 @@ public class AzurermLbProbe : TerraformResource
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    [TerraformArgument("loadbalancer_id")]
     public required TerraformValue<string> LoadbalancerId
     {
         get => new TerraformReference<string>(this, "loadbalancer_id");
@@ -108,7 +89,6 @@ public class AzurermLbProbe : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -118,7 +98,6 @@ public class AzurermLbProbe : TerraformResource
     /// <summary>
     /// The number_of_probes attribute.
     /// </summary>
-    [TerraformArgument("number_of_probes")]
     public TerraformValue<double>? NumberOfProbes
     {
         get => new TerraformReference<double>(this, "number_of_probes");
@@ -129,7 +108,6 @@ public class AzurermLbProbe : TerraformResource
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformArgument("port")]
     public required TerraformValue<double> Port
     {
         get => new TerraformReference<double>(this, "port");
@@ -139,7 +117,6 @@ public class AzurermLbProbe : TerraformResource
     /// <summary>
     /// The probe_threshold attribute.
     /// </summary>
-    [TerraformArgument("probe_threshold")]
     public TerraformValue<double>? ProbeThreshold
     {
         get => new TerraformReference<double>(this, "probe_threshold");
@@ -149,7 +126,6 @@ public class AzurermLbProbe : TerraformResource
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformArgument("protocol")]
     public TerraformValue<string>? Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -159,7 +135,6 @@ public class AzurermLbProbe : TerraformResource
     /// <summary>
     /// The request_path attribute.
     /// </summary>
-    [TerraformArgument("request_path")]
     public TerraformValue<string>? RequestPath
     {
         get => new TerraformReference<string>(this, "request_path");
@@ -167,19 +142,12 @@ public class AzurermLbProbe : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLbProbeTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The load_balancer_rules attribute.
-    /// </summary>
-    [TerraformArgument("load_balancer_rules")]
-    public TerraformSet<string> LoadBalancerRules
+    public AzurermLbProbeTimeoutsBlock? Timeouts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "load_balancer_rules").ResolveNodes(ctx));
+        get => GetArgument<AzurermLbProbeTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for serialization in .
@@ -25,7 +16,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2SerializationBlock : Ter
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    [TerraformArgument("encoding")]
     public TerraformValue<string>? Encoding
     {
         get => new TerraformReference<string>(this, "encoding");
@@ -35,7 +25,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2SerializationBlock : Ter
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    [TerraformArgument("field_delimiter")]
     public TerraformValue<string>? FieldDelimiter
     {
         get => new TerraformReference<string>(this, "field_delimiter");
@@ -46,7 +35,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2SerializationBlock : Ter
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -69,7 +57,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock : Terrafor
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -79,7 +66,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock : Terrafor
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -89,7 +75,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock : Terrafor
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -99,7 +84,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock : Terrafor
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -109,19 +93,14 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock : Terrafor
 }
 
 /// <summary>
+/// Represents a azurerm_stream_analytics_stream_input_eventhub_v2 Terraform resource.
 /// Manages a azurerm_stream_analytics_stream_input_eventhub_v2 resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
+public partial class AzurermStreamAnalyticsStreamInputEventhubV2(string name) : TerraformResource("azurerm_stream_analytics_stream_input_eventhub_v2", name)
 {
-    public AzurermStreamAnalyticsStreamInputEventhubV2(string name) : base("azurerm_stream_analytics_stream_input_eventhub_v2", name)
-    {
-    }
-
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    [TerraformArgument("authentication_mode")]
     public TerraformValue<string>? AuthenticationMode
     {
         get => new TerraformReference<string>(this, "authentication_mode");
@@ -131,7 +110,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
-    [TerraformArgument("eventhub_consumer_group_name")]
     public TerraformValue<string>? EventhubConsumerGroupName
     {
         get => new TerraformReference<string>(this, "eventhub_consumer_group_name");
@@ -142,7 +120,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// The eventhub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
-    [TerraformArgument("eventhub_name")]
     public required TerraformValue<string> EventhubName
     {
         get => new TerraformReference<string>(this, "eventhub_name");
@@ -152,7 +129,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -163,7 +139,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -173,7 +148,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    [TerraformArgument("partition_key")]
     public TerraformValue<string>? PartitionKey
     {
         get => new TerraformReference<string>(this, "partition_key");
@@ -184,7 +158,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// The servicebus_namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusNamespace is required")]
-    [TerraformArgument("servicebus_namespace")]
     public required TerraformValue<string> ServicebusNamespace
     {
         get => new TerraformReference<string>(this, "servicebus_namespace");
@@ -194,7 +167,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// <summary>
     /// The shared_access_policy_key attribute.
     /// </summary>
-    [TerraformArgument("shared_access_policy_key")]
     public TerraformValue<string>? SharedAccessPolicyKey
     {
         get => new TerraformReference<string>(this, "shared_access_policy_key");
@@ -204,7 +176,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// <summary>
     /// The shared_access_policy_name attribute.
     /// </summary>
-    [TerraformArgument("shared_access_policy_name")]
     public TerraformValue<string>? SharedAccessPolicyName
     {
         get => new TerraformReference<string>(this, "shared_access_policy_name");
@@ -215,7 +186,6 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// The stream_analytics_job_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
-    [TerraformArgument("stream_analytics_job_id")]
     public required TerraformValue<string> StreamAnalyticsJobId
     {
         get => new TerraformReference<string>(this, "stream_analytics_job_id");
@@ -223,20 +193,25 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     }
 
     /// <summary>
-    /// Block for serialization.
-    /// Nesting mode: list
+    /// Serialization block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
-    [TerraformArgument("serialization")]
-    public required TerraformList<AzurermStreamAnalyticsStreamInputEventhubV2SerializationBlock> Serialization { get; set; } = new();
+    public required AzurermStreamAnalyticsStreamInputEventhubV2SerializationBlock Serialization
+    {
+        get => GetRequiredArgument<AzurermStreamAnalyticsStreamInputEventhubV2SerializationBlock>("serialization");
+        set => SetArgument("serialization", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

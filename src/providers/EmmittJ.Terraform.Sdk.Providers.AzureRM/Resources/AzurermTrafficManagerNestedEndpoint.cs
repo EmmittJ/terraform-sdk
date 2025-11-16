@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for custom_header in .
@@ -26,7 +17,6 @@ public class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : TerraformBlo
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -37,7 +27,6 @@ public class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : TerraformBlo
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformArgument("value")]
     public required TerraformValue<string> Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -61,7 +50,6 @@ public class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformBlock
     /// The first attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "First is required")]
-    [TerraformArgument("first")]
     public required TerraformValue<string> First
     {
         get => new TerraformReference<string>(this, "first");
@@ -71,7 +59,6 @@ public class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformBlock
     /// <summary>
     /// The last attribute.
     /// </summary>
-    [TerraformArgument("last")]
     public TerraformValue<string>? Last
     {
         get => new TerraformReference<string>(this, "last");
@@ -81,7 +68,6 @@ public class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformBlock
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    [TerraformArgument("scope")]
     public TerraformValue<double>? Scope
     {
         get => new TerraformReference<double>(this, "scope");
@@ -104,7 +90,6 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -114,7 +99,6 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -124,7 +108,6 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -134,7 +117,6 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -144,18 +126,14 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_traffic_manager_nested_endpoint Terraform resource.
 /// Manages a azurerm_traffic_manager_nested_endpoint resource.
 /// </summary>
-public class AzurermTrafficManagerNestedEndpoint : TerraformResource
+public partial class AzurermTrafficManagerNestedEndpoint(string name) : TerraformResource("azurerm_traffic_manager_nested_endpoint", name)
 {
-    public AzurermTrafficManagerNestedEndpoint(string name) : base("azurerm_traffic_manager_nested_endpoint", name)
-    {
-    }
-
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -165,7 +143,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// <summary>
     /// The endpoint_location attribute.
     /// </summary>
-    [TerraformArgument("endpoint_location")]
     public TerraformValue<string> EndpointLocation
     {
         get => new TerraformReference<string>(this, "endpoint_location");
@@ -175,7 +152,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// <summary>
     /// The geo_mappings attribute.
     /// </summary>
-    [TerraformArgument("geo_mappings")]
     public TerraformList<string>? GeoMappings
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "geo_mappings").ResolveNodes(ctx));
@@ -185,7 +161,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -196,7 +171,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// The minimum_child_endpoints attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumChildEndpoints is required")]
-    [TerraformArgument("minimum_child_endpoints")]
     public required TerraformValue<double> MinimumChildEndpoints
     {
         get => new TerraformReference<double>(this, "minimum_child_endpoints");
@@ -206,7 +180,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// <summary>
     /// The minimum_required_child_endpoints_ipv4 attribute.
     /// </summary>
-    [TerraformArgument("minimum_required_child_endpoints_ipv4")]
     public TerraformValue<double>? MinimumRequiredChildEndpointsIpv4
     {
         get => new TerraformReference<double>(this, "minimum_required_child_endpoints_ipv4");
@@ -216,7 +189,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// <summary>
     /// The minimum_required_child_endpoints_ipv6 attribute.
     /// </summary>
-    [TerraformArgument("minimum_required_child_endpoints_ipv6")]
     public TerraformValue<double>? MinimumRequiredChildEndpointsIpv6
     {
         get => new TerraformReference<double>(this, "minimum_required_child_endpoints_ipv6");
@@ -227,7 +199,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -237,7 +208,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformArgument("priority")]
     public TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -248,7 +218,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// The profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
-    [TerraformArgument("profile_id")]
     public required TerraformValue<string> ProfileId
     {
         get => new TerraformReference<string>(this, "profile_id");
@@ -259,7 +228,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    [TerraformArgument("target_resource_id")]
     public required TerraformValue<string> TargetResourceId
     {
         get => new TerraformReference<string>(this, "target_resource_id");
@@ -269,7 +237,6 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// <summary>
     /// The weight attribute.
     /// </summary>
-    [TerraformArgument("weight")]
     public TerraformValue<double>? Weight
     {
         get => new TerraformReference<double>(this, "weight");
@@ -277,24 +244,30 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     }
 
     /// <summary>
-    /// Block for custom_header.
-    /// Nesting mode: list
+    /// CustomHeader block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("custom_header")]
-    public TerraformList<AzurermTrafficManagerNestedEndpointCustomHeaderBlock> CustomHeader { get; set; } = new();
+    public AzurermTrafficManagerNestedEndpointCustomHeaderBlock? CustomHeader
+    {
+        get => GetArgument<AzurermTrafficManagerNestedEndpointCustomHeaderBlock>("custom_header");
+        set => SetArgument("custom_header", value);
+    }
 
     /// <summary>
-    /// Block for subnet.
-    /// Nesting mode: list
+    /// Subnet block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("subnet")]
-    public TerraformList<AzurermTrafficManagerNestedEndpointSubnetBlock> Subnet { get; set; } = new();
+    public AzurermTrafficManagerNestedEndpointSubnetBlock? Subnet
+    {
+        get => GetArgument<AzurermTrafficManagerNestedEndpointSubnetBlock>("subnet");
+        set => SetArgument("subnet", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermTrafficManagerNestedEndpointTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermTrafficManagerNestedEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermTrafficManagerNestedEndpointTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

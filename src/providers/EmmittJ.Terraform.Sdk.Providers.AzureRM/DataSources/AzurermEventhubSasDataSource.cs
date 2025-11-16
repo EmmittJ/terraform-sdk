@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermEventhubSasDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermEventhubSasDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_eventhub_sas Terraform data source.
 /// Retrieves information about a azurerm_eventhub_sas.
 /// </summary>
-public class AzurermEventhubSasDataSource : TerraformDataSource
+public partial class AzurermEventhubSasDataSource(string name) : TerraformDataSource("azurerm_eventhub_sas", name)
 {
-    public AzurermEventhubSasDataSource(string name) : base("azurerm_eventhub_sas", name)
-    {
-    }
-
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
-    [TerraformArgument("connection_string")]
     public required TerraformValue<string> ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -58,7 +44,6 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     /// The expiry attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
-    [TerraformArgument("expiry")]
     public required TerraformValue<string> Expiry
     {
         get => new TerraformReference<string>(this, "expiry");
@@ -68,7 +53,6 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -76,19 +60,12 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermEventhubSasDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The sas attribute.
-    /// </summary>
-    [TerraformArgument("sas")]
-    public TerraformValue<string> Sas
+    public AzurermEventhubSasDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "sas");
+        get => GetArgument<AzurermEventhubSasDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

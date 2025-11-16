@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermMachineLearningComputeClusterIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -62,7 +65,6 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     /// The max_node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
-    [TerraformArgument("max_node_count")]
     public required TerraformValue<double> MaxNodeCount
     {
         get => new TerraformReference<double>(this, "max_node_count");
@@ -73,7 +75,6 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     /// The min_node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
-    [TerraformArgument("min_node_count")]
     public required TerraformValue<double> MinNodeCount
     {
         get => new TerraformReference<double>(this, "min_node_count");
@@ -84,7 +85,6 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     /// The scale_down_nodes_after_idle_duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleDownNodesAfterIdleDuration is required")]
-    [TerraformArgument("scale_down_nodes_after_idle_duration")]
     public required TerraformValue<string> ScaleDownNodesAfterIdleDuration
     {
         get => new TerraformReference<string>(this, "scale_down_nodes_after_idle_duration");
@@ -107,7 +107,6 @@ public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
     /// <summary>
     /// The admin_password attribute.
     /// </summary>
-    [TerraformArgument("admin_password")]
     public TerraformValue<string>? AdminPassword
     {
         get => new TerraformReference<string>(this, "admin_password");
@@ -118,7 +117,6 @@ public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
     /// The admin_username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
-    [TerraformArgument("admin_username")]
     public required TerraformValue<string> AdminUsername
     {
         get => new TerraformReference<string>(this, "admin_username");
@@ -128,7 +126,6 @@ public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
     /// <summary>
     /// The key_value attribute.
     /// </summary>
-    [TerraformArgument("key_value")]
     public TerraformValue<string>? KeyValue
     {
         get => new TerraformReference<string>(this, "key_value");
@@ -151,7 +148,6 @@ public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -161,7 +157,6 @@ public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -171,7 +166,6 @@ public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -181,7 +175,6 @@ public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -191,19 +184,14 @@ public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_machine_learning_compute_cluster Terraform resource.
 /// Manages a azurerm_machine_learning_compute_cluster resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMachineLearningComputeCluster : TerraformResource
+public partial class AzurermMachineLearningComputeCluster(string name) : TerraformResource("azurerm_machine_learning_compute_cluster", name)
 {
-    public AzurermMachineLearningComputeCluster(string name) : base("azurerm_machine_learning_compute_cluster", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -213,7 +201,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -223,7 +210,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    [TerraformArgument("local_auth_enabled")]
     public TerraformValue<bool>? LocalAuthEnabled
     {
         get => new TerraformReference<bool>(this, "local_auth_enabled");
@@ -234,7 +220,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -245,7 +230,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// The machine_learning_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
-    [TerraformArgument("machine_learning_workspace_id")]
     public required TerraformValue<string> MachineLearningWorkspaceId
     {
         get => new TerraformReference<string>(this, "machine_learning_workspace_id");
@@ -256,7 +240,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -266,7 +249,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
-    [TerraformArgument("node_public_ip_enabled")]
     public TerraformValue<bool>? NodePublicIpEnabled
     {
         get => new TerraformReference<bool>(this, "node_public_ip_enabled");
@@ -276,7 +258,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// <summary>
     /// The ssh_public_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("ssh_public_access_enabled")]
     public TerraformValue<bool>? SshPublicAccessEnabled
     {
         get => new TerraformReference<bool>(this, "ssh_public_access_enabled");
@@ -286,7 +267,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// <summary>
     /// The subnet_resource_id attribute.
     /// </summary>
-    [TerraformArgument("subnet_resource_id")]
     public TerraformValue<string> SubnetResourceId
     {
         get => new TerraformReference<string>(this, "subnet_resource_id");
@@ -296,7 +276,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -307,7 +286,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// The vm_priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmPriority is required")]
-    [TerraformArgument("vm_priority")]
     public required TerraformValue<string> VmPriority
     {
         get => new TerraformReference<string>(this, "vm_priority");
@@ -318,7 +296,6 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// The vm_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
-    [TerraformArgument("vm_size")]
     public required TerraformValue<string> VmSize
     {
         get => new TerraformReference<string>(this, "vm_size");
@@ -326,36 +303,45 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermMachineLearningComputeClusterIdentityBlock> Identity { get; set; } = new();
+    public AzurermMachineLearningComputeClusterIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermMachineLearningComputeClusterIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for scale_settings.
-    /// Nesting mode: list
+    /// ScaleSettings block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScaleSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScaleSettings block(s) allowed")]
-    [TerraformArgument("scale_settings")]
-    public required TerraformList<AzurermMachineLearningComputeClusterScaleSettingsBlock> ScaleSettings { get; set; } = new();
+    public required AzurermMachineLearningComputeClusterScaleSettingsBlock ScaleSettings
+    {
+        get => GetRequiredArgument<AzurermMachineLearningComputeClusterScaleSettingsBlock>("scale_settings");
+        set => SetArgument("scale_settings", value);
+    }
 
     /// <summary>
-    /// Block for ssh.
-    /// Nesting mode: list
+    /// Ssh block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssh block(s) allowed")]
-    [TerraformArgument("ssh")]
-    public TerraformList<AzurermMachineLearningComputeClusterSshBlock> Ssh { get; set; } = new();
+    public AzurermMachineLearningComputeClusterSshBlock? Ssh
+    {
+        get => GetArgument<AzurermMachineLearningComputeClusterSshBlock>("ssh");
+        set => SetArgument("ssh", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMachineLearningComputeClusterTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMachineLearningComputeClusterTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMachineLearningComputeClusterTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

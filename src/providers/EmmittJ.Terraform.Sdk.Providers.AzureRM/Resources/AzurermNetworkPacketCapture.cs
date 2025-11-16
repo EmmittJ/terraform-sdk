@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for filter in .
@@ -25,7 +16,6 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// <summary>
     /// The local_ip_address attribute.
     /// </summary>
-    [TerraformArgument("local_ip_address")]
     public TerraformValue<string>? LocalIpAddress
     {
         get => new TerraformReference<string>(this, "local_ip_address");
@@ -35,7 +25,6 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// <summary>
     /// The local_port attribute.
     /// </summary>
-    [TerraformArgument("local_port")]
     public TerraformValue<string>? LocalPort
     {
         get => new TerraformReference<string>(this, "local_port");
@@ -46,7 +35,6 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -56,7 +44,6 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// <summary>
     /// The remote_ip_address attribute.
     /// </summary>
-    [TerraformArgument("remote_ip_address")]
     public TerraformValue<string>? RemoteIpAddress
     {
         get => new TerraformReference<string>(this, "remote_ip_address");
@@ -66,7 +53,6 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// <summary>
     /// The remote_port attribute.
     /// </summary>
-    [TerraformArgument("remote_port")]
     public TerraformValue<string>? RemotePort
     {
         get => new TerraformReference<string>(this, "remote_port");
@@ -89,7 +75,6 @@ public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    [TerraformArgument("file_path")]
     public TerraformValue<string>? FilePath
     {
         get => new TerraformReference<string>(this, "file_path");
@@ -99,13 +84,19 @@ public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    [TerraformArgument("storage_account_id")]
     public TerraformValue<string>? StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
+    /// <summary>
+    /// The storage_path attribute.
+    /// </summary>
+    public TerraformValue<string> StoragePath
+    {
+        get => new TerraformReference<string>(this, "storage_path");
+    }
 
 }
 
@@ -123,7 +114,6 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -133,7 +123,6 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -143,7 +132,6 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -153,20 +141,15 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_network_packet_capture Terraform resource.
 /// Manages a azurerm_network_packet_capture resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetworkPacketCapture : TerraformResource
+public partial class AzurermNetworkPacketCapture(string name) : TerraformResource("azurerm_network_packet_capture", name)
 {
-    public AzurermNetworkPacketCapture(string name) : base("azurerm_network_packet_capture", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -176,7 +159,6 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// <summary>
     /// The maximum_bytes_per_packet attribute.
     /// </summary>
-    [TerraformArgument("maximum_bytes_per_packet")]
     public TerraformValue<double>? MaximumBytesPerPacket
     {
         get => new TerraformReference<double>(this, "maximum_bytes_per_packet");
@@ -186,7 +168,6 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// <summary>
     /// The maximum_bytes_per_session attribute.
     /// </summary>
-    [TerraformArgument("maximum_bytes_per_session")]
     public TerraformValue<double>? MaximumBytesPerSession
     {
         get => new TerraformReference<double>(this, "maximum_bytes_per_session");
@@ -196,7 +177,6 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// <summary>
     /// The maximum_capture_duration attribute.
     /// </summary>
-    [TerraformArgument("maximum_capture_duration")]
     public TerraformValue<double>? MaximumCaptureDuration
     {
         get => new TerraformReference<double>(this, "maximum_capture_duration");
@@ -207,7 +187,6 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -218,7 +197,6 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// The network_watcher_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherName is required")]
-    [TerraformArgument("network_watcher_name")]
     public required TerraformValue<string> NetworkWatcherName
     {
         get => new TerraformReference<string>(this, "network_watcher_name");
@@ -229,7 +207,6 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -240,7 +217,6 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    [TerraformArgument("target_resource_id")]
     public required TerraformValue<string> TargetResourceId
     {
         get => new TerraformReference<string>(this, "target_resource_id");
@@ -248,27 +224,34 @@ public class AzurermNetworkPacketCapture : TerraformResource
     }
 
     /// <summary>
-    /// Block for filter.
-    /// Nesting mode: list
+    /// Filter block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("filter")]
-    public TerraformList<AzurermNetworkPacketCaptureFilterBlock> Filter { get; set; } = new();
+    public AzurermNetworkPacketCaptureFilterBlock? Filter
+    {
+        get => GetArgument<AzurermNetworkPacketCaptureFilterBlock>("filter");
+        set => SetArgument("filter", value);
+    }
 
     /// <summary>
-    /// Block for storage_location.
-    /// Nesting mode: list
+    /// StorageLocation block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
-    [TerraformArgument("storage_location")]
-    public required TerraformList<AzurermNetworkPacketCaptureStorageLocationBlock> StorageLocation { get; set; } = new();
+    public required AzurermNetworkPacketCaptureStorageLocationBlock StorageLocation
+    {
+        get => GetRequiredArgument<AzurermNetworkPacketCaptureStorageLocationBlock>("storage_location");
+        set => SetArgument("storage_location", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkPacketCaptureTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetworkPacketCaptureTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetworkPacketCaptureTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

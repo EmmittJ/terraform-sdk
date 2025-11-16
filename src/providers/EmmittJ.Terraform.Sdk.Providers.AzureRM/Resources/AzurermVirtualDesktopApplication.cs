@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_virtual_desktop_application Terraform resource.
 /// Manages a azurerm_virtual_desktop_application resource.
 /// </summary>
-public class AzurermVirtualDesktopApplication : TerraformResource
+public partial class AzurermVirtualDesktopApplication(string name) : TerraformResource("azurerm_virtual_desktop_application", name)
 {
-    public AzurermVirtualDesktopApplication(string name) : base("azurerm_virtual_desktop_application", name)
-    {
-    }
-
     /// <summary>
     /// The application_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
-    [TerraformArgument("application_group_id")]
     public required TerraformValue<string> ApplicationGroupId
     {
         get => new TerraformReference<string>(this, "application_group_id");
@@ -88,7 +71,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// The command_line_argument_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLineArgumentPolicy is required")]
-    [TerraformArgument("command_line_argument_policy")]
     public required TerraformValue<string> CommandLineArgumentPolicy
     {
         get => new TerraformReference<string>(this, "command_line_argument_policy");
@@ -98,7 +80,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    [TerraformArgument("command_line_arguments")]
     public TerraformValue<string>? CommandLineArguments
     {
         get => new TerraformReference<string>(this, "command_line_arguments");
@@ -108,7 +89,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -118,7 +98,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    [TerraformArgument("friendly_name")]
     public TerraformValue<string> FriendlyName
     {
         get => new TerraformReference<string>(this, "friendly_name");
@@ -128,7 +107,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The icon_index attribute.
     /// </summary>
-    [TerraformArgument("icon_index")]
     public TerraformValue<double>? IconIndex
     {
         get => new TerraformReference<double>(this, "icon_index");
@@ -138,7 +116,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The icon_path attribute.
     /// </summary>
-    [TerraformArgument("icon_path")]
     public TerraformValue<string> IconPath
     {
         get => new TerraformReference<string>(this, "icon_path");
@@ -148,7 +125,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -159,7 +135,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -170,7 +145,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformArgument("path")]
     public required TerraformValue<string> Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -180,7 +154,6 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The show_in_portal attribute.
     /// </summary>
-    [TerraformArgument("show_in_portal")]
     public TerraformValue<bool>? ShowInPortal
     {
         get => new TerraformReference<bool>(this, "show_in_portal");
@@ -188,10 +161,12 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVirtualDesktopApplicationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermVirtualDesktopApplicationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermVirtualDesktopApplicationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

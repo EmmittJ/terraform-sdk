@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_synapse_role_assignment Terraform resource.
 /// Manages a azurerm_synapse_role_assignment resource.
 /// </summary>
-public class AzurermSynapseRoleAssignment : TerraformResource
+public partial class AzurermSynapseRoleAssignment(string name) : TerraformResource("azurerm_synapse_role_assignment", name)
 {
-    public AzurermSynapseRoleAssignment(string name) : base("azurerm_synapse_role_assignment", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    [TerraformArgument("principal_id")]
     public required TerraformValue<string> PrincipalId
     {
         get => new TerraformReference<string>(this, "principal_id");
@@ -87,7 +70,6 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    [TerraformArgument("principal_type")]
     public TerraformValue<string>? PrincipalType
     {
         get => new TerraformReference<string>(this, "principal_type");
@@ -98,7 +80,6 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// The role_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
-    [TerraformArgument("role_name")]
     public required TerraformValue<string> RoleName
     {
         get => new TerraformReference<string>(this, "role_name");
@@ -108,7 +89,6 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// <summary>
     /// The synapse_spark_pool_id attribute.
     /// </summary>
-    [TerraformArgument("synapse_spark_pool_id")]
     public TerraformValue<string>? SynapseSparkPoolId
     {
         get => new TerraformReference<string>(this, "synapse_spark_pool_id");
@@ -118,7 +98,6 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    [TerraformArgument("synapse_workspace_id")]
     public TerraformValue<string>? SynapseWorkspaceId
     {
         get => new TerraformReference<string>(this, "synapse_workspace_id");
@@ -126,10 +105,12 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSynapseRoleAssignmentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSynapseRoleAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSynapseRoleAssignmentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

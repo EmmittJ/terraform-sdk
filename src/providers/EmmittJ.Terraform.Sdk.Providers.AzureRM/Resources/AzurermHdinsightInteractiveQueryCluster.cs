@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for component_version in .
@@ -26,7 +17,6 @@ public class AzurermHdinsightInteractiveQueryClusterComponentVersionBlock : Terr
     /// The interactive_hive attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InteractiveHive is required")]
-    [TerraformArgument("interactive_hive")]
     public required TerraformValue<string> InteractiveHive
     {
         get => new TerraformReference<string>(this, "interactive_hive");
@@ -49,7 +39,6 @@ public class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock : Terr
     /// <summary>
     /// The compute_isolation_enabled attribute.
     /// </summary>
-    [TerraformArgument("compute_isolation_enabled")]
     public TerraformValue<bool>? ComputeIsolationEnabled
     {
         get => new TerraformReference<bool>(this, "compute_isolation_enabled");
@@ -59,7 +48,6 @@ public class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock : Terr
     /// <summary>
     /// The host_sku attribute.
     /// </summary>
-    [TerraformArgument("host_sku")]
     public TerraformValue<string>? HostSku
     {
         get => new TerraformReference<string>(this, "host_sku");
@@ -82,7 +70,6 @@ public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : Terraf
     /// <summary>
     /// The encryption_algorithm attribute.
     /// </summary>
-    [TerraformArgument("encryption_algorithm")]
     public TerraformValue<string>? EncryptionAlgorithm
     {
         get => new TerraformReference<string>(this, "encryption_algorithm");
@@ -92,7 +79,6 @@ public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : Terraf
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
-    [TerraformArgument("encryption_at_host_enabled")]
     public TerraformValue<bool>? EncryptionAtHostEnabled
     {
         get => new TerraformReference<bool>(this, "encryption_at_host_enabled");
@@ -102,7 +88,6 @@ public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : Terraf
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_key_id")]
     public TerraformValue<string>? KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
@@ -112,7 +97,6 @@ public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : Terraf
     /// <summary>
     /// The key_vault_managed_identity_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_managed_identity_id")]
     public TerraformValue<string>? KeyVaultManagedIdentityId
     {
         get => new TerraformReference<string>(this, "key_vault_managed_identity_id");
@@ -136,7 +120,6 @@ public class AzurermHdinsightInteractiveQueryClusterExtensionBlock : TerraformBl
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    [TerraformArgument("log_analytics_workspace_id")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
         get => new TerraformReference<string>(this, "log_analytics_workspace_id");
@@ -147,7 +130,6 @@ public class AzurermHdinsightInteractiveQueryClusterExtensionBlock : TerraformBl
     /// The primary_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
-    [TerraformArgument("primary_key")]
     public required TerraformValue<string> PrimaryKey
     {
         get => new TerraformReference<string>(this, "primary_key");
@@ -171,7 +153,6 @@ public class AzurermHdinsightInteractiveQueryClusterGatewayBlock : TerraformBloc
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    [TerraformArgument("password")]
     public required TerraformValue<string> Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -182,7 +163,6 @@ public class AzurermHdinsightInteractiveQueryClusterGatewayBlock : TerraformBloc
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    [TerraformArgument("username")]
     public required TerraformValue<string> Username
     {
         get => new TerraformReference<string>(this, "username");
@@ -219,7 +199,6 @@ public class AzurermHdinsightInteractiveQueryClusterMonitorBlock : TerraformBloc
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    [TerraformArgument("log_analytics_workspace_id")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
         get => new TerraformReference<string>(this, "log_analytics_workspace_id");
@@ -230,7 +209,6 @@ public class AzurermHdinsightInteractiveQueryClusterMonitorBlock : TerraformBloc
     /// The primary_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
-    [TerraformArgument("primary_key")]
     public required TerraformValue<string> PrimaryKey
     {
         get => new TerraformReference<string>(this, "primary_key");
@@ -253,7 +231,6 @@ public class AzurermHdinsightInteractiveQueryClusterNetworkBlock : TerraformBloc
     /// <summary>
     /// The connection_direction attribute.
     /// </summary>
-    [TerraformArgument("connection_direction")]
     public TerraformValue<string>? ConnectionDirection
     {
         get => new TerraformReference<string>(this, "connection_direction");
@@ -263,7 +240,6 @@ public class AzurermHdinsightInteractiveQueryClusterNetworkBlock : TerraformBloc
     /// <summary>
     /// The private_link_enabled attribute.
     /// </summary>
-    [TerraformArgument("private_link_enabled")]
     public TerraformValue<bool>? PrivateLinkEnabled
     {
         get => new TerraformReference<bool>(this, "private_link_enabled");
@@ -287,7 +263,6 @@ public class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBloc
     /// The group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
-    [TerraformArgument("group_id")]
     public required TerraformValue<string> GroupId
     {
         get => new TerraformReference<string>(this, "group_id");
@@ -298,7 +273,6 @@ public class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBloc
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -335,7 +309,6 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
     /// The aadds_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AaddsResourceId is required")]
-    [TerraformArgument("aadds_resource_id")]
     public required TerraformValue<string> AaddsResourceId
     {
         get => new TerraformReference<string>(this, "aadds_resource_id");
@@ -345,7 +318,6 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
     /// <summary>
     /// The cluster_users_group_dns attribute.
     /// </summary>
-    [TerraformArgument("cluster_users_group_dns")]
     public TerraformSet<string>? ClusterUsersGroupDns
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cluster_users_group_dns").ResolveNodes(ctx));
@@ -356,7 +328,6 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    [TerraformArgument("domain_name")]
     public required TerraformValue<string> DomainName
     {
         get => new TerraformReference<string>(this, "domain_name");
@@ -367,7 +338,6 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
     /// The domain_user_password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUserPassword is required")]
-    [TerraformArgument("domain_user_password")]
     public required TerraformValue<string> DomainUserPassword
     {
         get => new TerraformReference<string>(this, "domain_user_password");
@@ -378,7 +348,6 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
     /// The domain_username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUsername is required")]
-    [TerraformArgument("domain_username")]
     public required TerraformValue<string> DomainUsername
     {
         get => new TerraformReference<string>(this, "domain_username");
@@ -389,7 +358,6 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
     /// The ldaps_urls attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LdapsUrls is required")]
-    [TerraformArgument("ldaps_urls")]
     public required TerraformSet<string> LdapsUrls
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ldaps_urls").ResolveNodes(ctx));
@@ -400,7 +368,6 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
     /// The msi_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MsiResourceId is required")]
-    [TerraformArgument("msi_resource_id")]
     public required TerraformValue<string> MsiResourceId
     {
         get => new TerraformReference<string>(this, "msi_resource_id");
@@ -424,7 +391,6 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : Terraf
     /// The is_default attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
-    [TerraformArgument("is_default")]
     public required TerraformValue<bool> IsDefault
     {
         get => new TerraformReference<bool>(this, "is_default");
@@ -435,7 +401,6 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : Terraf
     /// The storage_account_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
-    [TerraformArgument("storage_account_key")]
     public required TerraformValue<string> StorageAccountKey
     {
         get => new TerraformReference<string>(this, "storage_account_key");
@@ -446,7 +411,6 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : Terraf
     /// The storage_container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
-    [TerraformArgument("storage_container_id")]
     public required TerraformValue<string> StorageContainerId
     {
         get => new TerraformReference<string>(this, "storage_container_id");
@@ -456,7 +420,6 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : Terraf
     /// <summary>
     /// The storage_resource_id attribute.
     /// </summary>
-    [TerraformArgument("storage_resource_id")]
     public TerraformValue<string>? StorageResourceId
     {
         get => new TerraformReference<string>(this, "storage_resource_id");
@@ -480,7 +443,6 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : Te
     /// The filesystem_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemId is required")]
-    [TerraformArgument("filesystem_id")]
     public required TerraformValue<string> FilesystemId
     {
         get => new TerraformReference<string>(this, "filesystem_id");
@@ -491,7 +453,6 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : Te
     /// The is_default attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
-    [TerraformArgument("is_default")]
     public required TerraformValue<bool> IsDefault
     {
         get => new TerraformReference<bool>(this, "is_default");
@@ -502,7 +463,6 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : Te
     /// The managed_identity_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityResourceId is required")]
-    [TerraformArgument("managed_identity_resource_id")]
     public required TerraformValue<string> ManagedIdentityResourceId
     {
         get => new TerraformReference<string>(this, "managed_identity_resource_id");
@@ -513,7 +473,6 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : Te
     /// The storage_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageResourceId is required")]
-    [TerraformArgument("storage_resource_id")]
     public required TerraformValue<string> StorageResourceId
     {
         get => new TerraformReference<string>(this, "storage_resource_id");
@@ -536,7 +495,6 @@ public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -546,7 +504,6 @@ public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -556,7 +513,6 @@ public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -566,7 +522,6 @@ public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -576,20 +531,15 @@ public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_hdinsight_interactive_query_cluster Terraform resource.
 /// Manages a azurerm_hdinsight_interactive_query_cluster resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
+public partial class AzurermHdinsightInteractiveQueryCluster(string name) : TerraformResource("azurerm_hdinsight_interactive_query_cluster", name)
 {
-    public AzurermHdinsightInteractiveQueryCluster(string name) : base("azurerm_hdinsight_interactive_query_cluster", name)
-    {
-    }
-
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
-    [TerraformArgument("cluster_version")]
     public required TerraformValue<string> ClusterVersion
     {
         get => new TerraformReference<string>(this, "cluster_version");
@@ -599,7 +549,6 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// <summary>
     /// The encryption_in_transit_enabled attribute.
     /// </summary>
-    [TerraformArgument("encryption_in_transit_enabled")]
     public TerraformValue<bool>? EncryptionInTransitEnabled
     {
         get => new TerraformReference<bool>(this, "encryption_in_transit_enabled");
@@ -609,7 +558,6 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -620,7 +568,6 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -631,7 +578,6 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -642,7 +588,6 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -652,7 +597,6 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -663,7 +607,6 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// The tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    [TerraformArgument("tier")]
     public required TerraformValue<string> Tier
     {
         get => new TerraformReference<string>(this, "tier");
@@ -673,7 +616,6 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
-    [TerraformArgument("tls_min_version")]
     public TerraformValue<string>? TlsMinVersion
     {
         get => new TerraformReference<string>(this, "tls_min_version");
@@ -681,136 +623,149 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     }
 
     /// <summary>
-    /// Block for component_version.
-    /// Nesting mode: list
+    /// ComponentVersion block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentVersion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
-    [TerraformArgument("component_version")]
-    public required TerraformList<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock> ComponentVersion { get; set; } = new();
+    public required AzurermHdinsightInteractiveQueryClusterComponentVersionBlock ComponentVersion
+    {
+        get => GetRequiredArgument<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock>("component_version");
+        set => SetArgument("component_version", value);
+    }
 
     /// <summary>
-    /// Block for compute_isolation.
-    /// Nesting mode: list
+    /// ComputeIsolation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
-    [TerraformArgument("compute_isolation")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock> ComputeIsolation { get; set; } = new();
+    public AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock? ComputeIsolation
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock>("compute_isolation");
+        set => SetArgument("compute_isolation", value);
+    }
 
     /// <summary>
-    /// Block for disk_encryption.
-    /// Nesting mode: list
+    /// DiskEncryption block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("disk_encryption")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock> DiskEncryption { get; set; } = new();
+    public AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock? DiskEncryption
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock>("disk_encryption");
+        set => SetArgument("disk_encryption", value);
+    }
 
     /// <summary>
-    /// Block for extension.
-    /// Nesting mode: list
+    /// Extension block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
-    [TerraformArgument("extension")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterExtensionBlock> Extension { get; set; } = new();
+    public AzurermHdinsightInteractiveQueryClusterExtensionBlock? Extension
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterExtensionBlock>("extension");
+        set => SetArgument("extension", value);
+    }
 
     /// <summary>
-    /// Block for gateway.
-    /// Nesting mode: list
+    /// Gateway block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gateway is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
-    [TerraformArgument("gateway")]
-    public required TerraformList<AzurermHdinsightInteractiveQueryClusterGatewayBlock> Gateway { get; set; } = new();
+    public required AzurermHdinsightInteractiveQueryClusterGatewayBlock Gateway
+    {
+        get => GetRequiredArgument<AzurermHdinsightInteractiveQueryClusterGatewayBlock>("gateway");
+        set => SetArgument("gateway", value);
+    }
 
     /// <summary>
-    /// Block for metastores.
-    /// Nesting mode: list
+    /// Metastores block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
-    [TerraformArgument("metastores")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlock> Metastores { get; set; } = new();
+    public AzurermHdinsightInteractiveQueryClusterMetastoresBlock? Metastores
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterMetastoresBlock>("metastores");
+        set => SetArgument("metastores", value);
+    }
 
     /// <summary>
-    /// Block for monitor.
-    /// Nesting mode: list
+    /// Monitor block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
-    [TerraformArgument("monitor")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterMonitorBlock> Monitor { get; set; } = new();
+    public AzurermHdinsightInteractiveQueryClusterMonitorBlock? Monitor
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterMonitorBlock>("monitor");
+        set => SetArgument("monitor", value);
+    }
 
     /// <summary>
-    /// Block for network.
-    /// Nesting mode: list
+    /// Network block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
-    [TerraformArgument("network")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterNetworkBlock> Network { get; set; } = new();
+    public AzurermHdinsightInteractiveQueryClusterNetworkBlock? Network
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterNetworkBlock>("network");
+        set => SetArgument("network", value);
+    }
 
     /// <summary>
-    /// Block for private_link_configuration.
-    /// Nesting mode: list
+    /// PrivateLinkConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
-    [TerraformArgument("private_link_configuration")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock> PrivateLinkConfiguration { get; set; } = new();
+    public AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock? PrivateLinkConfiguration
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock>("private_link_configuration");
+        set => SetArgument("private_link_configuration", value);
+    }
 
     /// <summary>
-    /// Block for roles.
-    /// Nesting mode: list
+    /// Roles block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
-    [TerraformArgument("roles")]
-    public required TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlock> Roles { get; set; } = new();
-
-    /// <summary>
-    /// Block for security_profile.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
-    [TerraformArgument("security_profile")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock> SecurityProfile { get; set; } = new();
-
-    /// <summary>
-    /// Block for storage_account.
-    /// Nesting mode: list
-    /// </summary>
-    [TerraformArgument("storage_account")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock> StorageAccount { get; set; } = new();
-
-    /// <summary>
-    /// Block for storage_account_gen2.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
-    [TerraformArgument("storage_account_gen2")]
-    public TerraformList<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block> StorageAccountGen2 { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermHdinsightInteractiveQueryClusterTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The https_endpoint attribute.
-    /// </summary>
-    [TerraformArgument("https_endpoint")]
-    public TerraformValue<string> HttpsEndpoint
+    public required AzurermHdinsightInteractiveQueryClusterRolesBlock Roles
     {
-        get => new TerraformReference<string>(this, "https_endpoint");
+        get => GetRequiredArgument<AzurermHdinsightInteractiveQueryClusterRolesBlock>("roles");
+        set => SetArgument("roles", value);
     }
 
     /// <summary>
-    /// The ssh_endpoint attribute.
+    /// SecurityProfile block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("ssh_endpoint")]
-    public TerraformValue<string> SshEndpoint
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
+    public AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock? SecurityProfile
     {
-        get => new TerraformReference<string>(this, "ssh_endpoint");
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock>("security_profile");
+        set => SetArgument("security_profile", value);
+    }
+
+    /// <summary>
+    /// StorageAccount block (nesting mode: list).
+    /// </summary>
+    public AzurermHdinsightInteractiveQueryClusterStorageAccountBlock? StorageAccount
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock>("storage_account");
+        set => SetArgument("storage_account", value);
+    }
+
+    /// <summary>
+    /// StorageAccountGen2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
+    public AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block? StorageAccountGen2
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block>("storage_account_gen2");
+        set => SetArgument("storage_account_gen2", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermHdinsightInteractiveQueryClusterTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermHdinsightInteractiveQueryClusterTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

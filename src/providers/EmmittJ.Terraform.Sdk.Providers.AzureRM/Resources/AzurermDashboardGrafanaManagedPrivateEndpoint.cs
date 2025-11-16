@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
 }
 
 /// <summary>
+/// Represents a azurerm_dashboard_grafana_managed_private_endpoint Terraform resource.
 /// Manages a azurerm_dashboard_grafana_managed_private_endpoint resource.
 /// </summary>
-public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
+public partial class AzurermDashboardGrafanaManagedPrivateEndpoint(string name) : TerraformResource("azurerm_dashboard_grafana_managed_private_endpoint", name)
 {
-    public AzurermDashboardGrafanaManagedPrivateEndpoint(string name) : base("azurerm_dashboard_grafana_managed_private_endpoint", name)
-    {
-    }
-
     /// <summary>
     /// The grafana_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaId is required")]
-    [TerraformArgument("grafana_id")]
     public required TerraformValue<string> GrafanaId
     {
         get => new TerraformReference<string>(this, "grafana_id");
@@ -87,7 +70,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The group_ids attribute.
     /// </summary>
-    [TerraformArgument("group_ids")]
     public TerraformList<string>? GroupIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "group_ids").ResolveNodes(ctx));
@@ -97,7 +79,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -108,7 +89,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -119,7 +99,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -130,7 +109,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// The private_link_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkResourceId is required")]
-    [TerraformArgument("private_link_resource_id")]
     public required TerraformValue<string> PrivateLinkResourceId
     {
         get => new TerraformReference<string>(this, "private_link_resource_id");
@@ -140,7 +118,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The private_link_resource_region attribute.
     /// </summary>
-    [TerraformArgument("private_link_resource_region")]
     public TerraformValue<string>? PrivateLinkResourceRegion
     {
         get => new TerraformReference<string>(this, "private_link_resource_region");
@@ -150,7 +127,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The private_link_service_url attribute.
     /// </summary>
-    [TerraformArgument("private_link_service_url")]
     public TerraformValue<string>? PrivateLinkServiceUrl
     {
         get => new TerraformReference<string>(this, "private_link_service_url");
@@ -160,7 +136,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    [TerraformArgument("request_message")]
     public TerraformValue<string>? RequestMessage
     {
         get => new TerraformReference<string>(this, "request_message");
@@ -170,7 +145,6 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -178,10 +152,12 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

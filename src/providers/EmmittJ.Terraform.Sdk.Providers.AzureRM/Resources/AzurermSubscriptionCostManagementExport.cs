@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for export_data_options in .
@@ -26,7 +17,6 @@ public class AzurermSubscriptionCostManagementExportExportDataOptionsBlock : Ter
     /// The time_frame attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFrame is required")]
-    [TerraformArgument("time_frame")]
     public required TerraformValue<string> TimeFrame
     {
         get => new TerraformReference<string>(this, "time_frame");
@@ -37,7 +27,6 @@ public class AzurermSubscriptionCostManagementExportExportDataOptionsBlock : Ter
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +50,6 @@ public class AzurermSubscriptionCostManagementExportExportDataStorageLocationBlo
     /// The container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
-    [TerraformArgument("container_id")]
     public required TerraformValue<string> ContainerId
     {
         get => new TerraformReference<string>(this, "container_id");
@@ -72,7 +60,6 @@ public class AzurermSubscriptionCostManagementExportExportDataStorageLocationBlo
     /// The root_folder_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolderPath is required")]
-    [TerraformArgument("root_folder_path")]
     public required TerraformValue<string> RootFolderPath
     {
         get => new TerraformReference<string>(this, "root_folder_path");
@@ -95,7 +82,6 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -105,7 +91,6 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -115,7 +100,6 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -125,7 +109,6 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -135,19 +118,14 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_subscription_cost_management_export Terraform resource.
 /// Manages a azurerm_subscription_cost_management_export resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSubscriptionCostManagementExport : TerraformResource
+public partial class AzurermSubscriptionCostManagementExport(string name) : TerraformResource("azurerm_subscription_cost_management_export", name)
 {
-    public AzurermSubscriptionCostManagementExport(string name) : base("azurerm_subscription_cost_management_export", name)
-    {
-    }
-
     /// <summary>
     /// The active attribute.
     /// </summary>
-    [TerraformArgument("active")]
     public TerraformValue<bool>? Active
     {
         get => new TerraformReference<bool>(this, "active");
@@ -157,7 +135,6 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// <summary>
     /// The file_format attribute.
     /// </summary>
-    [TerraformArgument("file_format")]
     public TerraformValue<string>? FileFormat
     {
         get => new TerraformReference<string>(this, "file_format");
@@ -167,7 +144,6 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -178,7 +154,6 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -189,7 +164,6 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// The recurrence_period_end_date attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodEndDate is required")]
-    [TerraformArgument("recurrence_period_end_date")]
     public required TerraformValue<string> RecurrencePeriodEndDate
     {
         get => new TerraformReference<string>(this, "recurrence_period_end_date");
@@ -200,7 +174,6 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// The recurrence_period_start_date attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodStartDate is required")]
-    [TerraformArgument("recurrence_period_start_date")]
     public required TerraformValue<string> RecurrencePeriodStartDate
     {
         get => new TerraformReference<string>(this, "recurrence_period_start_date");
@@ -211,7 +184,6 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// The recurrence_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceType is required")]
-    [TerraformArgument("recurrence_type")]
     public required TerraformValue<string> RecurrenceType
     {
         get => new TerraformReference<string>(this, "recurrence_type");
@@ -222,7 +194,6 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    [TerraformArgument("subscription_id")]
     public required TerraformValue<string> SubscriptionId
     {
         get => new TerraformReference<string>(this, "subscription_id");
@@ -230,30 +201,38 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     }
 
     /// <summary>
-    /// Block for export_data_options.
-    /// Nesting mode: list
+    /// ExportDataOptions block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportDataOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataOptions block(s) allowed")]
-    [TerraformArgument("export_data_options")]
-    public required TerraformList<AzurermSubscriptionCostManagementExportExportDataOptionsBlock> ExportDataOptions { get; set; } = new();
+    public required AzurermSubscriptionCostManagementExportExportDataOptionsBlock ExportDataOptions
+    {
+        get => GetRequiredArgument<AzurermSubscriptionCostManagementExportExportDataOptionsBlock>("export_data_options");
+        set => SetArgument("export_data_options", value);
+    }
 
     /// <summary>
-    /// Block for export_data_storage_location.
-    /// Nesting mode: list
+    /// ExportDataStorageLocation block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportDataStorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataStorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataStorageLocation block(s) allowed")]
-    [TerraformArgument("export_data_storage_location")]
-    public required TerraformList<AzurermSubscriptionCostManagementExportExportDataStorageLocationBlock> ExportDataStorageLocation { get; set; } = new();
+    public required AzurermSubscriptionCostManagementExportExportDataStorageLocationBlock ExportDataStorageLocation
+    {
+        get => GetRequiredArgument<AzurermSubscriptionCostManagementExportExportDataStorageLocationBlock>("export_data_storage_location");
+        set => SetArgument("export_data_storage_location", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSubscriptionCostManagementExportTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSubscriptionCostManagementExportTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSubscriptionCostManagementExportTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

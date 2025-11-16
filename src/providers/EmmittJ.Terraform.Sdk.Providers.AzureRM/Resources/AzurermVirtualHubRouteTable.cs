@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for route in .
@@ -26,7 +17,6 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     /// The destinations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
-    [TerraformArgument("destinations")]
     public required TerraformSet<string> Destinations
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destinations").ResolveNodes(ctx));
@@ -37,7 +27,6 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     /// The destinations_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationsType is required")]
-    [TerraformArgument("destinations_type")]
     public required TerraformValue<string> DestinationsType
     {
         get => new TerraformReference<string>(this, "destinations_type");
@@ -48,7 +37,6 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -59,7 +47,6 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     /// The next_hop attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
-    [TerraformArgument("next_hop")]
     public required TerraformValue<string> NextHop
     {
         get => new TerraformReference<string>(this, "next_hop");
@@ -69,7 +56,6 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     /// <summary>
     /// The next_hop_type attribute.
     /// </summary>
-    [TerraformArgument("next_hop_type")]
     public TerraformValue<string>? NextHopType
     {
         get => new TerraformReference<string>(this, "next_hop_type");
@@ -92,7 +78,6 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -102,7 +87,6 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -112,7 +96,6 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -122,7 +105,6 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -132,18 +114,14 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_virtual_hub_route_table Terraform resource.
 /// Manages a azurerm_virtual_hub_route_table resource.
 /// </summary>
-public class AzurermVirtualHubRouteTable : TerraformResource
+public partial class AzurermVirtualHubRouteTable(string name) : TerraformResource("azurerm_virtual_hub_route_table", name)
 {
-    public AzurermVirtualHubRouteTable(string name) : base("azurerm_virtual_hub_route_table", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -153,7 +131,6 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    [TerraformArgument("labels")]
     public TerraformSet<string>? Labels
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "labels").ResolveNodes(ctx));
@@ -164,7 +141,6 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -175,7 +151,6 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     /// The virtual_hub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
-    [TerraformArgument("virtual_hub_id")]
     public required TerraformValue<string> VirtualHubId
     {
         get => new TerraformReference<string>(this, "virtual_hub_id");
@@ -183,17 +158,21 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     }
 
     /// <summary>
-    /// Block for route.
-    /// Nesting mode: set
+    /// Route block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("route")]
-    public TerraformSet<AzurermVirtualHubRouteTableRouteBlock> Route { get; set; } = new();
+    public AzurermVirtualHubRouteTableRouteBlock? Route
+    {
+        get => GetArgument<AzurermVirtualHubRouteTableRouteBlock>("route");
+        set => SetArgument("route", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVirtualHubRouteTableTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermVirtualHubRouteTableTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermVirtualHubRouteTableTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

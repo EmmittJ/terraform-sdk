@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermEventhubNamespaceSchemaGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermEventhubNamespaceSchemaGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermEventhubNamespaceSchemaGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermEventhubNamespaceSchemaGroupTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_eventhub_namespace_schema_group Terraform resource.
 /// Manages a azurerm_eventhub_namespace_schema_group resource.
 /// </summary>
-public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
+public partial class AzurermEventhubNamespaceSchemaGroup(string name) : TerraformResource("azurerm_eventhub_namespace_schema_group", name)
 {
-    public AzurermEventhubNamespaceSchemaGroup(string name) : base("azurerm_eventhub_namespace_schema_group", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -88,7 +71,6 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     /// The namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
-    [TerraformArgument("namespace_id")]
     public required TerraformValue<string> NamespaceId
     {
         get => new TerraformReference<string>(this, "namespace_id");
@@ -99,7 +81,6 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     /// The schema_compatibility attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaCompatibility is required")]
-    [TerraformArgument("schema_compatibility")]
     public required TerraformValue<string> SchemaCompatibility
     {
         get => new TerraformReference<string>(this, "schema_compatibility");
@@ -110,7 +91,6 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     /// The schema_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaType is required")]
-    [TerraformArgument("schema_type")]
     public required TerraformValue<string> SchemaType
     {
         get => new TerraformReference<string>(this, "schema_type");
@@ -118,10 +98,12 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermEventhubNamespaceSchemaGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermEventhubNamespaceSchemaGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermEventhubNamespaceSchemaGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

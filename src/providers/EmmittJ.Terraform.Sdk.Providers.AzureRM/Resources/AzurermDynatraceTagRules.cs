@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for log_rule in .
@@ -25,7 +16,6 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// <summary>
     /// The send_activity_logs_enabled attribute.
     /// </summary>
-    [TerraformArgument("send_activity_logs_enabled")]
     public TerraformValue<bool>? SendActivityLogsEnabled
     {
         get => new TerraformReference<bool>(this, "send_activity_logs_enabled");
@@ -35,7 +25,6 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// <summary>
     /// The send_azure_active_directory_logs_enabled attribute.
     /// </summary>
-    [TerraformArgument("send_azure_active_directory_logs_enabled")]
     public TerraformValue<bool>? SendAzureActiveDirectoryLogsEnabled
     {
         get => new TerraformReference<bool>(this, "send_azure_active_directory_logs_enabled");
@@ -45,7 +34,6 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// <summary>
     /// The send_subscription_logs_enabled attribute.
     /// </summary>
-    [TerraformArgument("send_subscription_logs_enabled")]
     public TerraformValue<bool>? SendSubscriptionLogsEnabled
     {
         get => new TerraformReference<bool>(this, "send_subscription_logs_enabled");
@@ -68,7 +56,6 @@ public class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlock
     /// <summary>
     /// The sending_metrics_enabled attribute.
     /// </summary>
-    [TerraformArgument("sending_metrics_enabled")]
     public TerraformValue<bool>? SendingMetricsEnabled
     {
         get => new TerraformReference<bool>(this, "sending_metrics_enabled");
@@ -91,7 +78,6 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -101,7 +87,6 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -111,7 +96,6 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -121,7 +105,6 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -131,19 +114,14 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dynatrace_tag_rules Terraform resource.
 /// Manages a azurerm_dynatrace_tag_rules resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDynatraceTagRules : TerraformResource
+public partial class AzurermDynatraceTagRules(string name) : TerraformResource("azurerm_dynatrace_tag_rules", name)
 {
-    public AzurermDynatraceTagRules(string name) : base("azurerm_dynatrace_tag_rules", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -154,7 +132,6 @@ public class AzurermDynatraceTagRules : TerraformResource
     /// The monitor_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
-    [TerraformArgument("monitor_id")]
     public required TerraformValue<string> MonitorId
     {
         get => new TerraformReference<string>(this, "monitor_id");
@@ -165,7 +142,6 @@ public class AzurermDynatraceTagRules : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -173,26 +149,32 @@ public class AzurermDynatraceTagRules : TerraformResource
     }
 
     /// <summary>
-    /// Block for log_rule.
-    /// Nesting mode: list
+    /// LogRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogRule block(s) allowed")]
-    [TerraformArgument("log_rule")]
-    public TerraformList<AzurermDynatraceTagRulesLogRuleBlock> LogRule { get; set; } = new();
+    public AzurermDynatraceTagRulesLogRuleBlock? LogRule
+    {
+        get => GetArgument<AzurermDynatraceTagRulesLogRuleBlock>("log_rule");
+        set => SetArgument("log_rule", value);
+    }
 
     /// <summary>
-    /// Block for metric_rule.
-    /// Nesting mode: list
+    /// MetricRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricRule block(s) allowed")]
-    [TerraformArgument("metric_rule")]
-    public TerraformList<AzurermDynatraceTagRulesMetricRuleBlock> MetricRule { get; set; } = new();
+    public AzurermDynatraceTagRulesMetricRuleBlock? MetricRule
+    {
+        get => GetArgument<AzurermDynatraceTagRulesMetricRuleBlock>("metric_rule");
+        set => SetArgument("metric_rule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDynatraceTagRulesTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDynatraceTagRulesTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDynatraceTagRulesTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

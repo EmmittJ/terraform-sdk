@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for backend_pool in .
@@ -26,19 +17,24 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     /// The health_probe_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthProbeName is required")]
-    [TerraformArgument("health_probe_name")]
     public required TerraformValue<string> HealthProbeName
     {
         get => new TerraformReference<string>(this, "health_probe_name");
         set => SetArgument("health_probe_name", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The load_balancing_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingName is required")]
-    [TerraformArgument("load_balancing_name")]
     public required TerraformValue<string> LoadBalancingName
     {
         get => new TerraformReference<string>(this, "load_balancing_name");
@@ -49,7 +45,6 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -72,18 +67,23 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
         set => SetArgument("enabled", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("interval_in_seconds")]
     public TerraformValue<double>? IntervalInSeconds
     {
         get => new TerraformReference<double>(this, "interval_in_seconds");
@@ -94,7 +94,6 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -104,7 +103,6 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformArgument("path")]
     public TerraformValue<string>? Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -114,7 +112,6 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// <summary>
     /// The probe_method attribute.
     /// </summary>
-    [TerraformArgument("probe_method")]
     public TerraformValue<string>? ProbeMethod
     {
         get => new TerraformReference<string>(this, "probe_method");
@@ -124,7 +121,6 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformArgument("protocol")]
     public TerraformValue<string>? Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -147,19 +143,24 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// <summary>
     /// The additional_latency_milliseconds attribute.
     /// </summary>
-    [TerraformArgument("additional_latency_milliseconds")]
     public TerraformValue<double>? AdditionalLatencyMilliseconds
     {
         get => new TerraformReference<double>(this, "additional_latency_milliseconds");
         set => SetArgument("additional_latency_milliseconds", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -169,7 +170,6 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// <summary>
     /// The sample_size attribute.
     /// </summary>
-    [TerraformArgument("sample_size")]
     public TerraformValue<double>? SampleSize
     {
         get => new TerraformReference<double>(this, "sample_size");
@@ -179,7 +179,6 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// <summary>
     /// The successful_samples_required attribute.
     /// </summary>
-    [TerraformArgument("successful_samples_required")]
     public TerraformValue<double>? SuccessfulSamplesRequired
     {
         get => new TerraformReference<double>(this, "successful_samples_required");
@@ -202,7 +201,6 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
     /// <summary>
     /// The backend_pools_send_receive_timeout_seconds attribute.
     /// </summary>
-    [TerraformArgument("backend_pools_send_receive_timeout_seconds")]
     public TerraformValue<double>? BackendPoolsSendReceiveTimeoutSeconds
     {
         get => new TerraformReference<double>(this, "backend_pools_send_receive_timeout_seconds");
@@ -213,7 +211,6 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
     /// The enforce_backend_pools_certificate_name_check attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforceBackendPoolsCertificateNameCheck is required")]
-    [TerraformArgument("enforce_backend_pools_certificate_name_check")]
     public required TerraformValue<bool> EnforceBackendPoolsCertificateNameCheck
     {
         get => new TerraformReference<bool>(this, "enforce_backend_pools_certificate_name_check");
@@ -237,19 +234,24 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformArgument("host_name")]
     public required TerraformValue<string> HostName
     {
         get => new TerraformReference<string>(this, "host_name");
         set => SetArgument("host_name", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -259,7 +261,6 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// <summary>
     /// The session_affinity_enabled attribute.
     /// </summary>
-    [TerraformArgument("session_affinity_enabled")]
     public TerraformValue<bool>? SessionAffinityEnabled
     {
         get => new TerraformReference<bool>(this, "session_affinity_enabled");
@@ -269,7 +270,6 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// <summary>
     /// The session_affinity_ttl_seconds attribute.
     /// </summary>
-    [TerraformArgument("session_affinity_ttl_seconds")]
     public TerraformValue<double>? SessionAffinityTtlSeconds
     {
         get => new TerraformReference<double>(this, "session_affinity_ttl_seconds");
@@ -279,7 +279,6 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// <summary>
     /// The web_application_firewall_policy_link_id attribute.
     /// </summary>
-    [TerraformArgument("web_application_firewall_policy_link_id")]
     public TerraformValue<string>? WebApplicationFirewallPolicyLinkId
     {
         get => new TerraformReference<string>(this, "web_application_firewall_policy_link_id");
@@ -303,7 +302,6 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// The accepted_protocols attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptedProtocols is required")]
-    [TerraformArgument("accepted_protocols")]
     public TerraformList<string>? AcceptedProtocols
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "accepted_protocols").ResolveNodes(ctx));
@@ -313,7 +311,6 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -324,19 +321,24 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// The frontend_endpoints attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpoints is required")]
-    [TerraformArgument("frontend_endpoints")]
     public TerraformList<string>? FrontendEndpoints
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "frontend_endpoints").ResolveNodes(ctx));
         set => SetArgument("frontend_endpoints", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -347,7 +349,6 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// The patterns_to_match attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternsToMatch is required")]
-    [TerraformArgument("patterns_to_match")]
     public TerraformList<string>? PatternsToMatch
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "patterns_to_match").ResolveNodes(ctx));
@@ -370,7 +371,6 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -380,7 +380,6 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -390,7 +389,6 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -400,7 +398,6 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -410,19 +407,14 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_frontdoor Terraform resource.
 /// Manages a azurerm_frontdoor resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermFrontdoor : TerraformResource
+public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_frontdoor", name)
 {
-    public AzurermFrontdoor(string name) : base("azurerm_frontdoor", name)
-    {
-    }
-
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    [TerraformArgument("friendly_name")]
     public TerraformValue<string>? FriendlyName
     {
         get => new TerraformReference<string>(this, "friendly_name");
@@ -432,7 +424,6 @@ public class AzurermFrontdoor : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -442,7 +433,6 @@ public class AzurermFrontdoor : TerraformResource
     /// <summary>
     /// The load_balancer_enabled attribute.
     /// </summary>
-    [TerraformArgument("load_balancer_enabled")]
     public TerraformValue<bool>? LoadBalancerEnabled
     {
         get => new TerraformReference<bool>(this, "load_balancer_enabled");
@@ -453,7 +443,6 @@ public class AzurermFrontdoor : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -464,7 +453,6 @@ public class AzurermFrontdoor : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -474,7 +462,6 @@ public class AzurermFrontdoor : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -482,138 +469,85 @@ public class AzurermFrontdoor : TerraformResource
     }
 
     /// <summary>
-    /// Block for backend_pool.
-    /// Nesting mode: list
+    /// BackendPool block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPool block(s) required")]
-    [TerraformArgument("backend_pool")]
-    public required TerraformList<AzurermFrontdoorBackendPoolBlock> BackendPool { get; set; } = new();
+    public required AzurermFrontdoorBackendPoolBlock BackendPool
+    {
+        get => GetRequiredArgument<AzurermFrontdoorBackendPoolBlock>("backend_pool");
+        set => SetArgument("backend_pool", value);
+    }
 
     /// <summary>
-    /// Block for backend_pool_health_probe.
-    /// Nesting mode: list
+    /// BackendPoolHealthProbe block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolHealthProbe is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolHealthProbe block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolHealthProbe block(s) allowed")]
-    [TerraformArgument("backend_pool_health_probe")]
-    public required TerraformList<AzurermFrontdoorBackendPoolHealthProbeBlock> BackendPoolHealthProbe { get; set; } = new();
+    public required AzurermFrontdoorBackendPoolHealthProbeBlock BackendPoolHealthProbe
+    {
+        get => GetRequiredArgument<AzurermFrontdoorBackendPoolHealthProbeBlock>("backend_pool_health_probe");
+        set => SetArgument("backend_pool_health_probe", value);
+    }
 
     /// <summary>
-    /// Block for backend_pool_load_balancing.
-    /// Nesting mode: list
+    /// BackendPoolLoadBalancing block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolLoadBalancing is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolLoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolLoadBalancing block(s) allowed")]
-    [TerraformArgument("backend_pool_load_balancing")]
-    public required TerraformList<AzurermFrontdoorBackendPoolLoadBalancingBlock> BackendPoolLoadBalancing { get; set; } = new();
+    public required AzurermFrontdoorBackendPoolLoadBalancingBlock BackendPoolLoadBalancing
+    {
+        get => GetRequiredArgument<AzurermFrontdoorBackendPoolLoadBalancingBlock>("backend_pool_load_balancing");
+        set => SetArgument("backend_pool_load_balancing", value);
+    }
 
     /// <summary>
-    /// Block for backend_pool_settings.
-    /// Nesting mode: list
+    /// BackendPoolSettings block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("backend_pool_settings")]
-    public TerraformList<AzurermFrontdoorBackendPoolSettingsBlock> BackendPoolSettings { get; set; } = new();
+    public AzurermFrontdoorBackendPoolSettingsBlock? BackendPoolSettings
+    {
+        get => GetArgument<AzurermFrontdoorBackendPoolSettingsBlock>("backend_pool_settings");
+        set => SetArgument("backend_pool_settings", value);
+    }
 
     /// <summary>
-    /// Block for frontend_endpoint.
-    /// Nesting mode: list
+    /// FrontendEndpoint block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendEndpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 FrontendEndpoint block(s) allowed")]
-    [TerraformArgument("frontend_endpoint")]
-    public required TerraformList<AzurermFrontdoorFrontendEndpointBlock> FrontendEndpoint { get; set; } = new();
+    public required AzurermFrontdoorFrontendEndpointBlock FrontendEndpoint
+    {
+        get => GetRequiredArgument<AzurermFrontdoorFrontendEndpointBlock>("frontend_endpoint");
+        set => SetArgument("frontend_endpoint", value);
+    }
 
     /// <summary>
-    /// Block for routing_rule.
-    /// Nesting mode: list
+    /// RoutingRule block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 RoutingRule block(s) allowed")]
-    [TerraformArgument("routing_rule")]
-    public required TerraformList<AzurermFrontdoorRoutingRuleBlock> RoutingRule { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermFrontdoorTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The backend_pool_health_probes attribute.
-    /// </summary>
-    [TerraformArgument("backend_pool_health_probes")]
-    public TerraformMap<string> BackendPoolHealthProbes
+    public required AzurermFrontdoorRoutingRuleBlock RoutingRule
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pool_health_probes").ResolveNodes(ctx));
+        get => GetRequiredArgument<AzurermFrontdoorRoutingRuleBlock>("routing_rule");
+        set => SetArgument("routing_rule", value);
     }
 
     /// <summary>
-    /// The backend_pool_load_balancing_settings attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("backend_pool_load_balancing_settings")]
-    public TerraformMap<string> BackendPoolLoadBalancingSettings
+    public AzurermFrontdoorTimeoutsBlock? Timeouts
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pool_load_balancing_settings").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The backend_pools attribute.
-    /// </summary>
-    [TerraformArgument("backend_pools")]
-    public TerraformMap<string> BackendPools
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pools").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The cname attribute.
-    /// </summary>
-    [TerraformArgument("cname")]
-    public TerraformValue<string> Cname
-    {
-        get => new TerraformReference<string>(this, "cname");
-    }
-
-    /// <summary>
-    /// The explicit_resource_order attribute.
-    /// </summary>
-    [TerraformArgument("explicit_resource_order")]
-    public TerraformList<object> ExplicitResourceOrder
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "explicit_resource_order").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The frontend_endpoints attribute.
-    /// </summary>
-    [TerraformArgument("frontend_endpoints")]
-    public TerraformMap<string> FrontendEndpoints
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "frontend_endpoints").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The header_frontdoor_id attribute.
-    /// </summary>
-    [TerraformArgument("header_frontdoor_id")]
-    public TerraformValue<string> HeaderFrontdoorId
-    {
-        get => new TerraformReference<string>(this, "header_frontdoor_id");
-    }
-
-    /// <summary>
-    /// The routing_rules attribute.
-    /// </summary>
-    [TerraformArgument("routing_rules")]
-    public TerraformMap<string> RoutingRules
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "routing_rules").ResolveNodes(ctx));
+        get => GetArgument<AzurermFrontdoorTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_lb_nat_pool Terraform resource.
 /// Manages a azurerm_lb_nat_pool resource.
 /// </summary>
-public class AzurermLbNatPool : TerraformResource
+public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_lb_nat_pool", name)
 {
-    public AzurermLbNatPool(string name) : base("azurerm_lb_nat_pool", name)
-    {
-    }
-
     /// <summary>
     /// The backend_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
-    [TerraformArgument("backend_port")]
     public required TerraformValue<double> BackendPort
     {
         get => new TerraformReference<double>(this, "backend_port");
@@ -87,7 +70,6 @@ public class AzurermLbNatPool : TerraformResource
     /// <summary>
     /// The floating_ip_enabled attribute.
     /// </summary>
-    [TerraformArgument("floating_ip_enabled")]
     public TerraformValue<bool>? FloatingIpEnabled
     {
         get => new TerraformReference<bool>(this, "floating_ip_enabled");
@@ -98,7 +80,6 @@ public class AzurermLbNatPool : TerraformResource
     /// The frontend_ip_configuration_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfigurationName is required")]
-    [TerraformArgument("frontend_ip_configuration_name")]
     public required TerraformValue<string> FrontendIpConfigurationName
     {
         get => new TerraformReference<string>(this, "frontend_ip_configuration_name");
@@ -109,7 +90,6 @@ public class AzurermLbNatPool : TerraformResource
     /// The frontend_port_end attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortEnd is required")]
-    [TerraformArgument("frontend_port_end")]
     public required TerraformValue<double> FrontendPortEnd
     {
         get => new TerraformReference<double>(this, "frontend_port_end");
@@ -120,7 +100,6 @@ public class AzurermLbNatPool : TerraformResource
     /// The frontend_port_start attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortStart is required")]
-    [TerraformArgument("frontend_port_start")]
     public required TerraformValue<double> FrontendPortStart
     {
         get => new TerraformReference<double>(this, "frontend_port_start");
@@ -130,7 +109,6 @@ public class AzurermLbNatPool : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -140,7 +118,6 @@ public class AzurermLbNatPool : TerraformResource
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformArgument("idle_timeout_in_minutes")]
     public TerraformValue<double>? IdleTimeoutInMinutes
     {
         get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
@@ -151,7 +128,6 @@ public class AzurermLbNatPool : TerraformResource
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    [TerraformArgument("loadbalancer_id")]
     public required TerraformValue<string> LoadbalancerId
     {
         get => new TerraformReference<string>(this, "loadbalancer_id");
@@ -162,7 +138,6 @@ public class AzurermLbNatPool : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -173,7 +148,6 @@ public class AzurermLbNatPool : TerraformResource
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -184,7 +158,6 @@ public class AzurermLbNatPool : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -194,7 +167,6 @@ public class AzurermLbNatPool : TerraformResource
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    [TerraformArgument("tcp_reset_enabled")]
     public TerraformValue<bool>? TcpResetEnabled
     {
         get => new TerraformReference<bool>(this, "tcp_reset_enabled");
@@ -202,19 +174,12 @@ public class AzurermLbNatPool : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLbNatPoolTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The frontend_ip_configuration_id attribute.
-    /// </summary>
-    [TerraformArgument("frontend_ip_configuration_id")]
-    public TerraformValue<string> FrontendIpConfigurationId
+    public AzurermLbNatPoolTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "frontend_ip_configuration_id");
+        get => GetArgument<AzurermLbNatPoolTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

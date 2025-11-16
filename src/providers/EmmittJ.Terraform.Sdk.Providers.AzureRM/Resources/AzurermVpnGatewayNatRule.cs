@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for external_mapping in .
@@ -26,7 +17,6 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlock
     /// The address_space attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
-    [TerraformArgument("address_space")]
     public required TerraformValue<string> AddressSpace
     {
         get => new TerraformReference<string>(this, "address_space");
@@ -36,7 +26,6 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlock
     /// <summary>
     /// The port_range attribute.
     /// </summary>
-    [TerraformArgument("port_range")]
     public TerraformValue<string>? PortRange
     {
         get => new TerraformReference<string>(this, "port_range");
@@ -60,7 +49,6 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlock
     /// The address_space attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
-    [TerraformArgument("address_space")]
     public required TerraformValue<string> AddressSpace
     {
         get => new TerraformReference<string>(this, "address_space");
@@ -70,7 +58,6 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlock
     /// <summary>
     /// The port_range attribute.
     /// </summary>
-    [TerraformArgument("port_range")]
     public TerraformValue<string>? PortRange
     {
         get => new TerraformReference<string>(this, "port_range");
@@ -93,7 +80,6 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -103,7 +89,6 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -113,7 +98,6 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -123,7 +107,6 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -133,18 +116,14 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_vpn_gateway_nat_rule Terraform resource.
 /// Manages a azurerm_vpn_gateway_nat_rule resource.
 /// </summary>
-public class AzurermVpnGatewayNatRule : TerraformResource
+public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("azurerm_vpn_gateway_nat_rule", name)
 {
-    public AzurermVpnGatewayNatRule(string name) : base("azurerm_vpn_gateway_nat_rule", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -154,7 +133,6 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
-    [TerraformArgument("ip_configuration_id")]
     public TerraformValue<string>? IpConfigurationId
     {
         get => new TerraformReference<string>(this, "ip_configuration_id");
@@ -164,7 +142,6 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    [TerraformArgument("mode")]
     public TerraformValue<string>? Mode
     {
         get => new TerraformReference<string>(this, "mode");
@@ -175,7 +152,6 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -185,7 +161,6 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -196,7 +171,6 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     /// The vpn_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
-    [TerraformArgument("vpn_gateway_id")]
     public required TerraformValue<string> VpnGatewayId
     {
         get => new TerraformReference<string>(this, "vpn_gateway_id");
@@ -204,24 +178,30 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for external_mapping.
-    /// Nesting mode: list
+    /// ExternalMapping block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("external_mapping")]
-    public TerraformList<AzurermVpnGatewayNatRuleExternalMappingBlock> ExternalMapping { get; set; } = new();
+    public AzurermVpnGatewayNatRuleExternalMappingBlock? ExternalMapping
+    {
+        get => GetArgument<AzurermVpnGatewayNatRuleExternalMappingBlock>("external_mapping");
+        set => SetArgument("external_mapping", value);
+    }
 
     /// <summary>
-    /// Block for internal_mapping.
-    /// Nesting mode: list
+    /// InternalMapping block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("internal_mapping")]
-    public TerraformList<AzurermVpnGatewayNatRuleInternalMappingBlock> InternalMapping { get; set; } = new();
+    public AzurermVpnGatewayNatRuleInternalMappingBlock? InternalMapping
+    {
+        get => GetArgument<AzurermVpnGatewayNatRuleInternalMappingBlock>("internal_mapping");
+        set => SetArgument("internal_mapping", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVpnGatewayNatRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermVpnGatewayNatRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermVpnGatewayNatRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for targeting_filter in .
@@ -26,7 +17,6 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
     /// The default_rollout_percentage attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRolloutPercentage is required")]
-    [TerraformArgument("default_rollout_percentage")]
     public required TerraformValue<double> DefaultRolloutPercentage
     {
         get => new TerraformReference<double>(this, "default_rollout_percentage");
@@ -36,7 +26,6 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
     /// <summary>
     /// The users attribute.
     /// </summary>
-    [TerraformArgument("users")]
     public TerraformList<string>? Users
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "users").ResolveNodes(ctx));
@@ -59,7 +48,6 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -112,7 +97,6 @@ public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBloc
     /// <summary>
     /// The end attribute.
     /// </summary>
-    [TerraformArgument("end")]
     public TerraformValue<string>? End
     {
         get => new TerraformReference<string>(this, "end");
@@ -122,7 +106,6 @@ public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBloc
     /// <summary>
     /// The start attribute.
     /// </summary>
-    [TerraformArgument("start")]
     public TerraformValue<string>? Start
     {
         get => new TerraformReference<string>(this, "start");
@@ -132,19 +115,15 @@ public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_app_configuration_feature Terraform resource.
 /// Manages a azurerm_app_configuration_feature resource.
 /// </summary>
-public class AzurermAppConfigurationFeature : TerraformResource
+public partial class AzurermAppConfigurationFeature(string name) : TerraformResource("azurerm_app_configuration_feature", name)
 {
-    public AzurermAppConfigurationFeature(string name) : base("azurerm_app_configuration_feature", name)
-    {
-    }
-
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
-    [TerraformArgument("configuration_store_id")]
     public required TerraformValue<string> ConfigurationStoreId
     {
         get => new TerraformReference<string>(this, "configuration_store_id");
@@ -154,7 +133,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -164,7 +142,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -174,7 +151,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformArgument("etag")]
     public TerraformValue<string> Etag
     {
         get => new TerraformReference<string>(this, "etag");
@@ -184,7 +160,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -194,7 +169,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The key attribute.
     /// </summary>
-    [TerraformArgument("key")]
     public TerraformValue<string> Key
     {
         get => new TerraformReference<string>(this, "key");
@@ -204,7 +178,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The label attribute.
     /// </summary>
-    [TerraformArgument("label")]
     public TerraformValue<string>? Label
     {
         get => new TerraformReference<string>(this, "label");
@@ -214,7 +187,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    [TerraformArgument("locked")]
     public TerraformValue<bool>? Locked
     {
         get => new TerraformReference<bool>(this, "locked");
@@ -225,7 +197,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -235,7 +206,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The percentage_filter_value attribute.
     /// </summary>
-    [TerraformArgument("percentage_filter_value")]
     public TerraformValue<double>? PercentageFilterValue
     {
         get => new TerraformReference<double>(this, "percentage_filter_value");
@@ -245,7 +215,6 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -253,24 +222,30 @@ public class AzurermAppConfigurationFeature : TerraformResource
     }
 
     /// <summary>
-    /// Block for targeting_filter.
-    /// Nesting mode: list
+    /// TargetingFilter block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("targeting_filter")]
-    public TerraformList<AzurermAppConfigurationFeatureTargetingFilterBlock> TargetingFilter { get; set; } = new();
+    public AzurermAppConfigurationFeatureTargetingFilterBlock? TargetingFilter
+    {
+        get => GetArgument<AzurermAppConfigurationFeatureTargetingFilterBlock>("targeting_filter");
+        set => SetArgument("targeting_filter", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAppConfigurationFeatureTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermAppConfigurationFeatureTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermAppConfigurationFeatureTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for timewindow_filter.
-    /// Nesting mode: list
+    /// TimewindowFilter block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("timewindow_filter")]
-    public TerraformList<AzurermAppConfigurationFeatureTimewindowFilterBlock> TimewindowFilter { get; set; } = new();
+    public AzurermAppConfigurationFeatureTimewindowFilterBlock? TimewindowFilter
+    {
+        get => GetArgument<AzurermAppConfigurationFeatureTimewindowFilterBlock>("timewindow_filter");
+        set => SetArgument("timewindow_filter", value);
+    }
 
 }

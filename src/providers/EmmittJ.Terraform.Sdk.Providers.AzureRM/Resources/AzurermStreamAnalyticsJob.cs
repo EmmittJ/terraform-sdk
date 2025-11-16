@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +64,6 @@ public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
     /// <summary>
     /// The account_key attribute.
     /// </summary>
-    [TerraformArgument("account_key")]
     public TerraformValue<string>? AccountKey
     {
         get => new TerraformReference<string>(this, "account_key");
@@ -72,7 +74,6 @@ public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformArgument("account_name")]
     public required TerraformValue<string> AccountName
     {
         get => new TerraformReference<string>(this, "account_name");
@@ -82,7 +83,6 @@ public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    [TerraformArgument("authentication_mode")]
     public TerraformValue<string>? AuthenticationMode
     {
         get => new TerraformReference<string>(this, "authentication_mode");
@@ -105,7 +105,6 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -115,7 +114,6 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -125,7 +123,6 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -135,7 +132,6 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -145,19 +141,14 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_stream_analytics_job Terraform resource.
 /// Manages a azurerm_stream_analytics_job resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStreamAnalyticsJob : TerraformResource
+public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource("azurerm_stream_analytics_job", name)
 {
-    public AzurermStreamAnalyticsJob(string name) : base("azurerm_stream_analytics_job", name)
-    {
-    }
-
     /// <summary>
     /// The compatibility_level attribute.
     /// </summary>
-    [TerraformArgument("compatibility_level")]
     public TerraformValue<string> CompatibilityLevel
     {
         get => new TerraformReference<string>(this, "compatibility_level");
@@ -167,7 +158,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The content_storage_policy attribute.
     /// </summary>
-    [TerraformArgument("content_storage_policy")]
     public TerraformValue<string>? ContentStoragePolicy
     {
         get => new TerraformReference<string>(this, "content_storage_policy");
@@ -177,7 +167,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The data_locale attribute.
     /// </summary>
-    [TerraformArgument("data_locale")]
     public TerraformValue<string>? DataLocale
     {
         get => new TerraformReference<string>(this, "data_locale");
@@ -187,7 +176,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The events_late_arrival_max_delay_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("events_late_arrival_max_delay_in_seconds")]
     public TerraformValue<double>? EventsLateArrivalMaxDelayInSeconds
     {
         get => new TerraformReference<double>(this, "events_late_arrival_max_delay_in_seconds");
@@ -197,7 +185,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The events_out_of_order_max_delay_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("events_out_of_order_max_delay_in_seconds")]
     public TerraformValue<double>? EventsOutOfOrderMaxDelayInSeconds
     {
         get => new TerraformReference<double>(this, "events_out_of_order_max_delay_in_seconds");
@@ -207,7 +194,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The events_out_of_order_policy attribute.
     /// </summary>
-    [TerraformArgument("events_out_of_order_policy")]
     public TerraformValue<string>? EventsOutOfOrderPolicy
     {
         get => new TerraformReference<string>(this, "events_out_of_order_policy");
@@ -217,7 +203,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -228,7 +213,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -239,7 +223,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -249,7 +232,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The output_error_policy attribute.
     /// </summary>
-    [TerraformArgument("output_error_policy")]
     public TerraformValue<string>? OutputErrorPolicy
     {
         get => new TerraformReference<string>(this, "output_error_policy");
@@ -260,7 +242,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -270,7 +251,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    [TerraformArgument("sku_name")]
     public TerraformValue<string>? SkuName
     {
         get => new TerraformReference<string>(this, "sku_name");
@@ -280,7 +260,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The stream_analytics_cluster_id attribute.
     /// </summary>
-    [TerraformArgument("stream_analytics_cluster_id")]
     public TerraformValue<string>? StreamAnalyticsClusterId
     {
         get => new TerraformReference<string>(this, "stream_analytics_cluster_id");
@@ -290,7 +269,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The streaming_units attribute.
     /// </summary>
-    [TerraformArgument("streaming_units")]
     public TerraformValue<double>? StreamingUnits
     {
         get => new TerraformReference<double>(this, "streaming_units");
@@ -300,7 +278,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -311,7 +288,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// The transformation_query attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransformationQuery is required")]
-    [TerraformArgument("transformation_query")]
     public required TerraformValue<string> TransformationQuery
     {
         get => new TerraformReference<string>(this, "transformation_query");
@@ -321,7 +297,6 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -329,35 +304,32 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermStreamAnalyticsJobIdentityBlock> Identity { get; set; } = new();
+    public AzurermStreamAnalyticsJobIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermStreamAnalyticsJobIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for job_storage_account.
-    /// Nesting mode: list
+    /// JobStorageAccount block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobStorageAccount block(s) allowed")]
-    [TerraformArgument("job_storage_account")]
-    public TerraformList<AzurermStreamAnalyticsJobJobStorageAccountBlock> JobStorageAccount { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStreamAnalyticsJobTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The job_id attribute.
-    /// </summary>
-    [TerraformArgument("job_id")]
-    public TerraformValue<string> JobId
+    public AzurermStreamAnalyticsJobJobStorageAccountBlock? JobStorageAccount
     {
-        get => new TerraformReference<string>(this, "job_id");
+        get => GetArgument<AzurermStreamAnalyticsJobJobStorageAccountBlock>("job_storage_account");
+        set => SetArgument("job_storage_account", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermStreamAnalyticsJobTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStreamAnalyticsJobTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

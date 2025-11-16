@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -26,7 +17,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock : Terrafo
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    [TerraformArgument("identity_ids")]
     public required TerraformSet<string> IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
@@ -37,7 +27,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock : Terrafo
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +50,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     /// The app_resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppResourceGroupName is required")]
-    [TerraformArgument("app_resource_group_name")]
     public required TerraformValue<string> AppResourceGroupName
     {
         get => new TerraformReference<string>(this, "app_resource_group_name");
@@ -71,7 +59,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     /// <summary>
     /// The database_type attribute.
     /// </summary>
-    [TerraformArgument("database_type")]
     public TerraformValue<string>? DatabaseType
     {
         get => new TerraformReference<string>(this, "database_type");
@@ -81,7 +68,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     /// <summary>
     /// The secondary_ip_enabled attribute.
     /// </summary>
-    [TerraformArgument("secondary_ip_enabled")]
     public TerraformValue<bool>? SecondaryIpEnabled
     {
         get => new TerraformReference<bool>(this, "secondary_ip_enabled");
@@ -92,7 +78,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurati
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -115,7 +100,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -125,7 +109,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -135,7 +118,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -145,7 +127,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -155,20 +136,15 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_workloads_sap_single_node_virtual_instance Terraform resource.
 /// Manages a azurerm_workloads_sap_single_node_virtual_instance resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
+public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) : TerraformResource("azurerm_workloads_sap_single_node_virtual_instance", name)
 {
-    public AzurermWorkloadsSapSingleNodeVirtualInstance(string name) : base("azurerm_workloads_sap_single_node_virtual_instance", name)
-    {
-    }
-
     /// <summary>
     /// The app_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppLocation is required")]
-    [TerraformArgument("app_location")]
     public required TerraformValue<string> AppLocation
     {
         get => new TerraformReference<string>(this, "app_location");
@@ -179,7 +155,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// The environment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    [TerraformArgument("environment")]
     public required TerraformValue<string> Environment
     {
         get => new TerraformReference<string>(this, "environment");
@@ -189,7 +164,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -200,7 +174,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -210,7 +183,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    [TerraformArgument("managed_resource_group_name")]
     public TerraformValue<string>? ManagedResourceGroupName
     {
         get => new TerraformReference<string>(this, "managed_resource_group_name");
@@ -220,7 +192,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// <summary>
     /// The managed_resources_network_access_type attribute.
     /// </summary>
-    [TerraformArgument("managed_resources_network_access_type")]
     public TerraformValue<string>? ManagedResourcesNetworkAccessType
     {
         get => new TerraformReference<string>(this, "managed_resources_network_access_type");
@@ -231,7 +202,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -242,7 +212,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -253,7 +222,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// The sap_fqdn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapFqdn is required")]
-    [TerraformArgument("sap_fqdn")]
     public required TerraformValue<string> SapFqdn
     {
         get => new TerraformReference<string>(this, "sap_fqdn");
@@ -264,7 +232,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// The sap_product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
-    [TerraformArgument("sap_product")]
     public required TerraformValue<string> SapProduct
     {
         get => new TerraformReference<string>(this, "sap_product");
@@ -274,7 +241,6 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -282,28 +248,35 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock> Identity { get; set; } = new();
+    public AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for single_server_configuration.
-    /// Nesting mode: list
+    /// SingleServerConfiguration block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SingleServerConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SingleServerConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleServerConfiguration block(s) allowed")]
-    [TerraformArgument("single_server_configuration")]
-    public required TerraformList<AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock> SingleServerConfiguration { get; set; } = new();
+    public required AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock SingleServerConfiguration
+    {
+        get => GetRequiredArgument<AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock>("single_server_configuration");
+        set => SetArgument("single_server_configuration", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermWorkloadsSapSingleNodeVirtualInstanceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

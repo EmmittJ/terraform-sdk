@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for permissions in .
@@ -25,9 +16,8 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     /// <summary>
     /// The add attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Add is required")]
-    [TerraformArgument("add")]
-    public required new TerraformValue<bool> Add
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddAttribute is required")]
+    public required TerraformValue<bool> AddAttribute
     {
         get => new TerraformReference<bool>(this, "add");
         set => SetArgument("add", value);
@@ -37,7 +27,6 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     /// The create attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Create is required")]
-    [TerraformArgument("create")]
     public required TerraformValue<bool> Create
     {
         get => new TerraformReference<bool>(this, "create");
@@ -48,7 +37,6 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     /// The delete attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
-    [TerraformArgument("delete")]
     public required TerraformValue<bool> Delete
     {
         get => new TerraformReference<bool>(this, "delete");
@@ -59,7 +47,6 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     /// The list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "List is required")]
-    [TerraformArgument("list")]
     public required TerraformValue<bool> List
     {
         get => new TerraformReference<bool>(this, "list");
@@ -70,7 +57,6 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     /// The read attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
-    [TerraformArgument("read")]
     public required TerraformValue<bool> Read
     {
         get => new TerraformReference<bool>(this, "read");
@@ -81,7 +67,6 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     /// The write attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
-    [TerraformArgument("write")]
     public required TerraformValue<bool> Write
     {
         get => new TerraformReference<bool>(this, "write");
@@ -104,7 +89,6 @@ public class AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock : Terr
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -114,19 +98,14 @@ public class AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock : Terr
 }
 
 /// <summary>
+/// Represents a azurerm_storage_account_blob_container_sas Terraform data source.
 /// Retrieves information about a azurerm_storage_account_blob_container_sas.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSource
+public partial class AzurermStorageAccountBlobContainerSasDataSource(string name) : TerraformDataSource("azurerm_storage_account_blob_container_sas", name)
 {
-    public AzurermStorageAccountBlobContainerSasDataSource(string name) : base("azurerm_storage_account_blob_container_sas", name)
-    {
-    }
-
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    [TerraformArgument("cache_control")]
     public TerraformValue<string>? CacheControl
     {
         get => new TerraformReference<string>(this, "cache_control");
@@ -137,7 +116,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// The connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
-    [TerraformArgument("connection_string")]
     public required TerraformValue<string> ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -148,7 +126,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    [TerraformArgument("container_name")]
     public required TerraformValue<string> ContainerName
     {
         get => new TerraformReference<string>(this, "container_name");
@@ -158,7 +135,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    [TerraformArgument("content_disposition")]
     public TerraformValue<string>? ContentDisposition
     {
         get => new TerraformReference<string>(this, "content_disposition");
@@ -168,7 +144,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    [TerraformArgument("content_encoding")]
     public TerraformValue<string>? ContentEncoding
     {
         get => new TerraformReference<string>(this, "content_encoding");
@@ -178,7 +153,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The content_language attribute.
     /// </summary>
-    [TerraformArgument("content_language")]
     public TerraformValue<string>? ContentLanguage
     {
         get => new TerraformReference<string>(this, "content_language");
@@ -188,7 +162,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    [TerraformArgument("content_type")]
     public TerraformValue<string>? ContentType
     {
         get => new TerraformReference<string>(this, "content_type");
@@ -199,7 +172,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// The expiry attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
-    [TerraformArgument("expiry")]
     public required TerraformValue<string> Expiry
     {
         get => new TerraformReference<string>(this, "expiry");
@@ -209,7 +181,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    [TerraformArgument("https_only")]
     public TerraformValue<bool>? HttpsOnly
     {
         get => new TerraformReference<bool>(this, "https_only");
@@ -219,7 +190,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -229,7 +199,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    [TerraformArgument("ip_address")]
     public TerraformValue<string>? IpAddress
     {
         get => new TerraformReference<string>(this, "ip_address");
@@ -240,7 +209,6 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// The start attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
-    [TerraformArgument("start")]
     public required TerraformValue<string> Start
     {
         get => new TerraformReference<string>(this, "start");
@@ -248,29 +216,25 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     }
 
     /// <summary>
-    /// Block for permissions.
-    /// Nesting mode: list
+    /// Permissions block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
-    [TerraformArgument("permissions")]
-    public required TerraformList<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock> Permissions { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The sas attribute.
-    /// </summary>
-    [TerraformArgument("sas")]
-    public TerraformValue<string> Sas
+    public required AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock Permissions
     {
-        get => new TerraformReference<string>(this, "sas");
+        get => GetRequiredArgument<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>("permissions");
+        set => SetArgument("permissions", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

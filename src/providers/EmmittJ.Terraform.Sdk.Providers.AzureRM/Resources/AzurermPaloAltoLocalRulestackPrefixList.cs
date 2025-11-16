@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_palo_alto_local_rulestack_prefix_list Terraform resource.
 /// Manages a azurerm_palo_alto_local_rulestack_prefix_list resource.
 /// </summary>
-public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
+public partial class AzurermPaloAltoLocalRulestackPrefixList(string name) : TerraformResource("azurerm_palo_alto_local_rulestack_prefix_list", name)
 {
-    public AzurermPaloAltoLocalRulestackPrefixList(string name) : base("azurerm_palo_alto_local_rulestack_prefix_list", name)
-    {
-    }
-
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    [TerraformArgument("audit_comment")]
     public TerraformValue<string>? AuditComment
     {
         get => new TerraformReference<string>(this, "audit_comment");
@@ -86,7 +69,6 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -96,7 +78,6 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -107,7 +88,6 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -118,7 +98,6 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     /// The prefix_list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixList is required")]
-    [TerraformArgument("prefix_list")]
     public TerraformList<string>? PrefixList
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "prefix_list").ResolveNodes(ctx));
@@ -129,7 +108,6 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     /// The rulestack_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
-    [TerraformArgument("rulestack_id")]
     public required TerraformValue<string> RulestackId
     {
         get => new TerraformReference<string>(this, "rulestack_id");
@@ -137,10 +115,12 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

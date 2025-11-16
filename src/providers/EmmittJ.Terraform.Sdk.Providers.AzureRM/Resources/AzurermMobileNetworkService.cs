@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for pcc_rule in .
@@ -26,7 +17,6 @@ public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -37,7 +27,6 @@ public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
     /// The precedence attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Precedence is required")]
-    [TerraformArgument("precedence")]
     public required TerraformValue<double> Precedence
     {
         get => new TerraformReference<double>(this, "precedence");
@@ -47,7 +36,6 @@ public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
     /// <summary>
     /// The traffic_control_enabled attribute.
     /// </summary>
-    [TerraformArgument("traffic_control_enabled")]
     public TerraformValue<bool>? TrafficControlEnabled
     {
         get => new TerraformReference<bool>(this, "traffic_control_enabled");
@@ -70,7 +58,6 @@ public class AzurermMobileNetworkServiceServiceQosPolicyBlock : TerraformBlock
     /// <summary>
     /// The allocation_and_retention_priority_level attribute.
     /// </summary>
-    [TerraformArgument("allocation_and_retention_priority_level")]
     public TerraformValue<double>? AllocationAndRetentionPriorityLevel
     {
         get => new TerraformReference<double>(this, "allocation_and_retention_priority_level");
@@ -80,7 +67,6 @@ public class AzurermMobileNetworkServiceServiceQosPolicyBlock : TerraformBlock
     /// <summary>
     /// The preemption_capability attribute.
     /// </summary>
-    [TerraformArgument("preemption_capability")]
     public TerraformValue<string>? PreemptionCapability
     {
         get => new TerraformReference<string>(this, "preemption_capability");
@@ -90,7 +76,6 @@ public class AzurermMobileNetworkServiceServiceQosPolicyBlock : TerraformBlock
     /// <summary>
     /// The preemption_vulnerability attribute.
     /// </summary>
-    [TerraformArgument("preemption_vulnerability")]
     public TerraformValue<string>? PreemptionVulnerability
     {
         get => new TerraformReference<string>(this, "preemption_vulnerability");
@@ -100,7 +85,6 @@ public class AzurermMobileNetworkServiceServiceQosPolicyBlock : TerraformBlock
     /// <summary>
     /// The qos_indicator attribute.
     /// </summary>
-    [TerraformArgument("qos_indicator")]
     public TerraformValue<double>? QosIndicator
     {
         get => new TerraformReference<double>(this, "qos_indicator");
@@ -123,7 +107,6 @@ public class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -133,7 +116,6 @@ public class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -143,7 +125,6 @@ public class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -153,7 +134,6 @@ public class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -163,19 +143,14 @@ public class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mobile_network_service Terraform resource.
 /// Manages a azurerm_mobile_network_service resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMobileNetworkService : TerraformResource
+public partial class AzurermMobileNetworkService(string name) : TerraformResource("azurerm_mobile_network_service", name)
 {
-    public AzurermMobileNetworkService(string name) : base("azurerm_mobile_network_service", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -186,7 +161,6 @@ public class AzurermMobileNetworkService : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -197,7 +171,6 @@ public class AzurermMobileNetworkService : TerraformResource
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    [TerraformArgument("mobile_network_id")]
     public required TerraformValue<string> MobileNetworkId
     {
         get => new TerraformReference<string>(this, "mobile_network_id");
@@ -208,7 +181,6 @@ public class AzurermMobileNetworkService : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -219,7 +191,6 @@ public class AzurermMobileNetworkService : TerraformResource
     /// The service_precedence attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrecedence is required")]
-    [TerraformArgument("service_precedence")]
     public required TerraformValue<double> ServicePrecedence
     {
         get => new TerraformReference<double>(this, "service_precedence");
@@ -229,7 +200,6 @@ public class AzurermMobileNetworkService : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -237,27 +207,34 @@ public class AzurermMobileNetworkService : TerraformResource
     }
 
     /// <summary>
-    /// Block for pcc_rule.
-    /// Nesting mode: list
+    /// PccRule block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PccRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PccRule block(s) required")]
-    [TerraformArgument("pcc_rule")]
-    public required TerraformList<AzurermMobileNetworkServicePccRuleBlock> PccRule { get; set; } = new();
+    public required AzurermMobileNetworkServicePccRuleBlock PccRule
+    {
+        get => GetRequiredArgument<AzurermMobileNetworkServicePccRuleBlock>("pcc_rule");
+        set => SetArgument("pcc_rule", value);
+    }
 
     /// <summary>
-    /// Block for service_qos_policy.
-    /// Nesting mode: list
+    /// ServiceQosPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceQosPolicy block(s) allowed")]
-    [TerraformArgument("service_qos_policy")]
-    public TerraformList<AzurermMobileNetworkServiceServiceQosPolicyBlock> ServiceQosPolicy { get; set; } = new();
+    public AzurermMobileNetworkServiceServiceQosPolicyBlock? ServiceQosPolicy
+    {
+        get => GetArgument<AzurermMobileNetworkServiceServiceQosPolicyBlock>("service_qos_policy");
+        set => SetArgument("service_qos_policy", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMobileNetworkServiceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMobileNetworkServiceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMobileNetworkServiceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

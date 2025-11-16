@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_app_configuration_key Terraform resource.
 /// Manages a azurerm_app_configuration_key resource.
 /// </summary>
-public class AzurermAppConfigurationKey : TerraformResource
+public partial class AzurermAppConfigurationKey(string name) : TerraformResource("azurerm_app_configuration_key", name)
 {
-    public AzurermAppConfigurationKey(string name) : base("azurerm_app_configuration_key", name)
-    {
-    }
-
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
-    [TerraformArgument("configuration_store_id")]
     public required TerraformValue<string> ConfigurationStoreId
     {
         get => new TerraformReference<string>(this, "configuration_store_id");
@@ -87,7 +70,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    [TerraformArgument("content_type")]
     public TerraformValue<string> ContentType
     {
         get => new TerraformReference<string>(this, "content_type");
@@ -97,7 +79,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformArgument("etag")]
     public TerraformValue<string> Etag
     {
         get => new TerraformReference<string>(this, "etag");
@@ -107,7 +88,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -118,7 +98,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformArgument("key")]
     public required TerraformValue<string> Key
     {
         get => new TerraformReference<string>(this, "key");
@@ -128,7 +107,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The label attribute.
     /// </summary>
-    [TerraformArgument("label")]
     public TerraformValue<string>? Label
     {
         get => new TerraformReference<string>(this, "label");
@@ -138,7 +116,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    [TerraformArgument("locked")]
     public TerraformValue<bool>? Locked
     {
         get => new TerraformReference<bool>(this, "locked");
@@ -148,7 +125,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -158,7 +134,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -168,7 +143,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformArgument("value")]
     public TerraformValue<string>? Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -178,7 +152,6 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The vault_key_reference attribute.
     /// </summary>
-    [TerraformArgument("vault_key_reference")]
     public TerraformValue<string>? VaultKeyReference
     {
         get => new TerraformReference<string>(this, "vault_key_reference");
@@ -186,10 +159,12 @@ public class AzurermAppConfigurationKey : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAppConfigurationKeyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermAppConfigurationKeyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermAppConfigurationKeyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

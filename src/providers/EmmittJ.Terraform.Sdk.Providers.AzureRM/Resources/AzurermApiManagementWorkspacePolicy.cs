@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementWorkspacePolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermApiManagementWorkspacePolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermApiManagementWorkspacePolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermApiManagementWorkspacePolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermApiManagementWorkspacePolicyTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_workspace_policy Terraform resource.
 /// Manages a azurerm_api_management_workspace_policy resource.
 /// </summary>
-public class AzurermApiManagementWorkspacePolicy : TerraformResource
+public partial class AzurermApiManagementWorkspacePolicy(string name) : TerraformResource("azurerm_api_management_workspace_policy", name)
 {
-    public AzurermApiManagementWorkspacePolicy(string name) : base("azurerm_api_management_workspace_policy", name)
-    {
-    }
-
     /// <summary>
     /// The api_management_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementWorkspaceId is required")]
-    [TerraformArgument("api_management_workspace_id")]
     public required TerraformValue<string> ApiManagementWorkspaceId
     {
         get => new TerraformReference<string>(this, "api_management_workspace_id");
@@ -87,7 +70,6 @@ public class AzurermApiManagementWorkspacePolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +79,6 @@ public class AzurermApiManagementWorkspacePolicy : TerraformResource
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    [TerraformArgument("xml_content")]
     public TerraformValue<string> XmlContent
     {
         get => new TerraformReference<string>(this, "xml_content");
@@ -107,7 +88,6 @@ public class AzurermApiManagementWorkspacePolicy : TerraformResource
     /// <summary>
     /// The xml_link attribute.
     /// </summary>
-    [TerraformArgument("xml_link")]
     public TerraformValue<string>? XmlLink
     {
         get => new TerraformReference<string>(this, "xml_link");
@@ -115,10 +95,12 @@ public class AzurermApiManagementWorkspacePolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementWorkspacePolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApiManagementWorkspacePolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementWorkspacePolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

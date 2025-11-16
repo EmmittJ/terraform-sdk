@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for action_group in .
@@ -25,7 +16,6 @@ public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlo
     /// <summary>
     /// The email_subject attribute.
     /// </summary>
-    [TerraformArgument("email_subject")]
     public TerraformValue<string>? EmailSubject
     {
         get => new TerraformReference<string>(this, "email_subject");
@@ -36,7 +26,6 @@ public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlo
     /// The ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ids is required")]
-    [TerraformArgument("ids")]
     public required TerraformSet<string> Ids
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ids").ResolveNodes(ctx));
@@ -46,7 +35,6 @@ public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlo
     /// <summary>
     /// The webhook_payload attribute.
     /// </summary>
-    [TerraformArgument("webhook_payload")]
     public TerraformValue<string>? WebhookPayload
     {
         get => new TerraformReference<string>(this, "webhook_payload");
@@ -69,7 +57,6 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -79,7 +66,6 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -89,7 +75,6 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -99,7 +84,6 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -109,19 +93,14 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_smart_detector_alert_rule Terraform resource.
 /// Manages a azurerm_monitor_smart_detector_alert_rule resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
+public partial class AzurermMonitorSmartDetectorAlertRule(string name) : TerraformResource("azurerm_monitor_smart_detector_alert_rule", name)
 {
-    public AzurermMonitorSmartDetectorAlertRule(string name) : base("azurerm_monitor_smart_detector_alert_rule", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -132,7 +111,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// The detector_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorType is required")]
-    [TerraformArgument("detector_type")]
     public required TerraformValue<string> DetectorType
     {
         get => new TerraformReference<string>(this, "detector_type");
@@ -142,7 +120,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -153,7 +130,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    [TerraformArgument("frequency")]
     public required TerraformValue<string> Frequency
     {
         get => new TerraformReference<string>(this, "frequency");
@@ -163,7 +139,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -174,7 +149,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -185,7 +159,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -196,7 +169,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// The scope_resource_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeResourceIds is required")]
-    [TerraformArgument("scope_resource_ids")]
     public required TerraformSet<string> ScopeResourceIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scope_resource_ids").ResolveNodes(ctx));
@@ -207,7 +179,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// The severity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
-    [TerraformArgument("severity")]
     public required TerraformValue<string> Severity
     {
         get => new TerraformReference<string>(this, "severity");
@@ -217,7 +188,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -227,7 +197,6 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// <summary>
     /// The throttling_duration attribute.
     /// </summary>
-    [TerraformArgument("throttling_duration")]
     public TerraformValue<string>? ThrottlingDuration
     {
         get => new TerraformReference<string>(this, "throttling_duration");
@@ -235,20 +204,25 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for action_group.
-    /// Nesting mode: list
+    /// ActionGroup block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionGroup block(s) allowed")]
-    [TerraformArgument("action_group")]
-    public required TerraformList<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock> ActionGroup { get; set; } = new();
+    public required AzurermMonitorSmartDetectorAlertRuleActionGroupBlock ActionGroup
+    {
+        get => GetRequiredArgument<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock>("action_group");
+        set => SetArgument("action_group", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

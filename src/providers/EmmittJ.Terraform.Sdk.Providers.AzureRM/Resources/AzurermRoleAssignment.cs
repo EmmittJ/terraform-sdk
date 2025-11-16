@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermRoleAssignmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermRoleAssignmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermRoleAssignmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermRoleAssignmentTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_role_assignment Terraform resource.
 /// Manages a azurerm_role_assignment resource.
 /// </summary>
-public class AzurermRoleAssignment : TerraformResource
+public partial class AzurermRoleAssignment(string name) : TerraformResource("azurerm_role_assignment", name)
 {
-    public AzurermRoleAssignment(string name) : base("azurerm_role_assignment", name)
-    {
-    }
-
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    [TerraformArgument("condition")]
     public TerraformValue<string>? Condition
     {
         get => new TerraformReference<string>(this, "condition");
@@ -76,7 +60,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    [TerraformArgument("condition_version")]
     public TerraformValue<string> ConditionVersion
     {
         get => new TerraformReference<string>(this, "condition_version");
@@ -86,7 +69,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The delegated_managed_identity_resource_id attribute.
     /// </summary>
-    [TerraformArgument("delegated_managed_identity_resource_id")]
     public TerraformValue<string>? DelegatedManagedIdentityResourceId
     {
         get => new TerraformReference<string>(this, "delegated_managed_identity_resource_id");
@@ -96,7 +78,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -106,7 +87,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -116,7 +96,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -127,7 +106,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    [TerraformArgument("principal_id")]
     public required TerraformValue<string> PrincipalId
     {
         get => new TerraformReference<string>(this, "principal_id");
@@ -137,7 +115,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    [TerraformArgument("principal_type")]
     public TerraformValue<string> PrincipalType
     {
         get => new TerraformReference<string>(this, "principal_type");
@@ -147,7 +124,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    [TerraformArgument("role_definition_id")]
     public TerraformValue<string> RoleDefinitionId
     {
         get => new TerraformReference<string>(this, "role_definition_id");
@@ -157,7 +133,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The role_definition_name attribute.
     /// </summary>
-    [TerraformArgument("role_definition_name")]
     public TerraformValue<string> RoleDefinitionName
     {
         get => new TerraformReference<string>(this, "role_definition_name");
@@ -168,7 +143,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    [TerraformArgument("scope")]
     public required TerraformValue<string> Scope
     {
         get => new TerraformReference<string>(this, "scope");
@@ -178,7 +152,6 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The skip_service_principal_aad_check attribute.
     /// </summary>
-    [TerraformArgument("skip_service_principal_aad_check")]
     public TerraformValue<bool> SkipServicePrincipalAadCheck
     {
         get => new TerraformReference<bool>(this, "skip_service_principal_aad_check");
@@ -186,10 +159,12 @@ public class AzurermRoleAssignment : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermRoleAssignmentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermRoleAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermRoleAssignmentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

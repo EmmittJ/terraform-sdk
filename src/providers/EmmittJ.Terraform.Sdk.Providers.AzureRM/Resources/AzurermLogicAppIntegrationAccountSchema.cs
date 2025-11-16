@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermLogicAppIntegrationAccountSchemaTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermLogicAppIntegrationAccountSchemaTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermLogicAppIntegrationAccountSchemaTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermLogicAppIntegrationAccountSchemaTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermLogicAppIntegrationAccountSchemaTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_logic_app_integration_account_schema Terraform resource.
 /// Manages a azurerm_logic_app_integration_account_schema resource.
 /// </summary>
-public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
+public partial class AzurermLogicAppIntegrationAccountSchema(string name) : TerraformResource("azurerm_logic_app_integration_account_schema", name)
 {
-    public AzurermLogicAppIntegrationAccountSchema(string name) : base("azurerm_logic_app_integration_account_schema", name)
-    {
-    }
-
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformArgument("content")]
     public required TerraformValue<string> Content
     {
         get => new TerraformReference<string>(this, "content");
@@ -87,7 +70,6 @@ public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
     /// <summary>
     /// The file_name attribute.
     /// </summary>
-    [TerraformArgument("file_name")]
     public TerraformValue<string>? FileName
     {
         get => new TerraformReference<string>(this, "file_name");
@@ -97,7 +79,6 @@ public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -108,7 +89,6 @@ public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
     /// The integration_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
-    [TerraformArgument("integration_account_name")]
     public required TerraformValue<string> IntegrationAccountName
     {
         get => new TerraformReference<string>(this, "integration_account_name");
@@ -118,7 +98,6 @@ public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformArgument("metadata")]
     public TerraformValue<string>? Metadata
     {
         get => new TerraformReference<string>(this, "metadata");
@@ -129,7 +108,6 @@ public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -140,7 +118,6 @@ public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -148,10 +125,12 @@ public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLogicAppIntegrationAccountSchemaTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermLogicAppIntegrationAccountSchemaTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermLogicAppIntegrationAccountSchemaTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

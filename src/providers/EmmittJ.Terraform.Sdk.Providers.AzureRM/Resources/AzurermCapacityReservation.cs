@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for sku in .
@@ -26,7 +17,6 @@ public class AzurermCapacityReservationSkuBlock : TerraformBlock
     /// The capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
-    [TerraformArgument("capacity")]
     public required TerraformValue<double> Capacity
     {
         get => new TerraformReference<double>(this, "capacity");
@@ -37,7 +27,6 @@ public class AzurermCapacityReservationSkuBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -60,7 +49,6 @@ public class AzurermCapacityReservationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermCapacityReservationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermCapacityReservationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermCapacityReservationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,20 +85,15 @@ public class AzurermCapacityReservationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_capacity_reservation Terraform resource.
 /// Manages a azurerm_capacity_reservation resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCapacityReservation : TerraformResource
+public partial class AzurermCapacityReservation(string name) : TerraformResource("azurerm_capacity_reservation", name)
 {
-    public AzurermCapacityReservation(string name) : base("azurerm_capacity_reservation", name)
-    {
-    }
-
     /// <summary>
     /// The capacity_reservation_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityReservationGroupId is required")]
-    [TerraformArgument("capacity_reservation_group_id")]
     public required TerraformValue<string> CapacityReservationGroupId
     {
         get => new TerraformReference<string>(this, "capacity_reservation_group_id");
@@ -123,7 +103,6 @@ public class AzurermCapacityReservation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -134,7 +113,6 @@ public class AzurermCapacityReservation : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -144,7 +122,6 @@ public class AzurermCapacityReservation : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -154,7 +131,6 @@ public class AzurermCapacityReservation : TerraformResource
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    [TerraformArgument("zone")]
     public TerraformValue<string>? Zone
     {
         get => new TerraformReference<string>(this, "zone");
@@ -162,20 +138,25 @@ public class AzurermCapacityReservation : TerraformResource
     }
 
     /// <summary>
-    /// Block for sku.
-    /// Nesting mode: list
+    /// Sku block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    [TerraformArgument("sku")]
-    public required TerraformList<AzurermCapacityReservationSkuBlock> Sku { get; set; } = new();
+    public required AzurermCapacityReservationSkuBlock Sku
+    {
+        get => GetRequiredArgument<AzurermCapacityReservationSkuBlock>("sku");
+        set => SetArgument("sku", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCapacityReservationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCapacityReservationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCapacityReservationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

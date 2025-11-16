@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNatGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermNatGatewayDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_nat_gateway Terraform data source.
 /// Retrieves information about a azurerm_nat_gateway.
 /// </summary>
-public class AzurermNatGatewayDataSource : TerraformDataSource
+public partial class AzurermNatGatewayDataSource(string name) : TerraformDataSource("azurerm_nat_gateway", name)
 {
-    public AzurermNatGatewayDataSource(string name) : base("azurerm_nat_gateway", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -67,7 +52,6 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     /// <summary>
     /// The public_ip_address_ids attribute.
     /// </summary>
-    [TerraformArgument("public_ip_address_ids")]
     public TerraformList<string> PublicIpAddressIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ip_address_ids").ResolveNodes(ctx));
@@ -77,7 +61,6 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     /// <summary>
     /// The public_ip_prefix_ids attribute.
     /// </summary>
-    [TerraformArgument("public_ip_prefix_ids")]
     public TerraformList<string> PublicIpPrefixIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ip_prefix_ids").ResolveNodes(ctx));
@@ -88,7 +71,6 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -96,64 +78,12 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNatGatewayDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The idle_timeout_in_minutes attribute.
-    /// </summary>
-    [TerraformArgument("idle_timeout_in_minutes")]
-    public TerraformValue<double> IdleTimeoutInMinutes
+    public AzurermNatGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
-    }
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The resource_guid attribute.
-    /// </summary>
-    [TerraformArgument("resource_guid")]
-    public TerraformValue<string> ResourceGuid
-    {
-        get => new TerraformReference<string>(this, "resource_guid");
-    }
-
-    /// <summary>
-    /// The sku_name attribute.
-    /// </summary>
-    [TerraformArgument("sku_name")]
-    public TerraformValue<string> SkuName
-    {
-        get => new TerraformReference<string>(this, "sku_name");
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The zones attribute.
-    /// </summary>
-    [TerraformArgument("zones")]
-    public TerraformList<string> Zones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<AzurermNatGatewayDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

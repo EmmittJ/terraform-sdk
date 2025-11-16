@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudApiPortalCustomDomainTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSpringCloudApiPortalCustomDomainTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSpringCloudApiPortalCustomDomainTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSpringCloudApiPortalCustomDomainTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSpringCloudApiPortalCustomDomainTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_api_portal_custom_domain Terraform resource.
 /// Manages a azurerm_spring_cloud_api_portal_custom_domain resource.
 /// </summary>
-public class AzurermSpringCloudApiPortalCustomDomain : TerraformResource
+public partial class AzurermSpringCloudApiPortalCustomDomain(string name) : TerraformResource("azurerm_spring_cloud_api_portal_custom_domain", name)
 {
-    public AzurermSpringCloudApiPortalCustomDomain(string name) : base("azurerm_spring_cloud_api_portal_custom_domain", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermSpringCloudApiPortalCustomDomain : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -98,7 +80,6 @@ public class AzurermSpringCloudApiPortalCustomDomain : TerraformResource
     /// The spring_cloud_api_portal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudApiPortalId is required")]
-    [TerraformArgument("spring_cloud_api_portal_id")]
     public required TerraformValue<string> SpringCloudApiPortalId
     {
         get => new TerraformReference<string>(this, "spring_cloud_api_portal_id");
@@ -108,7 +89,6 @@ public class AzurermSpringCloudApiPortalCustomDomain : TerraformResource
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    [TerraformArgument("thumbprint")]
     public TerraformValue<string>? Thumbprint
     {
         get => new TerraformReference<string>(this, "thumbprint");
@@ -116,10 +96,12 @@ public class AzurermSpringCloudApiPortalCustomDomain : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudApiPortalCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSpringCloudApiPortalCustomDomainTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSpringCloudApiPortalCustomDomainTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMssqlVirtualNetworkRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMssqlVirtualNetworkRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMssqlVirtualNetworkRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermMssqlVirtualNetworkRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermMssqlVirtualNetworkRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mssql_virtual_network_rule Terraform resource.
 /// Manages a azurerm_mssql_virtual_network_rule resource.
 /// </summary>
-public class AzurermMssqlVirtualNetworkRule : TerraformResource
+public partial class AzurermMssqlVirtualNetworkRule(string name) : TerraformResource("azurerm_mssql_virtual_network_rule", name)
 {
-    public AzurermMssqlVirtualNetworkRule(string name) : base("azurerm_mssql_virtual_network_rule", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -86,7 +69,6 @@ public class AzurermMssqlVirtualNetworkRule : TerraformResource
     /// <summary>
     /// The ignore_missing_vnet_service_endpoint attribute.
     /// </summary>
-    [TerraformArgument("ignore_missing_vnet_service_endpoint")]
     public TerraformValue<bool>? IgnoreMissingVnetServiceEndpoint
     {
         get => new TerraformReference<bool>(this, "ignore_missing_vnet_service_endpoint");
@@ -97,7 +79,6 @@ public class AzurermMssqlVirtualNetworkRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -108,7 +89,6 @@ public class AzurermMssqlVirtualNetworkRule : TerraformResource
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformArgument("server_id")]
     public required TerraformValue<string> ServerId
     {
         get => new TerraformReference<string>(this, "server_id");
@@ -119,7 +99,6 @@ public class AzurermMssqlVirtualNetworkRule : TerraformResource
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -127,10 +106,12 @@ public class AzurermMssqlVirtualNetworkRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMssqlVirtualNetworkRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMssqlVirtualNetworkRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMssqlVirtualNetworkRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

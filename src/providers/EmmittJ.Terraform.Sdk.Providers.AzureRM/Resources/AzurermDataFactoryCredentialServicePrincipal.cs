@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for service_principal_key in .
@@ -26,7 +17,6 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformArgument("linked_service_name")]
     public required TerraformValue<string> LinkedServiceName
     {
         get => new TerraformReference<string>(this, "linked_service_name");
@@ -37,7 +27,6 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
     /// The secret_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
-    [TerraformArgument("secret_name")]
     public required TerraformValue<string> SecretName
     {
         get => new TerraformReference<string>(this, "secret_name");
@@ -47,7 +36,6 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
     /// <summary>
     /// The secret_version attribute.
     /// </summary>
-    [TerraformArgument("secret_version")]
     public TerraformValue<string>? SecretVersion
     {
         get => new TerraformReference<string>(this, "secret_version");
@@ -70,7 +58,6 @@ public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -80,7 +67,6 @@ public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -90,7 +76,6 @@ public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -100,7 +85,6 @@ public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -110,19 +94,14 @@ public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_credential_service_principal Terraform resource.
 /// Manages a azurerm_data_factory_credential_service_principal resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
+public partial class AzurermDataFactoryCredentialServicePrincipal(string name) : TerraformResource("azurerm_data_factory_credential_service_principal", name)
 {
-    public AzurermDataFactoryCredentialServicePrincipal(string name) : base("azurerm_data_factory_credential_service_principal", name)
-    {
-    }
-
     /// <summary>
     /// (Optional) List of string annotations.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -133,7 +112,6 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     /// The resource ID of the parent Data Factory
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -143,7 +121,6 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     /// <summary>
     /// (Optional) Short text description
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -153,7 +130,6 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -164,7 +140,6 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     /// The desired name of the credential resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -175,7 +150,6 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     /// The Client ID of the Service Principal
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
-    [TerraformArgument("service_principal_id")]
     public required TerraformValue<string> ServicePrincipalId
     {
         get => new TerraformReference<string>(this, "service_principal_id");
@@ -186,7 +160,6 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     /// The Tenant ID of the Service Principal
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    [TerraformArgument("tenant_id")]
     public required TerraformValue<string> TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -194,18 +167,22 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     }
 
     /// <summary>
-    /// Block for service_principal_key.
-    /// Nesting mode: list
+    /// ServicePrincipalKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipalKey block(s) allowed")]
-    [TerraformArgument("service_principal_key")]
-    public TerraformList<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock> ServicePrincipalKey { get; set; } = new();
+    public AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock? ServicePrincipalKey
+    {
+        get => GetArgument<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>("service_principal_key");
+        set => SetArgument("service_principal_key", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

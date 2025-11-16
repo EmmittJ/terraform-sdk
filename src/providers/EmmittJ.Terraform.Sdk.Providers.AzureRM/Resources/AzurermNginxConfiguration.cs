@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for config_file in .
@@ -26,7 +17,6 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformArgument("content")]
     public required TerraformValue<string> Content
     {
         get => new TerraformReference<string>(this, "content");
@@ -37,7 +27,6 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
     /// The virtual_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
-    [TerraformArgument("virtual_path")]
     public required TerraformValue<string> VirtualPath
     {
         get => new TerraformReference<string>(this, "virtual_path");
@@ -61,19 +50,24 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformArgument("content")]
     public required TerraformValue<string> Content
     {
         get => new TerraformReference<string>(this, "content");
         set => SetArgument("content", value);
     }
 
+    /// <summary>
+    /// The content_hash attribute.
+    /// </summary>
+    public TerraformValue<string> ContentHash
+    {
+        get => new TerraformReference<string>(this, "content_hash");
+    }
 
     /// <summary>
     /// The virtual_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
-    [TerraformArgument("virtual_path")]
     public required TerraformValue<string> VirtualPath
     {
         get => new TerraformReference<string>(this, "virtual_path");
@@ -96,7 +90,6 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -106,7 +99,6 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -116,7 +108,6 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -126,7 +117,6 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -136,18 +126,14 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_nginx_configuration Terraform resource.
 /// Manages a azurerm_nginx_configuration resource.
 /// </summary>
-public class AzurermNginxConfiguration : TerraformResource
+public partial class AzurermNginxConfiguration(string name) : TerraformResource("azurerm_nginx_configuration", name)
 {
-    public AzurermNginxConfiguration(string name) : base("azurerm_nginx_configuration", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -158,7 +144,6 @@ public class AzurermNginxConfiguration : TerraformResource
     /// The nginx_deployment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
-    [TerraformArgument("nginx_deployment_id")]
     public required TerraformValue<string> NginxDeploymentId
     {
         get => new TerraformReference<string>(this, "nginx_deployment_id");
@@ -168,7 +153,6 @@ public class AzurermNginxConfiguration : TerraformResource
     /// <summary>
     /// The package_data attribute.
     /// </summary>
-    [TerraformArgument("package_data")]
     public TerraformValue<string>? PackageData
     {
         get => new TerraformReference<string>(this, "package_data");
@@ -179,7 +163,6 @@ public class AzurermNginxConfiguration : TerraformResource
     /// The root_file attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFile is required")]
-    [TerraformArgument("root_file")]
     public required TerraformValue<string> RootFile
     {
         get => new TerraformReference<string>(this, "root_file");
@@ -187,24 +170,30 @@ public class AzurermNginxConfiguration : TerraformResource
     }
 
     /// <summary>
-    /// Block for config_file.
-    /// Nesting mode: set
+    /// ConfigFile block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("config_file")]
-    public TerraformSet<AzurermNginxConfigurationConfigFileBlock> ConfigFile { get; set; } = new();
+    public AzurermNginxConfigurationConfigFileBlock? ConfigFile
+    {
+        get => GetArgument<AzurermNginxConfigurationConfigFileBlock>("config_file");
+        set => SetArgument("config_file", value);
+    }
 
     /// <summary>
-    /// Block for protected_file.
-    /// Nesting mode: set
+    /// ProtectedFile block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("protected_file")]
-    public TerraformSet<AzurermNginxConfigurationProtectedFileBlock> ProtectedFile { get; set; } = new();
+    public AzurermNginxConfigurationProtectedFileBlock? ProtectedFile
+    {
+        get => GetArgument<AzurermNginxConfigurationProtectedFileBlock>("protected_file");
+        set => SetArgument("protected_file", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNginxConfigurationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNginxConfigurationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNginxConfigurationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

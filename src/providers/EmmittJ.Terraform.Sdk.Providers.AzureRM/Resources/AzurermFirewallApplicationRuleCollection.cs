@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for rule in .
@@ -25,7 +16,6 @@ public class AzurermFirewallApplicationRuleCollectionRuleBlock : TerraformBlock
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -35,7 +25,6 @@ public class AzurermFirewallApplicationRuleCollectionRuleBlock : TerraformBlock
     /// <summary>
     /// The fqdn_tags attribute.
     /// </summary>
-    [TerraformArgument("fqdn_tags")]
     public TerraformList<string>? FqdnTags
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fqdn_tags").ResolveNodes(ctx));
@@ -46,7 +35,6 @@ public class AzurermFirewallApplicationRuleCollectionRuleBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -56,7 +44,6 @@ public class AzurermFirewallApplicationRuleCollectionRuleBlock : TerraformBlock
     /// <summary>
     /// The source_addresses attribute.
     /// </summary>
-    [TerraformArgument("source_addresses")]
     public TerraformList<string>? SourceAddresses
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_addresses").ResolveNodes(ctx));
@@ -66,7 +53,6 @@ public class AzurermFirewallApplicationRuleCollectionRuleBlock : TerraformBlock
     /// <summary>
     /// The source_ip_groups attribute.
     /// </summary>
-    [TerraformArgument("source_ip_groups")]
     public TerraformList<string>? SourceIpGroups
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_ip_groups").ResolveNodes(ctx));
@@ -76,7 +62,6 @@ public class AzurermFirewallApplicationRuleCollectionRuleBlock : TerraformBlock
     /// <summary>
     /// The target_fqdns attribute.
     /// </summary>
-    [TerraformArgument("target_fqdns")]
     public TerraformList<string>? TargetFqdns
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "target_fqdns").ResolveNodes(ctx));
@@ -99,7 +84,6 @@ public class AzurermFirewallApplicationRuleCollectionTimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -109,7 +93,6 @@ public class AzurermFirewallApplicationRuleCollectionTimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -119,7 +102,6 @@ public class AzurermFirewallApplicationRuleCollectionTimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -129,7 +111,6 @@ public class AzurermFirewallApplicationRuleCollectionTimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -139,20 +120,15 @@ public class AzurermFirewallApplicationRuleCollectionTimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_firewall_application_rule_collection Terraform resource.
 /// Manages a azurerm_firewall_application_rule_collection resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermFirewallApplicationRuleCollection : TerraformResource
+public partial class AzurermFirewallApplicationRuleCollection(string name) : TerraformResource("azurerm_firewall_application_rule_collection", name)
 {
-    public AzurermFirewallApplicationRuleCollection(string name) : base("azurerm_firewall_application_rule_collection", name)
-    {
-    }
-
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformArgument("action")]
     public required TerraformValue<string> Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -163,7 +139,6 @@ public class AzurermFirewallApplicationRuleCollection : TerraformResource
     /// The azure_firewall_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureFirewallName is required")]
-    [TerraformArgument("azure_firewall_name")]
     public required TerraformValue<string> AzureFirewallName
     {
         get => new TerraformReference<string>(this, "azure_firewall_name");
@@ -173,7 +148,6 @@ public class AzurermFirewallApplicationRuleCollection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -184,7 +158,6 @@ public class AzurermFirewallApplicationRuleCollection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -195,7 +168,6 @@ public class AzurermFirewallApplicationRuleCollection : TerraformResource
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -206,7 +178,6 @@ public class AzurermFirewallApplicationRuleCollection : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -214,19 +185,24 @@ public class AzurermFirewallApplicationRuleCollection : TerraformResource
     }
 
     /// <summary>
-    /// Block for rule.
-    /// Nesting mode: list
+    /// Rule block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    [TerraformArgument("rule")]
-    public required TerraformList<AzurermFirewallApplicationRuleCollectionRuleBlock> Rule { get; set; } = new();
+    public required AzurermFirewallApplicationRuleCollectionRuleBlock Rule
+    {
+        get => GetRequiredArgument<AzurermFirewallApplicationRuleCollectionRuleBlock>("rule");
+        set => SetArgument("rule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermFirewallApplicationRuleCollectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermFirewallApplicationRuleCollectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermFirewallApplicationRuleCollectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

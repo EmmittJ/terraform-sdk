@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for quota in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudContainerDeploymentQuotaBlock : TerraformBlock
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    [TerraformArgument("cpu")]
     public TerraformValue<string> Cpu
     {
         get => new TerraformReference<string>(this, "cpu");
@@ -35,7 +25,6 @@ public class AzurermSpringCloudContainerDeploymentQuotaBlock : TerraformBlock
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    [TerraformArgument("memory")]
     public TerraformValue<string> Memory
     {
         get => new TerraformReference<string>(this, "memory");
@@ -58,7 +47,6 @@ public class AzurermSpringCloudContainerDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -68,7 +56,6 @@ public class AzurermSpringCloudContainerDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -78,7 +65,6 @@ public class AzurermSpringCloudContainerDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -88,7 +74,6 @@ public class AzurermSpringCloudContainerDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -98,19 +83,14 @@ public class AzurermSpringCloudContainerDeploymentTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_container_deployment Terraform resource.
 /// Manages a azurerm_spring_cloud_container_deployment resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSpringCloudContainerDeployment : TerraformResource
+public partial class AzurermSpringCloudContainerDeployment(string name) : TerraformResource("azurerm_spring_cloud_container_deployment", name)
 {
-    public AzurermSpringCloudContainerDeployment(string name) : base("azurerm_spring_cloud_container_deployment", name)
-    {
-    }
-
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    [TerraformArgument("addon_json")]
     public TerraformValue<string> AddonJson
     {
         get => new TerraformReference<string>(this, "addon_json");
@@ -120,7 +100,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The application_performance_monitoring_ids attribute.
     /// </summary>
-    [TerraformArgument("application_performance_monitoring_ids")]
     public TerraformList<string>? ApplicationPerformanceMonitoringIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "application_performance_monitoring_ids").ResolveNodes(ctx));
@@ -130,7 +109,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The arguments attribute.
     /// </summary>
-    [TerraformArgument("arguments")]
     public TerraformList<string>? Arguments
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "arguments").ResolveNodes(ctx));
@@ -140,7 +118,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    [TerraformArgument("commands")]
     public TerraformList<string>? Commands
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "commands").ResolveNodes(ctx));
@@ -150,7 +127,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    [TerraformArgument("environment_variables")]
     public TerraformMap<string>? EnvironmentVariables
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
@@ -160,7 +136,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -171,7 +146,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// The image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
-    [TerraformArgument("image")]
     public required TerraformValue<string> Image
     {
         get => new TerraformReference<string>(this, "image");
@@ -181,7 +155,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    [TerraformArgument("instance_count")]
     public TerraformValue<double>? InstanceCount
     {
         get => new TerraformReference<double>(this, "instance_count");
@@ -191,7 +164,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The language_framework attribute.
     /// </summary>
-    [TerraformArgument("language_framework")]
     public TerraformValue<string>? LanguageFramework
     {
         get => new TerraformReference<string>(this, "language_framework");
@@ -202,7 +174,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -213,7 +184,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// The server attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
-    [TerraformArgument("server")]
     public required TerraformValue<string> Server
     {
         get => new TerraformReference<string>(this, "server");
@@ -224,7 +194,6 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// The spring_cloud_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
-    [TerraformArgument("spring_cloud_app_id")]
     public required TerraformValue<string> SpringCloudAppId
     {
         get => new TerraformReference<string>(this, "spring_cloud_app_id");
@@ -232,18 +201,22 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     }
 
     /// <summary>
-    /// Block for quota.
-    /// Nesting mode: list
+    /// Quota block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
-    [TerraformArgument("quota")]
-    public TerraformList<AzurermSpringCloudContainerDeploymentQuotaBlock> Quota { get; set; } = new();
+    public AzurermSpringCloudContainerDeploymentQuotaBlock? Quota
+    {
+        get => GetArgument<AzurermSpringCloudContainerDeploymentQuotaBlock>("quota");
+        set => SetArgument("quota", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudContainerDeploymentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSpringCloudContainerDeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSpringCloudContainerDeploymentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

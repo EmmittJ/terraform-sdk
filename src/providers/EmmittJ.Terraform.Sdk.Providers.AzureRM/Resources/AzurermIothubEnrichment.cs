@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_iothub_enrichment Terraform resource.
 /// Manages a azurerm_iothub_enrichment resource.
 /// </summary>
-public class AzurermIothubEnrichment : TerraformResource
+public partial class AzurermIothubEnrichment(string name) : TerraformResource("azurerm_iothub_enrichment", name)
 {
-    public AzurermIothubEnrichment(string name) : base("azurerm_iothub_enrichment", name)
-    {
-    }
-
     /// <summary>
     /// The endpoint_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointNames is required")]
-    [TerraformArgument("endpoint_names")]
     public TerraformList<string>? EndpointNames
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "endpoint_names").ResolveNodes(ctx));
@@ -87,7 +70,6 @@ public class AzurermIothubEnrichment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermIothubEnrichment : TerraformResource
     /// The iothub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
-    [TerraformArgument("iothub_name")]
     public required TerraformValue<string> IothubName
     {
         get => new TerraformReference<string>(this, "iothub_name");
@@ -109,7 +90,6 @@ public class AzurermIothubEnrichment : TerraformResource
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformArgument("key")]
     public required TerraformValue<string> Key
     {
         get => new TerraformReference<string>(this, "key");
@@ -120,7 +100,6 @@ public class AzurermIothubEnrichment : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -131,7 +110,6 @@ public class AzurermIothubEnrichment : TerraformResource
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformArgument("value")]
     public required TerraformValue<string> Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -139,10 +117,12 @@ public class AzurermIothubEnrichment : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIothubEnrichmentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermIothubEnrichmentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermIothubEnrichmentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

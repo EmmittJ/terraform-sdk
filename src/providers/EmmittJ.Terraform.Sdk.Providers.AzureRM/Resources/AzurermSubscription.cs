@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_subscription Terraform resource.
 /// Manages a azurerm_subscription resource.
 /// </summary>
-public class AzurermSubscription : TerraformResource
+public partial class AzurermSubscription(string name) : TerraformResource("azurerm_subscription", name)
 {
-    public AzurermSubscription(string name) : base("azurerm_subscription", name)
-    {
-    }
-
     /// <summary>
     /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
     /// </summary>
-    [TerraformArgument("alias")]
     public TerraformValue<string> Alias
     {
         get => new TerraformReference<string>(this, "alias");
@@ -86,7 +69,6 @@ public class AzurermSubscription : TerraformResource
     /// <summary>
     /// The billing_scope_id attribute.
     /// </summary>
-    [TerraformArgument("billing_scope_id")]
     public TerraformValue<string>? BillingScopeId
     {
         get => new TerraformReference<string>(this, "billing_scope_id");
@@ -96,7 +78,6 @@ public class AzurermSubscription : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -106,7 +87,6 @@ public class AzurermSubscription : TerraformResource
     /// <summary>
     /// The GUID of the Subscription.
     /// </summary>
-    [TerraformArgument("subscription_id")]
     public TerraformValue<string> SubscriptionId
     {
         get => new TerraformReference<string>(this, "subscription_id");
@@ -117,7 +97,6 @@ public class AzurermSubscription : TerraformResource
     /// The Display Name for the Subscription.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionName is required")]
-    [TerraformArgument("subscription_name")]
     public required TerraformValue<string> SubscriptionName
     {
         get => new TerraformReference<string>(this, "subscription_name");
@@ -127,7 +106,6 @@ public class AzurermSubscription : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -137,7 +115,6 @@ public class AzurermSubscription : TerraformResource
     /// <summary>
     /// The workload type for the Subscription. Possible values are `Production` (default) and `DevTest`.
     /// </summary>
-    [TerraformArgument("workload")]
     public TerraformValue<string>? Workload
     {
         get => new TerraformReference<string>(this, "workload");
@@ -145,19 +122,12 @@ public class AzurermSubscription : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The Tenant ID to which the subscription belongs
-    /// </summary>
-    [TerraformArgument("tenant_id")]
-    public TerraformValue<string> TenantId
+    public AzurermSubscriptionTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<AzurermSubscriptionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

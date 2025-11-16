@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock : Terra
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock : Terra
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock : Terra
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock : Terra
 }
 
 /// <summary>
+/// Represents a azurerm_sentinel_log_analytics_workspace_onboarding Terraform resource.
 /// Manages a azurerm_sentinel_log_analytics_workspace_onboarding resource.
 /// </summary>
-public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
+public partial class AzurermSentinelLogAnalyticsWorkspaceOnboarding(string name) : TerraformResource("azurerm_sentinel_log_analytics_workspace_onboarding", name)
 {
-    public AzurermSentinelLogAnalyticsWorkspaceOnboarding(string name) : base("azurerm_sentinel_log_analytics_workspace_onboarding", name)
-    {
-    }
-
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    [TerraformArgument("customer_managed_key_enabled")]
     public TerraformValue<bool>? CustomerManagedKeyEnabled
     {
         get => new TerraformReference<bool>(this, "customer_managed_key_enabled");
@@ -76,7 +60,6 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -95,10 +77,12 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

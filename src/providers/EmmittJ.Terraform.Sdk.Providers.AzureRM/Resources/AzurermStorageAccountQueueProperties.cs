@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for cors_rule in .
@@ -26,7 +17,6 @@ public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
     /// The allowed_headers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
-    [TerraformArgument("allowed_headers")]
     public TerraformList<string>? AllowedHeaders
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
@@ -37,7 +27,6 @@ public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
     /// The allowed_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
-    [TerraformArgument("allowed_methods")]
     public TerraformList<string>? AllowedMethods
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
@@ -48,7 +37,6 @@ public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
     /// The allowed_origins attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
-    [TerraformArgument("allowed_origins")]
     public TerraformList<string>? AllowedOrigins
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
@@ -59,7 +47,6 @@ public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
     /// The exposed_headers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
-    [TerraformArgument("exposed_headers")]
     public TerraformList<string>? ExposedHeaders
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
@@ -70,7 +57,6 @@ public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
     /// The max_age_in_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
-    [TerraformArgument("max_age_in_seconds")]
     public required TerraformValue<double> MaxAgeInSeconds
     {
         get => new TerraformReference<double>(this, "max_age_in_seconds");
@@ -93,7 +79,6 @@ public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlo
     /// <summary>
     /// The include_apis attribute.
     /// </summary>
-    [TerraformArgument("include_apis")]
     public TerraformValue<bool>? IncludeApis
     {
         get => new TerraformReference<bool>(this, "include_apis");
@@ -103,7 +88,6 @@ public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlo
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
-    [TerraformArgument("retention_policy_days")]
     public TerraformValue<double>? RetentionPolicyDays
     {
         get => new TerraformReference<double>(this, "retention_policy_days");
@@ -114,7 +98,6 @@ public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlo
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -138,7 +121,6 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     /// The delete attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
-    [TerraformArgument("delete")]
     public required TerraformValue<bool> Delete
     {
         get => new TerraformReference<bool>(this, "delete");
@@ -149,7 +131,6 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     /// The read attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
-    [TerraformArgument("read")]
     public required TerraformValue<bool> Read
     {
         get => new TerraformReference<bool>(this, "read");
@@ -159,7 +140,6 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
-    [TerraformArgument("retention_policy_days")]
     public TerraformValue<double>? RetentionPolicyDays
     {
         get => new TerraformReference<double>(this, "retention_policy_days");
@@ -170,7 +150,6 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -181,7 +160,6 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     /// The write attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
-    [TerraformArgument("write")]
     public required TerraformValue<bool> Write
     {
         get => new TerraformReference<bool>(this, "write");
@@ -204,7 +182,6 @@ public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformB
     /// <summary>
     /// The include_apis attribute.
     /// </summary>
-    [TerraformArgument("include_apis")]
     public TerraformValue<bool>? IncludeApis
     {
         get => new TerraformReference<bool>(this, "include_apis");
@@ -214,7 +191,6 @@ public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformB
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
-    [TerraformArgument("retention_policy_days")]
     public TerraformValue<double>? RetentionPolicyDays
     {
         get => new TerraformReference<double>(this, "retention_policy_days");
@@ -225,7 +201,6 @@ public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformB
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -248,7 +223,6 @@ public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -258,7 +232,6 @@ public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -268,7 +241,6 @@ public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -278,7 +250,6 @@ public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -288,19 +259,14 @@ public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_account_queue_properties Terraform resource.
 /// Manages a azurerm_storage_account_queue_properties resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStorageAccountQueueProperties : TerraformResource
+public partial class AzurermStorageAccountQueueProperties(string name) : TerraformResource("azurerm_storage_account_queue_properties", name)
 {
-    public AzurermStorageAccountQueueProperties(string name) : base("azurerm_storage_account_queue_properties", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -311,7 +277,6 @@ public class AzurermStorageAccountQueueProperties : TerraformResource
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformArgument("storage_account_id")]
     public required TerraformValue<string> StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -319,42 +284,52 @@ public class AzurermStorageAccountQueueProperties : TerraformResource
     }
 
     /// <summary>
-    /// Block for cors_rule.
-    /// Nesting mode: list
+    /// CorsRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 CorsRule block(s) allowed")]
-    [TerraformArgument("cors_rule")]
-    public TerraformList<AzurermStorageAccountQueuePropertiesCorsRuleBlock> CorsRule { get; set; } = new();
+    public AzurermStorageAccountQueuePropertiesCorsRuleBlock? CorsRule
+    {
+        get => GetArgument<AzurermStorageAccountQueuePropertiesCorsRuleBlock>("cors_rule");
+        set => SetArgument("cors_rule", value);
+    }
 
     /// <summary>
-    /// Block for hour_metrics.
-    /// Nesting mode: list
+    /// HourMetrics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourMetrics block(s) allowed")]
-    [TerraformArgument("hour_metrics")]
-    public TerraformList<AzurermStorageAccountQueuePropertiesHourMetricsBlock> HourMetrics { get; set; } = new();
+    public AzurermStorageAccountQueuePropertiesHourMetricsBlock? HourMetrics
+    {
+        get => GetArgument<AzurermStorageAccountQueuePropertiesHourMetricsBlock>("hour_metrics");
+        set => SetArgument("hour_metrics", value);
+    }
 
     /// <summary>
-    /// Block for logging.
-    /// Nesting mode: list
+    /// Logging block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
-    [TerraformArgument("logging")]
-    public TerraformList<AzurermStorageAccountQueuePropertiesLoggingBlock> Logging { get; set; } = new();
+    public AzurermStorageAccountQueuePropertiesLoggingBlock? Logging
+    {
+        get => GetArgument<AzurermStorageAccountQueuePropertiesLoggingBlock>("logging");
+        set => SetArgument("logging", value);
+    }
 
     /// <summary>
-    /// Block for minute_metrics.
-    /// Nesting mode: list
+    /// MinuteMetrics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinuteMetrics block(s) allowed")]
-    [TerraformArgument("minute_metrics")]
-    public TerraformList<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock> MinuteMetrics { get; set; } = new();
+    public AzurermStorageAccountQueuePropertiesMinuteMetricsBlock? MinuteMetrics
+    {
+        get => GetArgument<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>("minute_metrics");
+        set => SetArgument("minute_metrics", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageAccountQueuePropertiesTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStorageAccountQueuePropertiesTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStorageAccountQueuePropertiesTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

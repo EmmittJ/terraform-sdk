@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
 }
 
 /// <summary>
+/// Represents a azurerm_communication_service_email_domain_association Terraform resource.
 /// Manages a azurerm_communication_service_email_domain_association resource.
 /// </summary>
-public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResource
+public partial class AzurermCommunicationServiceEmailDomainAssociation(string name) : TerraformResource("azurerm_communication_service_email_domain_association", name)
 {
-    public AzurermCommunicationServiceEmailDomainAssociation(string name) : base("azurerm_communication_service_email_domain_association", name)
-    {
-    }
-
     /// <summary>
     /// The communication_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommunicationServiceId is required")]
-    [TerraformArgument("communication_service_id")]
     public required TerraformValue<string> CommunicationServiceId
     {
         get => new TerraformReference<string>(this, "communication_service_id");
@@ -78,7 +62,6 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     /// The email_service_domain_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceDomainId is required")]
-    [TerraformArgument("email_service_domain_id")]
     public required TerraformValue<string> EmailServiceDomainId
     {
         get => new TerraformReference<string>(this, "email_service_domain_id");
@@ -88,7 +71,6 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -96,10 +78,12 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

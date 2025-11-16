@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_database_migration_project Terraform resource.
 /// Manages a azurerm_database_migration_project resource.
 /// </summary>
-public class AzurermDatabaseMigrationProject : TerraformResource
+public partial class AzurermDatabaseMigrationProject(string name) : TerraformResource("azurerm_database_migration_project", name)
 {
-    public AzurermDatabaseMigrationProject(string name) : base("azurerm_database_migration_project", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -98,7 +80,6 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -109,7 +90,6 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -120,7 +100,6 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformArgument("service_name")]
     public required TerraformValue<string> ServiceName
     {
         get => new TerraformReference<string>(this, "service_name");
@@ -131,7 +110,6 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     /// The source_platform attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePlatform is required")]
-    [TerraformArgument("source_platform")]
     public required TerraformValue<string> SourcePlatform
     {
         get => new TerraformReference<string>(this, "source_platform");
@@ -141,7 +119,6 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -152,7 +129,6 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     /// The target_platform attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPlatform is required")]
-    [TerraformArgument("target_platform")]
     public required TerraformValue<string> TargetPlatform
     {
         get => new TerraformReference<string>(this, "target_platform");
@@ -160,10 +136,12 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDatabaseMigrationProjectTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDatabaseMigrationProjectTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDatabaseMigrationProjectTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDevCenterGalleryDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermDevCenterGalleryDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dev_center_gallery Terraform data source.
 /// Retrieves information about a azurerm_dev_center_gallery.
 /// </summary>
-public class AzurermDevCenterGalleryDataSource : TerraformDataSource
+public partial class AzurermDevCenterGalleryDataSource(string name) : TerraformDataSource("azurerm_dev_center_gallery", name)
 {
-    public AzurermDevCenterGalleryDataSource(string name) : base("azurerm_dev_center_gallery", name)
-    {
-    }
-
     /// <summary>
     /// The dev_center_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
-    [TerraformArgument("dev_center_id")]
     public required TerraformValue<string> DevCenterId
     {
         get => new TerraformReference<string>(this, "dev_center_id");
@@ -57,7 +43,6 @@ public class AzurermDevCenterGalleryDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -68,7 +53,6 @@ public class AzurermDevCenterGalleryDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -76,19 +60,12 @@ public class AzurermDevCenterGalleryDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDevCenterGalleryDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The shared_gallery_id attribute.
-    /// </summary>
-    [TerraformArgument("shared_gallery_id")]
-    public TerraformValue<string> SharedGalleryId
+    public AzurermDevCenterGalleryDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "shared_gallery_id");
+        get => GetArgument<AzurermDevCenterGalleryDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

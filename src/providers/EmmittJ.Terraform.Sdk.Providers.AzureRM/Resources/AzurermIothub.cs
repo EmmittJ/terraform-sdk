@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for cloud_to_device in .
@@ -25,7 +16,6 @@ public class AzurermIothubCloudToDeviceBlock : TerraformBlock
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    [TerraformArgument("default_ttl")]
     public TerraformValue<string>? DefaultTtl
     {
         get => new TerraformReference<string>(this, "default_ttl");
@@ -35,7 +25,6 @@ public class AzurermIothubCloudToDeviceBlock : TerraformBlock
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    [TerraformArgument("max_delivery_count")]
     public TerraformValue<double>? MaxDeliveryCount
     {
         get => new TerraformReference<double>(this, "max_delivery_count");
@@ -58,7 +47,6 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    [TerraformArgument("condition")]
     public TerraformValue<string>? Condition
     {
         get => new TerraformReference<string>(this, "condition");
@@ -68,7 +56,6 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -78,7 +65,6 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// <summary>
     /// The endpoint_names attribute.
     /// </summary>
-    [TerraformArgument("endpoint_names")]
     public TerraformList<string> EndpointNames
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "endpoint_names").ResolveNodes(ctx));
@@ -88,7 +74,6 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// <summary>
     /// The source attribute.
     /// </summary>
-    [TerraformArgument("source")]
     public TerraformValue<string>? Source
     {
         get => new TerraformReference<string>(this, "source");
@@ -111,7 +96,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    [TerraformArgument("authentication_type")]
     public TerraformValue<string>? AuthenticationType
     {
         get => new TerraformReference<string>(this, "authentication_type");
@@ -122,7 +106,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// The connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
-    [TerraformArgument("connection_string")]
     public required TerraformValue<string> ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -133,7 +116,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    [TerraformArgument("container_name")]
     public required TerraformValue<string> ContainerName
     {
         get => new TerraformReference<string>(this, "container_name");
@@ -143,7 +125,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    [TerraformArgument("default_ttl")]
     public TerraformValue<string>? DefaultTtl
     {
         get => new TerraformReference<string>(this, "default_ttl");
@@ -153,7 +134,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    [TerraformArgument("identity_id")]
     public TerraformValue<string>? IdentityId
     {
         get => new TerraformReference<string>(this, "identity_id");
@@ -163,7 +143,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
-    [TerraformArgument("lock_duration")]
     public TerraformValue<string>? LockDuration
     {
         get => new TerraformReference<string>(this, "lock_duration");
@@ -173,7 +152,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    [TerraformArgument("max_delivery_count")]
     public TerraformValue<double>? MaxDeliveryCount
     {
         get => new TerraformReference<double>(this, "max_delivery_count");
@@ -183,7 +161,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// <summary>
     /// The notifications attribute.
     /// </summary>
-    [TerraformArgument("notifications")]
     public TerraformValue<bool>? Notifications
     {
         get => new TerraformReference<bool>(this, "notifications");
@@ -193,7 +170,6 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// <summary>
     /// The sas_ttl attribute.
     /// </summary>
-    [TerraformArgument("sas_ttl")]
     public TerraformValue<string>? SasTtl
     {
         get => new TerraformReference<string>(this, "sas_ttl");
@@ -216,20 +192,32 @@ public class AzurermIothubIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -252,7 +240,6 @@ public class AzurermIothubNetworkRuleSetBlock : TerraformBlock
     /// <summary>
     /// The apply_to_builtin_eventhub_endpoint attribute.
     /// </summary>
-    [TerraformArgument("apply_to_builtin_eventhub_endpoint")]
     public TerraformValue<bool>? ApplyToBuiltinEventhubEndpoint
     {
         get => new TerraformReference<bool>(this, "apply_to_builtin_eventhub_endpoint");
@@ -262,7 +249,6 @@ public class AzurermIothubNetworkRuleSetBlock : TerraformBlock
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    [TerraformArgument("default_action")]
     public TerraformValue<string>? DefaultAction
     {
         get => new TerraformReference<string>(this, "default_action");
@@ -286,7 +272,6 @@ public class AzurermIothubSkuBlock : TerraformBlock
     /// The capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
-    [TerraformArgument("capacity")]
     public required TerraformValue<double> Capacity
     {
         get => new TerraformReference<double>(this, "capacity");
@@ -297,7 +282,6 @@ public class AzurermIothubSkuBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -320,7 +304,6 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -330,7 +313,6 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -340,7 +322,6 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -350,7 +331,6 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -360,39 +340,32 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_iothub Terraform resource.
 /// Manages a azurerm_iothub resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermIothub : TerraformResource
+public partial class AzurermIothub(string name) : TerraformResource("azurerm_iothub", name)
 {
-    public AzurermIothub(string name) : base("azurerm_iothub", name)
-    {
-    }
-
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    [TerraformArgument("endpoint")]
-    public TerraformList<object> Endpoint
+    public TerraformList<TerraformMap<object>> Endpoint
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "endpoint").ResolveNodes(ctx));
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoint").ResolveNodes(ctx));
         set => SetArgument("endpoint", value);
     }
 
     /// <summary>
     /// The enrichment attribute.
     /// </summary>
-    [TerraformArgument("enrichment")]
-    public TerraformList<object> Enrichment
+    public TerraformList<TerraformMap<object>> Enrichment
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "enrichment").ResolveNodes(ctx));
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "enrichment").ResolveNodes(ctx));
         set => SetArgument("enrichment", value);
     }
 
     /// <summary>
     /// The event_hub_partition_count attribute.
     /// </summary>
-    [TerraformArgument("event_hub_partition_count")]
     public TerraformValue<double>? EventHubPartitionCount
     {
         get => new TerraformReference<double>(this, "event_hub_partition_count");
@@ -402,7 +375,6 @@ public class AzurermIothub : TerraformResource
     /// <summary>
     /// The event_hub_retention_in_days attribute.
     /// </summary>
-    [TerraformArgument("event_hub_retention_in_days")]
     public TerraformValue<double>? EventHubRetentionInDays
     {
         get => new TerraformReference<double>(this, "event_hub_retention_in_days");
@@ -412,7 +384,6 @@ public class AzurermIothub : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -422,7 +393,6 @@ public class AzurermIothub : TerraformResource
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    [TerraformArgument("local_authentication_enabled")]
     public TerraformValue<bool>? LocalAuthenticationEnabled
     {
         get => new TerraformReference<bool>(this, "local_authentication_enabled");
@@ -433,7 +403,6 @@ public class AzurermIothub : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -443,7 +412,6 @@ public class AzurermIothub : TerraformResource
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    [TerraformArgument("min_tls_version")]
     public TerraformValue<string>? MinTlsVersion
     {
         get => new TerraformReference<string>(this, "min_tls_version");
@@ -454,7 +422,6 @@ public class AzurermIothub : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -464,7 +431,6 @@ public class AzurermIothub : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -475,7 +441,6 @@ public class AzurermIothub : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -485,17 +450,15 @@ public class AzurermIothub : TerraformResource
     /// <summary>
     /// The route attribute.
     /// </summary>
-    [TerraformArgument("route")]
-    public TerraformList<object> Route
+    public TerraformList<TerraformMap<object>> Route
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "route").ResolveNodes(ctx));
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "route").ResolveNodes(ctx));
         set => SetArgument("route", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -503,131 +466,74 @@ public class AzurermIothub : TerraformResource
     }
 
     /// <summary>
-    /// Block for cloud_to_device.
-    /// Nesting mode: list
+    /// CloudToDevice block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudToDevice block(s) allowed")]
-    [TerraformArgument("cloud_to_device")]
-    public TerraformList<AzurermIothubCloudToDeviceBlock> CloudToDevice { get; set; } = new();
+    public AzurermIothubCloudToDeviceBlock? CloudToDevice
+    {
+        get => GetArgument<AzurermIothubCloudToDeviceBlock>("cloud_to_device");
+        set => SetArgument("cloud_to_device", value);
+    }
 
     /// <summary>
-    /// Block for fallback_route.
-    /// Nesting mode: list
+    /// FallbackRoute block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FallbackRoute block(s) allowed")]
-    [TerraformArgument("fallback_route")]
-    public TerraformList<AzurermIothubFallbackRouteBlock> FallbackRoute { get; set; } = new();
+    public AzurermIothubFallbackRouteBlock? FallbackRoute
+    {
+        get => GetArgument<AzurermIothubFallbackRouteBlock>("fallback_route");
+        set => SetArgument("fallback_route", value);
+    }
 
     /// <summary>
-    /// Block for file_upload.
-    /// Nesting mode: list
+    /// FileUpload block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileUpload block(s) allowed")]
-    [TerraformArgument("file_upload")]
-    public TerraformList<AzurermIothubFileUploadBlock> FileUpload { get; set; } = new();
+    public AzurermIothubFileUploadBlock? FileUpload
+    {
+        get => GetArgument<AzurermIothubFileUploadBlock>("file_upload");
+        set => SetArgument("file_upload", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermIothubIdentityBlock> Identity { get; set; } = new();
+    public AzurermIothubIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermIothubIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for network_rule_set.
-    /// Nesting mode: list
+    /// NetworkRuleSet block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("network_rule_set")]
-    public TerraformList<AzurermIothubNetworkRuleSetBlock> NetworkRuleSet { get; set; } = new();
+    public AzurermIothubNetworkRuleSetBlock? NetworkRuleSet
+    {
+        get => GetArgument<AzurermIothubNetworkRuleSetBlock>("network_rule_set");
+        set => SetArgument("network_rule_set", value);
+    }
 
     /// <summary>
-    /// Block for sku.
-    /// Nesting mode: list
+    /// Sku block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    [TerraformArgument("sku")]
-    public required TerraformList<AzurermIothubSkuBlock> Sku { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIothubTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The event_hub_events_endpoint attribute.
-    /// </summary>
-    [TerraformArgument("event_hub_events_endpoint")]
-    public TerraformValue<string> EventHubEventsEndpoint
+    public required AzurermIothubSkuBlock Sku
     {
-        get => new TerraformReference<string>(this, "event_hub_events_endpoint");
+        get => GetRequiredArgument<AzurermIothubSkuBlock>("sku");
+        set => SetArgument("sku", value);
     }
 
     /// <summary>
-    /// The event_hub_events_namespace attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("event_hub_events_namespace")]
-    public TerraformValue<string> EventHubEventsNamespace
+    public AzurermIothubTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "event_hub_events_namespace");
-    }
-
-    /// <summary>
-    /// The event_hub_events_path attribute.
-    /// </summary>
-    [TerraformArgument("event_hub_events_path")]
-    public TerraformValue<string> EventHubEventsPath
-    {
-        get => new TerraformReference<string>(this, "event_hub_events_path");
-    }
-
-    /// <summary>
-    /// The event_hub_operations_endpoint attribute.
-    /// </summary>
-    [TerraformArgument("event_hub_operations_endpoint")]
-    public TerraformValue<string> EventHubOperationsEndpoint
-    {
-        get => new TerraformReference<string>(this, "event_hub_operations_endpoint");
-    }
-
-    /// <summary>
-    /// The event_hub_operations_path attribute.
-    /// </summary>
-    [TerraformArgument("event_hub_operations_path")]
-    public TerraformValue<string> EventHubOperationsPath
-    {
-        get => new TerraformReference<string>(this, "event_hub_operations_path");
-    }
-
-    /// <summary>
-    /// The hostname attribute.
-    /// </summary>
-    [TerraformArgument("hostname")]
-    public TerraformValue<string> Hostname
-    {
-        get => new TerraformReference<string>(this, "hostname");
-    }
-
-    /// <summary>
-    /// The shared_access_policy attribute.
-    /// </summary>
-    [TerraformArgument("shared_access_policy")]
-    public TerraformList<object> SharedAccessPolicy
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "shared_access_policy").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The type attribute.
-    /// </summary>
-    [TerraformArgument("type")]
-    public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<AzurermIothubTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

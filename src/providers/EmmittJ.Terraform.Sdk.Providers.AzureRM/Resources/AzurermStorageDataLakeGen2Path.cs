@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for ace in .
@@ -25,7 +16,6 @@ public class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string>? Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -36,7 +26,6 @@ public class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlock
     /// The permissions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
-    [TerraformArgument("permissions")]
     public required TerraformValue<string> Permissions
     {
         get => new TerraformReference<string>(this, "permissions");
@@ -46,7 +35,6 @@ public class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlock
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    [TerraformArgument("scope")]
     public TerraformValue<string>? Scope
     {
         get => new TerraformReference<string>(this, "scope");
@@ -57,7 +45,6 @@ public class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -80,7 +67,6 @@ public class AzurermStorageDataLakeGen2PathTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -90,7 +76,6 @@ public class AzurermStorageDataLakeGen2PathTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -100,7 +85,6 @@ public class AzurermStorageDataLakeGen2PathTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -110,7 +94,6 @@ public class AzurermStorageDataLakeGen2PathTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -120,19 +103,15 @@ public class AzurermStorageDataLakeGen2PathTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_data_lake_gen2_path Terraform resource.
 /// Manages a azurerm_storage_data_lake_gen2_path resource.
 /// </summary>
-public class AzurermStorageDataLakeGen2Path : TerraformResource
+public partial class AzurermStorageDataLakeGen2Path(string name) : TerraformResource("azurerm_storage_data_lake_gen2_path", name)
 {
-    public AzurermStorageDataLakeGen2Path(string name) : base("azurerm_storage_data_lake_gen2_path", name)
-    {
-    }
-
     /// <summary>
     /// The filesystem_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemName is required")]
-    [TerraformArgument("filesystem_name")]
     public required TerraformValue<string> FilesystemName
     {
         get => new TerraformReference<string>(this, "filesystem_name");
@@ -142,7 +121,6 @@ public class AzurermStorageDataLakeGen2Path : TerraformResource
     /// <summary>
     /// The group attribute.
     /// </summary>
-    [TerraformArgument("group")]
     public TerraformValue<string> Group
     {
         get => new TerraformReference<string>(this, "group");
@@ -152,7 +130,6 @@ public class AzurermStorageDataLakeGen2Path : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -162,7 +139,6 @@ public class AzurermStorageDataLakeGen2Path : TerraformResource
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    [TerraformArgument("owner")]
     public TerraformValue<string> Owner
     {
         get => new TerraformReference<string>(this, "owner");
@@ -173,7 +149,6 @@ public class AzurermStorageDataLakeGen2Path : TerraformResource
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformArgument("path")]
     public required TerraformValue<string> Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -184,7 +159,6 @@ public class AzurermStorageDataLakeGen2Path : TerraformResource
     /// The resource attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
-    [TerraformArgument("resource")]
     public required TerraformValue<string> Resource
     {
         get => new TerraformReference<string>(this, "resource");
@@ -195,7 +169,6 @@ public class AzurermStorageDataLakeGen2Path : TerraformResource
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformArgument("storage_account_id")]
     public required TerraformValue<string> StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -203,17 +176,21 @@ public class AzurermStorageDataLakeGen2Path : TerraformResource
     }
 
     /// <summary>
-    /// Block for ace.
-    /// Nesting mode: set
+    /// Ace block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("ace")]
-    public TerraformSet<AzurermStorageDataLakeGen2PathAceBlock> Ace { get; set; } = new();
+    public AzurermStorageDataLakeGen2PathAceBlock? Ace
+    {
+        get => GetArgument<AzurermStorageDataLakeGen2PathAceBlock>("ace");
+        set => SetArgument("ace", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageDataLakeGen2PathTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStorageDataLakeGen2PathTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStorageDataLakeGen2PathTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

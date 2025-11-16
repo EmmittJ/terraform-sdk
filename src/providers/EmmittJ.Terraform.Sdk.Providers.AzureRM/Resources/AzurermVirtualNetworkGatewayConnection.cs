@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for custom_bgp_addresses in .
@@ -26,7 +17,6 @@ public class AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock : Ter
     /// The primary attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
-    [TerraformArgument("primary")]
     public required TerraformValue<string> Primary
     {
         get => new TerraformReference<string>(this, "primary");
@@ -36,7 +26,6 @@ public class AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock : Ter
     /// <summary>
     /// The secondary attribute.
     /// </summary>
-    [TerraformArgument("secondary")]
     public TerraformValue<string>? Secondary
     {
         get => new TerraformReference<string>(this, "secondary");
@@ -60,7 +49,6 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// The dh_group attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhGroup is required")]
-    [TerraformArgument("dh_group")]
     public required TerraformValue<string> DhGroup
     {
         get => new TerraformReference<string>(this, "dh_group");
@@ -71,7 +59,6 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// The ike_encryption attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeEncryption is required")]
-    [TerraformArgument("ike_encryption")]
     public required TerraformValue<string> IkeEncryption
     {
         get => new TerraformReference<string>(this, "ike_encryption");
@@ -82,7 +69,6 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// The ike_integrity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeIntegrity is required")]
-    [TerraformArgument("ike_integrity")]
     public required TerraformValue<string> IkeIntegrity
     {
         get => new TerraformReference<string>(this, "ike_integrity");
@@ -93,7 +79,6 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// The ipsec_encryption attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpsecEncryption is required")]
-    [TerraformArgument("ipsec_encryption")]
     public required TerraformValue<string> IpsecEncryption
     {
         get => new TerraformReference<string>(this, "ipsec_encryption");
@@ -104,7 +89,6 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// The ipsec_integrity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpsecIntegrity is required")]
-    [TerraformArgument("ipsec_integrity")]
     public required TerraformValue<string> IpsecIntegrity
     {
         get => new TerraformReference<string>(this, "ipsec_integrity");
@@ -115,7 +99,6 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// The pfs_group attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfsGroup is required")]
-    [TerraformArgument("pfs_group")]
     public required TerraformValue<string> PfsGroup
     {
         get => new TerraformReference<string>(this, "pfs_group");
@@ -125,7 +108,6 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// <summary>
     /// The sa_datasize attribute.
     /// </summary>
-    [TerraformArgument("sa_datasize")]
     public TerraformValue<double> SaDatasize
     {
         get => new TerraformReference<double>(this, "sa_datasize");
@@ -135,7 +117,6 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     /// <summary>
     /// The sa_lifetime attribute.
     /// </summary>
-    [TerraformArgument("sa_lifetime")]
     public TerraformValue<double> SaLifetime
     {
         get => new TerraformReference<double>(this, "sa_lifetime");
@@ -158,7 +139,6 @@ public class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -168,7 +148,6 @@ public class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -178,7 +157,6 @@ public class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -188,7 +166,6 @@ public class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -212,7 +189,6 @@ public class AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock : 
     /// The local_address_cidrs attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalAddressCidrs is required")]
-    [TerraformArgument("local_address_cidrs")]
     public TerraformList<string>? LocalAddressCidrs
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "local_address_cidrs").ResolveNodes(ctx));
@@ -223,7 +199,6 @@ public class AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock : 
     /// The remote_address_cidrs attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteAddressCidrs is required")]
-    [TerraformArgument("remote_address_cidrs")]
     public TerraformList<string>? RemoteAddressCidrs
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "remote_address_cidrs").ResolveNodes(ctx));
@@ -233,19 +208,14 @@ public class AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock : 
 }
 
 /// <summary>
+/// Represents a azurerm_virtual_network_gateway_connection Terraform resource.
 /// Manages a azurerm_virtual_network_gateway_connection resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermVirtualNetworkGatewayConnection : TerraformResource
+public partial class AzurermVirtualNetworkGatewayConnection(string name) : TerraformResource("azurerm_virtual_network_gateway_connection", name)
 {
-    public AzurermVirtualNetworkGatewayConnection(string name) : base("azurerm_virtual_network_gateway_connection", name)
-    {
-    }
-
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    [TerraformArgument("authorization_key")]
     public TerraformValue<string>? AuthorizationKey
     {
         get => new TerraformReference<string>(this, "authorization_key");
@@ -255,7 +225,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The connection_mode attribute.
     /// </summary>
-    [TerraformArgument("connection_mode")]
     public TerraformValue<string>? ConnectionMode
     {
         get => new TerraformReference<string>(this, "connection_mode");
@@ -265,7 +234,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The connection_protocol attribute.
     /// </summary>
-    [TerraformArgument("connection_protocol")]
     public TerraformValue<string> ConnectionProtocol
     {
         get => new TerraformReference<string>(this, "connection_protocol");
@@ -275,7 +243,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The dpd_timeout_seconds attribute.
     /// </summary>
-    [TerraformArgument("dpd_timeout_seconds")]
     public TerraformValue<double>? DpdTimeoutSeconds
     {
         get => new TerraformReference<double>(this, "dpd_timeout_seconds");
@@ -285,7 +252,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The egress_nat_rule_ids attribute.
     /// </summary>
-    [TerraformArgument("egress_nat_rule_ids")]
     public TerraformSet<string>? EgressNatRuleIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "egress_nat_rule_ids").ResolveNodes(ctx));
@@ -295,7 +261,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The enable_bgp attribute.
     /// </summary>
-    [TerraformArgument("enable_bgp")]
     public TerraformValue<bool> EnableBgp
     {
         get => new TerraformReference<bool>(this, "enable_bgp");
@@ -305,7 +270,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The express_route_circuit_id attribute.
     /// </summary>
-    [TerraformArgument("express_route_circuit_id")]
     public TerraformValue<string>? ExpressRouteCircuitId
     {
         get => new TerraformReference<string>(this, "express_route_circuit_id");
@@ -315,7 +279,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The express_route_gateway_bypass attribute.
     /// </summary>
-    [TerraformArgument("express_route_gateway_bypass")]
     public TerraformValue<bool> ExpressRouteGatewayBypass
     {
         get => new TerraformReference<bool>(this, "express_route_gateway_bypass");
@@ -325,7 +288,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -335,7 +297,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The ingress_nat_rule_ids attribute.
     /// </summary>
-    [TerraformArgument("ingress_nat_rule_ids")]
     public TerraformSet<string>? IngressNatRuleIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ingress_nat_rule_ids").ResolveNodes(ctx));
@@ -345,7 +306,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The local_azure_ip_address_enabled attribute.
     /// </summary>
-    [TerraformArgument("local_azure_ip_address_enabled")]
     public TerraformValue<bool>? LocalAzureIpAddressEnabled
     {
         get => new TerraformReference<bool>(this, "local_azure_ip_address_enabled");
@@ -355,7 +315,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The local_network_gateway_id attribute.
     /// </summary>
-    [TerraformArgument("local_network_gateway_id")]
     public TerraformValue<string>? LocalNetworkGatewayId
     {
         get => new TerraformReference<string>(this, "local_network_gateway_id");
@@ -366,7 +325,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -377,7 +335,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -387,7 +344,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The peer_virtual_network_gateway_id attribute.
     /// </summary>
-    [TerraformArgument("peer_virtual_network_gateway_id")]
     public TerraformValue<string>? PeerVirtualNetworkGatewayId
     {
         get => new TerraformReference<string>(this, "peer_virtual_network_gateway_id");
@@ -397,7 +353,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The private_link_fast_path_enabled attribute.
     /// </summary>
-    [TerraformArgument("private_link_fast_path_enabled")]
     public TerraformValue<bool>? PrivateLinkFastPathEnabled
     {
         get => new TerraformReference<bool>(this, "private_link_fast_path_enabled");
@@ -408,7 +363,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -418,7 +372,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The routing_weight attribute.
     /// </summary>
-    [TerraformArgument("routing_weight")]
     public TerraformValue<double> RoutingWeight
     {
         get => new TerraformReference<double>(this, "routing_weight");
@@ -428,7 +381,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
-    [TerraformArgument("shared_key")]
     public TerraformValue<string> SharedKey
     {
         get => new TerraformReference<string>(this, "shared_key");
@@ -438,7 +390,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -449,7 +400,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -459,7 +409,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// <summary>
     /// The use_policy_based_traffic_selectors attribute.
     /// </summary>
-    [TerraformArgument("use_policy_based_traffic_selectors")]
     public TerraformValue<bool> UsePolicyBasedTrafficSelectors
     {
         get => new TerraformReference<bool>(this, "use_policy_based_traffic_selectors");
@@ -470,7 +419,6 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     /// The virtual_network_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkGatewayId is required")]
-    [TerraformArgument("virtual_network_gateway_id")]
     public required TerraformValue<string> VirtualNetworkGatewayId
     {
         get => new TerraformReference<string>(this, "virtual_network_gateway_id");
@@ -478,33 +426,41 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for custom_bgp_addresses.
-    /// Nesting mode: list
+    /// CustomBgpAddresses block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomBgpAddresses block(s) allowed")]
-    [TerraformArgument("custom_bgp_addresses")]
-    public TerraformList<AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock> CustomBgpAddresses { get; set; } = new();
+    public AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock? CustomBgpAddresses
+    {
+        get => GetArgument<AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock>("custom_bgp_addresses");
+        set => SetArgument("custom_bgp_addresses", value);
+    }
 
     /// <summary>
-    /// Block for ipsec_policy.
-    /// Nesting mode: list
+    /// IpsecPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpsecPolicy block(s) allowed")]
-    [TerraformArgument("ipsec_policy")]
-    public TerraformList<AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock> IpsecPolicy { get; set; } = new();
+    public AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock? IpsecPolicy
+    {
+        get => GetArgument<AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock>("ipsec_policy");
+        set => SetArgument("ipsec_policy", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVirtualNetworkGatewayConnectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermVirtualNetworkGatewayConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermVirtualNetworkGatewayConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for traffic_selector_policy.
-    /// Nesting mode: list
+    /// TrafficSelectorPolicy block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("traffic_selector_policy")]
-    public TerraformList<AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock> TrafficSelectorPolicy { get; set; } = new();
+    public AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock? TrafficSelectorPolicy
+    {
+        get => GetArgument<AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock>("traffic_selector_policy");
+        set => SetArgument("traffic_selector_policy", value);
+    }
 
 }

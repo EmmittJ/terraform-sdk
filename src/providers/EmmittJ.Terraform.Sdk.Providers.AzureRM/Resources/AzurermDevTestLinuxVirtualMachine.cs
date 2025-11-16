@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for gallery_image_reference in .
@@ -26,7 +17,6 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
     /// The offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
-    [TerraformArgument("offer")]
     public required TerraformValue<string> Offer
     {
         get => new TerraformReference<string>(this, "offer");
@@ -37,7 +27,6 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformArgument("publisher")]
     public required TerraformValue<string> Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -48,7 +37,6 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformArgument("sku")]
     public required TerraformValue<string> Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -59,7 +47,6 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -83,19 +70,24 @@ public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlo
     /// The backend_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
-    [TerraformArgument("backend_port")]
     public required TerraformValue<double> BackendPort
     {
         get => new TerraformReference<double>(this, "backend_port");
         set => SetArgument("backend_port", value);
     }
 
+    /// <summary>
+    /// The frontend_port attribute.
+    /// </summary>
+    public TerraformValue<double> FrontendPort
+    {
+        get => new TerraformReference<double>(this, "frontend_port");
+    }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -118,7 +110,6 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -128,7 +119,6 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -138,7 +128,6 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -148,7 +137,6 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -158,19 +146,14 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dev_test_linux_virtual_machine Terraform resource.
 /// Manages a azurerm_dev_test_linux_virtual_machine resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDevTestLinuxVirtualMachine : TerraformResource
+public partial class AzurermDevTestLinuxVirtualMachine(string name) : TerraformResource("azurerm_dev_test_linux_virtual_machine", name)
 {
-    public AzurermDevTestLinuxVirtualMachine(string name) : base("azurerm_dev_test_linux_virtual_machine", name)
-    {
-    }
-
     /// <summary>
     /// The allow_claim attribute.
     /// </summary>
-    [TerraformArgument("allow_claim")]
     public TerraformValue<bool>? AllowClaim
     {
         get => new TerraformReference<bool>(this, "allow_claim");
@@ -180,7 +163,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// <summary>
     /// The disallow_public_ip_address attribute.
     /// </summary>
-    [TerraformArgument("disallow_public_ip_address")]
     public TerraformValue<bool>? DisallowPublicIpAddress
     {
         get => new TerraformReference<bool>(this, "disallow_public_ip_address");
@@ -190,7 +172,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -201,7 +182,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The lab_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
-    [TerraformArgument("lab_name")]
     public required TerraformValue<string> LabName
     {
         get => new TerraformReference<string>(this, "lab_name");
@@ -212,7 +192,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The lab_subnet_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabSubnetName is required")]
-    [TerraformArgument("lab_subnet_name")]
     public required TerraformValue<string> LabSubnetName
     {
         get => new TerraformReference<string>(this, "lab_subnet_name");
@@ -223,7 +202,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The lab_virtual_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabVirtualNetworkId is required")]
-    [TerraformArgument("lab_virtual_network_id")]
     public required TerraformValue<string> LabVirtualNetworkId
     {
         get => new TerraformReference<string>(this, "lab_virtual_network_id");
@@ -234,7 +212,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -245,7 +222,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -255,7 +231,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    [TerraformArgument("notes")]
     public TerraformValue<string>? Notes
     {
         get => new TerraformReference<string>(this, "notes");
@@ -265,7 +240,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformArgument("password")]
     public TerraformValue<string>? Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -276,7 +250,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -287,7 +260,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
-    [TerraformArgument("size")]
     public required TerraformValue<string> Size
     {
         get => new TerraformReference<string>(this, "size");
@@ -297,7 +269,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// <summary>
     /// The ssh_key attribute.
     /// </summary>
-    [TerraformArgument("ssh_key")]
     public TerraformValue<string>? SshKey
     {
         get => new TerraformReference<string>(this, "ssh_key");
@@ -308,7 +279,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The storage_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
-    [TerraformArgument("storage_type")]
     public required TerraformValue<string> StorageType
     {
         get => new TerraformReference<string>(this, "storage_type");
@@ -318,7 +288,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -329,7 +298,6 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    [TerraformArgument("username")]
     public required TerraformValue<string> Username
     {
         get => new TerraformReference<string>(this, "username");
@@ -337,45 +305,34 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     }
 
     /// <summary>
-    /// Block for gallery_image_reference.
-    /// Nesting mode: list
+    /// GalleryImageReference block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryImageReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GalleryImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GalleryImageReference block(s) allowed")]
-    [TerraformArgument("gallery_image_reference")]
-    public required TerraformList<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock> GalleryImageReference { get; set; } = new();
-
-    /// <summary>
-    /// Block for inbound_nat_rule.
-    /// Nesting mode: set
-    /// </summary>
-    [TerraformArgument("inbound_nat_rule")]
-    public TerraformSet<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock> InboundNatRule { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDevTestLinuxVirtualMachineTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The fqdn attribute.
-    /// </summary>
-    [TerraformArgument("fqdn")]
-    public TerraformValue<string> Fqdn
+    public required AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock GalleryImageReference
     {
-        get => new TerraformReference<string>(this, "fqdn");
+        get => GetRequiredArgument<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock>("gallery_image_reference");
+        set => SetArgument("gallery_image_reference", value);
     }
 
     /// <summary>
-    /// The unique_identifier attribute.
+    /// InboundNatRule block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("unique_identifier")]
-    public TerraformValue<string> UniqueIdentifier
+    public AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock? InboundNatRule
     {
-        get => new TerraformReference<string>(this, "unique_identifier");
+        get => GetArgument<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>("inbound_nat_rule");
+        set => SetArgument("inbound_nat_rule", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermDevTestLinuxVirtualMachineTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDevTestLinuxVirtualMachineTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

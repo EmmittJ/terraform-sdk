@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for authentication_certificate in .
@@ -26,19 +17,24 @@ public class AzurermApplicationGatewayAuthenticationCertificateBlock : Terraform
     /// The data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
-    [TerraformArgument("data")]
     public required TerraformValue<string> Data
     {
         get => new TerraformReference<string>(this, "data");
         set => SetArgument("data", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -61,7 +57,6 @@ public class AzurermApplicationGatewayAutoscaleConfigurationBlock : TerraformBlo
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    [TerraformArgument("max_capacity")]
     public TerraformValue<double>? MaxCapacity
     {
         get => new TerraformReference<double>(this, "max_capacity");
@@ -72,7 +67,6 @@ public class AzurermApplicationGatewayAutoscaleConfigurationBlock : TerraformBlo
     /// The min_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
-    [TerraformArgument("min_capacity")]
     public required TerraformValue<double> MinCapacity
     {
         get => new TerraformReference<double>(this, "min_capacity");
@@ -95,18 +89,23 @@ public class AzurermApplicationGatewayBackendAddressPoolBlock : TerraformBlock
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    [TerraformArgument("fqdns")]
     public TerraformSet<string>? Fqdns
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fqdns").ResolveNodes(ctx));
         set => SetArgument("fqdns", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
-    [TerraformArgument("ip_addresses")]
     public TerraformSet<string>? IpAddresses
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ip_addresses").ResolveNodes(ctx));
@@ -117,7 +116,6 @@ public class AzurermApplicationGatewayBackendAddressPoolBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -140,7 +138,6 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// <summary>
     /// The affinity_cookie_name attribute.
     /// </summary>
-    [TerraformArgument("affinity_cookie_name")]
     public TerraformValue<string>? AffinityCookieName
     {
         get => new TerraformReference<string>(this, "affinity_cookie_name");
@@ -151,7 +148,6 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// The cookie_based_affinity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBasedAffinity is required")]
-    [TerraformArgument("cookie_based_affinity")]
     public required TerraformValue<string> CookieBasedAffinity
     {
         get => new TerraformReference<string>(this, "cookie_based_affinity");
@@ -161,19 +157,24 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    [TerraformArgument("host_name")]
     public TerraformValue<string>? HostName
     {
         get => new TerraformReference<string>(this, "host_name");
         set => SetArgument("host_name", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -183,7 +184,6 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformArgument("path")]
     public TerraformValue<string>? Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -193,7 +193,6 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// <summary>
     /// The pick_host_name_from_backend_address attribute.
     /// </summary>
-    [TerraformArgument("pick_host_name_from_backend_address")]
     public TerraformValue<bool>? PickHostNameFromBackendAddress
     {
         get => new TerraformReference<bool>(this, "pick_host_name_from_backend_address");
@@ -204,18 +203,23 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformArgument("port")]
     public required TerraformValue<double> Port
     {
         get => new TerraformReference<double>(this, "port");
         set => SetArgument("port", value);
     }
 
+    /// <summary>
+    /// The probe_id attribute.
+    /// </summary>
+    public TerraformValue<string> ProbeId
+    {
+        get => new TerraformReference<string>(this, "probe_id");
+    }
 
     /// <summary>
     /// The probe_name attribute.
     /// </summary>
-    [TerraformArgument("probe_name")]
     public TerraformValue<string>? ProbeName
     {
         get => new TerraformReference<string>(this, "probe_name");
@@ -226,7 +230,6 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -236,7 +239,6 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// <summary>
     /// The request_timeout attribute.
     /// </summary>
-    [TerraformArgument("request_timeout")]
     public TerraformValue<double>? RequestTimeout
     {
         get => new TerraformReference<double>(this, "request_timeout");
@@ -246,7 +248,6 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     /// <summary>
     /// The trusted_root_certificate_names attribute.
     /// </summary>
-    [TerraformArgument("trusted_root_certificate_names")]
     public TerraformList<string>? TrustedRootCertificateNames
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_root_certificate_names").ResolveNodes(ctx));
@@ -270,19 +271,24 @@ public class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformB
     /// The custom_error_page_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomErrorPageUrl is required")]
-    [TerraformArgument("custom_error_page_url")]
     public required TerraformValue<string> CustomErrorPageUrl
     {
         get => new TerraformReference<string>(this, "custom_error_page_url");
         set => SetArgument("custom_error_page_url", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
-    [TerraformArgument("status_code")]
     public required TerraformValue<string> StatusCode
     {
         get => new TerraformReference<string>(this, "status_code");
@@ -302,12 +308,18 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     /// </summary>
     public override string BlockType => "frontend_ip_configuration";
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -317,7 +329,6 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    [TerraformArgument("private_ip_address")]
     public TerraformValue<string> PrivateIpAddress
     {
         get => new TerraformReference<string>(this, "private_ip_address");
@@ -327,18 +338,23 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     /// <summary>
     /// The private_ip_address_allocation attribute.
     /// </summary>
-    [TerraformArgument("private_ip_address_allocation")]
     public TerraformValue<string>? PrivateIpAddressAllocation
     {
         get => new TerraformReference<string>(this, "private_ip_address_allocation");
         set => SetArgument("private_ip_address_allocation", value);
     }
 
+    /// <summary>
+    /// The private_link_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrivateLinkConfigurationId
+    {
+        get => new TerraformReference<string>(this, "private_link_configuration_id");
+    }
 
     /// <summary>
     /// The private_link_configuration_name attribute.
     /// </summary>
-    [TerraformArgument("private_link_configuration_name")]
     public TerraformValue<string>? PrivateLinkConfigurationName
     {
         get => new TerraformReference<string>(this, "private_link_configuration_name");
@@ -348,7 +364,6 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
-    [TerraformArgument("public_ip_address_id")]
     public TerraformValue<string>? PublicIpAddressId
     {
         get => new TerraformReference<string>(this, "public_ip_address_id");
@@ -358,7 +373,6 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    [TerraformArgument("subnet_id")]
     public TerraformValue<string>? SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -378,12 +392,18 @@ public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "frontend_port";
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -394,7 +414,6 @@ public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformArgument("port")]
     public required TerraformValue<double> Port
     {
         get => new TerraformReference<double>(this, "port");
@@ -414,12 +433,18 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
     /// </summary>
     public override string BlockType => "gateway_ip_configuration";
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -430,7 +455,6 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -443,7 +467,7 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
 /// Block type for global in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApplicationGatewayGlobalBlock : TerraformBlock
+public class AzurermApplicationGatewayGlobalAttributeBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the block type.
@@ -454,7 +478,6 @@ public class AzurermApplicationGatewayGlobalBlock : TerraformBlock
     /// The request_buffering_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestBufferingEnabled is required")]
-    [TerraformArgument("request_buffering_enabled")]
     public required TerraformValue<bool> RequestBufferingEnabled
     {
         get => new TerraformReference<bool>(this, "request_buffering_enabled");
@@ -465,7 +488,6 @@ public class AzurermApplicationGatewayGlobalBlock : TerraformBlock
     /// The response_buffering_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseBufferingEnabled is required")]
-    [TerraformArgument("response_buffering_enabled")]
     public required TerraformValue<bool> ResponseBufferingEnabled
     {
         get => new TerraformReference<bool>(this, "response_buffering_enabled");
@@ -488,31 +510,42 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
-    [TerraformArgument("firewall_policy_id")]
     public TerraformValue<string>? FirewallPolicyId
     {
         get => new TerraformReference<string>(this, "firewall_policy_id");
         set => SetArgument("firewall_policy_id", value);
     }
 
+    /// <summary>
+    /// The frontend_ip_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> FrontendIpConfigurationId
+    {
+        get => new TerraformReference<string>(this, "frontend_ip_configuration_id");
+    }
 
     /// <summary>
     /// The frontend_ip_configuration_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfigurationName is required")]
-    [TerraformArgument("frontend_ip_configuration_name")]
     public required TerraformValue<string> FrontendIpConfigurationName
     {
         get => new TerraformReference<string>(this, "frontend_ip_configuration_name");
         set => SetArgument("frontend_ip_configuration_name", value);
     }
 
+    /// <summary>
+    /// The frontend_port_id attribute.
+    /// </summary>
+    public TerraformValue<string> FrontendPortId
+    {
+        get => new TerraformReference<string>(this, "frontend_port_id");
+    }
 
     /// <summary>
     /// The frontend_port_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortName is required")]
-    [TerraformArgument("frontend_port_name")]
     public required TerraformValue<string> FrontendPortName
     {
         get => new TerraformReference<string>(this, "frontend_port_name");
@@ -522,7 +555,6 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    [TerraformArgument("host_name")]
     public TerraformValue<string>? HostName
     {
         get => new TerraformReference<string>(this, "host_name");
@@ -532,19 +564,24 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// <summary>
     /// The host_names attribute.
     /// </summary>
-    [TerraformArgument("host_names")]
     public TerraformSet<string>? HostNames
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "host_names").ResolveNodes(ctx));
         set => SetArgument("host_names", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -555,7 +592,6 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -565,29 +601,40 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     /// <summary>
     /// The require_sni attribute.
     /// </summary>
-    [TerraformArgument("require_sni")]
     public TerraformValue<bool>? RequireSni
     {
         get => new TerraformReference<bool>(this, "require_sni");
         set => SetArgument("require_sni", value);
     }
 
+    /// <summary>
+    /// The ssl_certificate_id attribute.
+    /// </summary>
+    public TerraformValue<string> SslCertificateId
+    {
+        get => new TerraformReference<string>(this, "ssl_certificate_id");
+    }
 
     /// <summary>
     /// The ssl_certificate_name attribute.
     /// </summary>
-    [TerraformArgument("ssl_certificate_name")]
     public TerraformValue<string>? SslCertificateName
     {
         get => new TerraformReference<string>(this, "ssl_certificate_name");
         set => SetArgument("ssl_certificate_name", value);
     }
 
+    /// <summary>
+    /// The ssl_profile_id attribute.
+    /// </summary>
+    public TerraformValue<string> SslProfileId
+    {
+        get => new TerraformReference<string>(this, "ssl_profile_id");
+    }
 
     /// <summary>
     /// The ssl_profile_name attribute.
     /// </summary>
-    [TerraformArgument("ssl_profile_name")]
     public TerraformValue<string>? SslProfileName
     {
         get => new TerraformReference<string>(this, "ssl_profile_name");
@@ -610,20 +657,32 @@ public class AzurermApplicationGatewayIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -643,12 +702,18 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlock : TerraformB
     /// </summary>
     public override string BlockType => "private_link_configuration";
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -671,19 +736,24 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// <summary>
     /// The host attribute.
     /// </summary>
-    [TerraformArgument("host")]
     public TerraformValue<string>? Host
     {
         get => new TerraformReference<string>(this, "host");
         set => SetArgument("host", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
-    [TerraformArgument("interval")]
     public required TerraformValue<double> Interval
     {
         get => new TerraformReference<double>(this, "interval");
@@ -693,7 +763,6 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// <summary>
     /// The minimum_servers attribute.
     /// </summary>
-    [TerraformArgument("minimum_servers")]
     public TerraformValue<double>? MinimumServers
     {
         get => new TerraformReference<double>(this, "minimum_servers");
@@ -704,7 +773,6 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -715,7 +783,6 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformArgument("path")]
     public required TerraformValue<string> Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -725,7 +792,6 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// <summary>
     /// The pick_host_name_from_backend_http_settings attribute.
     /// </summary>
-    [TerraformArgument("pick_host_name_from_backend_http_settings")]
     public TerraformValue<bool>? PickHostNameFromBackendHttpSettings
     {
         get => new TerraformReference<bool>(this, "pick_host_name_from_backend_http_settings");
@@ -735,7 +801,6 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformArgument("port")]
     public TerraformValue<double>? Port
     {
         get => new TerraformReference<double>(this, "port");
@@ -746,7 +811,6 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -757,7 +821,6 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// The timeout attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
-    [TerraformArgument("timeout")]
     public required TerraformValue<double> Timeout
     {
         get => new TerraformReference<double>(this, "timeout");
@@ -768,7 +831,6 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     /// The unhealthy_threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnhealthyThreshold is required")]
-    [TerraformArgument("unhealthy_threshold")]
     public required TerraformValue<double> UnhealthyThreshold
     {
         get => new TerraformReference<double>(this, "unhealthy_threshold");
@@ -788,11 +850,17 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     /// </summary>
     public override string BlockType => "redirect_configuration";
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The include_path attribute.
     /// </summary>
-    [TerraformArgument("include_path")]
     public TerraformValue<bool>? IncludePath
     {
         get => new TerraformReference<bool>(this, "include_path");
@@ -802,7 +870,6 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     /// <summary>
     /// The include_query_string attribute.
     /// </summary>
-    [TerraformArgument("include_query_string")]
     public TerraformValue<bool>? IncludeQueryString
     {
         get => new TerraformReference<bool>(this, "include_query_string");
@@ -813,7 +880,6 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -824,18 +890,23 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     /// The redirect_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
-    [TerraformArgument("redirect_type")]
     public required TerraformValue<string> RedirectType
     {
         get => new TerraformReference<string>(this, "redirect_type");
         set => SetArgument("redirect_type", value);
     }
 
+    /// <summary>
+    /// The target_listener_id attribute.
+    /// </summary>
+    public TerraformValue<string> TargetListenerId
+    {
+        get => new TerraformReference<string>(this, "target_listener_id");
+    }
 
     /// <summary>
     /// The target_listener_name attribute.
     /// </summary>
-    [TerraformArgument("target_listener_name")]
     public TerraformValue<string>? TargetListenerName
     {
         get => new TerraformReference<string>(this, "target_listener_name");
@@ -845,7 +916,6 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     /// <summary>
     /// The target_url attribute.
     /// </summary>
-    [TerraformArgument("target_url")]
     public TerraformValue<string>? TargetUrl
     {
         get => new TerraformReference<string>(this, "target_url");
@@ -865,46 +935,70 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "request_routing_rule";
 
+    /// <summary>
+    /// The backend_address_pool_id attribute.
+    /// </summary>
+    public TerraformValue<string> BackendAddressPoolId
+    {
+        get => new TerraformReference<string>(this, "backend_address_pool_id");
+    }
 
     /// <summary>
     /// The backend_address_pool_name attribute.
     /// </summary>
-    [TerraformArgument("backend_address_pool_name")]
     public TerraformValue<string>? BackendAddressPoolName
     {
         get => new TerraformReference<string>(this, "backend_address_pool_name");
         set => SetArgument("backend_address_pool_name", value);
     }
 
+    /// <summary>
+    /// The backend_http_settings_id attribute.
+    /// </summary>
+    public TerraformValue<string> BackendHttpSettingsId
+    {
+        get => new TerraformReference<string>(this, "backend_http_settings_id");
+    }
 
     /// <summary>
     /// The backend_http_settings_name attribute.
     /// </summary>
-    [TerraformArgument("backend_http_settings_name")]
     public TerraformValue<string>? BackendHttpSettingsName
     {
         get => new TerraformReference<string>(this, "backend_http_settings_name");
         set => SetArgument("backend_http_settings_name", value);
     }
 
+    /// <summary>
+    /// The http_listener_id attribute.
+    /// </summary>
+    public TerraformValue<string> HttpListenerId
+    {
+        get => new TerraformReference<string>(this, "http_listener_id");
+    }
 
     /// <summary>
     /// The http_listener_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpListenerName is required")]
-    [TerraformArgument("http_listener_name")]
     public required TerraformValue<string> HttpListenerName
     {
         get => new TerraformReference<string>(this, "http_listener_name");
         set => SetArgument("http_listener_name", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -914,29 +1008,40 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformArgument("priority")]
     public TerraformValue<double>? Priority
     {
         get => new TerraformReference<double>(this, "priority");
         set => SetArgument("priority", value);
     }
 
+    /// <summary>
+    /// The redirect_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> RedirectConfigurationId
+    {
+        get => new TerraformReference<string>(this, "redirect_configuration_id");
+    }
 
     /// <summary>
     /// The redirect_configuration_name attribute.
     /// </summary>
-    [TerraformArgument("redirect_configuration_name")]
     public TerraformValue<string>? RedirectConfigurationName
     {
         get => new TerraformReference<string>(this, "redirect_configuration_name");
         set => SetArgument("redirect_configuration_name", value);
     }
 
+    /// <summary>
+    /// The rewrite_rule_set_id attribute.
+    /// </summary>
+    public TerraformValue<string> RewriteRuleSetId
+    {
+        get => new TerraformReference<string>(this, "rewrite_rule_set_id");
+    }
 
     /// <summary>
     /// The rewrite_rule_set_name attribute.
     /// </summary>
-    [TerraformArgument("rewrite_rule_set_name")]
     public TerraformValue<string>? RewriteRuleSetName
     {
         get => new TerraformReference<string>(this, "rewrite_rule_set_name");
@@ -947,18 +1052,23 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     /// The rule_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
-    [TerraformArgument("rule_type")]
     public required TerraformValue<string> RuleType
     {
         get => new TerraformReference<string>(this, "rule_type");
         set => SetArgument("rule_type", value);
     }
 
+    /// <summary>
+    /// The url_path_map_id attribute.
+    /// </summary>
+    public TerraformValue<string> UrlPathMapId
+    {
+        get => new TerraformReference<string>(this, "url_path_map_id");
+    }
 
     /// <summary>
     /// The url_path_map_name attribute.
     /// </summary>
-    [TerraformArgument("url_path_map_name")]
     public TerraformValue<string>? UrlPathMapName
     {
         get => new TerraformReference<string>(this, "url_path_map_name");
@@ -978,12 +1088,18 @@ public class AzurermApplicationGatewayRewriteRuleSetBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "rewrite_rule_set";
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1006,7 +1122,6 @@ public class AzurermApplicationGatewaySkuBlock : TerraformBlock
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    [TerraformArgument("capacity")]
     public TerraformValue<double>? Capacity
     {
         get => new TerraformReference<double>(this, "capacity");
@@ -1017,7 +1132,6 @@ public class AzurermApplicationGatewaySkuBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1028,7 +1142,6 @@ public class AzurermApplicationGatewaySkuBlock : TerraformBlock
     /// The tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    [TerraformArgument("tier")]
     public required TerraformValue<string> Tier
     {
         get => new TerraformReference<string>(this, "tier");
@@ -1051,18 +1164,23 @@ public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
     /// <summary>
     /// The data attribute.
     /// </summary>
-    [TerraformArgument("data")]
     public TerraformValue<string>? Data
     {
         get => new TerraformReference<string>(this, "data");
         set => SetArgument("data", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_secret_id")]
     public TerraformValue<string>? KeyVaultSecretId
     {
         get => new TerraformReference<string>(this, "key_vault_secret_id");
@@ -1073,7 +1191,6 @@ public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1083,13 +1200,19 @@ public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformArgument("password")]
     public TerraformValue<string>? Password
     {
         get => new TerraformReference<string>(this, "password");
         set => SetArgument("password", value);
     }
 
+    /// <summary>
+    /// The public_cert_data attribute.
+    /// </summary>
+    public TerraformValue<string> PublicCertData
+    {
+        get => new TerraformReference<string>(this, "public_cert_data");
+    }
 
 }
 
@@ -1107,7 +1230,6 @@ public class AzurermApplicationGatewaySslPolicyBlock : TerraformBlock
     /// <summary>
     /// The cipher_suites attribute.
     /// </summary>
-    [TerraformArgument("cipher_suites")]
     public TerraformList<string>? CipherSuites
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cipher_suites").ResolveNodes(ctx));
@@ -1117,7 +1239,6 @@ public class AzurermApplicationGatewaySslPolicyBlock : TerraformBlock
     /// <summary>
     /// The disabled_protocols attribute.
     /// </summary>
-    [TerraformArgument("disabled_protocols")]
     public TerraformList<string>? DisabledProtocols
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "disabled_protocols").ResolveNodes(ctx));
@@ -1127,7 +1248,6 @@ public class AzurermApplicationGatewaySslPolicyBlock : TerraformBlock
     /// <summary>
     /// The min_protocol_version attribute.
     /// </summary>
-    [TerraformArgument("min_protocol_version")]
     public TerraformValue<string>? MinProtocolVersion
     {
         get => new TerraformReference<string>(this, "min_protocol_version");
@@ -1137,7 +1257,6 @@ public class AzurermApplicationGatewaySslPolicyBlock : TerraformBlock
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
-    [TerraformArgument("policy_name")]
     public TerraformValue<string>? PolicyName
     {
         get => new TerraformReference<string>(this, "policy_name");
@@ -1147,7 +1266,6 @@ public class AzurermApplicationGatewaySslPolicyBlock : TerraformBlock
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    [TerraformArgument("policy_type")]
     public TerraformValue<string>? PolicyType
     {
         get => new TerraformReference<string>(this, "policy_type");
@@ -1167,12 +1285,18 @@ public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "ssl_profile";
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1182,7 +1306,6 @@ public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
     /// <summary>
     /// The trusted_client_certificate_names attribute.
     /// </summary>
-    [TerraformArgument("trusted_client_certificate_names")]
     public TerraformList<string>? TrustedClientCertificateNames
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_client_certificate_names").ResolveNodes(ctx));
@@ -1192,7 +1315,6 @@ public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
     /// <summary>
     /// The verify_client_cert_issuer_dn attribute.
     /// </summary>
-    [TerraformArgument("verify_client_cert_issuer_dn")]
     public TerraformValue<bool>? VerifyClientCertIssuerDn
     {
         get => new TerraformReference<bool>(this, "verify_client_cert_issuer_dn");
@@ -1202,7 +1324,6 @@ public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
     /// <summary>
     /// The verify_client_certificate_revocation attribute.
     /// </summary>
-    [TerraformArgument("verify_client_certificate_revocation")]
     public TerraformValue<string>? VerifyClientCertificateRevocation
     {
         get => new TerraformReference<string>(this, "verify_client_certificate_revocation");
@@ -1225,7 +1346,6 @@ public class AzurermApplicationGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -1235,7 +1355,6 @@ public class AzurermApplicationGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -1245,7 +1364,6 @@ public class AzurermApplicationGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -1255,7 +1373,6 @@ public class AzurermApplicationGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -1279,19 +1396,24 @@ public class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformB
     /// The data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
-    [TerraformArgument("data")]
     public required TerraformValue<string> Data
     {
         get => new TerraformReference<string>(this, "data");
         set => SetArgument("data", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1314,18 +1436,23 @@ public class AzurermApplicationGatewayTrustedRootCertificateBlock : TerraformBlo
     /// <summary>
     /// The data attribute.
     /// </summary>
-    [TerraformArgument("data")]
     public TerraformValue<string>? Data
     {
         get => new TerraformReference<string>(this, "data");
         set => SetArgument("data", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_secret_id")]
     public TerraformValue<string>? KeyVaultSecretId
     {
         get => new TerraformReference<string>(this, "key_vault_secret_id");
@@ -1336,7 +1463,6 @@ public class AzurermApplicationGatewayTrustedRootCertificateBlock : TerraformBlo
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1356,56 +1482,86 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "url_path_map";
 
+    /// <summary>
+    /// The default_backend_address_pool_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultBackendAddressPoolId
+    {
+        get => new TerraformReference<string>(this, "default_backend_address_pool_id");
+    }
 
     /// <summary>
     /// The default_backend_address_pool_name attribute.
     /// </summary>
-    [TerraformArgument("default_backend_address_pool_name")]
     public TerraformValue<string>? DefaultBackendAddressPoolName
     {
         get => new TerraformReference<string>(this, "default_backend_address_pool_name");
         set => SetArgument("default_backend_address_pool_name", value);
     }
 
+    /// <summary>
+    /// The default_backend_http_settings_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultBackendHttpSettingsId
+    {
+        get => new TerraformReference<string>(this, "default_backend_http_settings_id");
+    }
 
     /// <summary>
     /// The default_backend_http_settings_name attribute.
     /// </summary>
-    [TerraformArgument("default_backend_http_settings_name")]
     public TerraformValue<string>? DefaultBackendHttpSettingsName
     {
         get => new TerraformReference<string>(this, "default_backend_http_settings_name");
         set => SetArgument("default_backend_http_settings_name", value);
     }
 
+    /// <summary>
+    /// The default_redirect_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultRedirectConfigurationId
+    {
+        get => new TerraformReference<string>(this, "default_redirect_configuration_id");
+    }
 
     /// <summary>
     /// The default_redirect_configuration_name attribute.
     /// </summary>
-    [TerraformArgument("default_redirect_configuration_name")]
     public TerraformValue<string>? DefaultRedirectConfigurationName
     {
         get => new TerraformReference<string>(this, "default_redirect_configuration_name");
         set => SetArgument("default_redirect_configuration_name", value);
     }
 
+    /// <summary>
+    /// The default_rewrite_rule_set_id attribute.
+    /// </summary>
+    public TerraformValue<string> DefaultRewriteRuleSetId
+    {
+        get => new TerraformReference<string>(this, "default_rewrite_rule_set_id");
+    }
 
     /// <summary>
     /// The default_rewrite_rule_set_name attribute.
     /// </summary>
-    [TerraformArgument("default_rewrite_rule_set_name")]
     public TerraformValue<string>? DefaultRewriteRuleSetName
     {
         get => new TerraformReference<string>(this, "default_rewrite_rule_set_name");
         set => SetArgument("default_rewrite_rule_set_name", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1429,7 +1585,6 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformArgument("enabled")]
     public required TerraformValue<bool> Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -1439,7 +1594,6 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     /// <summary>
     /// The file_upload_limit_mb attribute.
     /// </summary>
-    [TerraformArgument("file_upload_limit_mb")]
     public TerraformValue<double>? FileUploadLimitMb
     {
         get => new TerraformReference<double>(this, "file_upload_limit_mb");
@@ -1450,7 +1604,6 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     /// The firewall_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallMode is required")]
-    [TerraformArgument("firewall_mode")]
     public required TerraformValue<string> FirewallMode
     {
         get => new TerraformReference<string>(this, "firewall_mode");
@@ -1460,7 +1613,6 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     /// <summary>
     /// The max_request_body_size_kb attribute.
     /// </summary>
-    [TerraformArgument("max_request_body_size_kb")]
     public TerraformValue<double>? MaxRequestBodySizeKb
     {
         get => new TerraformReference<double>(this, "max_request_body_size_kb");
@@ -1470,7 +1622,6 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     /// <summary>
     /// The request_body_check attribute.
     /// </summary>
-    [TerraformArgument("request_body_check")]
     public TerraformValue<bool>? RequestBodyCheck
     {
         get => new TerraformReference<bool>(this, "request_body_check");
@@ -1480,7 +1631,6 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     /// <summary>
     /// The rule_set_type attribute.
     /// </summary>
-    [TerraformArgument("rule_set_type")]
     public TerraformValue<string>? RuleSetType
     {
         get => new TerraformReference<string>(this, "rule_set_type");
@@ -1491,7 +1641,6 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     /// The rule_set_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSetVersion is required")]
-    [TerraformArgument("rule_set_version")]
     public required TerraformValue<string> RuleSetVersion
     {
         get => new TerraformReference<string>(this, "rule_set_version");
@@ -1501,19 +1650,14 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_application_gateway Terraform resource.
 /// Manages a azurerm_application_gateway resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApplicationGateway : TerraformResource
+public partial class AzurermApplicationGateway(string name) : TerraformResource("azurerm_application_gateway", name)
 {
-    public AzurermApplicationGateway(string name) : base("azurerm_application_gateway", name)
-    {
-    }
-
     /// <summary>
     /// The enable_http2 attribute.
     /// </summary>
-    [TerraformArgument("enable_http2")]
     public TerraformValue<bool>? EnableHttp2
     {
         get => new TerraformReference<bool>(this, "enable_http2");
@@ -1523,7 +1667,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
-    [TerraformArgument("fips_enabled")]
     public TerraformValue<bool>? FipsEnabled
     {
         get => new TerraformReference<bool>(this, "fips_enabled");
@@ -1533,7 +1676,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
-    [TerraformArgument("firewall_policy_id")]
     public TerraformValue<string>? FirewallPolicyId
     {
         get => new TerraformReference<string>(this, "firewall_policy_id");
@@ -1543,7 +1685,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// <summary>
     /// The force_firewall_policy_association attribute.
     /// </summary>
-    [TerraformArgument("force_firewall_policy_association")]
     public TerraformValue<bool>? ForceFirewallPolicyAssociation
     {
         get => new TerraformReference<bool>(this, "force_firewall_policy_association");
@@ -1553,7 +1694,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -1564,7 +1704,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -1575,7 +1714,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1586,7 +1724,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -1596,7 +1733,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -1606,7 +1742,6 @@ public class AzurermApplicationGateway : TerraformResource
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformArgument("zones")]
     public TerraformSet<string>? Zones
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
@@ -1614,210 +1749,259 @@ public class AzurermApplicationGateway : TerraformResource
     }
 
     /// <summary>
-    /// Block for authentication_certificate.
-    /// Nesting mode: list
+    /// AuthenticationCertificate block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("authentication_certificate")]
-    public TerraformList<AzurermApplicationGatewayAuthenticationCertificateBlock> AuthenticationCertificate { get; set; } = new();
+    public AzurermApplicationGatewayAuthenticationCertificateBlock? AuthenticationCertificate
+    {
+        get => GetArgument<AzurermApplicationGatewayAuthenticationCertificateBlock>("authentication_certificate");
+        set => SetArgument("authentication_certificate", value);
+    }
 
     /// <summary>
-    /// Block for autoscale_configuration.
-    /// Nesting mode: list
+    /// AutoscaleConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleConfiguration block(s) allowed")]
-    [TerraformArgument("autoscale_configuration")]
-    public TerraformList<AzurermApplicationGatewayAutoscaleConfigurationBlock> AutoscaleConfiguration { get; set; } = new();
+    public AzurermApplicationGatewayAutoscaleConfigurationBlock? AutoscaleConfiguration
+    {
+        get => GetArgument<AzurermApplicationGatewayAutoscaleConfigurationBlock>("autoscale_configuration");
+        set => SetArgument("autoscale_configuration", value);
+    }
 
     /// <summary>
-    /// Block for backend_address_pool.
-    /// Nesting mode: set
+    /// BackendAddressPool block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendAddressPool block(s) required")]
-    [TerraformArgument("backend_address_pool")]
-    public required TerraformSet<AzurermApplicationGatewayBackendAddressPoolBlock> BackendAddressPool { get; set; } = new();
+    public required AzurermApplicationGatewayBackendAddressPoolBlock BackendAddressPool
+    {
+        get => GetRequiredArgument<AzurermApplicationGatewayBackendAddressPoolBlock>("backend_address_pool");
+        set => SetArgument("backend_address_pool", value);
+    }
 
     /// <summary>
-    /// Block for backend_http_settings.
-    /// Nesting mode: set
+    /// BackendHttpSettings block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendHttpSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendHttpSettings block(s) required")]
-    [TerraformArgument("backend_http_settings")]
-    public required TerraformSet<AzurermApplicationGatewayBackendHttpSettingsBlock> BackendHttpSettings { get; set; } = new();
+    public required AzurermApplicationGatewayBackendHttpSettingsBlock BackendHttpSettings
+    {
+        get => GetRequiredArgument<AzurermApplicationGatewayBackendHttpSettingsBlock>("backend_http_settings");
+        set => SetArgument("backend_http_settings", value);
+    }
 
     /// <summary>
-    /// Block for custom_error_configuration.
-    /// Nesting mode: list
+    /// CustomErrorConfiguration block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("custom_error_configuration")]
-    public TerraformList<AzurermApplicationGatewayCustomErrorConfigurationBlock> CustomErrorConfiguration { get; set; } = new();
+    public AzurermApplicationGatewayCustomErrorConfigurationBlock? CustomErrorConfiguration
+    {
+        get => GetArgument<AzurermApplicationGatewayCustomErrorConfigurationBlock>("custom_error_configuration");
+        set => SetArgument("custom_error_configuration", value);
+    }
 
     /// <summary>
-    /// Block for frontend_ip_configuration.
-    /// Nesting mode: list
+    /// FrontendIpConfiguration block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendIpConfiguration block(s) required")]
-    [TerraformArgument("frontend_ip_configuration")]
-    public required TerraformList<AzurermApplicationGatewayFrontendIpConfigurationBlock> FrontendIpConfiguration { get; set; } = new();
+    public required AzurermApplicationGatewayFrontendIpConfigurationBlock FrontendIpConfiguration
+    {
+        get => GetRequiredArgument<AzurermApplicationGatewayFrontendIpConfigurationBlock>("frontend_ip_configuration");
+        set => SetArgument("frontend_ip_configuration", value);
+    }
 
     /// <summary>
-    /// Block for frontend_port.
-    /// Nesting mode: set
+    /// FrontendPort block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPort is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendPort block(s) required")]
-    [TerraformArgument("frontend_port")]
-    public required TerraformSet<AzurermApplicationGatewayFrontendPortBlock> FrontendPort { get; set; } = new();
+    public required AzurermApplicationGatewayFrontendPortBlock FrontendPort
+    {
+        get => GetRequiredArgument<AzurermApplicationGatewayFrontendPortBlock>("frontend_port");
+        set => SetArgument("frontend_port", value);
+    }
 
     /// <summary>
-    /// Block for gateway_ip_configuration.
-    /// Nesting mode: list
+    /// GatewayIpConfiguration block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayIpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GatewayIpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 GatewayIpConfiguration block(s) allowed")]
-    [TerraformArgument("gateway_ip_configuration")]
-    public required TerraformList<AzurermApplicationGatewayGatewayIpConfigurationBlock> GatewayIpConfiguration { get; set; } = new();
+    public required AzurermApplicationGatewayGatewayIpConfigurationBlock GatewayIpConfiguration
+    {
+        get => GetRequiredArgument<AzurermApplicationGatewayGatewayIpConfigurationBlock>("gateway_ip_configuration");
+        set => SetArgument("gateway_ip_configuration", value);
+    }
 
     /// <summary>
-    /// Block for global.
-    /// Nesting mode: list
+    /// GlobalAttribute block (nesting mode: list).
     /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Global block(s) allowed")]
-    [TerraformArgument("global")]
-    public TerraformList<AzurermApplicationGatewayGlobalBlock> Global { get; set; } = new();
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GlobalAttribute block(s) allowed")]
+    public AzurermApplicationGatewayGlobalAttributeBlock? GlobalAttribute
+    {
+        get => GetArgument<AzurermApplicationGatewayGlobalAttributeBlock>("global");
+        set => SetArgument("global", value);
+    }
 
     /// <summary>
-    /// Block for http_listener.
-    /// Nesting mode: set
+    /// HttpListener block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpListener is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HttpListener block(s) required")]
-    [TerraformArgument("http_listener")]
-    public required TerraformSet<AzurermApplicationGatewayHttpListenerBlock> HttpListener { get; set; } = new();
+    public required AzurermApplicationGatewayHttpListenerBlock HttpListener
+    {
+        get => GetRequiredArgument<AzurermApplicationGatewayHttpListenerBlock>("http_listener");
+        set => SetArgument("http_listener", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermApplicationGatewayIdentityBlock> Identity { get; set; } = new();
+    public AzurermApplicationGatewayIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermApplicationGatewayIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for private_link_configuration.
-    /// Nesting mode: set
+    /// PrivateLinkConfiguration block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("private_link_configuration")]
-    public TerraformSet<AzurermApplicationGatewayPrivateLinkConfigurationBlock> PrivateLinkConfiguration { get; set; } = new();
+    public AzurermApplicationGatewayPrivateLinkConfigurationBlock? PrivateLinkConfiguration
+    {
+        get => GetArgument<AzurermApplicationGatewayPrivateLinkConfigurationBlock>("private_link_configuration");
+        set => SetArgument("private_link_configuration", value);
+    }
 
     /// <summary>
-    /// Block for probe.
-    /// Nesting mode: set
+    /// Probe block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("probe")]
-    public TerraformSet<AzurermApplicationGatewayProbeBlock> Probe { get; set; } = new();
+    public AzurermApplicationGatewayProbeBlock? Probe
+    {
+        get => GetArgument<AzurermApplicationGatewayProbeBlock>("probe");
+        set => SetArgument("probe", value);
+    }
 
     /// <summary>
-    /// Block for redirect_configuration.
-    /// Nesting mode: set
+    /// RedirectConfiguration block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("redirect_configuration")]
-    public TerraformSet<AzurermApplicationGatewayRedirectConfigurationBlock> RedirectConfiguration { get; set; } = new();
+    public AzurermApplicationGatewayRedirectConfigurationBlock? RedirectConfiguration
+    {
+        get => GetArgument<AzurermApplicationGatewayRedirectConfigurationBlock>("redirect_configuration");
+        set => SetArgument("redirect_configuration", value);
+    }
 
     /// <summary>
-    /// Block for request_routing_rule.
-    /// Nesting mode: set
+    /// RequestRoutingRule block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestRoutingRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RequestRoutingRule block(s) required")]
-    [TerraformArgument("request_routing_rule")]
-    public required TerraformSet<AzurermApplicationGatewayRequestRoutingRuleBlock> RequestRoutingRule { get; set; } = new();
+    public required AzurermApplicationGatewayRequestRoutingRuleBlock RequestRoutingRule
+    {
+        get => GetRequiredArgument<AzurermApplicationGatewayRequestRoutingRuleBlock>("request_routing_rule");
+        set => SetArgument("request_routing_rule", value);
+    }
 
     /// <summary>
-    /// Block for rewrite_rule_set.
-    /// Nesting mode: list
+    /// RewriteRuleSet block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("rewrite_rule_set")]
-    public TerraformList<AzurermApplicationGatewayRewriteRuleSetBlock> RewriteRuleSet { get; set; } = new();
+    public AzurermApplicationGatewayRewriteRuleSetBlock? RewriteRuleSet
+    {
+        get => GetArgument<AzurermApplicationGatewayRewriteRuleSetBlock>("rewrite_rule_set");
+        set => SetArgument("rewrite_rule_set", value);
+    }
 
     /// <summary>
-    /// Block for sku.
-    /// Nesting mode: list
+    /// Sku block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    [TerraformArgument("sku")]
-    public required TerraformList<AzurermApplicationGatewaySkuBlock> Sku { get; set; } = new();
+    public required AzurermApplicationGatewaySkuBlock Sku
+    {
+        get => GetRequiredArgument<AzurermApplicationGatewaySkuBlock>("sku");
+        set => SetArgument("sku", value);
+    }
 
     /// <summary>
-    /// Block for ssl_certificate.
-    /// Nesting mode: set
+    /// SslCertificate block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("ssl_certificate")]
-    public TerraformSet<AzurermApplicationGatewaySslCertificateBlock> SslCertificate { get; set; } = new();
+    public AzurermApplicationGatewaySslCertificateBlock? SslCertificate
+    {
+        get => GetArgument<AzurermApplicationGatewaySslCertificateBlock>("ssl_certificate");
+        set => SetArgument("ssl_certificate", value);
+    }
 
     /// <summary>
-    /// Block for ssl_policy.
-    /// Nesting mode: list
+    /// SslPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslPolicy block(s) allowed")]
-    [TerraformArgument("ssl_policy")]
-    public TerraformList<AzurermApplicationGatewaySslPolicyBlock> SslPolicy { get; set; } = new();
+    public AzurermApplicationGatewaySslPolicyBlock? SslPolicy
+    {
+        get => GetArgument<AzurermApplicationGatewaySslPolicyBlock>("ssl_policy");
+        set => SetArgument("ssl_policy", value);
+    }
 
     /// <summary>
-    /// Block for ssl_profile.
-    /// Nesting mode: list
+    /// SslProfile block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("ssl_profile")]
-    public TerraformList<AzurermApplicationGatewaySslProfileBlock> SslProfile { get; set; } = new();
+    public AzurermApplicationGatewaySslProfileBlock? SslProfile
+    {
+        get => GetArgument<AzurermApplicationGatewaySslProfileBlock>("ssl_profile");
+        set => SetArgument("ssl_profile", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApplicationGatewayTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApplicationGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApplicationGatewayTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for trusted_client_certificate.
-    /// Nesting mode: list
+    /// TrustedClientCertificate block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("trusted_client_certificate")]
-    public TerraformList<AzurermApplicationGatewayTrustedClientCertificateBlock> TrustedClientCertificate { get; set; } = new();
+    public AzurermApplicationGatewayTrustedClientCertificateBlock? TrustedClientCertificate
+    {
+        get => GetArgument<AzurermApplicationGatewayTrustedClientCertificateBlock>("trusted_client_certificate");
+        set => SetArgument("trusted_client_certificate", value);
+    }
 
     /// <summary>
-    /// Block for trusted_root_certificate.
-    /// Nesting mode: list
+    /// TrustedRootCertificate block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("trusted_root_certificate")]
-    public TerraformList<AzurermApplicationGatewayTrustedRootCertificateBlock> TrustedRootCertificate { get; set; } = new();
+    public AzurermApplicationGatewayTrustedRootCertificateBlock? TrustedRootCertificate
+    {
+        get => GetArgument<AzurermApplicationGatewayTrustedRootCertificateBlock>("trusted_root_certificate");
+        set => SetArgument("trusted_root_certificate", value);
+    }
 
     /// <summary>
-    /// Block for url_path_map.
-    /// Nesting mode: list
+    /// UrlPathMap block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("url_path_map")]
-    public TerraformList<AzurermApplicationGatewayUrlPathMapBlock> UrlPathMap { get; set; } = new();
+    public AzurermApplicationGatewayUrlPathMapBlock? UrlPathMap
+    {
+        get => GetArgument<AzurermApplicationGatewayUrlPathMapBlock>("url_path_map");
+        set => SetArgument("url_path_map", value);
+    }
 
     /// <summary>
-    /// Block for waf_configuration.
-    /// Nesting mode: list
+    /// WafConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WafConfiguration block(s) allowed")]
-    [TerraformArgument("waf_configuration")]
-    public TerraformList<AzurermApplicationGatewayWafConfigurationBlock> WafConfiguration { get; set; } = new();
-
-    /// <summary>
-    /// The private_endpoint_connection attribute.
-    /// </summary>
-    [TerraformArgument("private_endpoint_connection")]
-    public TerraformSet<object> PrivateEndpointConnection
+    public AzurermApplicationGatewayWafConfigurationBlock? WafConfiguration
     {
-        get => TerraformSet<object>.Lazy(ctx => new TerraformReference<TerraformSet<object>>(this, "private_endpoint_connection").ResolveNodes(ctx));
+        get => GetArgument<AzurermApplicationGatewayWafConfigurationBlock>("waf_configuration");
+        set => SetArgument("waf_configuration", value);
     }
 
 }

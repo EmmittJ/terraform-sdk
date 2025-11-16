@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for encryption in .
@@ -25,7 +16,6 @@ public class AzurermAppConfigurationEncryptionBlock : TerraformBlock
     /// <summary>
     /// The identity_client_id attribute.
     /// </summary>
-    [TerraformArgument("identity_client_id")]
     public TerraformValue<string>? IdentityClientId
     {
         get => new TerraformReference<string>(this, "identity_client_id");
@@ -35,7 +25,6 @@ public class AzurermAppConfigurationEncryptionBlock : TerraformBlock
     /// <summary>
     /// The key_vault_key_identifier attribute.
     /// </summary>
-    [TerraformArgument("key_vault_key_identifier")]
     public TerraformValue<string>? KeyVaultKeyIdentifier
     {
         get => new TerraformReference<string>(this, "key_vault_key_identifier");
@@ -58,20 +47,32 @@ public class AzurermAppConfigurationIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -91,13 +92,26 @@ public class AzurermAppConfigurationReplicaBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "replica";
 
+    /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> Endpoint
+    {
+        get => new TerraformReference<string>(this, "endpoint");
+    }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -108,7 +122,6 @@ public class AzurermAppConfigurationReplicaBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -131,7 +144,6 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -141,7 +153,6 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -151,7 +162,6 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -161,7 +171,6 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -171,19 +180,14 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_app_configuration Terraform resource.
 /// Manages a azurerm_app_configuration resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermAppConfiguration : TerraformResource
+public partial class AzurermAppConfiguration(string name) : TerraformResource("azurerm_app_configuration", name)
 {
-    public AzurermAppConfiguration(string name) : base("azurerm_app_configuration", name)
-    {
-    }
-
     /// <summary>
     /// The data_plane_proxy_authentication_mode attribute.
     /// </summary>
-    [TerraformArgument("data_plane_proxy_authentication_mode")]
     public TerraformValue<string>? DataPlaneProxyAuthenticationMode
     {
         get => new TerraformReference<string>(this, "data_plane_proxy_authentication_mode");
@@ -193,7 +197,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The data_plane_proxy_private_link_delegation_enabled attribute.
     /// </summary>
-    [TerraformArgument("data_plane_proxy_private_link_delegation_enabled")]
     public TerraformValue<bool>? DataPlaneProxyPrivateLinkDelegationEnabled
     {
         get => new TerraformReference<bool>(this, "data_plane_proxy_private_link_delegation_enabled");
@@ -203,7 +206,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -213,7 +215,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    [TerraformArgument("local_auth_enabled")]
     public TerraformValue<bool>? LocalAuthEnabled
     {
         get => new TerraformReference<bool>(this, "local_auth_enabled");
@@ -224,7 +225,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -235,7 +235,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -245,7 +244,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    [TerraformArgument("public_network_access")]
     public TerraformValue<string>? PublicNetworkAccess
     {
         get => new TerraformReference<string>(this, "public_network_access");
@@ -255,7 +253,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
-    [TerraformArgument("purge_protection_enabled")]
     public TerraformValue<bool>? PurgeProtectionEnabled
     {
         get => new TerraformReference<bool>(this, "purge_protection_enabled");
@@ -266,7 +263,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -276,7 +272,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformArgument("sku")]
     public TerraformValue<string>? Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -286,7 +281,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The soft_delete_retention_days attribute.
     /// </summary>
-    [TerraformArgument("soft_delete_retention_days")]
     public TerraformValue<double>? SoftDeleteRetentionDays
     {
         get => new TerraformReference<double>(this, "soft_delete_retention_days");
@@ -296,7 +290,6 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -304,78 +297,41 @@ public class AzurermAppConfiguration : TerraformResource
     }
 
     /// <summary>
-    /// Block for encryption.
-    /// Nesting mode: list
+    /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    [TerraformArgument("encryption")]
-    public TerraformList<AzurermAppConfigurationEncryptionBlock> Encryption { get; set; } = new();
+    public AzurermAppConfigurationEncryptionBlock? Encryption
+    {
+        get => GetArgument<AzurermAppConfigurationEncryptionBlock>("encryption");
+        set => SetArgument("encryption", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermAppConfigurationIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for replica.
-    /// Nesting mode: set
-    /// </summary>
-    [TerraformArgument("replica")]
-    public TerraformSet<AzurermAppConfigurationReplicaBlock> Replica { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAppConfigurationTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The endpoint attribute.
-    /// </summary>
-    [TerraformArgument("endpoint")]
-    public TerraformValue<string> Endpoint
+    public AzurermAppConfigurationIdentityBlock? Identity
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<AzurermAppConfigurationIdentityBlock>("identity");
+        set => SetArgument("identity", value);
     }
 
     /// <summary>
-    /// The primary_read_key attribute.
+    /// Replica block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("primary_read_key")]
-    public TerraformList<object> PrimaryReadKey
+    public AzurermAppConfigurationReplicaBlock? Replica
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "primary_read_key").ResolveNodes(ctx));
+        get => GetArgument<AzurermAppConfigurationReplicaBlock>("replica");
+        set => SetArgument("replica", value);
     }
 
     /// <summary>
-    /// The primary_write_key attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("primary_write_key")]
-    public TerraformList<object> PrimaryWriteKey
+    public AzurermAppConfigurationTimeoutsBlock? Timeouts
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "primary_write_key").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The secondary_read_key attribute.
-    /// </summary>
-    [TerraformArgument("secondary_read_key")]
-    public TerraformList<object> SecondaryReadKey
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "secondary_read_key").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The secondary_write_key attribute.
-    /// </summary>
-    [TerraformArgument("secondary_write_key")]
-    public TerraformList<object> SecondaryWriteKey
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "secondary_write_key").ResolveNodes(ctx));
+        get => GetArgument<AzurermAppConfigurationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

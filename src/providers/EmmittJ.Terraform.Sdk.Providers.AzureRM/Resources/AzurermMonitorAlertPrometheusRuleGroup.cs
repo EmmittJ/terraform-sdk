@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for rule in .
@@ -25,7 +16,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// <summary>
     /// The alert attribute.
     /// </summary>
-    [TerraformArgument("alert")]
     public TerraformValue<string>? Alert
     {
         get => new TerraformReference<string>(this, "alert");
@@ -35,7 +25,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformMap<string>? Annotations
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
@@ -45,7 +34,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -56,7 +44,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// The expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
-    [TerraformArgument("expression")]
     public required TerraformValue<string> Expression
     {
         get => new TerraformReference<string>(this, "expression");
@@ -66,8 +53,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// <summary>
     /// The for attribute.
     /// </summary>
-    [TerraformArgument("for")]
-    public TerraformValue<string>? For
+    public TerraformValue<string>? ForAttribute
     {
         get => new TerraformReference<string>(this, "for");
         set => SetArgument("for", value);
@@ -76,7 +62,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    [TerraformArgument("labels")]
     public TerraformMap<string>? Labels
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
@@ -86,7 +71,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// <summary>
     /// The record attribute.
     /// </summary>
-    [TerraformArgument("record")]
     public TerraformValue<string>? Record
     {
         get => new TerraformReference<string>(this, "record");
@@ -96,7 +80,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    [TerraformArgument("severity")]
     public TerraformValue<double>? Severity
     {
         get => new TerraformReference<double>(this, "severity");
@@ -119,7 +102,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -129,7 +111,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -139,7 +120,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -149,7 +129,6 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -159,19 +138,14 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_alert_prometheus_rule_group Terraform resource.
 /// Manages a azurerm_monitor_alert_prometheus_rule_group resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
+public partial class AzurermMonitorAlertPrometheusRuleGroup(string name) : TerraformResource("azurerm_monitor_alert_prometheus_rule_group", name)
 {
-    public AzurermMonitorAlertPrometheusRuleGroup(string name) : base("azurerm_monitor_alert_prometheus_rule_group", name)
-    {
-    }
-
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    [TerraformArgument("cluster_name")]
     public TerraformValue<string>? ClusterName
     {
         get => new TerraformReference<string>(this, "cluster_name");
@@ -181,7 +155,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -191,7 +164,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -201,7 +173,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    [TerraformArgument("interval")]
     public TerraformValue<string>? Interval
     {
         get => new TerraformReference<string>(this, "interval");
@@ -212,7 +183,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -223,7 +193,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -234,7 +203,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -244,7 +212,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// <summary>
     /// The rule_group_enabled attribute.
     /// </summary>
-    [TerraformArgument("rule_group_enabled")]
     public TerraformValue<bool>? RuleGroupEnabled
     {
         get => new TerraformReference<bool>(this, "rule_group_enabled");
@@ -255,7 +222,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    [TerraformArgument("scopes")]
     public TerraformList<string>? Scopes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
@@ -265,7 +231,6 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -273,19 +238,24 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for rule.
-    /// Nesting mode: list
+    /// Rule block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    [TerraformArgument("rule")]
-    public required TerraformList<AzurermMonitorAlertPrometheusRuleGroupRuleBlock> Rule { get; set; } = new();
+    public required AzurermMonitorAlertPrometheusRuleGroupRuleBlock Rule
+    {
+        get => GetRequiredArgument<AzurermMonitorAlertPrometheusRuleGroupRuleBlock>("rule");
+        set => SetArgument("rule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for applies_to_group in .
@@ -25,7 +16,6 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
-    [TerraformArgument("global_mesh_enabled")]
     public TerraformValue<bool>? GlobalMeshEnabled
     {
         get => new TerraformReference<bool>(this, "global_mesh_enabled");
@@ -36,7 +26,6 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     /// The group_connectivity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupConnectivity is required")]
-    [TerraformArgument("group_connectivity")]
     public required TerraformValue<string> GroupConnectivity
     {
         get => new TerraformReference<string>(this, "group_connectivity");
@@ -47,7 +36,6 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     /// The network_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
-    [TerraformArgument("network_group_id")]
     public required TerraformValue<string> NetworkGroupId
     {
         get => new TerraformReference<string>(this, "network_group_id");
@@ -57,7 +45,6 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     /// <summary>
     /// The use_hub_gateway attribute.
     /// </summary>
-    [TerraformArgument("use_hub_gateway")]
     public TerraformValue<bool>? UseHubGateway
     {
         get => new TerraformReference<bool>(this, "use_hub_gateway");
@@ -81,7 +68,6 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    [TerraformArgument("resource_id")]
     public required TerraformValue<string> ResourceId
     {
         get => new TerraformReference<string>(this, "resource_id");
@@ -91,9 +77,8 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    [TerraformArgument("resource_type")]
-    public required TerraformValue<string> ResourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
+    public required TerraformValue<string> ResourceTypeAttribute
     {
         get => new TerraformReference<string>(this, "resource_type");
         set => SetArgument("resource_type", value);
@@ -115,7 +100,6 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -125,7 +109,6 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -135,7 +118,6 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -145,7 +127,6 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -155,20 +136,15 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
 }
 
 /// <summary>
+/// Represents a azurerm_network_manager_connectivity_configuration Terraform resource.
 /// Manages a azurerm_network_manager_connectivity_configuration resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
+public partial class AzurermNetworkManagerConnectivityConfiguration(string name) : TerraformResource("azurerm_network_manager_connectivity_configuration", name)
 {
-    public AzurermNetworkManagerConnectivityConfiguration(string name) : base("azurerm_network_manager_connectivity_configuration", name)
-    {
-    }
-
     /// <summary>
     /// The connectivity_topology attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectivityTopology is required")]
-    [TerraformArgument("connectivity_topology")]
     public required TerraformValue<string> ConnectivityTopology
     {
         get => new TerraformReference<string>(this, "connectivity_topology");
@@ -178,7 +154,6 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// <summary>
     /// The delete_existing_peering_enabled attribute.
     /// </summary>
-    [TerraformArgument("delete_existing_peering_enabled")]
     public TerraformValue<bool>? DeleteExistingPeeringEnabled
     {
         get => new TerraformReference<bool>(this, "delete_existing_peering_enabled");
@@ -188,7 +163,6 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -198,7 +172,6 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
-    [TerraformArgument("global_mesh_enabled")]
     public TerraformValue<bool>? GlobalMeshEnabled
     {
         get => new TerraformReference<bool>(this, "global_mesh_enabled");
@@ -208,7 +181,6 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -219,7 +191,6 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -230,7 +201,6 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// The network_manager_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
-    [TerraformArgument("network_manager_id")]
     public required TerraformValue<string> NetworkManagerId
     {
         get => new TerraformReference<string>(this, "network_manager_id");
@@ -238,27 +208,34 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     }
 
     /// <summary>
-    /// Block for applies_to_group.
-    /// Nesting mode: list
+    /// AppliesToGroup block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppliesToGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AppliesToGroup block(s) required")]
-    [TerraformArgument("applies_to_group")]
-    public required TerraformList<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock> AppliesToGroup { get; set; } = new();
+    public required AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock AppliesToGroup
+    {
+        get => GetRequiredArgument<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock>("applies_to_group");
+        set => SetArgument("applies_to_group", value);
+    }
 
     /// <summary>
-    /// Block for hub.
-    /// Nesting mode: list
+    /// Hub block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hub block(s) allowed")]
-    [TerraformArgument("hub")]
-    public TerraformList<AzurermNetworkManagerConnectivityConfigurationHubBlock> Hub { get; set; } = new();
+    public AzurermNetworkManagerConnectivityConfigurationHubBlock? Hub
+    {
+        get => GetArgument<AzurermNetworkManagerConnectivityConfigurationHubBlock>("hub");
+        set => SetArgument("hub", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

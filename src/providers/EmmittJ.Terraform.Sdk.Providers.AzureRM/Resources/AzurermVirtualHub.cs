@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for route in .
@@ -26,7 +17,6 @@ public class AzurermVirtualHubRouteBlock : TerraformBlock
     /// The address_prefixes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixes is required")]
-    [TerraformArgument("address_prefixes")]
     public TerraformList<string>? AddressPrefixes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
@@ -37,7 +27,6 @@ public class AzurermVirtualHubRouteBlock : TerraformBlock
     /// The next_hop_ip_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopIpAddress is required")]
-    [TerraformArgument("next_hop_ip_address")]
     public required TerraformValue<string> NextHopIpAddress
     {
         get => new TerraformReference<string>(this, "next_hop_ip_address");
@@ -60,7 +49,6 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,18 +85,14 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_virtual_hub Terraform resource.
 /// Manages a azurerm_virtual_hub resource.
 /// </summary>
-public class AzurermVirtualHub : TerraformResource
+public partial class AzurermVirtualHub(string name) : TerraformResource("azurerm_virtual_hub", name)
 {
-    public AzurermVirtualHub(string name) : base("azurerm_virtual_hub", name)
-    {
-    }
-
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
-    [TerraformArgument("address_prefix")]
     public TerraformValue<string>? AddressPrefix
     {
         get => new TerraformReference<string>(this, "address_prefix");
@@ -121,7 +102,6 @@ public class AzurermVirtualHub : TerraformResource
     /// <summary>
     /// The branch_to_branch_traffic_enabled attribute.
     /// </summary>
-    [TerraformArgument("branch_to_branch_traffic_enabled")]
     public TerraformValue<bool>? BranchToBranchTrafficEnabled
     {
         get => new TerraformReference<bool>(this, "branch_to_branch_traffic_enabled");
@@ -131,7 +111,6 @@ public class AzurermVirtualHub : TerraformResource
     /// <summary>
     /// The hub_routing_preference attribute.
     /// </summary>
-    [TerraformArgument("hub_routing_preference")]
     public TerraformValue<string>? HubRoutingPreference
     {
         get => new TerraformReference<string>(this, "hub_routing_preference");
@@ -141,7 +120,6 @@ public class AzurermVirtualHub : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -152,7 +130,6 @@ public class AzurermVirtualHub : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -163,7 +140,6 @@ public class AzurermVirtualHub : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -174,7 +150,6 @@ public class AzurermVirtualHub : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -184,7 +159,6 @@ public class AzurermVirtualHub : TerraformResource
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformArgument("sku")]
     public TerraformValue<string>? Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -194,7 +168,6 @@ public class AzurermVirtualHub : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -204,7 +177,6 @@ public class AzurermVirtualHub : TerraformResource
     /// <summary>
     /// The virtual_router_auto_scale_min_capacity attribute.
     /// </summary>
-    [TerraformArgument("virtual_router_auto_scale_min_capacity")]
     public TerraformValue<double>? VirtualRouterAutoScaleMinCapacity
     {
         get => new TerraformReference<double>(this, "virtual_router_auto_scale_min_capacity");
@@ -214,7 +186,6 @@ public class AzurermVirtualHub : TerraformResource
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
-    [TerraformArgument("virtual_wan_id")]
     public TerraformValue<string>? VirtualWanId
     {
         get => new TerraformReference<string>(this, "virtual_wan_id");
@@ -222,44 +193,21 @@ public class AzurermVirtualHub : TerraformResource
     }
 
     /// <summary>
-    /// Block for route.
-    /// Nesting mode: set
+    /// Route block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("route")]
-    public TerraformSet<AzurermVirtualHubRouteBlock> Route { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVirtualHubTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The default_route_table_id attribute.
-    /// </summary>
-    [TerraformArgument("default_route_table_id")]
-    public TerraformValue<string> DefaultRouteTableId
+    public AzurermVirtualHubRouteBlock? Route
     {
-        get => new TerraformReference<string>(this, "default_route_table_id");
+        get => GetArgument<AzurermVirtualHubRouteBlock>("route");
+        set => SetArgument("route", value);
     }
 
     /// <summary>
-    /// The virtual_router_asn attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("virtual_router_asn")]
-    public TerraformValue<double> VirtualRouterAsn
+    public AzurermVirtualHubTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<double>(this, "virtual_router_asn");
-    }
-
-    /// <summary>
-    /// The virtual_router_ips attribute.
-    /// </summary>
-    [TerraformArgument("virtual_router_ips")]
-    public TerraformList<string> VirtualRouterIps
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_router_ips").ResolveNodes(ctx));
+        get => GetArgument<AzurermVirtualHubTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

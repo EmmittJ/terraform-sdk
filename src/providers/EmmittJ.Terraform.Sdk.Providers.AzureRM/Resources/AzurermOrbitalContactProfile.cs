@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for links in .
@@ -26,7 +17,6 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     /// The direction attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
-    [TerraformArgument("direction")]
     public required TerraformValue<string> Direction
     {
         get => new TerraformReference<string>(this, "direction");
@@ -37,7 +27,6 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -48,7 +37,6 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     /// The polarization attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
-    [TerraformArgument("polarization")]
     public required TerraformValue<string> Polarization
     {
         get => new TerraformReference<string>(this, "polarization");
@@ -71,7 +59,6 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -81,7 +68,6 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -91,7 +77,6 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -101,7 +86,6 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -111,21 +95,16 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_orbital_contact_profile Terraform resource.
 /// Manages a azurerm_orbital_contact_profile resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermOrbitalContactProfile : TerraformResource
+public partial class AzurermOrbitalContactProfile(string name) : TerraformResource("azurerm_orbital_contact_profile", name)
 {
-    public AzurermOrbitalContactProfile(string name) : base("azurerm_orbital_contact_profile", name)
-    {
-    }
-
     /// <summary>
     /// The auto_tracking attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoTracking is required")]
-    [TerraformArgument("auto_tracking")]
     public required TerraformValue<string> AutoTracking
     {
         get => new TerraformReference<string>(this, "auto_tracking");
@@ -135,7 +114,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// <summary>
     /// The event_hub_uri attribute.
     /// </summary>
-    [TerraformArgument("event_hub_uri")]
     public TerraformValue<string>? EventHubUri
     {
         get => new TerraformReference<string>(this, "event_hub_uri");
@@ -145,7 +123,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -156,7 +133,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -166,7 +142,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// <summary>
     /// The minimum_elevation_degrees attribute.
     /// </summary>
-    [TerraformArgument("minimum_elevation_degrees")]
     public TerraformValue<double>? MinimumElevationDegrees
     {
         get => new TerraformReference<double>(this, "minimum_elevation_degrees");
@@ -177,7 +152,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// The minimum_variable_contact_duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumVariableContactDuration is required")]
-    [TerraformArgument("minimum_variable_contact_duration")]
     public required TerraformValue<string> MinimumVariableContactDuration
     {
         get => new TerraformReference<string>(this, "minimum_variable_contact_duration");
@@ -188,7 +162,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -199,7 +172,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// The network_configuration_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConfigurationSubnetId is required")]
-    [TerraformArgument("network_configuration_subnet_id")]
     public required TerraformValue<string> NetworkConfigurationSubnetId
     {
         get => new TerraformReference<string>(this, "network_configuration_subnet_id");
@@ -210,7 +182,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -220,7 +191,6 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -228,19 +198,24 @@ public class AzurermOrbitalContactProfile : TerraformResource
     }
 
     /// <summary>
-    /// Block for links.
-    /// Nesting mode: list
+    /// Links block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
-    [TerraformArgument("links")]
-    public required TerraformList<AzurermOrbitalContactProfileLinksBlock> Links { get; set; } = new();
+    public required AzurermOrbitalContactProfileLinksBlock Links
+    {
+        get => GetRequiredArgument<AzurermOrbitalContactProfileLinksBlock>("links");
+        set => SetArgument("links", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermOrbitalContactProfileTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermOrbitalContactProfileTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermOrbitalContactProfileTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

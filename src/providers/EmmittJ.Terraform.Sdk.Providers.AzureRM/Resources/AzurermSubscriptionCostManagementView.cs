@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for dataset in .
@@ -26,7 +17,6 @@ public class AzurermSubscriptionCostManagementViewDatasetBlock : TerraformBlock
     /// The granularity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Granularity is required")]
-    [TerraformArgument("granularity")]
     public required TerraformValue<string> Granularity
     {
         get => new TerraformReference<string>(this, "granularity");
@@ -50,7 +40,6 @@ public class AzurermSubscriptionCostManagementViewKpiBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -74,7 +63,6 @@ public class AzurermSubscriptionCostManagementViewPivotBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -85,7 +73,6 @@ public class AzurermSubscriptionCostManagementViewPivotBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -108,7 +95,6 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -118,7 +104,6 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -128,7 +113,6 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -138,7 +122,6 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -148,20 +131,15 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_subscription_cost_management_view Terraform resource.
 /// Manages a azurerm_subscription_cost_management_view resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSubscriptionCostManagementView : TerraformResource
+public partial class AzurermSubscriptionCostManagementView(string name) : TerraformResource("azurerm_subscription_cost_management_view", name)
 {
-    public AzurermSubscriptionCostManagementView(string name) : base("azurerm_subscription_cost_management_view", name)
-    {
-    }
-
     /// <summary>
     /// The accumulated attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Accumulated is required")]
-    [TerraformArgument("accumulated")]
     public required TerraformValue<bool> Accumulated
     {
         get => new TerraformReference<bool>(this, "accumulated");
@@ -172,7 +150,6 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// The chart_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChartType is required")]
-    [TerraformArgument("chart_type")]
     public required TerraformValue<string> ChartType
     {
         get => new TerraformReference<string>(this, "chart_type");
@@ -183,7 +160,6 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformArgument("display_name")]
     public required TerraformValue<string> DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -193,7 +169,6 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -204,7 +179,6 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -215,7 +189,6 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// The report_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportType is required")]
-    [TerraformArgument("report_type")]
     public required TerraformValue<string> ReportType
     {
         get => new TerraformReference<string>(this, "report_type");
@@ -226,7 +199,6 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    [TerraformArgument("subscription_id")]
     public required TerraformValue<string> SubscriptionId
     {
         get => new TerraformReference<string>(this, "subscription_id");
@@ -237,7 +209,6 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// The timeframe attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeframe is required")]
-    [TerraformArgument("timeframe")]
     public required TerraformValue<string> Timeframe
     {
         get => new TerraformReference<string>(this, "timeframe");
@@ -245,34 +216,43 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     }
 
     /// <summary>
-    /// Block for dataset.
-    /// Nesting mode: list
+    /// Dataset block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Dataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
-    [TerraformArgument("dataset")]
-    public required TerraformList<AzurermSubscriptionCostManagementViewDatasetBlock> Dataset { get; set; } = new();
+    public required AzurermSubscriptionCostManagementViewDatasetBlock Dataset
+    {
+        get => GetRequiredArgument<AzurermSubscriptionCostManagementViewDatasetBlock>("dataset");
+        set => SetArgument("dataset", value);
+    }
 
     /// <summary>
-    /// Block for kpi.
-    /// Nesting mode: list
+    /// Kpi block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("kpi")]
-    public TerraformList<AzurermSubscriptionCostManagementViewKpiBlock> Kpi { get; set; } = new();
+    public AzurermSubscriptionCostManagementViewKpiBlock? Kpi
+    {
+        get => GetArgument<AzurermSubscriptionCostManagementViewKpiBlock>("kpi");
+        set => SetArgument("kpi", value);
+    }
 
     /// <summary>
-    /// Block for pivot.
-    /// Nesting mode: list
+    /// Pivot block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("pivot")]
-    public TerraformList<AzurermSubscriptionCostManagementViewPivotBlock> Pivot { get; set; } = new();
+    public AzurermSubscriptionCostManagementViewPivotBlock? Pivot
+    {
+        get => GetArgument<AzurermSubscriptionCostManagementViewPivotBlock>("pivot");
+        set => SetArgument("pivot", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSubscriptionCostManagementViewTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSubscriptionCostManagementViewTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSubscriptionCostManagementViewTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

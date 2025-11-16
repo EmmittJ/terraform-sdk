@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermBackupContainerStorageAccountTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermBackupContainerStorageAccountTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermBackupContainerStorageAccountTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermBackupContainerStorageAccountTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_backup_container_storage_account Terraform resource.
 /// Manages a azurerm_backup_container_storage_account resource.
 /// </summary>
-public class AzurermBackupContainerStorageAccount : TerraformResource
+public partial class AzurermBackupContainerStorageAccount(string name) : TerraformResource("azurerm_backup_container_storage_account", name)
 {
-    public AzurermBackupContainerStorageAccount(string name) : base("azurerm_backup_container_storage_account", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermBackupContainerStorageAccount : TerraformResource
     /// The recovery_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
-    [TerraformArgument("recovery_vault_name")]
     public required TerraformValue<string> RecoveryVaultName
     {
         get => new TerraformReference<string>(this, "recovery_vault_name");
@@ -88,7 +71,6 @@ public class AzurermBackupContainerStorageAccount : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -99,7 +81,6 @@ public class AzurermBackupContainerStorageAccount : TerraformResource
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformArgument("storage_account_id")]
     public required TerraformValue<string> StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -107,10 +88,12 @@ public class AzurermBackupContainerStorageAccount : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBackupContainerStorageAccountTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermBackupContainerStorageAccountTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermBackupContainerStorageAccountTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

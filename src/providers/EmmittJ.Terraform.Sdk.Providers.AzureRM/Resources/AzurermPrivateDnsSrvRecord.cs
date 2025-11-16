@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for record in .
@@ -26,7 +17,6 @@ public class AzurermPrivateDnsSrvRecordRecordBlock : TerraformBlock
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformArgument("port")]
     public required TerraformValue<double> Port
     {
         get => new TerraformReference<double>(this, "port");
@@ -37,7 +27,6 @@ public class AzurermPrivateDnsSrvRecordRecordBlock : TerraformBlock
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -48,7 +37,6 @@ public class AzurermPrivateDnsSrvRecordRecordBlock : TerraformBlock
     /// The target attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
-    [TerraformArgument("target")]
     public required TerraformValue<string> Target
     {
         get => new TerraformReference<string>(this, "target");
@@ -59,7 +47,6 @@ public class AzurermPrivateDnsSrvRecordRecordBlock : TerraformBlock
     /// The weight attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
-    [TerraformArgument("weight")]
     public required TerraformValue<double> Weight
     {
         get => new TerraformReference<double>(this, "weight");
@@ -82,7 +69,6 @@ public class AzurermPrivateDnsSrvRecordTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -92,7 +78,6 @@ public class AzurermPrivateDnsSrvRecordTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -102,7 +87,6 @@ public class AzurermPrivateDnsSrvRecordTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -112,7 +96,6 @@ public class AzurermPrivateDnsSrvRecordTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -122,19 +105,14 @@ public class AzurermPrivateDnsSrvRecordTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_private_dns_srv_record Terraform resource.
 /// Manages a azurerm_private_dns_srv_record resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermPrivateDnsSrvRecord : TerraformResource
+public partial class AzurermPrivateDnsSrvRecord(string name) : TerraformResource("azurerm_private_dns_srv_record", name)
 {
-    public AzurermPrivateDnsSrvRecord(string name) : base("azurerm_private_dns_srv_record", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -145,7 +123,6 @@ public class AzurermPrivateDnsSrvRecord : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -156,7 +133,6 @@ public class AzurermPrivateDnsSrvRecord : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -166,7 +142,6 @@ public class AzurermPrivateDnsSrvRecord : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -177,7 +152,6 @@ public class AzurermPrivateDnsSrvRecord : TerraformResource
     /// The ttl attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
-    [TerraformArgument("ttl")]
     public required TerraformValue<double> Ttl
     {
         get => new TerraformReference<double>(this, "ttl");
@@ -188,7 +162,6 @@ public class AzurermPrivateDnsSrvRecord : TerraformResource
     /// The zone_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
-    [TerraformArgument("zone_name")]
     public required TerraformValue<string> ZoneName
     {
         get => new TerraformReference<string>(this, "zone_name");
@@ -196,28 +169,24 @@ public class AzurermPrivateDnsSrvRecord : TerraformResource
     }
 
     /// <summary>
-    /// Block for record.
-    /// Nesting mode: set
+    /// Record block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Record is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Record block(s) required")]
-    [TerraformArgument("record")]
-    public required TerraformSet<AzurermPrivateDnsSrvRecordRecordBlock> Record { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPrivateDnsSrvRecordTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The fqdn attribute.
-    /// </summary>
-    [TerraformArgument("fqdn")]
-    public TerraformValue<string> Fqdn
+    public required AzurermPrivateDnsSrvRecordRecordBlock Record
     {
-        get => new TerraformReference<string>(this, "fqdn");
+        get => GetRequiredArgument<AzurermPrivateDnsSrvRecordRecordBlock>("record");
+        set => SetArgument("record", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermPrivateDnsSrvRecordTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPrivateDnsSrvRecordTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

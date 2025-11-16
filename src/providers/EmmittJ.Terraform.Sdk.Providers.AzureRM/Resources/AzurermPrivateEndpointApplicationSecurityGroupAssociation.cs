@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBl
 }
 
 /// <summary>
+/// Represents a azurerm_private_endpoint_application_security_group_association Terraform resource.
 /// Manages a azurerm_private_endpoint_application_security_group_association resource.
 /// </summary>
-public class AzurermPrivateEndpointApplicationSecurityGroupAssociation : TerraformResource
+public partial class AzurermPrivateEndpointApplicationSecurityGroupAssociation(string name) : TerraformResource("azurerm_private_endpoint_application_security_group_association", name)
 {
-    public AzurermPrivateEndpointApplicationSecurityGroupAssociation(string name) : base("azurerm_private_endpoint_application_security_group_association", name)
-    {
-    }
-
     /// <summary>
     /// The application_security_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
-    [TerraformArgument("application_security_group_id")]
     public required TerraformValue<string> ApplicationSecurityGroupId
     {
         get => new TerraformReference<string>(this, "application_security_group_id");
@@ -77,7 +61,6 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociation : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -88,7 +71,6 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociation : Terrafo
     /// The private_endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
-    [TerraformArgument("private_endpoint_id")]
     public required TerraformValue<string> PrivateEndpointId
     {
         get => new TerraformReference<string>(this, "private_endpoint_id");
@@ -96,10 +78,12 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociation : Terrafo
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

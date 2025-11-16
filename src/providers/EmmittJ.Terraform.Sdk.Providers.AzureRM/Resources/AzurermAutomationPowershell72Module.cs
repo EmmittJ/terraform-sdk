@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for module_link in .
@@ -26,7 +17,6 @@ public class AzurermAutomationPowershell72ModuleModuleLinkBlock : TerraformBlock
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformArgument("uri")]
     public required TerraformValue<string> Uri
     {
         get => new TerraformReference<string>(this, "uri");
@@ -49,7 +39,6 @@ public class AzurermAutomationPowershell72ModuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -59,7 +48,6 @@ public class AzurermAutomationPowershell72ModuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -69,7 +57,6 @@ public class AzurermAutomationPowershell72ModuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -79,7 +66,6 @@ public class AzurermAutomationPowershell72ModuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -89,20 +75,15 @@ public class AzurermAutomationPowershell72ModuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_automation_powershell72_module Terraform resource.
 /// Manages a azurerm_automation_powershell72_module resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermAutomationPowershell72Module : TerraformResource
+public partial class AzurermAutomationPowershell72Module(string name) : TerraformResource("azurerm_automation_powershell72_module", name)
 {
-    public AzurermAutomationPowershell72Module(string name) : base("azurerm_automation_powershell72_module", name)
-    {
-    }
-
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    [TerraformArgument("automation_account_id")]
     public required TerraformValue<string> AutomationAccountId
     {
         get => new TerraformReference<string>(this, "automation_account_id");
@@ -112,7 +93,6 @@ public class AzurermAutomationPowershell72Module : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -123,7 +103,6 @@ public class AzurermAutomationPowershell72Module : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -133,7 +112,6 @@ public class AzurermAutomationPowershell72Module : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -141,20 +119,25 @@ public class AzurermAutomationPowershell72Module : TerraformResource
     }
 
     /// <summary>
-    /// Block for module_link.
-    /// Nesting mode: list
+    /// ModuleLink block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModuleLink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ModuleLink block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModuleLink block(s) allowed")]
-    [TerraformArgument("module_link")]
-    public required TerraformList<AzurermAutomationPowershell72ModuleModuleLinkBlock> ModuleLink { get; set; } = new();
+    public required AzurermAutomationPowershell72ModuleModuleLinkBlock ModuleLink
+    {
+        get => GetRequiredArgument<AzurermAutomationPowershell72ModuleModuleLinkBlock>("module_link");
+        set => SetArgument("module_link", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAutomationPowershell72ModuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermAutomationPowershell72ModuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermAutomationPowershell72ModuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

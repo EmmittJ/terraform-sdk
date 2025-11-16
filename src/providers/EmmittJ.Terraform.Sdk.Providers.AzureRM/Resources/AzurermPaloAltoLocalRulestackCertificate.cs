@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_palo_alto_local_rulestack_certificate Terraform resource.
 /// Manages a azurerm_palo_alto_local_rulestack_certificate resource.
 /// </summary>
-public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
+public partial class AzurermPaloAltoLocalRulestackCertificate(string name) : TerraformResource("azurerm_palo_alto_local_rulestack_certificate", name)
 {
-    public AzurermPaloAltoLocalRulestackCertificate(string name) : base("azurerm_palo_alto_local_rulestack_certificate", name)
-    {
-    }
-
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    [TerraformArgument("audit_comment")]
     public TerraformValue<string>? AuditComment
     {
         get => new TerraformReference<string>(this, "audit_comment");
@@ -86,7 +69,6 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -96,7 +78,6 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -106,7 +87,6 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_certificate_id")]
     public TerraformValue<string>? KeyVaultCertificateId
     {
         get => new TerraformReference<string>(this, "key_vault_certificate_id");
@@ -117,7 +97,6 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -128,7 +107,6 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     /// The rulestack_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
-    [TerraformArgument("rulestack_id")]
     public required TerraformValue<string> RulestackId
     {
         get => new TerraformReference<string>(this, "rulestack_id");
@@ -138,7 +116,6 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     /// <summary>
     /// The self_signed attribute.
     /// </summary>
-    [TerraformArgument("self_signed")]
     public TerraformValue<bool>? SelfSigned
     {
         get => new TerraformReference<bool>(this, "self_signed");
@@ -146,10 +123,12 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNetappBackupPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermNetappBackupPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermNetappBackupPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermNetappBackupPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermNetappBackupPolicyTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_netapp_backup_policy Terraform resource.
 /// Manages a azurerm_netapp_backup_policy resource.
 /// </summary>
-public class AzurermNetappBackupPolicy : TerraformResource
+public partial class AzurermNetappBackupPolicy(string name) : TerraformResource("azurerm_netapp_backup_policy", name)
 {
-    public AzurermNetappBackupPolicy(string name) : base("azurerm_netapp_backup_policy", name)
-    {
-    }
-
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformArgument("account_name")]
     public required TerraformValue<string> AccountName
     {
         get => new TerraformReference<string>(this, "account_name");
@@ -87,7 +70,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// <summary>
     /// The daily_backups_to_keep attribute.
     /// </summary>
-    [TerraformArgument("daily_backups_to_keep")]
     public TerraformValue<double>? DailyBackupsToKeep
     {
         get => new TerraformReference<double>(this, "daily_backups_to_keep");
@@ -97,7 +79,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -107,7 +88,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -118,7 +98,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -128,7 +107,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// <summary>
     /// The monthly_backups_to_keep attribute.
     /// </summary>
-    [TerraformArgument("monthly_backups_to_keep")]
     public TerraformValue<double>? MonthlyBackupsToKeep
     {
         get => new TerraformReference<double>(this, "monthly_backups_to_keep");
@@ -139,7 +117,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -150,7 +127,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -160,7 +136,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -170,7 +145,6 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// <summary>
     /// The weekly_backups_to_keep attribute.
     /// </summary>
-    [TerraformArgument("weekly_backups_to_keep")]
     public TerraformValue<double>? WeeklyBackupsToKeep
     {
         get => new TerraformReference<double>(this, "weekly_backups_to_keep");
@@ -178,10 +152,12 @@ public class AzurermNetappBackupPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetappBackupPolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetappBackupPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetappBackupPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

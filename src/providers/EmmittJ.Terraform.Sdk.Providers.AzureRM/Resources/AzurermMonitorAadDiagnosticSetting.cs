@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for enabled_log in .
@@ -26,7 +17,6 @@ public class AzurermMonitorAadDiagnosticSettingEnabledLogBlock : TerraformBlock
     /// The category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
-    [TerraformArgument("category")]
     public required TerraformValue<string> Category
     {
         get => new TerraformReference<string>(this, "category");
@@ -49,7 +39,6 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -59,7 +48,6 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -69,7 +57,6 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -79,7 +66,6 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -89,18 +75,14 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_aad_diagnostic_setting Terraform resource.
 /// Manages a azurerm_monitor_aad_diagnostic_setting resource.
 /// </summary>
-public class AzurermMonitorAadDiagnosticSetting : TerraformResource
+public partial class AzurermMonitorAadDiagnosticSetting(string name) : TerraformResource("azurerm_monitor_aad_diagnostic_setting", name)
 {
-    public AzurermMonitorAadDiagnosticSetting(string name) : base("azurerm_monitor_aad_diagnostic_setting", name)
-    {
-    }
-
     /// <summary>
     /// The eventhub_authorization_rule_id attribute.
     /// </summary>
-    [TerraformArgument("eventhub_authorization_rule_id")]
     public TerraformValue<string>? EventhubAuthorizationRuleId
     {
         get => new TerraformReference<string>(this, "eventhub_authorization_rule_id");
@@ -110,7 +92,6 @@ public class AzurermMonitorAadDiagnosticSetting : TerraformResource
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    [TerraformArgument("eventhub_name")]
     public TerraformValue<string>? EventhubName
     {
         get => new TerraformReference<string>(this, "eventhub_name");
@@ -120,7 +101,6 @@ public class AzurermMonitorAadDiagnosticSetting : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -130,7 +110,6 @@ public class AzurermMonitorAadDiagnosticSetting : TerraformResource
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    [TerraformArgument("log_analytics_workspace_id")]
     public TerraformValue<string>? LogAnalyticsWorkspaceId
     {
         get => new TerraformReference<string>(this, "log_analytics_workspace_id");
@@ -141,7 +120,6 @@ public class AzurermMonitorAadDiagnosticSetting : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -151,7 +129,6 @@ public class AzurermMonitorAadDiagnosticSetting : TerraformResource
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    [TerraformArgument("storage_account_id")]
     public TerraformValue<string>? StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -159,17 +136,21 @@ public class AzurermMonitorAadDiagnosticSetting : TerraformResource
     }
 
     /// <summary>
-    /// Block for enabled_log.
-    /// Nesting mode: set
+    /// EnabledLog block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("enabled_log")]
-    public TerraformSet<AzurermMonitorAadDiagnosticSettingEnabledLogBlock> EnabledLog { get; set; } = new();
+    public AzurermMonitorAadDiagnosticSettingEnabledLogBlock? EnabledLog
+    {
+        get => GetArgument<AzurermMonitorAadDiagnosticSettingEnabledLogBlock>("enabled_log");
+        set => SetArgument("enabled_log", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorAadDiagnosticSettingTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMonitorAadDiagnosticSettingTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorAadDiagnosticSettingTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

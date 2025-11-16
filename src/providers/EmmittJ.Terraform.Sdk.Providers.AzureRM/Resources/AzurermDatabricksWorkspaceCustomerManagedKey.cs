@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDatabricksWorkspaceCustomerManagedKeyTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDatabricksWorkspaceCustomerManagedKeyTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDatabricksWorkspaceCustomerManagedKeyTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDatabricksWorkspaceCustomerManagedKeyTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermDatabricksWorkspaceCustomerManagedKeyTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_databricks_workspace_customer_managed_key Terraform resource.
 /// Manages a azurerm_databricks_workspace_customer_managed_key resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-public class AzurermDatabricksWorkspaceCustomerManagedKey : TerraformResource
+public partial class AzurermDatabricksWorkspaceCustomerManagedKey(string name) : TerraformResource("azurerm_databricks_workspace_customer_managed_key", name)
 {
-    public AzurermDatabricksWorkspaceCustomerManagedKey(string name) : base("azurerm_databricks_workspace_customer_managed_key", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -88,7 +71,6 @@ public class AzurermDatabricksWorkspaceCustomerManagedKey : TerraformResource
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    [TerraformArgument("key_vault_key_id")]
     public required TerraformValue<string> KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
@@ -99,7 +81,6 @@ public class AzurermDatabricksWorkspaceCustomerManagedKey : TerraformResource
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -107,10 +88,12 @@ public class AzurermDatabricksWorkspaceCustomerManagedKey : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDatabricksWorkspaceCustomerManagedKeyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDatabricksWorkspaceCustomerManagedKeyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDatabricksWorkspaceCustomerManagedKeyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

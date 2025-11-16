@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -26,7 +17,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : Terrafor
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    [TerraformArgument("identity_ids")]
     public required TerraformSet<string> IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
@@ -37,7 +27,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : Terrafor
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -60,7 +49,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,20 +85,15 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
 }
 
 /// <summary>
+/// Represents a azurerm_workloads_sap_discovery_virtual_instance Terraform resource.
 /// Manages a azurerm_workloads_sap_discovery_virtual_instance resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
+public partial class AzurermWorkloadsSapDiscoveryVirtualInstance(string name) : TerraformResource("azurerm_workloads_sap_discovery_virtual_instance", name)
 {
-    public AzurermWorkloadsSapDiscoveryVirtualInstance(string name) : base("azurerm_workloads_sap_discovery_virtual_instance", name)
-    {
-    }
-
     /// <summary>
     /// The central_server_virtual_machine_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CentralServerVirtualMachineId is required")]
-    [TerraformArgument("central_server_virtual_machine_id")]
     public required TerraformValue<string> CentralServerVirtualMachineId
     {
         get => new TerraformReference<string>(this, "central_server_virtual_machine_id");
@@ -124,7 +104,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// The environment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    [TerraformArgument("environment")]
     public required TerraformValue<string> Environment
     {
         get => new TerraformReference<string>(this, "environment");
@@ -134,7 +113,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -145,7 +123,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -155,7 +132,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    [TerraformArgument("managed_resource_group_name")]
     public TerraformValue<string>? ManagedResourceGroupName
     {
         get => new TerraformReference<string>(this, "managed_resource_group_name");
@@ -165,7 +141,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// <summary>
     /// The managed_resources_network_access_type attribute.
     /// </summary>
-    [TerraformArgument("managed_resources_network_access_type")]
     public TerraformValue<string>? ManagedResourcesNetworkAccessType
     {
         get => new TerraformReference<string>(this, "managed_resources_network_access_type");
@@ -175,7 +150,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// <summary>
     /// The managed_storage_account_name attribute.
     /// </summary>
-    [TerraformArgument("managed_storage_account_name")]
     public TerraformValue<string>? ManagedStorageAccountName
     {
         get => new TerraformReference<string>(this, "managed_storage_account_name");
@@ -186,7 +160,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -197,7 +170,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -208,7 +180,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// The sap_product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
-    [TerraformArgument("sap_product")]
     public required TerraformValue<string> SapProduct
     {
         get => new TerraformReference<string>(this, "sap_product");
@@ -218,7 +189,6 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -226,18 +196,22 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock> Identity { get; set; } = new();
+    public AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

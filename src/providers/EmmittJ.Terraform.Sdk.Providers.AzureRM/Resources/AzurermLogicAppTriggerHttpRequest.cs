@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_logic_app_trigger_http_request Terraform resource.
 /// Manages a azurerm_logic_app_trigger_http_request resource.
 /// </summary>
-public class AzurermLogicAppTriggerHttpRequest : TerraformResource
+public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformResource("azurerm_logic_app_trigger_http_request", name)
 {
-    public AzurermLogicAppTriggerHttpRequest(string name) : base("azurerm_logic_app_trigger_http_request", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     /// The logic_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
-    [TerraformArgument("logic_app_id")]
     public required TerraformValue<string> LogicAppId
     {
         get => new TerraformReference<string>(this, "logic_app_id");
@@ -97,7 +79,6 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     /// <summary>
     /// The method attribute.
     /// </summary>
-    [TerraformArgument("method")]
     public TerraformValue<string>? Method
     {
         get => new TerraformReference<string>(this, "method");
@@ -108,7 +89,6 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -118,7 +98,6 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     /// <summary>
     /// The relative_path attribute.
     /// </summary>
-    [TerraformArgument("relative_path")]
     public TerraformValue<string>? RelativePath
     {
         get => new TerraformReference<string>(this, "relative_path");
@@ -129,7 +108,6 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     /// The schema attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
-    [TerraformArgument("schema")]
     public required TerraformValue<string> Schema
     {
         get => new TerraformReference<string>(this, "schema");
@@ -137,19 +115,12 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLogicAppTriggerHttpRequestTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The callback_url attribute.
-    /// </summary>
-    [TerraformArgument("callback_url")]
-    public TerraformValue<string> CallbackUrl
+    public AzurermLogicAppTriggerHttpRequestTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "callback_url");
+        get => GetArgument<AzurermLogicAppTriggerHttpRequestTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

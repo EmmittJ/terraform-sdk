@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_network_manager_admin_rule_collection Terraform resource.
 /// Manages a azurerm_network_manager_admin_rule_collection resource.
 /// </summary>
-public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
+public partial class AzurermNetworkManagerAdminRuleCollection(string name) : TerraformResource("azurerm_network_manager_admin_rule_collection", name)
 {
-    public AzurermNetworkManagerAdminRuleCollection(string name) : base("azurerm_network_manager_admin_rule_collection", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -86,7 +69,6 @@ public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +79,6 @@ public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -108,7 +89,6 @@ public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
     /// The network_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupIds is required")]
-    [TerraformArgument("network_group_ids")]
     public TerraformList<string>? NetworkGroupIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_group_ids").ResolveNodes(ctx));
@@ -119,7 +99,6 @@ public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
     /// The security_admin_configuration_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityAdminConfigurationId is required")]
-    [TerraformArgument("security_admin_configuration_id")]
     public required TerraformValue<string> SecurityAdminConfigurationId
     {
         get => new TerraformReference<string>(this, "security_admin_configuration_id");
@@ -127,10 +106,12 @@ public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

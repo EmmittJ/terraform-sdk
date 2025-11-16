@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_site_recovery_hyperv_network_mapping Terraform resource.
 /// Manages a azurerm_site_recovery_hyperv_network_mapping resource.
 /// </summary>
-public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
+public partial class AzurermSiteRecoveryHypervNetworkMapping(string name) : TerraformResource("azurerm_site_recovery_hyperv_network_mapping", name)
 {
-    public AzurermSiteRecoveryHypervNetworkMapping(string name) : base("azurerm_site_recovery_hyperv_network_mapping", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -88,7 +71,6 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     /// The recovery_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
-    [TerraformArgument("recovery_vault_id")]
     public required TerraformValue<string> RecoveryVaultId
     {
         get => new TerraformReference<string>(this, "recovery_vault_id");
@@ -99,7 +81,6 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     /// The source_network_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceNetworkName is required")]
-    [TerraformArgument("source_network_name")]
     public required TerraformValue<string> SourceNetworkName
     {
         get => new TerraformReference<string>(this, "source_network_name");
@@ -110,7 +91,6 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     /// The source_system_center_virtual_machine_manager_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSystemCenterVirtualMachineManagerName is required")]
-    [TerraformArgument("source_system_center_virtual_machine_manager_name")]
     public required TerraformValue<string> SourceSystemCenterVirtualMachineManagerName
     {
         get => new TerraformReference<string>(this, "source_system_center_virtual_machine_manager_name");
@@ -121,7 +101,6 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     /// The target_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
-    [TerraformArgument("target_network_id")]
     public required TerraformValue<string> TargetNetworkId
     {
         get => new TerraformReference<string>(this, "target_network_id");
@@ -129,10 +108,12 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

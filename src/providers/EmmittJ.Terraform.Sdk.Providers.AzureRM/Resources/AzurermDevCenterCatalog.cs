@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for catalog_adogit in .
@@ -26,7 +17,6 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     /// The branch attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
-    [TerraformArgument("branch")]
     public required TerraformValue<string> Branch
     {
         get => new TerraformReference<string>(this, "branch");
@@ -37,7 +27,6 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     /// The key_vault_key_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
-    [TerraformArgument("key_vault_key_url")]
     public required TerraformValue<string> KeyVaultKeyUrl
     {
         get => new TerraformReference<string>(this, "key_vault_key_url");
@@ -48,7 +37,6 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformArgument("path")]
     public required TerraformValue<string> Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -59,7 +47,6 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformArgument("uri")]
     public required TerraformValue<string> Uri
     {
         get => new TerraformReference<string>(this, "uri");
@@ -83,7 +70,6 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     /// The branch attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
-    [TerraformArgument("branch")]
     public required TerraformValue<string> Branch
     {
         get => new TerraformReference<string>(this, "branch");
@@ -94,7 +80,6 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     /// The key_vault_key_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
-    [TerraformArgument("key_vault_key_url")]
     public required TerraformValue<string> KeyVaultKeyUrl
     {
         get => new TerraformReference<string>(this, "key_vault_key_url");
@@ -105,7 +90,6 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformArgument("path")]
     public required TerraformValue<string> Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -116,7 +100,6 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformArgument("uri")]
     public required TerraformValue<string> Uri
     {
         get => new TerraformReference<string>(this, "uri");
@@ -139,7 +122,6 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -149,7 +131,6 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -159,7 +140,6 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -169,7 +149,6 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -179,20 +158,15 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dev_center_catalog Terraform resource.
 /// Manages a azurerm_dev_center_catalog resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDevCenterCatalog : TerraformResource
+public partial class AzurermDevCenterCatalog(string name) : TerraformResource("azurerm_dev_center_catalog", name)
 {
-    public AzurermDevCenterCatalog(string name) : base("azurerm_dev_center_catalog", name)
-    {
-    }
-
     /// <summary>
     /// The dev_center_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
-    [TerraformArgument("dev_center_id")]
     public required TerraformValue<string> DevCenterId
     {
         get => new TerraformReference<string>(this, "dev_center_id");
@@ -202,7 +176,6 @@ public class AzurermDevCenterCatalog : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -213,7 +186,6 @@ public class AzurermDevCenterCatalog : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -224,7 +196,6 @@ public class AzurermDevCenterCatalog : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -232,26 +203,32 @@ public class AzurermDevCenterCatalog : TerraformResource
     }
 
     /// <summary>
-    /// Block for catalog_adogit.
-    /// Nesting mode: list
+    /// CatalogAdogit block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogAdogit block(s) allowed")]
-    [TerraformArgument("catalog_adogit")]
-    public TerraformList<AzurermDevCenterCatalogCatalogAdogitBlock> CatalogAdogit { get; set; } = new();
+    public AzurermDevCenterCatalogCatalogAdogitBlock? CatalogAdogit
+    {
+        get => GetArgument<AzurermDevCenterCatalogCatalogAdogitBlock>("catalog_adogit");
+        set => SetArgument("catalog_adogit", value);
+    }
 
     /// <summary>
-    /// Block for catalog_github.
-    /// Nesting mode: list
+    /// CatalogGithub block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogGithub block(s) allowed")]
-    [TerraformArgument("catalog_github")]
-    public TerraformList<AzurermDevCenterCatalogCatalogGithubBlock> CatalogGithub { get; set; } = new();
+    public AzurermDevCenterCatalogCatalogGithubBlock? CatalogGithub
+    {
+        get => GetArgument<AzurermDevCenterCatalogCatalogGithubBlock>("catalog_github");
+        set => SetArgument("catalog_github", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDevCenterCatalogTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDevCenterCatalogTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDevCenterCatalogTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

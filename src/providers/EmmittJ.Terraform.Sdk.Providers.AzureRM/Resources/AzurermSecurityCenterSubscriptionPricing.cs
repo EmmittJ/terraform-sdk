@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for extension in .
@@ -25,7 +16,6 @@ public class AzurermSecurityCenterSubscriptionPricingExtensionBlock : TerraformB
     /// <summary>
     /// The additional_extension_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_extension_properties")]
     public TerraformMap<string>? AdditionalExtensionProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_extension_properties").ResolveNodes(ctx));
@@ -36,7 +26,6 @@ public class AzurermSecurityCenterSubscriptionPricingExtensionBlock : TerraformB
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -59,7 +48,6 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,18 +84,14 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_security_center_subscription_pricing Terraform resource.
 /// Manages a azurerm_security_center_subscription_pricing resource.
 /// </summary>
-public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
+public partial class AzurermSecurityCenterSubscriptionPricing(string name) : TerraformResource("azurerm_security_center_subscription_pricing", name)
 {
-    public AzurermSecurityCenterSubscriptionPricing(string name) : base("azurerm_security_center_subscription_pricing", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -120,8 +101,7 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    [TerraformArgument("resource_type")]
-    public new TerraformValue<string>? ResourceType
+    public TerraformValue<string>? ResourceTypeAttribute
     {
         get => new TerraformReference<string>(this, "resource_type");
         set => SetArgument("resource_type", value);
@@ -130,7 +110,6 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     /// <summary>
     /// The subplan attribute.
     /// </summary>
-    [TerraformArgument("subplan")]
     public TerraformValue<string>? Subplan
     {
         get => new TerraformReference<string>(this, "subplan");
@@ -141,7 +120,6 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     /// The tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    [TerraformArgument("tier")]
     public required TerraformValue<string> Tier
     {
         get => new TerraformReference<string>(this, "tier");
@@ -149,17 +127,21 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     }
 
     /// <summary>
-    /// Block for extension.
-    /// Nesting mode: set
+    /// Extension block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("extension")]
-    public TerraformSet<AzurermSecurityCenterSubscriptionPricingExtensionBlock> Extension { get; set; } = new();
+    public AzurermSecurityCenterSubscriptionPricingExtensionBlock? Extension
+    {
+        get => GetArgument<AzurermSecurityCenterSubscriptionPricingExtensionBlock>("extension");
+        set => SetArgument("extension", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSecurityCenterSubscriptionPricingTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSecurityCenterSubscriptionPricingTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSecurityCenterSubscriptionPricingTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

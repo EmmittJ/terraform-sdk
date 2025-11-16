@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_iothub_file_upload Terraform resource.
 /// Manages a azurerm_iothub_file_upload resource.
 /// </summary>
-public class AzurermIothubFileUpload : TerraformResource
+public partial class AzurermIothubFileUpload(string name) : TerraformResource("azurerm_iothub_file_upload", name)
 {
-    public AzurermIothubFileUpload(string name) : base("azurerm_iothub_file_upload", name)
-    {
-    }
-
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    [TerraformArgument("authentication_type")]
     public TerraformValue<string>? AuthenticationType
     {
         get => new TerraformReference<string>(this, "authentication_type");
@@ -87,7 +70,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// The connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
-    [TerraformArgument("connection_string")]
     public required TerraformValue<string> ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -98,7 +80,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    [TerraformArgument("container_name")]
     public required TerraformValue<string> ContainerName
     {
         get => new TerraformReference<string>(this, "container_name");
@@ -108,7 +89,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    [TerraformArgument("default_ttl")]
     public TerraformValue<string>? DefaultTtl
     {
         get => new TerraformReference<string>(this, "default_ttl");
@@ -118,7 +98,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -128,7 +107,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    [TerraformArgument("identity_id")]
     public TerraformValue<string>? IdentityId
     {
         get => new TerraformReference<string>(this, "identity_id");
@@ -139,7 +117,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// The iothub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
-    [TerraformArgument("iothub_id")]
     public required TerraformValue<string> IothubId
     {
         get => new TerraformReference<string>(this, "iothub_id");
@@ -149,7 +126,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
-    [TerraformArgument("lock_duration")]
     public TerraformValue<string>? LockDuration
     {
         get => new TerraformReference<string>(this, "lock_duration");
@@ -159,7 +135,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    [TerraformArgument("max_delivery_count")]
     public TerraformValue<double>? MaxDeliveryCount
     {
         get => new TerraformReference<double>(this, "max_delivery_count");
@@ -169,7 +144,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The notifications_enabled attribute.
     /// </summary>
-    [TerraformArgument("notifications_enabled")]
     public TerraformValue<bool>? NotificationsEnabled
     {
         get => new TerraformReference<bool>(this, "notifications_enabled");
@@ -179,7 +153,6 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The sas_ttl attribute.
     /// </summary>
-    [TerraformArgument("sas_ttl")]
     public TerraformValue<string>? SasTtl
     {
         get => new TerraformReference<string>(this, "sas_ttl");
@@ -187,10 +160,12 @@ public class AzurermIothubFileUpload : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIothubFileUploadTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermIothubFileUploadTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermIothubFileUploadTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

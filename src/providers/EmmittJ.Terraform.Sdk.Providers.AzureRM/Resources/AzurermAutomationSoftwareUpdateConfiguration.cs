@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for linux in .
@@ -26,7 +17,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// The classifications_included attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
-    [TerraformArgument("classifications_included")]
     public TerraformList<string>? ClassificationsIncluded
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications_included").ResolveNodes(ctx));
@@ -36,7 +26,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// <summary>
     /// The excluded_packages attribute.
     /// </summary>
-    [TerraformArgument("excluded_packages")]
     public TerraformList<string>? ExcludedPackages
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_packages").ResolveNodes(ctx));
@@ -46,7 +35,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// <summary>
     /// The included_packages attribute.
     /// </summary>
-    [TerraformArgument("included_packages")]
     public TerraformList<string>? IncludedPackages
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_packages").ResolveNodes(ctx));
@@ -56,7 +44,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// <summary>
     /// The reboot attribute.
     /// </summary>
-    [TerraformArgument("reboot")]
     public TerraformValue<string>? Reboot
     {
         get => new TerraformReference<string>(this, "reboot");
@@ -79,7 +66,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : Terrafo
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -89,7 +75,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : Terrafo
     /// <summary>
     /// The source attribute.
     /// </summary>
-    [TerraformArgument("source")]
     public TerraformValue<string>? Source
     {
         get => new TerraformReference<string>(this, "source");
@@ -112,7 +97,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : Terrafor
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -122,7 +106,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : Terrafor
     /// <summary>
     /// The source attribute.
     /// </summary>
-    [TerraformArgument("source")]
     public TerraformValue<string>? Source
     {
         get => new TerraformReference<string>(this, "source");
@@ -145,7 +128,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The advanced_month_days attribute.
     /// </summary>
-    [TerraformArgument("advanced_month_days")]
     public TerraformList<double>? AdvancedMonthDays
     {
         get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "advanced_month_days").ResolveNodes(ctx));
@@ -155,18 +137,23 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The advanced_week_days attribute.
     /// </summary>
-    [TerraformArgument("advanced_week_days")]
     public TerraformList<string>? AdvancedWeekDays
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advanced_week_days").ResolveNodes(ctx));
         set => SetArgument("advanced_week_days", value);
     }
 
+    /// <summary>
+    /// The creation_time attribute.
+    /// </summary>
+    public TerraformValue<string> CreationTime
+    {
+        get => new TerraformReference<string>(this, "creation_time");
+    }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -176,7 +163,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    [TerraformArgument("expiry_time")]
     public TerraformValue<string> ExpiryTime
     {
         get => new TerraformReference<string>(this, "expiry_time");
@@ -186,7 +172,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The expiry_time_offset_minutes attribute.
     /// </summary>
-    [TerraformArgument("expiry_time_offset_minutes")]
     public TerraformValue<double>? ExpiryTimeOffsetMinutes
     {
         get => new TerraformReference<double>(this, "expiry_time_offset_minutes");
@@ -197,7 +182,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    [TerraformArgument("frequency")]
     public required TerraformValue<string> Frequency
     {
         get => new TerraformReference<string>(this, "frequency");
@@ -207,7 +191,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    [TerraformArgument("interval")]
     public TerraformValue<double>? Interval
     {
         get => new TerraformReference<double>(this, "interval");
@@ -217,18 +200,23 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The is_enabled attribute.
     /// </summary>
-    [TerraformArgument("is_enabled")]
     public TerraformValue<bool>? IsEnabled
     {
         get => new TerraformReference<bool>(this, "is_enabled");
         set => SetArgument("is_enabled", value);
     }
 
+    /// <summary>
+    /// The last_modified_time attribute.
+    /// </summary>
+    public TerraformValue<string> LastModifiedTime
+    {
+        get => new TerraformReference<string>(this, "last_modified_time");
+    }
 
     /// <summary>
     /// The next_run attribute.
     /// </summary>
-    [TerraformArgument("next_run")]
     public TerraformValue<string> NextRun
     {
         get => new TerraformReference<string>(this, "next_run");
@@ -238,7 +226,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The next_run_offset_minutes attribute.
     /// </summary>
-    [TerraformArgument("next_run_offset_minutes")]
     public TerraformValue<double>? NextRunOffsetMinutes
     {
         get => new TerraformReference<double>(this, "next_run_offset_minutes");
@@ -248,7 +235,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    [TerraformArgument("start_time")]
     public TerraformValue<string> StartTime
     {
         get => new TerraformReference<string>(this, "start_time");
@@ -258,7 +244,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The start_time_offset_minutes attribute.
     /// </summary>
-    [TerraformArgument("start_time_offset_minutes")]
     public TerraformValue<double>? StartTimeOffsetMinutes
     {
         get => new TerraformReference<double>(this, "start_time_offset_minutes");
@@ -268,7 +253,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    [TerraformArgument("time_zone")]
     public TerraformValue<string>? TimeZone
     {
         get => new TerraformReference<string>(this, "time_zone");
@@ -304,7 +288,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -314,7 +297,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -324,7 +306,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -334,7 +315,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -358,7 +338,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// The classifications_included attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
-    [TerraformArgument("classifications_included")]
     public TerraformList<string>? ClassificationsIncluded
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications_included").ResolveNodes(ctx));
@@ -368,7 +347,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// <summary>
     /// The excluded_knowledge_base_numbers attribute.
     /// </summary>
-    [TerraformArgument("excluded_knowledge_base_numbers")]
     public TerraformList<string>? ExcludedKnowledgeBaseNumbers
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_knowledge_base_numbers").ResolveNodes(ctx));
@@ -378,7 +356,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// <summary>
     /// The included_knowledge_base_numbers attribute.
     /// </summary>
-    [TerraformArgument("included_knowledge_base_numbers")]
     public TerraformList<string>? IncludedKnowledgeBaseNumbers
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_knowledge_base_numbers").ResolveNodes(ctx));
@@ -388,7 +365,6 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// <summary>
     /// The reboot attribute.
     /// </summary>
-    [TerraformArgument("reboot")]
     public TerraformValue<string>? Reboot
     {
         get => new TerraformReference<string>(this, "reboot");
@@ -398,21 +374,16 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
 }
 
 /// <summary>
+/// Represents a azurerm_automation_software_update_configuration Terraform resource.
 /// Manages a azurerm_automation_software_update_configuration resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
+public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) : TerraformResource("azurerm_automation_software_update_configuration", name)
 {
-    public AzurermAutomationSoftwareUpdateConfiguration(string name) : base("azurerm_automation_software_update_configuration", name)
-    {
-    }
-
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    [TerraformArgument("automation_account_id")]
     public required TerraformValue<string> AutomationAccountId
     {
         get => new TerraformReference<string>(this, "automation_account_id");
@@ -422,7 +393,6 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    [TerraformArgument("duration")]
     public TerraformValue<string>? Duration
     {
         get => new TerraformReference<string>(this, "duration");
@@ -432,7 +402,6 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -443,7 +412,6 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -453,7 +421,6 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// <summary>
     /// The non_azure_computer_names attribute.
     /// </summary>
-    [TerraformArgument("non_azure_computer_names")]
     public TerraformList<string>? NonAzureComputerNames
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "non_azure_computer_names").ResolveNodes(ctx));
@@ -463,7 +430,6 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// <summary>
     /// The virtual_machine_ids attribute.
     /// </summary>
-    [TerraformArgument("virtual_machine_ids")]
     public TerraformList<string>? VirtualMachineIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_machine_ids").ResolveNodes(ctx));
@@ -471,78 +437,75 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     }
 
     /// <summary>
-    /// Block for linux.
-    /// Nesting mode: list
+    /// Linux block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Linux block(s) allowed")]
-    [TerraformArgument("linux")]
-    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock> Linux { get; set; } = new();
+    public AzurermAutomationSoftwareUpdateConfigurationLinuxBlock? Linux
+    {
+        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>("linux");
+        set => SetArgument("linux", value);
+    }
 
     /// <summary>
-    /// Block for post_task.
-    /// Nesting mode: list
+    /// PostTask block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostTask block(s) allowed")]
-    [TerraformArgument("post_task")]
-    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock> PostTask { get; set; } = new();
+    public AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock? PostTask
+    {
+        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>("post_task");
+        set => SetArgument("post_task", value);
+    }
 
     /// <summary>
-    /// Block for pre_task.
-    /// Nesting mode: list
+    /// PreTask block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreTask block(s) allowed")]
-    [TerraformArgument("pre_task")]
-    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock> PreTask { get; set; } = new();
+    public AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock? PreTask
+    {
+        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>("pre_task");
+        set => SetArgument("pre_task", value);
+    }
 
     /// <summary>
-    /// Block for schedule.
-    /// Nesting mode: list
+    /// Schedule block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    [TerraformArgument("schedule")]
-    public required TerraformList<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock> Schedule { get; set; } = new();
-
-    /// <summary>
-    /// Block for target.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    [TerraformArgument("target")]
-    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlock> Target { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// Block for windows.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Windows block(s) allowed")]
-    [TerraformArgument("windows")]
-    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock> Windows { get; set; } = new();
-
-    /// <summary>
-    /// The error_code attribute.
-    /// </summary>
-    [TerraformArgument("error_code")]
-    public TerraformValue<string> ErrorCode
+    public required AzurermAutomationSoftwareUpdateConfigurationScheduleBlock Schedule
     {
-        get => new TerraformReference<string>(this, "error_code");
+        get => GetRequiredArgument<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>("schedule");
+        set => SetArgument("schedule", value);
     }
 
     /// <summary>
-    /// The error_message attribute.
+    /// Target block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("error_message")]
-    public TerraformValue<string> ErrorMessage
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
+    public AzurermAutomationSoftwareUpdateConfigurationTargetBlock? Target
     {
-        get => new TerraformReference<string>(this, "error_message");
+        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>("target");
+        set => SetArgument("target", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+    /// <summary>
+    /// Windows block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Windows block(s) allowed")]
+    public AzurermAutomationSoftwareUpdateConfigurationWindowsBlock? Windows
+    {
+        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>("windows");
+        set => SetArgument("windows", value);
     }
 
 }

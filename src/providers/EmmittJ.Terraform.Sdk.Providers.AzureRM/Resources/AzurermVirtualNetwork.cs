@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for ddos_protection_plan in .
@@ -26,7 +17,6 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
     /// The enable attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
-    [TerraformArgument("enable")]
     public required TerraformValue<bool> Enable
     {
         get => new TerraformReference<bool>(this, "enable");
@@ -37,7 +27,6 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformArgument("id")]
     public required TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -61,7 +50,6 @@ public class AzurermVirtualNetworkEncryptionBlock : TerraformBlock
     /// The enforcement attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforcement is required")]
-    [TerraformArgument("enforcement")]
     public required TerraformValue<string> Enforcement
     {
         get => new TerraformReference<string>(this, "enforcement");
@@ -81,12 +69,18 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "ip_address_pool";
 
+    /// <summary>
+    /// The allocated_ip_address_prefixes attribute.
+    /// </summary>
+    public TerraformList<string> AllocatedIpAddressPrefixes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allocated_ip_address_prefixes").ResolveNodes(ctx));
+    }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformArgument("id")]
     public required TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +91,6 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
     /// The number_of_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
-    [TerraformArgument("number_of_ip_addresses")]
     public required TerraformValue<string> NumberOfIpAddresses
     {
         get => new TerraformReference<string>(this, "number_of_ip_addresses");
@@ -120,7 +113,6 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -130,7 +122,6 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -140,7 +131,6 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -150,7 +140,6 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -160,19 +149,14 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_virtual_network Terraform resource.
 /// Manages a azurerm_virtual_network resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermVirtualNetwork : TerraformResource
+public partial class AzurermVirtualNetwork(string name) : TerraformResource("azurerm_virtual_network", name)
 {
-    public AzurermVirtualNetwork(string name) : base("azurerm_virtual_network", name)
-    {
-    }
-
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    [TerraformArgument("address_space")]
     public TerraformSet<string>? AddressSpace
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "address_space").ResolveNodes(ctx));
@@ -182,7 +166,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The bgp_community attribute.
     /// </summary>
-    [TerraformArgument("bgp_community")]
     public TerraformValue<string>? BgpCommunity
     {
         get => new TerraformReference<string>(this, "bgp_community");
@@ -192,7 +175,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    [TerraformArgument("dns_servers")]
     public TerraformList<string> DnsServers
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
@@ -202,7 +184,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    [TerraformArgument("edge_zone")]
     public TerraformValue<string>? EdgeZone
     {
         get => new TerraformReference<string>(this, "edge_zone");
@@ -212,7 +193,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The flow_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformArgument("flow_timeout_in_minutes")]
     public TerraformValue<double>? FlowTimeoutInMinutes
     {
         get => new TerraformReference<double>(this, "flow_timeout_in_minutes");
@@ -222,7 +202,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -233,7 +212,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -244,7 +222,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -254,7 +231,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The private_endpoint_vnet_policies attribute.
     /// </summary>
-    [TerraformArgument("private_endpoint_vnet_policies")]
     public TerraformValue<string>? PrivateEndpointVnetPolicies
     {
         get => new TerraformReference<string>(this, "private_endpoint_vnet_policies");
@@ -265,7 +241,6 @@ public class AzurermVirtualNetwork : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -275,17 +250,15 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The subnet attribute.
     /// </summary>
-    [TerraformArgument("subnet")]
-    public TerraformSet<object> Subnet
+    public TerraformSet<TerraformMap<object>> Subnet
     {
-        get => TerraformSet<object>.Lazy(ctx => new TerraformReference<TerraformSet<object>>(this, "subnet").ResolveNodes(ctx));
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "subnet").ResolveNodes(ctx));
         set => SetArgument("subnet", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -293,43 +266,42 @@ public class AzurermVirtualNetwork : TerraformResource
     }
 
     /// <summary>
-    /// Block for ddos_protection_plan.
-    /// Nesting mode: list
+    /// DdosProtectionPlan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionPlan block(s) allowed")]
-    [TerraformArgument("ddos_protection_plan")]
-    public TerraformList<AzurermVirtualNetworkDdosProtectionPlanBlock> DdosProtectionPlan { get; set; } = new();
+    public AzurermVirtualNetworkDdosProtectionPlanBlock? DdosProtectionPlan
+    {
+        get => GetArgument<AzurermVirtualNetworkDdosProtectionPlanBlock>("ddos_protection_plan");
+        set => SetArgument("ddos_protection_plan", value);
+    }
 
     /// <summary>
-    /// Block for encryption.
-    /// Nesting mode: list
+    /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    [TerraformArgument("encryption")]
-    public TerraformList<AzurermVirtualNetworkEncryptionBlock> Encryption { get; set; } = new();
+    public AzurermVirtualNetworkEncryptionBlock? Encryption
+    {
+        get => GetArgument<AzurermVirtualNetworkEncryptionBlock>("encryption");
+        set => SetArgument("encryption", value);
+    }
 
     /// <summary>
-    /// Block for ip_address_pool.
-    /// Nesting mode: list
+    /// IpAddressPool block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 IpAddressPool block(s) allowed")]
-    [TerraformArgument("ip_address_pool")]
-    public TerraformList<AzurermVirtualNetworkIpAddressPoolBlock> IpAddressPool { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVirtualNetworkTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The guid attribute.
-    /// </summary>
-    [TerraformArgument("guid")]
-    public TerraformValue<string> Guid
+    public AzurermVirtualNetworkIpAddressPoolBlock? IpAddressPool
     {
-        get => new TerraformReference<string>(this, "guid");
+        get => GetArgument<AzurermVirtualNetworkIpAddressPoolBlock>("ip_address_pool");
+        set => SetArgument("ip_address_pool", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermVirtualNetworkTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermVirtualNetworkTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

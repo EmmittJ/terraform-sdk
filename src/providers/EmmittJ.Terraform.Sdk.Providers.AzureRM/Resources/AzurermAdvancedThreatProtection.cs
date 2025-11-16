@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_advanced_threat_protection Terraform resource.
 /// Manages a azurerm_advanced_threat_protection resource.
 /// </summary>
-public class AzurermAdvancedThreatProtection : TerraformResource
+public partial class AzurermAdvancedThreatProtection(string name) : TerraformResource("azurerm_advanced_threat_protection", name)
 {
-    public AzurermAdvancedThreatProtection(string name) : base("azurerm_advanced_threat_protection", name)
-    {
-    }
-
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformArgument("enabled")]
     public required TerraformValue<bool> Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -87,7 +70,6 @@ public class AzurermAdvancedThreatProtection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermAdvancedThreatProtection : TerraformResource
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    [TerraformArgument("target_resource_id")]
     public required TerraformValue<string> TargetResourceId
     {
         get => new TerraformReference<string>(this, "target_resource_id");
@@ -106,10 +87,12 @@ public class AzurermAdvancedThreatProtection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAdvancedThreatProtectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermAdvancedThreatProtectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermAdvancedThreatProtectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

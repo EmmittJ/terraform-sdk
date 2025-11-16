@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_source_control_token Terraform resource.
 /// Manages a azurerm_source_control_token resource.
 /// </summary>
-public class AzurermSourceControlToken : TerraformResource
+public partial class AzurermSourceControlToken(string name) : TerraformResource("azurerm_source_control_token", name)
 {
-    public AzurermSourceControlToken(string name) : base("azurerm_source_control_token", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermSourceControlToken : TerraformResource
     /// The token attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
-    [TerraformArgument("token")]
     public required TerraformValue<string> Token
     {
         get => new TerraformReference<string>(this, "token");
@@ -97,7 +79,6 @@ public class AzurermSourceControlToken : TerraformResource
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
-    [TerraformArgument("token_secret")]
     public TerraformValue<string>? TokenSecret
     {
         get => new TerraformReference<string>(this, "token_secret");
@@ -108,7 +89,6 @@ public class AzurermSourceControlToken : TerraformResource
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -116,10 +96,12 @@ public class AzurermSourceControlToken : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSourceControlTokenTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSourceControlTokenTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSourceControlTokenTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

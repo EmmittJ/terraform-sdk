@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermExpressRouteGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermExpressRouteGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermExpressRouteGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermExpressRouteGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermExpressRouteGatewayTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_express_route_gateway Terraform resource.
 /// Manages a azurerm_express_route_gateway resource.
 /// </summary>
-public class AzurermExpressRouteGateway : TerraformResource
+public partial class AzurermExpressRouteGateway(string name) : TerraformResource("azurerm_express_route_gateway", name)
 {
-    public AzurermExpressRouteGateway(string name) : base("azurerm_express_route_gateway", name)
-    {
-    }
-
     /// <summary>
     /// The allow_non_virtual_wan_traffic attribute.
     /// </summary>
-    [TerraformArgument("allow_non_virtual_wan_traffic")]
     public TerraformValue<bool>? AllowNonVirtualWanTraffic
     {
         get => new TerraformReference<bool>(this, "allow_non_virtual_wan_traffic");
@@ -86,7 +69,6 @@ public class AzurermExpressRouteGateway : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +79,6 @@ public class AzurermExpressRouteGateway : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -108,7 +89,6 @@ public class AzurermExpressRouteGateway : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -119,7 +99,6 @@ public class AzurermExpressRouteGateway : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -130,7 +109,6 @@ public class AzurermExpressRouteGateway : TerraformResource
     /// The scale_units attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUnits is required")]
-    [TerraformArgument("scale_units")]
     public required TerraformValue<double> ScaleUnits
     {
         get => new TerraformReference<double>(this, "scale_units");
@@ -140,7 +118,6 @@ public class AzurermExpressRouteGateway : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -151,7 +128,6 @@ public class AzurermExpressRouteGateway : TerraformResource
     /// The virtual_hub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
-    [TerraformArgument("virtual_hub_id")]
     public required TerraformValue<string> VirtualHubId
     {
         get => new TerraformReference<string>(this, "virtual_hub_id");
@@ -159,10 +135,12 @@ public class AzurermExpressRouteGateway : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermExpressRouteGatewayTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermExpressRouteGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermExpressRouteGatewayTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

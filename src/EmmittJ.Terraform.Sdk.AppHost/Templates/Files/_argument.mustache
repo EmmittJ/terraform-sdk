@@ -1,4 +1,3 @@
-{{^IsComputedAttribute}}
     /// <summary>
     /// {{Description}}
     /// </summary>
@@ -10,7 +9,7 @@
 {{/IsDeprecated}}
 {{#IsRequiredArgument}}
 {{#UseRequiredKeyword}}
-    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    public required {{{PropertyWrapper}}} {{Name}}
     {
 {{#IsCollectionType}}
         get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
@@ -20,9 +19,10 @@
 {{/IsCollectionType}}
         set => SetArgument("{{TerraformName}}", value);
     }
+
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}}? {{Name}}
+    public {{{PropertyWrapper}}}? {{Name}}
     {
 {{#IsCollectionType}}
         get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
@@ -32,11 +32,12 @@
 {{/IsCollectionType}}
         set => SetArgument("{{TerraformName}}", value);
     }
+
 {{/UseNullable}}
 {{/IsRequiredArgument}}
 {{#IsOptionalArgument}}
 {{#UseRequiredKeyword}}
-    public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    public required {{{PropertyWrapper}}} {{Name}}
     {
 {{#IsCollectionType}}
         get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
@@ -46,9 +47,10 @@
 {{/IsCollectionType}}
         set => SetArgument("{{TerraformName}}", value);
     }
+
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}}? {{Name}}
+    public {{{PropertyWrapper}}}? {{Name}}
     {
 {{#IsCollectionType}}
         get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
@@ -58,10 +60,11 @@
 {{/IsCollectionType}}
         set => SetArgument("{{TerraformName}}", value);
     }
+
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
-    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+    public {{{PropertyWrapper}}} {{Name}}
     {
 {{#IsCollectionType}}
         get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
@@ -71,9 +74,10 @@
 {{/IsCollectionType}}
         set => SetArgument("{{TerraformName}}", value);
     }
+
 {{/IsOptionalAndComputed}}
-{{#IsComputedOnly}}
-    public {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}
+{{#IsComputedAttribute}}
+    public {{{PropertyWrapper}}} {{Name}}
     {
 {{#IsCollectionType}}
         get => {{{CollectionTypeName}}}<{{{CollectionElementType}}}>.Lazy(ctx => new TerraformReference<{{{PropertyWrapper}}}>(this, "{{TerraformName}}").ResolveNodes(ctx));
@@ -82,5 +86,5 @@
         get => new TerraformReference<{{{InnerType}}}>(this, "{{TerraformName}}");
 {{/IsCollectionType}}
     }
-{{/IsComputedOnly}}
+
 {{/IsComputedAttribute}}

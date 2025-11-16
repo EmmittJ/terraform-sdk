@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_synapse_workspace_security_alert_policy Terraform resource.
 /// Manages a azurerm_synapse_workspace_security_alert_policy resource.
 /// </summary>
-public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
+public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : TerraformResource("azurerm_synapse_workspace_security_alert_policy", name)
 {
-    public AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : base("azurerm_synapse_workspace_security_alert_policy", name)
-    {
-    }
-
     /// <summary>
     /// The disabled_alerts attribute.
     /// </summary>
-    [TerraformArgument("disabled_alerts")]
     public TerraformSet<string>? DisabledAlerts
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disabled_alerts").ResolveNodes(ctx));
@@ -86,7 +69,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The email_account_admins_enabled attribute.
     /// </summary>
-    [TerraformArgument("email_account_admins_enabled")]
     public TerraformValue<bool>? EmailAccountAdminsEnabled
     {
         get => new TerraformReference<bool>(this, "email_account_admins_enabled");
@@ -96,7 +78,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
-    [TerraformArgument("email_addresses")]
     public TerraformSet<string>? EmailAddresses
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "email_addresses").ResolveNodes(ctx));
@@ -106,7 +87,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -117,7 +97,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     /// The policy_state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyState is required")]
-    [TerraformArgument("policy_state")]
     public required TerraformValue<string> PolicyState
     {
         get => new TerraformReference<string>(this, "policy_state");
@@ -127,7 +106,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The retention_days attribute.
     /// </summary>
-    [TerraformArgument("retention_days")]
     public TerraformValue<double>? RetentionDays
     {
         get => new TerraformReference<double>(this, "retention_days");
@@ -137,7 +115,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    [TerraformArgument("storage_account_access_key")]
     public TerraformValue<string>? StorageAccountAccessKey
     {
         get => new TerraformReference<string>(this, "storage_account_access_key");
@@ -147,7 +124,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
-    [TerraformArgument("storage_endpoint")]
     public TerraformValue<string>? StorageEndpoint
     {
         get => new TerraformReference<string>(this, "storage_endpoint");
@@ -158,7 +134,6 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     /// The synapse_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
-    [TerraformArgument("synapse_workspace_id")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
         get => new TerraformReference<string>(this, "synapse_workspace_id");
@@ -166,10 +141,12 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

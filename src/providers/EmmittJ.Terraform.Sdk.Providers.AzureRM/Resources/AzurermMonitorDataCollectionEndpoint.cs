@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_data_collection_endpoint Terraform resource.
 /// Manages a azurerm_monitor_data_collection_endpoint resource.
 /// </summary>
-public class AzurermMonitorDataCollectionEndpoint : TerraformResource
+public partial class AzurermMonitorDataCollectionEndpoint(string name) : TerraformResource("azurerm_monitor_data_collection_endpoint", name)
 {
-    public AzurermMonitorDataCollectionEndpoint(string name) : base("azurerm_monitor_data_collection_endpoint", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -86,7 +69,6 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -96,7 +78,6 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    [TerraformArgument("kind")]
     public TerraformValue<string>? Kind
     {
         get => new TerraformReference<string>(this, "kind");
@@ -107,7 +88,6 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -118,7 +98,6 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -128,7 +107,6 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -139,7 +117,6 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -149,7 +126,6 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -157,46 +133,12 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorDataCollectionEndpointTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The configuration_access_endpoint attribute.
-    /// </summary>
-    [TerraformArgument("configuration_access_endpoint")]
-    public TerraformValue<string> ConfigurationAccessEndpoint
+    public AzurermMonitorDataCollectionEndpointTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "configuration_access_endpoint");
-    }
-
-    /// <summary>
-    /// The immutable_id attribute.
-    /// </summary>
-    [TerraformArgument("immutable_id")]
-    public TerraformValue<string> ImmutableId
-    {
-        get => new TerraformReference<string>(this, "immutable_id");
-    }
-
-    /// <summary>
-    /// The logs_ingestion_endpoint attribute.
-    /// </summary>
-    [TerraformArgument("logs_ingestion_endpoint")]
-    public TerraformValue<string> LogsIngestionEndpoint
-    {
-        get => new TerraformReference<string>(this, "logs_ingestion_endpoint");
-    }
-
-    /// <summary>
-    /// The metrics_ingestion_endpoint attribute.
-    /// </summary>
-    [TerraformArgument("metrics_ingestion_endpoint")]
-    public TerraformValue<string> MetricsIngestionEndpoint
-    {
-        get => new TerraformReference<string>(this, "metrics_ingestion_endpoint");
+        get => GetArgument<AzurermMonitorDataCollectionEndpointTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

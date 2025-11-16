@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for daily_schedule in .
@@ -26,7 +17,6 @@ public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
     /// The hour attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
-    [TerraformArgument("hour")]
     public required TerraformValue<double> Hour
     {
         get => new TerraformReference<double>(this, "hour");
@@ -37,7 +27,6 @@ public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    [TerraformArgument("minute")]
     public required TerraformValue<double> Minute
     {
         get => new TerraformReference<double>(this, "minute");
@@ -48,7 +37,6 @@ public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
     /// The snapshots_to_keep attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
-    [TerraformArgument("snapshots_to_keep")]
     public required TerraformValue<double> SnapshotsToKeep
     {
         get => new TerraformReference<double>(this, "snapshots_to_keep");
@@ -72,7 +60,6 @@ public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlock
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    [TerraformArgument("minute")]
     public required TerraformValue<double> Minute
     {
         get => new TerraformReference<double>(this, "minute");
@@ -83,7 +70,6 @@ public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlock
     /// The snapshots_to_keep attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
-    [TerraformArgument("snapshots_to_keep")]
     public required TerraformValue<double> SnapshotsToKeep
     {
         get => new TerraformReference<double>(this, "snapshots_to_keep");
@@ -107,7 +93,6 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
     /// The days_of_month attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfMonth is required")]
-    [TerraformArgument("days_of_month")]
     public required TerraformSet<double> DaysOfMonth
     {
         get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "days_of_month").ResolveNodes(ctx));
@@ -118,7 +103,6 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
     /// The hour attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
-    [TerraformArgument("hour")]
     public required TerraformValue<double> Hour
     {
         get => new TerraformReference<double>(this, "hour");
@@ -129,7 +113,6 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    [TerraformArgument("minute")]
     public required TerraformValue<double> Minute
     {
         get => new TerraformReference<double>(this, "minute");
@@ -140,7 +123,6 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
     /// The snapshots_to_keep attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
-    [TerraformArgument("snapshots_to_keep")]
     public required TerraformValue<double> SnapshotsToKeep
     {
         get => new TerraformReference<double>(this, "snapshots_to_keep");
@@ -163,7 +145,6 @@ public class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -173,7 +154,6 @@ public class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -183,7 +163,6 @@ public class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -193,7 +172,6 @@ public class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -217,7 +195,6 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     /// The days_of_week attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfWeek is required")]
-    [TerraformArgument("days_of_week")]
     public required TerraformSet<string> DaysOfWeek
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "days_of_week").ResolveNodes(ctx));
@@ -228,7 +205,6 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     /// The hour attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
-    [TerraformArgument("hour")]
     public required TerraformValue<double> Hour
     {
         get => new TerraformReference<double>(this, "hour");
@@ -239,7 +215,6 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    [TerraformArgument("minute")]
     public required TerraformValue<double> Minute
     {
         get => new TerraformReference<double>(this, "minute");
@@ -250,7 +225,6 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     /// The snapshots_to_keep attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
-    [TerraformArgument("snapshots_to_keep")]
     public required TerraformValue<double> SnapshotsToKeep
     {
         get => new TerraformReference<double>(this, "snapshots_to_keep");
@@ -260,20 +234,15 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_netapp_snapshot_policy Terraform resource.
 /// Manages a azurerm_netapp_snapshot_policy resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetappSnapshotPolicy : TerraformResource
+public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResource("azurerm_netapp_snapshot_policy", name)
 {
-    public AzurermNetappSnapshotPolicy(string name) : base("azurerm_netapp_snapshot_policy", name)
-    {
-    }
-
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformArgument("account_name")]
     public required TerraformValue<string> AccountName
     {
         get => new TerraformReference<string>(this, "account_name");
@@ -284,7 +253,6 @@ public class AzurermNetappSnapshotPolicy : TerraformResource
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformArgument("enabled")]
     public required TerraformValue<bool> Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -294,7 +262,6 @@ public class AzurermNetappSnapshotPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -305,7 +272,6 @@ public class AzurermNetappSnapshotPolicy : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -316,7 +282,6 @@ public class AzurermNetappSnapshotPolicy : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -327,7 +292,6 @@ public class AzurermNetappSnapshotPolicy : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -337,7 +301,6 @@ public class AzurermNetappSnapshotPolicy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -345,42 +308,52 @@ public class AzurermNetappSnapshotPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for daily_schedule.
-    /// Nesting mode: list
+    /// DailySchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailySchedule block(s) allowed")]
-    [TerraformArgument("daily_schedule")]
-    public TerraformList<AzurermNetappSnapshotPolicyDailyScheduleBlock> DailySchedule { get; set; } = new();
+    public AzurermNetappSnapshotPolicyDailyScheduleBlock? DailySchedule
+    {
+        get => GetArgument<AzurermNetappSnapshotPolicyDailyScheduleBlock>("daily_schedule");
+        set => SetArgument("daily_schedule", value);
+    }
 
     /// <summary>
-    /// Block for hourly_schedule.
-    /// Nesting mode: list
+    /// HourlySchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourlySchedule block(s) allowed")]
-    [TerraformArgument("hourly_schedule")]
-    public TerraformList<AzurermNetappSnapshotPolicyHourlyScheduleBlock> HourlySchedule { get; set; } = new();
+    public AzurermNetappSnapshotPolicyHourlyScheduleBlock? HourlySchedule
+    {
+        get => GetArgument<AzurermNetappSnapshotPolicyHourlyScheduleBlock>("hourly_schedule");
+        set => SetArgument("hourly_schedule", value);
+    }
 
     /// <summary>
-    /// Block for monthly_schedule.
-    /// Nesting mode: list
+    /// MonthlySchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonthlySchedule block(s) allowed")]
-    [TerraformArgument("monthly_schedule")]
-    public TerraformList<AzurermNetappSnapshotPolicyMonthlyScheduleBlock> MonthlySchedule { get; set; } = new();
+    public AzurermNetappSnapshotPolicyMonthlyScheduleBlock? MonthlySchedule
+    {
+        get => GetArgument<AzurermNetappSnapshotPolicyMonthlyScheduleBlock>("monthly_schedule");
+        set => SetArgument("monthly_schedule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetappSnapshotPolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetappSnapshotPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetappSnapshotPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for weekly_schedule.
-    /// Nesting mode: list
+    /// WeeklySchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklySchedule block(s) allowed")]
-    [TerraformArgument("weekly_schedule")]
-    public TerraformList<AzurermNetappSnapshotPolicyWeeklyScheduleBlock> WeeklySchedule { get; set; } = new();
+    public AzurermNetappSnapshotPolicyWeeklyScheduleBlock? WeeklySchedule
+    {
+        get => GetArgument<AzurermNetappSnapshotPolicyWeeklyScheduleBlock>("weekly_schedule");
+        set => SetArgument("weekly_schedule", value);
+    }
 
 }

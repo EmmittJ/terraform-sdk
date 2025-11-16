@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for data_flow in .
@@ -25,7 +16,6 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     /// <summary>
     /// The built_in_transform attribute.
     /// </summary>
-    [TerraformArgument("built_in_transform")]
     public TerraformValue<string>? BuiltInTransform
     {
         get => new TerraformReference<string>(this, "built_in_transform");
@@ -36,7 +26,6 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     /// The destinations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
-    [TerraformArgument("destinations")]
     public TerraformList<string>? Destinations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destinations").ResolveNodes(ctx));
@@ -46,7 +35,6 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     /// <summary>
     /// The output_stream attribute.
     /// </summary>
-    [TerraformArgument("output_stream")]
     public TerraformValue<string>? OutputStream
     {
         get => new TerraformReference<string>(this, "output_stream");
@@ -57,7 +45,6 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     /// The streams attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Streams is required")]
-    [TerraformArgument("streams")]
     public TerraformList<string>? Streams
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "streams").ResolveNodes(ctx));
@@ -67,7 +54,6 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     /// <summary>
     /// The transform_kql attribute.
     /// </summary>
-    [TerraformArgument("transform_kql")]
     public TerraformValue<string>? TransformKql
     {
         get => new TerraformReference<string>(this, "transform_kql");
@@ -116,20 +102,32 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -153,7 +151,6 @@ public class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : TerraformB
     /// The stream_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
-    [TerraformArgument("stream_name")]
     public required TerraformValue<string> StreamName
     {
         get => new TerraformReference<string>(this, "stream_name");
@@ -176,7 +173,6 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -186,7 +182,6 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -196,7 +191,6 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -206,7 +200,6 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -216,19 +209,14 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_data_collection_rule Terraform resource.
 /// Manages a azurerm_monitor_data_collection_rule resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMonitorDataCollectionRule : TerraformResource
+public partial class AzurermMonitorDataCollectionRule(string name) : TerraformResource("azurerm_monitor_data_collection_rule", name)
 {
-    public AzurermMonitorDataCollectionRule(string name) : base("azurerm_monitor_data_collection_rule", name)
-    {
-    }
-
     /// <summary>
     /// The data_collection_endpoint_id attribute.
     /// </summary>
-    [TerraformArgument("data_collection_endpoint_id")]
     public TerraformValue<string>? DataCollectionEndpointId
     {
         get => new TerraformReference<string>(this, "data_collection_endpoint_id");
@@ -238,7 +226,6 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -248,7 +235,6 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -258,7 +244,6 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    [TerraformArgument("kind")]
     public TerraformValue<string>? Kind
     {
         get => new TerraformReference<string>(this, "kind");
@@ -269,7 +254,6 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -280,7 +264,6 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -291,7 +274,6 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -301,7 +283,6 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -309,61 +290,66 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for data_flow.
-    /// Nesting mode: list
+    /// DataFlow block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFlow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataFlow block(s) required")]
-    [TerraformArgument("data_flow")]
-    public required TerraformList<AzurermMonitorDataCollectionRuleDataFlowBlock> DataFlow { get; set; } = new();
+    public required AzurermMonitorDataCollectionRuleDataFlowBlock DataFlow
+    {
+        get => GetRequiredArgument<AzurermMonitorDataCollectionRuleDataFlowBlock>("data_flow");
+        set => SetArgument("data_flow", value);
+    }
 
     /// <summary>
-    /// Block for data_sources.
-    /// Nesting mode: list
+    /// DataSources block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSources block(s) allowed")]
-    [TerraformArgument("data_sources")]
-    public TerraformList<AzurermMonitorDataCollectionRuleDataSourcesBlock> DataSources { get; set; } = new();
+    public AzurermMonitorDataCollectionRuleDataSourcesBlock? DataSources
+    {
+        get => GetArgument<AzurermMonitorDataCollectionRuleDataSourcesBlock>("data_sources");
+        set => SetArgument("data_sources", value);
+    }
 
     /// <summary>
-    /// Block for destinations.
-    /// Nesting mode: list
+    /// Destinations block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destinations block(s) allowed")]
-    [TerraformArgument("destinations")]
-    public required TerraformList<AzurermMonitorDataCollectionRuleDestinationsBlock> Destinations { get; set; } = new();
+    public required AzurermMonitorDataCollectionRuleDestinationsBlock Destinations
+    {
+        get => GetRequiredArgument<AzurermMonitorDataCollectionRuleDestinationsBlock>("destinations");
+        set => SetArgument("destinations", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermMonitorDataCollectionRuleIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for stream_declaration.
-    /// Nesting mode: set
-    /// </summary>
-    [TerraformArgument("stream_declaration")]
-    public TerraformSet<AzurermMonitorDataCollectionRuleStreamDeclarationBlock> StreamDeclaration { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorDataCollectionRuleTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The immutable_id attribute.
-    /// </summary>
-    [TerraformArgument("immutable_id")]
-    public TerraformValue<string> ImmutableId
+    public AzurermMonitorDataCollectionRuleIdentityBlock? Identity
     {
-        get => new TerraformReference<string>(this, "immutable_id");
+        get => GetArgument<AzurermMonitorDataCollectionRuleIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
+
+    /// <summary>
+    /// StreamDeclaration block (nesting mode: set).
+    /// </summary>
+    public AzurermMonitorDataCollectionRuleStreamDeclarationBlock? StreamDeclaration
+    {
+        get => GetArgument<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>("stream_declaration");
+        set => SetArgument("stream_declaration", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermMonitorDataCollectionRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorDataCollectionRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

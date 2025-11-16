@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for sharing in .
@@ -26,7 +17,6 @@ public class AzurermSharedImageGallerySharingBlock : TerraformBlock
     /// The permission attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
-    [TerraformArgument("permission")]
     public required TerraformValue<string> Permission
     {
         get => new TerraformReference<string>(this, "permission");
@@ -49,7 +39,6 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -59,7 +48,6 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -69,7 +57,6 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -79,7 +66,6 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -89,19 +75,14 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_shared_image_gallery Terraform resource.
 /// Manages a azurerm_shared_image_gallery resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSharedImageGallery : TerraformResource
+public partial class AzurermSharedImageGallery(string name) : TerraformResource("azurerm_shared_image_gallery", name)
 {
-    public AzurermSharedImageGallery(string name) : base("azurerm_shared_image_gallery", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -111,7 +92,6 @@ public class AzurermSharedImageGallery : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -122,7 +102,6 @@ public class AzurermSharedImageGallery : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -133,7 +112,6 @@ public class AzurermSharedImageGallery : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -144,7 +122,6 @@ public class AzurermSharedImageGallery : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -154,7 +131,6 @@ public class AzurermSharedImageGallery : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -162,27 +138,22 @@ public class AzurermSharedImageGallery : TerraformResource
     }
 
     /// <summary>
-    /// Block for sharing.
-    /// Nesting mode: list
+    /// Sharing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]
-    [TerraformArgument("sharing")]
-    public TerraformList<AzurermSharedImageGallerySharingBlock> Sharing { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSharedImageGalleryTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The unique_name attribute.
-    /// </summary>
-    [TerraformArgument("unique_name")]
-    public TerraformValue<string> UniqueName
+    public AzurermSharedImageGallerySharingBlock? Sharing
     {
-        get => new TerraformReference<string>(this, "unique_name");
+        get => GetArgument<AzurermSharedImageGallerySharingBlock>("sharing");
+        set => SetArgument("sharing", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermSharedImageGalleryTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSharedImageGalleryTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for single_network_slice_selection_assistance_information in .
@@ -27,7 +18,6 @@ public class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInfor
     /// The slice_differentiator attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("slice_differentiator")]
     public TerraformValue<string>? SliceDifferentiator
     {
         get => new TerraformReference<string>(this, "slice_differentiator");
@@ -39,7 +29,6 @@ public class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInfor
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceServiceType is required")]
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("slice_service_type")]
     public required TerraformValue<double> SliceServiceType
     {
         get => new TerraformReference<double>(this, "slice_service_type");
@@ -62,7 +51,6 @@ public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -72,7 +60,6 @@ public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -82,7 +69,6 @@ public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -92,7 +78,6 @@ public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -102,19 +87,14 @@ public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mobile_network_slice Terraform resource.
 /// Manages a azurerm_mobile_network_slice resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMobileNetworkSlice : TerraformResource
+public partial class AzurermMobileNetworkSlice(string name) : TerraformResource("azurerm_mobile_network_slice", name)
 {
-    public AzurermMobileNetworkSlice(string name) : base("azurerm_mobile_network_slice", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -124,7 +104,6 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -135,7 +114,6 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -146,7 +124,6 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    [TerraformArgument("mobile_network_id")]
     public required TerraformValue<string> MobileNetworkId
     {
         get => new TerraformReference<string>(this, "mobile_network_id");
@@ -157,7 +134,6 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -167,7 +143,6 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// <summary>
     /// The slice_differentiator attribute.
     /// </summary>
-    [TerraformArgument("slice_differentiator")]
     public TerraformValue<string> SliceDifferentiator
     {
         get => new TerraformReference<string>(this, "slice_differentiator");
@@ -177,7 +152,6 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// <summary>
     /// The slice_service_type attribute.
     /// </summary>
-    [TerraformArgument("slice_service_type")]
     public TerraformValue<double> SliceServiceType
     {
         get => new TerraformReference<double>(this, "slice_service_type");
@@ -187,7 +161,6 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -195,19 +168,23 @@ public class AzurermMobileNetworkSlice : TerraformResource
     }
 
     /// <summary>
-    /// Block for single_network_slice_selection_assistance_information.
-    /// Nesting mode: list
+    /// SingleNetworkSliceSelectionAssistanceInformation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleNetworkSliceSelectionAssistanceInformation block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    [TerraformArgument("single_network_slice_selection_assistance_information")]
-    public TerraformList<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock> SingleNetworkSliceSelectionAssistanceInformation { get; set; } = new();
+    public AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock? SingleNetworkSliceSelectionAssistanceInformation
+    {
+        get => GetArgument<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>("single_network_slice_selection_assistance_information");
+        set => SetArgument("single_network_slice_selection_assistance_information", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMobileNetworkSliceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMobileNetworkSliceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMobileNetworkSliceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

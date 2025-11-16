@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_access_policy Terraform resource.
 /// Manages a azurerm_key_vault_access_policy resource.
 /// </summary>
-public class AzurermKeyVaultAccessPolicy : TerraformResource
+public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResource("azurerm_key_vault_access_policy", name)
 {
-    public AzurermKeyVaultAccessPolicy(string name) : base("azurerm_key_vault_access_policy", name)
-    {
-    }
-
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    [TerraformArgument("application_id")]
     public TerraformValue<string>? ApplicationId
     {
         get => new TerraformReference<string>(this, "application_id");
@@ -86,7 +69,6 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// <summary>
     /// The certificate_permissions attribute.
     /// </summary>
-    [TerraformArgument("certificate_permissions")]
     public TerraformList<string>? CertificatePermissions
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate_permissions").ResolveNodes(ctx));
@@ -96,7 +78,6 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -106,7 +87,6 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// <summary>
     /// The key_permissions attribute.
     /// </summary>
-    [TerraformArgument("key_permissions")]
     public TerraformList<string>? KeyPermissions
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "key_permissions").ResolveNodes(ctx));
@@ -117,7 +97,6 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformArgument("key_vault_id")]
     public required TerraformValue<string> KeyVaultId
     {
         get => new TerraformReference<string>(this, "key_vault_id");
@@ -128,7 +107,6 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// The object_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
-    [TerraformArgument("object_id")]
     public required TerraformValue<string> ObjectId
     {
         get => new TerraformReference<string>(this, "object_id");
@@ -138,7 +116,6 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// <summary>
     /// The secret_permissions attribute.
     /// </summary>
-    [TerraformArgument("secret_permissions")]
     public TerraformList<string>? SecretPermissions
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "secret_permissions").ResolveNodes(ctx));
@@ -148,7 +125,6 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// <summary>
     /// The storage_permissions attribute.
     /// </summary>
-    [TerraformArgument("storage_permissions")]
     public TerraformList<string>? StoragePermissions
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "storage_permissions").ResolveNodes(ctx));
@@ -159,7 +135,6 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    [TerraformArgument("tenant_id")]
     public required TerraformValue<string> TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -167,10 +142,12 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultAccessPolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermKeyVaultAccessPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermKeyVaultAccessPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for backup in .
@@ -26,7 +17,6 @@ public class AzurermBackupPolicyFileShareBackupBlock : TerraformBlock
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    [TerraformArgument("frequency")]
     public required TerraformValue<string> Frequency
     {
         get => new TerraformReference<string>(this, "frequency");
@@ -36,7 +26,6 @@ public class AzurermBackupPolicyFileShareBackupBlock : TerraformBlock
     /// <summary>
     /// The time attribute.
     /// </summary>
-    [TerraformArgument("time")]
     public TerraformValue<string>? Time
     {
         get => new TerraformReference<string>(this, "time");
@@ -59,9 +48,8 @@ public class AzurermBackupPolicyFileShareRetentionDailyBlock : TerraformBlock
     /// <summary>
     /// The count attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
-    [TerraformArgument("count")]
-    public required TerraformValue<double> Count
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
     {
         get => new TerraformReference<double>(this, "count");
         set => SetArgument("count", value);
@@ -83,9 +71,8 @@ public class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlock
     /// <summary>
     /// The count attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
-    [TerraformArgument("count")]
-    public required TerraformValue<double> Count
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
     {
         get => new TerraformReference<double>(this, "count");
         set => SetArgument("count", value);
@@ -94,7 +81,6 @@ public class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlock
     /// <summary>
     /// The days attribute.
     /// </summary>
-    [TerraformArgument("days")]
     public TerraformSet<double>? Days
     {
         get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "days").ResolveNodes(ctx));
@@ -104,7 +90,6 @@ public class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlock
     /// <summary>
     /// The include_last_days attribute.
     /// </summary>
-    [TerraformArgument("include_last_days")]
     public TerraformValue<bool>? IncludeLastDays
     {
         get => new TerraformReference<bool>(this, "include_last_days");
@@ -114,7 +99,6 @@ public class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlock
     /// <summary>
     /// The weekdays attribute.
     /// </summary>
-    [TerraformArgument("weekdays")]
     public TerraformSet<string>? Weekdays
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weekdays").ResolveNodes(ctx));
@@ -124,7 +108,6 @@ public class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlock
     /// <summary>
     /// The weeks attribute.
     /// </summary>
-    [TerraformArgument("weeks")]
     public TerraformSet<string>? Weeks
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weeks").ResolveNodes(ctx));
@@ -147,9 +130,8 @@ public class AzurermBackupPolicyFileShareRetentionWeeklyBlock : TerraformBlock
     /// <summary>
     /// The count attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
-    [TerraformArgument("count")]
-    public required TerraformValue<double> Count
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
     {
         get => new TerraformReference<double>(this, "count");
         set => SetArgument("count", value);
@@ -159,7 +141,6 @@ public class AzurermBackupPolicyFileShareRetentionWeeklyBlock : TerraformBlock
     /// The weekdays attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weekdays is required")]
-    [TerraformArgument("weekdays")]
     public required TerraformSet<string> Weekdays
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weekdays").ResolveNodes(ctx));
@@ -182,9 +163,8 @@ public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
     /// <summary>
     /// The count attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
-    [TerraformArgument("count")]
-    public required TerraformValue<double> Count
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
     {
         get => new TerraformReference<double>(this, "count");
         set => SetArgument("count", value);
@@ -193,7 +173,6 @@ public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
     /// <summary>
     /// The days attribute.
     /// </summary>
-    [TerraformArgument("days")]
     public TerraformSet<double>? Days
     {
         get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "days").ResolveNodes(ctx));
@@ -203,7 +182,6 @@ public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
     /// <summary>
     /// The include_last_days attribute.
     /// </summary>
-    [TerraformArgument("include_last_days")]
     public TerraformValue<bool>? IncludeLastDays
     {
         get => new TerraformReference<bool>(this, "include_last_days");
@@ -214,7 +192,6 @@ public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
     /// The months attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Months is required")]
-    [TerraformArgument("months")]
     public required TerraformSet<string> Months
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "months").ResolveNodes(ctx));
@@ -224,7 +201,6 @@ public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
     /// <summary>
     /// The weekdays attribute.
     /// </summary>
-    [TerraformArgument("weekdays")]
     public TerraformSet<string>? Weekdays
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weekdays").ResolveNodes(ctx));
@@ -234,7 +210,6 @@ public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
     /// <summary>
     /// The weeks attribute.
     /// </summary>
-    [TerraformArgument("weeks")]
     public TerraformSet<string>? Weeks
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weeks").ResolveNodes(ctx));
@@ -257,7 +232,6 @@ public class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -267,7 +241,6 @@ public class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -277,7 +250,6 @@ public class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -287,7 +259,6 @@ public class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -297,19 +268,14 @@ public class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_backup_policy_file_share Terraform resource.
 /// Manages a azurerm_backup_policy_file_share resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermBackupPolicyFileShare : TerraformResource
+public partial class AzurermBackupPolicyFileShare(string name) : TerraformResource("azurerm_backup_policy_file_share", name)
 {
-    public AzurermBackupPolicyFileShare(string name) : base("azurerm_backup_policy_file_share", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -320,7 +286,6 @@ public class AzurermBackupPolicyFileShare : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -331,7 +296,6 @@ public class AzurermBackupPolicyFileShare : TerraformResource
     /// The recovery_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
-    [TerraformArgument("recovery_vault_name")]
     public required TerraformValue<string> RecoveryVaultName
     {
         get => new TerraformReference<string>(this, "recovery_vault_name");
@@ -342,7 +306,6 @@ public class AzurermBackupPolicyFileShare : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -352,7 +315,6 @@ public class AzurermBackupPolicyFileShare : TerraformResource
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    [TerraformArgument("timezone")]
     public TerraformValue<string>? Timezone
     {
         get => new TerraformReference<string>(this, "timezone");
@@ -360,54 +322,68 @@ public class AzurermBackupPolicyFileShare : TerraformResource
     }
 
     /// <summary>
-    /// Block for backup.
-    /// Nesting mode: list
+    /// Backup block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Backup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    [TerraformArgument("backup")]
-    public required TerraformList<AzurermBackupPolicyFileShareBackupBlock> Backup { get; set; } = new();
+    public required AzurermBackupPolicyFileShareBackupBlock Backup
+    {
+        get => GetRequiredArgument<AzurermBackupPolicyFileShareBackupBlock>("backup");
+        set => SetArgument("backup", value);
+    }
 
     /// <summary>
-    /// Block for retention_daily.
-    /// Nesting mode: list
+    /// RetentionDaily block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDaily is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RetentionDaily block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDaily block(s) allowed")]
-    [TerraformArgument("retention_daily")]
-    public required TerraformList<AzurermBackupPolicyFileShareRetentionDailyBlock> RetentionDaily { get; set; } = new();
+    public required AzurermBackupPolicyFileShareRetentionDailyBlock RetentionDaily
+    {
+        get => GetRequiredArgument<AzurermBackupPolicyFileShareRetentionDailyBlock>("retention_daily");
+        set => SetArgument("retention_daily", value);
+    }
 
     /// <summary>
-    /// Block for retention_monthly.
-    /// Nesting mode: list
+    /// RetentionMonthly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionMonthly block(s) allowed")]
-    [TerraformArgument("retention_monthly")]
-    public TerraformList<AzurermBackupPolicyFileShareRetentionMonthlyBlock> RetentionMonthly { get; set; } = new();
+    public AzurermBackupPolicyFileShareRetentionMonthlyBlock? RetentionMonthly
+    {
+        get => GetArgument<AzurermBackupPolicyFileShareRetentionMonthlyBlock>("retention_monthly");
+        set => SetArgument("retention_monthly", value);
+    }
 
     /// <summary>
-    /// Block for retention_weekly.
-    /// Nesting mode: list
+    /// RetentionWeekly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionWeekly block(s) allowed")]
-    [TerraformArgument("retention_weekly")]
-    public TerraformList<AzurermBackupPolicyFileShareRetentionWeeklyBlock> RetentionWeekly { get; set; } = new();
+    public AzurermBackupPolicyFileShareRetentionWeeklyBlock? RetentionWeekly
+    {
+        get => GetArgument<AzurermBackupPolicyFileShareRetentionWeeklyBlock>("retention_weekly");
+        set => SetArgument("retention_weekly", value);
+    }
 
     /// <summary>
-    /// Block for retention_yearly.
-    /// Nesting mode: list
+    /// RetentionYearly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionYearly block(s) allowed")]
-    [TerraformArgument("retention_yearly")]
-    public TerraformList<AzurermBackupPolicyFileShareRetentionYearlyBlock> RetentionYearly { get; set; } = new();
+    public AzurermBackupPolicyFileShareRetentionYearlyBlock? RetentionYearly
+    {
+        get => GetArgument<AzurermBackupPolicyFileShareRetentionYearlyBlock>("retention_yearly");
+        set => SetArgument("retention_yearly", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBackupPolicyFileShareTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermBackupPolicyFileShareTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermBackupPolicyFileShareTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

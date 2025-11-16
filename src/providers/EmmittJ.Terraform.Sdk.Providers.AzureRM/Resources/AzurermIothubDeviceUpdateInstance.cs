@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for diagnostic_storage_account in .
@@ -26,7 +17,6 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
     /// The connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
-    [TerraformArgument("connection_string")]
     public required TerraformValue<string> ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -37,7 +27,6 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformArgument("id")]
     public required TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -60,7 +49,6 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,20 +85,15 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_iothub_device_update_instance Terraform resource.
 /// Manages a azurerm_iothub_device_update_instance resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermIothubDeviceUpdateInstance : TerraformResource
+public partial class AzurermIothubDeviceUpdateInstance(string name) : TerraformResource("azurerm_iothub_device_update_instance", name)
 {
-    public AzurermIothubDeviceUpdateInstance(string name) : base("azurerm_iothub_device_update_instance", name)
-    {
-    }
-
     /// <summary>
     /// The device_update_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceUpdateAccountId is required")]
-    [TerraformArgument("device_update_account_id")]
     public required TerraformValue<string> DeviceUpdateAccountId
     {
         get => new TerraformReference<string>(this, "device_update_account_id");
@@ -123,7 +103,6 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// <summary>
     /// The diagnostic_enabled attribute.
     /// </summary>
-    [TerraformArgument("diagnostic_enabled")]
     public TerraformValue<bool>? DiagnosticEnabled
     {
         get => new TerraformReference<bool>(this, "diagnostic_enabled");
@@ -133,7 +112,6 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -144,7 +122,6 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// The iothub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
-    [TerraformArgument("iothub_id")]
     public required TerraformValue<string> IothubId
     {
         get => new TerraformReference<string>(this, "iothub_id");
@@ -155,7 +132,6 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -165,7 +141,6 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -173,18 +148,22 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     }
 
     /// <summary>
-    /// Block for diagnostic_storage_account.
-    /// Nesting mode: list
+    /// DiagnosticStorageAccount block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticStorageAccount block(s) allowed")]
-    [TerraformArgument("diagnostic_storage_account")]
-    public TerraformList<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock> DiagnosticStorageAccount { get; set; } = new();
+    public AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock? DiagnosticStorageAccount
+    {
+        get => GetArgument<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>("diagnostic_storage_account");
+        set => SetArgument("diagnostic_storage_account", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIothubDeviceUpdateInstanceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermIothubDeviceUpdateInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermIothubDeviceUpdateInstanceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

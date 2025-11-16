@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for notification in .
@@ -26,7 +17,6 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformArgument("action")]
     public required TerraformValue<string> Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -36,7 +26,6 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
     /// <summary>
     /// The digest attribute.
     /// </summary>
-    [TerraformArgument("digest")]
     public TerraformValue<string>? Digest
     {
         get => new TerraformReference<string>(this, "digest");
@@ -47,7 +36,6 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -57,7 +45,6 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    [TerraformArgument("tag")]
     public TerraformValue<string>? Tag
     {
         get => new TerraformReference<string>(this, "tag");
@@ -80,7 +67,6 @@ public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -90,7 +76,6 @@ public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -100,7 +85,6 @@ public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -110,7 +94,6 @@ public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -120,18 +103,14 @@ public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_container_connected_registry Terraform resource.
 /// Manages a azurerm_container_connected_registry resource.
 /// </summary>
-public class AzurermContainerConnectedRegistry : TerraformResource
+public partial class AzurermContainerConnectedRegistry(string name) : TerraformResource("azurerm_container_connected_registry", name)
 {
-    public AzurermContainerConnectedRegistry(string name) : base("azurerm_container_connected_registry", name)
-    {
-    }
-
     /// <summary>
     /// The audit_log_enabled attribute.
     /// </summary>
-    [TerraformArgument("audit_log_enabled")]
     public TerraformValue<bool>? AuditLogEnabled
     {
         get => new TerraformReference<bool>(this, "audit_log_enabled");
@@ -141,7 +120,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The client_token_ids attribute.
     /// </summary>
-    [TerraformArgument("client_token_ids")]
     public TerraformList<string>? ClientTokenIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "client_token_ids").ResolveNodes(ctx));
@@ -152,7 +130,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// The container_registry_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
-    [TerraformArgument("container_registry_id")]
     public required TerraformValue<string> ContainerRegistryId
     {
         get => new TerraformReference<string>(this, "container_registry_id");
@@ -162,7 +139,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -172,7 +148,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    [TerraformArgument("log_level")]
     public TerraformValue<string>? LogLevel
     {
         get => new TerraformReference<string>(this, "log_level");
@@ -182,7 +157,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    [TerraformArgument("mode")]
     public TerraformValue<string>? Mode
     {
         get => new TerraformReference<string>(this, "mode");
@@ -193,7 +167,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -203,7 +176,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The parent_registry_id attribute.
     /// </summary>
-    [TerraformArgument("parent_registry_id")]
     public TerraformValue<string>? ParentRegistryId
     {
         get => new TerraformReference<string>(this, "parent_registry_id");
@@ -213,7 +185,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The sync_message_ttl attribute.
     /// </summary>
-    [TerraformArgument("sync_message_ttl")]
     public TerraformValue<string>? SyncMessageTtl
     {
         get => new TerraformReference<string>(this, "sync_message_ttl");
@@ -223,7 +194,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The sync_schedule attribute.
     /// </summary>
-    [TerraformArgument("sync_schedule")]
     public TerraformValue<string>? SyncSchedule
     {
         get => new TerraformReference<string>(this, "sync_schedule");
@@ -234,7 +204,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// The sync_token_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyncTokenId is required")]
-    [TerraformArgument("sync_token_id")]
     public required TerraformValue<string> SyncTokenId
     {
         get => new TerraformReference<string>(this, "sync_token_id");
@@ -244,7 +213,6 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The sync_window attribute.
     /// </summary>
-    [TerraformArgument("sync_window")]
     public TerraformValue<string>? SyncWindow
     {
         get => new TerraformReference<string>(this, "sync_window");
@@ -252,17 +220,21 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     }
 
     /// <summary>
-    /// Block for notification.
-    /// Nesting mode: list
+    /// Notification block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("notification")]
-    public TerraformList<AzurermContainerConnectedRegistryNotificationBlock> Notification { get; set; } = new();
+    public AzurermContainerConnectedRegistryNotificationBlock? Notification
+    {
+        get => GetArgument<AzurermContainerConnectedRegistryNotificationBlock>("notification");
+        set => SetArgument("notification", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerConnectedRegistryTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermContainerConnectedRegistryTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermContainerConnectedRegistryTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

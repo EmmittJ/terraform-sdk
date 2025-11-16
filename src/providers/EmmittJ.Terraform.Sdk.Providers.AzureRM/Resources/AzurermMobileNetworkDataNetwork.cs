@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMobileNetworkDataNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMobileNetworkDataNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMobileNetworkDataNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermMobileNetworkDataNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermMobileNetworkDataNetworkTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mobile_network_data_network Terraform resource.
 /// Manages a azurerm_mobile_network_data_network resource.
 /// </summary>
-public class AzurermMobileNetworkDataNetwork : TerraformResource
+public partial class AzurermMobileNetworkDataNetwork(string name) : TerraformResource("azurerm_mobile_network_data_network", name)
 {
-    public AzurermMobileNetworkDataNetwork(string name) : base("azurerm_mobile_network_data_network", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -86,7 +69,6 @@ public class AzurermMobileNetworkDataNetwork : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +79,6 @@ public class AzurermMobileNetworkDataNetwork : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -108,7 +89,6 @@ public class AzurermMobileNetworkDataNetwork : TerraformResource
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    [TerraformArgument("mobile_network_id")]
     public required TerraformValue<string> MobileNetworkId
     {
         get => new TerraformReference<string>(this, "mobile_network_id");
@@ -119,7 +99,6 @@ public class AzurermMobileNetworkDataNetwork : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -129,7 +108,6 @@ public class AzurermMobileNetworkDataNetwork : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -137,10 +115,12 @@ public class AzurermMobileNetworkDataNetwork : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMobileNetworkDataNetworkTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMobileNetworkDataNetworkTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMobileNetworkDataNetworkTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

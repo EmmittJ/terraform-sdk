@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAutomationPython3PackageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAutomationPython3PackageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAutomationPython3PackageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermAutomationPython3PackageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermAutomationPython3PackageTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_automation_python3_package Terraform resource.
 /// Manages a azurerm_automation_python3_package resource.
 /// </summary>
-public class AzurermAutomationPython3Package : TerraformResource
+public partial class AzurermAutomationPython3Package(string name) : TerraformResource("azurerm_automation_python3_package", name)
 {
-    public AzurermAutomationPython3Package(string name) : base("azurerm_automation_python3_package", name)
-    {
-    }
-
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
-    [TerraformArgument("automation_account_name")]
     public required TerraformValue<string> AutomationAccountName
     {
         get => new TerraformReference<string>(this, "automation_account_name");
@@ -88,7 +71,6 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// The content_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentUri is required")]
-    [TerraformArgument("content_uri")]
     public required TerraformValue<string> ContentUri
     {
         get => new TerraformReference<string>(this, "content_uri");
@@ -98,7 +80,6 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// <summary>
     /// The content_version attribute.
     /// </summary>
-    [TerraformArgument("content_version")]
     public TerraformValue<string>? ContentVersion
     {
         get => new TerraformReference<string>(this, "content_version");
@@ -108,7 +89,6 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// <summary>
     /// The hash_algorithm attribute.
     /// </summary>
-    [TerraformArgument("hash_algorithm")]
     public TerraformValue<string>? HashAlgorithm
     {
         get => new TerraformReference<string>(this, "hash_algorithm");
@@ -118,7 +98,6 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// <summary>
     /// The hash_value attribute.
     /// </summary>
-    [TerraformArgument("hash_value")]
     public TerraformValue<string>? HashValue
     {
         get => new TerraformReference<string>(this, "hash_value");
@@ -128,7 +107,6 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -139,7 +117,6 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -150,7 +127,6 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -160,7 +136,6 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -168,10 +143,12 @@ public class AzurermAutomationPython3Package : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAutomationPython3PackageTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermAutomationPython3PackageTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermAutomationPython3PackageTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

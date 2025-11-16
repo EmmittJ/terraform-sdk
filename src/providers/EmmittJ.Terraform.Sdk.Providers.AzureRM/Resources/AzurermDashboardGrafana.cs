@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for azure_monitor_workspace_integrations in .
@@ -26,7 +17,6 @@ public class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock : Ter
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    [TerraformArgument("resource_id")]
     public required TerraformValue<string> ResourceId
     {
         get => new TerraformReference<string>(this, "resource_id");
@@ -49,20 +39,32 @@ public class AzurermDashboardGrafanaIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -85,7 +87,6 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -96,7 +97,6 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     /// The from_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromAddress is required")]
-    [TerraformArgument("from_address")]
     public required TerraformValue<string> FromAddress
     {
         get => new TerraformReference<string>(this, "from_address");
@@ -106,7 +106,6 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     /// <summary>
     /// The from_name attribute.
     /// </summary>
-    [TerraformArgument("from_name")]
     public TerraformValue<string>? FromName
     {
         get => new TerraformReference<string>(this, "from_name");
@@ -117,7 +116,6 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     /// The host attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    [TerraformArgument("host")]
     public required TerraformValue<string> Host
     {
         get => new TerraformReference<string>(this, "host");
@@ -128,7 +126,6 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    [TerraformArgument("password")]
     public required TerraformValue<string> Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -139,7 +136,6 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     /// The start_tls_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTlsPolicy is required")]
-    [TerraformArgument("start_tls_policy")]
     public required TerraformValue<string> StartTlsPolicy
     {
         get => new TerraformReference<string>(this, "start_tls_policy");
@@ -150,7 +146,6 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     /// The user attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
-    [TerraformArgument("user")]
     public required TerraformValue<string> User
     {
         get => new TerraformReference<string>(this, "user");
@@ -160,7 +155,6 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     /// <summary>
     /// The verification_skip_enabled attribute.
     /// </summary>
-    [TerraformArgument("verification_skip_enabled")]
     public TerraformValue<bool>? VerificationSkipEnabled
     {
         get => new TerraformReference<bool>(this, "verification_skip_enabled");
@@ -183,7 +177,6 @@ public class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -193,7 +186,6 @@ public class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -203,7 +195,6 @@ public class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -213,7 +204,6 @@ public class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -223,19 +213,14 @@ public class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dashboard_grafana Terraform resource.
 /// Manages a azurerm_dashboard_grafana resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDashboardGrafana : TerraformResource
+public partial class AzurermDashboardGrafana(string name) : TerraformResource("azurerm_dashboard_grafana", name)
 {
-    public AzurermDashboardGrafana(string name) : base("azurerm_dashboard_grafana", name)
-    {
-    }
-
     /// <summary>
     /// The api_key_enabled attribute.
     /// </summary>
-    [TerraformArgument("api_key_enabled")]
     public TerraformValue<bool>? ApiKeyEnabled
     {
         get => new TerraformReference<bool>(this, "api_key_enabled");
@@ -245,7 +230,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// <summary>
     /// The auto_generated_domain_name_label_scope attribute.
     /// </summary>
-    [TerraformArgument("auto_generated_domain_name_label_scope")]
     public TerraformValue<string>? AutoGeneratedDomainNameLabelScope
     {
         get => new TerraformReference<string>(this, "auto_generated_domain_name_label_scope");
@@ -255,7 +239,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// <summary>
     /// The deterministic_outbound_ip_enabled attribute.
     /// </summary>
-    [TerraformArgument("deterministic_outbound_ip_enabled")]
     public TerraformValue<bool>? DeterministicOutboundIpEnabled
     {
         get => new TerraformReference<bool>(this, "deterministic_outbound_ip_enabled");
@@ -266,7 +249,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// The grafana_major_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaMajorVersion is required")]
-    [TerraformArgument("grafana_major_version")]
     public required TerraformValue<string> GrafanaMajorVersion
     {
         get => new TerraformReference<string>(this, "grafana_major_version");
@@ -276,7 +258,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -287,7 +268,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -298,7 +278,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -308,7 +287,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -319,7 +297,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -329,7 +306,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformArgument("sku")]
     public TerraformValue<string>? Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -339,7 +315,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -349,7 +324,6 @@ public class AzurermDashboardGrafana : TerraformResource
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
-    [TerraformArgument("zone_redundancy_enabled")]
     public TerraformValue<bool>? ZoneRedundancyEnabled
     {
         get => new TerraformReference<bool>(this, "zone_redundancy_enabled");
@@ -357,60 +331,41 @@ public class AzurermDashboardGrafana : TerraformResource
     }
 
     /// <summary>
-    /// Block for azure_monitor_workspace_integrations.
-    /// Nesting mode: list
+    /// AzureMonitorWorkspaceIntegrations block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("azure_monitor_workspace_integrations")]
-    public TerraformList<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock> AzureMonitorWorkspaceIntegrations { get; set; } = new();
+    public AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock? AzureMonitorWorkspaceIntegrations
+    {
+        get => GetArgument<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock>("azure_monitor_workspace_integrations");
+        set => SetArgument("azure_monitor_workspace_integrations", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermDashboardGrafanaIdentityBlock> Identity { get; set; } = new();
+    public AzurermDashboardGrafanaIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermDashboardGrafanaIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for smtp.
-    /// Nesting mode: list
+    /// Smtp block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Smtp block(s) allowed")]
-    [TerraformArgument("smtp")]
-    public TerraformList<AzurermDashboardGrafanaSmtpBlock> Smtp { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDashboardGrafanaTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The endpoint attribute.
-    /// </summary>
-    [TerraformArgument("endpoint")]
-    public TerraformValue<string> Endpoint
+    public AzurermDashboardGrafanaSmtpBlock? Smtp
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<AzurermDashboardGrafanaSmtpBlock>("smtp");
+        set => SetArgument("smtp", value);
     }
 
     /// <summary>
-    /// The grafana_version attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("grafana_version")]
-    public TerraformValue<string> GrafanaVersion
+    public AzurermDashboardGrafanaTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "grafana_version");
-    }
-
-    /// <summary>
-    /// The outbound_ip attribute.
-    /// </summary>
-    [TerraformArgument("outbound_ip")]
-    public TerraformList<string> OutboundIp
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip").ResolveNodes(ctx));
+        get => GetArgument<AzurermDashboardGrafanaTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

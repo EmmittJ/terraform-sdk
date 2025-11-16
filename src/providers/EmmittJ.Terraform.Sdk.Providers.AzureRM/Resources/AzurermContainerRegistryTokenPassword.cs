@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for password1 in .
@@ -25,13 +16,19 @@ public class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBloc
     /// <summary>
     /// The expiry attribute.
     /// </summary>
-    [TerraformArgument("expiry")]
     public TerraformValue<string>? Expiry
     {
         get => new TerraformReference<string>(this, "expiry");
         set => SetArgument("expiry", value);
     }
 
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+    }
 
 }
 
@@ -49,13 +46,19 @@ public class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBloc
     /// <summary>
     /// The expiry attribute.
     /// </summary>
-    [TerraformArgument("expiry")]
     public TerraformValue<string>? Expiry
     {
         get => new TerraformReference<string>(this, "expiry");
         set => SetArgument("expiry", value);
     }
 
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+    }
 
 }
 
@@ -73,7 +76,6 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -83,7 +85,6 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -93,7 +94,6 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -103,7 +103,6 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -113,20 +112,15 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_container_registry_token_password Terraform resource.
 /// Manages a azurerm_container_registry_token_password resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermContainerRegistryTokenPassword : TerraformResource
+public partial class AzurermContainerRegistryTokenPassword(string name) : TerraformResource("azurerm_container_registry_token_password", name)
 {
-    public AzurermContainerRegistryTokenPassword(string name) : base("azurerm_container_registry_token_password", name)
-    {
-    }
-
     /// <summary>
     /// The container_registry_token_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryTokenId is required")]
-    [TerraformArgument("container_registry_token_id")]
     public required TerraformValue<string> ContainerRegistryTokenId
     {
         get => new TerraformReference<string>(this, "container_registry_token_id");
@@ -136,7 +130,6 @@ public class AzurermContainerRegistryTokenPassword : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -144,28 +137,35 @@ public class AzurermContainerRegistryTokenPassword : TerraformResource
     }
 
     /// <summary>
-    /// Block for password1.
-    /// Nesting mode: list
+    /// Password1 block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password1 is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Password1 block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password1 block(s) allowed")]
-    [TerraformArgument("password1")]
-    public required TerraformList<AzurermContainerRegistryTokenPasswordPassword1Block> Password1 { get; set; } = new();
+    public required AzurermContainerRegistryTokenPasswordPassword1Block Password1
+    {
+        get => GetRequiredArgument<AzurermContainerRegistryTokenPasswordPassword1Block>("password1");
+        set => SetArgument("password1", value);
+    }
 
     /// <summary>
-    /// Block for password2.
-    /// Nesting mode: list
+    /// Password2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password2 block(s) allowed")]
-    [TerraformArgument("password2")]
-    public TerraformList<AzurermContainerRegistryTokenPasswordPassword2Block> Password2 { get; set; } = new();
+    public AzurermContainerRegistryTokenPasswordPassword2Block? Password2
+    {
+        get => GetArgument<AzurermContainerRegistryTokenPasswordPassword2Block>("password2");
+        set => SetArgument("password2", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerRegistryTokenPasswordTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermContainerRegistryTokenPasswordTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermContainerRegistryTokenPasswordTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

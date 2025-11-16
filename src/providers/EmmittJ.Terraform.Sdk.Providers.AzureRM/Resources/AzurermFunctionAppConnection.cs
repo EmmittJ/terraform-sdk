@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for authentication in .
@@ -25,7 +16,6 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformArgument("certificate")]
     public TerraformValue<string>? Certificate
     {
         get => new TerraformReference<string>(this, "certificate");
@@ -35,7 +25,6 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformArgument("client_id")]
     public TerraformValue<string>? ClientId
     {
         get => new TerraformReference<string>(this, "client_id");
@@ -45,7 +34,6 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -55,7 +43,6 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    [TerraformArgument("principal_id")]
     public TerraformValue<string>? PrincipalId
     {
         get => new TerraformReference<string>(this, "principal_id");
@@ -65,7 +52,6 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// <summary>
     /// The secret attribute.
     /// </summary>
-    [TerraformArgument("secret")]
     public TerraformValue<string>? Secret
     {
         get => new TerraformReference<string>(this, "secret");
@@ -75,7 +61,6 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    [TerraformArgument("subscription_id")]
     public TerraformValue<string>? SubscriptionId
     {
         get => new TerraformReference<string>(this, "subscription_id");
@@ -86,7 +71,6 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -110,7 +94,6 @@ public class AzurermFunctionAppConnectionSecretStoreBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformArgument("key_vault_id")]
     public required TerraformValue<string> KeyVaultId
     {
         get => new TerraformReference<string>(this, "key_vault_id");
@@ -133,7 +116,6 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -143,7 +125,6 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -153,7 +134,6 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -163,7 +143,6 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -173,19 +152,14 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_function_app_connection Terraform resource.
 /// Manages a azurerm_function_app_connection resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermFunctionAppConnection : TerraformResource
+public partial class AzurermFunctionAppConnection(string name) : TerraformResource("azurerm_function_app_connection", name)
 {
-    public AzurermFunctionAppConnection(string name) : base("azurerm_function_app_connection", name)
-    {
-    }
-
     /// <summary>
     /// The client_type attribute.
     /// </summary>
-    [TerraformArgument("client_type")]
     public TerraformValue<string>? ClientType
     {
         get => new TerraformReference<string>(this, "client_type");
@@ -196,7 +170,6 @@ public class AzurermFunctionAppConnection : TerraformResource
     /// The function_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
-    [TerraformArgument("function_app_id")]
     public required TerraformValue<string> FunctionAppId
     {
         get => new TerraformReference<string>(this, "function_app_id");
@@ -206,7 +179,6 @@ public class AzurermFunctionAppConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -217,7 +189,6 @@ public class AzurermFunctionAppConnection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -228,7 +199,6 @@ public class AzurermFunctionAppConnection : TerraformResource
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    [TerraformArgument("target_resource_id")]
     public required TerraformValue<string> TargetResourceId
     {
         get => new TerraformReference<string>(this, "target_resource_id");
@@ -238,7 +208,6 @@ public class AzurermFunctionAppConnection : TerraformResource
     /// <summary>
     /// The vnet_solution attribute.
     /// </summary>
-    [TerraformArgument("vnet_solution")]
     public TerraformValue<string>? VnetSolution
     {
         get => new TerraformReference<string>(this, "vnet_solution");
@@ -246,28 +215,35 @@ public class AzurermFunctionAppConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for authentication.
-    /// Nesting mode: list
+    /// Authentication block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    [TerraformArgument("authentication")]
-    public required TerraformList<AzurermFunctionAppConnectionAuthenticationBlock> Authentication { get; set; } = new();
+    public required AzurermFunctionAppConnectionAuthenticationBlock Authentication
+    {
+        get => GetRequiredArgument<AzurermFunctionAppConnectionAuthenticationBlock>("authentication");
+        set => SetArgument("authentication", value);
+    }
 
     /// <summary>
-    /// Block for secret_store.
-    /// Nesting mode: list
+    /// SecretStore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
-    [TerraformArgument("secret_store")]
-    public TerraformList<AzurermFunctionAppConnectionSecretStoreBlock> SecretStore { get; set; } = new();
+    public AzurermFunctionAppConnectionSecretStoreBlock? SecretStore
+    {
+        get => GetArgument<AzurermFunctionAppConnectionSecretStoreBlock>("secret_store");
+        set => SetArgument("secret_store", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermFunctionAppConnectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermFunctionAppConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermFunctionAppConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

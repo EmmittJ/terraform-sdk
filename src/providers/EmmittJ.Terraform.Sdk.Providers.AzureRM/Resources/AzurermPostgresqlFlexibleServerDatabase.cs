@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_postgresql_flexible_server_database Terraform resource.
 /// Manages a azurerm_postgresql_flexible_server_database resource.
 /// </summary>
-public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
+public partial class AzurermPostgresqlFlexibleServerDatabase(string name) : TerraformResource("azurerm_postgresql_flexible_server_database", name)
 {
-    public AzurermPostgresqlFlexibleServerDatabase(string name) : base("azurerm_postgresql_flexible_server_database", name)
-    {
-    }
-
     /// <summary>
     /// The charset attribute.
     /// </summary>
-    [TerraformArgument("charset")]
     public TerraformValue<string>? Charset
     {
         get => new TerraformReference<string>(this, "charset");
@@ -76,7 +60,6 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    [TerraformArgument("collation")]
     public TerraformValue<string>? Collation
     {
         get => new TerraformReference<string>(this, "collation");
@@ -86,7 +69,6 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +79,6 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -108,7 +89,6 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformArgument("server_id")]
     public required TerraformValue<string> ServerId
     {
         get => new TerraformReference<string>(this, "server_id");
@@ -116,10 +96,12 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

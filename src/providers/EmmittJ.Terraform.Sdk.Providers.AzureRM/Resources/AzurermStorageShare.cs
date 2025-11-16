@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for acl in .
@@ -26,7 +17,6 @@ public class AzurermStorageShareAclBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformArgument("id")]
     public required TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -49,7 +39,6 @@ public class AzurermStorageShareTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -59,7 +48,6 @@ public class AzurermStorageShareTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -69,7 +57,6 @@ public class AzurermStorageShareTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -79,7 +66,6 @@ public class AzurermStorageShareTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -89,18 +75,14 @@ public class AzurermStorageShareTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_share Terraform resource.
 /// Manages a azurerm_storage_share resource.
 /// </summary>
-public class AzurermStorageShare : TerraformResource
+public partial class AzurermStorageShare(string name) : TerraformResource("azurerm_storage_share", name)
 {
-    public AzurermStorageShare(string name) : base("azurerm_storage_share", name)
-    {
-    }
-
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    [TerraformArgument("access_tier")]
     public TerraformValue<string> AccessTier
     {
         get => new TerraformReference<string>(this, "access_tier");
@@ -110,7 +92,6 @@ public class AzurermStorageShare : TerraformResource
     /// <summary>
     /// The enabled_protocol attribute.
     /// </summary>
-    [TerraformArgument("enabled_protocol")]
     public TerraformValue<string>? EnabledProtocol
     {
         get => new TerraformReference<string>(this, "enabled_protocol");
@@ -120,7 +101,6 @@ public class AzurermStorageShare : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -130,7 +110,6 @@ public class AzurermStorageShare : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformArgument("metadata")]
     public TerraformMap<string> Metadata
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
@@ -141,7 +120,6 @@ public class AzurermStorageShare : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -152,7 +130,6 @@ public class AzurermStorageShare : TerraformResource
     /// The quota attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quota is required")]
-    [TerraformArgument("quota")]
     public required TerraformValue<double> Quota
     {
         get => new TerraformReference<double>(this, "quota");
@@ -162,7 +139,6 @@ public class AzurermStorageShare : TerraformResource
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    [TerraformArgument("storage_account_id")]
     public TerraformValue<string>? StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -173,7 +149,6 @@ public class AzurermStorageShare : TerraformResource
     /// The storage_account_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("storage_account_name")]
     public TerraformValue<string>? StorageAccountName
     {
         get => new TerraformReference<string>(this, "storage_account_name");
@@ -181,35 +156,21 @@ public class AzurermStorageShare : TerraformResource
     }
 
     /// <summary>
-    /// Block for acl.
-    /// Nesting mode: set
+    /// Acl block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("acl")]
-    public TerraformSet<AzurermStorageShareAclBlock> Acl { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageShareTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The resource_manager_id attribute.
-    /// </summary>
-    [TerraformArgument("resource_manager_id")]
-    public TerraformValue<string> ResourceManagerId
+    public AzurermStorageShareAclBlock? Acl
     {
-        get => new TerraformReference<string>(this, "resource_manager_id");
+        get => GetArgument<AzurermStorageShareAclBlock>("acl");
+        set => SetArgument("acl", value);
     }
 
     /// <summary>
-    /// The url attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("url")]
-    public TerraformValue<string> Url
+    public AzurermStorageShareTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<AzurermStorageShareTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

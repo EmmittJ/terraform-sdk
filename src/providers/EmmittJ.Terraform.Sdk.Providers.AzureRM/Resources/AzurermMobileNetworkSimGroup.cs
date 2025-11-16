@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -26,7 +17,6 @@ public class AzurermMobileNetworkSimGroupIdentityBlock : TerraformBlock
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    [TerraformArgument("identity_ids")]
     public required TerraformSet<string> IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
@@ -37,7 +27,6 @@ public class AzurermMobileNetworkSimGroupIdentityBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -60,7 +49,6 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,19 +85,14 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mobile_network_sim_group Terraform resource.
 /// Manages a azurerm_mobile_network_sim_group resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMobileNetworkSimGroup : TerraformResource
+public partial class AzurermMobileNetworkSimGroup(string name) : TerraformResource("azurerm_mobile_network_sim_group", name)
 {
-    public AzurermMobileNetworkSimGroup(string name) : base("azurerm_mobile_network_sim_group", name)
-    {
-    }
-
     /// <summary>
     /// The encryption_key_url attribute.
     /// </summary>
-    [TerraformArgument("encryption_key_url")]
     public TerraformValue<string>? EncryptionKeyUrl
     {
         get => new TerraformReference<string>(this, "encryption_key_url");
@@ -122,7 +102,6 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -133,7 +112,6 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -144,7 +122,6 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    [TerraformArgument("mobile_network_id")]
     public required TerraformValue<string> MobileNetworkId
     {
         get => new TerraformReference<string>(this, "mobile_network_id");
@@ -155,7 +132,6 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -165,7 +141,6 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -173,18 +148,22 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermMobileNetworkSimGroupIdentityBlock> Identity { get; set; } = new();
+    public AzurermMobileNetworkSimGroupIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermMobileNetworkSimGroupIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMobileNetworkSimGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMobileNetworkSimGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMobileNetworkSimGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

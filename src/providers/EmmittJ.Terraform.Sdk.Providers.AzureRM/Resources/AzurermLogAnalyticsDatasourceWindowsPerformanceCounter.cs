@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
 }
 
 /// <summary>
+/// Represents a azurerm_log_analytics_datasource_windows_performance_counter Terraform resource.
 /// Manages a azurerm_log_analytics_datasource_windows_performance_counter resource.
 /// </summary>
-public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformResource
+public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(string name) : TerraformResource("azurerm_log_analytics_datasource_windows_performance_counter", name)
 {
-    public AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(string name) : base("azurerm_log_analytics_datasource_windows_performance_counter", name)
-    {
-    }
-
     /// <summary>
     /// The counter_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CounterName is required")]
-    [TerraformArgument("counter_name")]
     public required TerraformValue<string> CounterName
     {
         get => new TerraformReference<string>(this, "counter_name");
@@ -87,7 +70,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// The instance_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
-    [TerraformArgument("instance_name")]
     public required TerraformValue<string> InstanceName
     {
         get => new TerraformReference<string>(this, "instance_name");
@@ -109,7 +90,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// The interval_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalSeconds is required")]
-    [TerraformArgument("interval_seconds")]
     public required TerraformValue<double> IntervalSeconds
     {
         get => new TerraformReference<double>(this, "interval_seconds");
@@ -120,7 +100,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -131,7 +110,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// The object_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectName is required")]
-    [TerraformArgument("object_name")]
     public required TerraformValue<string> ObjectName
     {
         get => new TerraformReference<string>(this, "object_name");
@@ -142,7 +120,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -153,7 +130,6 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// The workspace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
-    [TerraformArgument("workspace_name")]
     public required TerraformValue<string> WorkspaceName
     {
         get => new TerraformReference<string>(this, "workspace_name");
@@ -161,10 +137,12 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dedicated_host_group Terraform resource.
 /// Manages a azurerm_dedicated_host_group resource.
 /// </summary>
-public class AzurermDedicatedHostGroup : TerraformResource
+public partial class AzurermDedicatedHostGroup(string name) : TerraformResource("azurerm_dedicated_host_group", name)
 {
-    public AzurermDedicatedHostGroup(string name) : base("azurerm_dedicated_host_group", name)
-    {
-    }
-
     /// <summary>
     /// The automatic_placement_enabled attribute.
     /// </summary>
-    [TerraformArgument("automatic_placement_enabled")]
     public TerraformValue<bool>? AutomaticPlacementEnabled
     {
         get => new TerraformReference<bool>(this, "automatic_placement_enabled");
@@ -86,7 +69,6 @@ public class AzurermDedicatedHostGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +79,6 @@ public class AzurermDedicatedHostGroup : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -108,7 +89,6 @@ public class AzurermDedicatedHostGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -119,7 +99,6 @@ public class AzurermDedicatedHostGroup : TerraformResource
     /// The platform_fault_domain_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomainCount is required")]
-    [TerraformArgument("platform_fault_domain_count")]
     public required TerraformValue<double> PlatformFaultDomainCount
     {
         get => new TerraformReference<double>(this, "platform_fault_domain_count");
@@ -130,7 +109,6 @@ public class AzurermDedicatedHostGroup : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -140,7 +118,6 @@ public class AzurermDedicatedHostGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -150,7 +127,6 @@ public class AzurermDedicatedHostGroup : TerraformResource
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    [TerraformArgument("zone")]
     public TerraformValue<string>? Zone
     {
         get => new TerraformReference<string>(this, "zone");
@@ -158,10 +134,12 @@ public class AzurermDedicatedHostGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDedicatedHostGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDedicatedHostGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDedicatedHostGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

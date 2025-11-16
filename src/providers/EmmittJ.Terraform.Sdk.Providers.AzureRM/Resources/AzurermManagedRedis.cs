@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for customer_managed_key in .
@@ -26,7 +17,6 @@ public class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    [TerraformArgument("key_vault_key_id")]
     public required TerraformValue<string> KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
@@ -37,7 +27,6 @@ public class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
     /// The user_assigned_identity_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
-    [TerraformArgument("user_assigned_identity_id")]
     public required TerraformValue<string> UserAssignedIdentityId
     {
         get => new TerraformReference<string>(this, "user_assigned_identity_id");
@@ -60,7 +49,6 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// <summary>
     /// The access_keys_authentication_enabled attribute.
     /// </summary>
-    [TerraformArgument("access_keys_authentication_enabled")]
     public TerraformValue<bool>? AccessKeysAuthenticationEnabled
     {
         get => new TerraformReference<bool>(this, "access_keys_authentication_enabled");
@@ -70,7 +58,6 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// <summary>
     /// The client_protocol attribute.
     /// </summary>
-    [TerraformArgument("client_protocol")]
     public TerraformValue<string>? ClientProtocol
     {
         get => new TerraformReference<string>(this, "client_protocol");
@@ -80,7 +67,6 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// <summary>
     /// The clustering_policy attribute.
     /// </summary>
-    [TerraformArgument("clustering_policy")]
     public TerraformValue<string>? ClusteringPolicy
     {
         get => new TerraformReference<string>(this, "clustering_policy");
@@ -90,7 +76,6 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    [TerraformArgument("eviction_policy")]
     public TerraformValue<string>? EvictionPolicy
     {
         get => new TerraformReference<string>(this, "eviction_policy");
@@ -100,15 +85,35 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// <summary>
     /// The geo_replication_group_name attribute.
     /// </summary>
-    [TerraformArgument("geo_replication_group_name")]
     public TerraformValue<string>? GeoReplicationGroupName
     {
         get => new TerraformReference<string>(this, "geo_replication_group_name");
         set => SetArgument("geo_replication_group_name", value);
     }
 
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformValue<double> Port
+    {
+        get => new TerraformReference<double>(this, "port");
+    }
 
+    /// <summary>
+    /// The primary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> PrimaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "primary_access_key");
+    }
 
+    /// <summary>
+    /// The secondary_access_key attribute.
+    /// </summary>
+    public TerraformValue<string> SecondaryAccessKey
+    {
+        get => new TerraformReference<string>(this, "secondary_access_key");
+    }
 
 }
 
@@ -126,20 +131,32 @@ public class AzurermManagedRedisIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -162,7 +179,6 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -172,7 +188,6 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -182,7 +197,6 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -192,7 +206,6 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -202,19 +215,14 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_managed_redis Terraform resource.
 /// Manages a azurerm_managed_redis resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermManagedRedis : TerraformResource
+public partial class AzurermManagedRedis(string name) : TerraformResource("azurerm_managed_redis", name)
 {
-    public AzurermManagedRedis(string name) : base("azurerm_managed_redis", name)
-    {
-    }
-
     /// <summary>
     /// The high_availability_enabled attribute.
     /// </summary>
-    [TerraformArgument("high_availability_enabled")]
     public TerraformValue<bool>? HighAvailabilityEnabled
     {
         get => new TerraformReference<bool>(this, "high_availability_enabled");
@@ -224,7 +232,6 @@ public class AzurermManagedRedis : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -235,7 +242,6 @@ public class AzurermManagedRedis : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -246,7 +252,6 @@ public class AzurermManagedRedis : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -257,7 +262,6 @@ public class AzurermManagedRedis : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -268,7 +272,6 @@ public class AzurermManagedRedis : TerraformResource
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformArgument("sku_name")]
     public required TerraformValue<string> SkuName
     {
         get => new TerraformReference<string>(this, "sku_name");
@@ -278,7 +281,6 @@ public class AzurermManagedRedis : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -286,43 +288,42 @@ public class AzurermManagedRedis : TerraformResource
     }
 
     /// <summary>
-    /// Block for customer_managed_key.
-    /// Nesting mode: list
+    /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    [TerraformArgument("customer_managed_key")]
-    public TerraformList<AzurermManagedRedisCustomerManagedKeyBlock> CustomerManagedKey { get; set; } = new();
+    public AzurermManagedRedisCustomerManagedKeyBlock? CustomerManagedKey
+    {
+        get => GetArgument<AzurermManagedRedisCustomerManagedKeyBlock>("customer_managed_key");
+        set => SetArgument("customer_managed_key", value);
+    }
 
     /// <summary>
-    /// Block for default_database.
-    /// Nesting mode: list
+    /// DefaultDatabase block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultDatabase block(s) allowed")]
-    [TerraformArgument("default_database")]
-    public TerraformList<AzurermManagedRedisDefaultDatabaseBlock> DefaultDatabase { get; set; } = new();
+    public AzurermManagedRedisDefaultDatabaseBlock? DefaultDatabase
+    {
+        get => GetArgument<AzurermManagedRedisDefaultDatabaseBlock>("default_database");
+        set => SetArgument("default_database", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermManagedRedisIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermManagedRedisTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The hostname attribute.
-    /// </summary>
-    [TerraformArgument("hostname")]
-    public TerraformValue<string> Hostname
+    public AzurermManagedRedisIdentityBlock? Identity
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<AzurermManagedRedisIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermManagedRedisTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermManagedRedisTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

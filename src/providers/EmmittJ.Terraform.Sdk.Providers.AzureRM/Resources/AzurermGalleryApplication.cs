@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_gallery_application Terraform resource.
 /// Manages a azurerm_gallery_application resource.
 /// </summary>
-public class AzurermGalleryApplication : TerraformResource
+public partial class AzurermGalleryApplication(string name) : TerraformResource("azurerm_gallery_application", name)
 {
-    public AzurermGalleryApplication(string name) : base("azurerm_gallery_application", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -86,7 +69,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    [TerraformArgument("end_of_life_date")]
     public TerraformValue<string>? EndOfLifeDate
     {
         get => new TerraformReference<string>(this, "end_of_life_date");
@@ -96,7 +78,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The eula attribute.
     /// </summary>
-    [TerraformArgument("eula")]
     public TerraformValue<string>? Eula
     {
         get => new TerraformReference<string>(this, "eula");
@@ -107,7 +88,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// The gallery_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryId is required")]
-    [TerraformArgument("gallery_id")]
     public required TerraformValue<string> GalleryId
     {
         get => new TerraformReference<string>(this, "gallery_id");
@@ -117,7 +97,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -128,7 +107,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -139,7 +117,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -149,7 +126,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The privacy_statement_uri attribute.
     /// </summary>
-    [TerraformArgument("privacy_statement_uri")]
     public TerraformValue<string>? PrivacyStatementUri
     {
         get => new TerraformReference<string>(this, "privacy_statement_uri");
@@ -159,7 +135,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The release_note_uri attribute.
     /// </summary>
-    [TerraformArgument("release_note_uri")]
     public TerraformValue<string>? ReleaseNoteUri
     {
         get => new TerraformReference<string>(this, "release_note_uri");
@@ -170,7 +145,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// The supported_os_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportedOsType is required")]
-    [TerraformArgument("supported_os_type")]
     public required TerraformValue<string> SupportedOsType
     {
         get => new TerraformReference<string>(this, "supported_os_type");
@@ -180,7 +154,6 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -188,10 +161,12 @@ public class AzurermGalleryApplication : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermGalleryApplicationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermGalleryApplicationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermGalleryApplicationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

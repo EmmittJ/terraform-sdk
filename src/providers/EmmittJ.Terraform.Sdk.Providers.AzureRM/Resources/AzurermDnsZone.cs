@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for soa_record in .
@@ -26,7 +17,6 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    [TerraformArgument("email")]
     public required TerraformValue<string> Email
     {
         get => new TerraformReference<string>(this, "email");
@@ -36,19 +26,31 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// <summary>
     /// The expire_time attribute.
     /// </summary>
-    [TerraformArgument("expire_time")]
     public TerraformValue<double>? ExpireTime
     {
         get => new TerraformReference<double>(this, "expire_time");
         set => SetArgument("expire_time", value);
     }
 
+    /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
 
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    public TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+    }
 
     /// <summary>
     /// The minimum_ttl attribute.
     /// </summary>
-    [TerraformArgument("minimum_ttl")]
     public TerraformValue<double>? MinimumTtl
     {
         get => new TerraformReference<double>(this, "minimum_ttl");
@@ -58,7 +60,6 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// <summary>
     /// The refresh_time attribute.
     /// </summary>
-    [TerraformArgument("refresh_time")]
     public TerraformValue<double>? RefreshTime
     {
         get => new TerraformReference<double>(this, "refresh_time");
@@ -68,7 +69,6 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// <summary>
     /// The retry_time attribute.
     /// </summary>
-    [TerraformArgument("retry_time")]
     public TerraformValue<double>? RetryTime
     {
         get => new TerraformReference<double>(this, "retry_time");
@@ -78,7 +78,6 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// <summary>
     /// The serial_number attribute.
     /// </summary>
-    [TerraformArgument("serial_number")]
     public TerraformValue<double>? SerialNumber
     {
         get => new TerraformReference<double>(this, "serial_number");
@@ -88,7 +87,6 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -98,7 +96,6 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    [TerraformArgument("ttl")]
     public TerraformValue<double>? Ttl
     {
         get => new TerraformReference<double>(this, "ttl");
@@ -121,7 +118,6 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -131,7 +127,6 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -141,7 +136,6 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -151,7 +145,6 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -161,19 +154,14 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dns_zone Terraform resource.
 /// Manages a azurerm_dns_zone resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDnsZone : TerraformResource
+public partial class AzurermDnsZone(string name) : TerraformResource("azurerm_dns_zone", name)
 {
-    public AzurermDnsZone(string name) : base("azurerm_dns_zone", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -184,7 +172,6 @@ public class AzurermDnsZone : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -195,7 +182,6 @@ public class AzurermDnsZone : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -205,7 +191,6 @@ public class AzurermDnsZone : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -213,45 +198,22 @@ public class AzurermDnsZone : TerraformResource
     }
 
     /// <summary>
-    /// Block for soa_record.
-    /// Nesting mode: list
+    /// SoaRecord block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoaRecord block(s) allowed")]
-    [TerraformArgument("soa_record")]
-    public TerraformList<AzurermDnsZoneSoaRecordBlock> SoaRecord { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDnsZoneTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The max_number_of_record_sets attribute.
-    /// </summary>
-    [TerraformArgument("max_number_of_record_sets")]
-    public TerraformValue<double> MaxNumberOfRecordSets
+    public AzurermDnsZoneSoaRecordBlock? SoaRecord
     {
-        get => new TerraformReference<double>(this, "max_number_of_record_sets");
+        get => GetArgument<AzurermDnsZoneSoaRecordBlock>("soa_record");
+        set => SetArgument("soa_record", value);
     }
 
     /// <summary>
-    /// The name_servers attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("name_servers")]
-    public TerraformSet<string> NameServers
+    public AzurermDnsZoneTimeoutsBlock? Timeouts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "name_servers").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The number_of_record_sets attribute.
-    /// </summary>
-    [TerraformArgument("number_of_record_sets")]
-    public TerraformValue<double> NumberOfRecordSets
-    {
-        get => new TerraformReference<double>(this, "number_of_record_sets");
+        get => GetArgument<AzurermDnsZoneTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

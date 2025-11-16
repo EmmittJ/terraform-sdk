@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeou
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeou
 }
 
 /// <summary>
+/// Represents a azurerm_databricks_workspace_private_endpoint_connection Terraform data source.
 /// Retrieves information about a azurerm_databricks_workspace_private_endpoint_connection.
 /// </summary>
-public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : TerraformDataSource
+public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource(string name) : TerraformDataSource("azurerm_databricks_workspace_private_endpoint_connection", name)
 {
-    public AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource(string name) : base("azurerm_databricks_workspace_private_endpoint_connection", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     /// The private_endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
-    [TerraformArgument("private_endpoint_id")]
     public required TerraformValue<string> PrivateEndpointId
     {
         get => new TerraformReference<string>(this, "private_endpoint_id");
@@ -68,7 +53,6 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -76,19 +60,12 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The connections attribute.
-    /// </summary>
-    [TerraformArgument("connections")]
-    public TerraformList<object> Connections
+    public AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "connections").ResolveNodes(ctx));
+        get => GetArgument<AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

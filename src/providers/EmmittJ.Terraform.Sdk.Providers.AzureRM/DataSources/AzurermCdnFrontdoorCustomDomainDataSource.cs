@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock : TerraformB
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock : TerraformB
 }
 
 /// <summary>
+/// Represents a azurerm_cdn_frontdoor_custom_domain Terraform data source.
 /// Retrieves information about a azurerm_cdn_frontdoor_custom_domain.
 /// </summary>
-public class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
+public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : TerraformDataSource("azurerm_cdn_frontdoor_custom_domain", name)
 {
-    public AzurermCdnFrontdoorCustomDomainDataSource(string name) : base("azurerm_cdn_frontdoor_custom_domain", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
     /// The profile_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
-    [TerraformArgument("profile_name")]
     public required TerraformValue<string> ProfileName
     {
         get => new TerraformReference<string>(this, "profile_name");
@@ -79,7 +63,6 @@ public class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -87,64 +70,12 @@ public class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The cdn_frontdoor_profile_id attribute.
-    /// </summary>
-    [TerraformArgument("cdn_frontdoor_profile_id")]
-    public TerraformValue<string> CdnFrontdoorProfileId
+    public AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
-    }
-
-    /// <summary>
-    /// The dns_zone_id attribute.
-    /// </summary>
-    [TerraformArgument("dns_zone_id")]
-    public TerraformValue<string> DnsZoneId
-    {
-        get => new TerraformReference<string>(this, "dns_zone_id");
-    }
-
-    /// <summary>
-    /// The expiration_date attribute.
-    /// </summary>
-    [TerraformArgument("expiration_date")]
-    public TerraformValue<string> ExpirationDate
-    {
-        get => new TerraformReference<string>(this, "expiration_date");
-    }
-
-    /// <summary>
-    /// The host_name attribute.
-    /// </summary>
-    [TerraformArgument("host_name")]
-    public TerraformValue<string> HostName
-    {
-        get => new TerraformReference<string>(this, "host_name");
-    }
-
-    /// <summary>
-    /// The tls attribute.
-    /// </summary>
-    [TerraformArgument("tls")]
-    public TerraformList<object> Tls
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "tls").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The validation_token attribute.
-    /// </summary>
-    [TerraformArgument("validation_token")]
-    public TerraformValue<string> ValidationToken
-    {
-        get => new TerraformReference<string>(this, "validation_token");
+        get => GetArgument<AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

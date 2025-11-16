@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for environment_properties in .
@@ -35,13 +26,26 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "identity";
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -64,19 +68,24 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// <summary>
     /// The billing_cycle attribute.
     /// </summary>
-    [TerraformArgument("billing_cycle")]
     public TerraformValue<string>? BillingCycle
     {
         get => new TerraformReference<string>(this, "billing_cycle");
         set => SetArgument("billing_cycle", value);
     }
 
+    /// <summary>
+    /// The effective_date attribute.
+    /// </summary>
+    public TerraformValue<string> EffectiveDate
+    {
+        get => new TerraformReference<string>(this, "effective_date");
+    }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
-    [TerraformArgument("plan")]
     public required TerraformValue<string> Plan
     {
         get => new TerraformReference<string>(this, "plan");
@@ -86,7 +95,6 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// <summary>
     /// The usage_type attribute.
     /// </summary>
-    [TerraformArgument("usage_type")]
     public TerraformValue<string>? UsageType
     {
         get => new TerraformReference<string>(this, "usage_type");
@@ -109,7 +117,6 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -119,7 +126,6 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -129,7 +135,6 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -139,7 +144,6 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -163,7 +167,6 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     /// The country attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Country is required")]
-    [TerraformArgument("country")]
     public required TerraformValue<string> Country
     {
         get => new TerraformReference<string>(this, "country");
@@ -174,7 +177,6 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    [TerraformArgument("email")]
     public required TerraformValue<string> Email
     {
         get => new TerraformReference<string>(this, "email");
@@ -185,7 +187,6 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     /// The first_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
-    [TerraformArgument("first_name")]
     public required TerraformValue<string> FirstName
     {
         get => new TerraformReference<string>(this, "first_name");
@@ -196,7 +197,6 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     /// The last_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
-    [TerraformArgument("last_name")]
     public required TerraformValue<string> LastName
     {
         get => new TerraformReference<string>(this, "last_name");
@@ -207,7 +207,6 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     /// The phone_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
-    [TerraformArgument("phone_number")]
     public required TerraformValue<string> PhoneNumber
     {
         get => new TerraformReference<string>(this, "phone_number");
@@ -217,19 +216,14 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dynatrace_monitor Terraform resource.
 /// Manages a azurerm_dynatrace_monitor resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDynatraceMonitor : TerraformResource
+public partial class AzurermDynatraceMonitor(string name) : TerraformResource("azurerm_dynatrace_monitor", name)
 {
-    public AzurermDynatraceMonitor(string name) : base("azurerm_dynatrace_monitor", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -240,7 +234,6 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -251,7 +244,6 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// The marketplace_subscription attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MarketplaceSubscription is required")]
-    [TerraformArgument("marketplace_subscription")]
     public required TerraformValue<string> MarketplaceSubscription
     {
         get => new TerraformReference<string>(this, "marketplace_subscription");
@@ -261,7 +253,6 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
-    [TerraformArgument("monitoring_enabled")]
     public TerraformValue<bool>? MonitoringEnabled
     {
         get => new TerraformReference<bool>(this, "monitoring_enabled");
@@ -272,7 +263,6 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -283,7 +273,6 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -293,7 +282,6 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -301,47 +289,60 @@ public class AzurermDynatraceMonitor : TerraformResource
     }
 
     /// <summary>
-    /// Block for environment_properties.
-    /// Nesting mode: list
+    /// EnvironmentProperties block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("environment_properties")]
-    public TerraformList<AzurermDynatraceMonitorEnvironmentPropertiesBlock> EnvironmentProperties { get; set; } = new();
+    public AzurermDynatraceMonitorEnvironmentPropertiesBlock? EnvironmentProperties
+    {
+        get => GetArgument<AzurermDynatraceMonitorEnvironmentPropertiesBlock>("environment_properties");
+        set => SetArgument("environment_properties", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public required TerraformList<AzurermDynatraceMonitorIdentityBlock> Identity { get; set; } = new();
+    public required AzurermDynatraceMonitorIdentityBlock Identity
+    {
+        get => GetRequiredArgument<AzurermDynatraceMonitorIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for plan.
-    /// Nesting mode: list
+    /// Plan block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    [TerraformArgument("plan")]
-    public required TerraformList<AzurermDynatraceMonitorPlanBlock> Plan { get; set; } = new();
+    public required AzurermDynatraceMonitorPlanBlock Plan
+    {
+        get => GetRequiredArgument<AzurermDynatraceMonitorPlanBlock>("plan");
+        set => SetArgument("plan", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDynatraceMonitorTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDynatraceMonitorTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDynatraceMonitorTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for user.
-    /// Nesting mode: list
+    /// User block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
-    [TerraformArgument("user")]
-    public required TerraformList<AzurermDynatraceMonitorUserBlock> User { get; set; } = new();
+    public required AzurermDynatraceMonitorUserBlock User
+    {
+        get => GetRequiredArgument<AzurermDynatraceMonitorUserBlock>("user");
+        set => SetArgument("user", value);
+    }
 
 }

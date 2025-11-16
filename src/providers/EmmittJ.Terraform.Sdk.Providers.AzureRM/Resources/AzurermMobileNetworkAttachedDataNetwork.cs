@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for network_address_port_translation in .
@@ -25,7 +16,6 @@ public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslatio
     /// <summary>
     /// The icmp_pinhole_timeout_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("icmp_pinhole_timeout_in_seconds")]
     public TerraformValue<double>? IcmpPinholeTimeoutInSeconds
     {
         get => new TerraformReference<double>(this, "icmp_pinhole_timeout_in_seconds");
@@ -35,7 +25,6 @@ public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslatio
     /// <summary>
     /// The pinhole_maximum_number attribute.
     /// </summary>
-    [TerraformArgument("pinhole_maximum_number")]
     public TerraformValue<double>? PinholeMaximumNumber
     {
         get => new TerraformReference<double>(this, "pinhole_maximum_number");
@@ -45,7 +34,6 @@ public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslatio
     /// <summary>
     /// The tcp_pinhole_timeout_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("tcp_pinhole_timeout_in_seconds")]
     public TerraformValue<double>? TcpPinholeTimeoutInSeconds
     {
         get => new TerraformReference<double>(this, "tcp_pinhole_timeout_in_seconds");
@@ -55,7 +43,6 @@ public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslatio
     /// <summary>
     /// The tcp_port_reuse_minimum_hold_time_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("tcp_port_reuse_minimum_hold_time_in_seconds")]
     public TerraformValue<double>? TcpPortReuseMinimumHoldTimeInSeconds
     {
         get => new TerraformReference<double>(this, "tcp_port_reuse_minimum_hold_time_in_seconds");
@@ -65,7 +52,6 @@ public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslatio
     /// <summary>
     /// The udp_pinhole_timeout_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("udp_pinhole_timeout_in_seconds")]
     public TerraformValue<double>? UdpPinholeTimeoutInSeconds
     {
         get => new TerraformReference<double>(this, "udp_pinhole_timeout_in_seconds");
@@ -75,7 +61,6 @@ public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslatio
     /// <summary>
     /// The udp_port_reuse_minimum_hold_time_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("udp_port_reuse_minimum_hold_time_in_seconds")]
     public TerraformValue<double>? UdpPortReuseMinimumHoldTimeInSeconds
     {
         get => new TerraformReference<double>(this, "udp_port_reuse_minimum_hold_time_in_seconds");
@@ -98,7 +83,6 @@ public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -108,7 +92,6 @@ public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -118,7 +101,6 @@ public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -128,7 +110,6 @@ public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -138,20 +119,15 @@ public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_mobile_network_attached_data_network Terraform resource.
 /// Manages a azurerm_mobile_network_attached_data_network resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
+public partial class AzurermMobileNetworkAttachedDataNetwork(string name) : TerraformResource("azurerm_mobile_network_attached_data_network", name)
 {
-    public AzurermMobileNetworkAttachedDataNetwork(string name) : base("azurerm_mobile_network_attached_data_network", name)
-    {
-    }
-
     /// <summary>
     /// The dns_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsAddresses is required")]
-    [TerraformArgument("dns_addresses")]
     public TerraformList<string>? DnsAddresses
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_addresses").ResolveNodes(ctx));
@@ -161,7 +137,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -172,7 +147,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -183,7 +157,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// The mobile_network_data_network_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkDataNetworkName is required")]
-    [TerraformArgument("mobile_network_data_network_name")]
     public required TerraformValue<string> MobileNetworkDataNetworkName
     {
         get => new TerraformReference<string>(this, "mobile_network_data_network_name");
@@ -194,7 +167,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// The mobile_network_packet_core_data_plane_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreDataPlaneId is required")]
-    [TerraformArgument("mobile_network_packet_core_data_plane_id")]
     public required TerraformValue<string> MobileNetworkPacketCoreDataPlaneId
     {
         get => new TerraformReference<string>(this, "mobile_network_packet_core_data_plane_id");
@@ -204,7 +176,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -214,7 +185,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The user_equipment_address_pool_prefixes attribute.
     /// </summary>
-    [TerraformArgument("user_equipment_address_pool_prefixes")]
     public TerraformList<string>? UserEquipmentAddressPoolPrefixes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_equipment_address_pool_prefixes").ResolveNodes(ctx));
@@ -224,7 +194,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The user_equipment_static_address_pool_prefixes attribute.
     /// </summary>
-    [TerraformArgument("user_equipment_static_address_pool_prefixes")]
     public TerraformList<string>? UserEquipmentStaticAddressPoolPrefixes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_equipment_static_address_pool_prefixes").ResolveNodes(ctx));
@@ -234,7 +203,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The user_plane_access_ipv4_address attribute.
     /// </summary>
-    [TerraformArgument("user_plane_access_ipv4_address")]
     public TerraformValue<string>? UserPlaneAccessIpv4Address
     {
         get => new TerraformReference<string>(this, "user_plane_access_ipv4_address");
@@ -244,7 +212,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The user_plane_access_ipv4_gateway attribute.
     /// </summary>
-    [TerraformArgument("user_plane_access_ipv4_gateway")]
     public TerraformValue<string>? UserPlaneAccessIpv4Gateway
     {
         get => new TerraformReference<string>(this, "user_plane_access_ipv4_gateway");
@@ -254,7 +221,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The user_plane_access_ipv4_subnet attribute.
     /// </summary>
-    [TerraformArgument("user_plane_access_ipv4_subnet")]
     public TerraformValue<string>? UserPlaneAccessIpv4Subnet
     {
         get => new TerraformReference<string>(this, "user_plane_access_ipv4_subnet");
@@ -264,7 +230,6 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The user_plane_access_name attribute.
     /// </summary>
-    [TerraformArgument("user_plane_access_name")]
     public TerraformValue<string>? UserPlaneAccessName
     {
         get => new TerraformReference<string>(this, "user_plane_access_name");
@@ -272,18 +237,22 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     }
 
     /// <summary>
-    /// Block for network_address_port_translation.
-    /// Nesting mode: list
+    /// NetworkAddressPortTranslation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAddressPortTranslation block(s) allowed")]
-    [TerraformArgument("network_address_port_translation")]
-    public TerraformList<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock> NetworkAddressPortTranslation { get; set; } = new();
+    public AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock? NetworkAddressPortTranslation
+    {
+        get => GetArgument<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock>("network_address_port_translation");
+        set => SetArgument("network_address_port_translation", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for open_api in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : TerraformBlock
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    [TerraformArgument("uri")]
     public TerraformValue<string>? Uri
     {
         get => new TerraformReference<string>(this, "uri");
@@ -48,7 +38,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// <summary>
     /// The classification_tags attribute.
     /// </summary>
-    [TerraformArgument("classification_tags")]
     public TerraformSet<string>? ClassificationTags
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "classification_tags").ResolveNodes(ctx));
@@ -58,7 +47,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -68,7 +56,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// <summary>
     /// The filters attribute.
     /// </summary>
-    [TerraformArgument("filters")]
     public TerraformSet<string>? Filters
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "filters").ResolveNodes(ctx));
@@ -79,7 +66,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    [TerraformArgument("order")]
     public required TerraformValue<double> Order
     {
         get => new TerraformReference<double>(this, "order");
@@ -89,7 +75,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// <summary>
     /// The predicates attribute.
     /// </summary>
-    [TerraformArgument("predicates")]
     public TerraformSet<string>? Predicates
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "predicates").ResolveNodes(ctx));
@@ -99,7 +84,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// <summary>
     /// The sso_validation_enabled attribute.
     /// </summary>
-    [TerraformArgument("sso_validation_enabled")]
     public TerraformValue<bool>? SsoValidationEnabled
     {
         get => new TerraformReference<bool>(this, "sso_validation_enabled");
@@ -109,7 +93,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// <summary>
     /// The title attribute.
     /// </summary>
-    [TerraformArgument("title")]
     public TerraformValue<string>? Title
     {
         get => new TerraformReference<string>(this, "title");
@@ -119,7 +102,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// <summary>
     /// The token_relay attribute.
     /// </summary>
-    [TerraformArgument("token_relay")]
     public TerraformValue<bool>? TokenRelay
     {
         get => new TerraformReference<bool>(this, "token_relay");
@@ -129,7 +111,6 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    [TerraformArgument("uri")]
     public TerraformValue<string>? Uri
     {
         get => new TerraformReference<string>(this, "uri");
@@ -152,7 +133,6 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -162,7 +142,6 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -172,7 +151,6 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -182,7 +160,6 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -192,19 +169,14 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_gateway_route_config Terraform resource.
 /// Manages a azurerm_spring_cloud_gateway_route_config resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
+public partial class AzurermSpringCloudGatewayRouteConfig(string name) : TerraformResource("azurerm_spring_cloud_gateway_route_config", name)
 {
-    public AzurermSpringCloudGatewayRouteConfig(string name) : base("azurerm_spring_cloud_gateway_route_config", name)
-    {
-    }
-
     /// <summary>
     /// The filters attribute.
     /// </summary>
-    [TerraformArgument("filters")]
     public TerraformSet<string>? Filters
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "filters").ResolveNodes(ctx));
@@ -214,7 +186,6 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -225,7 +196,6 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -235,7 +205,6 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// <summary>
     /// The predicates attribute.
     /// </summary>
-    [TerraformArgument("predicates")]
     public TerraformSet<string>? Predicates
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "predicates").ResolveNodes(ctx));
@@ -246,7 +215,6 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -256,7 +224,6 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    [TerraformArgument("spring_cloud_app_id")]
     public TerraformValue<string>? SpringCloudAppId
     {
         get => new TerraformReference<string>(this, "spring_cloud_app_id");
@@ -267,7 +234,6 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// The spring_cloud_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudGatewayId is required")]
-    [TerraformArgument("spring_cloud_gateway_id")]
     public required TerraformValue<string> SpringCloudGatewayId
     {
         get => new TerraformReference<string>(this, "spring_cloud_gateway_id");
@@ -277,7 +243,6 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// <summary>
     /// The sso_validation_enabled attribute.
     /// </summary>
-    [TerraformArgument("sso_validation_enabled")]
     public TerraformValue<bool>? SsoValidationEnabled
     {
         get => new TerraformReference<bool>(this, "sso_validation_enabled");
@@ -285,25 +250,31 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     }
 
     /// <summary>
-    /// Block for open_api.
-    /// Nesting mode: list
+    /// OpenApi block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApi block(s) allowed")]
-    [TerraformArgument("open_api")]
-    public TerraformList<AzurermSpringCloudGatewayRouteConfigOpenApiBlock> OpenApi { get; set; } = new();
+    public AzurermSpringCloudGatewayRouteConfigOpenApiBlock? OpenApi
+    {
+        get => GetArgument<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>("open_api");
+        set => SetArgument("open_api", value);
+    }
 
     /// <summary>
-    /// Block for route.
-    /// Nesting mode: set
+    /// Route block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("route")]
-    public TerraformSet<AzurermSpringCloudGatewayRouteConfigRouteBlock> Route { get; set; } = new();
+    public AzurermSpringCloudGatewayRouteConfigRouteBlock? Route
+    {
+        get => GetArgument<AzurermSpringCloudGatewayRouteConfigRouteBlock>("route");
+        set => SetArgument("route", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudGatewayRouteConfigTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSpringCloudGatewayRouteConfigTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSpringCloudGatewayRouteConfigTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

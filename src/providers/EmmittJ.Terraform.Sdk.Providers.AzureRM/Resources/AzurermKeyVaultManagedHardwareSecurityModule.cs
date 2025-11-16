@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for network_acls in .
@@ -26,7 +17,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : Terr
     /// The bypass attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bypass is required")]
-    [TerraformArgument("bypass")]
     public required TerraformValue<string> Bypass
     {
         get => new TerraformReference<string>(this, "bypass");
@@ -37,7 +27,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : Terr
     /// The default_action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
-    [TerraformArgument("default_action")]
     public required TerraformValue<string> DefaultAction
     {
         get => new TerraformReference<string>(this, "default_action");
@@ -60,7 +49,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,20 +85,15 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_managed_hardware_security_module Terraform resource.
 /// Manages a azurerm_key_vault_managed_hardware_security_module resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
+public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) : TerraformResource("azurerm_key_vault_managed_hardware_security_module", name)
 {
-    public AzurermKeyVaultManagedHardwareSecurityModule(string name) : base("azurerm_key_vault_managed_hardware_security_module", name)
-    {
-    }
-
     /// <summary>
     /// The admin_object_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminObjectIds is required")]
-    [TerraformArgument("admin_object_ids")]
     public required TerraformSet<string> AdminObjectIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "admin_object_ids").ResolveNodes(ctx));
@@ -123,7 +103,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -134,7 +113,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -145,7 +123,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -155,7 +132,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -165,7 +141,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
-    [TerraformArgument("purge_protection_enabled")]
     public TerraformValue<bool>? PurgeProtectionEnabled
     {
         get => new TerraformReference<bool>(this, "purge_protection_enabled");
@@ -176,7 +151,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -186,7 +160,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The security_domain_key_vault_certificate_ids attribute.
     /// </summary>
-    [TerraformArgument("security_domain_key_vault_certificate_ids")]
     public TerraformList<string>? SecurityDomainKeyVaultCertificateIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "security_domain_key_vault_certificate_ids").ResolveNodes(ctx));
@@ -196,7 +169,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The security_domain_quorum attribute.
     /// </summary>
-    [TerraformArgument("security_domain_quorum")]
     public TerraformValue<double>? SecurityDomainQuorum
     {
         get => new TerraformReference<double>(this, "security_domain_quorum");
@@ -207,7 +179,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformArgument("sku_name")]
     public required TerraformValue<string> SkuName
     {
         get => new TerraformReference<string>(this, "sku_name");
@@ -217,7 +188,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The soft_delete_retention_days attribute.
     /// </summary>
-    [TerraformArgument("soft_delete_retention_days")]
     public TerraformValue<double>? SoftDeleteRetentionDays
     {
         get => new TerraformReference<double>(this, "soft_delete_retention_days");
@@ -227,7 +197,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -238,7 +207,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    [TerraformArgument("tenant_id")]
     public required TerraformValue<string> TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -246,36 +214,22 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     }
 
     /// <summary>
-    /// Block for network_acls.
-    /// Nesting mode: list
+    /// NetworkAcls block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
-    [TerraformArgument("network_acls")]
-    public TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock> NetworkAcls { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The hsm_uri attribute.
-    /// </summary>
-    [TerraformArgument("hsm_uri")]
-    public TerraformValue<string> HsmUri
+    public AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock? NetworkAcls
     {
-        get => new TerraformReference<string>(this, "hsm_uri");
+        get => GetArgument<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>("network_acls");
+        set => SetArgument("network_acls", value);
     }
 
     /// <summary>
-    /// The security_domain_encrypted_data attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("security_domain_encrypted_data")]
-    public TerraformValue<string> SecurityDomainEncryptedData
+    public AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "security_domain_encrypted_data");
+        get => GetArgument<AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

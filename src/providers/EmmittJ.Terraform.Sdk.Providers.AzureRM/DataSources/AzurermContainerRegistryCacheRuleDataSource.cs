@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : Terrafor
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : Terrafor
 }
 
 /// <summary>
+/// Represents a azurerm_container_registry_cache_rule Terraform data source.
 /// Retrieves information about a azurerm_container_registry_cache_rule.
 /// </summary>
-public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
+public partial class AzurermContainerRegistryCacheRuleDataSource(string name) : TerraformDataSource("azurerm_container_registry_cache_rule", name)
 {
-    public AzurermContainerRegistryCacheRuleDataSource(string name) : base("azurerm_container_registry_cache_rule", name)
-    {
-    }
-
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
-    [TerraformArgument("container_registry_id")]
     public required TerraformValue<string> ContainerRegistryId
     {
         get => new TerraformReference<string>(this, "container_registry_id");
@@ -57,7 +43,6 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -68,7 +53,6 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -76,37 +60,12 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The credential_set_id attribute.
-    /// </summary>
-    [TerraformArgument("credential_set_id")]
-    public TerraformValue<string> CredentialSetId
+    public AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "credential_set_id");
-    }
-
-    /// <summary>
-    /// The source_repo attribute.
-    /// </summary>
-    [TerraformArgument("source_repo")]
-    public TerraformValue<string> SourceRepo
-    {
-        get => new TerraformReference<string>(this, "source_repo");
-    }
-
-    /// <summary>
-    /// The target_repo attribute.
-    /// </summary>
-    [TerraformArgument("target_repo")]
-    public TerraformValue<string> TargetRepo
-    {
-        get => new TerraformReference<string>(this, "target_repo");
+        get => GetArgument<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

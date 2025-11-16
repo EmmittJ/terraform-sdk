@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for pipeline in .
@@ -26,7 +17,6 @@ public class AzurermDataFactoryTriggerCustomEventPipelineBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -36,7 +26,6 @@ public class AzurermDataFactoryTriggerCustomEventPipelineBlock : TerraformBlock
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -59,7 +48,6 @@ public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,19 +84,14 @@ public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_trigger_custom_event Terraform resource.
 /// Manages a azurerm_data_factory_trigger_custom_event resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
+public partial class AzurermDataFactoryTriggerCustomEvent(string name) : TerraformResource("azurerm_data_factory_trigger_custom_event", name)
 {
-    public AzurermDataFactoryTriggerCustomEvent(string name) : base("azurerm_data_factory_trigger_custom_event", name)
-    {
-    }
-
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    [TerraformArgument("activated")]
     public TerraformValue<bool>? Activated
     {
         get => new TerraformReference<bool>(this, "activated");
@@ -121,7 +101,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -131,7 +110,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -142,7 +120,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -152,7 +129,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -163,7 +139,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// The eventgrid_topic_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicId is required")]
-    [TerraformArgument("eventgrid_topic_id")]
     public required TerraformValue<string> EventgridTopicId
     {
         get => new TerraformReference<string>(this, "eventgrid_topic_id");
@@ -174,7 +149,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// The events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
-    [TerraformArgument("events")]
     public required TerraformSet<string> Events
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "events").ResolveNodes(ctx));
@@ -184,7 +158,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -195,7 +168,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -205,7 +177,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The subject_begins_with attribute.
     /// </summary>
-    [TerraformArgument("subject_begins_with")]
     public TerraformValue<string>? SubjectBeginsWith
     {
         get => new TerraformReference<string>(this, "subject_begins_with");
@@ -215,7 +186,6 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The subject_ends_with attribute.
     /// </summary>
-    [TerraformArgument("subject_ends_with")]
     public TerraformValue<string>? SubjectEndsWith
     {
         get => new TerraformReference<string>(this, "subject_ends_with");
@@ -223,19 +193,24 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     }
 
     /// <summary>
-    /// Block for pipeline.
-    /// Nesting mode: set
+    /// Pipeline block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
-    [TerraformArgument("pipeline")]
-    public required TerraformSet<AzurermDataFactoryTriggerCustomEventPipelineBlock> Pipeline { get; set; } = new();
+    public required AzurermDataFactoryTriggerCustomEventPipelineBlock Pipeline
+    {
+        get => GetRequiredArgument<AzurermDataFactoryTriggerCustomEventPipelineBlock>("pipeline");
+        set => SetArgument("pipeline", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryTriggerCustomEventTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryTriggerCustomEventTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryTriggerCustomEventTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

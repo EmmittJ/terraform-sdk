@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for metadata in .
@@ -26,7 +17,6 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     /// The name of the Metadata configuration item.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -36,7 +26,6 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     /// <summary>
     /// The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
     /// </summary>
-    [TerraformArgument("secret_name")]
     public TerraformValue<string>? SecretName
     {
         get => new TerraformReference<string>(this, "secret_name");
@@ -46,7 +35,6 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     /// <summary>
     /// The value for this metadata configuration item.
     /// </summary>
-    [TerraformArgument("value")]
     public TerraformValue<string>? Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -69,7 +57,6 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// <summary>
     /// The identity to use for accessing key vault reference.
     /// </summary>
-    [TerraformArgument("identity")]
     public TerraformValue<string>? Identity
     {
         get => new TerraformReference<string>(this, "identity");
@@ -79,7 +66,6 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// <summary>
     /// The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
     /// </summary>
-    [TerraformArgument("key_vault_secret_id")]
     public TerraformValue<string>? KeyVaultSecretId
     {
         get => new TerraformReference<string>(this, "key_vault_secret_id");
@@ -90,7 +76,6 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// The secret name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -100,7 +85,6 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// <summary>
     /// The value for this secret.
     /// </summary>
-    [TerraformArgument("value")]
     public TerraformValue<string>? Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -123,7 +107,6 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -133,7 +116,6 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -143,7 +125,6 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -153,7 +134,6 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -163,19 +143,15 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
 }
 
 /// <summary>
+/// Represents a azurerm_container_app_environment_dapr_component Terraform resource.
 /// Manages a azurerm_container_app_environment_dapr_component resource.
 /// </summary>
-public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
+public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : TerraformResource("azurerm_container_app_environment_dapr_component", name)
 {
-    public AzurermContainerAppEnvironmentDaprComponent(string name) : base("azurerm_container_app_environment_dapr_component", name)
-    {
-    }
-
     /// <summary>
     /// The Dapr Component Type. For example `state.azure.blobstorage`.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentType is required")]
-    [TerraformArgument("component_type")]
     public required TerraformValue<string> ComponentType
     {
         get => new TerraformReference<string>(this, "component_type");
@@ -186,7 +162,6 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// The Container App Managed Environment ID to configure this Dapr component on.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
-    [TerraformArgument("container_app_environment_id")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
         get => new TerraformReference<string>(this, "container_app_environment_id");
@@ -196,7 +171,6 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -206,7 +180,6 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// <summary>
     /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
     /// </summary>
-    [TerraformArgument("ignore_errors")]
     public TerraformValue<bool>? IgnoreErrors
     {
         get => new TerraformReference<bool>(this, "ignore_errors");
@@ -216,7 +189,6 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// <summary>
     /// The component initialisation timeout in ISO8601 format. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
     /// </summary>
-    [TerraformArgument("init_timeout")]
     public TerraformValue<string>? InitTimeout
     {
         get => new TerraformReference<string>(this, "init_timeout");
@@ -227,7 +199,6 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// The name for this Dapr Component.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -237,7 +208,6 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// <summary>
     /// A list of scopes to which this component applies. e.g. a Container App&#39;s `dapr.app_id` value.
     /// </summary>
-    [TerraformArgument("scopes")]
     public TerraformList<string>? Scopes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
@@ -248,7 +218,6 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// The version of the component.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -256,24 +225,30 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     }
 
     /// <summary>
-    /// Block for metadata.
-    /// Nesting mode: list
+    /// Metadata block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("metadata")]
-    public TerraformList<AzurermContainerAppEnvironmentDaprComponentMetadataBlock> Metadata { get; set; } = new();
+    public AzurermContainerAppEnvironmentDaprComponentMetadataBlock? Metadata
+    {
+        get => GetArgument<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>("metadata");
+        set => SetArgument("metadata", value);
+    }
 
     /// <summary>
-    /// Block for secret.
-    /// Nesting mode: set
+    /// Secret block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("secret")]
-    public TerraformSet<AzurermContainerAppEnvironmentDaprComponentSecretBlock> Secret { get; set; } = new();
+    public AzurermContainerAppEnvironmentDaprComponentSecretBlock? Secret
+    {
+        get => GetArgument<AzurermContainerAppEnvironmentDaprComponentSecretBlock>("secret");
+        set => SetArgument("secret", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

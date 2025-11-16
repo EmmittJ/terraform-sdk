@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for sink in .
@@ -25,7 +16,6 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -36,7 +26,6 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -59,7 +48,6 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlock
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -70,7 +58,6 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -93,7 +80,6 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -103,7 +89,6 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -113,7 +98,6 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -123,7 +107,6 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -146,7 +129,6 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlock : TerraformBlo
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -157,7 +139,6 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlock : TerraformBlo
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -167,18 +148,14 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_flowlet_data_flow Terraform resource.
 /// Manages a azurerm_data_factory_flowlet_data_flow resource.
 /// </summary>
-public class AzurermDataFactoryFlowletDataFlow : TerraformResource
+public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformResource("azurerm_data_factory_flowlet_data_flow", name)
 {
-    public AzurermDataFactoryFlowletDataFlow(string name) : base("azurerm_data_factory_flowlet_data_flow", name)
-    {
-    }
-
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -189,7 +166,6 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -199,7 +175,6 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -209,7 +184,6 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    [TerraformArgument("folder")]
     public TerraformValue<string>? Folder
     {
         get => new TerraformReference<string>(this, "folder");
@@ -219,7 +193,6 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -230,7 +203,6 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -240,7 +212,6 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// <summary>
     /// The script attribute.
     /// </summary>
-    [TerraformArgument("script")]
     public TerraformValue<string>? Script
     {
         get => new TerraformReference<string>(this, "script");
@@ -250,7 +221,6 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// <summary>
     /// The script_lines attribute.
     /// </summary>
-    [TerraformArgument("script_lines")]
     public TerraformList<string>? ScriptLines
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "script_lines").ResolveNodes(ctx));
@@ -258,31 +228,39 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     }
 
     /// <summary>
-    /// Block for sink.
-    /// Nesting mode: list
+    /// Sink block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("sink")]
-    public TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlock> Sink { get; set; } = new();
+    public AzurermDataFactoryFlowletDataFlowSinkBlock? Sink
+    {
+        get => GetArgument<AzurermDataFactoryFlowletDataFlowSinkBlock>("sink");
+        set => SetArgument("sink", value);
+    }
 
     /// <summary>
-    /// Block for source.
-    /// Nesting mode: list
+    /// Source block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("source")]
-    public TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlock> Source { get; set; } = new();
+    public AzurermDataFactoryFlowletDataFlowSourceBlock? Source
+    {
+        get => GetArgument<AzurermDataFactoryFlowletDataFlowSourceBlock>("source");
+        set => SetArgument("source", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryFlowletDataFlowTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryFlowletDataFlowTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryFlowletDataFlowTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for transformation.
-    /// Nesting mode: list
+    /// Transformation block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("transformation")]
-    public TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlock> Transformation { get; set; } = new();
+    public AzurermDataFactoryFlowletDataFlowTransformationBlock? Transformation
+    {
+        get => GetArgument<AzurermDataFactoryFlowletDataFlowTransformationBlock>("transformation");
+        set => SetArgument("transformation", value);
+    }
 
 }

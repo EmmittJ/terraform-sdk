@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSentinelDataConnectorAzureAdvancedThreatProtectionTimeoutsBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSentinelDataConnectorAzureAdvancedThreatProtectionTimeoutsBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSentinelDataConnectorAzureAdvancedThreatProtectionTimeoutsBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermSentinelDataConnectorAzureAdvancedThreatProtectionTimeoutsBl
 }
 
 /// <summary>
+/// Represents a azurerm_sentinel_data_connector_azure_advanced_threat_protection Terraform resource.
 /// Manages a azurerm_sentinel_data_connector_azure_advanced_threat_protection resource.
 /// </summary>
-public class AzurermSentinelDataConnectorAzureAdvancedThreatProtection : TerraformResource
+public partial class AzurermSentinelDataConnectorAzureAdvancedThreatProtection(string name) : TerraformResource("azurerm_sentinel_data_connector_azure_advanced_threat_protection", name)
 {
-    public AzurermSentinelDataConnectorAzureAdvancedThreatProtection(string name) : base("azurerm_sentinel_data_connector_azure_advanced_threat_protection", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermSentinelDataConnectorAzureAdvancedThreatProtection : Terrafo
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    [TerraformArgument("log_analytics_workspace_id")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
         get => new TerraformReference<string>(this, "log_analytics_workspace_id");
@@ -88,7 +71,6 @@ public class AzurermSentinelDataConnectorAzureAdvancedThreatProtection : Terrafo
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -98,7 +80,6 @@ public class AzurermSentinelDataConnectorAzureAdvancedThreatProtection : Terrafo
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformArgument("tenant_id")]
     public TerraformValue<string> TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -106,10 +87,12 @@ public class AzurermSentinelDataConnectorAzureAdvancedThreatProtection : Terrafo
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSentinelDataConnectorAzureAdvancedThreatProtectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSentinelDataConnectorAzureAdvancedThreatProtectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSentinelDataConnectorAzureAdvancedThreatProtectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

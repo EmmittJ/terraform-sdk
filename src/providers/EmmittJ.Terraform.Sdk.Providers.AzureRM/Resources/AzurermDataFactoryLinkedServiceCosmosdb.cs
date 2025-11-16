@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdbTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdbTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdbTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdbTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermDataFactoryLinkedServiceCosmosdbTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_linked_service_cosmosdb Terraform resource.
 /// Manages a azurerm_data_factory_linked_service_cosmosdb resource.
 /// </summary>
-public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
+public partial class AzurermDataFactoryLinkedServiceCosmosdb(string name) : TerraformResource("azurerm_data_factory_linked_service_cosmosdb", name)
 {
-    public AzurermDataFactoryLinkedServiceCosmosdb(string name) : base("azurerm_data_factory_linked_service_cosmosdb", name)
-    {
-    }
-
     /// <summary>
     /// The account_endpoint attribute.
     /// </summary>
-    [TerraformArgument("account_endpoint")]
     public TerraformValue<string>? AccountEndpoint
     {
         get => new TerraformReference<string>(this, "account_endpoint");
@@ -86,7 +69,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The account_key attribute.
     /// </summary>
-    [TerraformArgument("account_key")]
     public TerraformValue<string>? AccountKey
     {
         get => new TerraformReference<string>(this, "account_key");
@@ -96,7 +78,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -106,7 +87,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -116,7 +96,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    [TerraformArgument("connection_string")]
     public TerraformValue<string>? ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -127,7 +106,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -137,7 +115,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The database attribute.
     /// </summary>
-    [TerraformArgument("database")]
     public TerraformValue<string>? Database
     {
         get => new TerraformReference<string>(this, "database");
@@ -147,7 +124,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -157,7 +133,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -167,7 +142,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    [TerraformArgument("integration_runtime_name")]
     public TerraformValue<string>? IntegrationRuntimeName
     {
         get => new TerraformReference<string>(this, "integration_runtime_name");
@@ -178,7 +152,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -188,7 +161,6 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -196,10 +168,12 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryLinkedServiceCosmosdbTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryLinkedServiceCosmosdbTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryLinkedServiceCosmosdbTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

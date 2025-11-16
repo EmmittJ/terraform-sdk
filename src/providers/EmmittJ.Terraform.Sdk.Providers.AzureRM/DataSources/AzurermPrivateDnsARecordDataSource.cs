@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPrivateDnsARecordDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermPrivateDnsARecordDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_private_dns_a_record Terraform data source.
 /// Retrieves information about a azurerm_private_dns_a_record.
 /// </summary>
-public class AzurermPrivateDnsARecordDataSource : TerraformDataSource
+public partial class AzurermPrivateDnsARecordDataSource(string name) : TerraformDataSource("azurerm_private_dns_a_record", name)
 {
-    public AzurermPrivateDnsARecordDataSource(string name) : base("azurerm_private_dns_a_record", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermPrivateDnsARecordDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermPrivateDnsARecordDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -79,7 +63,6 @@ public class AzurermPrivateDnsARecordDataSource : TerraformDataSource
     /// The zone_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
-    [TerraformArgument("zone_name")]
     public required TerraformValue<string> ZoneName
     {
         get => new TerraformReference<string>(this, "zone_name");
@@ -87,46 +70,12 @@ public class AzurermPrivateDnsARecordDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPrivateDnsARecordDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The fqdn attribute.
-    /// </summary>
-    [TerraformArgument("fqdn")]
-    public TerraformValue<string> Fqdn
+    public AzurermPrivateDnsARecordDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
-
-    /// <summary>
-    /// The records attribute.
-    /// </summary>
-    [TerraformArgument("records")]
-    public TerraformSet<string> Records
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "records").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The ttl attribute.
-    /// </summary>
-    [TerraformArgument("ttl")]
-    public TerraformValue<double> Ttl
-    {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<AzurermPrivateDnsARecordDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for author in .
@@ -25,7 +16,6 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// <summary>
     /// The email attribute.
     /// </summary>
-    [TerraformArgument("email")]
     public TerraformValue<string>? Email
     {
         get => new TerraformReference<string>(this, "email");
@@ -35,7 +25,6 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// <summary>
     /// The link attribute.
     /// </summary>
-    [TerraformArgument("link")]
     public TerraformValue<string>? Link
     {
         get => new TerraformReference<string>(this, "link");
@@ -45,7 +34,6 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +56,6 @@ public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
     /// <summary>
     /// The domains attribute.
     /// </summary>
-    [TerraformArgument("domains")]
     public TerraformList<string>? Domains
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domains").ResolveNodes(ctx));
@@ -78,7 +65,6 @@ public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
     /// <summary>
     /// The verticals attribute.
     /// </summary>
-    [TerraformArgument("verticals")]
     public TerraformList<string>? Verticals
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "verticals").ResolveNodes(ctx));
@@ -101,7 +87,6 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string>? Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -112,7 +97,6 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     /// The kind attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
-    [TerraformArgument("kind")]
     public required TerraformValue<string> Kind
     {
         get => new TerraformReference<string>(this, "kind");
@@ -122,7 +106,6 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -145,7 +128,6 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// <summary>
     /// The email attribute.
     /// </summary>
-    [TerraformArgument("email")]
     public TerraformValue<string>? Email
     {
         get => new TerraformReference<string>(this, "email");
@@ -155,7 +137,6 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// <summary>
     /// The link attribute.
     /// </summary>
-    [TerraformArgument("link")]
     public TerraformValue<string>? Link
     {
         get => new TerraformReference<string>(this, "link");
@@ -165,7 +146,6 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -176,7 +156,6 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// The tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    [TerraformArgument("tier")]
     public required TerraformValue<string> Tier
     {
         get => new TerraformReference<string>(this, "tier");
@@ -199,7 +178,6 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -209,7 +187,6 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -219,7 +196,6 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -229,7 +205,6 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -239,20 +214,15 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_sentinel_metadata Terraform resource.
 /// Manages a azurerm_sentinel_metadata resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSentinelMetadata : TerraformResource
+public partial class AzurermSentinelMetadata(string name) : TerraformResource("azurerm_sentinel_metadata", name)
 {
-    public AzurermSentinelMetadata(string name) : base("azurerm_sentinel_metadata", name)
-    {
-    }
-
     /// <summary>
     /// The content_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentId is required")]
-    [TerraformArgument("content_id")]
     public required TerraformValue<string> ContentId
     {
         get => new TerraformReference<string>(this, "content_id");
@@ -262,7 +232,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The content_schema_version attribute.
     /// </summary>
-    [TerraformArgument("content_schema_version")]
     public TerraformValue<string>? ContentSchemaVersion
     {
         get => new TerraformReference<string>(this, "content_schema_version");
@@ -272,7 +241,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The custom_version attribute.
     /// </summary>
-    [TerraformArgument("custom_version")]
     public TerraformValue<string>? CustomVersion
     {
         get => new TerraformReference<string>(this, "custom_version");
@@ -282,7 +250,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The dependency attribute.
     /// </summary>
-    [TerraformArgument("dependency")]
     public TerraformValue<string>? Dependency
     {
         get => new TerraformReference<string>(this, "dependency");
@@ -292,7 +259,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The first_publish_date attribute.
     /// </summary>
-    [TerraformArgument("first_publish_date")]
     public TerraformValue<string>? FirstPublishDate
     {
         get => new TerraformReference<string>(this, "first_publish_date");
@@ -302,7 +268,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The icon_id attribute.
     /// </summary>
-    [TerraformArgument("icon_id")]
     public TerraformValue<string>? IconId
     {
         get => new TerraformReference<string>(this, "icon_id");
@@ -312,7 +277,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -323,7 +287,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// The kind attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
-    [TerraformArgument("kind")]
     public required TerraformValue<string> Kind
     {
         get => new TerraformReference<string>(this, "kind");
@@ -333,7 +296,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The last_publish_date attribute.
     /// </summary>
-    [TerraformArgument("last_publish_date")]
     public TerraformValue<string>? LastPublishDate
     {
         get => new TerraformReference<string>(this, "last_publish_date");
@@ -344,7 +306,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -355,7 +316,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// The parent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
-    [TerraformArgument("parent_id")]
     public required TerraformValue<string> ParentId
     {
         get => new TerraformReference<string>(this, "parent_id");
@@ -365,7 +325,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The preview_images attribute.
     /// </summary>
-    [TerraformArgument("preview_images")]
     public TerraformList<string>? PreviewImages
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preview_images").ResolveNodes(ctx));
@@ -375,7 +334,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The preview_images_dark attribute.
     /// </summary>
-    [TerraformArgument("preview_images_dark")]
     public TerraformList<string>? PreviewImagesDark
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preview_images_dark").ResolveNodes(ctx));
@@ -385,7 +343,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The providers attribute.
     /// </summary>
-    [TerraformArgument("providers")]
     public TerraformList<string>? Providers
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "providers").ResolveNodes(ctx));
@@ -395,7 +352,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The threat_analysis_tactics attribute.
     /// </summary>
-    [TerraformArgument("threat_analysis_tactics")]
     public TerraformList<string>? ThreatAnalysisTactics
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "threat_analysis_tactics").ResolveNodes(ctx));
@@ -405,7 +361,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The threat_analysis_techniques attribute.
     /// </summary>
-    [TerraformArgument("threat_analysis_techniques")]
     public TerraformList<string>? ThreatAnalysisTechniques
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "threat_analysis_techniques").ResolveNodes(ctx));
@@ -415,7 +370,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformArgument("version")]
     public TerraformValue<string>? Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -426,7 +380,6 @@ public class AzurermSentinelMetadata : TerraformResource
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -434,42 +387,52 @@ public class AzurermSentinelMetadata : TerraformResource
     }
 
     /// <summary>
-    /// Block for author.
-    /// Nesting mode: list
+    /// Author block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Author block(s) allowed")]
-    [TerraformArgument("author")]
-    public TerraformList<AzurermSentinelMetadataAuthorBlock> Author { get; set; } = new();
+    public AzurermSentinelMetadataAuthorBlock? Author
+    {
+        get => GetArgument<AzurermSentinelMetadataAuthorBlock>("author");
+        set => SetArgument("author", value);
+    }
 
     /// <summary>
-    /// Block for category.
-    /// Nesting mode: list
+    /// Category block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
-    [TerraformArgument("category")]
-    public TerraformList<AzurermSentinelMetadataCategoryBlock> Category { get; set; } = new();
+    public AzurermSentinelMetadataCategoryBlock? Category
+    {
+        get => GetArgument<AzurermSentinelMetadataCategoryBlock>("category");
+        set => SetArgument("category", value);
+    }
 
     /// <summary>
-    /// Block for source.
-    /// Nesting mode: list
+    /// Source block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    [TerraformArgument("source")]
-    public TerraformList<AzurermSentinelMetadataSourceBlock> Source { get; set; } = new();
+    public AzurermSentinelMetadataSourceBlock? Source
+    {
+        get => GetArgument<AzurermSentinelMetadataSourceBlock>("source");
+        set => SetArgument("source", value);
+    }
 
     /// <summary>
-    /// Block for support.
-    /// Nesting mode: list
+    /// Support block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Support block(s) allowed")]
-    [TerraformArgument("support")]
-    public TerraformList<AzurermSentinelMetadataSupportBlock> Support { get; set; } = new();
+    public AzurermSentinelMetadataSupportBlock? Support
+    {
+        get => GetArgument<AzurermSentinelMetadataSupportBlock>("support");
+        set => SetArgument("support", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSentinelMetadataTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSentinelMetadataTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSentinelMetadataTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_availability_set Terraform resource.
 /// Manages a azurerm_availability_set resource.
 /// </summary>
-public class AzurermAvailabilitySet : TerraformResource
+public partial class AzurermAvailabilitySet(string name) : TerraformResource("azurerm_availability_set", name)
 {
-    public AzurermAvailabilitySet(string name) : base("azurerm_availability_set", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermAvailabilitySet : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -97,7 +79,6 @@ public class AzurermAvailabilitySet : TerraformResource
     /// <summary>
     /// The managed attribute.
     /// </summary>
-    [TerraformArgument("managed")]
     public TerraformValue<bool>? Managed
     {
         get => new TerraformReference<bool>(this, "managed");
@@ -108,7 +89,6 @@ public class AzurermAvailabilitySet : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -118,7 +98,6 @@ public class AzurermAvailabilitySet : TerraformResource
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
-    [TerraformArgument("platform_fault_domain_count")]
     public TerraformValue<double>? PlatformFaultDomainCount
     {
         get => new TerraformReference<double>(this, "platform_fault_domain_count");
@@ -128,7 +107,6 @@ public class AzurermAvailabilitySet : TerraformResource
     /// <summary>
     /// The platform_update_domain_count attribute.
     /// </summary>
-    [TerraformArgument("platform_update_domain_count")]
     public TerraformValue<double>? PlatformUpdateDomainCount
     {
         get => new TerraformReference<double>(this, "platform_update_domain_count");
@@ -138,7 +116,6 @@ public class AzurermAvailabilitySet : TerraformResource
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    [TerraformArgument("proximity_placement_group_id")]
     public TerraformValue<string>? ProximityPlacementGroupId
     {
         get => new TerraformReference<string>(this, "proximity_placement_group_id");
@@ -149,7 +126,6 @@ public class AzurermAvailabilitySet : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -159,7 +135,6 @@ public class AzurermAvailabilitySet : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -167,10 +142,12 @@ public class AzurermAvailabilitySet : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAvailabilitySetTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermAvailabilitySetTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermAvailabilitySetTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

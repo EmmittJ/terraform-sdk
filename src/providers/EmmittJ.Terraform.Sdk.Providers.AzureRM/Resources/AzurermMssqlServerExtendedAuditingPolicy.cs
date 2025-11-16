@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_mssql_server_extended_auditing_policy Terraform resource.
 /// Manages a azurerm_mssql_server_extended_auditing_policy resource.
 /// </summary>
-public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
+public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : TerraformResource("azurerm_mssql_server_extended_auditing_policy", name)
 {
-    public AzurermMssqlServerExtendedAuditingPolicy(string name) : base("azurerm_mssql_server_extended_auditing_policy", name)
-    {
-    }
-
     /// <summary>
     /// The audit_actions_and_groups attribute.
     /// </summary>
-    [TerraformArgument("audit_actions_and_groups")]
     public TerraformList<string> AuditActionsAndGroups
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "audit_actions_and_groups").ResolveNodes(ctx));
@@ -86,7 +69,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -96,7 +78,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -106,7 +87,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The log_monitoring_enabled attribute.
     /// </summary>
-    [TerraformArgument("log_monitoring_enabled")]
     public TerraformValue<bool>? LogMonitoringEnabled
     {
         get => new TerraformReference<bool>(this, "log_monitoring_enabled");
@@ -116,7 +96,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The predicate_expression attribute.
     /// </summary>
-    [TerraformArgument("predicate_expression")]
     public TerraformValue<string>? PredicateExpression
     {
         get => new TerraformReference<string>(this, "predicate_expression");
@@ -126,7 +105,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    [TerraformArgument("retention_in_days")]
     public TerraformValue<double>? RetentionInDays
     {
         get => new TerraformReference<double>(this, "retention_in_days");
@@ -137,7 +115,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformArgument("server_id")]
     public required TerraformValue<string> ServerId
     {
         get => new TerraformReference<string>(this, "server_id");
@@ -147,7 +124,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    [TerraformArgument("storage_account_access_key")]
     public TerraformValue<string>? StorageAccountAccessKey
     {
         get => new TerraformReference<string>(this, "storage_account_access_key");
@@ -157,7 +133,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The storage_account_access_key_is_secondary attribute.
     /// </summary>
-    [TerraformArgument("storage_account_access_key_is_secondary")]
     public TerraformValue<bool>? StorageAccountAccessKeyIsSecondary
     {
         get => new TerraformReference<bool>(this, "storage_account_access_key_is_secondary");
@@ -167,7 +142,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The storage_account_subscription_id attribute.
     /// </summary>
-    [TerraformArgument("storage_account_subscription_id")]
     public TerraformValue<string>? StorageAccountSubscriptionId
     {
         get => new TerraformReference<string>(this, "storage_account_subscription_id");
@@ -177,7 +151,6 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
-    [TerraformArgument("storage_endpoint")]
     public TerraformValue<string>? StorageEndpoint
     {
         get => new TerraformReference<string>(this, "storage_endpoint");
@@ -185,10 +158,12 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

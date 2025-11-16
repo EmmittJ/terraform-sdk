@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermKustoEventhubDataConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermKustoEventhubDataConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermKustoEventhubDataConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermKustoEventhubDataConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermKustoEventhubDataConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_kusto_eventhub_data_connection Terraform resource.
 /// Manages a azurerm_kusto_eventhub_data_connection resource.
 /// </summary>
-public class AzurermKustoEventhubDataConnection : TerraformResource
+public partial class AzurermKustoEventhubDataConnection(string name) : TerraformResource("azurerm_kusto_eventhub_data_connection", name)
 {
-    public AzurermKustoEventhubDataConnection(string name) : base("azurerm_kusto_eventhub_data_connection", name)
-    {
-    }
-
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    [TerraformArgument("cluster_name")]
     public required TerraformValue<string> ClusterName
     {
         get => new TerraformReference<string>(this, "cluster_name");
@@ -87,7 +70,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The compression attribute.
     /// </summary>
-    [TerraformArgument("compression")]
     public TerraformValue<string>? Compression
     {
         get => new TerraformReference<string>(this, "compression");
@@ -98,7 +80,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// The consumer_group attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroup is required")]
-    [TerraformArgument("consumer_group")]
     public required TerraformValue<string> ConsumerGroup
     {
         get => new TerraformReference<string>(this, "consumer_group");
@@ -108,7 +89,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The data_format attribute.
     /// </summary>
-    [TerraformArgument("data_format")]
     public TerraformValue<string>? DataFormat
     {
         get => new TerraformReference<string>(this, "data_format");
@@ -119,7 +99,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    [TerraformArgument("database_name")]
     public required TerraformValue<string> DatabaseName
     {
         get => new TerraformReference<string>(this, "database_name");
@@ -129,7 +108,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The database_routing_type attribute.
     /// </summary>
-    [TerraformArgument("database_routing_type")]
     public TerraformValue<string>? DatabaseRoutingType
     {
         get => new TerraformReference<string>(this, "database_routing_type");
@@ -139,7 +117,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The event_system_properties attribute.
     /// </summary>
-    [TerraformArgument("event_system_properties")]
     public TerraformList<string> EventSystemProperties
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "event_system_properties").ResolveNodes(ctx));
@@ -150,7 +127,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// The eventhub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubId is required")]
-    [TerraformArgument("eventhub_id")]
     public required TerraformValue<string> EventhubId
     {
         get => new TerraformReference<string>(this, "eventhub_id");
@@ -160,7 +136,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -170,7 +145,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    [TerraformArgument("identity_id")]
     public TerraformValue<string>? IdentityId
     {
         get => new TerraformReference<string>(this, "identity_id");
@@ -181,7 +155,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -191,7 +164,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    [TerraformArgument("mapping_rule_name")]
     public TerraformValue<string>? MappingRuleName
     {
         get => new TerraformReference<string>(this, "mapping_rule_name");
@@ -202,7 +174,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -213,7 +184,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -223,7 +193,6 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    [TerraformArgument("table_name")]
     public TerraformValue<string>? TableName
     {
         get => new TerraformReference<string>(this, "table_name");
@@ -231,10 +200,12 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKustoEventhubDataConnectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermKustoEventhubDataConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermKustoEventhubDataConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for api_metadata in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -35,7 +25,6 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// <summary>
     /// The documentation_url attribute.
     /// </summary>
-    [TerraformArgument("documentation_url")]
     public TerraformValue<string>? DocumentationUrl
     {
         get => new TerraformReference<string>(this, "documentation_url");
@@ -45,7 +34,6 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// <summary>
     /// The server_url attribute.
     /// </summary>
-    [TerraformArgument("server_url")]
     public TerraformValue<string>? ServerUrl
     {
         get => new TerraformReference<string>(this, "server_url");
@@ -55,7 +43,6 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// <summary>
     /// The title attribute.
     /// </summary>
-    [TerraformArgument("title")]
     public TerraformValue<string>? Title
     {
         get => new TerraformReference<string>(this, "title");
@@ -65,7 +52,6 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformArgument("version")]
     public TerraformValue<string>? Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -88,7 +74,6 @@ public class AzurermSpringCloudGatewayClientAuthorizationBlock : TerraformBlock
     /// <summary>
     /// The certificate_ids attribute.
     /// </summary>
-    [TerraformArgument("certificate_ids")]
     public TerraformList<string>? CertificateIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate_ids").ResolveNodes(ctx));
@@ -98,7 +83,6 @@ public class AzurermSpringCloudGatewayClientAuthorizationBlock : TerraformBlock
     /// <summary>
     /// The verification_enabled attribute.
     /// </summary>
-    [TerraformArgument("verification_enabled")]
     public TerraformValue<bool>? VerificationEnabled
     {
         get => new TerraformReference<bool>(this, "verification_enabled");
@@ -121,7 +105,6 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// <summary>
     /// The allowed_headers attribute.
     /// </summary>
-    [TerraformArgument("allowed_headers")]
     public TerraformSet<string>? AllowedHeaders
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_headers").ResolveNodes(ctx));
@@ -131,7 +114,6 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
-    [TerraformArgument("allowed_methods")]
     public TerraformSet<string>? AllowedMethods
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_methods").ResolveNodes(ctx));
@@ -141,7 +123,6 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// <summary>
     /// The allowed_origin_patterns attribute.
     /// </summary>
-    [TerraformArgument("allowed_origin_patterns")]
     public TerraformSet<string>? AllowedOriginPatterns
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_origin_patterns").ResolveNodes(ctx));
@@ -151,7 +132,6 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
-    [TerraformArgument("allowed_origins")]
     public TerraformSet<string>? AllowedOrigins
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_origins").ResolveNodes(ctx));
@@ -161,7 +141,6 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// <summary>
     /// The credentials_allowed attribute.
     /// </summary>
-    [TerraformArgument("credentials_allowed")]
     public TerraformValue<bool>? CredentialsAllowed
     {
         get => new TerraformReference<bool>(this, "credentials_allowed");
@@ -171,7 +150,6 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// <summary>
     /// The exposed_headers attribute.
     /// </summary>
-    [TerraformArgument("exposed_headers")]
     public TerraformSet<string>? ExposedHeaders
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exposed_headers").ResolveNodes(ctx));
@@ -181,7 +159,6 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// <summary>
     /// The max_age_seconds attribute.
     /// </summary>
-    [TerraformArgument("max_age_seconds")]
     public TerraformValue<double>? MaxAgeSeconds
     {
         get => new TerraformReference<double>(this, "max_age_seconds");
@@ -204,7 +181,6 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock : Terra
     /// <summary>
     /// The size attribute.
     /// </summary>
-    [TerraformArgument("size")]
     public TerraformValue<string>? Size
     {
         get => new TerraformReference<string>(this, "size");
@@ -214,7 +190,6 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock : Terra
     /// <summary>
     /// The time_to_live attribute.
     /// </summary>
-    [TerraformArgument("time_to_live")]
     public TerraformValue<string>? TimeToLive
     {
         get => new TerraformReference<string>(this, "time_to_live");
@@ -237,7 +212,6 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : Terrafor
     /// <summary>
     /// The size attribute.
     /// </summary>
-    [TerraformArgument("size")]
     public TerraformValue<string>? Size
     {
         get => new TerraformReference<string>(this, "size");
@@ -247,7 +221,6 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : Terrafor
     /// <summary>
     /// The time_to_live attribute.
     /// </summary>
-    [TerraformArgument("time_to_live")]
     public TerraformValue<string>? TimeToLive
     {
         get => new TerraformReference<string>(this, "time_to_live");
@@ -270,7 +243,6 @@ public class AzurermSpringCloudGatewayQuotaBlock : TerraformBlock
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    [TerraformArgument("cpu")]
     public TerraformValue<string>? Cpu
     {
         get => new TerraformReference<string>(this, "cpu");
@@ -280,7 +252,6 @@ public class AzurermSpringCloudGatewayQuotaBlock : TerraformBlock
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    [TerraformArgument("memory")]
     public TerraformValue<string>? Memory
     {
         get => new TerraformReference<string>(this, "memory");
@@ -303,7 +274,6 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformArgument("client_id")]
     public TerraformValue<string>? ClientId
     {
         get => new TerraformReference<string>(this, "client_id");
@@ -313,7 +283,6 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    [TerraformArgument("client_secret")]
     public TerraformValue<string>? ClientSecret
     {
         get => new TerraformReference<string>(this, "client_secret");
@@ -323,7 +292,6 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
     /// <summary>
     /// The issuer_uri attribute.
     /// </summary>
-    [TerraformArgument("issuer_uri")]
     public TerraformValue<string>? IssuerUri
     {
         get => new TerraformReference<string>(this, "issuer_uri");
@@ -333,7 +301,6 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    [TerraformArgument("scope")]
     public TerraformSet<string>? Scope
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scope").ResolveNodes(ctx));
@@ -356,7 +323,6 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -366,7 +332,6 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -376,7 +341,6 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -386,7 +350,6 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -396,19 +359,14 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_gateway Terraform resource.
 /// Manages a azurerm_spring_cloud_gateway resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSpringCloudGateway : TerraformResource
+public partial class AzurermSpringCloudGateway(string name) : TerraformResource("azurerm_spring_cloud_gateway", name)
 {
-    public AzurermSpringCloudGateway(string name) : base("azurerm_spring_cloud_gateway", name)
-    {
-    }
-
     /// <summary>
     /// The application_performance_monitoring_ids attribute.
     /// </summary>
-    [TerraformArgument("application_performance_monitoring_ids")]
     public TerraformList<string>? ApplicationPerformanceMonitoringIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "application_performance_monitoring_ids").ResolveNodes(ctx));
@@ -418,7 +376,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The application_performance_monitoring_types attribute.
     /// </summary>
-    [TerraformArgument("application_performance_monitoring_types")]
     public TerraformList<string>? ApplicationPerformanceMonitoringTypes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "application_performance_monitoring_types").ResolveNodes(ctx));
@@ -428,7 +385,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    [TerraformArgument("environment_variables")]
     public TerraformMap<string>? EnvironmentVariables
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
@@ -438,7 +394,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    [TerraformArgument("https_only")]
     public TerraformValue<bool>? HttpsOnly
     {
         get => new TerraformReference<bool>(this, "https_only");
@@ -448,7 +403,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -458,7 +412,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    [TerraformArgument("instance_count")]
     public TerraformValue<double>? InstanceCount
     {
         get => new TerraformReference<double>(this, "instance_count");
@@ -469,7 +422,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -479,7 +431,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -489,7 +440,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The sensitive_environment_variables attribute.
     /// </summary>
-    [TerraformArgument("sensitive_environment_variables")]
     public TerraformMap<string>? SensitiveEnvironmentVariables
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "sensitive_environment_variables").ResolveNodes(ctx));
@@ -500,7 +450,6 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    [TerraformArgument("spring_cloud_service_id")]
     public required TerraformValue<string> SpringCloudServiceId
     {
         get => new TerraformReference<string>(this, "spring_cloud_service_id");
@@ -508,75 +457,82 @@ public class AzurermSpringCloudGateway : TerraformResource
     }
 
     /// <summary>
-    /// Block for api_metadata.
-    /// Nesting mode: list
+    /// ApiMetadata block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiMetadata block(s) allowed")]
-    [TerraformArgument("api_metadata")]
-    public TerraformList<AzurermSpringCloudGatewayApiMetadataBlock> ApiMetadata { get; set; } = new();
+    public AzurermSpringCloudGatewayApiMetadataBlock? ApiMetadata
+    {
+        get => GetArgument<AzurermSpringCloudGatewayApiMetadataBlock>("api_metadata");
+        set => SetArgument("api_metadata", value);
+    }
 
     /// <summary>
-    /// Block for client_authorization.
-    /// Nesting mode: list
+    /// ClientAuthorization block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthorization block(s) allowed")]
-    [TerraformArgument("client_authorization")]
-    public TerraformList<AzurermSpringCloudGatewayClientAuthorizationBlock> ClientAuthorization { get; set; } = new();
+    public AzurermSpringCloudGatewayClientAuthorizationBlock? ClientAuthorization
+    {
+        get => GetArgument<AzurermSpringCloudGatewayClientAuthorizationBlock>("client_authorization");
+        set => SetArgument("client_authorization", value);
+    }
 
     /// <summary>
-    /// Block for cors.
-    /// Nesting mode: list
+    /// Cors block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    [TerraformArgument("cors")]
-    public TerraformList<AzurermSpringCloudGatewayCorsBlock> Cors { get; set; } = new();
+    public AzurermSpringCloudGatewayCorsBlock? Cors
+    {
+        get => GetArgument<AzurermSpringCloudGatewayCorsBlock>("cors");
+        set => SetArgument("cors", value);
+    }
 
     /// <summary>
-    /// Block for local_response_cache_per_instance.
-    /// Nesting mode: list
+    /// LocalResponseCachePerInstance block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerInstance block(s) allowed")]
-    [TerraformArgument("local_response_cache_per_instance")]
-    public TerraformList<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock> LocalResponseCachePerInstance { get; set; } = new();
+    public AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock? LocalResponseCachePerInstance
+    {
+        get => GetArgument<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>("local_response_cache_per_instance");
+        set => SetArgument("local_response_cache_per_instance", value);
+    }
 
     /// <summary>
-    /// Block for local_response_cache_per_route.
-    /// Nesting mode: list
+    /// LocalResponseCachePerRoute block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerRoute block(s) allowed")]
-    [TerraformArgument("local_response_cache_per_route")]
-    public TerraformList<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock> LocalResponseCachePerRoute { get; set; } = new();
+    public AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock? LocalResponseCachePerRoute
+    {
+        get => GetArgument<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>("local_response_cache_per_route");
+        set => SetArgument("local_response_cache_per_route", value);
+    }
 
     /// <summary>
-    /// Block for quota.
-    /// Nesting mode: list
+    /// Quota block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
-    [TerraformArgument("quota")]
-    public TerraformList<AzurermSpringCloudGatewayQuotaBlock> Quota { get; set; } = new();
+    public AzurermSpringCloudGatewayQuotaBlock? Quota
+    {
+        get => GetArgument<AzurermSpringCloudGatewayQuotaBlock>("quota");
+        set => SetArgument("quota", value);
+    }
 
     /// <summary>
-    /// Block for sso.
-    /// Nesting mode: list
+    /// Sso block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
-    [TerraformArgument("sso")]
-    public TerraformList<AzurermSpringCloudGatewaySsoBlock> Sso { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudGatewayTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The url attribute.
-    /// </summary>
-    [TerraformArgument("url")]
-    public TerraformValue<string> Url
+    public AzurermSpringCloudGatewaySsoBlock? Sso
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<AzurermSpringCloudGatewaySsoBlock>("sso");
+        set => SetArgument("sso", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermSpringCloudGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSpringCloudGatewayTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

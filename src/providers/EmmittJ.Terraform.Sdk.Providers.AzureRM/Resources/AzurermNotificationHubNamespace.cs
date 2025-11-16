@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_notification_hub_namespace Terraform resource.
 /// Manages a azurerm_notification_hub_namespace resource.
 /// </summary>
-public class AzurermNotificationHubNamespace : TerraformResource
+public partial class AzurermNotificationHubNamespace(string name) : TerraformResource("azurerm_notification_hub_namespace", name)
 {
-    public AzurermNotificationHubNamespace(string name) : base("azurerm_notification_hub_namespace", name)
-    {
-    }
-
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -86,7 +69,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +79,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -108,7 +89,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -119,7 +99,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// The namespace_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceType is required")]
-    [TerraformArgument("namespace_type")]
     public required TerraformValue<string> NamespaceType
     {
         get => new TerraformReference<string>(this, "namespace_type");
@@ -129,7 +108,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// <summary>
     /// The replication_region attribute.
     /// </summary>
-    [TerraformArgument("replication_region")]
     public TerraformValue<string>? ReplicationRegion
     {
         get => new TerraformReference<string>(this, "replication_region");
@@ -140,7 +118,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -151,7 +128,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformArgument("sku_name")]
     public required TerraformValue<string> SkuName
     {
         get => new TerraformReference<string>(this, "sku_name");
@@ -161,7 +137,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -171,7 +146,6 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
-    [TerraformArgument("zone_redundancy_enabled")]
     public TerraformValue<bool>? ZoneRedundancyEnabled
     {
         get => new TerraformReference<bool>(this, "zone_redundancy_enabled");
@@ -179,19 +153,12 @@ public class AzurermNotificationHubNamespace : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNotificationHubNamespaceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The servicebus_endpoint attribute.
-    /// </summary>
-    [TerraformArgument("servicebus_endpoint")]
-    public TerraformValue<string> ServicebusEndpoint
+    public AzurermNotificationHubNamespaceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "servicebus_endpoint");
+        get => GetArgument<AzurermNotificationHubNamespaceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

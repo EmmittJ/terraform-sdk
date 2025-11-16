@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for rule in .
@@ -26,7 +17,6 @@ public class AzurermRouteMapRuleBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -36,7 +26,6 @@ public class AzurermRouteMapRuleBlock : TerraformBlock
     /// <summary>
     /// The next_step_if_matched attribute.
     /// </summary>
-    [TerraformArgument("next_step_if_matched")]
     public TerraformValue<string>? NextStepIfMatched
     {
         get => new TerraformReference<string>(this, "next_step_if_matched");
@@ -59,7 +48,6 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,18 +84,14 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_route_map Terraform resource.
 /// Manages a azurerm_route_map resource.
 /// </summary>
-public class AzurermRouteMap : TerraformResource
+public partial class AzurermRouteMap(string name) : TerraformResource("azurerm_route_map", name)
 {
-    public AzurermRouteMap(string name) : base("azurerm_route_map", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -121,7 +102,6 @@ public class AzurermRouteMap : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -132,7 +112,6 @@ public class AzurermRouteMap : TerraformResource
     /// The virtual_hub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
-    [TerraformArgument("virtual_hub_id")]
     public required TerraformValue<string> VirtualHubId
     {
         get => new TerraformReference<string>(this, "virtual_hub_id");
@@ -140,17 +119,21 @@ public class AzurermRouteMap : TerraformResource
     }
 
     /// <summary>
-    /// Block for rule.
-    /// Nesting mode: list
+    /// Rule block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("rule")]
-    public TerraformList<AzurermRouteMapRuleBlock> Rule { get; set; } = new();
+    public AzurermRouteMapRuleBlock? Rule
+    {
+        get => GetArgument<AzurermRouteMapRuleBlock>("rule");
+        set => SetArgument("rule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermRouteMapTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermRouteMapTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermRouteMapTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

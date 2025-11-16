@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRulesetTimeoutsBlock : Terraf
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRulesetTimeoutsBlock : Terraf
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRulesetTimeoutsBlock : Terraf
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRulesetTimeoutsBlock : Terraf
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermPrivateDnsResolverDnsForwardingRulesetTimeoutsBlock : Terraf
 }
 
 /// <summary>
+/// Represents a azurerm_private_dns_resolver_dns_forwarding_ruleset Terraform resource.
 /// Manages a azurerm_private_dns_resolver_dns_forwarding_ruleset resource.
 /// </summary>
-public class AzurermPrivateDnsResolverDnsForwardingRuleset : TerraformResource
+public partial class AzurermPrivateDnsResolverDnsForwardingRuleset(string name) : TerraformResource("azurerm_private_dns_resolver_dns_forwarding_ruleset", name)
 {
-    public AzurermPrivateDnsResolverDnsForwardingRuleset(string name) : base("azurerm_private_dns_resolver_dns_forwarding_ruleset", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRuleset : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -98,7 +80,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRuleset : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -109,7 +90,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRuleset : TerraformResource
     /// The private_dns_resolver_outbound_endpoint_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsResolverOutboundEndpointIds is required")]
-    [TerraformArgument("private_dns_resolver_outbound_endpoint_ids")]
     public TerraformList<string>? PrivateDnsResolverOutboundEndpointIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_dns_resolver_outbound_endpoint_ids").ResolveNodes(ctx));
@@ -120,7 +100,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRuleset : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -130,7 +109,6 @@ public class AzurermPrivateDnsResolverDnsForwardingRuleset : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -138,10 +116,12 @@ public class AzurermPrivateDnsResolverDnsForwardingRuleset : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPrivateDnsResolverDnsForwardingRulesetTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPrivateDnsResolverDnsForwardingRulesetTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPrivateDnsResolverDnsForwardingRulesetTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

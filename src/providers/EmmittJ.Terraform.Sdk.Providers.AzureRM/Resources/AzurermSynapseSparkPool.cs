@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for auto_pause in .
@@ -26,7 +17,6 @@ public class AzurermSynapseSparkPoolAutoPauseBlock : TerraformBlock
     /// The delay_in_minutes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelayInMinutes is required")]
-    [TerraformArgument("delay_in_minutes")]
     public required TerraformValue<double> DelayInMinutes
     {
         get => new TerraformReference<double>(this, "delay_in_minutes");
@@ -50,7 +40,6 @@ public class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlock
     /// The max_node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
-    [TerraformArgument("max_node_count")]
     public required TerraformValue<double> MaxNodeCount
     {
         get => new TerraformReference<double>(this, "max_node_count");
@@ -61,7 +50,6 @@ public class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlock
     /// The min_node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
-    [TerraformArgument("min_node_count")]
     public required TerraformValue<double> MinNodeCount
     {
         get => new TerraformReference<double>(this, "min_node_count");
@@ -85,7 +73,6 @@ public class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlock
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformArgument("content")]
     public required TerraformValue<string> Content
     {
         get => new TerraformReference<string>(this, "content");
@@ -96,7 +83,6 @@ public class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlock
     /// The filename attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
-    [TerraformArgument("filename")]
     public required TerraformValue<string> Filename
     {
         get => new TerraformReference<string>(this, "filename");
@@ -120,7 +106,6 @@ public class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlock
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformArgument("content")]
     public required TerraformValue<string> Content
     {
         get => new TerraformReference<string>(this, "content");
@@ -131,7 +116,6 @@ public class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlock
     /// The filename attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
-    [TerraformArgument("filename")]
     public required TerraformValue<string> Filename
     {
         get => new TerraformReference<string>(this, "filename");
@@ -154,7 +138,6 @@ public class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -164,7 +147,6 @@ public class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -174,7 +156,6 @@ public class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -184,7 +165,6 @@ public class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -194,19 +174,14 @@ public class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_synapse_spark_pool Terraform resource.
 /// Manages a azurerm_synapse_spark_pool resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSynapseSparkPool : TerraformResource
+public partial class AzurermSynapseSparkPool(string name) : TerraformResource("azurerm_synapse_spark_pool", name)
 {
-    public AzurermSynapseSparkPool(string name) : base("azurerm_synapse_spark_pool", name)
-    {
-    }
-
     /// <summary>
     /// The cache_size attribute.
     /// </summary>
-    [TerraformArgument("cache_size")]
     public TerraformValue<double>? CacheSize
     {
         get => new TerraformReference<double>(this, "cache_size");
@@ -216,7 +191,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The compute_isolation_enabled attribute.
     /// </summary>
-    [TerraformArgument("compute_isolation_enabled")]
     public TerraformValue<bool>? ComputeIsolationEnabled
     {
         get => new TerraformReference<bool>(this, "compute_isolation_enabled");
@@ -226,7 +200,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The dynamic_executor_allocation_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_executor_allocation_enabled")]
     public TerraformValue<bool>? DynamicExecutorAllocationEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_executor_allocation_enabled");
@@ -236,7 +209,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -246,7 +218,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The max_executors attribute.
     /// </summary>
-    [TerraformArgument("max_executors")]
     public TerraformValue<double>? MaxExecutors
     {
         get => new TerraformReference<double>(this, "max_executors");
@@ -256,7 +227,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The min_executors attribute.
     /// </summary>
-    [TerraformArgument("min_executors")]
     public TerraformValue<double>? MinExecutors
     {
         get => new TerraformReference<double>(this, "min_executors");
@@ -267,7 +237,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -277,7 +246,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    [TerraformArgument("node_count")]
     public TerraformValue<double> NodeCount
     {
         get => new TerraformReference<double>(this, "node_count");
@@ -288,7 +256,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// The node_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
-    [TerraformArgument("node_size")]
     public required TerraformValue<string> NodeSize
     {
         get => new TerraformReference<string>(this, "node_size");
@@ -299,7 +266,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// The node_size_family attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSizeFamily is required")]
-    [TerraformArgument("node_size_family")]
     public required TerraformValue<string> NodeSizeFamily
     {
         get => new TerraformReference<string>(this, "node_size_family");
@@ -309,7 +275,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The session_level_packages_enabled attribute.
     /// </summary>
-    [TerraformArgument("session_level_packages_enabled")]
     public TerraformValue<bool>? SessionLevelPackagesEnabled
     {
         get => new TerraformReference<bool>(this, "session_level_packages_enabled");
@@ -319,7 +284,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The spark_events_folder attribute.
     /// </summary>
-    [TerraformArgument("spark_events_folder")]
     public TerraformValue<string>? SparkEventsFolder
     {
         get => new TerraformReference<string>(this, "spark_events_folder");
@@ -329,7 +293,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The spark_log_folder attribute.
     /// </summary>
-    [TerraformArgument("spark_log_folder")]
     public TerraformValue<string>? SparkLogFolder
     {
         get => new TerraformReference<string>(this, "spark_log_folder");
@@ -340,7 +303,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// The spark_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkVersion is required")]
-    [TerraformArgument("spark_version")]
     public required TerraformValue<string> SparkVersion
     {
         get => new TerraformReference<string>(this, "spark_version");
@@ -351,7 +313,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// The synapse_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
-    [TerraformArgument("synapse_workspace_id")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
         get => new TerraformReference<string>(this, "synapse_workspace_id");
@@ -361,7 +322,6 @@ public class AzurermSynapseSparkPool : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -369,42 +329,52 @@ public class AzurermSynapseSparkPool : TerraformResource
     }
 
     /// <summary>
-    /// Block for auto_pause.
-    /// Nesting mode: list
+    /// AutoPause block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoPause block(s) allowed")]
-    [TerraformArgument("auto_pause")]
-    public TerraformList<AzurermSynapseSparkPoolAutoPauseBlock> AutoPause { get; set; } = new();
+    public AzurermSynapseSparkPoolAutoPauseBlock? AutoPause
+    {
+        get => GetArgument<AzurermSynapseSparkPoolAutoPauseBlock>("auto_pause");
+        set => SetArgument("auto_pause", value);
+    }
 
     /// <summary>
-    /// Block for auto_scale.
-    /// Nesting mode: list
+    /// AutoScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScale block(s) allowed")]
-    [TerraformArgument("auto_scale")]
-    public TerraformList<AzurermSynapseSparkPoolAutoScaleBlock> AutoScale { get; set; } = new();
+    public AzurermSynapseSparkPoolAutoScaleBlock? AutoScale
+    {
+        get => GetArgument<AzurermSynapseSparkPoolAutoScaleBlock>("auto_scale");
+        set => SetArgument("auto_scale", value);
+    }
 
     /// <summary>
-    /// Block for library_requirement.
-    /// Nesting mode: list
+    /// LibraryRequirement block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LibraryRequirement block(s) allowed")]
-    [TerraformArgument("library_requirement")]
-    public TerraformList<AzurermSynapseSparkPoolLibraryRequirementBlock> LibraryRequirement { get; set; } = new();
+    public AzurermSynapseSparkPoolLibraryRequirementBlock? LibraryRequirement
+    {
+        get => GetArgument<AzurermSynapseSparkPoolLibraryRequirementBlock>("library_requirement");
+        set => SetArgument("library_requirement", value);
+    }
 
     /// <summary>
-    /// Block for spark_config.
-    /// Nesting mode: list
+    /// SparkConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConfig block(s) allowed")]
-    [TerraformArgument("spark_config")]
-    public TerraformList<AzurermSynapseSparkPoolSparkConfigBlock> SparkConfig { get; set; } = new();
+    public AzurermSynapseSparkPoolSparkConfigBlock? SparkConfig
+    {
+        get => GetArgument<AzurermSynapseSparkPoolSparkConfigBlock>("spark_config");
+        set => SetArgument("spark_config", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSynapseSparkPoolTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSynapseSparkPoolTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSynapseSparkPoolTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

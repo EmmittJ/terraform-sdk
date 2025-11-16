@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock : Terrafor
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock : Terrafor
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock : Terrafor
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock : Terrafor
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock : Terrafor
 }
 
 /// <summary>
+/// Represents a azurerm_servicebus_namespace_authorization_rule Terraform resource.
 /// Manages a azurerm_servicebus_namespace_authorization_rule resource.
 /// </summary>
-public class AzurermServicebusNamespaceAuthorizationRule : TerraformResource
+public partial class AzurermServicebusNamespaceAuthorizationRule(string name) : TerraformResource("azurerm_servicebus_namespace_authorization_rule", name)
 {
-    public AzurermServicebusNamespaceAuthorizationRule(string name) : base("azurerm_servicebus_namespace_authorization_rule", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -86,7 +69,6 @@ public class AzurermServicebusNamespaceAuthorizationRule : TerraformResource
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    [TerraformArgument("listen")]
     public TerraformValue<bool>? Listen
     {
         get => new TerraformReference<bool>(this, "listen");
@@ -96,7 +78,6 @@ public class AzurermServicebusNamespaceAuthorizationRule : TerraformResource
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    [TerraformArgument("manage")]
     public TerraformValue<bool>? Manage
     {
         get => new TerraformReference<bool>(this, "manage");
@@ -107,7 +88,6 @@ public class AzurermServicebusNamespaceAuthorizationRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -118,7 +98,6 @@ public class AzurermServicebusNamespaceAuthorizationRule : TerraformResource
     /// The namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
-    [TerraformArgument("namespace_id")]
     public required TerraformValue<string> NamespaceId
     {
         get => new TerraformReference<string>(this, "namespace_id");
@@ -128,7 +107,6 @@ public class AzurermServicebusNamespaceAuthorizationRule : TerraformResource
     /// <summary>
     /// The send attribute.
     /// </summary>
-    [TerraformArgument("send")]
     public TerraformValue<bool>? Send
     {
         get => new TerraformReference<bool>(this, "send");
@@ -136,64 +114,12 @@ public class AzurermServicebusNamespaceAuthorizationRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The primary_connection_string attribute.
-    /// </summary>
-    [TerraformArgument("primary_connection_string")]
-    public TerraformValue<string> PrimaryConnectionString
+    public AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "primary_connection_string");
-    }
-
-    /// <summary>
-    /// The primary_connection_string_alias attribute.
-    /// </summary>
-    [TerraformArgument("primary_connection_string_alias")]
-    public TerraformValue<string> PrimaryConnectionStringAlias
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string_alias");
-    }
-
-    /// <summary>
-    /// The primary_key attribute.
-    /// </summary>
-    [TerraformArgument("primary_key")]
-    public TerraformValue<string> PrimaryKey
-    {
-        get => new TerraformReference<string>(this, "primary_key");
-    }
-
-    /// <summary>
-    /// The secondary_connection_string attribute.
-    /// </summary>
-    [TerraformArgument("secondary_connection_string")]
-    public TerraformValue<string> SecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string");
-    }
-
-    /// <summary>
-    /// The secondary_connection_string_alias attribute.
-    /// </summary>
-    [TerraformArgument("secondary_connection_string_alias")]
-    public TerraformValue<string> SecondaryConnectionStringAlias
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string_alias");
-    }
-
-    /// <summary>
-    /// The secondary_key attribute.
-    /// </summary>
-    [TerraformArgument("secondary_key")]
-    public TerraformValue<string> SecondaryKey
-    {
-        get => new TerraformReference<string>(this, "secondary_key");
+        get => GetArgument<AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

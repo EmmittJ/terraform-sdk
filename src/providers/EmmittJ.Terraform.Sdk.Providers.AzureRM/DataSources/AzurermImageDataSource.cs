@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermImageDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermImageDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_image Terraform data source.
 /// Retrieves information about a azurerm_image.
 /// </summary>
-public class AzurermImageDataSource : TerraformDataSource
+public partial class AzurermImageDataSource(string name) : TerraformDataSource("azurerm_image", name)
 {
-    public AzurermImageDataSource(string name) : base("azurerm_image", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -56,7 +42,6 @@ public class AzurermImageDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -66,7 +51,6 @@ public class AzurermImageDataSource : TerraformDataSource
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    [TerraformArgument("name_regex")]
     public TerraformValue<string>? NameRegex
     {
         get => new TerraformReference<string>(this, "name_regex");
@@ -77,7 +61,6 @@ public class AzurermImageDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -87,7 +70,6 @@ public class AzurermImageDataSource : TerraformDataSource
     /// <summary>
     /// The sort_descending attribute.
     /// </summary>
-    [TerraformArgument("sort_descending")]
     public TerraformValue<bool>? SortDescending
     {
         get => new TerraformReference<bool>(this, "sort_descending");
@@ -95,55 +77,12 @@ public class AzurermImageDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermImageDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The data_disk attribute.
-    /// </summary>
-    [TerraformArgument("data_disk")]
-    public TerraformList<object> DataDisk
+    public AzurermImageDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "data_disk").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The os_disk attribute.
-    /// </summary>
-    [TerraformArgument("os_disk")]
-    public TerraformList<object> OsDisk
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "os_disk").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The zone_resilient attribute.
-    /// </summary>
-    [TerraformArgument("zone_resilient")]
-    public TerraformValue<bool> ZoneResilient
-    {
-        get => new TerraformReference<bool>(this, "zone_resilient");
+        get => GetArgument<AzurermImageDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

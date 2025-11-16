@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_app_dynamics_application_performance_monitoring Terraform resource.
 /// Manages a azurerm_spring_cloud_app_dynamics_application_performance_monitoring resource.
 /// </summary>
-public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : TerraformResource
+public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring(string name) : TerraformResource("azurerm_spring_cloud_app_dynamics_application_performance_monitoring", name)
 {
-    public AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring(string name) : base("azurerm_spring_cloud_app_dynamics_application_performance_monitoring", name)
-    {
-    }
-
     /// <summary>
     /// The agent_account_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountAccessKey is required")]
-    [TerraformArgument("agent_account_access_key")]
     public required TerraformValue<string> AgentAccountAccessKey
     {
         get => new TerraformReference<string>(this, "agent_account_access_key");
@@ -88,7 +71,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// The agent_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountName is required")]
-    [TerraformArgument("agent_account_name")]
     public required TerraformValue<string> AgentAccountName
     {
         get => new TerraformReference<string>(this, "agent_account_name");
@@ -98,7 +80,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The agent_application_name attribute.
     /// </summary>
-    [TerraformArgument("agent_application_name")]
     public TerraformValue<string>? AgentApplicationName
     {
         get => new TerraformReference<string>(this, "agent_application_name");
@@ -108,7 +89,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The agent_node_name attribute.
     /// </summary>
-    [TerraformArgument("agent_node_name")]
     public TerraformValue<string>? AgentNodeName
     {
         get => new TerraformReference<string>(this, "agent_node_name");
@@ -118,7 +98,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The agent_tier_name attribute.
     /// </summary>
-    [TerraformArgument("agent_tier_name")]
     public TerraformValue<string>? AgentTierName
     {
         get => new TerraformReference<string>(this, "agent_tier_name");
@@ -128,7 +107,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The agent_unique_host_id attribute.
     /// </summary>
-    [TerraformArgument("agent_unique_host_id")]
     public TerraformValue<string>? AgentUniqueHostId
     {
         get => new TerraformReference<string>(this, "agent_unique_host_id");
@@ -139,7 +117,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// The controller_host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControllerHostName is required")]
-    [TerraformArgument("controller_host_name")]
     public required TerraformValue<string> ControllerHostName
     {
         get => new TerraformReference<string>(this, "controller_host_name");
@@ -149,7 +126,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The controller_port attribute.
     /// </summary>
-    [TerraformArgument("controller_port")]
     public TerraformValue<double>? ControllerPort
     {
         get => new TerraformReference<double>(this, "controller_port");
@@ -159,7 +135,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The controller_ssl_enabled attribute.
     /// </summary>
-    [TerraformArgument("controller_ssl_enabled")]
     public TerraformValue<bool>? ControllerSslEnabled
     {
         get => new TerraformReference<bool>(this, "controller_ssl_enabled");
@@ -169,7 +144,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    [TerraformArgument("globally_enabled")]
     public TerraformValue<bool>? GloballyEnabled
     {
         get => new TerraformReference<bool>(this, "globally_enabled");
@@ -179,7 +153,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -190,7 +163,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -201,7 +173,6 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    [TerraformArgument("spring_cloud_service_id")]
     public required TerraformValue<string> SpringCloudServiceId
     {
         get => new TerraformReference<string>(this, "spring_cloud_service_id");
@@ -209,10 +180,12 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

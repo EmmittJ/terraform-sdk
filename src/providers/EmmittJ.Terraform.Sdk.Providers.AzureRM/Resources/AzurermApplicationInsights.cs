@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_application_insights Terraform resource.
 /// Manages a azurerm_application_insights resource.
 /// </summary>
-public class AzurermApplicationInsights : TerraformResource
+public partial class AzurermApplicationInsights(string name) : TerraformResource("azurerm_application_insights", name)
 {
-    public AzurermApplicationInsights(string name) : base("azurerm_application_insights", name)
-    {
-    }
-
     /// <summary>
     /// The application_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationType is required")]
-    [TerraformArgument("application_type")]
     public required TerraformValue<string> ApplicationType
     {
         get => new TerraformReference<string>(this, "application_type");
@@ -87,7 +70,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The daily_data_cap_in_gb attribute.
     /// </summary>
-    [TerraformArgument("daily_data_cap_in_gb")]
     public TerraformValue<double>? DailyDataCapInGb
     {
         get => new TerraformReference<double>(this, "daily_data_cap_in_gb");
@@ -97,7 +79,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The daily_data_cap_notifications_disabled attribute.
     /// </summary>
-    [TerraformArgument("daily_data_cap_notifications_disabled")]
     public TerraformValue<bool>? DailyDataCapNotificationsDisabled
     {
         get => new TerraformReference<bool>(this, "daily_data_cap_notifications_disabled");
@@ -107,7 +88,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The disable_ip_masking attribute.
     /// </summary>
-    [TerraformArgument("disable_ip_masking")]
     public TerraformValue<bool>? DisableIpMasking
     {
         get => new TerraformReference<bool>(this, "disable_ip_masking");
@@ -117,7 +97,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The force_customer_storage_for_profiler attribute.
     /// </summary>
-    [TerraformArgument("force_customer_storage_for_profiler")]
     public TerraformValue<bool>? ForceCustomerStorageForProfiler
     {
         get => new TerraformReference<bool>(this, "force_customer_storage_for_profiler");
@@ -127,7 +106,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -137,7 +115,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The internet_ingestion_enabled attribute.
     /// </summary>
-    [TerraformArgument("internet_ingestion_enabled")]
     public TerraformValue<bool>? InternetIngestionEnabled
     {
         get => new TerraformReference<bool>(this, "internet_ingestion_enabled");
@@ -147,7 +124,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The internet_query_enabled attribute.
     /// </summary>
-    [TerraformArgument("internet_query_enabled")]
     public TerraformValue<bool>? InternetQueryEnabled
     {
         get => new TerraformReference<bool>(this, "internet_query_enabled");
@@ -157,7 +133,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The local_authentication_disabled attribute.
     /// </summary>
-    [TerraformArgument("local_authentication_disabled")]
     public TerraformValue<bool>? LocalAuthenticationDisabled
     {
         get => new TerraformReference<bool>(this, "local_authentication_disabled");
@@ -168,7 +143,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -179,7 +153,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -190,7 +163,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -200,7 +172,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    [TerraformArgument("retention_in_days")]
     public TerraformValue<double>? RetentionInDays
     {
         get => new TerraformReference<double>(this, "retention_in_days");
@@ -210,7 +181,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    [TerraformArgument("sampling_percentage")]
     public TerraformValue<double>? SamplingPercentage
     {
         get => new TerraformReference<double>(this, "sampling_percentage");
@@ -220,7 +190,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -230,7 +199,6 @@ public class AzurermApplicationInsights : TerraformResource
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    [TerraformArgument("workspace_id")]
     public TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -238,37 +206,12 @@ public class AzurermApplicationInsights : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApplicationInsightsTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The app_id attribute.
-    /// </summary>
-    [TerraformArgument("app_id")]
-    public TerraformValue<string> AppId
+    public AzurermApplicationInsightsTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "app_id");
-    }
-
-    /// <summary>
-    /// The connection_string attribute.
-    /// </summary>
-    [TerraformArgument("connection_string")]
-    public TerraformValue<string> ConnectionString
-    {
-        get => new TerraformReference<string>(this, "connection_string");
-    }
-
-    /// <summary>
-    /// The instrumentation_key attribute.
-    /// </summary>
-    [TerraformArgument("instrumentation_key")]
-    public TerraformValue<string> InstrumentationKey
-    {
-        get => new TerraformReference<string>(this, "instrumentation_key");
+        get => GetArgument<AzurermApplicationInsightsTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

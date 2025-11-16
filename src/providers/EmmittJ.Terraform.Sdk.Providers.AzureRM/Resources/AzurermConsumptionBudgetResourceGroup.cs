@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for filter in .
@@ -38,7 +29,6 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     /// <summary>
     /// The contact_emails attribute.
     /// </summary>
-    [TerraformArgument("contact_emails")]
     public TerraformList<string>? ContactEmails
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "contact_emails").ResolveNodes(ctx));
@@ -48,7 +38,6 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     /// <summary>
     /// The contact_groups attribute.
     /// </summary>
-    [TerraformArgument("contact_groups")]
     public TerraformList<string>? ContactGroups
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "contact_groups").ResolveNodes(ctx));
@@ -58,7 +47,6 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     /// <summary>
     /// The contact_roles attribute.
     /// </summary>
-    [TerraformArgument("contact_roles")]
     public TerraformList<string>? ContactRoles
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "contact_roles").ResolveNodes(ctx));
@@ -68,7 +56,6 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -78,9 +65,8 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     /// <summary>
     /// The operator attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
-    [TerraformArgument("operator")]
-    public required TerraformValue<string> Operator
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
     {
         get => new TerraformReference<string>(this, "operator");
         set => SetArgument("operator", value);
@@ -90,7 +76,6 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     /// The threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
-    [TerraformArgument("threshold")]
     public required TerraformValue<double> Threshold
     {
         get => new TerraformReference<double>(this, "threshold");
@@ -100,7 +85,6 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     /// <summary>
     /// The threshold_type attribute.
     /// </summary>
-    [TerraformArgument("threshold_type")]
     public TerraformValue<string>? ThresholdType
     {
         get => new TerraformReference<string>(this, "threshold_type");
@@ -123,7 +107,6 @@ public class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : TerraformBlo
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    [TerraformArgument("end_date")]
     public TerraformValue<string> EndDate
     {
         get => new TerraformReference<string>(this, "end_date");
@@ -134,7 +117,6 @@ public class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : TerraformBlo
     /// The start_date attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
-    [TerraformArgument("start_date")]
     public required TerraformValue<string> StartDate
     {
         get => new TerraformReference<string>(this, "start_date");
@@ -157,7 +139,6 @@ public class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -167,7 +148,6 @@ public class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -177,7 +157,6 @@ public class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -187,7 +166,6 @@ public class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -197,20 +175,15 @@ public class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_consumption_budget_resource_group Terraform resource.
 /// Manages a azurerm_consumption_budget_resource_group resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermConsumptionBudgetResourceGroup : TerraformResource
+public partial class AzurermConsumptionBudgetResourceGroup(string name) : TerraformResource("azurerm_consumption_budget_resource_group", name)
 {
-    public AzurermConsumptionBudgetResourceGroup(string name) : base("azurerm_consumption_budget_resource_group", name)
-    {
-    }
-
     /// <summary>
     /// The amount attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
-    [TerraformArgument("amount")]
     public required TerraformValue<double> Amount
     {
         get => new TerraformReference<double>(this, "amount");
@@ -220,7 +193,6 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformArgument("etag")]
     public TerraformValue<string> Etag
     {
         get => new TerraformReference<string>(this, "etag");
@@ -230,7 +202,6 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -241,7 +212,6 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -252,7 +222,6 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     /// The resource_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
-    [TerraformArgument("resource_group_id")]
     public required TerraformValue<string> ResourceGroupId
     {
         get => new TerraformReference<string>(this, "resource_group_id");
@@ -262,7 +231,6 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
-    [TerraformArgument("time_grain")]
     public TerraformValue<string>? TimeGrain
     {
         get => new TerraformReference<string>(this, "time_grain");
@@ -270,37 +238,47 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for filter.
-    /// Nesting mode: list
+    /// Filter block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    [TerraformArgument("filter")]
-    public TerraformList<AzurermConsumptionBudgetResourceGroupFilterBlock> Filter { get; set; } = new();
+    public AzurermConsumptionBudgetResourceGroupFilterBlock? Filter
+    {
+        get => GetArgument<AzurermConsumptionBudgetResourceGroupFilterBlock>("filter");
+        set => SetArgument("filter", value);
+    }
 
     /// <summary>
-    /// Block for notification.
-    /// Nesting mode: set
+    /// Notification block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Notification block(s) required")]
-    [TerraformArgument("notification")]
-    public required TerraformSet<AzurermConsumptionBudgetResourceGroupNotificationBlock> Notification { get; set; } = new();
+    public required AzurermConsumptionBudgetResourceGroupNotificationBlock Notification
+    {
+        get => GetRequiredArgument<AzurermConsumptionBudgetResourceGroupNotificationBlock>("notification");
+        set => SetArgument("notification", value);
+    }
 
     /// <summary>
-    /// Block for time_period.
-    /// Nesting mode: list
+    /// TimePeriod block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimePeriod is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
-    [TerraformArgument("time_period")]
-    public required TerraformList<AzurermConsumptionBudgetResourceGroupTimePeriodBlock> TimePeriod { get; set; } = new();
+    public required AzurermConsumptionBudgetResourceGroupTimePeriodBlock TimePeriod
+    {
+        get => GetRequiredArgument<AzurermConsumptionBudgetResourceGroupTimePeriodBlock>("time_period");
+        set => SetArgument("time_period", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermConsumptionBudgetResourceGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermConsumptionBudgetResourceGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermConsumptionBudgetResourceGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

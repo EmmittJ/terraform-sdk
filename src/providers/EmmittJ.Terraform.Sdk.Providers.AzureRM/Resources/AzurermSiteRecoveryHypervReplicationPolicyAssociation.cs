@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
 }
 
 /// <summary>
+/// Represents a azurerm_site_recovery_hyperv_replication_policy_association Terraform resource.
 /// Manages a azurerm_site_recovery_hyperv_replication_policy_association resource.
 /// </summary>
-public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformResource
+public partial class AzurermSiteRecoveryHypervReplicationPolicyAssociation(string name) : TerraformResource("azurerm_site_recovery_hyperv_replication_policy_association", name)
 {
-    public AzurermSiteRecoveryHypervReplicationPolicyAssociation(string name) : base("azurerm_site_recovery_hyperv_replication_policy_association", name)
-    {
-    }
-
     /// <summary>
     /// The hyperv_site_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervSiteId is required")]
-    [TerraformArgument("hyperv_site_id")]
     public required TerraformValue<string> HypervSiteId
     {
         get => new TerraformReference<string>(this, "hyperv_site_id");
@@ -77,7 +61,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -88,7 +71,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -99,7 +81,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     /// The policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
-    [TerraformArgument("policy_id")]
     public required TerraformValue<string> PolicyId
     {
         get => new TerraformReference<string>(this, "policy_id");
@@ -107,10 +88,12 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

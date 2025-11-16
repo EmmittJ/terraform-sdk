@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for datadog_organization in .
@@ -26,7 +17,6 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// The api_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
-    [TerraformArgument("api_key")]
     public required TerraformValue<string> ApiKey
     {
         get => new TerraformReference<string>(this, "api_key");
@@ -37,7 +27,6 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// The application_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationKey is required")]
-    [TerraformArgument("application_key")]
     public required TerraformValue<string> ApplicationKey
     {
         get => new TerraformReference<string>(this, "application_key");
@@ -47,18 +36,23 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// <summary>
     /// The enterprise_app_id attribute.
     /// </summary>
-    [TerraformArgument("enterprise_app_id")]
     public TerraformValue<string>? EnterpriseAppId
     {
         get => new TerraformReference<string>(this, "enterprise_app_id");
         set => SetArgument("enterprise_app_id", value);
     }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The linking_auth_code attribute.
     /// </summary>
-    [TerraformArgument("linking_auth_code")]
     public TerraformValue<string>? LinkingAuthCode
     {
         get => new TerraformReference<string>(this, "linking_auth_code");
@@ -68,18 +62,23 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// <summary>
     /// The linking_client_id attribute.
     /// </summary>
-    [TerraformArgument("linking_client_id")]
     public TerraformValue<string>? LinkingClientId
     {
         get => new TerraformReference<string>(this, "linking_client_id");
         set => SetArgument("linking_client_id", value);
     }
 
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
 
     /// <summary>
     /// The redirect_uri attribute.
     /// </summary>
-    [TerraformArgument("redirect_uri")]
     public TerraformValue<string>? RedirectUri
     {
         get => new TerraformReference<string>(this, "redirect_uri");
@@ -99,13 +98,26 @@ public class AzurermDatadogMonitorIdentityBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "identity";
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -128,7 +140,6 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -138,7 +149,6 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -148,7 +158,6 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -158,7 +167,6 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -182,7 +190,6 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    [TerraformArgument("email")]
     public required TerraformValue<string> Email
     {
         get => new TerraformReference<string>(this, "email");
@@ -193,7 +200,6 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -203,7 +209,6 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    [TerraformArgument("phone_number")]
     public TerraformValue<string>? PhoneNumber
     {
         get => new TerraformReference<string>(this, "phone_number");
@@ -213,19 +218,14 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_datadog_monitor Terraform resource.
 /// Manages a azurerm_datadog_monitor resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDatadogMonitor : TerraformResource
+public partial class AzurermDatadogMonitor(string name) : TerraformResource("azurerm_datadog_monitor", name)
 {
-    public AzurermDatadogMonitor(string name) : base("azurerm_datadog_monitor", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -236,7 +236,6 @@ public class AzurermDatadogMonitor : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -246,7 +245,6 @@ public class AzurermDatadogMonitor : TerraformResource
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
-    [TerraformArgument("monitoring_enabled")]
     public TerraformValue<bool>? MonitoringEnabled
     {
         get => new TerraformReference<bool>(this, "monitoring_enabled");
@@ -257,7 +255,6 @@ public class AzurermDatadogMonitor : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -268,7 +265,6 @@ public class AzurermDatadogMonitor : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -279,7 +275,6 @@ public class AzurermDatadogMonitor : TerraformResource
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformArgument("sku_name")]
     public required TerraformValue<string> SkuName
     {
         get => new TerraformReference<string>(this, "sku_name");
@@ -289,7 +284,6 @@ public class AzurermDatadogMonitor : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -297,47 +291,48 @@ public class AzurermDatadogMonitor : TerraformResource
     }
 
     /// <summary>
-    /// Block for datadog_organization.
-    /// Nesting mode: list
+    /// DatadogOrganization block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogOrganization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DatadogOrganization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DatadogOrganization block(s) allowed")]
-    [TerraformArgument("datadog_organization")]
-    public required TerraformList<AzurermDatadogMonitorDatadogOrganizationBlock> DatadogOrganization { get; set; } = new();
+    public required AzurermDatadogMonitorDatadogOrganizationBlock DatadogOrganization
+    {
+        get => GetRequiredArgument<AzurermDatadogMonitorDatadogOrganizationBlock>("datadog_organization");
+        set => SetArgument("datadog_organization", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermDatadogMonitorIdentityBlock> Identity { get; set; } = new();
+    public AzurermDatadogMonitorIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermDatadogMonitorIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDatadogMonitorTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDatadogMonitorTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDatadogMonitorTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for user.
-    /// Nesting mode: list
+    /// User block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
-    [TerraformArgument("user")]
-    public required TerraformList<AzurermDatadogMonitorUserBlock> User { get; set; } = new();
-
-    /// <summary>
-    /// The marketplace_subscription_status attribute.
-    /// </summary>
-    [TerraformArgument("marketplace_subscription_status")]
-    public TerraformValue<string> MarketplaceSubscriptionStatus
+    public required AzurermDatadogMonitorUserBlock User
     {
-        get => new TerraformReference<string>(this, "marketplace_subscription_status");
+        get => GetRequiredArgument<AzurermDatadogMonitorUserBlock>("user");
+        set => SetArgument("user", value);
     }
 
 }

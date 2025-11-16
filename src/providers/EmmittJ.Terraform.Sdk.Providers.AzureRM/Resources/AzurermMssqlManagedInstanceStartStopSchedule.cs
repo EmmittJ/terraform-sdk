@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for schedule in .
@@ -26,7 +17,6 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     /// The start_day attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDay is required")]
-    [TerraformArgument("start_day")]
     public required TerraformValue<string> StartDay
     {
         get => new TerraformReference<string>(this, "start_day");
@@ -37,7 +27,6 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     /// The start_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
-    [TerraformArgument("start_time")]
     public required TerraformValue<string> StartTime
     {
         get => new TerraformReference<string>(this, "start_time");
@@ -48,7 +37,6 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     /// The stop_day attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopDay is required")]
-    [TerraformArgument("stop_day")]
     public required TerraformValue<string> StopDay
     {
         get => new TerraformReference<string>(this, "stop_day");
@@ -59,7 +47,6 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     /// The stop_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopTime is required")]
-    [TerraformArgument("stop_time")]
     public required TerraformValue<string> StopTime
     {
         get => new TerraformReference<string>(this, "stop_time");
@@ -82,7 +69,6 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -92,7 +78,6 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -102,7 +87,6 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -112,7 +96,6 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -122,19 +105,14 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_mssql_managed_instance_start_stop_schedule Terraform resource.
 /// Manages a azurerm_mssql_managed_instance_start_stop_schedule resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
+public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) : TerraformResource("azurerm_mssql_managed_instance_start_stop_schedule", name)
 {
-    public AzurermMssqlManagedInstanceStartStopSchedule(string name) : base("azurerm_mssql_managed_instance_start_stop_schedule", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -144,7 +122,6 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -155,7 +132,6 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     /// The managed_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
-    [TerraformArgument("managed_instance_id")]
     public required TerraformValue<string> ManagedInstanceId
     {
         get => new TerraformReference<string>(this, "managed_instance_id");
@@ -165,7 +141,6 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     /// <summary>
     /// The timezone_id attribute.
     /// </summary>
-    [TerraformArgument("timezone_id")]
     public TerraformValue<string>? TimezoneId
     {
         get => new TerraformReference<string>(this, "timezone_id");
@@ -173,37 +148,24 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     }
 
     /// <summary>
-    /// Block for schedule.
-    /// Nesting mode: list
+    /// Schedule block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
-    [TerraformArgument("schedule")]
-    public required TerraformList<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock> Schedule { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The next_execution_time attribute.
-    /// </summary>
-    [TerraformArgument("next_execution_time")]
-    public TerraformValue<string> NextExecutionTime
+    public required AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock Schedule
     {
-        get => new TerraformReference<string>(this, "next_execution_time");
+        get => GetRequiredArgument<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock>("schedule");
+        set => SetArgument("schedule", value);
     }
 
     /// <summary>
-    /// The next_run_action attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("next_run_action")]
-    public TerraformValue<string> NextRunAction
+    public AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "next_run_action");
+        get => GetArgument<AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

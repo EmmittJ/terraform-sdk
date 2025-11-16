@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for galleries in .
@@ -26,7 +17,6 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// The category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
-    [TerraformArgument("category")]
     public required TerraformValue<string> Category
     {
         get => new TerraformReference<string>(this, "category");
@@ -37,7 +27,6 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -47,7 +36,6 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// <summary>
     /// The order attribute.
     /// </summary>
-    [TerraformArgument("order")]
     public TerraformValue<double>? Order
     {
         get => new TerraformReference<double>(this, "order");
@@ -57,8 +45,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    [TerraformArgument("resource_type")]
-    public TerraformValue<string>? ResourceType
+    public TerraformValue<string>? ResourceTypeAttribute
     {
         get => new TerraformReference<string>(this, "resource_type");
         set => SetArgument("resource_type", value);
@@ -67,7 +54,6 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -90,7 +76,6 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -100,7 +85,6 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -110,7 +94,6 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -120,7 +103,6 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -130,19 +112,14 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_application_insights_workbook_template Terraform resource.
 /// Manages a azurerm_application_insights_workbook_template resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
+public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : TerraformResource("azurerm_application_insights_workbook_template", name)
 {
-    public AzurermApplicationInsightsWorkbookTemplate(string name) : base("azurerm_application_insights_workbook_template", name)
-    {
-    }
-
     /// <summary>
     /// The author attribute.
     /// </summary>
-    [TerraformArgument("author")]
     public TerraformValue<string>? Author
     {
         get => new TerraformReference<string>(this, "author");
@@ -152,7 +129,6 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -162,7 +138,6 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// <summary>
     /// The localized attribute.
     /// </summary>
-    [TerraformArgument("localized")]
     public TerraformValue<string>? Localized
     {
         get => new TerraformReference<string>(this, "localized");
@@ -173,7 +148,6 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -184,7 +158,6 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -194,7 +167,6 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformArgument("priority")]
     public TerraformValue<double>? Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -205,7 +177,6 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -215,7 +186,6 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -226,7 +196,6 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// The template_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateData is required")]
-    [TerraformArgument("template_data")]
     public required TerraformValue<string> TemplateData
     {
         get => new TerraformReference<string>(this, "template_data");
@@ -234,19 +203,24 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     }
 
     /// <summary>
-    /// Block for galleries.
-    /// Nesting mode: list
+    /// Galleries block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Galleries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Galleries block(s) required")]
-    [TerraformArgument("galleries")]
-    public required TerraformList<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock> Galleries { get; set; } = new();
+    public required AzurermApplicationInsightsWorkbookTemplateGalleriesBlock Galleries
+    {
+        get => GetRequiredArgument<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>("galleries");
+        set => SetArgument("galleries", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

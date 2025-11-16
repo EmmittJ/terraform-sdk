@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for acl in .
@@ -22,7 +13,21 @@ public class AzurermStorageShareDataSourceAclBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "acl";
 
+    /// <summary>
+    /// The access_policy attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> AccessPolicy
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "access_policy").ResolveNodes(ctx));
+    }
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
 }
 
@@ -40,7 +45,6 @@ public class AzurermStorageShareDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -50,18 +54,14 @@ public class AzurermStorageShareDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_share Terraform data source.
 /// Retrieves information about a azurerm_storage_share.
 /// </summary>
-public class AzurermStorageShareDataSource : TerraformDataSource
+public partial class AzurermStorageShareDataSource(string name) : TerraformDataSource("azurerm_storage_share", name)
 {
-    public AzurermStorageShareDataSource(string name) : base("azurerm_storage_share", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -71,7 +71,6 @@ public class AzurermStorageShareDataSource : TerraformDataSource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformArgument("metadata")]
     public TerraformMap<string> Metadata
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
@@ -82,7 +81,6 @@ public class AzurermStorageShareDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -92,7 +90,6 @@ public class AzurermStorageShareDataSource : TerraformDataSource
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    [TerraformArgument("storage_account_id")]
     public TerraformValue<string>? StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -102,7 +99,6 @@ public class AzurermStorageShareDataSource : TerraformDataSource
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    [TerraformArgument("storage_account_name")]
     public TerraformValue<string>? StorageAccountName
     {
         get => new TerraformReference<string>(this, "storage_account_name");
@@ -110,35 +106,21 @@ public class AzurermStorageShareDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for acl.
-    /// Nesting mode: list
+    /// Acl block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("acl")]
-    public TerraformList<AzurermStorageShareDataSourceAclBlock> Acl { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageShareDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The quota attribute.
-    /// </summary>
-    [TerraformArgument("quota")]
-    public TerraformValue<double> Quota
+    public AzurermStorageShareDataSourceAclBlock? Acl
     {
-        get => new TerraformReference<double>(this, "quota");
+        get => GetArgument<AzurermStorageShareDataSourceAclBlock>("acl");
+        set => SetArgument("acl", value);
     }
 
     /// <summary>
-    /// The resource_manager_id attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("resource_manager_id")]
-    public TerraformValue<string> ResourceManagerId
+    public AzurermStorageShareDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "resource_manager_id");
+        get => GetArgument<AzurermStorageShareDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

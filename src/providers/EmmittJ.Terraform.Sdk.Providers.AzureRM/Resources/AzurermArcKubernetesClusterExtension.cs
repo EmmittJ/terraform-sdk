@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -22,13 +13,26 @@ public class AzurermArcKubernetesClusterExtensionIdentityBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "identity";
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -51,7 +55,6 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -61,7 +64,6 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -71,7 +73,6 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -81,7 +82,6 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -91,20 +91,15 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_arc_kubernetes_cluster_extension Terraform resource.
 /// Manages a azurerm_arc_kubernetes_cluster_extension resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermArcKubernetesClusterExtension : TerraformResource
+public partial class AzurermArcKubernetesClusterExtension(string name) : TerraformResource("azurerm_arc_kubernetes_cluster_extension", name)
 {
-    public AzurermArcKubernetesClusterExtension(string name) : base("azurerm_arc_kubernetes_cluster_extension", name)
-    {
-    }
-
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    [TerraformArgument("cluster_id")]
     public required TerraformValue<string> ClusterId
     {
         get => new TerraformReference<string>(this, "cluster_id");
@@ -114,7 +109,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The configuration_protected_settings attribute.
     /// </summary>
-    [TerraformArgument("configuration_protected_settings")]
     public TerraformMap<string>? ConfigurationProtectedSettings
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "configuration_protected_settings").ResolveNodes(ctx));
@@ -124,7 +118,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The configuration_settings attribute.
     /// </summary>
-    [TerraformArgument("configuration_settings")]
     public TerraformMap<string>? ConfigurationSettings
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "configuration_settings").ResolveNodes(ctx));
@@ -135,7 +128,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// The extension_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionType is required")]
-    [TerraformArgument("extension_type")]
     public required TerraformValue<string> ExtensionType
     {
         get => new TerraformReference<string>(this, "extension_type");
@@ -145,7 +137,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -156,7 +147,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -166,7 +156,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The release_namespace attribute.
     /// </summary>
-    [TerraformArgument("release_namespace")]
     public TerraformValue<string> ReleaseNamespace
     {
         get => new TerraformReference<string>(this, "release_namespace");
@@ -176,7 +165,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The release_train attribute.
     /// </summary>
-    [TerraformArgument("release_train")]
     public TerraformValue<string> ReleaseTrain
     {
         get => new TerraformReference<string>(this, "release_train");
@@ -186,7 +174,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The target_namespace attribute.
     /// </summary>
-    [TerraformArgument("target_namespace")]
     public TerraformValue<string> TargetNamespace
     {
         get => new TerraformReference<string>(this, "target_namespace");
@@ -196,7 +183,6 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformArgument("version")]
     public TerraformValue<string>? Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -204,29 +190,25 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public required TerraformList<AzurermArcKubernetesClusterExtensionIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermArcKubernetesClusterExtensionTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The current_version attribute.
-    /// </summary>
-    [TerraformArgument("current_version")]
-    public TerraformValue<string> CurrentVersion
+    public required AzurermArcKubernetesClusterExtensionIdentityBlock Identity
     {
-        get => new TerraformReference<string>(this, "current_version");
+        get => GetRequiredArgument<AzurermArcKubernetesClusterExtensionIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermArcKubernetesClusterExtensionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermArcKubernetesClusterExtensionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

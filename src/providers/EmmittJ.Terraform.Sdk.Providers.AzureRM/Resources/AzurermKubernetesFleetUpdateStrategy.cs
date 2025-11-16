@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for stage in .
@@ -25,7 +16,6 @@ public class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformBlock
     /// <summary>
     /// The after_stage_wait_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("after_stage_wait_in_seconds")]
     public TerraformValue<double>? AfterStageWaitInSeconds
     {
         get => new TerraformReference<double>(this, "after_stage_wait_in_seconds");
@@ -36,7 +26,6 @@ public class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -59,7 +48,6 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,19 +84,14 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_kubernetes_fleet_update_strategy Terraform resource.
 /// Manages a azurerm_kubernetes_fleet_update_strategy resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermKubernetesFleetUpdateStrategy : TerraformResource
+public partial class AzurermKubernetesFleetUpdateStrategy(string name) : TerraformResource("azurerm_kubernetes_fleet_update_strategy", name)
 {
-    public AzurermKubernetesFleetUpdateStrategy(string name) : base("azurerm_kubernetes_fleet_update_strategy", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -122,7 +102,6 @@ public class AzurermKubernetesFleetUpdateStrategy : TerraformResource
     /// The kubernetes_fleet_manager_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetManagerId is required")]
-    [TerraformArgument("kubernetes_fleet_manager_id")]
     public required TerraformValue<string> KubernetesFleetManagerId
     {
         get => new TerraformReference<string>(this, "kubernetes_fleet_manager_id");
@@ -133,7 +112,6 @@ public class AzurermKubernetesFleetUpdateStrategy : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -141,19 +119,24 @@ public class AzurermKubernetesFleetUpdateStrategy : TerraformResource
     }
 
     /// <summary>
-    /// Block for stage.
-    /// Nesting mode: list
+    /// Stage block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stage block(s) required")]
-    [TerraformArgument("stage")]
-    public required TerraformList<AzurermKubernetesFleetUpdateStrategyStageBlock> Stage { get; set; } = new();
+    public required AzurermKubernetesFleetUpdateStrategyStageBlock Stage
+    {
+        get => GetRequiredArgument<AzurermKubernetesFleetUpdateStrategyStageBlock>("stage");
+        set => SetArgument("stage", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKubernetesFleetUpdateStrategyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermKubernetesFleetUpdateStrategyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermKubernetesFleetUpdateStrategyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

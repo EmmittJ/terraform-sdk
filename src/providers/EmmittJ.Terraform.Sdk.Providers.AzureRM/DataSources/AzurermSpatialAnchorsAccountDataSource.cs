@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSpatialAnchorsAccountDataSourceTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermSpatialAnchorsAccountDataSourceTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_spatial_anchors_account Terraform data source.
 /// Retrieves information about a azurerm_spatial_anchors_account.
 /// </summary>
-[Obsolete("This data source is deprecated.")]
-public class AzurermSpatialAnchorsAccountDataSource : TerraformDataSource
+[Obsolete("This resource is deprecated.")]
+public partial class AzurermSpatialAnchorsAccountDataSource(string name) : TerraformDataSource("azurerm_spatial_anchors_account", name)
 {
-    public AzurermSpatialAnchorsAccountDataSource(string name) : base("azurerm_spatial_anchors_account", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -58,7 +44,6 @@ public class AzurermSpatialAnchorsAccountDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -69,7 +54,6 @@ public class AzurermSpatialAnchorsAccountDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -77,46 +61,12 @@ public class AzurermSpatialAnchorsAccountDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpatialAnchorsAccountDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The account_domain attribute.
-    /// </summary>
-    [TerraformArgument("account_domain")]
-    public TerraformValue<string> AccountDomain
+    public AzurermSpatialAnchorsAccountDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "account_domain");
-    }
-
-    /// <summary>
-    /// The account_id attribute.
-    /// </summary>
-    [TerraformArgument("account_id")]
-    public TerraformValue<string> AccountId
-    {
-        get => new TerraformReference<string>(this, "account_id");
-    }
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<AzurermSpatialAnchorsAccountDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

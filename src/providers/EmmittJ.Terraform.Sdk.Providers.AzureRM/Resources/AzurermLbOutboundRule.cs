@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for frontend_ip_configuration in .
@@ -22,12 +13,18 @@ public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "frontend_ip_configuration";
 
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -50,7 +47,6 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -60,7 +56,6 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -70,7 +65,6 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -80,7 +74,6 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -90,18 +83,14 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_lb_outbound_rule Terraform resource.
 /// Manages a azurerm_lb_outbound_rule resource.
 /// </summary>
-public class AzurermLbOutboundRule : TerraformResource
+public partial class AzurermLbOutboundRule(string name) : TerraformResource("azurerm_lb_outbound_rule", name)
 {
-    public AzurermLbOutboundRule(string name) : base("azurerm_lb_outbound_rule", name)
-    {
-    }
-
     /// <summary>
     /// The allocated_outbound_ports attribute.
     /// </summary>
-    [TerraformArgument("allocated_outbound_ports")]
     public TerraformValue<double>? AllocatedOutboundPorts
     {
         get => new TerraformReference<double>(this, "allocated_outbound_ports");
@@ -112,7 +101,6 @@ public class AzurermLbOutboundRule : TerraformResource
     /// The backend_address_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
-    [TerraformArgument("backend_address_pool_id")]
     public required TerraformValue<string> BackendAddressPoolId
     {
         get => new TerraformReference<string>(this, "backend_address_pool_id");
@@ -123,7 +111,6 @@ public class AzurermLbOutboundRule : TerraformResource
     /// The enable_tcp_reset attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("enable_tcp_reset")]
     public TerraformValue<bool> EnableTcpReset
     {
         get => new TerraformReference<bool>(this, "enable_tcp_reset");
@@ -133,7 +120,6 @@ public class AzurermLbOutboundRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -143,7 +129,6 @@ public class AzurermLbOutboundRule : TerraformResource
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformArgument("idle_timeout_in_minutes")]
     public TerraformValue<double>? IdleTimeoutInMinutes
     {
         get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
@@ -154,7 +139,6 @@ public class AzurermLbOutboundRule : TerraformResource
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    [TerraformArgument("loadbalancer_id")]
     public required TerraformValue<string> LoadbalancerId
     {
         get => new TerraformReference<string>(this, "loadbalancer_id");
@@ -165,7 +149,6 @@ public class AzurermLbOutboundRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -176,7 +159,6 @@ public class AzurermLbOutboundRule : TerraformResource
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformArgument("protocol")]
     public required TerraformValue<string> Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -186,7 +168,6 @@ public class AzurermLbOutboundRule : TerraformResource
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    [TerraformArgument("tcp_reset_enabled")]
     public TerraformValue<bool> TcpResetEnabled
     {
         get => new TerraformReference<bool>(this, "tcp_reset_enabled");
@@ -194,17 +175,21 @@ public class AzurermLbOutboundRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for frontend_ip_configuration.
-    /// Nesting mode: list
+    /// FrontendIpConfiguration block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("frontend_ip_configuration")]
-    public TerraformList<AzurermLbOutboundRuleFrontendIpConfigurationBlock> FrontendIpConfiguration { get; set; } = new();
+    public AzurermLbOutboundRuleFrontendIpConfigurationBlock? FrontendIpConfiguration
+    {
+        get => GetArgument<AzurermLbOutboundRuleFrontendIpConfigurationBlock>("frontend_ip_configuration");
+        set => SetArgument("frontend_ip_configuration", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLbOutboundRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermLbOutboundRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermLbOutboundRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

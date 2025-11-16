@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for data_disk in .
@@ -25,7 +16,6 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The blob_uri attribute.
     /// </summary>
-    [TerraformArgument("blob_uri")]
     public TerraformValue<string> BlobUri
     {
         get => new TerraformReference<string>(this, "blob_uri");
@@ -35,7 +25,6 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    [TerraformArgument("caching")]
     public TerraformValue<string>? Caching
     {
         get => new TerraformReference<string>(this, "caching");
@@ -45,7 +34,6 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformArgument("disk_encryption_set_id")]
     public TerraformValue<string>? DiskEncryptionSetId
     {
         get => new TerraformReference<string>(this, "disk_encryption_set_id");
@@ -55,7 +43,6 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The lun attribute.
     /// </summary>
-    [TerraformArgument("lun")]
     public TerraformValue<double>? Lun
     {
         get => new TerraformReference<double>(this, "lun");
@@ -65,7 +52,6 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    [TerraformArgument("managed_disk_id")]
     public TerraformValue<string>? ManagedDiskId
     {
         get => new TerraformReference<string>(this, "managed_disk_id");
@@ -75,7 +61,6 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// <summary>
     /// The size_gb attribute.
     /// </summary>
-    [TerraformArgument("size_gb")]
     public TerraformValue<double> SizeGb
     {
         get => new TerraformReference<double>(this, "size_gb");
@@ -86,7 +71,6 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// The type of storage disk
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
-    [TerraformArgument("storage_type")]
     public required TerraformValue<string> StorageType
     {
         get => new TerraformReference<string>(this, "storage_type");
@@ -109,7 +93,6 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The blob_uri attribute.
     /// </summary>
-    [TerraformArgument("blob_uri")]
     public TerraformValue<string> BlobUri
     {
         get => new TerraformReference<string>(this, "blob_uri");
@@ -119,7 +102,6 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    [TerraformArgument("caching")]
     public TerraformValue<string>? Caching
     {
         get => new TerraformReference<string>(this, "caching");
@@ -129,7 +111,6 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformArgument("disk_encryption_set_id")]
     public TerraformValue<string>? DiskEncryptionSetId
     {
         get => new TerraformReference<string>(this, "disk_encryption_set_id");
@@ -139,7 +120,6 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    [TerraformArgument("managed_disk_id")]
     public TerraformValue<string> ManagedDiskId
     {
         get => new TerraformReference<string>(this, "managed_disk_id");
@@ -149,7 +129,6 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The os_state attribute.
     /// </summary>
-    [TerraformArgument("os_state")]
     public TerraformValue<string>? OsState
     {
         get => new TerraformReference<string>(this, "os_state");
@@ -159,7 +138,6 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    [TerraformArgument("os_type")]
     public TerraformValue<string>? OsType
     {
         get => new TerraformReference<string>(this, "os_type");
@@ -169,7 +147,6 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// <summary>
     /// The size_gb attribute.
     /// </summary>
-    [TerraformArgument("size_gb")]
     public TerraformValue<double> SizeGb
     {
         get => new TerraformReference<double>(this, "size_gb");
@@ -180,7 +157,6 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// The type of storage disk
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
-    [TerraformArgument("storage_type")]
     public required TerraformValue<string> StorageType
     {
         get => new TerraformReference<string>(this, "storage_type");
@@ -203,7 +179,6 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -213,7 +188,6 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -223,7 +197,6 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -233,7 +206,6 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -243,19 +215,14 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_image Terraform resource.
 /// Manages a azurerm_image resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermImage : TerraformResource
+public partial class AzurermImage(string name) : TerraformResource("azurerm_image", name)
 {
-    public AzurermImage(string name) : base("azurerm_image", name)
-    {
-    }
-
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
-    [TerraformArgument("hyper_v_generation")]
     public TerraformValue<string>? HyperVGeneration
     {
         get => new TerraformReference<string>(this, "hyper_v_generation");
@@ -265,7 +232,6 @@ public class AzurermImage : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -276,7 +242,6 @@ public class AzurermImage : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -287,7 +252,6 @@ public class AzurermImage : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -298,7 +262,6 @@ public class AzurermImage : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -308,7 +271,6 @@ public class AzurermImage : TerraformResource
     /// <summary>
     /// The source_virtual_machine_id attribute.
     /// </summary>
-    [TerraformArgument("source_virtual_machine_id")]
     public TerraformValue<string>? SourceVirtualMachineId
     {
         get => new TerraformReference<string>(this, "source_virtual_machine_id");
@@ -318,7 +280,6 @@ public class AzurermImage : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -328,7 +289,6 @@ public class AzurermImage : TerraformResource
     /// <summary>
     /// The zone_resilient attribute.
     /// </summary>
-    [TerraformArgument("zone_resilient")]
     public TerraformValue<bool>? ZoneResilient
     {
         get => new TerraformReference<bool>(this, "zone_resilient");
@@ -336,25 +296,31 @@ public class AzurermImage : TerraformResource
     }
 
     /// <summary>
-    /// Block for data_disk.
-    /// Nesting mode: list
+    /// DataDisk block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("data_disk")]
-    public TerraformList<AzurermImageDataDiskBlock> DataDisk { get; set; } = new();
+    public AzurermImageDataDiskBlock? DataDisk
+    {
+        get => GetArgument<AzurermImageDataDiskBlock>("data_disk");
+        set => SetArgument("data_disk", value);
+    }
 
     /// <summary>
-    /// Block for os_disk.
-    /// Nesting mode: list
+    /// OsDisk block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    [TerraformArgument("os_disk")]
-    public TerraformList<AzurermImageOsDiskBlock> OsDisk { get; set; } = new();
+    public AzurermImageOsDiskBlock? OsDisk
+    {
+        get => GetArgument<AzurermImageOsDiskBlock>("os_disk");
+        set => SetArgument("os_disk", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermImageTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermImageTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermImageTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

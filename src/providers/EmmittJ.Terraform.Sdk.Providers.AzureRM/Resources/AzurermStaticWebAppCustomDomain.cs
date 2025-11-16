@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermStaticWebAppCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermStaticWebAppCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermStaticWebAppCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermStaticWebAppCustomDomainTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_static_web_app_custom_domain Terraform resource.
 /// Manages a azurerm_static_web_app_custom_domain resource.
 /// </summary>
-public class AzurermStaticWebAppCustomDomain : TerraformResource
+public partial class AzurermStaticWebAppCustomDomain(string name) : TerraformResource("azurerm_static_web_app_custom_domain", name)
 {
-    public AzurermStaticWebAppCustomDomain(string name) : base("azurerm_static_web_app_custom_domain", name)
-    {
-    }
-
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    [TerraformArgument("domain_name")]
     public required TerraformValue<string> DomainName
     {
         get => new TerraformReference<string>(this, "domain_name");
@@ -77,7 +61,6 @@ public class AzurermStaticWebAppCustomDomain : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -88,7 +71,6 @@ public class AzurermStaticWebAppCustomDomain : TerraformResource
     /// The static_web_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
-    [TerraformArgument("static_web_app_id")]
     public required TerraformValue<string> StaticWebAppId
     {
         get => new TerraformReference<string>(this, "static_web_app_id");
@@ -99,7 +81,6 @@ public class AzurermStaticWebAppCustomDomain : TerraformResource
     /// The validation_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationType is required")]
-    [TerraformArgument("validation_type")]
     public required TerraformValue<string> ValidationType
     {
         get => new TerraformReference<string>(this, "validation_type");
@@ -107,19 +88,12 @@ public class AzurermStaticWebAppCustomDomain : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStaticWebAppCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The validation_token attribute.
-    /// </summary>
-    [TerraformArgument("validation_token")]
-    public TerraformValue<string> ValidationToken
+    public AzurermStaticWebAppCustomDomainTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "validation_token");
+        get => GetArgument<AzurermStaticWebAppCustomDomainTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

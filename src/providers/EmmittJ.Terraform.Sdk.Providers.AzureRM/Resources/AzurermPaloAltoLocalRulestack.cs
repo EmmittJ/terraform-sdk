@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_palo_alto_local_rulestack Terraform resource.
 /// Manages a azurerm_palo_alto_local_rulestack resource.
 /// </summary>
-public class AzurermPaloAltoLocalRulestack : TerraformResource
+public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResource("azurerm_palo_alto_local_rulestack", name)
 {
-    public AzurermPaloAltoLocalRulestack(string name) : base("azurerm_palo_alto_local_rulestack", name)
-    {
-    }
-
     /// <summary>
     /// The anti_spyware_profile attribute.
     /// </summary>
-    [TerraformArgument("anti_spyware_profile")]
     public TerraformValue<string>? AntiSpywareProfile
     {
         get => new TerraformReference<string>(this, "anti_spyware_profile");
@@ -86,7 +69,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// <summary>
     /// The anti_virus_profile attribute.
     /// </summary>
-    [TerraformArgument("anti_virus_profile")]
     public TerraformValue<string>? AntiVirusProfile
     {
         get => new TerraformReference<string>(this, "anti_virus_profile");
@@ -96,7 +78,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -106,7 +87,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// <summary>
     /// The dns_subscription attribute.
     /// </summary>
-    [TerraformArgument("dns_subscription")]
     public TerraformValue<string>? DnsSubscription
     {
         get => new TerraformReference<string>(this, "dns_subscription");
@@ -116,7 +96,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// <summary>
     /// The file_blocking_profile attribute.
     /// </summary>
-    [TerraformArgument("file_blocking_profile")]
     public TerraformValue<string>? FileBlockingProfile
     {
         get => new TerraformReference<string>(this, "file_blocking_profile");
@@ -126,7 +105,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -137,7 +115,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -148,7 +125,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -159,7 +135,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -169,7 +144,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// <summary>
     /// The url_filtering_profile attribute.
     /// </summary>
-    [TerraformArgument("url_filtering_profile")]
     public TerraformValue<string>? UrlFilteringProfile
     {
         get => new TerraformReference<string>(this, "url_filtering_profile");
@@ -179,7 +153,6 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// <summary>
     /// The vulnerability_profile attribute.
     /// </summary>
-    [TerraformArgument("vulnerability_profile")]
     public TerraformValue<string>? VulnerabilityProfile
     {
         get => new TerraformReference<string>(this, "vulnerability_profile");
@@ -187,10 +160,12 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPaloAltoLocalRulestackTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPaloAltoLocalRulestackTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPaloAltoLocalRulestackTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

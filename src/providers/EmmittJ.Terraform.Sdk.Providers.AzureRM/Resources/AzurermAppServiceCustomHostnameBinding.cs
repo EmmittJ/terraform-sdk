@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_app_service_custom_hostname_binding Terraform resource.
 /// Manages a azurerm_app_service_custom_hostname_binding resource.
 /// </summary>
-public class AzurermAppServiceCustomHostnameBinding : TerraformResource
+public partial class AzurermAppServiceCustomHostnameBinding(string name) : TerraformResource("azurerm_app_service_custom_hostname_binding", name)
 {
-    public AzurermAppServiceCustomHostnameBinding(string name) : base("azurerm_app_service_custom_hostname_binding", name)
-    {
-    }
-
     /// <summary>
     /// The app_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
-    [TerraformArgument("app_service_name")]
     public required TerraformValue<string> AppServiceName
     {
         get => new TerraformReference<string>(this, "app_service_name");
@@ -78,7 +62,6 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// The hostname attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
-    [TerraformArgument("hostname")]
     public required TerraformValue<string> Hostname
     {
         get => new TerraformReference<string>(this, "hostname");
@@ -88,7 +71,6 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -99,7 +81,6 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -109,7 +90,6 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    [TerraformArgument("ssl_state")]
     public TerraformValue<string> SslState
     {
         get => new TerraformReference<string>(this, "ssl_state");
@@ -119,7 +99,6 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    [TerraformArgument("thumbprint")]
     public TerraformValue<string> Thumbprint
     {
         get => new TerraformReference<string>(this, "thumbprint");
@@ -127,19 +106,12 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAppServiceCustomHostnameBindingTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The virtual_ip attribute.
-    /// </summary>
-    [TerraformArgument("virtual_ip")]
-    public TerraformValue<string> VirtualIp
+    public AzurermAppServiceCustomHostnameBindingTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "virtual_ip");
+        get => GetArgument<AzurermAppServiceCustomHostnameBindingTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

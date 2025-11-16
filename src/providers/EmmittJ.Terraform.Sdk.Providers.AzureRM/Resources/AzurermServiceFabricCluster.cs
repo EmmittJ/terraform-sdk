@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for azure_active_directory in .
@@ -26,7 +17,6 @@ public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlo
     /// The client_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientApplicationId is required")]
-    [TerraformArgument("client_application_id")]
     public required TerraformValue<string> ClientApplicationId
     {
         get => new TerraformReference<string>(this, "client_application_id");
@@ -37,7 +27,6 @@ public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlo
     /// The cluster_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterApplicationId is required")]
-    [TerraformArgument("cluster_application_id")]
     public required TerraformValue<string> ClusterApplicationId
     {
         get => new TerraformReference<string>(this, "cluster_application_id");
@@ -48,7 +37,6 @@ public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlo
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    [TerraformArgument("tenant_id")]
     public required TerraformValue<string> TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -72,7 +60,6 @@ public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
     /// The thumbprint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
-    [TerraformArgument("thumbprint")]
     public required TerraformValue<string> Thumbprint
     {
         get => new TerraformReference<string>(this, "thumbprint");
@@ -82,7 +69,6 @@ public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
     /// <summary>
     /// The thumbprint_secondary attribute.
     /// </summary>
-    [TerraformArgument("thumbprint_secondary")]
     public TerraformValue<string>? ThumbprintSecondary
     {
         get => new TerraformReference<string>(this, "thumbprint_secondary");
@@ -93,7 +79,6 @@ public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
     /// The x509_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
-    [TerraformArgument("x509_store_name")]
     public required TerraformValue<string> X509StoreName
     {
         get => new TerraformReference<string>(this, "x509_store_name");
@@ -117,7 +102,6 @@ public class AzurermServiceFabricClusterCertificateCommonNamesBlock : TerraformB
     /// The x509_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
-    [TerraformArgument("x509_store_name")]
     public required TerraformValue<string> X509StoreName
     {
         get => new TerraformReference<string>(this, "x509_store_name");
@@ -141,7 +125,6 @@ public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : Terra
     /// The common_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
-    [TerraformArgument("common_name")]
     public required TerraformValue<string> CommonName
     {
         get => new TerraformReference<string>(this, "common_name");
@@ -152,7 +135,6 @@ public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : Terra
     /// The is_admin attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsAdmin is required")]
-    [TerraformArgument("is_admin")]
     public required TerraformValue<bool> IsAdmin
     {
         get => new TerraformReference<bool>(this, "is_admin");
@@ -162,7 +144,6 @@ public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : Terra
     /// <summary>
     /// The issuer_thumbprint attribute.
     /// </summary>
-    [TerraformArgument("issuer_thumbprint")]
     public TerraformValue<string>? IssuerThumbprint
     {
         get => new TerraformReference<string>(this, "issuer_thumbprint");
@@ -186,7 +167,6 @@ public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : Terra
     /// The is_admin attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsAdmin is required")]
-    [TerraformArgument("is_admin")]
     public required TerraformValue<bool> IsAdmin
     {
         get => new TerraformReference<bool>(this, "is_admin");
@@ -197,7 +177,6 @@ public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : Terra
     /// The thumbprint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
-    [TerraformArgument("thumbprint")]
     public required TerraformValue<string> Thumbprint
     {
         get => new TerraformReference<string>(this, "thumbprint");
@@ -221,7 +200,6 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     /// The blob_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobEndpoint is required")]
-    [TerraformArgument("blob_endpoint")]
     public required TerraformValue<string> BlobEndpoint
     {
         get => new TerraformReference<string>(this, "blob_endpoint");
@@ -232,7 +210,6 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     /// The protected_account_key_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectedAccountKeyName is required")]
-    [TerraformArgument("protected_account_key_name")]
     public required TerraformValue<string> ProtectedAccountKeyName
     {
         get => new TerraformReference<string>(this, "protected_account_key_name");
@@ -243,7 +220,6 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     /// The queue_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueEndpoint is required")]
-    [TerraformArgument("queue_endpoint")]
     public required TerraformValue<string> QueueEndpoint
     {
         get => new TerraformReference<string>(this, "queue_endpoint");
@@ -254,7 +230,6 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    [TerraformArgument("storage_account_name")]
     public required TerraformValue<string> StorageAccountName
     {
         get => new TerraformReference<string>(this, "storage_account_name");
@@ -265,7 +240,6 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
     /// The table_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableEndpoint is required")]
-    [TerraformArgument("table_endpoint")]
     public required TerraformValue<string> TableEndpoint
     {
         get => new TerraformReference<string>(this, "table_endpoint");
@@ -289,7 +263,6 @@ public class AzurermServiceFabricClusterFabricSettingsBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -299,7 +272,6 @@ public class AzurermServiceFabricClusterFabricSettingsBlock : TerraformBlock
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -322,7 +294,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// <summary>
     /// The capacities attribute.
     /// </summary>
-    [TerraformArgument("capacities")]
     public TerraformMap<string>? Capacities
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "capacities").ResolveNodes(ctx));
@@ -333,7 +304,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// The client_endpoint_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientEndpointPort is required")]
-    [TerraformArgument("client_endpoint_port")]
     public required TerraformValue<double> ClientEndpointPort
     {
         get => new TerraformReference<double>(this, "client_endpoint_port");
@@ -343,7 +313,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// <summary>
     /// The durability_level attribute.
     /// </summary>
-    [TerraformArgument("durability_level")]
     public TerraformValue<string>? DurabilityLevel
     {
         get => new TerraformReference<string>(this, "durability_level");
@@ -354,7 +323,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// The http_endpoint_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpEndpointPort is required")]
-    [TerraformArgument("http_endpoint_port")]
     public required TerraformValue<double> HttpEndpointPort
     {
         get => new TerraformReference<double>(this, "http_endpoint_port");
@@ -365,7 +333,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// The instance_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
-    [TerraformArgument("instance_count")]
     public required TerraformValue<double> InstanceCount
     {
         get => new TerraformReference<double>(this, "instance_count");
@@ -376,7 +343,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// The is_primary attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrimary is required")]
-    [TerraformArgument("is_primary")]
     public required TerraformValue<bool> IsPrimary
     {
         get => new TerraformReference<bool>(this, "is_primary");
@@ -386,7 +352,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// <summary>
     /// The is_stateless attribute.
     /// </summary>
-    [TerraformArgument("is_stateless")]
     public TerraformValue<bool>? IsStateless
     {
         get => new TerraformReference<bool>(this, "is_stateless");
@@ -396,7 +361,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// <summary>
     /// The multiple_availability_zones attribute.
     /// </summary>
-    [TerraformArgument("multiple_availability_zones")]
     public TerraformValue<bool>? MultipleAvailabilityZones
     {
         get => new TerraformReference<bool>(this, "multiple_availability_zones");
@@ -407,7 +371,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -417,7 +380,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// <summary>
     /// The placement_properties attribute.
     /// </summary>
-    [TerraformArgument("placement_properties")]
     public TerraformMap<string>? PlacementProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "placement_properties").ResolveNodes(ctx));
@@ -427,7 +389,6 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
     /// <summary>
     /// The reverse_proxy_endpoint_port attribute.
     /// </summary>
-    [TerraformArgument("reverse_proxy_endpoint_port")]
     public TerraformValue<double>? ReverseProxyEndpointPort
     {
         get => new TerraformReference<double>(this, "reverse_proxy_endpoint_port");
@@ -451,7 +412,6 @@ public class AzurermServiceFabricClusterReverseProxyCertificateBlock : Terraform
     /// The thumbprint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
-    [TerraformArgument("thumbprint")]
     public required TerraformValue<string> Thumbprint
     {
         get => new TerraformReference<string>(this, "thumbprint");
@@ -461,7 +421,6 @@ public class AzurermServiceFabricClusterReverseProxyCertificateBlock : Terraform
     /// <summary>
     /// The thumbprint_secondary attribute.
     /// </summary>
-    [TerraformArgument("thumbprint_secondary")]
     public TerraformValue<string>? ThumbprintSecondary
     {
         get => new TerraformReference<string>(this, "thumbprint_secondary");
@@ -472,7 +431,6 @@ public class AzurermServiceFabricClusterReverseProxyCertificateBlock : Terraform
     /// The x509_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
-    [TerraformArgument("x509_store_name")]
     public required TerraformValue<string> X509StoreName
     {
         get => new TerraformReference<string>(this, "x509_store_name");
@@ -496,7 +454,6 @@ public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock 
     /// The x509_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
-    [TerraformArgument("x509_store_name")]
     public required TerraformValue<string> X509StoreName
     {
         get => new TerraformReference<string>(this, "x509_store_name");
@@ -519,7 +476,6 @@ public class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -529,7 +485,6 @@ public class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -539,7 +494,6 @@ public class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -549,7 +503,6 @@ public class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -572,7 +525,6 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The force_restart_enabled attribute.
     /// </summary>
-    [TerraformArgument("force_restart_enabled")]
     public TerraformValue<bool>? ForceRestartEnabled
     {
         get => new TerraformReference<bool>(this, "force_restart_enabled");
@@ -582,7 +534,6 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The health_check_retry_timeout attribute.
     /// </summary>
-    [TerraformArgument("health_check_retry_timeout")]
     public TerraformValue<string>? HealthCheckRetryTimeout
     {
         get => new TerraformReference<string>(this, "health_check_retry_timeout");
@@ -592,7 +543,6 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The health_check_stable_duration attribute.
     /// </summary>
-    [TerraformArgument("health_check_stable_duration")]
     public TerraformValue<string>? HealthCheckStableDuration
     {
         get => new TerraformReference<string>(this, "health_check_stable_duration");
@@ -602,7 +552,6 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The health_check_wait_duration attribute.
     /// </summary>
-    [TerraformArgument("health_check_wait_duration")]
     public TerraformValue<string>? HealthCheckWaitDuration
     {
         get => new TerraformReference<string>(this, "health_check_wait_duration");
@@ -612,7 +561,6 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The upgrade_domain_timeout attribute.
     /// </summary>
-    [TerraformArgument("upgrade_domain_timeout")]
     public TerraformValue<string>? UpgradeDomainTimeout
     {
         get => new TerraformReference<string>(this, "upgrade_domain_timeout");
@@ -622,7 +570,6 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The upgrade_replica_set_check_timeout attribute.
     /// </summary>
-    [TerraformArgument("upgrade_replica_set_check_timeout")]
     public TerraformValue<string>? UpgradeReplicaSetCheckTimeout
     {
         get => new TerraformReference<string>(this, "upgrade_replica_set_check_timeout");
@@ -632,7 +579,6 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The upgrade_timeout attribute.
     /// </summary>
-    [TerraformArgument("upgrade_timeout")]
     public TerraformValue<string>? UpgradeTimeout
     {
         get => new TerraformReference<string>(this, "upgrade_timeout");
@@ -642,19 +588,14 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_service_fabric_cluster Terraform resource.
 /// Manages a azurerm_service_fabric_cluster resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermServiceFabricCluster : TerraformResource
+public partial class AzurermServiceFabricCluster(string name) : TerraformResource("azurerm_service_fabric_cluster", name)
 {
-    public AzurermServiceFabricCluster(string name) : base("azurerm_service_fabric_cluster", name)
-    {
-    }
-
     /// <summary>
     /// The add_on_features attribute.
     /// </summary>
-    [TerraformArgument("add_on_features")]
     public TerraformSet<string>? AddOnFeatures
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "add_on_features").ResolveNodes(ctx));
@@ -664,7 +605,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// <summary>
     /// The cluster_code_version attribute.
     /// </summary>
-    [TerraformArgument("cluster_code_version")]
     public TerraformValue<string> ClusterCodeVersion
     {
         get => new TerraformReference<string>(this, "cluster_code_version");
@@ -674,7 +614,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -685,7 +624,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -696,7 +634,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// The management_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementEndpoint is required")]
-    [TerraformArgument("management_endpoint")]
     public required TerraformValue<string> ManagementEndpoint
     {
         get => new TerraformReference<string>(this, "management_endpoint");
@@ -707,7 +644,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -718,7 +654,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// The reliability_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReliabilityLevel is required")]
-    [TerraformArgument("reliability_level")]
     public required TerraformValue<string> ReliabilityLevel
     {
         get => new TerraformReference<string>(this, "reliability_level");
@@ -729,7 +664,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -739,7 +673,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// <summary>
     /// The service_fabric_zonal_upgrade_mode attribute.
     /// </summary>
-    [TerraformArgument("service_fabric_zonal_upgrade_mode")]
     public TerraformValue<string>? ServiceFabricZonalUpgradeMode
     {
         get => new TerraformReference<string>(this, "service_fabric_zonal_upgrade_mode");
@@ -749,7 +682,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -760,7 +692,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// The upgrade_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpgradeMode is required")]
-    [TerraformArgument("upgrade_mode")]
     public required TerraformValue<string> UpgradeMode
     {
         get => new TerraformReference<string>(this, "upgrade_mode");
@@ -771,7 +702,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// The vm_image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmImage is required")]
-    [TerraformArgument("vm_image")]
     public required TerraformValue<string> VmImage
     {
         get => new TerraformReference<string>(this, "vm_image");
@@ -781,7 +711,6 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// <summary>
     /// The vmss_zonal_upgrade_mode attribute.
     /// </summary>
-    [TerraformArgument("vmss_zonal_upgrade_mode")]
     public TerraformValue<string>? VmssZonalUpgradeMode
     {
         get => new TerraformReference<string>(this, "vmss_zonal_upgrade_mode");
@@ -789,105 +718,121 @@ public class AzurermServiceFabricCluster : TerraformResource
     }
 
     /// <summary>
-    /// Block for azure_active_directory.
-    /// Nesting mode: list
+    /// AzureActiveDirectory block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]
-    [TerraformArgument("azure_active_directory")]
-    public TerraformList<AzurermServiceFabricClusterAzureActiveDirectoryBlock> AzureActiveDirectory { get; set; } = new();
+    public AzurermServiceFabricClusterAzureActiveDirectoryBlock? AzureActiveDirectory
+    {
+        get => GetArgument<AzurermServiceFabricClusterAzureActiveDirectoryBlock>("azure_active_directory");
+        set => SetArgument("azure_active_directory", value);
+    }
 
     /// <summary>
-    /// Block for certificate.
-    /// Nesting mode: list
+    /// Certificate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]
-    [TerraformArgument("certificate")]
-    public TerraformList<AzurermServiceFabricClusterCertificateBlock> Certificate { get; set; } = new();
+    public AzurermServiceFabricClusterCertificateBlock? Certificate
+    {
+        get => GetArgument<AzurermServiceFabricClusterCertificateBlock>("certificate");
+        set => SetArgument("certificate", value);
+    }
 
     /// <summary>
-    /// Block for certificate_common_names.
-    /// Nesting mode: list
+    /// CertificateCommonNames block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateCommonNames block(s) allowed")]
-    [TerraformArgument("certificate_common_names")]
-    public TerraformList<AzurermServiceFabricClusterCertificateCommonNamesBlock> CertificateCommonNames { get; set; } = new();
+    public AzurermServiceFabricClusterCertificateCommonNamesBlock? CertificateCommonNames
+    {
+        get => GetArgument<AzurermServiceFabricClusterCertificateCommonNamesBlock>("certificate_common_names");
+        set => SetArgument("certificate_common_names", value);
+    }
 
     /// <summary>
-    /// Block for client_certificate_common_name.
-    /// Nesting mode: list
+    /// ClientCertificateCommonName block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("client_certificate_common_name")]
-    public TerraformList<AzurermServiceFabricClusterClientCertificateCommonNameBlock> ClientCertificateCommonName { get; set; } = new();
+    public AzurermServiceFabricClusterClientCertificateCommonNameBlock? ClientCertificateCommonName
+    {
+        get => GetArgument<AzurermServiceFabricClusterClientCertificateCommonNameBlock>("client_certificate_common_name");
+        set => SetArgument("client_certificate_common_name", value);
+    }
 
     /// <summary>
-    /// Block for client_certificate_thumbprint.
-    /// Nesting mode: list
+    /// ClientCertificateThumbprint block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("client_certificate_thumbprint")]
-    public TerraformList<AzurermServiceFabricClusterClientCertificateThumbprintBlock> ClientCertificateThumbprint { get; set; } = new();
+    public AzurermServiceFabricClusterClientCertificateThumbprintBlock? ClientCertificateThumbprint
+    {
+        get => GetArgument<AzurermServiceFabricClusterClientCertificateThumbprintBlock>("client_certificate_thumbprint");
+        set => SetArgument("client_certificate_thumbprint", value);
+    }
 
     /// <summary>
-    /// Block for diagnostics_config.
-    /// Nesting mode: list
+    /// DiagnosticsConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticsConfig block(s) allowed")]
-    [TerraformArgument("diagnostics_config")]
-    public TerraformList<AzurermServiceFabricClusterDiagnosticsConfigBlock> DiagnosticsConfig { get; set; } = new();
+    public AzurermServiceFabricClusterDiagnosticsConfigBlock? DiagnosticsConfig
+    {
+        get => GetArgument<AzurermServiceFabricClusterDiagnosticsConfigBlock>("diagnostics_config");
+        set => SetArgument("diagnostics_config", value);
+    }
 
     /// <summary>
-    /// Block for fabric_settings.
-    /// Nesting mode: list
+    /// FabricSettings block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("fabric_settings")]
-    public TerraformList<AzurermServiceFabricClusterFabricSettingsBlock> FabricSettings { get; set; } = new();
+    public AzurermServiceFabricClusterFabricSettingsBlock? FabricSettings
+    {
+        get => GetArgument<AzurermServiceFabricClusterFabricSettingsBlock>("fabric_settings");
+        set => SetArgument("fabric_settings", value);
+    }
 
     /// <summary>
-    /// Block for node_type.
-    /// Nesting mode: list
+    /// NodeType block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeType block(s) required")]
-    [TerraformArgument("node_type")]
-    public required TerraformList<AzurermServiceFabricClusterNodeTypeBlock> NodeType { get; set; } = new();
+    public required AzurermServiceFabricClusterNodeTypeBlock NodeType
+    {
+        get => GetRequiredArgument<AzurermServiceFabricClusterNodeTypeBlock>("node_type");
+        set => SetArgument("node_type", value);
+    }
 
     /// <summary>
-    /// Block for reverse_proxy_certificate.
-    /// Nesting mode: list
+    /// ReverseProxyCertificate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificate block(s) allowed")]
-    [TerraformArgument("reverse_proxy_certificate")]
-    public TerraformList<AzurermServiceFabricClusterReverseProxyCertificateBlock> ReverseProxyCertificate { get; set; } = new();
+    public AzurermServiceFabricClusterReverseProxyCertificateBlock? ReverseProxyCertificate
+    {
+        get => GetArgument<AzurermServiceFabricClusterReverseProxyCertificateBlock>("reverse_proxy_certificate");
+        set => SetArgument("reverse_proxy_certificate", value);
+    }
 
     /// <summary>
-    /// Block for reverse_proxy_certificate_common_names.
-    /// Nesting mode: list
+    /// ReverseProxyCertificateCommonNames block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificateCommonNames block(s) allowed")]
-    [TerraformArgument("reverse_proxy_certificate_common_names")]
-    public TerraformList<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock> ReverseProxyCertificateCommonNames { get; set; } = new();
+    public AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock? ReverseProxyCertificateCommonNames
+    {
+        get => GetArgument<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>("reverse_proxy_certificate_common_names");
+        set => SetArgument("reverse_proxy_certificate_common_names", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermServiceFabricClusterTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermServiceFabricClusterTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermServiceFabricClusterTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for upgrade_policy.
-    /// Nesting mode: list
+    /// UpgradePolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
-    [TerraformArgument("upgrade_policy")]
-    public TerraformList<AzurermServiceFabricClusterUpgradePolicyBlock> UpgradePolicy { get; set; } = new();
-
-    /// <summary>
-    /// The cluster_endpoint attribute.
-    /// </summary>
-    [TerraformArgument("cluster_endpoint")]
-    public TerraformValue<string> ClusterEndpoint
+    public AzurermServiceFabricClusterUpgradePolicyBlock? UpgradePolicy
     {
-        get => new TerraformReference<string>(this, "cluster_endpoint");
+        get => GetArgument<AzurermServiceFabricClusterUpgradePolicyBlock>("upgrade_policy");
+        set => SetArgument("upgrade_policy", value);
     }
 
 }

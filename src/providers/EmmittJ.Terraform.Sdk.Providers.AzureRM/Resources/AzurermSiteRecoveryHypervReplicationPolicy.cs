@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_site_recovery_hyperv_replication_policy Terraform resource.
 /// Manages a azurerm_site_recovery_hyperv_replication_policy resource.
 /// </summary>
-public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
+public partial class AzurermSiteRecoveryHypervReplicationPolicy(string name) : TerraformResource("azurerm_site_recovery_hyperv_replication_policy", name)
 {
-    public AzurermSiteRecoveryHypervReplicationPolicy(string name) : base("azurerm_site_recovery_hyperv_replication_policy", name)
-    {
-    }
-
     /// <summary>
     /// The application_consistent_snapshot_frequency_in_hours attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationConsistentSnapshotFrequencyInHours is required")]
-    [TerraformArgument("application_consistent_snapshot_frequency_in_hours")]
     public required TerraformValue<double> ApplicationConsistentSnapshotFrequencyInHours
     {
         get => new TerraformReference<double>(this, "application_consistent_snapshot_frequency_in_hours");
@@ -87,7 +70,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -109,7 +90,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     /// The recovery_point_retention_in_hours attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointRetentionInHours is required")]
-    [TerraformArgument("recovery_point_retention_in_hours")]
     public required TerraformValue<double> RecoveryPointRetentionInHours
     {
         get => new TerraformReference<double>(this, "recovery_point_retention_in_hours");
@@ -120,7 +100,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     /// The recovery_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
-    [TerraformArgument("recovery_vault_id")]
     public required TerraformValue<string> RecoveryVaultId
     {
         get => new TerraformReference<string>(this, "recovery_vault_id");
@@ -131,7 +110,6 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     /// The replication_interval_in_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationIntervalInSeconds is required")]
-    [TerraformArgument("replication_interval_in_seconds")]
     public required TerraformValue<double> ReplicationIntervalInSeconds
     {
         get => new TerraformReference<double>(this, "replication_interval_in_seconds");
@@ -139,10 +117,12 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

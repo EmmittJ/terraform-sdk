@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for linked_service in .
@@ -26,7 +17,6 @@ public class AzurermDataFactoryCustomDatasetLinkedServiceBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -36,7 +26,6 @@ public class AzurermDataFactoryCustomDatasetLinkedServiceBlock : TerraformBlock
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -59,7 +48,6 @@ public class AzurermDataFactoryCustomDatasetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermDataFactoryCustomDatasetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermDataFactoryCustomDatasetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermDataFactoryCustomDatasetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,19 +84,14 @@ public class AzurermDataFactoryCustomDatasetTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_custom_dataset Terraform resource.
 /// Manages a azurerm_data_factory_custom_dataset resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryCustomDataset : TerraformResource
+public partial class AzurermDataFactoryCustomDataset(string name) : TerraformResource("azurerm_data_factory_custom_dataset", name)
 {
-    public AzurermDataFactoryCustomDataset(string name) : base("azurerm_data_factory_custom_dataset", name)
-    {
-    }
-
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -121,7 +101,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -132,7 +111,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -142,7 +120,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -152,7 +129,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    [TerraformArgument("folder")]
     public TerraformValue<string>? Folder
     {
         get => new TerraformReference<string>(this, "folder");
@@ -162,7 +138,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -173,7 +148,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -183,7 +157,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -193,7 +166,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// <summary>
     /// The schema_json attribute.
     /// </summary>
-    [TerraformArgument("schema_json")]
     public TerraformValue<string>? SchemaJson
     {
         get => new TerraformReference<string>(this, "schema_json");
@@ -204,7 +176,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -215,7 +186,6 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     /// The type_properties_json attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypePropertiesJson is required")]
-    [TerraformArgument("type_properties_json")]
     public required TerraformValue<string> TypePropertiesJson
     {
         get => new TerraformReference<string>(this, "type_properties_json");
@@ -223,20 +193,25 @@ public class AzurermDataFactoryCustomDataset : TerraformResource
     }
 
     /// <summary>
-    /// Block for linked_service.
-    /// Nesting mode: list
+    /// LinkedService block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedService is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LinkedService block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedService block(s) allowed")]
-    [TerraformArgument("linked_service")]
-    public required TerraformList<AzurermDataFactoryCustomDatasetLinkedServiceBlock> LinkedService { get; set; } = new();
+    public required AzurermDataFactoryCustomDatasetLinkedServiceBlock LinkedService
+    {
+        get => GetRequiredArgument<AzurermDataFactoryCustomDatasetLinkedServiceBlock>("linked_service");
+        set => SetArgument("linked_service", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryCustomDatasetTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryCustomDatasetTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryCustomDatasetTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

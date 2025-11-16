@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for bgp_settings in .
@@ -26,7 +17,6 @@ public class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
     /// The asn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
-    [TerraformArgument("asn")]
     public required TerraformValue<double> Asn
     {
         get => new TerraformReference<double>(this, "asn");
@@ -37,7 +27,6 @@ public class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
     /// The bgp_peering_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpPeeringAddress is required")]
-    [TerraformArgument("bgp_peering_address")]
     public required TerraformValue<string> BgpPeeringAddress
     {
         get => new TerraformReference<string>(this, "bgp_peering_address");
@@ -47,7 +36,6 @@ public class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
     /// <summary>
     /// The peer_weight attribute.
     /// </summary>
-    [TerraformArgument("peer_weight")]
     public TerraformValue<double>? PeerWeight
     {
         get => new TerraformReference<double>(this, "peer_weight");
@@ -70,7 +58,6 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -80,7 +67,6 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -90,7 +76,6 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -100,7 +85,6 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -110,19 +94,14 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_local_network_gateway Terraform resource.
 /// Manages a azurerm_local_network_gateway resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermLocalNetworkGateway : TerraformResource
+public partial class AzurermLocalNetworkGateway(string name) : TerraformResource("azurerm_local_network_gateway", name)
 {
-    public AzurermLocalNetworkGateway(string name) : base("azurerm_local_network_gateway", name)
-    {
-    }
-
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    [TerraformArgument("address_space")]
     public TerraformList<string>? AddressSpace
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_space").ResolveNodes(ctx));
@@ -132,7 +111,6 @@ public class AzurermLocalNetworkGateway : TerraformResource
     /// <summary>
     /// The gateway_address attribute.
     /// </summary>
-    [TerraformArgument("gateway_address")]
     public TerraformValue<string>? GatewayAddress
     {
         get => new TerraformReference<string>(this, "gateway_address");
@@ -142,7 +120,6 @@ public class AzurermLocalNetworkGateway : TerraformResource
     /// <summary>
     /// The gateway_fqdn attribute.
     /// </summary>
-    [TerraformArgument("gateway_fqdn")]
     public TerraformValue<string>? GatewayFqdn
     {
         get => new TerraformReference<string>(this, "gateway_fqdn");
@@ -152,7 +129,6 @@ public class AzurermLocalNetworkGateway : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -163,7 +139,6 @@ public class AzurermLocalNetworkGateway : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -174,7 +149,6 @@ public class AzurermLocalNetworkGateway : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -185,7 +159,6 @@ public class AzurermLocalNetworkGateway : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -195,7 +168,6 @@ public class AzurermLocalNetworkGateway : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -203,18 +175,22 @@ public class AzurermLocalNetworkGateway : TerraformResource
     }
 
     /// <summary>
-    /// Block for bgp_settings.
-    /// Nesting mode: list
+    /// BgpSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
-    [TerraformArgument("bgp_settings")]
-    public TerraformList<AzurermLocalNetworkGatewayBgpSettingsBlock> BgpSettings { get; set; } = new();
+    public AzurermLocalNetworkGatewayBgpSettingsBlock? BgpSettings
+    {
+        get => GetArgument<AzurermLocalNetworkGatewayBgpSettingsBlock>("bgp_settings");
+        set => SetArgument("bgp_settings", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLocalNetworkGatewayTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermLocalNetworkGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermLocalNetworkGatewayTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

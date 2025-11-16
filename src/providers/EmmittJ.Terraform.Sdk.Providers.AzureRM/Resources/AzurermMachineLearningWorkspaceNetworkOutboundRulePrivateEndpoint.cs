@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTi
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTi
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTi
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTi
 }
 
 /// <summary>
+/// Represents a azurerm_machine_learning_workspace_network_outbound_rule_private_endpoint Terraform resource.
 /// Manages a azurerm_machine_learning_workspace_network_outbound_rule_private_endpoint resource.
 /// </summary>
-public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint : TerraformResource
+public partial class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint(string name) : TerraformResource("azurerm_machine_learning_workspace_network_outbound_rule_private_endpoint", name)
 {
-    public AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint(string name) : base("azurerm_machine_learning_workspace_network_outbound_rule_private_endpoint", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -88,7 +71,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// The service_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResourceId is required")]
-    [TerraformArgument("service_resource_id")]
     public required TerraformValue<string> ServiceResourceId
     {
         get => new TerraformReference<string>(this, "service_resource_id");
@@ -98,7 +80,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// <summary>
     /// The spark_enabled attribute.
     /// </summary>
-    [TerraformArgument("spark_enabled")]
     public TerraformValue<bool>? SparkEnabled
     {
         get => new TerraformReference<bool>(this, "spark_enabled");
@@ -109,7 +90,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// The sub_resource_target attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubResourceTarget is required")]
-    [TerraformArgument("sub_resource_target")]
     public required TerraformValue<string> SubResourceTarget
     {
         get => new TerraformReference<string>(this, "sub_resource_target");
@@ -120,7 +100,6 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -128,10 +107,12 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

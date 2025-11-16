@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsB
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsB
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsB
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsB
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_managed_hardware_security_module_role_assignment Terraform resource.
 /// Manages a azurerm_key_vault_managed_hardware_security_module_role_assignment resource.
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : TerraformResource
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(string name) : TerraformResource("azurerm_key_vault_managed_hardware_security_module_role_assignment", name)
 {
-    public AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment(string name) : base("azurerm_key_vault_managed_hardware_security_module_role_assignment", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     /// The managed_hsm_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
-    [TerraformArgument("managed_hsm_id")]
     public required TerraformValue<string> ManagedHsmId
     {
         get => new TerraformReference<string>(this, "managed_hsm_id");
@@ -88,7 +71,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -99,7 +81,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    [TerraformArgument("principal_id")]
     public required TerraformValue<string> PrincipalId
     {
         get => new TerraformReference<string>(this, "principal_id");
@@ -110,7 +91,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     /// The role_definition_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
-    [TerraformArgument("role_definition_id")]
     public required TerraformValue<string> RoleDefinitionId
     {
         get => new TerraformReference<string>(this, "role_definition_id");
@@ -121,7 +101,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    [TerraformArgument("scope")]
     public required TerraformValue<string> Scope
     {
         get => new TerraformReference<string>(this, "scope");
@@ -129,19 +108,12 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The resource_id attribute.
-    /// </summary>
-    [TerraformArgument("resource_id")]
-    public TerraformValue<string> ResourceId
+    public AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

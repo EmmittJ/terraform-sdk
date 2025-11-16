@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_synapse_sql_pool_workload_classifier Terraform resource.
 /// Manages a azurerm_synapse_sql_pool_workload_classifier resource.
 /// </summary>
-public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
+public partial class AzurermSynapseSqlPoolWorkloadClassifier(string name) : TerraformResource("azurerm_synapse_sql_pool_workload_classifier", name)
 {
-    public AzurermSynapseSqlPoolWorkloadClassifier(string name) : base("azurerm_synapse_sql_pool_workload_classifier", name)
-    {
-    }
-
     /// <summary>
     /// The context attribute.
     /// </summary>
-    [TerraformArgument("context")]
     public TerraformValue<string>? Context
     {
         get => new TerraformReference<string>(this, "context");
@@ -86,7 +69,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    [TerraformArgument("end_time")]
     public TerraformValue<string>? EndTime
     {
         get => new TerraformReference<string>(this, "end_time");
@@ -96,7 +78,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -106,7 +87,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// <summary>
     /// The importance attribute.
     /// </summary>
-    [TerraformArgument("importance")]
     public TerraformValue<string>? Importance
     {
         get => new TerraformReference<string>(this, "importance");
@@ -116,7 +96,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// <summary>
     /// The label attribute.
     /// </summary>
-    [TerraformArgument("label")]
     public TerraformValue<string>? Label
     {
         get => new TerraformReference<string>(this, "label");
@@ -127,7 +106,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// The member_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberName is required")]
-    [TerraformArgument("member_name")]
     public required TerraformValue<string> MemberName
     {
         get => new TerraformReference<string>(this, "member_name");
@@ -138,7 +116,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -148,7 +125,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    [TerraformArgument("start_time")]
     public TerraformValue<string>? StartTime
     {
         get => new TerraformReference<string>(this, "start_time");
@@ -159,7 +135,6 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// The workload_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadGroupId is required")]
-    [TerraformArgument("workload_group_id")]
     public required TerraformValue<string> WorkloadGroupId
     {
         get => new TerraformReference<string>(this, "workload_group_id");
@@ -167,10 +142,12 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for action in .
@@ -26,7 +17,6 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
     /// The action_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
-    [TerraformArgument("action_group_id")]
     public required TerraformValue<string> ActionGroupId
     {
         get => new TerraformReference<string>(this, "action_group_id");
@@ -36,7 +26,6 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
     /// <summary>
     /// The webhook_properties attribute.
     /// </summary>
-    [TerraformArgument("webhook_properties")]
     public TerraformMap<string>? WebhookProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "webhook_properties").ResolveNodes(ctx));
@@ -59,7 +48,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The caller attribute.
     /// </summary>
-    [TerraformArgument("caller")]
     public TerraformValue<string>? Caller
     {
         get => new TerraformReference<string>(this, "caller");
@@ -70,7 +58,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// The category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
-    [TerraformArgument("category")]
     public required TerraformValue<string> Category
     {
         get => new TerraformReference<string>(this, "category");
@@ -80,7 +67,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The level attribute.
     /// </summary>
-    [TerraformArgument("level")]
     public TerraformValue<string>? Level
     {
         get => new TerraformReference<string>(this, "level");
@@ -90,7 +76,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The levels attribute.
     /// </summary>
-    [TerraformArgument("levels")]
     public TerraformList<string>? Levels
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "levels").ResolveNodes(ctx));
@@ -100,7 +85,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The operation_name attribute.
     /// </summary>
-    [TerraformArgument("operation_name")]
     public TerraformValue<string>? OperationName
     {
         get => new TerraformReference<string>(this, "operation_name");
@@ -110,7 +94,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The recommendation_category attribute.
     /// </summary>
-    [TerraformArgument("recommendation_category")]
     public TerraformValue<string>? RecommendationCategory
     {
         get => new TerraformReference<string>(this, "recommendation_category");
@@ -120,7 +103,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The recommendation_impact attribute.
     /// </summary>
-    [TerraformArgument("recommendation_impact")]
     public TerraformValue<string>? RecommendationImpact
     {
         get => new TerraformReference<string>(this, "recommendation_impact");
@@ -130,7 +112,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The recommendation_type attribute.
     /// </summary>
-    [TerraformArgument("recommendation_type")]
     public TerraformValue<string>? RecommendationType
     {
         get => new TerraformReference<string>(this, "recommendation_type");
@@ -140,7 +121,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The resource_group attribute.
     /// </summary>
-    [TerraformArgument("resource_group")]
     public TerraformValue<string>? ResourceGroup
     {
         get => new TerraformReference<string>(this, "resource_group");
@@ -150,7 +130,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The resource_groups attribute.
     /// </summary>
-    [TerraformArgument("resource_groups")]
     public TerraformList<string>? ResourceGroups
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_groups").ResolveNodes(ctx));
@@ -160,7 +139,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    [TerraformArgument("resource_id")]
     public TerraformValue<string>? ResourceId
     {
         get => new TerraformReference<string>(this, "resource_id");
@@ -170,7 +148,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The resource_ids attribute.
     /// </summary>
-    [TerraformArgument("resource_ids")]
     public TerraformList<string>? ResourceIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_ids").ResolveNodes(ctx));
@@ -180,7 +157,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The resource_provider attribute.
     /// </summary>
-    [TerraformArgument("resource_provider")]
     public TerraformValue<string>? ResourceProvider
     {
         get => new TerraformReference<string>(this, "resource_provider");
@@ -190,7 +166,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The resource_providers attribute.
     /// </summary>
-    [TerraformArgument("resource_providers")]
     public TerraformList<string>? ResourceProviders
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_providers").ResolveNodes(ctx));
@@ -200,8 +175,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    [TerraformArgument("resource_type")]
-    public TerraformValue<string>? ResourceType
+    public TerraformValue<string>? ResourceTypeAttribute
     {
         get => new TerraformReference<string>(this, "resource_type");
         set => SetArgument("resource_type", value);
@@ -210,7 +184,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
-    [TerraformArgument("resource_types")]
     public TerraformList<string>? ResourceTypes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
@@ -220,7 +193,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformArgument("status")]
     public TerraformValue<string>? Status
     {
         get => new TerraformReference<string>(this, "status");
@@ -230,7 +202,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The statuses attribute.
     /// </summary>
-    [TerraformArgument("statuses")]
     public TerraformList<string>? Statuses
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "statuses").ResolveNodes(ctx));
@@ -240,7 +211,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The sub_status attribute.
     /// </summary>
-    [TerraformArgument("sub_status")]
     public TerraformValue<string>? SubStatus
     {
         get => new TerraformReference<string>(this, "sub_status");
@@ -250,7 +220,6 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// <summary>
     /// The sub_statuses attribute.
     /// </summary>
-    [TerraformArgument("sub_statuses")]
     public TerraformList<string>? SubStatuses
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "sub_statuses").ResolveNodes(ctx));
@@ -273,7 +242,6 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -283,7 +251,6 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -293,7 +260,6 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -303,7 +269,6 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -313,19 +278,14 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_activity_log_alert Terraform resource.
 /// Manages a azurerm_monitor_activity_log_alert resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMonitorActivityLogAlert : TerraformResource
+public partial class AzurermMonitorActivityLogAlert(string name) : TerraformResource("azurerm_monitor_activity_log_alert", name)
 {
-    public AzurermMonitorActivityLogAlert(string name) : base("azurerm_monitor_activity_log_alert", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -335,7 +295,6 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -345,7 +304,6 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -356,7 +314,6 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -367,7 +324,6 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -378,7 +334,6 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -389,7 +344,6 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    [TerraformArgument("scopes")]
     public required TerraformSet<string> Scopes
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scopes").ResolveNodes(ctx));
@@ -399,7 +353,6 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -407,27 +360,34 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     }
 
     /// <summary>
-    /// Block for action.
-    /// Nesting mode: list
+    /// Action block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("action")]
-    public TerraformList<AzurermMonitorActivityLogAlertActionBlock> Action { get; set; } = new();
+    public AzurermMonitorActivityLogAlertActionBlock? Action
+    {
+        get => GetArgument<AzurermMonitorActivityLogAlertActionBlock>("action");
+        set => SetArgument("action", value);
+    }
 
     /// <summary>
-    /// Block for criteria.
-    /// Nesting mode: list
+    /// Criteria block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
-    [TerraformArgument("criteria")]
-    public required TerraformList<AzurermMonitorActivityLogAlertCriteriaBlock> Criteria { get; set; } = new();
+    public required AzurermMonitorActivityLogAlertCriteriaBlock Criteria
+    {
+        get => GetRequiredArgument<AzurermMonitorActivityLogAlertCriteriaBlock>("criteria");
+        set => SetArgument("criteria", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorActivityLogAlertTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMonitorActivityLogAlertTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorActivityLogAlertTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

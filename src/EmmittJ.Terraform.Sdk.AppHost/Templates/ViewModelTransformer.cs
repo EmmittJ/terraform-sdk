@@ -36,14 +36,6 @@ public class ViewModelTransformer
         // - Property is not a collection (collections can't be required in C#)
         bool useRequiredKeyword = property.IsRequired && !property.IsCollection;
 
-        // Check if property name conflicts with TerraformMap<object> methods or base class properties
-        // TerraformBlock inherits from TerraformMap<object>, which has an Add(string, object) method
-        // TerraformResource has a ResourceType property
-        // Note: Nested block properties only conflict with "Add", not "ResourceType" (they don't inherit from TerraformResource)
-        bool needsNewKeyword = isNestedBlockProperty
-            ? property.Name == "Add"
-            : property.Name is "Add" or "ResourceType";
-
         bool isCollectionType = IsCollectionType(property.CSharpType);
 
         return new
@@ -62,7 +54,6 @@ public class ViewModelTransformer
             SetterValue = "value", // Goes in code
             UseRequiredKeyword = useRequiredKeyword,
             UseNullable = !useRequiredKeyword, // If not required, make it nullable
-            NeedsNewKeyword = needsNewKeyword, // Add 'new' keyword if property name conflicts with inherited member
             IsArgument = isArgument, // Arguments can be set (includes Required, Optional, Optional+Computed)
             IsComputedAttribute = isComputedAttribute, // Pure computed attributes (read-only)
             IsRequiredArgument = isRequiredArgument,
@@ -119,11 +110,6 @@ public class ViewModelTransformer
             _ => block.ClassName
         };
 
-        // Check if block property name conflicts with TerraformMap<object> methods or TerraformResource properties
-        // - Nested blocks (defined inside a Resource/DataSource) that are named "Add" conflict with TerraformMap<object>.Add
-        // - Resource/DataSource blocks named "ResourceType" conflict with TerraformResource.ResourceType
-        bool needsNewKeyword = block.Name is "Add" or "ResourceType";
-
         // Single blocks need blockLabel parameter in constructor: new("label")
         // Collection blocks use parameterless constructor: new()
         bool useBlockLabelInInitializer = block.NestingMode == "single";
@@ -144,7 +130,6 @@ public class ViewModelTransformer
             UseNullable = useNullable,
             UseInitializer = useInitializer,
             UseBlockLabelInInitializer = useBlockLabelInInitializer,
-            NeedsNewKeyword = needsNewKeyword,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,
             Arguments = block.Arguments.Select(p => TransformProperty(p, isNestedBlockProperty: true)).ToList()

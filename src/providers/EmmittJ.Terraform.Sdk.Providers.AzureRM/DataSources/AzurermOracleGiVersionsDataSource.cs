@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermOracleGiVersionsDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermOracleGiVersionsDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_oracle_gi_versions Terraform data source.
 /// Retrieves information about a azurerm_oracle_gi_versions.
 /// </summary>
-public class AzurermOracleGiVersionsDataSource : TerraformDataSource
+public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformDataSource("azurerm_oracle_gi_versions", name)
 {
-    public AzurermOracleGiVersionsDataSource(string name) : base("azurerm_oracle_gi_versions", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -67,7 +52,6 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
     /// <summary>
     /// Filter the versions by system shape. Possible values are &#39;ExaDbXS&#39;, &#39;Exadata.X9M&#39;, and &#39;Exadata.X11M&#39;.
     /// </summary>
-    [TerraformArgument("shape")]
     public TerraformValue<string>? Shape
     {
         get => new TerraformReference<string>(this, "shape");
@@ -77,7 +61,6 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
     /// <summary>
     /// Filter the versions by zone
     /// </summary>
-    [TerraformArgument("zone")]
     public TerraformValue<string>? Zone
     {
         get => new TerraformReference<string>(this, "zone");
@@ -85,19 +68,12 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermOracleGiVersionsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The versions attribute.
-    /// </summary>
-    [TerraformArgument("versions")]
-    public TerraformList<string> Versions
+    public AzurermOracleGiVersionsDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "versions").ResolveNodes(ctx));
+        get => GetArgument<AzurermOracleGiVersionsDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

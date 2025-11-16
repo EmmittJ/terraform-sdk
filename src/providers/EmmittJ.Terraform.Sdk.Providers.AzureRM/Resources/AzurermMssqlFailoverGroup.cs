@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for partner_server in .
@@ -26,14 +17,27 @@ public class AzurermMssqlFailoverGroupPartnerServerBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformArgument("id")]
     public required TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
         set => SetArgument("id", value);
     }
 
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+    }
 
+    /// <summary>
+    /// The role attribute.
+    /// </summary>
+    public TerraformValue<string> Role
+    {
+        get => new TerraformReference<string>(this, "role");
+    }
 
 }
 
@@ -51,7 +55,6 @@ public class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock : Ter
     /// <summary>
     /// The grace_minutes attribute.
     /// </summary>
-    [TerraformArgument("grace_minutes")]
     public TerraformValue<double>? GraceMinutes
     {
         get => new TerraformReference<double>(this, "grace_minutes");
@@ -62,7 +65,6 @@ public class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock : Ter
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    [TerraformArgument("mode")]
     public required TerraformValue<string> Mode
     {
         get => new TerraformReference<string>(this, "mode");
@@ -85,7 +87,6 @@ public class AzurermMssqlFailoverGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -95,7 +96,6 @@ public class AzurermMssqlFailoverGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -105,7 +105,6 @@ public class AzurermMssqlFailoverGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -115,7 +114,6 @@ public class AzurermMssqlFailoverGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -125,19 +123,14 @@ public class AzurermMssqlFailoverGroupTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mssql_failover_group Terraform resource.
 /// Manages a azurerm_mssql_failover_group resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMssqlFailoverGroup : TerraformResource
+public partial class AzurermMssqlFailoverGroup(string name) : TerraformResource("azurerm_mssql_failover_group", name)
 {
-    public AzurermMssqlFailoverGroup(string name) : base("azurerm_mssql_failover_group", name)
-    {
-    }
-
     /// <summary>
     /// The databases attribute.
     /// </summary>
-    [TerraformArgument("databases")]
     public TerraformSet<string>? Databases
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "databases").ResolveNodes(ctx));
@@ -147,7 +140,6 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -158,7 +150,6 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -168,7 +159,6 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
-    [TerraformArgument("readonly_endpoint_failover_policy_enabled")]
     public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled
     {
         get => new TerraformReference<bool>(this, "readonly_endpoint_failover_policy_enabled");
@@ -179,7 +169,6 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformArgument("server_id")]
     public required TerraformValue<string> ServerId
     {
         get => new TerraformReference<string>(this, "server_id");
@@ -189,7 +178,6 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -197,29 +185,37 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for partner_server.
-    /// Nesting mode: list
+    /// PartnerServer block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerServer is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartnerServer block(s) required")]
-    [TerraformArgument("partner_server")]
-    public required TerraformList<AzurermMssqlFailoverGroupPartnerServerBlock> PartnerServer { get; set; } = new();
+    public required AzurermMssqlFailoverGroupPartnerServerBlock PartnerServer
+    {
+        get => GetRequiredArgument<AzurermMssqlFailoverGroupPartnerServerBlock>("partner_server");
+        set => SetArgument("partner_server", value);
+    }
 
     /// <summary>
-    /// Block for read_write_endpoint_failover_policy.
-    /// Nesting mode: list
+    /// ReadWriteEndpointFailoverPolicy block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadWriteEndpointFailoverPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadWriteEndpointFailoverPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadWriteEndpointFailoverPolicy block(s) allowed")]
-    [TerraformArgument("read_write_endpoint_failover_policy")]
-    public required TerraformList<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock> ReadWriteEndpointFailoverPolicy { get; set; } = new();
+    public required AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock ReadWriteEndpointFailoverPolicy
+    {
+        get => GetRequiredArgument<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock>("read_write_endpoint_failover_policy");
+        set => SetArgument("read_write_endpoint_failover_policy", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMssqlFailoverGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMssqlFailoverGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMssqlFailoverGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

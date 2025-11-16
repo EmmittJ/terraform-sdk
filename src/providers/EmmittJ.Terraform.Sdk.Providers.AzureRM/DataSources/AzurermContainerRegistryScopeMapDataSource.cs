@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_container_registry_scope_map Terraform data source.
 /// Retrieves information about a azurerm_container_registry_scope_map.
 /// </summary>
-public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
+public partial class AzurermContainerRegistryScopeMapDataSource(string name) : TerraformDataSource("azurerm_container_registry_scope_map", name)
 {
-    public AzurermContainerRegistryScopeMapDataSource(string name) : base("azurerm_container_registry_scope_map", name)
-    {
-    }
-
     /// <summary>
     /// The container_registry_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryName is required")]
-    [TerraformArgument("container_registry_name")]
     public required TerraformValue<string> ContainerRegistryName
     {
         get => new TerraformReference<string>(this, "container_registry_name");
@@ -57,7 +43,6 @@ public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -68,7 +53,6 @@ public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -79,7 +63,6 @@ public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -87,28 +70,12 @@ public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The actions attribute.
-    /// </summary>
-    [TerraformArgument("actions")]
-    public TerraformList<string> Actions
+    public AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The description attribute.
-    /// </summary>
-    [TerraformArgument("description")]
-    public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_mover_agent Terraform resource.
 /// Manages a azurerm_storage_mover_agent resource.
 /// </summary>
-public class AzurermStorageMoverAgent : TerraformResource
+public partial class AzurermStorageMoverAgent(string name) : TerraformResource("azurerm_storage_mover_agent", name)
 {
-    public AzurermStorageMoverAgent(string name) : base("azurerm_storage_mover_agent", name)
-    {
-    }
-
     /// <summary>
     /// The arc_virtual_machine_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcVirtualMachineId is required")]
-    [TerraformArgument("arc_virtual_machine_id")]
     public required TerraformValue<string> ArcVirtualMachineId
     {
         get => new TerraformReference<string>(this, "arc_virtual_machine_id");
@@ -88,7 +71,6 @@ public class AzurermStorageMoverAgent : TerraformResource
     /// The arc_virtual_machine_uuid attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcVirtualMachineUuid is required")]
-    [TerraformArgument("arc_virtual_machine_uuid")]
     public required TerraformValue<string> ArcVirtualMachineUuid
     {
         get => new TerraformReference<string>(this, "arc_virtual_machine_uuid");
@@ -98,7 +80,6 @@ public class AzurermStorageMoverAgent : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -108,7 +89,6 @@ public class AzurermStorageMoverAgent : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -119,7 +99,6 @@ public class AzurermStorageMoverAgent : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -130,7 +109,6 @@ public class AzurermStorageMoverAgent : TerraformResource
     /// The storage_mover_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
-    [TerraformArgument("storage_mover_id")]
     public required TerraformValue<string> StorageMoverId
     {
         get => new TerraformReference<string>(this, "storage_mover_id");
@@ -138,10 +116,12 @@ public class AzurermStorageMoverAgent : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageMoverAgentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStorageMoverAgentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStorageMoverAgentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

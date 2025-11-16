@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_attestation_provider Terraform resource.
 /// Manages a azurerm_attestation_provider resource.
 /// </summary>
-public class AzurermAttestationProvider : TerraformResource
+public partial class AzurermAttestationProvider(string name) : TerraformResource("azurerm_attestation_provider", name)
 {
-    public AzurermAttestationProvider(string name) : base("azurerm_attestation_provider", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -98,7 +80,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -108,7 +89,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// <summary>
     /// The open_enclave_policy_base64 attribute.
     /// </summary>
-    [TerraformArgument("open_enclave_policy_base64")]
     public TerraformValue<string>? OpenEnclavePolicyBase64
     {
         get => new TerraformReference<string>(this, "open_enclave_policy_base64");
@@ -118,7 +98,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// <summary>
     /// The policy_signing_certificate_data attribute.
     /// </summary>
-    [TerraformArgument("policy_signing_certificate_data")]
     public TerraformValue<string>? PolicySigningCertificateData
     {
         get => new TerraformReference<string>(this, "policy_signing_certificate_data");
@@ -129,7 +108,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -139,7 +117,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// <summary>
     /// The sev_snp_policy_base64 attribute.
     /// </summary>
-    [TerraformArgument("sev_snp_policy_base64")]
     public TerraformValue<string>? SevSnpPolicyBase64
     {
         get => new TerraformReference<string>(this, "sev_snp_policy_base64");
@@ -149,7 +126,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// <summary>
     /// The sgx_enclave_policy_base64 attribute.
     /// </summary>
-    [TerraformArgument("sgx_enclave_policy_base64")]
     public TerraformValue<string>? SgxEnclavePolicyBase64
     {
         get => new TerraformReference<string>(this, "sgx_enclave_policy_base64");
@@ -159,7 +135,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -169,7 +144,6 @@ public class AzurermAttestationProvider : TerraformResource
     /// <summary>
     /// The tpm_policy_base64 attribute.
     /// </summary>
-    [TerraformArgument("tpm_policy_base64")]
     public TerraformValue<string>? TpmPolicyBase64
     {
         get => new TerraformReference<string>(this, "tpm_policy_base64");
@@ -177,28 +151,12 @@ public class AzurermAttestationProvider : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAttestationProviderTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The attestation_uri attribute.
-    /// </summary>
-    [TerraformArgument("attestation_uri")]
-    public TerraformValue<string> AttestationUri
+    public AzurermAttestationProviderTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "attestation_uri");
-    }
-
-    /// <summary>
-    /// The trust_model attribute.
-    /// </summary>
-    [TerraformArgument("trust_model")]
-    public TerraformValue<string> TrustModel
-    {
-        get => new TerraformReference<string>(this, "trust_model");
+        get => GetArgument<AzurermAttestationProviderTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

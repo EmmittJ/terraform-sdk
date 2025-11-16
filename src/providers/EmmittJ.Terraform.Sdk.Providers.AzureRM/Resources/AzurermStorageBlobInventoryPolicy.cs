@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for rules in .
@@ -26,7 +17,6 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     /// The format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
-    [TerraformArgument("format")]
     public required TerraformValue<string> Format
     {
         get => new TerraformReference<string>(this, "format");
@@ -37,7 +27,6 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -48,7 +37,6 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     /// The schedule attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
-    [TerraformArgument("schedule")]
     public required TerraformValue<string> Schedule
     {
         get => new TerraformReference<string>(this, "schedule");
@@ -59,7 +47,6 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     /// The schema_fields attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaFields is required")]
-    [TerraformArgument("schema_fields")]
     public TerraformList<string>? SchemaFields
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "schema_fields").ResolveNodes(ctx));
@@ -70,7 +57,6 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    [TerraformArgument("scope")]
     public required TerraformValue<string> Scope
     {
         get => new TerraformReference<string>(this, "scope");
@@ -81,7 +67,6 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     /// The storage_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
-    [TerraformArgument("storage_container_name")]
     public required TerraformValue<string> StorageContainerName
     {
         get => new TerraformReference<string>(this, "storage_container_name");
@@ -104,7 +89,6 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -114,7 +98,6 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -124,7 +107,6 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -134,7 +116,6 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -144,19 +125,14 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_blob_inventory_policy Terraform resource.
 /// Manages a azurerm_storage_blob_inventory_policy resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStorageBlobInventoryPolicy : TerraformResource
+public partial class AzurermStorageBlobInventoryPolicy(string name) : TerraformResource("azurerm_storage_blob_inventory_policy", name)
 {
-    public AzurermStorageBlobInventoryPolicy(string name) : base("azurerm_storage_blob_inventory_policy", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -167,7 +143,6 @@ public class AzurermStorageBlobInventoryPolicy : TerraformResource
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformArgument("storage_account_id")]
     public required TerraformValue<string> StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -175,19 +150,24 @@ public class AzurermStorageBlobInventoryPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for rules.
-    /// Nesting mode: set
+    /// Rules block (nesting mode: set).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
-    [TerraformArgument("rules")]
-    public required TerraformSet<AzurermStorageBlobInventoryPolicyRulesBlock> Rules { get; set; } = new();
+    public required AzurermStorageBlobInventoryPolicyRulesBlock Rules
+    {
+        get => GetRequiredArgument<AzurermStorageBlobInventoryPolicyRulesBlock>("rules");
+        set => SetArgument("rules", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageBlobInventoryPolicyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStorageBlobInventoryPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStorageBlobInventoryPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

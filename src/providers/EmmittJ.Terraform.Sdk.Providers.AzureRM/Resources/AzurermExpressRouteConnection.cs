@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for routing in .
@@ -25,7 +16,6 @@ public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
     /// <summary>
     /// The associated_route_table_id attribute.
     /// </summary>
-    [TerraformArgument("associated_route_table_id")]
     public TerraformValue<string> AssociatedRouteTableId
     {
         get => new TerraformReference<string>(this, "associated_route_table_id");
@@ -35,7 +25,6 @@ public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
     /// <summary>
     /// The inbound_route_map_id attribute.
     /// </summary>
-    [TerraformArgument("inbound_route_map_id")]
     public TerraformValue<string>? InboundRouteMapId
     {
         get => new TerraformReference<string>(this, "inbound_route_map_id");
@@ -45,7 +34,6 @@ public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
     /// <summary>
     /// The outbound_route_map_id attribute.
     /// </summary>
-    [TerraformArgument("outbound_route_map_id")]
     public TerraformValue<string>? OutboundRouteMapId
     {
         get => new TerraformReference<string>(this, "outbound_route_map_id");
@@ -68,7 +56,6 @@ public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -78,7 +65,6 @@ public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -88,7 +74,6 @@ public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -98,7 +83,6 @@ public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -108,19 +92,14 @@ public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_express_route_connection Terraform resource.
 /// Manages a azurerm_express_route_connection resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermExpressRouteConnection : TerraformResource
+public partial class AzurermExpressRouteConnection(string name) : TerraformResource("azurerm_express_route_connection", name)
 {
-    public AzurermExpressRouteConnection(string name) : base("azurerm_express_route_connection", name)
-    {
-    }
-
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    [TerraformArgument("authorization_key")]
     public TerraformValue<string>? AuthorizationKey
     {
         get => new TerraformReference<string>(this, "authorization_key");
@@ -130,7 +109,6 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// <summary>
     /// The enable_internet_security attribute.
     /// </summary>
-    [TerraformArgument("enable_internet_security")]
     public TerraformValue<bool>? EnableInternetSecurity
     {
         get => new TerraformReference<bool>(this, "enable_internet_security");
@@ -141,7 +119,6 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// The express_route_circuit_peering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitPeeringId is required")]
-    [TerraformArgument("express_route_circuit_peering_id")]
     public required TerraformValue<string> ExpressRouteCircuitPeeringId
     {
         get => new TerraformReference<string>(this, "express_route_circuit_peering_id");
@@ -151,7 +128,6 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// <summary>
     /// The express_route_gateway_bypass_enabled attribute.
     /// </summary>
-    [TerraformArgument("express_route_gateway_bypass_enabled")]
     public TerraformValue<bool>? ExpressRouteGatewayBypassEnabled
     {
         get => new TerraformReference<bool>(this, "express_route_gateway_bypass_enabled");
@@ -162,7 +138,6 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// The express_route_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteGatewayId is required")]
-    [TerraformArgument("express_route_gateway_id")]
     public required TerraformValue<string> ExpressRouteGatewayId
     {
         get => new TerraformReference<string>(this, "express_route_gateway_id");
@@ -172,7 +147,6 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -183,7 +157,6 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -194,7 +167,6 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// The private_link_fast_path_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("private_link_fast_path_enabled")]
     public TerraformValue<bool>? PrivateLinkFastPathEnabled
     {
         get => new TerraformReference<bool>(this, "private_link_fast_path_enabled");
@@ -204,7 +176,6 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// <summary>
     /// The routing_weight attribute.
     /// </summary>
-    [TerraformArgument("routing_weight")]
     public TerraformValue<double>? RoutingWeight
     {
         get => new TerraformReference<double>(this, "routing_weight");
@@ -212,18 +183,22 @@ public class AzurermExpressRouteConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for routing.
-    /// Nesting mode: list
+    /// Routing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    [TerraformArgument("routing")]
-    public TerraformList<AzurermExpressRouteConnectionRoutingBlock> Routing { get; set; } = new();
+    public AzurermExpressRouteConnectionRoutingBlock? Routing
+    {
+        get => GetArgument<AzurermExpressRouteConnectionRoutingBlock>("routing");
+        set => SetArgument("routing", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermExpressRouteConnectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermExpressRouteConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermExpressRouteConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

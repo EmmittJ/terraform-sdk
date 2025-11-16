@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_account_static_website Terraform resource.
 /// Manages a azurerm_storage_account_static_website resource.
 /// </summary>
-public class AzurermStorageAccountStaticWebsite : TerraformResource
+public partial class AzurermStorageAccountStaticWebsite(string name) : TerraformResource("azurerm_storage_account_static_website", name)
 {
-    public AzurermStorageAccountStaticWebsite(string name) : base("azurerm_storage_account_static_website", name)
-    {
-    }
-
     /// <summary>
     /// The error_404_document attribute.
     /// </summary>
-    [TerraformArgument("error_404_document")]
     public TerraformValue<string>? Error404Document
     {
         get => new TerraformReference<string>(this, "error_404_document");
@@ -86,7 +69,6 @@ public class AzurermStorageAccountStaticWebsite : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -96,7 +78,6 @@ public class AzurermStorageAccountStaticWebsite : TerraformResource
     /// <summary>
     /// The index_document attribute.
     /// </summary>
-    [TerraformArgument("index_document")]
     public TerraformValue<string>? IndexDocument
     {
         get => new TerraformReference<string>(this, "index_document");
@@ -107,7 +88,6 @@ public class AzurermStorageAccountStaticWebsite : TerraformResource
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformArgument("storage_account_id")]
     public required TerraformValue<string> StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -115,10 +95,12 @@ public class AzurermStorageAccountStaticWebsite : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageAccountStaticWebsiteTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStorageAccountStaticWebsiteTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStorageAccountStaticWebsiteTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

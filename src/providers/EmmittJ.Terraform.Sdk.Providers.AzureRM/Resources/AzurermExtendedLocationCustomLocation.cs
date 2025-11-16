@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for authentication in .
@@ -25,7 +16,6 @@ public class AzurermExtendedLocationCustomLocationAuthenticationBlock : Terrafor
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -36,7 +26,6 @@ public class AzurermExtendedLocationCustomLocationAuthenticationBlock : Terrafor
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformArgument("value")]
     public required TerraformValue<string> Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -59,7 +48,6 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,20 +84,15 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_extended_location_custom_location Terraform resource.
 /// Manages a azurerm_extended_location_custom_location resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermExtendedLocationCustomLocation : TerraformResource
+public partial class AzurermExtendedLocationCustomLocation(string name) : TerraformResource("azurerm_extended_location_custom_location", name)
 {
-    public AzurermExtendedLocationCustomLocation(string name) : base("azurerm_extended_location_custom_location", name)
-    {
-    }
-
     /// <summary>
     /// The cluster_extension_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterExtensionIds is required")]
-    [TerraformArgument("cluster_extension_ids")]
     public TerraformList<string>? ClusterExtensionIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cluster_extension_ids").ResolveNodes(ctx));
@@ -122,7 +102,6 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformArgument("display_name")]
     public TerraformValue<string>? DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -133,7 +112,6 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// The host_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostResourceId is required")]
-    [TerraformArgument("host_resource_id")]
     public required TerraformValue<string> HostResourceId
     {
         get => new TerraformReference<string>(this, "host_resource_id");
@@ -143,7 +121,6 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// <summary>
     /// The host_type attribute.
     /// </summary>
-    [TerraformArgument("host_type")]
     public TerraformValue<string>? HostType
     {
         get => new TerraformReference<string>(this, "host_type");
@@ -153,7 +130,6 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -164,7 +140,6 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -175,7 +150,6 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -185,9 +159,8 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    [TerraformArgument("namespace")]
-    public required TerraformValue<string> Namespace
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
+    public required TerraformValue<string> NamespaceAttribute
     {
         get => new TerraformReference<string>(this, "namespace");
         set => SetArgument("namespace", value);
@@ -197,7 +170,6 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -205,18 +177,22 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     }
 
     /// <summary>
-    /// Block for authentication.
-    /// Nesting mode: list
+    /// Authentication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    [TerraformArgument("authentication")]
-    public TerraformList<AzurermExtendedLocationCustomLocationAuthenticationBlock> Authentication { get; set; } = new();
+    public AzurermExtendedLocationCustomLocationAuthenticationBlock? Authentication
+    {
+        get => GetArgument<AzurermExtendedLocationCustomLocationAuthenticationBlock>("authentication");
+        set => SetArgument("authentication", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermExtendedLocationCustomLocationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermExtendedLocationCustomLocationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermExtendedLocationCustomLocationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

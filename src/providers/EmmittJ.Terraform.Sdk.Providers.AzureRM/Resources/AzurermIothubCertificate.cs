@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_iothub_certificate Terraform resource.
 /// Manages a azurerm_iothub_certificate resource.
 /// </summary>
-public class AzurermIothubCertificate : TerraformResource
+public partial class AzurermIothubCertificate(string name) : TerraformResource("azurerm_iothub_certificate", name)
 {
-    public AzurermIothubCertificate(string name) : base("azurerm_iothub_certificate", name)
-    {
-    }
-
     /// <summary>
     /// The certificate_content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateContent is required")]
-    [TerraformArgument("certificate_content")]
     public required TerraformValue<string> CertificateContent
     {
         get => new TerraformReference<string>(this, "certificate_content");
@@ -87,7 +70,6 @@ public class AzurermIothubCertificate : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermIothubCertificate : TerraformResource
     /// The iothub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
-    [TerraformArgument("iothub_name")]
     public required TerraformValue<string> IothubName
     {
         get => new TerraformReference<string>(this, "iothub_name");
@@ -108,7 +89,6 @@ public class AzurermIothubCertificate : TerraformResource
     /// <summary>
     /// The is_verified attribute.
     /// </summary>
-    [TerraformArgument("is_verified")]
     public TerraformValue<bool>? IsVerified
     {
         get => new TerraformReference<bool>(this, "is_verified");
@@ -119,7 +99,6 @@ public class AzurermIothubCertificate : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -130,7 +109,6 @@ public class AzurermIothubCertificate : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -138,10 +116,12 @@ public class AzurermIothubCertificate : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIothubCertificateTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermIothubCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermIothubCertificateTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

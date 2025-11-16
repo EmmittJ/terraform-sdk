@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_managed_hardware_security_module_key Terraform resource.
 /// Manages a azurerm_key_vault_managed_hardware_security_module_key resource.
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name) : TerraformResource("azurerm_key_vault_managed_hardware_security_module_key", name)
 {
-    public AzurermKeyVaultManagedHardwareSecurityModuleKey(string name) : base("azurerm_key_vault_managed_hardware_security_module_key", name)
-    {
-    }
-
     /// <summary>
     /// The curve attribute.
     /// </summary>
-    [TerraformArgument("curve")]
     public TerraformValue<string>? Curve
     {
         get => new TerraformReference<string>(this, "curve");
@@ -86,7 +69,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    [TerraformArgument("expiration_date")]
     public TerraformValue<string>? ExpirationDate
     {
         get => new TerraformReference<string>(this, "expiration_date");
@@ -96,7 +78,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -107,7 +88,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// The key_opts attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyOpts is required")]
-    [TerraformArgument("key_opts")]
     public required TerraformSet<string> KeyOpts
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "key_opts").ResolveNodes(ctx));
@@ -117,7 +97,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    [TerraformArgument("key_size")]
     public TerraformValue<double>? KeySize
     {
         get => new TerraformReference<double>(this, "key_size");
@@ -128,7 +107,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// The key_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
-    [TerraformArgument("key_type")]
     public required TerraformValue<string> KeyType
     {
         get => new TerraformReference<string>(this, "key_type");
@@ -139,7 +117,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// The managed_hsm_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
-    [TerraformArgument("managed_hsm_id")]
     public required TerraformValue<string> ManagedHsmId
     {
         get => new TerraformReference<string>(this, "managed_hsm_id");
@@ -150,7 +127,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -160,7 +136,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
-    [TerraformArgument("not_before_date")]
     public TerraformValue<string>? NotBeforeDate
     {
         get => new TerraformReference<string>(this, "not_before_date");
@@ -170,7 +145,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -178,19 +152,12 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The versioned_id attribute.
-    /// </summary>
-    [TerraformArgument("versioned_id")]
-    public TerraformValue<string> VersionedId
+    public AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "versioned_id");
+        get => GetArgument<AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

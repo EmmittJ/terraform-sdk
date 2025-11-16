@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_iothub_fallback_route Terraform resource.
 /// Manages a azurerm_iothub_fallback_route resource.
 /// </summary>
-public class AzurermIothubFallbackRoute : TerraformResource
+public partial class AzurermIothubFallbackRoute(string name) : TerraformResource("azurerm_iothub_fallback_route", name)
 {
-    public AzurermIothubFallbackRoute(string name) : base("azurerm_iothub_fallback_route", name)
-    {
-    }
-
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    [TerraformArgument("condition")]
     public TerraformValue<string>? Condition
     {
         get => new TerraformReference<string>(this, "condition");
@@ -87,7 +70,6 @@ public class AzurermIothubFallbackRoute : TerraformResource
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformArgument("enabled")]
     public required TerraformValue<bool> Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -98,7 +80,6 @@ public class AzurermIothubFallbackRoute : TerraformResource
     /// The endpoint_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointNames is required")]
-    [TerraformArgument("endpoint_names")]
     public TerraformList<string>? EndpointNames
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "endpoint_names").ResolveNodes(ctx));
@@ -108,7 +89,6 @@ public class AzurermIothubFallbackRoute : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -119,7 +99,6 @@ public class AzurermIothubFallbackRoute : TerraformResource
     /// The iothub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
-    [TerraformArgument("iothub_name")]
     public required TerraformValue<string> IothubName
     {
         get => new TerraformReference<string>(this, "iothub_name");
@@ -130,7 +109,6 @@ public class AzurermIothubFallbackRoute : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -140,7 +118,6 @@ public class AzurermIothubFallbackRoute : TerraformResource
     /// <summary>
     /// The source attribute.
     /// </summary>
-    [TerraformArgument("source")]
     public TerraformValue<string>? Source
     {
         get => new TerraformReference<string>(this, "source");
@@ -148,10 +125,12 @@ public class AzurermIothubFallbackRoute : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIothubFallbackRouteTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermIothubFallbackRouteTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermIothubFallbackRouteTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

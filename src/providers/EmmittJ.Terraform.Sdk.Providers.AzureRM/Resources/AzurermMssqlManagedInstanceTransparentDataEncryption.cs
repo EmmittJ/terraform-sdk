@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
 }
 
 /// <summary>
+/// Represents a azurerm_mssql_managed_instance_transparent_data_encryption Terraform resource.
 /// Manages a azurerm_mssql_managed_instance_transparent_data_encryption resource.
 /// </summary>
-public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformResource
+public partial class AzurermMssqlManagedInstanceTransparentDataEncryption(string name) : TerraformResource("azurerm_mssql_managed_instance_transparent_data_encryption", name)
 {
-    public AzurermMssqlManagedInstanceTransparentDataEncryption(string name) : base("azurerm_mssql_managed_instance_transparent_data_encryption", name)
-    {
-    }
-
     /// <summary>
     /// The auto_rotation_enabled attribute.
     /// </summary>
-    [TerraformArgument("auto_rotation_enabled")]
     public TerraformValue<bool>? AutoRotationEnabled
     {
         get => new TerraformReference<bool>(this, "auto_rotation_enabled");
@@ -86,7 +69,6 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -96,7 +78,6 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_key_id")]
     public TerraformValue<string>? KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
@@ -106,7 +87,6 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    [TerraformArgument("managed_hsm_key_id")]
     public TerraformValue<string>? ManagedHsmKeyId
     {
         get => new TerraformReference<string>(this, "managed_hsm_key_id");
@@ -117,7 +97,6 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     /// The managed_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
-    [TerraformArgument("managed_instance_id")]
     public required TerraformValue<string> ManagedInstanceId
     {
         get => new TerraformReference<string>(this, "managed_instance_id");
@@ -125,10 +104,12 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

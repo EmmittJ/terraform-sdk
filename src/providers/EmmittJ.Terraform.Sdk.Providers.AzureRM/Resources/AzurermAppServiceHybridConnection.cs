@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,20 +52,16 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_app_service_hybrid_connection Terraform resource.
 /// Manages a azurerm_app_service_hybrid_connection resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-public class AzurermAppServiceHybridConnection : TerraformResource
+public partial class AzurermAppServiceHybridConnection(string name) : TerraformResource("azurerm_app_service_hybrid_connection", name)
 {
-    public AzurermAppServiceHybridConnection(string name) : base("azurerm_app_service_hybrid_connection", name)
-    {
-    }
-
     /// <summary>
     /// The app_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
-    [TerraformArgument("app_service_name")]
     public required TerraformValue<string> AppServiceName
     {
         get => new TerraformReference<string>(this, "app_service_name");
@@ -89,7 +72,6 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     /// The hostname attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
-    [TerraformArgument("hostname")]
     public required TerraformValue<string> Hostname
     {
         get => new TerraformReference<string>(this, "hostname");
@@ -99,7 +81,6 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -110,7 +91,6 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformArgument("port")]
     public required TerraformValue<double> Port
     {
         get => new TerraformReference<double>(this, "port");
@@ -121,7 +101,6 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     /// The relay_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
-    [TerraformArgument("relay_id")]
     public required TerraformValue<string> RelayId
     {
         get => new TerraformReference<string>(this, "relay_id");
@@ -132,7 +111,6 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -142,7 +120,6 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     /// <summary>
     /// The send_key_name attribute.
     /// </summary>
-    [TerraformArgument("send_key_name")]
     public TerraformValue<string>? SendKeyName
     {
         get => new TerraformReference<string>(this, "send_key_name");
@@ -150,55 +127,12 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAppServiceHybridConnectionTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The namespace_name attribute.
-    /// </summary>
-    [TerraformArgument("namespace_name")]
-    public TerraformValue<string> NamespaceName
+    public AzurermAppServiceHybridConnectionTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "namespace_name");
-    }
-
-    /// <summary>
-    /// The relay_name attribute.
-    /// </summary>
-    [TerraformArgument("relay_name")]
-    public TerraformValue<string> RelayName
-    {
-        get => new TerraformReference<string>(this, "relay_name");
-    }
-
-    /// <summary>
-    /// The send_key_value attribute.
-    /// </summary>
-    [TerraformArgument("send_key_value")]
-    public TerraformValue<string> SendKeyValue
-    {
-        get => new TerraformReference<string>(this, "send_key_value");
-    }
-
-    /// <summary>
-    /// The service_bus_namespace attribute.
-    /// </summary>
-    [TerraformArgument("service_bus_namespace")]
-    public TerraformValue<string> ServiceBusNamespace
-    {
-        get => new TerraformReference<string>(this, "service_bus_namespace");
-    }
-
-    /// <summary>
-    /// The service_bus_suffix attribute.
-    /// </summary>
-    [TerraformArgument("service_bus_suffix")]
-    public TerraformValue<string> ServiceBusSuffix
-    {
-        get => new TerraformReference<string>(this, "service_bus_suffix");
+        get => GetArgument<AzurermAppServiceHybridConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

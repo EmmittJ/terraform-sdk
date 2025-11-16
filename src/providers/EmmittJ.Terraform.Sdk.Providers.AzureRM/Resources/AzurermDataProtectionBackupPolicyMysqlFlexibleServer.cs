@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for default_retention_rule in .
@@ -39,7 +30,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -50,7 +40,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -73,7 +62,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock :
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -83,7 +71,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock :
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -93,7 +80,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock :
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -103,20 +89,15 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock :
 }
 
 /// <summary>
+/// Represents a azurerm_data_protection_backup_policy_mysql_flexible_server Terraform resource.
 /// Manages a azurerm_data_protection_backup_policy_mysql_flexible_server resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformResource
+public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServer(string name) : TerraformResource("azurerm_data_protection_backup_policy_mysql_flexible_server", name)
 {
-    public AzurermDataProtectionBackupPolicyMysqlFlexibleServer(string name) : base("azurerm_data_protection_backup_policy_mysql_flexible_server", name)
-    {
-    }
-
     /// <summary>
     /// The backup_repeating_time_intervals attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRepeatingTimeIntervals is required")]
-    [TerraformArgument("backup_repeating_time_intervals")]
     public TerraformList<string>? BackupRepeatingTimeIntervals
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backup_repeating_time_intervals").ResolveNodes(ctx));
@@ -126,7 +107,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -137,7 +117,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -147,7 +126,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    [TerraformArgument("time_zone")]
     public TerraformValue<string>? TimeZone
     {
         get => new TerraformReference<string>(this, "time_zone");
@@ -158,7 +136,6 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     /// The vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
-    [TerraformArgument("vault_id")]
     public required TerraformValue<string> VaultId
     {
         get => new TerraformReference<string>(this, "vault_id");
@@ -166,27 +143,34 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     }
 
     /// <summary>
-    /// Block for default_retention_rule.
-    /// Nesting mode: list
+    /// DefaultRetentionRule block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
-    [TerraformArgument("default_retention_rule")]
-    public required TerraformList<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock> DefaultRetentionRule { get; set; } = new();
+    public required AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock DefaultRetentionRule
+    {
+        get => GetRequiredArgument<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock>("default_retention_rule");
+        set => SetArgument("default_retention_rule", value);
+    }
 
     /// <summary>
-    /// Block for retention_rule.
-    /// Nesting mode: list
+    /// RetentionRule block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("retention_rule")]
-    public TerraformList<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock> RetentionRule { get; set; } = new();
+    public AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock? RetentionRule
+    {
+        get => GetArgument<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>("retention_rule");
+        set => SetArgument("retention_rule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

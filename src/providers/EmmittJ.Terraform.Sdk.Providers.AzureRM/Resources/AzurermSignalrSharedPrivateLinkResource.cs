@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_signalr_shared_private_link_resource Terraform resource.
 /// Manages a azurerm_signalr_shared_private_link_resource resource.
 /// </summary>
-public class AzurermSignalrSharedPrivateLinkResource : TerraformResource
+public partial class AzurermSignalrSharedPrivateLinkResource(string name) : TerraformResource("azurerm_signalr_shared_private_link_resource", name)
 {
-    public AzurermSignalrSharedPrivateLinkResource(string name) : base("azurerm_signalr_shared_private_link_resource", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -97,7 +79,6 @@ public class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    [TerraformArgument("request_message")]
     public TerraformValue<string>? RequestMessage
     {
         get => new TerraformReference<string>(this, "request_message");
@@ -108,7 +89,6 @@ public class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     /// The signalr_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
-    [TerraformArgument("signalr_service_id")]
     public required TerraformValue<string> SignalrServiceId
     {
         get => new TerraformReference<string>(this, "signalr_service_id");
@@ -119,7 +99,6 @@ public class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     /// The sub_resource_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubResourceName is required")]
-    [TerraformArgument("sub_resource_name")]
     public required TerraformValue<string> SubResourceName
     {
         get => new TerraformReference<string>(this, "sub_resource_name");
@@ -130,7 +109,6 @@ public class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    [TerraformArgument("target_resource_id")]
     public required TerraformValue<string> TargetResourceId
     {
         get => new TerraformReference<string>(this, "target_resource_id");
@@ -138,19 +116,12 @@ public class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The status attribute.
-    /// </summary>
-    [TerraformArgument("status")]
-    public TerraformValue<string> Status
+    public AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_stream_analytics_output_function Terraform resource.
 /// Manages a azurerm_stream_analytics_output_function resource.
 /// </summary>
-public class AzurermStreamAnalyticsOutputFunction : TerraformResource
+public partial class AzurermStreamAnalyticsOutputFunction(string name) : TerraformResource("azurerm_stream_analytics_output_function", name)
 {
-    public AzurermStreamAnalyticsOutputFunction(string name) : base("azurerm_stream_analytics_output_function", name)
-    {
-    }
-
     /// <summary>
     /// The api_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
-    [TerraformArgument("api_key")]
     public required TerraformValue<string> ApiKey
     {
         get => new TerraformReference<string>(this, "api_key");
@@ -87,7 +70,6 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// <summary>
     /// The batch_max_count attribute.
     /// </summary>
-    [TerraformArgument("batch_max_count")]
     public TerraformValue<double>? BatchMaxCount
     {
         get => new TerraformReference<double>(this, "batch_max_count");
@@ -97,7 +79,6 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// <summary>
     /// The batch_max_in_bytes attribute.
     /// </summary>
-    [TerraformArgument("batch_max_in_bytes")]
     public TerraformValue<double>? BatchMaxInBytes
     {
         get => new TerraformReference<double>(this, "batch_max_in_bytes");
@@ -108,7 +89,6 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// The function_app attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionApp is required")]
-    [TerraformArgument("function_app")]
     public required TerraformValue<string> FunctionApp
     {
         get => new TerraformReference<string>(this, "function_app");
@@ -119,7 +99,6 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    [TerraformArgument("function_name")]
     public required TerraformValue<string> FunctionName
     {
         get => new TerraformReference<string>(this, "function_name");
@@ -129,7 +108,6 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -140,7 +118,6 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -151,7 +128,6 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -162,7 +138,6 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// The stream_analytics_job_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
-    [TerraformArgument("stream_analytics_job_name")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
         get => new TerraformReference<string>(this, "stream_analytics_job_name");
@@ -170,10 +145,12 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStreamAnalyticsOutputFunctionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStreamAnalyticsOutputFunctionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStreamAnalyticsOutputFunctionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

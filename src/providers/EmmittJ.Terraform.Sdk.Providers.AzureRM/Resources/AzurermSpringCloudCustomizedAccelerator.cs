@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for git_repository in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// <summary>
     /// The branch attribute.
     /// </summary>
-    [TerraformArgument("branch")]
     public TerraformValue<string>? Branch
     {
         get => new TerraformReference<string>(this, "branch");
@@ -35,7 +25,6 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// <summary>
     /// The ca_certificate_id attribute.
     /// </summary>
-    [TerraformArgument("ca_certificate_id")]
     public TerraformValue<string>? CaCertificateId
     {
         get => new TerraformReference<string>(this, "ca_certificate_id");
@@ -45,7 +34,6 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// <summary>
     /// The commit attribute.
     /// </summary>
-    [TerraformArgument("commit")]
     public TerraformValue<string>? Commit
     {
         get => new TerraformReference<string>(this, "commit");
@@ -55,7 +43,6 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// <summary>
     /// The git_tag attribute.
     /// </summary>
-    [TerraformArgument("git_tag")]
     public TerraformValue<string>? GitTag
     {
         get => new TerraformReference<string>(this, "git_tag");
@@ -65,7 +52,6 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("interval_in_seconds")]
     public TerraformValue<double>? IntervalInSeconds
     {
         get => new TerraformReference<double>(this, "interval_in_seconds");
@@ -75,7 +61,6 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformArgument("path")]
     public TerraformValue<string>? Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -86,7 +71,6 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformArgument("url")]
     public required TerraformValue<string> Url
     {
         get => new TerraformReference<string>(this, "url");
@@ -109,7 +93,6 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -119,7 +102,6 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -129,7 +111,6 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -139,7 +120,6 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -149,19 +129,14 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_customized_accelerator Terraform resource.
 /// Manages a azurerm_spring_cloud_customized_accelerator resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
+public partial class AzurermSpringCloudCustomizedAccelerator(string name) : TerraformResource("azurerm_spring_cloud_customized_accelerator", name)
 {
-    public AzurermSpringCloudCustomizedAccelerator(string name) : base("azurerm_spring_cloud_customized_accelerator", name)
-    {
-    }
-
     /// <summary>
     /// The accelerator_tags attribute.
     /// </summary>
-    [TerraformArgument("accelerator_tags")]
     public TerraformList<string>? AcceleratorTags
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "accelerator_tags").ResolveNodes(ctx));
@@ -171,7 +146,6 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// <summary>
     /// The accelerator_type attribute.
     /// </summary>
-    [TerraformArgument("accelerator_type")]
     public TerraformValue<string>? AcceleratorType
     {
         get => new TerraformReference<string>(this, "accelerator_type");
@@ -181,7 +155,6 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -191,7 +164,6 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformArgument("display_name")]
     public TerraformValue<string>? DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -201,7 +173,6 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// <summary>
     /// The icon_url attribute.
     /// </summary>
-    [TerraformArgument("icon_url")]
     public TerraformValue<string>? IconUrl
     {
         get => new TerraformReference<string>(this, "icon_url");
@@ -211,7 +182,6 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -222,7 +192,6 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -233,7 +202,6 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// The spring_cloud_accelerator_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAcceleratorId is required")]
-    [TerraformArgument("spring_cloud_accelerator_id")]
     public required TerraformValue<string> SpringCloudAcceleratorId
     {
         get => new TerraformReference<string>(this, "spring_cloud_accelerator_id");
@@ -241,20 +209,25 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     }
 
     /// <summary>
-    /// Block for git_repository.
-    /// Nesting mode: list
+    /// GitRepository block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepository is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
-    [TerraformArgument("git_repository")]
-    public required TerraformList<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock> GitRepository { get; set; } = new();
+    public required AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock GitRepository
+    {
+        get => GetRequiredArgument<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>("git_repository");
+        set => SetArgument("git_repository", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

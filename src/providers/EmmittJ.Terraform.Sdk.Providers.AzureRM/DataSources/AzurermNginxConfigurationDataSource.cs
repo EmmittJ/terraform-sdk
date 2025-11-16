@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNginxConfigurationDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermNginxConfigurationDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_nginx_configuration Terraform data source.
 /// Retrieves information about a azurerm_nginx_configuration.
 /// </summary>
-public class AzurermNginxConfigurationDataSource : TerraformDataSource
+public partial class AzurermNginxConfigurationDataSource(string name) : TerraformDataSource("azurerm_nginx_configuration", name)
 {
-    public AzurermNginxConfigurationDataSource(string name) : base("azurerm_nginx_configuration", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
     /// The nginx_deployment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
-    [TerraformArgument("nginx_deployment_id")]
     public required TerraformValue<string> NginxDeploymentId
     {
         get => new TerraformReference<string>(this, "nginx_deployment_id");
@@ -65,46 +50,12 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNginxConfigurationDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The config_file attribute.
-    /// </summary>
-    [TerraformArgument("config_file")]
-    public TerraformSet<object> ConfigFile
+    public AzurermNginxConfigurationDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformSet<object>.Lazy(ctx => new TerraformReference<TerraformSet<object>>(this, "config_file").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The package_data attribute.
-    /// </summary>
-    [TerraformArgument("package_data")]
-    public TerraformValue<string> PackageData
-    {
-        get => new TerraformReference<string>(this, "package_data");
-    }
-
-    /// <summary>
-    /// The protected_file attribute.
-    /// </summary>
-    [TerraformArgument("protected_file")]
-    public TerraformSet<object> ProtectedFile
-    {
-        get => TerraformSet<object>.Lazy(ctx => new TerraformReference<TerraformSet<object>>(this, "protected_file").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The root_file attribute.
-    /// </summary>
-    [TerraformArgument("root_file")]
-    public TerraformValue<string> RootFile
-    {
-        get => new TerraformReference<string>(this, "root_file");
+        get => GetArgument<AzurermNginxConfigurationDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

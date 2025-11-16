@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_security_center_assessment_policy Terraform resource.
 /// Manages a azurerm_security_center_assessment_policy resource.
 /// </summary>
-public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
+public partial class AzurermSecurityCenterAssessmentPolicy(string name) : TerraformResource("azurerm_security_center_assessment_policy", name)
 {
-    public AzurermSecurityCenterAssessmentPolicy(string name) : base("azurerm_security_center_assessment_policy", name)
-    {
-    }
-
     /// <summary>
     /// The categories attribute.
     /// </summary>
-    [TerraformArgument("categories")]
     public TerraformSet<string> Categories
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "categories").ResolveNodes(ctx));
@@ -87,7 +70,6 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// The description attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    [TerraformArgument("description")]
     public required TerraformValue<string> Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -98,7 +80,6 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformArgument("display_name")]
     public required TerraformValue<string> DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -108,7 +89,6 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -118,7 +98,6 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The implementation_effort attribute.
     /// </summary>
-    [TerraformArgument("implementation_effort")]
     public TerraformValue<string>? ImplementationEffort
     {
         get => new TerraformReference<string>(this, "implementation_effort");
@@ -128,7 +107,6 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The remediation_description attribute.
     /// </summary>
-    [TerraformArgument("remediation_description")]
     public TerraformValue<string>? RemediationDescription
     {
         get => new TerraformReference<string>(this, "remediation_description");
@@ -138,7 +116,6 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    [TerraformArgument("severity")]
     public TerraformValue<string>? Severity
     {
         get => new TerraformReference<string>(this, "severity");
@@ -148,7 +125,6 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The threats attribute.
     /// </summary>
-    [TerraformArgument("threats")]
     public TerraformSet<string>? Threats
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "threats").ResolveNodes(ctx));
@@ -158,7 +134,6 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The user_impact attribute.
     /// </summary>
-    [TerraformArgument("user_impact")]
     public TerraformValue<string>? UserImpact
     {
         get => new TerraformReference<string>(this, "user_impact");
@@ -166,19 +141,12 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSecurityCenterAssessmentPolicyTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The name attribute.
-    /// </summary>
-    [TerraformArgument("name")]
-    public TerraformValue<string> Name
+    public AzurermSecurityCenterAssessmentPolicyTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<AzurermSecurityCenterAssessmentPolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

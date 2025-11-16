@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermFederatedIdentityCredentialTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermFederatedIdentityCredentialTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermFederatedIdentityCredentialTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermFederatedIdentityCredentialTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermFederatedIdentityCredentialTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_federated_identity_credential Terraform resource.
 /// Manages a azurerm_federated_identity_credential resource.
 /// </summary>
-public class AzurermFederatedIdentityCredential : TerraformResource
+public partial class AzurermFederatedIdentityCredential(string name) : TerraformResource("azurerm_federated_identity_credential", name)
 {
-    public AzurermFederatedIdentityCredential(string name) : base("azurerm_federated_identity_credential", name)
-    {
-    }
-
     /// <summary>
     /// The audience attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
-    [TerraformArgument("audience")]
     public TerraformList<string>? Audience
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "audience").ResolveNodes(ctx));
@@ -87,7 +70,6 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// The issuer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
-    [TerraformArgument("issuer")]
     public required TerraformValue<string> Issuer
     {
         get => new TerraformReference<string>(this, "issuer");
@@ -109,7 +90,6 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -120,7 +100,6 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// The parent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
-    [TerraformArgument("parent_id")]
     public required TerraformValue<string> ParentId
     {
         get => new TerraformReference<string>(this, "parent_id");
@@ -131,7 +110,6 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -142,7 +120,6 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// The subject attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
-    [TerraformArgument("subject")]
     public required TerraformValue<string> Subject
     {
         get => new TerraformReference<string>(this, "subject");
@@ -150,10 +127,12 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermFederatedIdentityCredentialTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermFederatedIdentityCredentialTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermFederatedIdentityCredentialTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

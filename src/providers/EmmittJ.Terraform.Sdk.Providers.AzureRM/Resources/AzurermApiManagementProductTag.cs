@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementProductTagTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermApiManagementProductTagTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermApiManagementProductTagTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermApiManagementProductTagTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_product_tag Terraform resource.
 /// Manages a azurerm_api_management_product_tag resource.
 /// </summary>
-public class AzurermApiManagementProductTag : TerraformResource
+public partial class AzurermApiManagementProductTag(string name) : TerraformResource("azurerm_api_management_product_tag", name)
 {
-    public AzurermApiManagementProductTag(string name) : base("azurerm_api_management_product_tag", name)
-    {
-    }
-
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    [TerraformArgument("api_management_name")]
     public required TerraformValue<string> ApiManagementName
     {
         get => new TerraformReference<string>(this, "api_management_name");
@@ -78,7 +62,6 @@ public class AzurermApiManagementProductTag : TerraformResource
     /// The api_management_product_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementProductId is required")]
-    [TerraformArgument("api_management_product_id")]
     public required TerraformValue<string> ApiManagementProductId
     {
         get => new TerraformReference<string>(this, "api_management_product_id");
@@ -88,7 +71,6 @@ public class AzurermApiManagementProductTag : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -99,7 +81,6 @@ public class AzurermApiManagementProductTag : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -110,7 +91,6 @@ public class AzurermApiManagementProductTag : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -118,10 +98,12 @@ public class AzurermApiManagementProductTag : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementProductTagTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApiManagementProductTagTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementProductTagTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

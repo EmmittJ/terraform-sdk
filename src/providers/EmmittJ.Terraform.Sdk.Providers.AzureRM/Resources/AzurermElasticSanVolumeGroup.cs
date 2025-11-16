@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for encryption in .
@@ -22,24 +13,43 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "encryption";
 
+    /// <summary>
+    /// The current_versioned_key_expiration_timestamp attribute.
+    /// </summary>
+    public TerraformValue<string> CurrentVersionedKeyExpirationTimestamp
+    {
+        get => new TerraformReference<string>(this, "current_versioned_key_expiration_timestamp");
+    }
 
+    /// <summary>
+    /// The current_versioned_key_id attribute.
+    /// </summary>
+    public TerraformValue<string> CurrentVersionedKeyId
+    {
+        get => new TerraformReference<string>(this, "current_versioned_key_id");
+    }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    [TerraformArgument("key_vault_key_id")]
     public required TerraformValue<string> KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
+    /// <summary>
+    /// The last_key_rotation_timestamp attribute.
+    /// </summary>
+    public TerraformValue<string> LastKeyRotationTimestamp
+    {
+        get => new TerraformReference<string>(this, "last_key_rotation_timestamp");
+    }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    [TerraformArgument("user_assigned_identity_id")]
     public TerraformValue<string>? UserAssignedIdentityId
     {
         get => new TerraformReference<string>(this, "user_assigned_identity_id");
@@ -62,20 +72,32 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -98,7 +120,6 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
     /// <summary>
     /// The action attribute.
     /// </summary>
-    [TerraformArgument("action")]
     public TerraformValue<string>? Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -109,7 +130,6 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -132,7 +152,6 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -142,7 +161,6 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -152,7 +170,6 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -162,7 +179,6 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -172,20 +188,15 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_elastic_san_volume_group Terraform resource.
 /// Manages a azurerm_elastic_san_volume_group resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermElasticSanVolumeGroup : TerraformResource
+public partial class AzurermElasticSanVolumeGroup(string name) : TerraformResource("azurerm_elastic_san_volume_group", name)
 {
-    public AzurermElasticSanVolumeGroup(string name) : base("azurerm_elastic_san_volume_group", name)
-    {
-    }
-
     /// <summary>
     /// The elastic_san_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
-    [TerraformArgument("elastic_san_id")]
     public required TerraformValue<string> ElasticSanId
     {
         get => new TerraformReference<string>(this, "elastic_san_id");
@@ -195,7 +206,6 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    [TerraformArgument("encryption_type")]
     public TerraformValue<string>? EncryptionType
     {
         get => new TerraformReference<string>(this, "encryption_type");
@@ -205,7 +215,6 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -216,7 +225,6 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -226,7 +234,6 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    [TerraformArgument("protocol_type")]
     public TerraformValue<string>? ProtocolType
     {
         get => new TerraformReference<string>(this, "protocol_type");
@@ -234,33 +241,41 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for encryption.
-    /// Nesting mode: list
+    /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    [TerraformArgument("encryption")]
-    public TerraformList<AzurermElasticSanVolumeGroupEncryptionBlock> Encryption { get; set; } = new();
+    public AzurermElasticSanVolumeGroupEncryptionBlock? Encryption
+    {
+        get => GetArgument<AzurermElasticSanVolumeGroupEncryptionBlock>("encryption");
+        set => SetArgument("encryption", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermElasticSanVolumeGroupIdentityBlock> Identity { get; set; } = new();
+    public AzurermElasticSanVolumeGroupIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermElasticSanVolumeGroupIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for network_rule.
-    /// Nesting mode: list
+    /// NetworkRule block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("network_rule")]
-    public TerraformList<AzurermElasticSanVolumeGroupNetworkRuleBlock> NetworkRule { get; set; } = new();
+    public AzurermElasticSanVolumeGroupNetworkRuleBlock? NetworkRule
+    {
+        get => GetArgument<AzurermElasticSanVolumeGroupNetworkRuleBlock>("network_rule");
+        set => SetArgument("network_rule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermElasticSanVolumeGroupTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermElasticSanVolumeGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermElasticSanVolumeGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

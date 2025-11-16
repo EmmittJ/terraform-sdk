@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for application_insights in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    [TerraformArgument("connection_string")]
     public TerraformValue<string>? ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -35,7 +25,6 @@ public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
     /// <summary>
     /// The instrumentation_key attribute.
     /// </summary>
-    [TerraformArgument("instrumentation_key")]
     public TerraformValue<string>? InstrumentationKey
     {
         get => new TerraformReference<string>(this, "instrumentation_key");
@@ -58,7 +47,6 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    [TerraformArgument("connection_string")]
     public TerraformValue<string>? ConnectionString
     {
         get => new TerraformReference<string>(this, "connection_string");
@@ -68,7 +56,6 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
-    [TerraformArgument("endpoint_uri")]
     public TerraformValue<string>? EndpointUri
     {
         get => new TerraformReference<string>(this, "endpoint_uri");
@@ -79,7 +66,6 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -89,7 +75,6 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// <summary>
     /// The user_assigned_identity_client_id attribute.
     /// </summary>
-    [TerraformArgument("user_assigned_identity_client_id")]
     public TerraformValue<string>? UserAssignedIdentityClientId
     {
         get => new TerraformReference<string>(this, "user_assigned_identity_client_id");
@@ -112,7 +97,6 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -122,7 +106,6 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -132,7 +115,6 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -142,7 +124,6 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -152,20 +133,15 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_logger Terraform resource.
 /// Manages a azurerm_api_management_logger resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApiManagementLogger : TerraformResource
+public partial class AzurermApiManagementLogger(string name) : TerraformResource("azurerm_api_management_logger", name)
 {
-    public AzurermApiManagementLogger(string name) : base("azurerm_api_management_logger", name)
-    {
-    }
-
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    [TerraformArgument("api_management_name")]
     public required TerraformValue<string> ApiManagementName
     {
         get => new TerraformReference<string>(this, "api_management_name");
@@ -175,7 +151,6 @@ public class AzurermApiManagementLogger : TerraformResource
     /// <summary>
     /// The buffered attribute.
     /// </summary>
-    [TerraformArgument("buffered")]
     public TerraformValue<bool>? Buffered
     {
         get => new TerraformReference<bool>(this, "buffered");
@@ -185,7 +160,6 @@ public class AzurermApiManagementLogger : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -195,7 +169,6 @@ public class AzurermApiManagementLogger : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -206,7 +179,6 @@ public class AzurermApiManagementLogger : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -217,7 +189,6 @@ public class AzurermApiManagementLogger : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -227,7 +198,6 @@ public class AzurermApiManagementLogger : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    [TerraformArgument("resource_id")]
     public TerraformValue<string>? ResourceId
     {
         get => new TerraformReference<string>(this, "resource_id");
@@ -235,26 +205,32 @@ public class AzurermApiManagementLogger : TerraformResource
     }
 
     /// <summary>
-    /// Block for application_insights.
-    /// Nesting mode: list
+    /// ApplicationInsights block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationInsights block(s) allowed")]
-    [TerraformArgument("application_insights")]
-    public TerraformList<AzurermApiManagementLoggerApplicationInsightsBlock> ApplicationInsights { get; set; } = new();
+    public AzurermApiManagementLoggerApplicationInsightsBlock? ApplicationInsights
+    {
+        get => GetArgument<AzurermApiManagementLoggerApplicationInsightsBlock>("application_insights");
+        set => SetArgument("application_insights", value);
+    }
 
     /// <summary>
-    /// Block for eventhub.
-    /// Nesting mode: list
+    /// Eventhub block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Eventhub block(s) allowed")]
-    [TerraformArgument("eventhub")]
-    public TerraformList<AzurermApiManagementLoggerEventhubBlock> Eventhub { get; set; } = new();
+    public AzurermApiManagementLoggerEventhubBlock? Eventhub
+    {
+        get => GetArgument<AzurermApiManagementLoggerEventhubBlock>("eventhub");
+        set => SetArgument("eventhub", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementLoggerTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApiManagementLoggerTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementLoggerTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

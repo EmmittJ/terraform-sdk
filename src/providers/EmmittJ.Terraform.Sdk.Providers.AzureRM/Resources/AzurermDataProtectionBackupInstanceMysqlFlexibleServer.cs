@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock
 }
 
 /// <summary>
+/// Represents a azurerm_data_protection_backup_instance_mysql_flexible_server Terraform resource.
 /// Manages a azurerm_data_protection_backup_instance_mysql_flexible_server resource.
 /// </summary>
-public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformResource
+public partial class AzurermDataProtectionBackupInstanceMysqlFlexibleServer(string name) : TerraformResource("azurerm_data_protection_backup_instance_mysql_flexible_server", name)
 {
-    public AzurermDataProtectionBackupInstanceMysqlFlexibleServer(string name) : base("azurerm_data_protection_backup_instance_mysql_flexible_server", name)
-    {
-    }
-
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
-    [TerraformArgument("backup_policy_id")]
     public required TerraformValue<string> BackupPolicyId
     {
         get => new TerraformReference<string>(this, "backup_policy_id");
@@ -87,7 +70,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -109,7 +90,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -120,7 +100,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformArgument("server_id")]
     public required TerraformValue<string> ServerId
     {
         get => new TerraformReference<string>(this, "server_id");
@@ -131,7 +110,6 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// The vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
-    [TerraformArgument("vault_id")]
     public required TerraformValue<string> VaultId
     {
         get => new TerraformReference<string>(this, "vault_id");
@@ -139,10 +117,12 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

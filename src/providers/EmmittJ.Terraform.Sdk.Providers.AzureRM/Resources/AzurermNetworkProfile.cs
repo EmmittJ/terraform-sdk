@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for container_network_interface in .
@@ -26,7 +17,6 @@ public class AzurermNetworkProfileContainerNetworkInterfaceBlock : TerraformBloc
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -49,7 +39,6 @@ public class AzurermNetworkProfileTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -59,7 +48,6 @@ public class AzurermNetworkProfileTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -69,7 +57,6 @@ public class AzurermNetworkProfileTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -79,7 +66,6 @@ public class AzurermNetworkProfileTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -89,19 +75,14 @@ public class AzurermNetworkProfileTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_network_profile Terraform resource.
 /// Manages a azurerm_network_profile resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetworkProfile : TerraformResource
+public partial class AzurermNetworkProfile(string name) : TerraformResource("azurerm_network_profile", name)
 {
-    public AzurermNetworkProfile(string name) : base("azurerm_network_profile", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -112,7 +93,6 @@ public class AzurermNetworkProfile : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -123,7 +103,6 @@ public class AzurermNetworkProfile : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -134,7 +113,6 @@ public class AzurermNetworkProfile : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -144,7 +122,6 @@ public class AzurermNetworkProfile : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -152,29 +129,25 @@ public class AzurermNetworkProfile : TerraformResource
     }
 
     /// <summary>
-    /// Block for container_network_interface.
-    /// Nesting mode: list
+    /// ContainerNetworkInterface block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerNetworkInterface is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContainerNetworkInterface block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerNetworkInterface block(s) allowed")]
-    [TerraformArgument("container_network_interface")]
-    public required TerraformList<AzurermNetworkProfileContainerNetworkInterfaceBlock> ContainerNetworkInterface { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkProfileTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The container_network_interface_ids attribute.
-    /// </summary>
-    [TerraformArgument("container_network_interface_ids")]
-    public TerraformList<string> ContainerNetworkInterfaceIds
+    public required AzurermNetworkProfileContainerNetworkInterfaceBlock ContainerNetworkInterface
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "container_network_interface_ids").ResolveNodes(ctx));
+        get => GetRequiredArgument<AzurermNetworkProfileContainerNetworkInterfaceBlock>("container_network_interface");
+        set => SetArgument("container_network_interface", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermNetworkProfileTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetworkProfileTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for azure_blob_storage_location in .
@@ -26,7 +17,6 @@ public class AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock : Terraf
     /// The container attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
-    [TerraformArgument("container")]
     public required TerraformValue<string> Container
     {
         get => new TerraformReference<string>(this, "container");
@@ -36,7 +26,6 @@ public class AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock : Terraf
     /// <summary>
     /// The dynamic_container_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_container_enabled")]
     public TerraformValue<bool>? DynamicContainerEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_container_enabled");
@@ -46,7 +35,6 @@ public class AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock : Terraf
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_filename_enabled")]
     public TerraformValue<bool>? DynamicFilenameEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_filename_enabled");
@@ -56,7 +44,6 @@ public class AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock : Terraf
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_path_enabled")]
     public TerraformValue<bool>? DynamicPathEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_path_enabled");
@@ -67,7 +54,6 @@ public class AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock : Terraf
     /// The filename attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
-    [TerraformArgument("filename")]
     public required TerraformValue<string> Filename
     {
         get => new TerraformReference<string>(this, "filename");
@@ -78,7 +64,6 @@ public class AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock : Terraf
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformArgument("path")]
     public required TerraformValue<string> Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -101,7 +86,6 @@ public class AzurermDataFactoryDatasetJsonHttpServerLocationBlock : TerraformBlo
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_filename_enabled")]
     public TerraformValue<bool>? DynamicFilenameEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_filename_enabled");
@@ -111,7 +95,6 @@ public class AzurermDataFactoryDatasetJsonHttpServerLocationBlock : TerraformBlo
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
-    [TerraformArgument("dynamic_path_enabled")]
     public TerraformValue<bool>? DynamicPathEnabled
     {
         get => new TerraformReference<bool>(this, "dynamic_path_enabled");
@@ -122,7 +105,6 @@ public class AzurermDataFactoryDatasetJsonHttpServerLocationBlock : TerraformBlo
     /// The filename attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
-    [TerraformArgument("filename")]
     public required TerraformValue<string> Filename
     {
         get => new TerraformReference<string>(this, "filename");
@@ -133,7 +115,6 @@ public class AzurermDataFactoryDatasetJsonHttpServerLocationBlock : TerraformBlo
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformArgument("path")]
     public required TerraformValue<string> Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -144,7 +125,6 @@ public class AzurermDataFactoryDatasetJsonHttpServerLocationBlock : TerraformBlo
     /// The relative_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUrl is required")]
-    [TerraformArgument("relative_url")]
     public required TerraformValue<string> RelativeUrl
     {
         get => new TerraformReference<string>(this, "relative_url");
@@ -167,7 +147,6 @@ public class AzurermDataFactoryDatasetJsonSchemaColumnBlock : TerraformBlock
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -178,7 +157,6 @@ public class AzurermDataFactoryDatasetJsonSchemaColumnBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -188,7 +166,6 @@ public class AzurermDataFactoryDatasetJsonSchemaColumnBlock : TerraformBlock
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -211,7 +188,6 @@ public class AzurermDataFactoryDatasetJsonTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -221,7 +197,6 @@ public class AzurermDataFactoryDatasetJsonTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -231,7 +206,6 @@ public class AzurermDataFactoryDatasetJsonTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -241,7 +215,6 @@ public class AzurermDataFactoryDatasetJsonTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -251,19 +224,14 @@ public class AzurermDataFactoryDatasetJsonTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_dataset_json Terraform resource.
 /// Manages a azurerm_data_factory_dataset_json resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryDatasetJson : TerraformResource
+public partial class AzurermDataFactoryDatasetJson(string name) : TerraformResource("azurerm_data_factory_dataset_json", name)
 {
-    public AzurermDataFactoryDatasetJson(string name) : base("azurerm_data_factory_dataset_json", name)
-    {
-    }
-
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -273,7 +241,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -284,7 +251,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -294,7 +260,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -304,7 +269,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    [TerraformArgument("encoding")]
     public TerraformValue<string>? Encoding
     {
         get => new TerraformReference<string>(this, "encoding");
@@ -314,7 +278,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    [TerraformArgument("folder")]
     public TerraformValue<string>? Folder
     {
         get => new TerraformReference<string>(this, "folder");
@@ -324,7 +287,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -335,7 +297,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformArgument("linked_service_name")]
     public required TerraformValue<string> LinkedServiceName
     {
         get => new TerraformReference<string>(this, "linked_service_name");
@@ -346,7 +307,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -356,7 +316,6 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -364,33 +323,41 @@ public class AzurermDataFactoryDatasetJson : TerraformResource
     }
 
     /// <summary>
-    /// Block for azure_blob_storage_location.
-    /// Nesting mode: list
+    /// AzureBlobStorageLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
-    [TerraformArgument("azure_blob_storage_location")]
-    public TerraformList<AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock> AzureBlobStorageLocation { get; set; } = new();
+    public AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock? AzureBlobStorageLocation
+    {
+        get => GetArgument<AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock>("azure_blob_storage_location");
+        set => SetArgument("azure_blob_storage_location", value);
+    }
 
     /// <summary>
-    /// Block for http_server_location.
-    /// Nesting mode: list
+    /// HttpServerLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
-    [TerraformArgument("http_server_location")]
-    public TerraformList<AzurermDataFactoryDatasetJsonHttpServerLocationBlock> HttpServerLocation { get; set; } = new();
+    public AzurermDataFactoryDatasetJsonHttpServerLocationBlock? HttpServerLocation
+    {
+        get => GetArgument<AzurermDataFactoryDatasetJsonHttpServerLocationBlock>("http_server_location");
+        set => SetArgument("http_server_location", value);
+    }
 
     /// <summary>
-    /// Block for schema_column.
-    /// Nesting mode: list
+    /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("schema_column")]
-    public TerraformList<AzurermDataFactoryDatasetJsonSchemaColumnBlock> SchemaColumn { get; set; } = new();
+    public AzurermDataFactoryDatasetJsonSchemaColumnBlock? SchemaColumn
+    {
+        get => GetArgument<AzurermDataFactoryDatasetJsonSchemaColumnBlock>("schema_column");
+        set => SetArgument("schema_column", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryDatasetJsonTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryDatasetJsonTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryDatasetJsonTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

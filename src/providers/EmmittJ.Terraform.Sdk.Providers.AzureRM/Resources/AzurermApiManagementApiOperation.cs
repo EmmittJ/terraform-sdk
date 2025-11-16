@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for request in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementApiOperationRequestBlock : TerraformBlock
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -48,7 +38,6 @@ public class AzurermApiManagementApiOperationResponseBlock : TerraformBlock
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -59,7 +48,6 @@ public class AzurermApiManagementApiOperationResponseBlock : TerraformBlock
     /// The status_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
-    [TerraformArgument("status_code")]
     public required TerraformValue<double> StatusCode
     {
         get => new TerraformReference<double>(this, "status_code");
@@ -82,7 +70,6 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    [TerraformArgument("default_value")]
     public TerraformValue<string>? DefaultValue
     {
         get => new TerraformReference<string>(this, "default_value");
@@ -92,7 +79,6 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -103,7 +89,6 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -114,7 +99,6 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// The required attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
-    [TerraformArgument("required")]
     public required TerraformValue<bool> Required
     {
         get => new TerraformReference<bool>(this, "required");
@@ -124,7 +108,6 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// <summary>
     /// The schema_id attribute.
     /// </summary>
-    [TerraformArgument("schema_id")]
     public TerraformValue<string>? SchemaId
     {
         get => new TerraformReference<string>(this, "schema_id");
@@ -135,7 +118,6 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -145,7 +127,6 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    [TerraformArgument("type_name")]
     public TerraformValue<string>? TypeName
     {
         get => new TerraformReference<string>(this, "type_name");
@@ -155,8 +136,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// <summary>
     /// The values attribute.
     /// </summary>
-    [TerraformArgument("values")]
-    public TerraformSet<string>? Values
+    public TerraformSet<string>? ValuesAttribute
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
         set => SetArgument("values", value);
@@ -178,7 +158,6 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -188,7 +167,6 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -198,7 +176,6 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -208,7 +185,6 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -218,20 +194,15 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_api_operation Terraform resource.
 /// Manages a azurerm_api_management_api_operation resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApiManagementApiOperation : TerraformResource
+public partial class AzurermApiManagementApiOperation(string name) : TerraformResource("azurerm_api_management_api_operation", name)
 {
-    public AzurermApiManagementApiOperation(string name) : base("azurerm_api_management_api_operation", name)
-    {
-    }
-
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    [TerraformArgument("api_management_name")]
     public required TerraformValue<string> ApiManagementName
     {
         get => new TerraformReference<string>(this, "api_management_name");
@@ -242,7 +213,6 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// The api_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
-    [TerraformArgument("api_name")]
     public required TerraformValue<string> ApiName
     {
         get => new TerraformReference<string>(this, "api_name");
@@ -252,7 +222,6 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -263,7 +232,6 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformArgument("display_name")]
     public required TerraformValue<string> DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -273,7 +241,6 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -284,7 +251,6 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// The method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
-    [TerraformArgument("method")]
     public required TerraformValue<string> Method
     {
         get => new TerraformReference<string>(this, "method");
@@ -295,7 +261,6 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// The operation_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationId is required")]
-    [TerraformArgument("operation_id")]
     public required TerraformValue<string> OperationId
     {
         get => new TerraformReference<string>(this, "operation_id");
@@ -306,7 +271,6 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -317,7 +281,6 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// The url_template attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
-    [TerraformArgument("url_template")]
     public required TerraformValue<string> UrlTemplate
     {
         get => new TerraformReference<string>(this, "url_template");
@@ -325,32 +288,40 @@ public class AzurermApiManagementApiOperation : TerraformResource
     }
 
     /// <summary>
-    /// Block for request.
-    /// Nesting mode: list
+    /// Request block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
-    [TerraformArgument("request")]
-    public TerraformList<AzurermApiManagementApiOperationRequestBlock> Request { get; set; } = new();
+    public AzurermApiManagementApiOperationRequestBlock? Request
+    {
+        get => GetArgument<AzurermApiManagementApiOperationRequestBlock>("request");
+        set => SetArgument("request", value);
+    }
 
     /// <summary>
-    /// Block for response.
-    /// Nesting mode: list
+    /// Response block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("response")]
-    public TerraformList<AzurermApiManagementApiOperationResponseBlock> Response { get; set; } = new();
+    public AzurermApiManagementApiOperationResponseBlock? Response
+    {
+        get => GetArgument<AzurermApiManagementApiOperationResponseBlock>("response");
+        set => SetArgument("response", value);
+    }
 
     /// <summary>
-    /// Block for template_parameter.
-    /// Nesting mode: list
+    /// TemplateParameter block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("template_parameter")]
-    public TerraformList<AzurermApiManagementApiOperationTemplateParameterBlock> TemplateParameter { get; set; } = new();
+    public AzurermApiManagementApiOperationTemplateParameterBlock? TemplateParameter
+    {
+        get => GetArgument<AzurermApiManagementApiOperationTemplateParameterBlock>("template_parameter");
+        set => SetArgument("template_parameter", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementApiOperationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApiManagementApiOperationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementApiOperationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

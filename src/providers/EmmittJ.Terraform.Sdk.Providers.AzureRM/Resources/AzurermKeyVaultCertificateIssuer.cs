@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for admin in .
@@ -26,7 +17,6 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// The email_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
-    [TerraformArgument("email_address")]
     public required TerraformValue<string> EmailAddress
     {
         get => new TerraformReference<string>(this, "email_address");
@@ -36,7 +26,6 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    [TerraformArgument("first_name")]
     public TerraformValue<string>? FirstName
     {
         get => new TerraformReference<string>(this, "first_name");
@@ -46,7 +35,6 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    [TerraformArgument("last_name")]
     public TerraformValue<string>? LastName
     {
         get => new TerraformReference<string>(this, "last_name");
@@ -56,7 +44,6 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// <summary>
     /// The phone attribute.
     /// </summary>
-    [TerraformArgument("phone")]
     public TerraformValue<string>? Phone
     {
         get => new TerraformReference<string>(this, "phone");
@@ -79,7 +66,6 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -89,7 +75,6 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -99,7 +84,6 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -109,7 +93,6 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -119,18 +102,14 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_certificate_issuer Terraform resource.
 /// Manages a azurerm_key_vault_certificate_issuer resource.
 /// </summary>
-public class AzurermKeyVaultCertificateIssuer : TerraformResource
+public partial class AzurermKeyVaultCertificateIssuer(string name) : TerraformResource("azurerm_key_vault_certificate_issuer", name)
 {
-    public AzurermKeyVaultCertificateIssuer(string name) : base("azurerm_key_vault_certificate_issuer", name)
-    {
-    }
-
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    [TerraformArgument("account_id")]
     public TerraformValue<string>? AccountId
     {
         get => new TerraformReference<string>(this, "account_id");
@@ -140,7 +119,6 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -151,7 +129,6 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformArgument("key_vault_id")]
     public required TerraformValue<string> KeyVaultId
     {
         get => new TerraformReference<string>(this, "key_vault_id");
@@ -162,7 +139,6 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -172,7 +148,6 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    [TerraformArgument("org_id")]
     public TerraformValue<string>? OrgId
     {
         get => new TerraformReference<string>(this, "org_id");
@@ -182,7 +157,6 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformArgument("password")]
     public TerraformValue<string>? Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -193,7 +167,6 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// The provider_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
-    [TerraformArgument("provider_name")]
     public required TerraformValue<string> ProviderName
     {
         get => new TerraformReference<string>(this, "provider_name");
@@ -201,17 +174,21 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     }
 
     /// <summary>
-    /// Block for admin.
-    /// Nesting mode: list
+    /// Admin block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("admin")]
-    public TerraformList<AzurermKeyVaultCertificateIssuerAdminBlock> Admin { get; set; } = new();
+    public AzurermKeyVaultCertificateIssuerAdminBlock? Admin
+    {
+        get => GetArgument<AzurermKeyVaultCertificateIssuerAdminBlock>("admin");
+        set => SetArgument("admin", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultCertificateIssuerTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermKeyVaultCertificateIssuerTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermKeyVaultCertificateIssuerTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

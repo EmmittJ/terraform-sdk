@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNetappSnapshotDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermNetappSnapshotDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_netapp_snapshot Terraform data source.
 /// Retrieves information about a azurerm_netapp_snapshot.
 /// </summary>
-public class AzurermNetappSnapshotDataSource : TerraformDataSource
+public partial class AzurermNetappSnapshotDataSource(string name) : TerraformDataSource("azurerm_netapp_snapshot", name)
 {
-    public AzurermNetappSnapshotDataSource(string name) : base("azurerm_netapp_snapshot", name)
-    {
-    }
-
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformArgument("account_name")]
     public required TerraformValue<string> AccountName
     {
         get => new TerraformReference<string>(this, "account_name");
@@ -57,7 +43,6 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -68,7 +53,6 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -79,7 +63,6 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// The pool_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
-    [TerraformArgument("pool_name")]
     public required TerraformValue<string> PoolName
     {
         get => new TerraformReference<string>(this, "pool_name");
@@ -90,7 +73,6 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -101,7 +83,6 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// The volume_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
-    [TerraformArgument("volume_name")]
     public required TerraformValue<string> VolumeName
     {
         get => new TerraformReference<string>(this, "volume_name");
@@ -109,19 +90,12 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetappSnapshotDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
+    public AzurermNetappSnapshotDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<AzurermNetappSnapshotDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

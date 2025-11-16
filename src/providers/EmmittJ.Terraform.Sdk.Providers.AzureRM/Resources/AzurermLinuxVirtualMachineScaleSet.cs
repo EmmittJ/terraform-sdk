@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for additional_capabilities in .
@@ -25,7 +16,6 @@ public class AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlock : Ter
     /// <summary>
     /// The ultra_ssd_enabled attribute.
     /// </summary>
-    [TerraformArgument("ultra_ssd_enabled")]
     public TerraformValue<bool>? UltraSsdEnabled
     {
         get => new TerraformReference<bool>(this, "ultra_ssd_enabled");
@@ -49,7 +39,6 @@ public class AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock : TerraformBlock
     /// The public_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
-    [TerraformArgument("public_key")]
     public required TerraformValue<string> PublicKey
     {
         get => new TerraformReference<string>(this, "public_key");
@@ -60,7 +49,6 @@ public class AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock : TerraformBlock
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    [TerraformArgument("username")]
     public required TerraformValue<string> Username
     {
         get => new TerraformReference<string>(this, "username");
@@ -83,7 +71,6 @@ public class AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock : Te
     /// <summary>
     /// The action attribute.
     /// </summary>
-    [TerraformArgument("action")]
     public TerraformValue<string> Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -94,7 +81,6 @@ public class AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock : Te
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformArgument("enabled")]
     public required TerraformValue<bool> Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -104,7 +90,6 @@ public class AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock : Te
     /// <summary>
     /// The grace_period attribute.
     /// </summary>
-    [TerraformArgument("grace_period")]
     public TerraformValue<string> GracePeriod
     {
         get => new TerraformReference<string>(this, "grace_period");
@@ -128,7 +113,6 @@ public class AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock : T
     /// The disable_automatic_rollback attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableAutomaticRollback is required")]
-    [TerraformArgument("disable_automatic_rollback")]
     public required TerraformValue<bool> DisableAutomaticRollback
     {
         get => new TerraformReference<bool>(this, "disable_automatic_rollback");
@@ -139,7 +123,6 @@ public class AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock : T
     /// The enable_automatic_os_upgrade attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableAutomaticOsUpgrade is required")]
-    [TerraformArgument("enable_automatic_os_upgrade")]
     public required TerraformValue<bool> EnableAutomaticOsUpgrade
     {
         get => new TerraformReference<bool>(this, "enable_automatic_os_upgrade");
@@ -162,7 +145,6 @@ public class AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock : TerraformB
     /// <summary>
     /// The storage_account_uri attribute.
     /// </summary>
-    [TerraformArgument("storage_account_uri")]
     public TerraformValue<string>? StorageAccountUri
     {
         get => new TerraformReference<string>(this, "storage_account_uri");
@@ -186,7 +168,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// The caching attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
-    [TerraformArgument("caching")]
     public required TerraformValue<string> Caching
     {
         get => new TerraformReference<string>(this, "caching");
@@ -196,7 +177,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// <summary>
     /// The create_option attribute.
     /// </summary>
-    [TerraformArgument("create_option")]
     public TerraformValue<string>? CreateOption
     {
         get => new TerraformReference<string>(this, "create_option");
@@ -206,7 +186,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformArgument("disk_encryption_set_id")]
     public TerraformValue<string>? DiskEncryptionSetId
     {
         get => new TerraformReference<string>(this, "disk_encryption_set_id");
@@ -217,7 +196,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// The disk_size_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
-    [TerraformArgument("disk_size_gb")]
     public required TerraformValue<double> DiskSizeGb
     {
         get => new TerraformReference<double>(this, "disk_size_gb");
@@ -228,7 +206,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// The lun attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
-    [TerraformArgument("lun")]
     public required TerraformValue<double> Lun
     {
         get => new TerraformReference<double>(this, "lun");
@@ -238,7 +215,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -249,7 +225,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    [TerraformArgument("storage_account_type")]
     public required TerraformValue<string> StorageAccountType
     {
         get => new TerraformReference<string>(this, "storage_account_type");
@@ -259,7 +234,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// <summary>
     /// The ultra_ssd_disk_iops_read_write attribute.
     /// </summary>
-    [TerraformArgument("ultra_ssd_disk_iops_read_write")]
     public TerraformValue<double> UltraSsdDiskIopsReadWrite
     {
         get => new TerraformReference<double>(this, "ultra_ssd_disk_iops_read_write");
@@ -269,7 +243,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// <summary>
     /// The ultra_ssd_disk_mbps_read_write attribute.
     /// </summary>
-    [TerraformArgument("ultra_ssd_disk_mbps_read_write")]
     public TerraformValue<double> UltraSsdDiskMbpsReadWrite
     {
         get => new TerraformReference<double>(this, "ultra_ssd_disk_mbps_read_write");
@@ -279,7 +252,6 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    [TerraformArgument("write_accelerator_enabled")]
     public TerraformValue<bool>? WriteAcceleratorEnabled
     {
         get => new TerraformReference<bool>(this, "write_accelerator_enabled");
@@ -302,7 +274,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
     /// </summary>
-    [TerraformArgument("auto_upgrade_minor_version")]
     public TerraformValue<bool>? AutoUpgradeMinorVersion
     {
         get => new TerraformReference<bool>(this, "auto_upgrade_minor_version");
@@ -312,7 +283,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    [TerraformArgument("automatic_upgrade_enabled")]
     public TerraformValue<bool>? AutomaticUpgradeEnabled
     {
         get => new TerraformReference<bool>(this, "automatic_upgrade_enabled");
@@ -322,7 +292,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    [TerraformArgument("force_update_tag")]
     public TerraformValue<string>? ForceUpdateTag
     {
         get => new TerraformReference<string>(this, "force_update_tag");
@@ -333,7 +302,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -343,7 +311,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    [TerraformArgument("protected_settings")]
     public TerraformValue<string>? ProtectedSettings
     {
         get => new TerraformReference<string>(this, "protected_settings");
@@ -353,7 +320,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// <summary>
     /// The provision_after_extensions attribute.
     /// </summary>
-    [TerraformArgument("provision_after_extensions")]
     public TerraformList<string>? ProvisionAfterExtensions
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "provision_after_extensions").ResolveNodes(ctx));
@@ -364,7 +330,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformArgument("publisher")]
     public required TerraformValue<string> Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -374,7 +339,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    [TerraformArgument("settings")]
     public TerraformValue<string>? Settings
     {
         get => new TerraformReference<string>(this, "settings");
@@ -385,7 +349,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -396,7 +359,6 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     /// The type_handler_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
-    [TerraformArgument("type_handler_version")]
     public required TerraformValue<string> TypeHandlerVersion
     {
         get => new TerraformReference<string>(this, "type_handler_version");
@@ -419,7 +381,6 @@ public class AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock : Terrafo
     /// <summary>
     /// The configuration_blob_uri attribute.
     /// </summary>
-    [TerraformArgument("configuration_blob_uri")]
     public TerraformValue<string>? ConfigurationBlobUri
     {
         get => new TerraformReference<string>(this, "configuration_blob_uri");
@@ -429,7 +390,6 @@ public class AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock : Terrafo
     /// <summary>
     /// The order attribute.
     /// </summary>
-    [TerraformArgument("order")]
     public TerraformValue<double>? Order
     {
         get => new TerraformReference<double>(this, "order");
@@ -439,7 +399,6 @@ public class AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock : Terrafo
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    [TerraformArgument("tag")]
     public TerraformValue<string>? Tag
     {
         get => new TerraformReference<string>(this, "tag");
@@ -450,7 +409,6 @@ public class AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock : Terrafo
     /// The version_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
-    [TerraformArgument("version_id")]
     public required TerraformValue<string> VersionId
     {
         get => new TerraformReference<string>(this, "version_id");
@@ -473,20 +431,32 @@ public class AzurermLinuxVirtualMachineScaleSetIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -509,7 +479,6 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     /// <summary>
     /// The auxiliary_mode attribute.
     /// </summary>
-    [TerraformArgument("auxiliary_mode")]
     public TerraformValue<string>? AuxiliaryMode
     {
         get => new TerraformReference<string>(this, "auxiliary_mode");
@@ -519,7 +488,6 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     /// <summary>
     /// The auxiliary_sku attribute.
     /// </summary>
-    [TerraformArgument("auxiliary_sku")]
     public TerraformValue<string>? AuxiliarySku
     {
         get => new TerraformReference<string>(this, "auxiliary_sku");
@@ -529,7 +497,6 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    [TerraformArgument("dns_servers")]
     public TerraformList<string>? DnsServers
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
@@ -539,7 +506,6 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     /// <summary>
     /// The enable_accelerated_networking attribute.
     /// </summary>
-    [TerraformArgument("enable_accelerated_networking")]
     public TerraformValue<bool>? EnableAcceleratedNetworking
     {
         get => new TerraformReference<bool>(this, "enable_accelerated_networking");
@@ -549,7 +515,6 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     /// <summary>
     /// The enable_ip_forwarding attribute.
     /// </summary>
-    [TerraformArgument("enable_ip_forwarding")]
     public TerraformValue<bool>? EnableIpForwarding
     {
         get => new TerraformReference<bool>(this, "enable_ip_forwarding");
@@ -560,7 +525,6 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -570,7 +534,6 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
-    [TerraformArgument("network_security_group_id")]
     public TerraformValue<string>? NetworkSecurityGroupId
     {
         get => new TerraformReference<string>(this, "network_security_group_id");
@@ -580,7 +543,6 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     /// <summary>
     /// The primary attribute.
     /// </summary>
-    [TerraformArgument("primary")]
     public TerraformValue<bool>? Primary
     {
         get => new TerraformReference<bool>(this, "primary");
@@ -604,7 +566,6 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     /// The caching attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
-    [TerraformArgument("caching")]
     public required TerraformValue<string> Caching
     {
         get => new TerraformReference<string>(this, "caching");
@@ -614,7 +575,6 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformArgument("disk_encryption_set_id")]
     public TerraformValue<string>? DiskEncryptionSetId
     {
         get => new TerraformReference<string>(this, "disk_encryption_set_id");
@@ -624,7 +584,6 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    [TerraformArgument("disk_size_gb")]
     public TerraformValue<double> DiskSizeGb
     {
         get => new TerraformReference<double>(this, "disk_size_gb");
@@ -634,7 +593,6 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     /// <summary>
     /// The secure_vm_disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformArgument("secure_vm_disk_encryption_set_id")]
     public TerraformValue<string>? SecureVmDiskEncryptionSetId
     {
         get => new TerraformReference<string>(this, "secure_vm_disk_encryption_set_id");
@@ -644,7 +602,6 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     /// <summary>
     /// The security_encryption_type attribute.
     /// </summary>
-    [TerraformArgument("security_encryption_type")]
     public TerraformValue<string>? SecurityEncryptionType
     {
         get => new TerraformReference<string>(this, "security_encryption_type");
@@ -655,7 +612,6 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    [TerraformArgument("storage_account_type")]
     public required TerraformValue<string> StorageAccountType
     {
         get => new TerraformReference<string>(this, "storage_account_type");
@@ -665,7 +621,6 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    [TerraformArgument("write_accelerator_enabled")]
     public TerraformValue<bool>? WriteAcceleratorEnabled
     {
         get => new TerraformReference<bool>(this, "write_accelerator_enabled");
@@ -689,7 +644,6 @@ public class AzurermLinuxVirtualMachineScaleSetPlanBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -700,7 +654,6 @@ public class AzurermLinuxVirtualMachineScaleSetPlanBlock : TerraformBlock
     /// The product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
-    [TerraformArgument("product")]
     public required TerraformValue<string> Product
     {
         get => new TerraformReference<string>(this, "product");
@@ -711,7 +664,6 @@ public class AzurermLinuxVirtualMachineScaleSetPlanBlock : TerraformBlock
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformArgument("publisher")]
     public required TerraformValue<string> Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -734,7 +686,6 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     /// <summary>
     /// The cross_zone_upgrades_enabled attribute.
     /// </summary>
-    [TerraformArgument("cross_zone_upgrades_enabled")]
     public TerraformValue<bool>? CrossZoneUpgradesEnabled
     {
         get => new TerraformReference<bool>(this, "cross_zone_upgrades_enabled");
@@ -745,7 +696,6 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     /// The max_batch_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxBatchInstancePercent is required")]
-    [TerraformArgument("max_batch_instance_percent")]
     public required TerraformValue<double> MaxBatchInstancePercent
     {
         get => new TerraformReference<double>(this, "max_batch_instance_percent");
@@ -756,7 +706,6 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     /// The max_unhealthy_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyInstancePercent is required")]
-    [TerraformArgument("max_unhealthy_instance_percent")]
     public required TerraformValue<double> MaxUnhealthyInstancePercent
     {
         get => new TerraformReference<double>(this, "max_unhealthy_instance_percent");
@@ -767,7 +716,6 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     /// The max_unhealthy_upgraded_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyUpgradedInstancePercent is required")]
-    [TerraformArgument("max_unhealthy_upgraded_instance_percent")]
     public required TerraformValue<double> MaxUnhealthyUpgradedInstancePercent
     {
         get => new TerraformReference<double>(this, "max_unhealthy_upgraded_instance_percent");
@@ -777,7 +725,6 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     /// <summary>
     /// The maximum_surge_instances_enabled attribute.
     /// </summary>
-    [TerraformArgument("maximum_surge_instances_enabled")]
     public TerraformValue<bool>? MaximumSurgeInstancesEnabled
     {
         get => new TerraformReference<bool>(this, "maximum_surge_instances_enabled");
@@ -788,7 +735,6 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     /// The pause_time_between_batches attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PauseTimeBetweenBatches is required")]
-    [TerraformArgument("pause_time_between_batches")]
     public required TerraformValue<string> PauseTimeBetweenBatches
     {
         get => new TerraformReference<string>(this, "pause_time_between_batches");
@@ -798,7 +744,6 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     /// <summary>
     /// The prioritize_unhealthy_instances_enabled attribute.
     /// </summary>
-    [TerraformArgument("prioritize_unhealthy_instances_enabled")]
     public TerraformValue<bool>? PrioritizeUnhealthyInstancesEnabled
     {
         get => new TerraformReference<bool>(this, "prioritize_unhealthy_instances_enabled");
@@ -821,7 +766,6 @@ public class AzurermLinuxVirtualMachineScaleSetScaleInBlock : TerraformBlock
     /// <summary>
     /// The force_deletion_enabled attribute.
     /// </summary>
-    [TerraformArgument("force_deletion_enabled")]
     public TerraformValue<bool>? ForceDeletionEnabled
     {
         get => new TerraformReference<bool>(this, "force_deletion_enabled");
@@ -831,7 +775,6 @@ public class AzurermLinuxVirtualMachineScaleSetScaleInBlock : TerraformBlock
     /// <summary>
     /// The rule attribute.
     /// </summary>
-    [TerraformArgument("rule")]
     public TerraformValue<string>? Rule
     {
         get => new TerraformReference<string>(this, "rule");
@@ -855,7 +798,6 @@ public class AzurermLinuxVirtualMachineScaleSetSecretBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformArgument("key_vault_id")]
     public required TerraformValue<string> KeyVaultId
     {
         get => new TerraformReference<string>(this, "key_vault_id");
@@ -879,7 +821,6 @@ public class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : Terra
     /// The offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
-    [TerraformArgument("offer")]
     public required TerraformValue<string> Offer
     {
         get => new TerraformReference<string>(this, "offer");
@@ -890,7 +831,6 @@ public class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : Terra
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformArgument("publisher")]
     public required TerraformValue<string> Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -901,7 +841,6 @@ public class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : Terra
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformArgument("sku")]
     public required TerraformValue<string> Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -912,7 +851,6 @@ public class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : Terra
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -935,7 +873,6 @@ public class AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -945,7 +882,6 @@ public class AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock : TerraformBlock
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    [TerraformArgument("timeout")]
     public TerraformValue<string>? Timeout
     {
         get => new TerraformReference<string>(this, "timeout");
@@ -969,7 +905,6 @@ public class AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock : Te
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformArgument("enabled")]
     public required TerraformValue<bool> Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -979,7 +914,6 @@ public class AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock : Te
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    [TerraformArgument("timeout")]
     public TerraformValue<string>? Timeout
     {
         get => new TerraformReference<string>(this, "timeout");
@@ -1002,7 +936,6 @@ public class AzurermLinuxVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -1012,7 +945,6 @@ public class AzurermLinuxVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -1022,7 +954,6 @@ public class AzurermLinuxVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -1032,7 +963,6 @@ public class AzurermLinuxVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -1042,19 +972,14 @@ public class AzurermLinuxVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_linux_virtual_machine_scale_set Terraform resource.
 /// Manages a azurerm_linux_virtual_machine_scale_set resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
+public partial class AzurermLinuxVirtualMachineScaleSet(string name) : TerraformResource("azurerm_linux_virtual_machine_scale_set", name)
 {
-    public AzurermLinuxVirtualMachineScaleSet(string name) : base("azurerm_linux_virtual_machine_scale_set", name)
-    {
-    }
-
     /// <summary>
     /// The admin_password attribute.
     /// </summary>
-    [TerraformArgument("admin_password")]
     public TerraformValue<string>? AdminPassword
     {
         get => new TerraformReference<string>(this, "admin_password");
@@ -1065,7 +990,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// The admin_username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
-    [TerraformArgument("admin_username")]
     public required TerraformValue<string> AdminUsername
     {
         get => new TerraformReference<string>(this, "admin_username");
@@ -1075,7 +999,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The capacity_reservation_group_id attribute.
     /// </summary>
-    [TerraformArgument("capacity_reservation_group_id")]
     public TerraformValue<string>? CapacityReservationGroupId
     {
         get => new TerraformReference<string>(this, "capacity_reservation_group_id");
@@ -1085,7 +1008,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The computer_name_prefix attribute.
     /// </summary>
-    [TerraformArgument("computer_name_prefix")]
     public TerraformValue<string> ComputerNamePrefix
     {
         get => new TerraformReference<string>(this, "computer_name_prefix");
@@ -1095,7 +1017,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The custom_data attribute.
     /// </summary>
-    [TerraformArgument("custom_data")]
     public TerraformValue<string>? CustomData
     {
         get => new TerraformReference<string>(this, "custom_data");
@@ -1105,7 +1026,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The disable_password_authentication attribute.
     /// </summary>
-    [TerraformArgument("disable_password_authentication")]
     public TerraformValue<bool>? DisablePasswordAuthentication
     {
         get => new TerraformReference<bool>(this, "disable_password_authentication");
@@ -1115,7 +1035,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The do_not_run_extensions_on_overprovisioned_machines attribute.
     /// </summary>
-    [TerraformArgument("do_not_run_extensions_on_overprovisioned_machines")]
     public TerraformValue<bool>? DoNotRunExtensionsOnOverprovisionedMachines
     {
         get => new TerraformReference<bool>(this, "do_not_run_extensions_on_overprovisioned_machines");
@@ -1125,7 +1044,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    [TerraformArgument("edge_zone")]
     public TerraformValue<string>? EdgeZone
     {
         get => new TerraformReference<string>(this, "edge_zone");
@@ -1135,7 +1053,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
-    [TerraformArgument("encryption_at_host_enabled")]
     public TerraformValue<bool>? EncryptionAtHostEnabled
     {
         get => new TerraformReference<bool>(this, "encryption_at_host_enabled");
@@ -1145,7 +1062,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    [TerraformArgument("eviction_policy")]
     public TerraformValue<string>? EvictionPolicy
     {
         get => new TerraformReference<string>(this, "eviction_policy");
@@ -1155,7 +1071,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The extension_operations_enabled attribute.
     /// </summary>
-    [TerraformArgument("extension_operations_enabled")]
     public TerraformValue<bool>? ExtensionOperationsEnabled
     {
         get => new TerraformReference<bool>(this, "extension_operations_enabled");
@@ -1165,7 +1080,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The extensions_time_budget attribute.
     /// </summary>
-    [TerraformArgument("extensions_time_budget")]
     public TerraformValue<string>? ExtensionsTimeBudget
     {
         get => new TerraformReference<string>(this, "extensions_time_budget");
@@ -1175,7 +1089,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The health_probe_id attribute.
     /// </summary>
-    [TerraformArgument("health_probe_id")]
     public TerraformValue<string>? HealthProbeId
     {
         get => new TerraformReference<string>(this, "health_probe_id");
@@ -1185,7 +1098,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The host_group_id attribute.
     /// </summary>
-    [TerraformArgument("host_group_id")]
     public TerraformValue<string>? HostGroupId
     {
         get => new TerraformReference<string>(this, "host_group_id");
@@ -1195,7 +1107,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -1205,7 +1116,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    [TerraformArgument("instances")]
     public TerraformValue<double>? Instances
     {
         get => new TerraformReference<double>(this, "instances");
@@ -1216,7 +1126,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -1226,7 +1135,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The max_bid_price attribute.
     /// </summary>
-    [TerraformArgument("max_bid_price")]
     public TerraformValue<double>? MaxBidPrice
     {
         get => new TerraformReference<double>(this, "max_bid_price");
@@ -1237,7 +1145,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -1247,7 +1154,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The overprovision attribute.
     /// </summary>
-    [TerraformArgument("overprovision")]
     public TerraformValue<bool>? Overprovision
     {
         get => new TerraformReference<bool>(this, "overprovision");
@@ -1257,7 +1163,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
-    [TerraformArgument("platform_fault_domain_count")]
     public TerraformValue<double> PlatformFaultDomainCount
     {
         get => new TerraformReference<double>(this, "platform_fault_domain_count");
@@ -1267,7 +1172,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformArgument("priority")]
     public TerraformValue<string>? Priority
     {
         get => new TerraformReference<string>(this, "priority");
@@ -1277,7 +1181,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The provision_vm_agent attribute.
     /// </summary>
-    [TerraformArgument("provision_vm_agent")]
     public TerraformValue<bool>? ProvisionVmAgent
     {
         get => new TerraformReference<bool>(this, "provision_vm_agent");
@@ -1287,7 +1190,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    [TerraformArgument("proximity_placement_group_id")]
     public TerraformValue<string>? ProximityPlacementGroupId
     {
         get => new TerraformReference<string>(this, "proximity_placement_group_id");
@@ -1297,7 +1199,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The resilient_vm_creation_enabled attribute.
     /// </summary>
-    [TerraformArgument("resilient_vm_creation_enabled")]
     public TerraformValue<bool>? ResilientVmCreationEnabled
     {
         get => new TerraformReference<bool>(this, "resilient_vm_creation_enabled");
@@ -1307,7 +1208,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The resilient_vm_deletion_enabled attribute.
     /// </summary>
-    [TerraformArgument("resilient_vm_deletion_enabled")]
     public TerraformValue<bool>? ResilientVmDeletionEnabled
     {
         get => new TerraformReference<bool>(this, "resilient_vm_deletion_enabled");
@@ -1318,7 +1218,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -1328,7 +1227,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The secure_boot_enabled attribute.
     /// </summary>
-    [TerraformArgument("secure_boot_enabled")]
     public TerraformValue<bool>? SecureBootEnabled
     {
         get => new TerraformReference<bool>(this, "secure_boot_enabled");
@@ -1338,7 +1236,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The single_placement_group attribute.
     /// </summary>
-    [TerraformArgument("single_placement_group")]
     public TerraformValue<bool>? SinglePlacementGroup
     {
         get => new TerraformReference<bool>(this, "single_placement_group");
@@ -1349,7 +1246,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformArgument("sku")]
     public required TerraformValue<string> Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -1359,7 +1255,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The source_image_id attribute.
     /// </summary>
-    [TerraformArgument("source_image_id")]
     public TerraformValue<string>? SourceImageId
     {
         get => new TerraformReference<string>(this, "source_image_id");
@@ -1369,7 +1264,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -1379,7 +1273,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The upgrade_mode attribute.
     /// </summary>
-    [TerraformArgument("upgrade_mode")]
     public TerraformValue<string>? UpgradeMode
     {
         get => new TerraformReference<string>(this, "upgrade_mode");
@@ -1389,7 +1282,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The user_data attribute.
     /// </summary>
-    [TerraformArgument("user_data")]
     public TerraformValue<string>? UserData
     {
         get => new TerraformReference<string>(this, "user_data");
@@ -1399,7 +1291,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The vtpm_enabled attribute.
     /// </summary>
-    [TerraformArgument("vtpm_enabled")]
     public TerraformValue<bool>? VtpmEnabled
     {
         get => new TerraformReference<bool>(this, "vtpm_enabled");
@@ -1409,7 +1300,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The zone_balance attribute.
     /// </summary>
-    [TerraformArgument("zone_balance")]
     public TerraformValue<bool>? ZoneBalance
     {
         get => new TerraformReference<bool>(this, "zone_balance");
@@ -1419,7 +1309,6 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformArgument("zones")]
     public TerraformSet<string>? Zones
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
@@ -1427,162 +1316,193 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     }
 
     /// <summary>
-    /// Block for additional_capabilities.
-    /// Nesting mode: list
+    /// AdditionalCapabilities block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
-    [TerraformArgument("additional_capabilities")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlock> AdditionalCapabilities { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlock? AdditionalCapabilities
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetAdditionalCapabilitiesBlock>("additional_capabilities");
+        set => SetArgument("additional_capabilities", value);
+    }
 
     /// <summary>
-    /// Block for admin_ssh_key.
-    /// Nesting mode: set
+    /// AdminSshKey block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("admin_ssh_key")]
-    public TerraformSet<AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock> AdminSshKey { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock? AdminSshKey
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock>("admin_ssh_key");
+        set => SetArgument("admin_ssh_key", value);
+    }
 
     /// <summary>
-    /// Block for automatic_instance_repair.
-    /// Nesting mode: list
+    /// AutomaticInstanceRepair block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticInstanceRepair block(s) allowed")]
-    [TerraformArgument("automatic_instance_repair")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock> AutomaticInstanceRepair { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock? AutomaticInstanceRepair
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock>("automatic_instance_repair");
+        set => SetArgument("automatic_instance_repair", value);
+    }
 
     /// <summary>
-    /// Block for automatic_os_upgrade_policy.
-    /// Nesting mode: list
+    /// AutomaticOsUpgradePolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticOsUpgradePolicy block(s) allowed")]
-    [TerraformArgument("automatic_os_upgrade_policy")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock> AutomaticOsUpgradePolicy { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock? AutomaticOsUpgradePolicy
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock>("automatic_os_upgrade_policy");
+        set => SetArgument("automatic_os_upgrade_policy", value);
+    }
 
     /// <summary>
-    /// Block for boot_diagnostics.
-    /// Nesting mode: list
+    /// BootDiagnostics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
-    [TerraformArgument("boot_diagnostics")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock> BootDiagnostics { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock? BootDiagnostics
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetBootDiagnosticsBlock>("boot_diagnostics");
+        set => SetArgument("boot_diagnostics", value);
+    }
 
     /// <summary>
-    /// Block for data_disk.
-    /// Nesting mode: list
+    /// DataDisk block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("data_disk")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetDataDiskBlock> DataDisk { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetDataDiskBlock? DataDisk
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetDataDiskBlock>("data_disk");
+        set => SetArgument("data_disk", value);
+    }
 
     /// <summary>
-    /// Block for extension.
-    /// Nesting mode: set
+    /// Extension block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("extension")]
-    public TerraformSet<AzurermLinuxVirtualMachineScaleSetExtensionBlock> Extension { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetExtensionBlock? Extension
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetExtensionBlock>("extension");
+        set => SetArgument("extension", value);
+    }
 
     /// <summary>
-    /// Block for gallery_application.
-    /// Nesting mode: list
+    /// GalleryApplication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 GalleryApplication block(s) allowed")]
-    [TerraformArgument("gallery_application")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock> GalleryApplication { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock? GalleryApplication
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock>("gallery_application");
+        set => SetArgument("gallery_application", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetIdentityBlock> Identity { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for network_interface.
-    /// Nesting mode: list
+    /// NetworkInterface block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterface is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkInterface block(s) required")]
-    [TerraformArgument("network_interface")]
-    public required TerraformList<AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock> NetworkInterface { get; set; } = new();
+    public required AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock NetworkInterface
+    {
+        get => GetRequiredArgument<AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock>("network_interface");
+        set => SetArgument("network_interface", value);
+    }
 
     /// <summary>
-    /// Block for os_disk.
-    /// Nesting mode: list
+    /// OsDisk block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    [TerraformArgument("os_disk")]
-    public required TerraformList<AzurermLinuxVirtualMachineScaleSetOsDiskBlock> OsDisk { get; set; } = new();
+    public required AzurermLinuxVirtualMachineScaleSetOsDiskBlock OsDisk
+    {
+        get => GetRequiredArgument<AzurermLinuxVirtualMachineScaleSetOsDiskBlock>("os_disk");
+        set => SetArgument("os_disk", value);
+    }
 
     /// <summary>
-    /// Block for plan.
-    /// Nesting mode: list
+    /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    [TerraformArgument("plan")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetPlanBlock> Plan { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetPlanBlock? Plan
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetPlanBlock>("plan");
+        set => SetArgument("plan", value);
+    }
 
     /// <summary>
-    /// Block for rolling_upgrade_policy.
-    /// Nesting mode: list
+    /// RollingUpgradePolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RollingUpgradePolicy block(s) allowed")]
-    [TerraformArgument("rolling_upgrade_policy")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock> RollingUpgradePolicy { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock? RollingUpgradePolicy
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock>("rolling_upgrade_policy");
+        set => SetArgument("rolling_upgrade_policy", value);
+    }
 
     /// <summary>
-    /// Block for scale_in.
-    /// Nesting mode: list
+    /// ScaleIn block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScaleIn block(s) allowed")]
-    [TerraformArgument("scale_in")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetScaleInBlock> ScaleIn { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetScaleInBlock? ScaleIn
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetScaleInBlock>("scale_in");
+        set => SetArgument("scale_in", value);
+    }
 
     /// <summary>
-    /// Block for secret.
-    /// Nesting mode: list
+    /// Secret block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("secret")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetSecretBlock> Secret { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetSecretBlock? Secret
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetSecretBlock>("secret");
+        set => SetArgument("secret", value);
+    }
 
     /// <summary>
-    /// Block for source_image_reference.
-    /// Nesting mode: list
+    /// SourceImageReference block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
-    [TerraformArgument("source_image_reference")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock> SourceImageReference { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock? SourceImageReference
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock>("source_image_reference");
+        set => SetArgument("source_image_reference", value);
+    }
 
     /// <summary>
-    /// Block for spot_restore.
-    /// Nesting mode: list
+    /// SpotRestore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpotRestore block(s) allowed")]
-    [TerraformArgument("spot_restore")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock> SpotRestore { get; set; } = new();
+    public AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock? SpotRestore
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetSpotRestoreBlock>("spot_restore");
+        set => SetArgument("spot_restore", value);
+    }
 
     /// <summary>
-    /// Block for termination_notification.
-    /// Nesting mode: list
+    /// TerminationNotification block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
-    [TerraformArgument("termination_notification")]
-    public TerraformList<AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock> TerminationNotification { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLinuxVirtualMachineScaleSetTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The unique_id attribute.
-    /// </summary>
-    [TerraformArgument("unique_id")]
-    public TerraformValue<string> UniqueId
+    public AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock? TerminationNotification
     {
-        get => new TerraformReference<string>(this, "unique_id");
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock>("termination_notification");
+        set => SetArgument("termination_notification", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermLinuxVirtualMachineScaleSetTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermLinuxVirtualMachineScaleSetTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

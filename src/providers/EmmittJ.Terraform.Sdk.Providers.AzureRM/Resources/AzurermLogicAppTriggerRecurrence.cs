@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for schedule in .
@@ -25,7 +16,6 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// <summary>
     /// The at_these_hours attribute.
     /// </summary>
-    [TerraformArgument("at_these_hours")]
     public TerraformSet<double>? AtTheseHours
     {
         get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "at_these_hours").ResolveNodes(ctx));
@@ -35,7 +25,6 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// <summary>
     /// The at_these_minutes attribute.
     /// </summary>
-    [TerraformArgument("at_these_minutes")]
     public TerraformSet<double>? AtTheseMinutes
     {
         get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "at_these_minutes").ResolveNodes(ctx));
@@ -45,7 +34,6 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// <summary>
     /// The on_these_days attribute.
     /// </summary>
-    [TerraformArgument("on_these_days")]
     public TerraformSet<string>? OnTheseDays
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "on_these_days").ResolveNodes(ctx));
@@ -68,7 +56,6 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -78,7 +65,6 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -88,7 +74,6 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -98,7 +83,6 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -108,20 +92,15 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_logic_app_trigger_recurrence Terraform resource.
 /// Manages a azurerm_logic_app_trigger_recurrence resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermLogicAppTriggerRecurrence : TerraformResource
+public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformResource("azurerm_logic_app_trigger_recurrence", name)
 {
-    public AzurermLogicAppTriggerRecurrence(string name) : base("azurerm_logic_app_trigger_recurrence", name)
-    {
-    }
-
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    [TerraformArgument("frequency")]
     public required TerraformValue<string> Frequency
     {
         get => new TerraformReference<string>(this, "frequency");
@@ -131,7 +110,6 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -142,7 +120,6 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     /// The interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
-    [TerraformArgument("interval")]
     public required TerraformValue<double> Interval
     {
         get => new TerraformReference<double>(this, "interval");
@@ -153,7 +130,6 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     /// The logic_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
-    [TerraformArgument("logic_app_id")]
     public required TerraformValue<string> LogicAppId
     {
         get => new TerraformReference<string>(this, "logic_app_id");
@@ -164,7 +140,6 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -174,7 +149,6 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    [TerraformArgument("start_time")]
     public TerraformValue<string>? StartTime
     {
         get => new TerraformReference<string>(this, "start_time");
@@ -184,7 +158,6 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    [TerraformArgument("time_zone")]
     public TerraformValue<string> TimeZone
     {
         get => new TerraformReference<string>(this, "time_zone");
@@ -192,18 +165,22 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     }
 
     /// <summary>
-    /// Block for schedule.
-    /// Nesting mode: list
+    /// Schedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    [TerraformArgument("schedule")]
-    public TerraformList<AzurermLogicAppTriggerRecurrenceScheduleBlock> Schedule { get; set; } = new();
+    public AzurermLogicAppTriggerRecurrenceScheduleBlock? Schedule
+    {
+        get => GetArgument<AzurermLogicAppTriggerRecurrenceScheduleBlock>("schedule");
+        set => SetArgument("schedule", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLogicAppTriggerRecurrenceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermLogicAppTriggerRecurrenceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermLogicAppTriggerRecurrenceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

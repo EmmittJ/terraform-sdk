@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBloc
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +64,6 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -71,7 +73,6 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -81,7 +82,6 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -91,7 +91,6 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -115,7 +114,6 @@ public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : Ter
     /// The roles attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
-    [TerraformArgument("roles")]
     public required TerraformSet<string> Roles
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "roles").ResolveNodes(ctx));
@@ -126,7 +124,6 @@ public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : Ter
     /// The user_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
-    [TerraformArgument("user_id")]
     public required TerraformValue<string> UserId
     {
         get => new TerraformReference<string>(this, "user_id");
@@ -136,19 +133,14 @@ public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : Ter
 }
 
 /// <summary>
+/// Represents a azurerm_dev_center_project_environment_type Terraform resource.
 /// Manages a azurerm_dev_center_project_environment_type resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDevCenterProjectEnvironmentType : TerraformResource
+public partial class AzurermDevCenterProjectEnvironmentType(string name) : TerraformResource("azurerm_dev_center_project_environment_type", name)
 {
-    public AzurermDevCenterProjectEnvironmentType(string name) : base("azurerm_dev_center_project_environment_type", name)
-    {
-    }
-
     /// <summary>
     /// The creator_role_assignment_roles attribute.
     /// </summary>
-    [TerraformArgument("creator_role_assignment_roles")]
     public TerraformSet<string>? CreatorRoleAssignmentRoles
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "creator_role_assignment_roles").ResolveNodes(ctx));
@@ -159,7 +151,6 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     /// The deployment_target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentTargetId is required")]
-    [TerraformArgument("deployment_target_id")]
     public required TerraformValue<string> DeploymentTargetId
     {
         get => new TerraformReference<string>(this, "deployment_target_id");
@@ -170,7 +161,6 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     /// The dev_center_project_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
-    [TerraformArgument("dev_center_project_id")]
     public required TerraformValue<string> DevCenterProjectId
     {
         get => new TerraformReference<string>(this, "dev_center_project_id");
@@ -180,7 +170,6 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -191,7 +180,6 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -202,7 +190,6 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -212,7 +199,6 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -220,27 +206,34 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public required TerraformList<AzurermDevCenterProjectEnvironmentTypeIdentityBlock> Identity { get; set; } = new();
+    public required AzurermDevCenterProjectEnvironmentTypeIdentityBlock Identity
+    {
+        get => GetRequiredArgument<AzurermDevCenterProjectEnvironmentTypeIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for user_role_assignment.
-    /// Nesting mode: set
+    /// UserRoleAssignment block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("user_role_assignment")]
-    public TerraformSet<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock> UserRoleAssignment { get; set; } = new();
+    public AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock? UserRoleAssignment
+    {
+        get => GetArgument<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock>("user_role_assignment");
+        set => SetArgument("user_role_assignment", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_function_app_hybrid_connection Terraform resource.
 /// Manages a azurerm_function_app_hybrid_connection resource.
 /// </summary>
-public class AzurermFunctionAppHybridConnection : TerraformResource
+public partial class AzurermFunctionAppHybridConnection(string name) : TerraformResource("azurerm_function_app_hybrid_connection", name)
 {
-    public AzurermFunctionAppHybridConnection(string name) : base("azurerm_function_app_hybrid_connection", name)
-    {
-    }
-
     /// <summary>
     /// The ID of the Function App for this Hybrid Connection.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
-    [TerraformArgument("function_app_id")]
     public required TerraformValue<string> FunctionAppId
     {
         get => new TerraformReference<string>(this, "function_app_id");
@@ -88,7 +71,6 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// The hostname of the endpoint.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
-    [TerraformArgument("hostname")]
     public required TerraformValue<string> Hostname
     {
         get => new TerraformReference<string>(this, "hostname");
@@ -98,7 +80,6 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -109,7 +90,6 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// The port to use for the endpoint
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformArgument("port")]
     public required TerraformValue<double> Port
     {
         get => new TerraformReference<double>(this, "port");
@@ -120,7 +100,6 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// The ID of the Relay Hybrid Connection to use.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
-    [TerraformArgument("relay_id")]
     public required TerraformValue<string> RelayId
     {
         get => new TerraformReference<string>(this, "relay_id");
@@ -130,7 +109,6 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// <summary>
     /// The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
     /// </summary>
-    [TerraformArgument("send_key_name")]
     public TerraformValue<string>? SendKeyName
     {
         get => new TerraformReference<string>(this, "send_key_name");
@@ -138,55 +116,12 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermFunctionAppHybridConnectionTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The name of the Relay Namespace.
-    /// </summary>
-    [TerraformArgument("namespace_name")]
-    public TerraformValue<string> NamespaceName
+    public AzurermFunctionAppHybridConnectionTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "namespace_name");
-    }
-
-    /// <summary>
-    /// The name of the Relay in use.
-    /// </summary>
-    [TerraformArgument("relay_name")]
-    public TerraformValue<string> RelayName
-    {
-        get => new TerraformReference<string>(this, "relay_name");
-    }
-
-    /// <summary>
-    /// The Primary Access Key for the `send_key_name`
-    /// </summary>
-    [TerraformArgument("send_key_value")]
-    public TerraformValue<string> SendKeyValue
-    {
-        get => new TerraformReference<string>(this, "send_key_value");
-    }
-
-    /// <summary>
-    /// The Service Bus Namespace.
-    /// </summary>
-    [TerraformArgument("service_bus_namespace")]
-    public TerraformValue<string> ServiceBusNamespace
-    {
-        get => new TerraformReference<string>(this, "service_bus_namespace");
-    }
-
-    /// <summary>
-    /// The suffix for the endpoint.
-    /// </summary>
-    [TerraformArgument("service_bus_suffix")]
-    public TerraformValue<string> ServiceBusSuffix
-    {
-        get => new TerraformReference<string>(this, "service_bus_suffix");
+        get => GetArgument<AzurermFunctionAppHybridConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

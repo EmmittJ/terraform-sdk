@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for container in .
@@ -25,7 +16,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    [TerraformArgument("commands")]
     public TerraformList<string> Commands
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "commands").ResolveNodes(ctx));
@@ -36,7 +26,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// The cpu attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
-    [TerraformArgument("cpu")]
     public required TerraformValue<double> Cpu
     {
         get => new TerraformReference<double>(this, "cpu");
@@ -46,7 +35,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// <summary>
     /// The cpu_limit attribute.
     /// </summary>
-    [TerraformArgument("cpu_limit")]
     public TerraformValue<double>? CpuLimit
     {
         get => new TerraformReference<double>(this, "cpu_limit");
@@ -56,7 +44,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    [TerraformArgument("environment_variables")]
     public TerraformMap<string>? EnvironmentVariables
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
@@ -67,7 +54,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// The image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
-    [TerraformArgument("image")]
     public required TerraformValue<string> Image
     {
         get => new TerraformReference<string>(this, "image");
@@ -78,7 +64,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// The memory attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
-    [TerraformArgument("memory")]
     public required TerraformValue<double> Memory
     {
         get => new TerraformReference<double>(this, "memory");
@@ -88,7 +73,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// <summary>
     /// The memory_limit attribute.
     /// </summary>
-    [TerraformArgument("memory_limit")]
     public TerraformValue<double>? MemoryLimit
     {
         get => new TerraformReference<double>(this, "memory_limit");
@@ -99,7 +83,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -109,7 +92,6 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// <summary>
     /// The secure_environment_variables attribute.
     /// </summary>
-    [TerraformArgument("secure_environment_variables")]
     public TerraformMap<string>? SecureEnvironmentVariables
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secure_environment_variables").ResolveNodes(ctx));
@@ -146,7 +128,6 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     /// The nameservers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nameservers is required")]
-    [TerraformArgument("nameservers")]
     public TerraformList<string>? Nameservers
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "nameservers").ResolveNodes(ctx));
@@ -156,7 +137,6 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     /// <summary>
     /// The options attribute.
     /// </summary>
-    [TerraformArgument("options")]
     public TerraformSet<string>? Options
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "options").ResolveNodes(ctx));
@@ -166,7 +146,6 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     /// <summary>
     /// The search_domains attribute.
     /// </summary>
-    [TerraformArgument("search_domains")]
     public TerraformSet<string>? SearchDomains
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "search_domains").ResolveNodes(ctx));
@@ -189,20 +168,32 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -225,7 +216,6 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformArgument("password")]
     public TerraformValue<string>? Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -236,7 +226,6 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// The server attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
-    [TerraformArgument("server")]
     public required TerraformValue<string> Server
     {
         get => new TerraformReference<string>(this, "server");
@@ -246,7 +235,6 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// <summary>
     /// The User Assigned Identity to use for Container Registry access.
     /// </summary>
-    [TerraformArgument("user_assigned_identity_id")]
     public TerraformValue<string>? UserAssignedIdentityId
     {
         get => new TerraformReference<string>(this, "user_assigned_identity_id");
@@ -256,7 +244,6 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// <summary>
     /// The username attribute.
     /// </summary>
-    [TerraformArgument("username")]
     public TerraformValue<string>? Username
     {
         get => new TerraformReference<string>(this, "username");
@@ -279,7 +266,6 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    [TerraformArgument("commands")]
     public TerraformList<string> Commands
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "commands").ResolveNodes(ctx));
@@ -289,7 +275,6 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    [TerraformArgument("environment_variables")]
     public TerraformMap<string>? EnvironmentVariables
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
@@ -300,7 +285,6 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// The image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
-    [TerraformArgument("image")]
     public required TerraformValue<string> Image
     {
         get => new TerraformReference<string>(this, "image");
@@ -311,7 +295,6 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -321,7 +304,6 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// <summary>
     /// The secure_environment_variables attribute.
     /// </summary>
-    [TerraformArgument("secure_environment_variables")]
     public TerraformMap<string>? SecureEnvironmentVariables
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secure_environment_variables").ResolveNodes(ctx));
@@ -344,7 +326,6 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -354,7 +335,6 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -364,7 +344,6 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -374,7 +353,6 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -384,19 +362,14 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_container_group Terraform resource.
 /// Manages a azurerm_container_group resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermContainerGroup : TerraformResource
+public partial class AzurermContainerGroup(string name) : TerraformResource("azurerm_container_group", name)
 {
-    public AzurermContainerGroup(string name) : base("azurerm_container_group", name)
-    {
-    }
-
     /// <summary>
     /// The dns_name_label attribute.
     /// </summary>
-    [TerraformArgument("dns_name_label")]
     public TerraformValue<string>? DnsNameLabel
     {
         get => new TerraformReference<string>(this, "dns_name_label");
@@ -406,7 +379,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The dns_name_label_reuse_policy attribute.
     /// </summary>
-    [TerraformArgument("dns_name_label_reuse_policy")]
     public TerraformValue<string>? DnsNameLabelReusePolicy
     {
         get => new TerraformReference<string>(this, "dns_name_label_reuse_policy");
@@ -416,17 +388,15 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The exposed_port attribute.
     /// </summary>
-    [TerraformArgument("exposed_port")]
-    public TerraformSet<object> ExposedPort
+    public TerraformSet<TerraformMap<object>> ExposedPort
     {
-        get => TerraformSet<object>.Lazy(ctx => new TerraformReference<TerraformSet<object>>(this, "exposed_port").ResolveNodes(ctx));
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "exposed_port").ResolveNodes(ctx));
         set => SetArgument("exposed_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -436,7 +406,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformArgument("ip_address_type")]
     public TerraformValue<string>? IpAddressType
     {
         get => new TerraformReference<string>(this, "ip_address_type");
@@ -446,7 +415,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_key_id")]
     public TerraformValue<string>? KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
@@ -456,7 +424,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The key_vault_user_assigned_identity_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_user_assigned_identity_id")]
     public TerraformValue<string>? KeyVaultUserAssignedIdentityId
     {
         get => new TerraformReference<string>(this, "key_vault_user_assigned_identity_id");
@@ -467,7 +434,6 @@ public class AzurermContainerGroup : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -478,7 +444,6 @@ public class AzurermContainerGroup : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -489,7 +454,6 @@ public class AzurermContainerGroup : TerraformResource
     /// The network_profile_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("network_profile_id")]
     public TerraformValue<string> NetworkProfileId
     {
         get => new TerraformReference<string>(this, "network_profile_id");
@@ -500,7 +464,6 @@ public class AzurermContainerGroup : TerraformResource
     /// The os_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
-    [TerraformArgument("os_type")]
     public required TerraformValue<string> OsType
     {
         get => new TerraformReference<string>(this, "os_type");
@@ -510,7 +473,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformArgument("priority")]
     public TerraformValue<string>? Priority
     {
         get => new TerraformReference<string>(this, "priority");
@@ -521,7 +483,6 @@ public class AzurermContainerGroup : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -531,7 +492,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The restart_policy attribute.
     /// </summary>
-    [TerraformArgument("restart_policy")]
     public TerraformValue<string>? RestartPolicy
     {
         get => new TerraformReference<string>(this, "restart_policy");
@@ -541,7 +501,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformArgument("sku")]
     public TerraformValue<string>? Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -551,7 +510,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    [TerraformArgument("subnet_ids")]
     public TerraformSet<string>? SubnetIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
@@ -561,7 +519,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -571,7 +528,6 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformArgument("zones")]
     public TerraformSet<string>? Zones
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
@@ -579,75 +535,72 @@ public class AzurermContainerGroup : TerraformResource
     }
 
     /// <summary>
-    /// Block for container.
-    /// Nesting mode: list
+    /// Container block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Container block(s) required")]
-    [TerraformArgument("container")]
-    public required TerraformList<AzurermContainerGroupContainerBlock> Container { get; set; } = new();
-
-    /// <summary>
-    /// Block for diagnostics.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Diagnostics block(s) allowed")]
-    [TerraformArgument("diagnostics")]
-    public TerraformList<AzurermContainerGroupDiagnosticsBlock> Diagnostics { get; set; } = new();
-
-    /// <summary>
-    /// Block for dns_config.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
-    [TerraformArgument("dns_config")]
-    public TerraformList<AzurermContainerGroupDnsConfigBlock> DnsConfig { get; set; } = new();
-
-    /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermContainerGroupIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for image_registry_credential.
-    /// Nesting mode: list
-    /// </summary>
-    [TerraformArgument("image_registry_credential")]
-    public TerraformList<AzurermContainerGroupImageRegistryCredentialBlock> ImageRegistryCredential { get; set; } = new();
-
-    /// <summary>
-    /// Block for init_container.
-    /// Nesting mode: list
-    /// </summary>
-    [TerraformArgument("init_container")]
-    public TerraformList<AzurermContainerGroupInitContainerBlock> InitContainer { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermContainerGroupTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The fqdn attribute.
-    /// </summary>
-    [TerraformArgument("fqdn")]
-    public TerraformValue<string> Fqdn
+    public required AzurermContainerGroupContainerBlock Container
     {
-        get => new TerraformReference<string>(this, "fqdn");
+        get => GetRequiredArgument<AzurermContainerGroupContainerBlock>("container");
+        set => SetArgument("container", value);
     }
 
     /// <summary>
-    /// The ip_address attribute.
+    /// Diagnostics block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("ip_address")]
-    public TerraformValue<string> IpAddress
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Diagnostics block(s) allowed")]
+    public AzurermContainerGroupDiagnosticsBlock? Diagnostics
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<AzurermContainerGroupDiagnosticsBlock>("diagnostics");
+        set => SetArgument("diagnostics", value);
+    }
+
+    /// <summary>
+    /// DnsConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
+    public AzurermContainerGroupDnsConfigBlock? DnsConfig
+    {
+        get => GetArgument<AzurermContainerGroupDnsConfigBlock>("dns_config");
+        set => SetArgument("dns_config", value);
+    }
+
+    /// <summary>
+    /// Identity block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public AzurermContainerGroupIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermContainerGroupIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
+
+    /// <summary>
+    /// ImageRegistryCredential block (nesting mode: list).
+    /// </summary>
+    public AzurermContainerGroupImageRegistryCredentialBlock? ImageRegistryCredential
+    {
+        get => GetArgument<AzurermContainerGroupImageRegistryCredentialBlock>("image_registry_credential");
+        set => SetArgument("image_registry_credential", value);
+    }
+
+    /// <summary>
+    /// InitContainer block (nesting mode: list).
+    /// </summary>
+    public AzurermContainerGroupInitContainerBlock? InitContainer
+    {
+        get => GetArgument<AzurermContainerGroupInitContainerBlock>("init_container");
+        set => SetArgument("init_container", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermContainerGroupTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermContainerGroupTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

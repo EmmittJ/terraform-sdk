@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for automatic_update in .
@@ -25,7 +16,6 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    [TerraformArgument("authentication_type")]
     public TerraformValue<string>? AuthenticationType
     {
         get => new TerraformReference<string>(this, "authentication_type");
@@ -35,7 +25,6 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
-    [TerraformArgument("automation_account_id")]
     public TerraformValue<string>? AutomationAccountId
     {
         get => new TerraformReference<string>(this, "automation_account_id");
@@ -45,7 +34,6 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -68,7 +56,6 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -78,7 +65,6 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -88,7 +74,6 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -98,7 +83,6 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -108,19 +92,14 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
 }
 
 /// <summary>
+/// Represents a azurerm_site_recovery_protection_container_mapping Terraform resource.
 /// Manages a azurerm_site_recovery_protection_container_mapping resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
+public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) : TerraformResource("azurerm_site_recovery_protection_container_mapping", name)
 {
-    public AzurermSiteRecoveryProtectionContainerMapping(string name) : base("azurerm_site_recovery_protection_container_mapping", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -131,7 +110,6 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -142,7 +120,6 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// The recovery_fabric_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryFabricName is required")]
-    [TerraformArgument("recovery_fabric_name")]
     public required TerraformValue<string> RecoveryFabricName
     {
         get => new TerraformReference<string>(this, "recovery_fabric_name");
@@ -153,7 +130,6 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// The recovery_replication_policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
-    [TerraformArgument("recovery_replication_policy_id")]
     public required TerraformValue<string> RecoveryReplicationPolicyId
     {
         get => new TerraformReference<string>(this, "recovery_replication_policy_id");
@@ -164,7 +140,6 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// The recovery_source_protection_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoverySourceProtectionContainerName is required")]
-    [TerraformArgument("recovery_source_protection_container_name")]
     public required TerraformValue<string> RecoverySourceProtectionContainerName
     {
         get => new TerraformReference<string>(this, "recovery_source_protection_container_name");
@@ -175,7 +150,6 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// The recovery_target_protection_container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryTargetProtectionContainerId is required")]
-    [TerraformArgument("recovery_target_protection_container_id")]
     public required TerraformValue<string> RecoveryTargetProtectionContainerId
     {
         get => new TerraformReference<string>(this, "recovery_target_protection_container_id");
@@ -186,7 +160,6 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// The recovery_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
-    [TerraformArgument("recovery_vault_name")]
     public required TerraformValue<string> RecoveryVaultName
     {
         get => new TerraformReference<string>(this, "recovery_vault_name");
@@ -197,7 +170,6 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -205,18 +177,22 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     }
 
     /// <summary>
-    /// Block for automatic_update.
-    /// Nesting mode: list
+    /// AutomaticUpdate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticUpdate block(s) allowed")]
-    [TerraformArgument("automatic_update")]
-    public TerraformList<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock> AutomaticUpdate { get; set; } = new();
+    public AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock? AutomaticUpdate
+    {
+        get => GetArgument<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>("automatic_update");
+        set => SetArgument("automatic_update", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

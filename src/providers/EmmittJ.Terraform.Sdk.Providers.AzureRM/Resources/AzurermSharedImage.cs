@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identifier in .
@@ -26,7 +17,6 @@ public class AzurermSharedImageIdentifierBlock : TerraformBlock
     /// The offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
-    [TerraformArgument("offer")]
     public required TerraformValue<string> Offer
     {
         get => new TerraformReference<string>(this, "offer");
@@ -37,7 +27,6 @@ public class AzurermSharedImageIdentifierBlock : TerraformBlock
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformArgument("publisher")]
     public required TerraformValue<string> Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -48,7 +37,6 @@ public class AzurermSharedImageIdentifierBlock : TerraformBlock
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformArgument("sku")]
     public required TerraformValue<string> Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -72,7 +60,6 @@ public class AzurermSharedImagePurchasePlanBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -82,7 +69,6 @@ public class AzurermSharedImagePurchasePlanBlock : TerraformBlock
     /// <summary>
     /// The product attribute.
     /// </summary>
-    [TerraformArgument("product")]
     public TerraformValue<string>? Product
     {
         get => new TerraformReference<string>(this, "product");
@@ -92,7 +78,6 @@ public class AzurermSharedImagePurchasePlanBlock : TerraformBlock
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    [TerraformArgument("publisher")]
     public TerraformValue<string>? Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -115,7 +100,6 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -125,7 +109,6 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -135,7 +118,6 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -145,7 +127,6 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -155,19 +136,14 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_shared_image Terraform resource.
 /// Manages a azurerm_shared_image resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSharedImage : TerraformResource
+public partial class AzurermSharedImage(string name) : TerraformResource("azurerm_shared_image", name)
 {
-    public AzurermSharedImage(string name) : base("azurerm_shared_image", name)
-    {
-    }
-
     /// <summary>
     /// The accelerated_network_support_enabled attribute.
     /// </summary>
-    [TerraformArgument("accelerated_network_support_enabled")]
     public TerraformValue<bool>? AcceleratedNetworkSupportEnabled
     {
         get => new TerraformReference<bool>(this, "accelerated_network_support_enabled");
@@ -177,7 +153,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    [TerraformArgument("architecture")]
     public TerraformValue<string>? Architecture
     {
         get => new TerraformReference<string>(this, "architecture");
@@ -187,7 +162,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The confidential_vm_enabled attribute.
     /// </summary>
-    [TerraformArgument("confidential_vm_enabled")]
     public TerraformValue<bool>? ConfidentialVmEnabled
     {
         get => new TerraformReference<bool>(this, "confidential_vm_enabled");
@@ -197,7 +171,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The confidential_vm_supported attribute.
     /// </summary>
-    [TerraformArgument("confidential_vm_supported")]
     public TerraformValue<bool>? ConfidentialVmSupported
     {
         get => new TerraformReference<bool>(this, "confidential_vm_supported");
@@ -207,7 +180,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -217,7 +189,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The disk_controller_type_nvme_enabled attribute.
     /// </summary>
-    [TerraformArgument("disk_controller_type_nvme_enabled")]
     public TerraformValue<bool>? DiskControllerTypeNvmeEnabled
     {
         get => new TerraformReference<bool>(this, "disk_controller_type_nvme_enabled");
@@ -227,7 +198,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The disk_types_not_allowed attribute.
     /// </summary>
-    [TerraformArgument("disk_types_not_allowed")]
     public TerraformSet<string>? DiskTypesNotAllowed
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disk_types_not_allowed").ResolveNodes(ctx));
@@ -237,7 +207,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    [TerraformArgument("end_of_life_date")]
     public TerraformValue<string>? EndOfLifeDate
     {
         get => new TerraformReference<string>(this, "end_of_life_date");
@@ -247,7 +216,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The eula attribute.
     /// </summary>
-    [TerraformArgument("eula")]
     public TerraformValue<string>? Eula
     {
         get => new TerraformReference<string>(this, "eula");
@@ -258,7 +226,6 @@ public class AzurermSharedImage : TerraformResource
     /// The gallery_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
-    [TerraformArgument("gallery_name")]
     public required TerraformValue<string> GalleryName
     {
         get => new TerraformReference<string>(this, "gallery_name");
@@ -268,7 +235,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The hibernation_enabled attribute.
     /// </summary>
-    [TerraformArgument("hibernation_enabled")]
     public TerraformValue<bool>? HibernationEnabled
     {
         get => new TerraformReference<bool>(this, "hibernation_enabled");
@@ -278,7 +244,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
-    [TerraformArgument("hyper_v_generation")]
     public TerraformValue<string>? HyperVGeneration
     {
         get => new TerraformReference<string>(this, "hyper_v_generation");
@@ -288,7 +253,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -299,7 +263,6 @@ public class AzurermSharedImage : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -309,7 +272,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The max_recommended_memory_in_gb attribute.
     /// </summary>
-    [TerraformArgument("max_recommended_memory_in_gb")]
     public TerraformValue<double>? MaxRecommendedMemoryInGb
     {
         get => new TerraformReference<double>(this, "max_recommended_memory_in_gb");
@@ -319,7 +281,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The max_recommended_vcpu_count attribute.
     /// </summary>
-    [TerraformArgument("max_recommended_vcpu_count")]
     public TerraformValue<double>? MaxRecommendedVcpuCount
     {
         get => new TerraformReference<double>(this, "max_recommended_vcpu_count");
@@ -329,7 +290,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The min_recommended_memory_in_gb attribute.
     /// </summary>
-    [TerraformArgument("min_recommended_memory_in_gb")]
     public TerraformValue<double>? MinRecommendedMemoryInGb
     {
         get => new TerraformReference<double>(this, "min_recommended_memory_in_gb");
@@ -339,7 +299,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The min_recommended_vcpu_count attribute.
     /// </summary>
-    [TerraformArgument("min_recommended_vcpu_count")]
     public TerraformValue<double>? MinRecommendedVcpuCount
     {
         get => new TerraformReference<double>(this, "min_recommended_vcpu_count");
@@ -350,7 +309,6 @@ public class AzurermSharedImage : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -361,7 +319,6 @@ public class AzurermSharedImage : TerraformResource
     /// The os_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
-    [TerraformArgument("os_type")]
     public required TerraformValue<string> OsType
     {
         get => new TerraformReference<string>(this, "os_type");
@@ -371,7 +328,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The privacy_statement_uri attribute.
     /// </summary>
-    [TerraformArgument("privacy_statement_uri")]
     public TerraformValue<string>? PrivacyStatementUri
     {
         get => new TerraformReference<string>(this, "privacy_statement_uri");
@@ -381,7 +337,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The release_note_uri attribute.
     /// </summary>
-    [TerraformArgument("release_note_uri")]
     public TerraformValue<string>? ReleaseNoteUri
     {
         get => new TerraformReference<string>(this, "release_note_uri");
@@ -392,7 +347,6 @@ public class AzurermSharedImage : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -402,7 +356,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The specialized attribute.
     /// </summary>
-    [TerraformArgument("specialized")]
     public TerraformValue<bool>? Specialized
     {
         get => new TerraformReference<bool>(this, "specialized");
@@ -412,7 +365,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -422,7 +374,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The trusted_launch_enabled attribute.
     /// </summary>
-    [TerraformArgument("trusted_launch_enabled")]
     public TerraformValue<bool>? TrustedLaunchEnabled
     {
         get => new TerraformReference<bool>(this, "trusted_launch_enabled");
@@ -432,7 +383,6 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The trusted_launch_supported attribute.
     /// </summary>
-    [TerraformArgument("trusted_launch_supported")]
     public TerraformValue<bool>? TrustedLaunchSupported
     {
         get => new TerraformReference<bool>(this, "trusted_launch_supported");
@@ -440,28 +390,35 @@ public class AzurermSharedImage : TerraformResource
     }
 
     /// <summary>
-    /// Block for identifier.
-    /// Nesting mode: list
+    /// Identifier block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
-    [TerraformArgument("identifier")]
-    public required TerraformList<AzurermSharedImageIdentifierBlock> Identifier { get; set; } = new();
+    public required AzurermSharedImageIdentifierBlock Identifier
+    {
+        get => GetRequiredArgument<AzurermSharedImageIdentifierBlock>("identifier");
+        set => SetArgument("identifier", value);
+    }
 
     /// <summary>
-    /// Block for purchase_plan.
-    /// Nesting mode: list
+    /// PurchasePlan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PurchasePlan block(s) allowed")]
-    [TerraformArgument("purchase_plan")]
-    public TerraformList<AzurermSharedImagePurchasePlanBlock> PurchasePlan { get; set; } = new();
+    public AzurermSharedImagePurchasePlanBlock? PurchasePlan
+    {
+        get => GetArgument<AzurermSharedImagePurchasePlanBlock>("purchase_plan");
+        set => SetArgument("purchase_plan", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSharedImageTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSharedImageTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSharedImageTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

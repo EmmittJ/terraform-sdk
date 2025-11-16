@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_billing_mca_account_scope Terraform data source.
 /// Retrieves information about a azurerm_billing_mca_account_scope.
 /// </summary>
-public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
+public partial class AzurermBillingMcaAccountScopeDataSource(string name) : TerraformDataSource("azurerm_billing_mca_account_scope", name)
 {
-    public AzurermBillingMcaAccountScopeDataSource(string name) : base("azurerm_billing_mca_account_scope", name)
-    {
-    }
-
     /// <summary>
     /// The billing_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
-    [TerraformArgument("billing_account_name")]
     public required TerraformValue<string> BillingAccountName
     {
         get => new TerraformReference<string>(this, "billing_account_name");
@@ -58,7 +44,6 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     /// The billing_profile_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProfileName is required")]
-    [TerraformArgument("billing_profile_name")]
     public required TerraformValue<string> BillingProfileName
     {
         get => new TerraformReference<string>(this, "billing_profile_name");
@@ -68,7 +53,6 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -79,7 +63,6 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     /// The invoice_section_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvoiceSectionName is required")]
-    [TerraformArgument("invoice_section_name")]
     public required TerraformValue<string> InvoiceSectionName
     {
         get => new TerraformReference<string>(this, "invoice_section_name");
@@ -87,10 +70,12 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

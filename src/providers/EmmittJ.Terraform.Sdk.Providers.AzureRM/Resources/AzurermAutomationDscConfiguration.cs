@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAutomationDscConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAutomationDscConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAutomationDscConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermAutomationDscConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermAutomationDscConfigurationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_automation_dsc_configuration Terraform resource.
 /// Manages a azurerm_automation_dsc_configuration resource.
 /// </summary>
-public class AzurermAutomationDscConfiguration : TerraformResource
+public partial class AzurermAutomationDscConfiguration(string name) : TerraformResource("azurerm_automation_dsc_configuration", name)
 {
-    public AzurermAutomationDscConfiguration(string name) : base("azurerm_automation_dsc_configuration", name)
-    {
-    }
-
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
-    [TerraformArgument("automation_account_name")]
     public required TerraformValue<string> AutomationAccountName
     {
         get => new TerraformReference<string>(this, "automation_account_name");
@@ -88,7 +71,6 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     /// The content_embedded attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentEmbedded is required")]
-    [TerraformArgument("content_embedded")]
     public required TerraformValue<string> ContentEmbedded
     {
         get => new TerraformReference<string>(this, "content_embedded");
@@ -98,7 +80,6 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -108,7 +89,6 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -119,7 +99,6 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -129,7 +108,6 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     /// <summary>
     /// The log_verbose attribute.
     /// </summary>
-    [TerraformArgument("log_verbose")]
     public TerraformValue<bool>? LogVerbose
     {
         get => new TerraformReference<bool>(this, "log_verbose");
@@ -140,7 +118,6 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -151,7 +128,6 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -161,7 +137,6 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -169,19 +144,12 @@ public class AzurermAutomationDscConfiguration : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAutomationDscConfigurationTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The state attribute.
-    /// </summary>
-    [TerraformArgument("state")]
-    public TerraformValue<string> State
+    public AzurermAutomationDscConfigurationTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<AzurermAutomationDscConfigurationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

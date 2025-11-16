@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsB
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsB
 }
 
 /// <summary>
+/// Represents a azurerm_servicebus_namespace_disaster_recovery_config Terraform data source.
 /// Retrieves information about a azurerm_servicebus_namespace_disaster_recovery_config.
 /// </summary>
-public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : TerraformDataSource
+public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(string name) : TerraformDataSource("azurerm_servicebus_namespace_disaster_recovery_config", name)
 {
-    public AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(string name) : base("azurerm_servicebus_namespace_disaster_recovery_config", name)
-    {
-    }
-
     /// <summary>
     /// The alias_authorization_rule_id attribute.
     /// </summary>
-    [TerraformArgument("alias_authorization_rule_id")]
     public TerraformValue<string>? AliasAuthorizationRuleId
     {
         get => new TerraformReference<string>(this, "alias_authorization_rule_id");
@@ -56,7 +42,6 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -67,7 +52,6 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -77,7 +61,6 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    [TerraformArgument("namespace_id")]
     public TerraformValue<string> NamespaceId
     {
         get => new TerraformReference<string>(this, "namespace_id");
@@ -88,7 +71,6 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("namespace_name")]
     public TerraformValue<string> NamespaceName
     {
         get => new TerraformReference<string>(this, "namespace_name");
@@ -99,7 +81,6 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformArgument("resource_group_name")]
     public TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -107,55 +88,12 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The default_primary_key attribute.
-    /// </summary>
-    [TerraformArgument("default_primary_key")]
-    public TerraformValue<string> DefaultPrimaryKey
+    public AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "default_primary_key");
-    }
-
-    /// <summary>
-    /// The default_secondary_key attribute.
-    /// </summary>
-    [TerraformArgument("default_secondary_key")]
-    public TerraformValue<string> DefaultSecondaryKey
-    {
-        get => new TerraformReference<string>(this, "default_secondary_key");
-    }
-
-    /// <summary>
-    /// The partner_namespace_id attribute.
-    /// </summary>
-    [TerraformArgument("partner_namespace_id")]
-    public TerraformValue<string> PartnerNamespaceId
-    {
-        get => new TerraformReference<string>(this, "partner_namespace_id");
-    }
-
-    /// <summary>
-    /// The primary_connection_string_alias attribute.
-    /// </summary>
-    [TerraformArgument("primary_connection_string_alias")]
-    public TerraformValue<string> PrimaryConnectionStringAlias
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string_alias");
-    }
-
-    /// <summary>
-    /// The secondary_connection_string_alias attribute.
-    /// </summary>
-    [TerraformArgument("secondary_connection_string_alias")]
-    public TerraformValue<string> SecondaryConnectionStringAlias
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string_alias");
+        get => GetArgument<AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

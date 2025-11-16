@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermWebPubsubIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +64,6 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
     /// <summary>
     /// The connectivity_logs_enabled attribute.
     /// </summary>
-    [TerraformArgument("connectivity_logs_enabled")]
     public TerraformValue<bool>? ConnectivityLogsEnabled
     {
         get => new TerraformReference<bool>(this, "connectivity_logs_enabled");
@@ -71,7 +73,6 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -81,7 +82,6 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
     /// <summary>
     /// The http_request_logs_enabled attribute.
     /// </summary>
-    [TerraformArgument("http_request_logs_enabled")]
     public TerraformValue<bool>? HttpRequestLogsEnabled
     {
         get => new TerraformReference<bool>(this, "http_request_logs_enabled");
@@ -91,7 +91,6 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
     /// <summary>
     /// The messaging_logs_enabled attribute.
     /// </summary>
-    [TerraformArgument("messaging_logs_enabled")]
     public TerraformValue<bool>? MessagingLogsEnabled
     {
         get => new TerraformReference<bool>(this, "messaging_logs_enabled");
@@ -114,7 +113,6 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -124,7 +122,6 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -134,7 +131,6 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -144,7 +140,6 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -154,19 +149,14 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_web_pubsub Terraform resource.
 /// Manages a azurerm_web_pubsub resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermWebPubsub : TerraformResource
+public partial class AzurermWebPubsub(string name) : TerraformResource("azurerm_web_pubsub", name)
 {
-    public AzurermWebPubsub(string name) : base("azurerm_web_pubsub", name)
-    {
-    }
-
     /// <summary>
     /// The aad_auth_enabled attribute.
     /// </summary>
-    [TerraformArgument("aad_auth_enabled")]
     public TerraformValue<bool>? AadAuthEnabled
     {
         get => new TerraformReference<bool>(this, "aad_auth_enabled");
@@ -176,7 +166,6 @@ public class AzurermWebPubsub : TerraformResource
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    [TerraformArgument("capacity")]
     public TerraformValue<double>? Capacity
     {
         get => new TerraformReference<double>(this, "capacity");
@@ -186,7 +175,6 @@ public class AzurermWebPubsub : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -196,7 +184,6 @@ public class AzurermWebPubsub : TerraformResource
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    [TerraformArgument("local_auth_enabled")]
     public TerraformValue<bool>? LocalAuthEnabled
     {
         get => new TerraformReference<bool>(this, "local_auth_enabled");
@@ -207,7 +194,6 @@ public class AzurermWebPubsub : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -218,7 +204,6 @@ public class AzurermWebPubsub : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -228,7 +213,6 @@ public class AzurermWebPubsub : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -239,7 +223,6 @@ public class AzurermWebPubsub : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -250,7 +233,6 @@ public class AzurermWebPubsub : TerraformResource
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformArgument("sku")]
     public required TerraformValue<string> Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -260,7 +242,6 @@ public class AzurermWebPubsub : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -270,7 +251,6 @@ public class AzurermWebPubsub : TerraformResource
     /// <summary>
     /// The tls_client_cert_enabled attribute.
     /// </summary>
-    [TerraformArgument("tls_client_cert_enabled")]
     public TerraformValue<bool>? TlsClientCertEnabled
     {
         get => new TerraformReference<bool>(this, "tls_client_cert_enabled");
@@ -278,107 +258,32 @@ public class AzurermWebPubsub : TerraformResource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermWebPubsubIdentityBlock> Identity { get; set; } = new();
+    public AzurermWebPubsubIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermWebPubsubIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for live_trace.
-    /// Nesting mode: list
+    /// LiveTrace block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LiveTrace block(s) allowed")]
-    [TerraformArgument("live_trace")]
-    public TerraformList<AzurermWebPubsubLiveTraceBlock> LiveTrace { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermWebPubsubTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The external_ip attribute.
-    /// </summary>
-    [TerraformArgument("external_ip")]
-    public TerraformValue<string> ExternalIp
+    public AzurermWebPubsubLiveTraceBlock? LiveTrace
     {
-        get => new TerraformReference<string>(this, "external_ip");
+        get => GetArgument<AzurermWebPubsubLiveTraceBlock>("live_trace");
+        set => SetArgument("live_trace", value);
     }
 
     /// <summary>
-    /// The hostname attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("hostname")]
-    public TerraformValue<string> Hostname
+    public AzurermWebPubsubTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "hostname");
-    }
-
-    /// <summary>
-    /// The primary_access_key attribute.
-    /// </summary>
-    [TerraformArgument("primary_access_key")]
-    public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
-
-    /// <summary>
-    /// The primary_connection_string attribute.
-    /// </summary>
-    [TerraformArgument("primary_connection_string")]
-    public TerraformValue<string> PrimaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string");
-    }
-
-    /// <summary>
-    /// The public_port attribute.
-    /// </summary>
-    [TerraformArgument("public_port")]
-    public TerraformValue<double> PublicPort
-    {
-        get => new TerraformReference<double>(this, "public_port");
-    }
-
-    /// <summary>
-    /// The secondary_access_key attribute.
-    /// </summary>
-    [TerraformArgument("secondary_access_key")]
-    public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
-
-    /// <summary>
-    /// The secondary_connection_string attribute.
-    /// </summary>
-    [TerraformArgument("secondary_connection_string")]
-    public TerraformValue<string> SecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string");
-    }
-
-    /// <summary>
-    /// The server_port attribute.
-    /// </summary>
-    [TerraformArgument("server_port")]
-    public TerraformValue<double> ServerPort
-    {
-        get => new TerraformReference<double>(this, "server_port");
-    }
-
-    /// <summary>
-    /// The version attribute.
-    /// </summary>
-    [TerraformArgument("version")]
-    public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<AzurermWebPubsubTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

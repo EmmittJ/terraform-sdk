@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDataProtectionBackupVaultDataSourceTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermDataProtectionBackupVaultDataSourceTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_data_protection_backup_vault Terraform data source.
 /// Retrieves information about a azurerm_data_protection_backup_vault.
 /// </summary>
-public class AzurermDataProtectionBackupVaultDataSource : TerraformDataSource
+public partial class AzurermDataProtectionBackupVaultDataSource(string name) : TerraformDataSource("azurerm_data_protection_backup_vault", name)
 {
-    public AzurermDataProtectionBackupVaultDataSource(string name) : base("azurerm_data_protection_backup_vault", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermDataProtectionBackupVaultDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermDataProtectionBackupVaultDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -76,55 +60,12 @@ public class AzurermDataProtectionBackupVaultDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataProtectionBackupVaultDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The datastore_type attribute.
-    /// </summary>
-    [TerraformArgument("datastore_type")]
-    public TerraformValue<string> DatastoreType
+    public AzurermDataProtectionBackupVaultDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "datastore_type");
-    }
-
-    /// <summary>
-    /// The identity attribute.
-    /// </summary>
-    [TerraformArgument("identity")]
-    public TerraformList<object> Identity
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "identity").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The redundancy attribute.
-    /// </summary>
-    [TerraformArgument("redundancy")]
-    public TerraformValue<string> Redundancy
-    {
-        get => new TerraformReference<string>(this, "redundancy");
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<AzurermDataProtectionBackupVaultDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

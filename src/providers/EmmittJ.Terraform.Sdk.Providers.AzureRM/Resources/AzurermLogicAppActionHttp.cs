@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for run_after in .
@@ -26,7 +17,6 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
     /// The action_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
-    [TerraformArgument("action_name")]
     public required TerraformValue<string> ActionName
     {
         get => new TerraformReference<string>(this, "action_name");
@@ -37,7 +27,6 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
     /// The action_result attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionResult is required")]
-    [TerraformArgument("action_result")]
     public required TerraformValue<string> ActionResult
     {
         get => new TerraformReference<string>(this, "action_result");
@@ -60,7 +49,6 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,18 +85,14 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_logic_app_action_http Terraform resource.
 /// Manages a azurerm_logic_app_action_http resource.
 /// </summary>
-public class AzurermLogicAppActionHttp : TerraformResource
+public partial class AzurermLogicAppActionHttp(string name) : TerraformResource("azurerm_logic_app_action_http", name)
 {
-    public AzurermLogicAppActionHttp(string name) : base("azurerm_logic_app_action_http", name)
-    {
-    }
-
     /// <summary>
     /// The body attribute.
     /// </summary>
-    [TerraformArgument("body")]
     public TerraformValue<string>? Body
     {
         get => new TerraformReference<string>(this, "body");
@@ -121,7 +102,6 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The headers attribute.
     /// </summary>
-    [TerraformArgument("headers")]
     public TerraformMap<string>? Headers
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "headers").ResolveNodes(ctx));
@@ -131,7 +111,6 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -142,7 +121,6 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// The logic_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
-    [TerraformArgument("logic_app_id")]
     public required TerraformValue<string> LogicAppId
     {
         get => new TerraformReference<string>(this, "logic_app_id");
@@ -153,7 +131,6 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// The method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
-    [TerraformArgument("method")]
     public required TerraformValue<string> Method
     {
         get => new TerraformReference<string>(this, "method");
@@ -164,7 +141,6 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -174,7 +150,6 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The queries attribute.
     /// </summary>
-    [TerraformArgument("queries")]
     public TerraformMap<string>? Queries
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "queries").ResolveNodes(ctx));
@@ -185,7 +160,6 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformArgument("uri")]
     public required TerraformValue<string> Uri
     {
         get => new TerraformReference<string>(this, "uri");
@@ -193,17 +167,21 @@ public class AzurermLogicAppActionHttp : TerraformResource
     }
 
     /// <summary>
-    /// Block for run_after.
-    /// Nesting mode: set
+    /// RunAfter block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("run_after")]
-    public TerraformSet<AzurermLogicAppActionHttpRunAfterBlock> RunAfter { get; set; } = new();
+    public AzurermLogicAppActionHttpRunAfterBlock? RunAfter
+    {
+        get => GetArgument<AzurermLogicAppActionHttpRunAfterBlock>("run_after");
+        set => SetArgument("run_after", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLogicAppActionHttpTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermLogicAppActionHttpTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermLogicAppActionHttpTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

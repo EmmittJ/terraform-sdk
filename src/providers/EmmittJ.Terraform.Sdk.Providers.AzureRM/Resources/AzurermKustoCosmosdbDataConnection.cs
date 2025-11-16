@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_kusto_cosmosdb_data_connection Terraform resource.
 /// Manages a azurerm_kusto_cosmosdb_data_connection resource.
 /// </summary>
-public class AzurermKustoCosmosdbDataConnection : TerraformResource
+public partial class AzurermKustoCosmosdbDataConnection(string name) : TerraformResource("azurerm_kusto_cosmosdb_data_connection", name)
 {
-    public AzurermKustoCosmosdbDataConnection(string name) : base("azurerm_kusto_cosmosdb_data_connection", name)
-    {
-    }
-
     /// <summary>
     /// The cosmosdb_container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbContainerId is required")]
-    [TerraformArgument("cosmosdb_container_id")]
     public required TerraformValue<string> CosmosdbContainerId
     {
         get => new TerraformReference<string>(this, "cosmosdb_container_id");
@@ -77,7 +61,6 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -88,7 +71,6 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// The kusto_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseId is required")]
-    [TerraformArgument("kusto_database_id")]
     public required TerraformValue<string> KustoDatabaseId
     {
         get => new TerraformReference<string>(this, "kusto_database_id");
@@ -99,7 +81,6 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -110,7 +91,6 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// The managed_identity_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityId is required")]
-    [TerraformArgument("managed_identity_id")]
     public required TerraformValue<string> ManagedIdentityId
     {
         get => new TerraformReference<string>(this, "managed_identity_id");
@@ -120,7 +100,6 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    [TerraformArgument("mapping_rule_name")]
     public TerraformValue<string>? MappingRuleName
     {
         get => new TerraformReference<string>(this, "mapping_rule_name");
@@ -131,7 +110,6 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -141,7 +119,6 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// <summary>
     /// The retrieval_start_date attribute.
     /// </summary>
-    [TerraformArgument("retrieval_start_date")]
     public TerraformValue<string>? RetrievalStartDate
     {
         get => new TerraformReference<string>(this, "retrieval_start_date");
@@ -152,7 +129,6 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    [TerraformArgument("table_name")]
     public required TerraformValue<string> TableName
     {
         get => new TerraformReference<string>(this, "table_name");
@@ -160,10 +136,12 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKustoCosmosdbDataConnectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermKustoCosmosdbDataConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermKustoCosmosdbDataConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

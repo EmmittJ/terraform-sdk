@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSourceControlTokenDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermSourceControlTokenDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_source_control_token Terraform data source.
 /// Retrieves information about a azurerm_source_control_token.
 /// </summary>
-public class AzurermSourceControlTokenDataSource : TerraformDataSource
+public partial class AzurermSourceControlTokenDataSource(string name) : TerraformDataSource("azurerm_source_control_token", name)
 {
-    public AzurermSourceControlTokenDataSource(string name) : base("azurerm_source_control_token", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermSourceControlTokenDataSource : TerraformDataSource
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -65,28 +50,12 @@ public class AzurermSourceControlTokenDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSourceControlTokenDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The token attribute.
-    /// </summary>
-    [TerraformArgument("token")]
-    public TerraformValue<string> Token
+    public AzurermSourceControlTokenDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "token");
-    }
-
-    /// <summary>
-    /// The token_secret attribute.
-    /// </summary>
-    [TerraformArgument("token_secret")]
-    public TerraformValue<string> TokenSecret
-    {
-        get => new TerraformReference<string>(this, "token_secret");
+        get => GetArgument<AzurermSourceControlTokenDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

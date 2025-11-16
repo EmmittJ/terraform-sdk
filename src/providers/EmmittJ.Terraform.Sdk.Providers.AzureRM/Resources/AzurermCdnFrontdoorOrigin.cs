@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for private_link in .
@@ -26,7 +17,6 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -37,7 +27,6 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     /// The private_link_target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkTargetId is required")]
-    [TerraformArgument("private_link_target_id")]
     public required TerraformValue<string> PrivateLinkTargetId
     {
         get => new TerraformReference<string>(this, "private_link_target_id");
@@ -47,7 +36,6 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    [TerraformArgument("request_message")]
     public TerraformValue<string>? RequestMessage
     {
         get => new TerraformReference<string>(this, "request_message");
@@ -57,7 +45,6 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    [TerraformArgument("target_type")]
     public TerraformValue<string>? TargetType
     {
         get => new TerraformReference<string>(this, "target_type");
@@ -80,7 +67,6 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -90,7 +76,6 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -100,7 +85,6 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -110,7 +94,6 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -120,20 +103,15 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_cdn_frontdoor_origin Terraform resource.
 /// Manages a azurerm_cdn_frontdoor_origin resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCdnFrontdoorOrigin : TerraformResource
+public partial class AzurermCdnFrontdoorOrigin(string name) : TerraformResource("azurerm_cdn_frontdoor_origin", name)
 {
-    public AzurermCdnFrontdoorOrigin(string name) : base("azurerm_cdn_frontdoor_origin", name)
-    {
-    }
-
     /// <summary>
     /// The cdn_frontdoor_origin_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginGroupId is required")]
-    [TerraformArgument("cdn_frontdoor_origin_group_id")]
     public required TerraformValue<string> CdnFrontdoorOriginGroupId
     {
         get => new TerraformReference<string>(this, "cdn_frontdoor_origin_group_id");
@@ -144,7 +122,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// The certificate_name_check_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateNameCheckEnabled is required")]
-    [TerraformArgument("certificate_name_check_enabled")]
     public required TerraformValue<bool> CertificateNameCheckEnabled
     {
         get => new TerraformReference<bool>(this, "certificate_name_check_enabled");
@@ -154,7 +131,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -165,7 +141,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformArgument("host_name")]
     public required TerraformValue<string> HostName
     {
         get => new TerraformReference<string>(this, "host_name");
@@ -175,7 +150,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// <summary>
     /// The http_port attribute.
     /// </summary>
-    [TerraformArgument("http_port")]
     public TerraformValue<double>? HttpPort
     {
         get => new TerraformReference<double>(this, "http_port");
@@ -185,7 +159,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// <summary>
     /// The https_port attribute.
     /// </summary>
-    [TerraformArgument("https_port")]
     public TerraformValue<double>? HttpsPort
     {
         get => new TerraformReference<double>(this, "https_port");
@@ -195,7 +168,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -206,7 +178,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -216,7 +187,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// <summary>
     /// The origin_host_header attribute.
     /// </summary>
-    [TerraformArgument("origin_host_header")]
     public TerraformValue<string>? OriginHostHeader
     {
         get => new TerraformReference<string>(this, "origin_host_header");
@@ -226,7 +196,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformArgument("priority")]
     public TerraformValue<double>? Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -236,7 +205,6 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// <summary>
     /// The weight attribute.
     /// </summary>
-    [TerraformArgument("weight")]
     public TerraformValue<double>? Weight
     {
         get => new TerraformReference<double>(this, "weight");
@@ -244,18 +212,22 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     }
 
     /// <summary>
-    /// Block for private_link.
-    /// Nesting mode: list
+    /// PrivateLink block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLink block(s) allowed")]
-    [TerraformArgument("private_link")]
-    public TerraformList<AzurermCdnFrontdoorOriginPrivateLinkBlock> PrivateLink { get; set; } = new();
+    public AzurermCdnFrontdoorOriginPrivateLinkBlock? PrivateLink
+    {
+        get => GetArgument<AzurermCdnFrontdoorOriginPrivateLinkBlock>("private_link");
+        set => SetArgument("private_link", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCdnFrontdoorOriginTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCdnFrontdoorOriginTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCdnFrontdoorOriginTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for site in .
@@ -25,7 +16,6 @@ public class AzurermBotChannelWebChatSiteBlock : TerraformBlock
     /// <summary>
     /// The endpoint_parameters_enabled attribute.
     /// </summary>
-    [TerraformArgument("endpoint_parameters_enabled")]
     public TerraformValue<bool>? EndpointParametersEnabled
     {
         get => new TerraformReference<bool>(this, "endpoint_parameters_enabled");
@@ -36,7 +26,6 @@ public class AzurermBotChannelWebChatSiteBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -46,7 +35,6 @@ public class AzurermBotChannelWebChatSiteBlock : TerraformBlock
     /// <summary>
     /// The storage_enabled attribute.
     /// </summary>
-    [TerraformArgument("storage_enabled")]
     public TerraformValue<bool>? StorageEnabled
     {
         get => new TerraformReference<bool>(this, "storage_enabled");
@@ -56,7 +44,6 @@ public class AzurermBotChannelWebChatSiteBlock : TerraformBlock
     /// <summary>
     /// The user_upload_enabled attribute.
     /// </summary>
-    [TerraformArgument("user_upload_enabled")]
     public TerraformValue<bool>? UserUploadEnabled
     {
         get => new TerraformReference<bool>(this, "user_upload_enabled");
@@ -79,7 +66,6 @@ public class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -89,7 +75,6 @@ public class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -99,7 +84,6 @@ public class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -109,7 +93,6 @@ public class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -119,19 +102,15 @@ public class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_bot_channel_web_chat Terraform resource.
 /// Manages a azurerm_bot_channel_web_chat resource.
 /// </summary>
-public class AzurermBotChannelWebChat : TerraformResource
+public partial class AzurermBotChannelWebChat(string name) : TerraformResource("azurerm_bot_channel_web_chat", name)
 {
-    public AzurermBotChannelWebChat(string name) : base("azurerm_bot_channel_web_chat", name)
-    {
-    }
-
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    [TerraformArgument("bot_name")]
     public required TerraformValue<string> BotName
     {
         get => new TerraformReference<string>(this, "bot_name");
@@ -141,7 +120,6 @@ public class AzurermBotChannelWebChat : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -152,7 +130,6 @@ public class AzurermBotChannelWebChat : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -163,7 +140,6 @@ public class AzurermBotChannelWebChat : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -171,17 +147,21 @@ public class AzurermBotChannelWebChat : TerraformResource
     }
 
     /// <summary>
-    /// Block for site.
-    /// Nesting mode: set
+    /// Site block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("site")]
-    public TerraformSet<AzurermBotChannelWebChatSiteBlock> Site { get; set; } = new();
+    public AzurermBotChannelWebChatSiteBlock? Site
+    {
+        get => GetArgument<AzurermBotChannelWebChatSiteBlock>("site");
+        set => SetArgument("site", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBotChannelWebChatTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermBotChannelWebChatTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermBotChannelWebChatTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

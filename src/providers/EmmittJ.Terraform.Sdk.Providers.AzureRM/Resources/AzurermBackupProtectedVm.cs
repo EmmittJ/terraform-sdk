@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_backup_protected_vm Terraform resource.
 /// Manages a azurerm_backup_protected_vm resource.
 /// </summary>
-public class AzurermBackupProtectedVm : TerraformResource
+public partial class AzurermBackupProtectedVm(string name) : TerraformResource("azurerm_backup_protected_vm", name)
 {
-    public AzurermBackupProtectedVm(string name) : base("azurerm_backup_protected_vm", name)
-    {
-    }
-
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    [TerraformArgument("backup_policy_id")]
     public TerraformValue<string>? BackupPolicyId
     {
         get => new TerraformReference<string>(this, "backup_policy_id");
@@ -86,7 +69,6 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The exclude_disk_luns attribute.
     /// </summary>
-    [TerraformArgument("exclude_disk_luns")]
     public TerraformSet<double>? ExcludeDiskLuns
     {
         get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "exclude_disk_luns").ResolveNodes(ctx));
@@ -96,7 +78,6 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -106,7 +87,6 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The include_disk_luns attribute.
     /// </summary>
-    [TerraformArgument("include_disk_luns")]
     public TerraformSet<double>? IncludeDiskLuns
     {
         get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "include_disk_luns").ResolveNodes(ctx));
@@ -116,7 +96,6 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The protection_state attribute.
     /// </summary>
-    [TerraformArgument("protection_state")]
     public TerraformValue<string> ProtectionState
     {
         get => new TerraformReference<string>(this, "protection_state");
@@ -127,7 +106,6 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// The recovery_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
-    [TerraformArgument("recovery_vault_name")]
     public required TerraformValue<string> RecoveryVaultName
     {
         get => new TerraformReference<string>(this, "recovery_vault_name");
@@ -138,7 +116,6 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -148,7 +125,6 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The source_vm_id attribute.
     /// </summary>
-    [TerraformArgument("source_vm_id")]
     public TerraformValue<string> SourceVmId
     {
         get => new TerraformReference<string>(this, "source_vm_id");
@@ -156,10 +132,12 @@ public class AzurermBackupProtectedVm : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBackupProtectedVmTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermBackupProtectedVmTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermBackupProtectedVmTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

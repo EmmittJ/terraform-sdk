@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for category in .
@@ -26,7 +17,6 @@ public class AzurermPaloAltoLocalRulestackRuleCategoryBlock : TerraformBlock
     /// The custom_urls attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomUrls is required")]
-    [TerraformArgument("custom_urls")]
     public TerraformList<string>? CustomUrls
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_urls").ResolveNodes(ctx));
@@ -36,7 +26,6 @@ public class AzurermPaloAltoLocalRulestackRuleCategoryBlock : TerraformBlock
     /// <summary>
     /// The feeds attribute.
     /// </summary>
-    [TerraformArgument("feeds")]
     public TerraformList<string>? Feeds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "feeds").ResolveNodes(ctx));
@@ -59,7 +48,6 @@ public class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlock
     /// <summary>
     /// The cidrs attribute.
     /// </summary>
-    [TerraformArgument("cidrs")]
     public TerraformList<string>? Cidrs
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cidrs").ResolveNodes(ctx));
@@ -69,7 +57,6 @@ public class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlock
     /// <summary>
     /// The countries attribute.
     /// </summary>
-    [TerraformArgument("countries")]
     public TerraformList<string>? Countries
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "countries").ResolveNodes(ctx));
@@ -79,7 +66,6 @@ public class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlock
     /// <summary>
     /// The feeds attribute.
     /// </summary>
-    [TerraformArgument("feeds")]
     public TerraformList<string>? Feeds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "feeds").ResolveNodes(ctx));
@@ -89,7 +75,6 @@ public class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlock
     /// <summary>
     /// The local_rulestack_fqdn_list_ids attribute.
     /// </summary>
-    [TerraformArgument("local_rulestack_fqdn_list_ids")]
     public TerraformList<string>? LocalRulestackFqdnListIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "local_rulestack_fqdn_list_ids").ResolveNodes(ctx));
@@ -99,7 +84,6 @@ public class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlock
     /// <summary>
     /// The local_rulestack_prefix_list_ids attribute.
     /// </summary>
-    [TerraformArgument("local_rulestack_prefix_list_ids")]
     public TerraformList<string>? LocalRulestackPrefixListIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "local_rulestack_prefix_list_ids").ResolveNodes(ctx));
@@ -122,7 +106,6 @@ public class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlock
     /// <summary>
     /// The cidrs attribute.
     /// </summary>
-    [TerraformArgument("cidrs")]
     public TerraformList<string>? Cidrs
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cidrs").ResolveNodes(ctx));
@@ -132,7 +115,6 @@ public class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlock
     /// <summary>
     /// The countries attribute.
     /// </summary>
-    [TerraformArgument("countries")]
     public TerraformList<string>? Countries
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "countries").ResolveNodes(ctx));
@@ -142,7 +124,6 @@ public class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlock
     /// <summary>
     /// The feeds attribute.
     /// </summary>
-    [TerraformArgument("feeds")]
     public TerraformList<string>? Feeds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "feeds").ResolveNodes(ctx));
@@ -152,7 +133,6 @@ public class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlock
     /// <summary>
     /// The local_rulestack_prefix_list_ids attribute.
     /// </summary>
-    [TerraformArgument("local_rulestack_prefix_list_ids")]
     public TerraformList<string>? LocalRulestackPrefixListIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "local_rulestack_prefix_list_ids").ResolveNodes(ctx));
@@ -175,7 +155,6 @@ public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -185,7 +164,6 @@ public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -195,7 +173,6 @@ public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -205,7 +182,6 @@ public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -215,20 +191,15 @@ public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_palo_alto_local_rulestack_rule Terraform resource.
 /// Manages a azurerm_palo_alto_local_rulestack_rule resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermPaloAltoLocalRulestackRule : TerraformResource
+public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformResource("azurerm_palo_alto_local_rulestack_rule", name)
 {
-    public AzurermPaloAltoLocalRulestackRule(string name) : base("azurerm_palo_alto_local_rulestack_rule", name)
-    {
-    }
-
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformArgument("action")]
     public required TerraformValue<string> Action
     {
         get => new TerraformReference<string>(this, "action");
@@ -239,7 +210,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// The applications attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Applications is required")]
-    [TerraformArgument("applications")]
     public TerraformList<string>? Applications
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "applications").ResolveNodes(ctx));
@@ -249,7 +219,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    [TerraformArgument("audit_comment")]
     public TerraformValue<string>? AuditComment
     {
         get => new TerraformReference<string>(this, "audit_comment");
@@ -259,7 +228,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The decryption_rule_type attribute.
     /// </summary>
-    [TerraformArgument("decryption_rule_type")]
     public TerraformValue<string>? DecryptionRuleType
     {
         get => new TerraformReference<string>(this, "decryption_rule_type");
@@ -269,7 +237,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -279,7 +246,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -289,7 +255,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -299,7 +264,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The inspection_certificate_id attribute.
     /// </summary>
-    [TerraformArgument("inspection_certificate_id")]
     public TerraformValue<string>? InspectionCertificateId
     {
         get => new TerraformReference<string>(this, "inspection_certificate_id");
@@ -309,7 +273,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The logging_enabled attribute.
     /// </summary>
-    [TerraformArgument("logging_enabled")]
     public TerraformValue<bool>? LoggingEnabled
     {
         get => new TerraformReference<bool>(this, "logging_enabled");
@@ -320,7 +283,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -330,7 +292,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The negate_destination attribute.
     /// </summary>
-    [TerraformArgument("negate_destination")]
     public TerraformValue<bool>? NegateDestination
     {
         get => new TerraformReference<bool>(this, "negate_destination");
@@ -340,7 +301,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The negate_source attribute.
     /// </summary>
-    [TerraformArgument("negate_source")]
     public TerraformValue<bool>? NegateSource
     {
         get => new TerraformReference<bool>(this, "negate_source");
@@ -351,7 +311,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformArgument("priority")]
     public required TerraformValue<double> Priority
     {
         get => new TerraformReference<double>(this, "priority");
@@ -361,7 +320,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformArgument("protocol")]
     public TerraformValue<string>? Protocol
     {
         get => new TerraformReference<string>(this, "protocol");
@@ -371,7 +329,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The protocol_ports attribute.
     /// </summary>
-    [TerraformArgument("protocol_ports")]
     public TerraformList<string>? ProtocolPorts
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocol_ports").ResolveNodes(ctx));
@@ -382,7 +339,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// The rulestack_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
-    [TerraformArgument("rulestack_id")]
     public required TerraformValue<string> RulestackId
     {
         get => new TerraformReference<string>(this, "rulestack_id");
@@ -392,7 +348,6 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -400,38 +355,48 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for category.
-    /// Nesting mode: list
+    /// Category block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
-    [TerraformArgument("category")]
-    public TerraformList<AzurermPaloAltoLocalRulestackRuleCategoryBlock> Category { get; set; } = new();
+    public AzurermPaloAltoLocalRulestackRuleCategoryBlock? Category
+    {
+        get => GetArgument<AzurermPaloAltoLocalRulestackRuleCategoryBlock>("category");
+        set => SetArgument("category", value);
+    }
 
     /// <summary>
-    /// Block for destination.
-    /// Nesting mode: list
+    /// Destination block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    [TerraformArgument("destination")]
-    public required TerraformList<AzurermPaloAltoLocalRulestackRuleDestinationBlock> Destination { get; set; } = new();
+    public required AzurermPaloAltoLocalRulestackRuleDestinationBlock Destination
+    {
+        get => GetRequiredArgument<AzurermPaloAltoLocalRulestackRuleDestinationBlock>("destination");
+        set => SetArgument("destination", value);
+    }
 
     /// <summary>
-    /// Block for source.
-    /// Nesting mode: list
+    /// Source block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    [TerraformArgument("source")]
-    public required TerraformList<AzurermPaloAltoLocalRulestackRuleSourceBlock> Source { get; set; } = new();
+    public required AzurermPaloAltoLocalRulestackRuleSourceBlock Source
+    {
+        get => GetRequiredArgument<AzurermPaloAltoLocalRulestackRuleSourceBlock>("source");
+        set => SetArgument("source", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPaloAltoLocalRulestackRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPaloAltoLocalRulestackRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPaloAltoLocalRulestackRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

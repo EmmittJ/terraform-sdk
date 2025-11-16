@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for contact in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// <summary>
     /// The email attribute.
     /// </summary>
-    [TerraformArgument("email")]
     public TerraformValue<string>? Email
     {
         get => new TerraformReference<string>(this, "email");
@@ -35,7 +25,6 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -45,7 +34,6 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformArgument("url")]
     public TerraformValue<string>? Url
     {
         get => new TerraformReference<string>(this, "url");
@@ -69,7 +57,6 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
     /// The content_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFormat is required")]
-    [TerraformArgument("content_format")]
     public required TerraformValue<string> ContentFormat
     {
         get => new TerraformReference<string>(this, "content_format");
@@ -80,7 +67,6 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
     /// The content_value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentValue is required")]
-    [TerraformArgument("content_value")]
     public required TerraformValue<string> ContentValue
     {
         get => new TerraformReference<string>(this, "content_value");
@@ -103,7 +89,6 @@ public class AzurermApiManagementApiLicenseBlock : TerraformBlock
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -113,7 +98,6 @@ public class AzurermApiManagementApiLicenseBlock : TerraformBlock
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformArgument("url")]
     public TerraformValue<string>? Url
     {
         get => new TerraformReference<string>(this, "url");
@@ -137,7 +121,6 @@ public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
     /// The authorization_server_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationServerName is required")]
-    [TerraformArgument("authorization_server_name")]
     public required TerraformValue<string> AuthorizationServerName
     {
         get => new TerraformReference<string>(this, "authorization_server_name");
@@ -147,7 +130,6 @@ public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    [TerraformArgument("scope")]
     public TerraformValue<string>? Scope
     {
         get => new TerraformReference<string>(this, "scope");
@@ -170,7 +152,6 @@ public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
     /// <summary>
     /// The bearer_token_sending_methods attribute.
     /// </summary>
-    [TerraformArgument("bearer_token_sending_methods")]
     public TerraformSet<string>? BearerTokenSendingMethods
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "bearer_token_sending_methods").ResolveNodes(ctx));
@@ -181,7 +162,6 @@ public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
     /// The openid_provider_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenidProviderName is required")]
-    [TerraformArgument("openid_provider_name")]
     public required TerraformValue<string> OpenidProviderName
     {
         get => new TerraformReference<string>(this, "openid_provider_name");
@@ -205,7 +185,6 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
     /// The header attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Header is required")]
-    [TerraformArgument("header")]
     public required TerraformValue<string> Header
     {
         get => new TerraformReference<string>(this, "header");
@@ -216,7 +195,6 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
     /// The query attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
-    [TerraformArgument("query")]
     public required TerraformValue<string> Query
     {
         get => new TerraformReference<string>(this, "query");
@@ -239,7 +217,6 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -249,7 +226,6 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -259,7 +235,6 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -269,7 +244,6 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -279,20 +253,15 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_api Terraform resource.
 /// Manages a azurerm_api_management_api resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApiManagementApi : TerraformResource
+public partial class AzurermApiManagementApi(string name) : TerraformResource("azurerm_api_management_api", name)
 {
-    public AzurermApiManagementApi(string name) : base("azurerm_api_management_api", name)
-    {
-    }
-
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    [TerraformArgument("api_management_name")]
     public required TerraformValue<string> ApiManagementName
     {
         get => new TerraformReference<string>(this, "api_management_name");
@@ -302,7 +271,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The api_type attribute.
     /// </summary>
-    [TerraformArgument("api_type")]
     public TerraformValue<string> ApiType
     {
         get => new TerraformReference<string>(this, "api_type");
@@ -312,7 +280,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -322,7 +289,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformArgument("display_name")]
     public TerraformValue<string> DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -332,7 +298,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -343,7 +308,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -353,7 +317,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformArgument("path")]
     public TerraformValue<string> Path
     {
         get => new TerraformReference<string>(this, "path");
@@ -363,7 +326,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    [TerraformArgument("protocols")]
     public TerraformSet<string> Protocols
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "protocols").ResolveNodes(ctx));
@@ -374,7 +336,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -385,7 +346,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// The revision attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
-    [TerraformArgument("revision")]
     public required TerraformValue<string> Revision
     {
         get => new TerraformReference<string>(this, "revision");
@@ -395,7 +355,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The revision_description attribute.
     /// </summary>
-    [TerraformArgument("revision_description")]
     public TerraformValue<string>? RevisionDescription
     {
         get => new TerraformReference<string>(this, "revision_description");
@@ -405,7 +364,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The service_url attribute.
     /// </summary>
-    [TerraformArgument("service_url")]
     public TerraformValue<string> ServiceUrl
     {
         get => new TerraformReference<string>(this, "service_url");
@@ -415,7 +373,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The source_api_id attribute.
     /// </summary>
-    [TerraformArgument("source_api_id")]
     public TerraformValue<string>? SourceApiId
     {
         get => new TerraformReference<string>(this, "source_api_id");
@@ -425,7 +382,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
-    [TerraformArgument("subscription_required")]
     public TerraformValue<bool>? SubscriptionRequired
     {
         get => new TerraformReference<bool>(this, "subscription_required");
@@ -435,7 +391,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The terms_of_service_url attribute.
     /// </summary>
-    [TerraformArgument("terms_of_service_url")]
     public TerraformValue<string>? TermsOfServiceUrl
     {
         get => new TerraformReference<string>(this, "terms_of_service_url");
@@ -445,7 +400,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformArgument("version")]
     public TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -455,7 +409,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The version_description attribute.
     /// </summary>
-    [TerraformArgument("version_description")]
     public TerraformValue<string>? VersionDescription
     {
         get => new TerraformReference<string>(this, "version_description");
@@ -465,7 +418,6 @@ public class AzurermApiManagementApi : TerraformResource
     /// <summary>
     /// The version_set_id attribute.
     /// </summary>
-    [TerraformArgument("version_set_id")]
     public TerraformValue<string> VersionSetId
     {
         get => new TerraformReference<string>(this, "version_set_id");
@@ -473,76 +425,72 @@ public class AzurermApiManagementApi : TerraformResource
     }
 
     /// <summary>
-    /// Block for contact.
-    /// Nesting mode: list
+    /// Contact block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Contact block(s) allowed")]
-    [TerraformArgument("contact")]
-    public TerraformList<AzurermApiManagementApiContactBlock> Contact { get; set; } = new();
-
-    /// <summary>
-    /// Block for import.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
-    [TerraformArgument("import")]
-    public TerraformList<AzurermApiManagementApiImportBlock> Import { get; set; } = new();
-
-    /// <summary>
-    /// Block for license.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 License block(s) allowed")]
-    [TerraformArgument("license")]
-    public TerraformList<AzurermApiManagementApiLicenseBlock> License { get; set; } = new();
-
-    /// <summary>
-    /// Block for oauth2_authorization.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oauth2Authorization block(s) allowed")]
-    [TerraformArgument("oauth2_authorization")]
-    public TerraformList<AzurermApiManagementApiOauth2AuthorizationBlock> Oauth2Authorization { get; set; } = new();
-
-    /// <summary>
-    /// Block for openid_authentication.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenidAuthentication block(s) allowed")]
-    [TerraformArgument("openid_authentication")]
-    public TerraformList<AzurermApiManagementApiOpenidAuthenticationBlock> OpenidAuthentication { get; set; } = new();
-
-    /// <summary>
-    /// Block for subscription_key_parameter_names.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubscriptionKeyParameterNames block(s) allowed")]
-    [TerraformArgument("subscription_key_parameter_names")]
-    public TerraformList<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock> SubscriptionKeyParameterNames { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementApiTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The is_current attribute.
-    /// </summary>
-    [TerraformArgument("is_current")]
-    public TerraformValue<bool> IsCurrent
+    public AzurermApiManagementApiContactBlock? Contact
     {
-        get => new TerraformReference<bool>(this, "is_current");
+        get => GetArgument<AzurermApiManagementApiContactBlock>("contact");
+        set => SetArgument("contact", value);
     }
 
     /// <summary>
-    /// The is_online attribute.
+    /// Import block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("is_online")]
-    public TerraformValue<bool> IsOnline
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
+    public AzurermApiManagementApiImportBlock? Import
     {
-        get => new TerraformReference<bool>(this, "is_online");
+        get => GetArgument<AzurermApiManagementApiImportBlock>("import");
+        set => SetArgument("import", value);
+    }
+
+    /// <summary>
+    /// License block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 License block(s) allowed")]
+    public AzurermApiManagementApiLicenseBlock? License
+    {
+        get => GetArgument<AzurermApiManagementApiLicenseBlock>("license");
+        set => SetArgument("license", value);
+    }
+
+    /// <summary>
+    /// Oauth2Authorization block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oauth2Authorization block(s) allowed")]
+    public AzurermApiManagementApiOauth2AuthorizationBlock? Oauth2Authorization
+    {
+        get => GetArgument<AzurermApiManagementApiOauth2AuthorizationBlock>("oauth2_authorization");
+        set => SetArgument("oauth2_authorization", value);
+    }
+
+    /// <summary>
+    /// OpenidAuthentication block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenidAuthentication block(s) allowed")]
+    public AzurermApiManagementApiOpenidAuthenticationBlock? OpenidAuthentication
+    {
+        get => GetArgument<AzurermApiManagementApiOpenidAuthenticationBlock>("openid_authentication");
+        set => SetArgument("openid_authentication", value);
+    }
+
+    /// <summary>
+    /// SubscriptionKeyParameterNames block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubscriptionKeyParameterNames block(s) allowed")]
+    public AzurermApiManagementApiSubscriptionKeyParameterNamesBlock? SubscriptionKeyParameterNames
+    {
+        get => GetArgument<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock>("subscription_key_parameter_names");
+        set => SetArgument("subscription_key_parameter_names", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermApiManagementApiTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementApiTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

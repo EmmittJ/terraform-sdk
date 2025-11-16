@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for permission in .
@@ -25,7 +16,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// <summary>
     /// The actions attribute.
     /// </summary>
-    [TerraformArgument("actions")]
     public TerraformList<string>? Actions
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
@@ -35,7 +25,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// <summary>
     /// The data_actions attribute.
     /// </summary>
-    [TerraformArgument("data_actions")]
     public TerraformSet<string>? DataActions
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_actions").ResolveNodes(ctx));
@@ -45,7 +34,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// <summary>
     /// The not_actions attribute.
     /// </summary>
-    [TerraformArgument("not_actions")]
     public TerraformList<string>? NotActions
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_actions").ResolveNodes(ctx));
@@ -55,7 +43,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// <summary>
     /// The not_data_actions attribute.
     /// </summary>
-    [TerraformArgument("not_data_actions")]
     public TerraformSet<string>? NotDataActions
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "not_data_actions").ResolveNodes(ctx));
@@ -78,7 +65,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -88,7 +74,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -98,7 +83,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -108,7 +92,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -118,18 +101,14 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_managed_hardware_security_module_role_definition Terraform resource.
 /// Manages a azurerm_key_vault_managed_hardware_security_module_role_definition resource.
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : TerraformResource
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(string name) : TerraformResource("azurerm_key_vault_managed_hardware_security_module_role_definition", name)
 {
-    public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(string name) : base("azurerm_key_vault_managed_hardware_security_module_role_definition", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -139,7 +118,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -150,7 +128,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     /// The managed_hsm_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
-    [TerraformArgument("managed_hsm_id")]
     public required TerraformValue<string> ManagedHsmId
     {
         get => new TerraformReference<string>(this, "managed_hsm_id");
@@ -161,7 +138,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -171,7 +147,6 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    [TerraformArgument("role_name")]
     public TerraformValue<string>? RoleName
     {
         get => new TerraformReference<string>(this, "role_name");
@@ -179,35 +154,21 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     }
 
     /// <summary>
-    /// Block for permission.
-    /// Nesting mode: list
+    /// Permission block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("permission")]
-    public TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock> Permission { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The resource_manager_id attribute.
-    /// </summary>
-    [TerraformArgument("resource_manager_id")]
-    public TerraformValue<string> ResourceManagerId
+    public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock? Permission
     {
-        get => new TerraformReference<string>(this, "resource_manager_id");
+        get => GetArgument<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>("permission");
+        set => SetArgument("permission", value);
     }
 
     /// <summary>
-    /// The role_type attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("role_type")]
-    public TerraformValue<string> RoleType
+    public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "role_type");
+        get => GetArgument<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

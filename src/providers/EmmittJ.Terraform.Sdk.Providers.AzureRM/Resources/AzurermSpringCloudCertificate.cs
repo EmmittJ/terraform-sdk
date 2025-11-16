@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_certificate Terraform resource.
 /// Manages a azurerm_spring_cloud_certificate resource.
 /// </summary>
-public class AzurermSpringCloudCertificate : TerraformResource
+public partial class AzurermSpringCloudCertificate(string name) : TerraformResource("azurerm_spring_cloud_certificate", name)
 {
-    public AzurermSpringCloudCertificate(string name) : base("azurerm_spring_cloud_certificate", name)
-    {
-    }
-
     /// <summary>
     /// The certificate_content attribute.
     /// </summary>
-    [TerraformArgument("certificate_content")]
     public TerraformValue<string>? CertificateContent
     {
         get => new TerraformReference<string>(this, "certificate_content");
@@ -76,7 +60,6 @@ public class AzurermSpringCloudCertificate : TerraformResource
     /// <summary>
     /// The exclude_private_key attribute.
     /// </summary>
-    [TerraformArgument("exclude_private_key")]
     public TerraformValue<bool>? ExcludePrivateKey
     {
         get => new TerraformReference<bool>(this, "exclude_private_key");
@@ -86,7 +69,6 @@ public class AzurermSpringCloudCertificate : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -96,7 +78,6 @@ public class AzurermSpringCloudCertificate : TerraformResource
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_certificate_id")]
     public TerraformValue<string>? KeyVaultCertificateId
     {
         get => new TerraformReference<string>(this, "key_vault_certificate_id");
@@ -107,7 +88,6 @@ public class AzurermSpringCloudCertificate : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -118,7 +98,6 @@ public class AzurermSpringCloudCertificate : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -129,7 +108,6 @@ public class AzurermSpringCloudCertificate : TerraformResource
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformArgument("service_name")]
     public required TerraformValue<string> ServiceName
     {
         get => new TerraformReference<string>(this, "service_name");
@@ -137,19 +115,12 @@ public class AzurermSpringCloudCertificate : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudCertificateTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The thumbprint attribute.
-    /// </summary>
-    [TerraformArgument("thumbprint")]
-    public TerraformValue<string> Thumbprint
+    public AzurermSpringCloudCertificateTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "thumbprint");
+        get => GetArgument<AzurermSpringCloudCertificateTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

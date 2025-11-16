@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_subscription_policy_exemption Terraform resource.
 /// Manages a azurerm_subscription_policy_exemption resource.
 /// </summary>
-public class AzurermSubscriptionPolicyExemption : TerraformResource
+public partial class AzurermSubscriptionPolicyExemption(string name) : TerraformResource("azurerm_subscription_policy_exemption", name)
 {
-    public AzurermSubscriptionPolicyExemption(string name) : base("azurerm_subscription_policy_exemption", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -86,7 +69,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformArgument("display_name")]
     public TerraformValue<string>? DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -97,7 +79,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// The exemption_category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExemptionCategory is required")]
-    [TerraformArgument("exemption_category")]
     public required TerraformValue<string> ExemptionCategory
     {
         get => new TerraformReference<string>(this, "exemption_category");
@@ -107,7 +88,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// <summary>
     /// The expires_on attribute.
     /// </summary>
-    [TerraformArgument("expires_on")]
     public TerraformValue<string>? ExpiresOn
     {
         get => new TerraformReference<string>(this, "expires_on");
@@ -117,7 +97,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -127,7 +106,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformArgument("metadata")]
     public TerraformValue<string> Metadata
     {
         get => new TerraformReference<string>(this, "metadata");
@@ -138,7 +116,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -149,7 +126,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// The policy_assignment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
-    [TerraformArgument("policy_assignment_id")]
     public required TerraformValue<string> PolicyAssignmentId
     {
         get => new TerraformReference<string>(this, "policy_assignment_id");
@@ -159,7 +135,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// <summary>
     /// The policy_definition_reference_ids attribute.
     /// </summary>
-    [TerraformArgument("policy_definition_reference_ids")]
     public TerraformList<string>? PolicyDefinitionReferenceIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "policy_definition_reference_ids").ResolveNodes(ctx));
@@ -170,7 +145,6 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    [TerraformArgument("subscription_id")]
     public required TerraformValue<string> SubscriptionId
     {
         get => new TerraformReference<string>(this, "subscription_id");
@@ -178,10 +152,12 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSubscriptionPolicyExemptionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSubscriptionPolicyExemptionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSubscriptionPolicyExemptionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

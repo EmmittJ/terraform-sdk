@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermEventhubAuthorizationRuleDataSourceTimeoutsBlock : Terraform
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermEventhubAuthorizationRuleDataSourceTimeoutsBlock : Terraform
 }
 
 /// <summary>
+/// Represents a azurerm_eventhub_authorization_rule Terraform data source.
 /// Retrieves information about a azurerm_eventhub_authorization_rule.
 /// </summary>
-public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
+public partial class AzurermEventhubAuthorizationRuleDataSource(string name) : TerraformDataSource("azurerm_eventhub_authorization_rule", name)
 {
-    public AzurermEventhubAuthorizationRuleDataSource(string name) : base("azurerm_eventhub_authorization_rule", name)
-    {
-    }
-
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
-    [TerraformArgument("eventhub_name")]
     public required TerraformValue<string> EventhubName
     {
         get => new TerraformReference<string>(this, "eventhub_name");
@@ -57,7 +43,6 @@ public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -67,7 +52,6 @@ public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    [TerraformArgument("listen")]
     public TerraformValue<bool>? Listen
     {
         get => new TerraformReference<bool>(this, "listen");
@@ -77,7 +61,6 @@ public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    [TerraformArgument("manage")]
     public TerraformValue<bool>? Manage
     {
         get => new TerraformReference<bool>(this, "manage");
@@ -88,7 +71,6 @@ public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -99,7 +81,6 @@ public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
     /// The namespace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
-    [TerraformArgument("namespace_name")]
     public required TerraformValue<string> NamespaceName
     {
         get => new TerraformReference<string>(this, "namespace_name");
@@ -110,7 +91,6 @@ public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -120,7 +100,6 @@ public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
     /// <summary>
     /// The send attribute.
     /// </summary>
-    [TerraformArgument("send")]
     public TerraformValue<bool>? Send
     {
         get => new TerraformReference<bool>(this, "send");
@@ -128,64 +107,12 @@ public class AzurermEventhubAuthorizationRuleDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermEventhubAuthorizationRuleDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The primary_connection_string attribute.
-    /// </summary>
-    [TerraformArgument("primary_connection_string")]
-    public TerraformValue<string> PrimaryConnectionString
+    public AzurermEventhubAuthorizationRuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "primary_connection_string");
-    }
-
-    /// <summary>
-    /// The primary_connection_string_alias attribute.
-    /// </summary>
-    [TerraformArgument("primary_connection_string_alias")]
-    public TerraformValue<string> PrimaryConnectionStringAlias
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string_alias");
-    }
-
-    /// <summary>
-    /// The primary_key attribute.
-    /// </summary>
-    [TerraformArgument("primary_key")]
-    public TerraformValue<string> PrimaryKey
-    {
-        get => new TerraformReference<string>(this, "primary_key");
-    }
-
-    /// <summary>
-    /// The secondary_connection_string attribute.
-    /// </summary>
-    [TerraformArgument("secondary_connection_string")]
-    public TerraformValue<string> SecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string");
-    }
-
-    /// <summary>
-    /// The secondary_connection_string_alias attribute.
-    /// </summary>
-    [TerraformArgument("secondary_connection_string_alias")]
-    public TerraformValue<string> SecondaryConnectionStringAlias
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string_alias");
-    }
-
-    /// <summary>
-    /// The secondary_key attribute.
-    /// </summary>
-    [TerraformArgument("secondary_key")]
-    public TerraformValue<string> SecondaryKey
-    {
-        get => new TerraformReference<string>(this, "secondary_key");
+        get => GetArgument<AzurermEventhubAuthorizationRuleDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

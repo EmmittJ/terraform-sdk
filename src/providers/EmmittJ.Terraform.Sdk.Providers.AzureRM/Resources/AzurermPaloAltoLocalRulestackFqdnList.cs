@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_palo_alto_local_rulestack_fqdn_list Terraform resource.
 /// Manages a azurerm_palo_alto_local_rulestack_fqdn_list resource.
 /// </summary>
-public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
+public partial class AzurermPaloAltoLocalRulestackFqdnList(string name) : TerraformResource("azurerm_palo_alto_local_rulestack_fqdn_list", name)
 {
-    public AzurermPaloAltoLocalRulestackFqdnList(string name) : base("azurerm_palo_alto_local_rulestack_fqdn_list", name)
-    {
-    }
-
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    [TerraformArgument("audit_comment")]
     public TerraformValue<string>? AuditComment
     {
         get => new TerraformReference<string>(this, "audit_comment");
@@ -86,7 +69,6 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -97,7 +79,6 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// The fully_qualified_domain_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullyQualifiedDomainNames is required")]
-    [TerraformArgument("fully_qualified_domain_names")]
     public TerraformList<string>? FullyQualifiedDomainNames
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fully_qualified_domain_names").ResolveNodes(ctx));
@@ -107,7 +88,6 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -118,7 +98,6 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -129,7 +108,6 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// The rulestack_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
-    [TerraformArgument("rulestack_id")]
     public required TerraformValue<string> RulestackId
     {
         get => new TerraformReference<string>(this, "rulestack_id");
@@ -137,10 +115,12 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

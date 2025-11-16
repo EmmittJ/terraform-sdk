@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for cors in .
@@ -25,7 +16,6 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// <summary>
     /// The allow_credentials attribute.
     /// </summary>
-    [TerraformArgument("allow_credentials")]
     public TerraformValue<bool>? AllowCredentials
     {
         get => new TerraformReference<bool>(this, "allow_credentials");
@@ -35,7 +25,6 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// <summary>
     /// The allowed_headers attribute.
     /// </summary>
-    [TerraformArgument("allowed_headers")]
     public TerraformList<string>? AllowedHeaders
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
@@ -45,7 +34,6 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
-    [TerraformArgument("allowed_methods")]
     public TerraformList<string>? AllowedMethods
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
@@ -55,7 +43,6 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
-    [TerraformArgument("allowed_origins")]
     public TerraformList<string>? AllowedOrigins
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
@@ -65,7 +52,6 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// <summary>
     /// The max_age_in_seconds attribute.
     /// </summary>
-    [TerraformArgument("max_age_in_seconds")]
     public TerraformValue<double>? MaxAgeInSeconds
     {
         get => new TerraformReference<double>(this, "max_age_in_seconds");
@@ -88,20 +74,32 @@ public class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -125,7 +123,6 @@ public class AzurermHealthcareDicomServiceStorageBlock : TerraformBlock
     /// The file_system_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemName is required")]
-    [TerraformArgument("file_system_name")]
     public required TerraformValue<string> FileSystemName
     {
         get => new TerraformReference<string>(this, "file_system_name");
@@ -136,7 +133,6 @@ public class AzurermHealthcareDicomServiceStorageBlock : TerraformBlock
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformArgument("storage_account_id")]
     public required TerraformValue<string> StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -159,7 +155,6 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -169,7 +164,6 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -179,7 +173,6 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -189,7 +182,6 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -199,19 +191,14 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_healthcare_dicom_service Terraform resource.
 /// Manages a azurerm_healthcare_dicom_service resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermHealthcareDicomService : TerraformResource
+public partial class AzurermHealthcareDicomService(string name) : TerraformResource("azurerm_healthcare_dicom_service", name)
 {
-    public AzurermHealthcareDicomService(string name) : base("azurerm_healthcare_dicom_service", name)
-    {
-    }
-
     /// <summary>
     /// The data_partitions_enabled attribute.
     /// </summary>
-    [TerraformArgument("data_partitions_enabled")]
     public TerraformValue<bool>? DataPartitionsEnabled
     {
         get => new TerraformReference<bool>(this, "data_partitions_enabled");
@@ -221,7 +208,6 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// <summary>
     /// The encryption_key_url attribute.
     /// </summary>
-    [TerraformArgument("encryption_key_url")]
     public TerraformValue<string>? EncryptionKeyUrl
     {
         get => new TerraformReference<string>(this, "encryption_key_url");
@@ -231,7 +217,6 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -242,7 +227,6 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -253,7 +237,6 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -263,7 +246,6 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -273,7 +255,6 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -284,7 +265,6 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformArgument("workspace_id")]
     public required TerraformValue<string> WorkspaceId
     {
         get => new TerraformReference<string>(this, "workspace_id");
@@ -292,61 +272,42 @@ public class AzurermHealthcareDicomService : TerraformResource
     }
 
     /// <summary>
-    /// Block for cors.
-    /// Nesting mode: list
+    /// Cors block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    [TerraformArgument("cors")]
-    public TerraformList<AzurermHealthcareDicomServiceCorsBlock> Cors { get; set; } = new();
+    public AzurermHealthcareDicomServiceCorsBlock? Cors
+    {
+        get => GetArgument<AzurermHealthcareDicomServiceCorsBlock>("cors");
+        set => SetArgument("cors", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermHealthcareDicomServiceIdentityBlock> Identity { get; set; } = new();
+    public AzurermHealthcareDicomServiceIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermHealthcareDicomServiceIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for storage.
-    /// Nesting mode: list
+    /// Storage block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
-    [TerraformArgument("storage")]
-    public TerraformList<AzurermHealthcareDicomServiceStorageBlock> Storage { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermHealthcareDicomServiceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The authentication attribute.
-    /// </summary>
-    [TerraformArgument("authentication")]
-    public TerraformList<object> Authentication
+    public AzurermHealthcareDicomServiceStorageBlock? Storage
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "authentication").ResolveNodes(ctx));
+        get => GetArgument<AzurermHealthcareDicomServiceStorageBlock>("storage");
+        set => SetArgument("storage", value);
     }
 
     /// <summary>
-    /// The private_endpoint attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("private_endpoint")]
-    public TerraformSet<object> PrivateEndpoint
+    public AzurermHealthcareDicomServiceTimeoutsBlock? Timeouts
     {
-        get => TerraformSet<object>.Lazy(ctx => new TerraformReference<TerraformSet<object>>(this, "private_endpoint").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The service_url attribute.
-    /// </summary>
-    [TerraformArgument("service_url")]
-    public TerraformValue<string> ServiceUrl
-    {
-        get => new TerraformReference<string>(this, "service_url");
+        get => GetArgument<AzurermHealthcareDicomServiceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for auto_scale in .
@@ -25,7 +16,6 @@ public class AzurermBatchPoolAutoScaleBlock : TerraformBlock
     /// <summary>
     /// The evaluation_interval attribute.
     /// </summary>
-    [TerraformArgument("evaluation_interval")]
     public TerraformValue<string>? EvaluationInterval
     {
         get => new TerraformReference<string>(this, "evaluation_interval");
@@ -36,7 +26,6 @@ public class AzurermBatchPoolAutoScaleBlock : TerraformBlock
     /// The formula attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Formula is required")]
-    [TerraformArgument("formula")]
     public required TerraformValue<string> Formula
     {
         get => new TerraformReference<string>(this, "formula");
@@ -60,7 +49,6 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformArgument("id")]
     public required TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -71,7 +59,6 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
     /// The store_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoreLocation is required")]
-    [TerraformArgument("store_location")]
     public required TerraformValue<string> StoreLocation
     {
         get => new TerraformReference<string>(this, "store_location");
@@ -81,7 +68,6 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
     /// <summary>
     /// The store_name attribute.
     /// </summary>
-    [TerraformArgument("store_name")]
     public TerraformValue<string>? StoreName
     {
         get => new TerraformReference<string>(this, "store_name");
@@ -91,7 +77,6 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    [TerraformArgument("visibility")]
     public TerraformSet<string>? Visibility
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "visibility").ResolveNodes(ctx));
@@ -114,7 +99,6 @@ public class AzurermBatchPoolContainerConfigurationBlock : TerraformBlock
     /// <summary>
     /// The container_image_names attribute.
     /// </summary>
-    [TerraformArgument("container_image_names")]
     public TerraformSet<string>? ContainerImageNames
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "container_image_names").ResolveNodes(ctx));
@@ -124,17 +108,15 @@ public class AzurermBatchPoolContainerConfigurationBlock : TerraformBlock
     /// <summary>
     /// The container_registries attribute.
     /// </summary>
-    [TerraformArgument("container_registries")]
-    public TerraformList<object>? ContainerRegistries
+    public TerraformList<TerraformMap<object>>? ContainerRegistries
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "container_registries").ResolveNodes(ctx));
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "container_registries").ResolveNodes(ctx));
         set => SetArgument("container_registries", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -157,7 +139,6 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    [TerraformArgument("caching")]
     public TerraformValue<string>? Caching
     {
         get => new TerraformReference<string>(this, "caching");
@@ -168,7 +149,6 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
     /// The disk_size_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
-    [TerraformArgument("disk_size_gb")]
     public required TerraformValue<double> DiskSizeGb
     {
         get => new TerraformReference<double>(this, "disk_size_gb");
@@ -179,7 +159,6 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
     /// The lun attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
-    [TerraformArgument("lun")]
     public required TerraformValue<double> Lun
     {
         get => new TerraformReference<double>(this, "lun");
@@ -189,7 +168,6 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
-    [TerraformArgument("storage_account_type")]
     public TerraformValue<string>? StorageAccountType
     {
         get => new TerraformReference<string>(this, "storage_account_type");
@@ -213,7 +191,6 @@ public class AzurermBatchPoolDiskEncryptionBlock : TerraformBlock
     /// The disk_encryption_target attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskEncryptionTarget is required")]
-    [TerraformArgument("disk_encryption_target")]
     public required TerraformValue<string> DiskEncryptionTarget
     {
         get => new TerraformReference<string>(this, "disk_encryption_target");
@@ -236,7 +213,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
     /// </summary>
-    [TerraformArgument("auto_upgrade_minor_version")]
     public TerraformValue<bool>? AutoUpgradeMinorVersion
     {
         get => new TerraformReference<bool>(this, "auto_upgrade_minor_version");
@@ -246,7 +222,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    [TerraformArgument("automatic_upgrade_enabled")]
     public TerraformValue<bool>? AutomaticUpgradeEnabled
     {
         get => new TerraformReference<bool>(this, "automatic_upgrade_enabled");
@@ -257,7 +232,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -267,7 +241,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    [TerraformArgument("protected_settings")]
     public TerraformValue<string>? ProtectedSettings
     {
         get => new TerraformReference<string>(this, "protected_settings");
@@ -277,7 +250,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// <summary>
     /// The provision_after_extensions attribute.
     /// </summary>
-    [TerraformArgument("provision_after_extensions")]
     public TerraformSet<string>? ProvisionAfterExtensions
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "provision_after_extensions").ResolveNodes(ctx));
@@ -288,7 +260,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformArgument("publisher")]
     public required TerraformValue<string> Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -298,7 +269,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// <summary>
     /// The settings_json attribute.
     /// </summary>
-    [TerraformArgument("settings_json")]
     public TerraformValue<string>? SettingsJson
     {
         get => new TerraformReference<string>(this, "settings_json");
@@ -309,7 +279,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -319,7 +288,6 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
-    [TerraformArgument("type_handler_version")]
     public TerraformValue<string>? TypeHandlerVersion
     {
         get => new TerraformReference<string>(this, "type_handler_version");
@@ -342,7 +310,6 @@ public class AzurermBatchPoolFixedScaleBlock : TerraformBlock
     /// <summary>
     /// The node_deallocation_method attribute.
     /// </summary>
-    [TerraformArgument("node_deallocation_method")]
     public TerraformValue<string>? NodeDeallocationMethod
     {
         get => new TerraformReference<string>(this, "node_deallocation_method");
@@ -352,7 +319,6 @@ public class AzurermBatchPoolFixedScaleBlock : TerraformBlock
     /// <summary>
     /// The resize_timeout attribute.
     /// </summary>
-    [TerraformArgument("resize_timeout")]
     public TerraformValue<string>? ResizeTimeout
     {
         get => new TerraformReference<string>(this, "resize_timeout");
@@ -362,7 +328,6 @@ public class AzurermBatchPoolFixedScaleBlock : TerraformBlock
     /// <summary>
     /// The target_dedicated_nodes attribute.
     /// </summary>
-    [TerraformArgument("target_dedicated_nodes")]
     public TerraformValue<double>? TargetDedicatedNodes
     {
         get => new TerraformReference<double>(this, "target_dedicated_nodes");
@@ -372,7 +337,6 @@ public class AzurermBatchPoolFixedScaleBlock : TerraformBlock
     /// <summary>
     /// The target_low_priority_nodes attribute.
     /// </summary>
-    [TerraformArgument("target_low_priority_nodes")]
     public TerraformValue<double>? TargetLowPriorityNodes
     {
         get => new TerraformReference<double>(this, "target_low_priority_nodes");
@@ -396,7 +360,6 @@ public class AzurermBatchPoolIdentityBlock : TerraformBlock
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    [TerraformArgument("identity_ids")]
     public required TerraformSet<string> IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
@@ -407,7 +370,6 @@ public class AzurermBatchPoolIdentityBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -443,7 +405,6 @@ public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
     /// <summary>
     /// The accelerated_networking_enabled attribute.
     /// </summary>
-    [TerraformArgument("accelerated_networking_enabled")]
     public TerraformValue<bool>? AcceleratedNetworkingEnabled
     {
         get => new TerraformReference<bool>(this, "accelerated_networking_enabled");
@@ -453,7 +414,6 @@ public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
     /// <summary>
     /// The dynamic_vnet_assignment_scope attribute.
     /// </summary>
-    [TerraformArgument("dynamic_vnet_assignment_scope")]
     public TerraformValue<string>? DynamicVnetAssignmentScope
     {
         get => new TerraformReference<string>(this, "dynamic_vnet_assignment_scope");
@@ -463,7 +423,6 @@ public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
     /// <summary>
     /// The public_address_provisioning_type attribute.
     /// </summary>
-    [TerraformArgument("public_address_provisioning_type")]
     public TerraformValue<string>? PublicAddressProvisioningType
     {
         get => new TerraformReference<string>(this, "public_address_provisioning_type");
@@ -473,7 +432,6 @@ public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
-    [TerraformArgument("public_ips")]
     public TerraformSet<string>? PublicIps
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "public_ips").ResolveNodes(ctx));
@@ -483,7 +441,6 @@ public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    [TerraformArgument("subnet_id")]
     public TerraformValue<string>? SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -506,7 +463,6 @@ public class AzurermBatchPoolNodePlacementBlock : TerraformBlock
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    [TerraformArgument("policy")]
     public TerraformValue<string>? Policy
     {
         get => new TerraformReference<string>(this, "policy");
@@ -529,7 +485,6 @@ public class AzurermBatchPoolSecurityProfileBlock : TerraformBlock
     /// <summary>
     /// The host_encryption_enabled attribute.
     /// </summary>
-    [TerraformArgument("host_encryption_enabled")]
     public TerraformValue<bool>? HostEncryptionEnabled
     {
         get => new TerraformReference<bool>(this, "host_encryption_enabled");
@@ -539,7 +494,6 @@ public class AzurermBatchPoolSecurityProfileBlock : TerraformBlock
     /// <summary>
     /// The secure_boot_enabled attribute.
     /// </summary>
-    [TerraformArgument("secure_boot_enabled")]
     public TerraformValue<bool>? SecureBootEnabled
     {
         get => new TerraformReference<bool>(this, "secure_boot_enabled");
@@ -549,7 +503,6 @@ public class AzurermBatchPoolSecurityProfileBlock : TerraformBlock
     /// <summary>
     /// The security_type attribute.
     /// </summary>
-    [TerraformArgument("security_type")]
     public TerraformValue<string>? SecurityType
     {
         get => new TerraformReference<string>(this, "security_type");
@@ -559,7 +512,6 @@ public class AzurermBatchPoolSecurityProfileBlock : TerraformBlock
     /// <summary>
     /// The vtpm_enabled attribute.
     /// </summary>
-    [TerraformArgument("vtpm_enabled")]
     public TerraformValue<bool>? VtpmEnabled
     {
         get => new TerraformReference<bool>(this, "vtpm_enabled");
@@ -583,7 +535,6 @@ public class AzurermBatchPoolStartTaskBlock : TerraformBlock
     /// The command_line attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLine is required")]
-    [TerraformArgument("command_line")]
     public required TerraformValue<string> CommandLine
     {
         get => new TerraformReference<string>(this, "command_line");
@@ -593,7 +544,6 @@ public class AzurermBatchPoolStartTaskBlock : TerraformBlock
     /// <summary>
     /// The common_environment_properties attribute.
     /// </summary>
-    [TerraformArgument("common_environment_properties")]
     public TerraformMap<string>? CommonEnvironmentProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "common_environment_properties").ResolveNodes(ctx));
@@ -603,7 +553,6 @@ public class AzurermBatchPoolStartTaskBlock : TerraformBlock
     /// <summary>
     /// The task_retry_maximum attribute.
     /// </summary>
-    [TerraformArgument("task_retry_maximum")]
     public TerraformValue<double>? TaskRetryMaximum
     {
         get => new TerraformReference<double>(this, "task_retry_maximum");
@@ -613,7 +562,6 @@ public class AzurermBatchPoolStartTaskBlock : TerraformBlock
     /// <summary>
     /// The wait_for_success attribute.
     /// </summary>
-    [TerraformArgument("wait_for_success")]
     public TerraformValue<bool>? WaitForSuccess
     {
         get => new TerraformReference<bool>(this, "wait_for_success");
@@ -636,7 +584,6 @@ public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string>? Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -646,7 +593,6 @@ public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
     /// <summary>
     /// The offer attribute.
     /// </summary>
-    [TerraformArgument("offer")]
     public TerraformValue<string>? Offer
     {
         get => new TerraformReference<string>(this, "offer");
@@ -656,7 +602,6 @@ public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    [TerraformArgument("publisher")]
     public TerraformValue<string>? Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -666,7 +611,6 @@ public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformArgument("sku")]
     public TerraformValue<string>? Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -676,7 +620,6 @@ public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformArgument("version")]
     public TerraformValue<string>? Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -699,7 +642,6 @@ public class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlock
     /// <summary>
     /// The node_fill_type attribute.
     /// </summary>
-    [TerraformArgument("node_fill_type")]
     public TerraformValue<string> NodeFillType
     {
         get => new TerraformReference<string>(this, "node_fill_type");
@@ -722,7 +664,6 @@ public class AzurermBatchPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -732,7 +673,6 @@ public class AzurermBatchPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -742,7 +682,6 @@ public class AzurermBatchPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -752,7 +691,6 @@ public class AzurermBatchPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -776,7 +714,6 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     /// The elevation_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElevationLevel is required")]
-    [TerraformArgument("elevation_level")]
     public required TerraformValue<string> ElevationLevel
     {
         get => new TerraformReference<string>(this, "elevation_level");
@@ -787,7 +724,6 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -798,7 +734,6 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    [TerraformArgument("password")]
     public required TerraformValue<string> Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -821,7 +756,6 @@ public class AzurermBatchPoolWindowsBlock : TerraformBlock
     /// <summary>
     /// The enable_automatic_updates attribute.
     /// </summary>
-    [TerraformArgument("enable_automatic_updates")]
     public TerraformValue<bool>? EnableAutomaticUpdates
     {
         get => new TerraformReference<bool>(this, "enable_automatic_updates");
@@ -831,20 +765,15 @@ public class AzurermBatchPoolWindowsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_batch_pool Terraform resource.
 /// Manages a azurerm_batch_pool resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermBatchPool : TerraformResource
+public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_batch_pool", name)
 {
-    public AzurermBatchPool(string name) : base("azurerm_batch_pool", name)
-    {
-    }
-
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformArgument("account_name")]
     public required TerraformValue<string> AccountName
     {
         get => new TerraformReference<string>(this, "account_name");
@@ -854,7 +783,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformArgument("display_name")]
     public TerraformValue<string>? DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -864,7 +792,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -874,7 +801,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The inter_node_communication attribute.
     /// </summary>
-    [TerraformArgument("inter_node_communication")]
     public TerraformValue<string>? InterNodeCommunication
     {
         get => new TerraformReference<string>(this, "inter_node_communication");
@@ -884,7 +810,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    [TerraformArgument("license_type")]
     public TerraformValue<string>? LicenseType
     {
         get => new TerraformReference<string>(this, "license_type");
@@ -894,7 +819,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The max_tasks_per_node attribute.
     /// </summary>
-    [TerraformArgument("max_tasks_per_node")]
     public TerraformValue<double>? MaxTasksPerNode
     {
         get => new TerraformReference<double>(this, "max_tasks_per_node");
@@ -904,7 +828,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformArgument("metadata")]
     public TerraformMap<string>? Metadata
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
@@ -915,7 +838,6 @@ public class AzurermBatchPool : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -926,7 +848,6 @@ public class AzurermBatchPool : TerraformResource
     /// The node_agent_sku_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeAgentSkuId is required")]
-    [TerraformArgument("node_agent_sku_id")]
     public required TerraformValue<string> NodeAgentSkuId
     {
         get => new TerraformReference<string>(this, "node_agent_sku_id");
@@ -936,7 +857,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The os_disk_placement attribute.
     /// </summary>
-    [TerraformArgument("os_disk_placement")]
     public TerraformValue<string>? OsDiskPlacement
     {
         get => new TerraformReference<string>(this, "os_disk_placement");
@@ -947,7 +867,6 @@ public class AzurermBatchPool : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -957,7 +876,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The stop_pending_resize_operation attribute.
     /// </summary>
-    [TerraformArgument("stop_pending_resize_operation")]
     public TerraformValue<bool>? StopPendingResizeOperation
     {
         get => new TerraformReference<bool>(this, "stop_pending_resize_operation");
@@ -967,7 +885,6 @@ public class AzurermBatchPool : TerraformResource
     /// <summary>
     /// The target_node_communication_mode attribute.
     /// </summary>
-    [TerraformArgument("target_node_communication_mode")]
     public TerraformValue<string>? TargetNodeCommunicationMode
     {
         get => new TerraformReference<string>(this, "target_node_communication_mode");
@@ -978,7 +895,6 @@ public class AzurermBatchPool : TerraformResource
     /// The vm_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
-    [TerraformArgument("vm_size")]
     public required TerraformValue<string> VmSize
     {
         get => new TerraformReference<string>(this, "vm_size");
@@ -986,139 +902,176 @@ public class AzurermBatchPool : TerraformResource
     }
 
     /// <summary>
-    /// Block for auto_scale.
-    /// Nesting mode: list
+    /// AutoScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScale block(s) allowed")]
-    [TerraformArgument("auto_scale")]
-    public TerraformList<AzurermBatchPoolAutoScaleBlock> AutoScale { get; set; } = new();
+    public AzurermBatchPoolAutoScaleBlock? AutoScale
+    {
+        get => GetArgument<AzurermBatchPoolAutoScaleBlock>("auto_scale");
+        set => SetArgument("auto_scale", value);
+    }
 
     /// <summary>
-    /// Block for certificate.
-    /// Nesting mode: list
+    /// Certificate block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("certificate")]
-    public TerraformList<AzurermBatchPoolCertificateBlock> Certificate { get; set; } = new();
+    public AzurermBatchPoolCertificateBlock? Certificate
+    {
+        get => GetArgument<AzurermBatchPoolCertificateBlock>("certificate");
+        set => SetArgument("certificate", value);
+    }
 
     /// <summary>
-    /// Block for container_configuration.
-    /// Nesting mode: list
+    /// ContainerConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerConfiguration block(s) allowed")]
-    [TerraformArgument("container_configuration")]
-    public TerraformList<AzurermBatchPoolContainerConfigurationBlock> ContainerConfiguration { get; set; } = new();
+    public AzurermBatchPoolContainerConfigurationBlock? ContainerConfiguration
+    {
+        get => GetArgument<AzurermBatchPoolContainerConfigurationBlock>("container_configuration");
+        set => SetArgument("container_configuration", value);
+    }
 
     /// <summary>
-    /// Block for data_disks.
-    /// Nesting mode: list
+    /// DataDisks block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("data_disks")]
-    public TerraformList<AzurermBatchPoolDataDisksBlock> DataDisks { get; set; } = new();
+    public AzurermBatchPoolDataDisksBlock? DataDisks
+    {
+        get => GetArgument<AzurermBatchPoolDataDisksBlock>("data_disks");
+        set => SetArgument("data_disks", value);
+    }
 
     /// <summary>
-    /// Block for disk_encryption.
-    /// Nesting mode: list
+    /// DiskEncryption block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("disk_encryption")]
-    public TerraformList<AzurermBatchPoolDiskEncryptionBlock> DiskEncryption { get; set; } = new();
+    public AzurermBatchPoolDiskEncryptionBlock? DiskEncryption
+    {
+        get => GetArgument<AzurermBatchPoolDiskEncryptionBlock>("disk_encryption");
+        set => SetArgument("disk_encryption", value);
+    }
 
     /// <summary>
-    /// Block for extensions.
-    /// Nesting mode: list
+    /// Extensions block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("extensions")]
-    public TerraformList<AzurermBatchPoolExtensionsBlock> Extensions { get; set; } = new();
+    public AzurermBatchPoolExtensionsBlock? Extensions
+    {
+        get => GetArgument<AzurermBatchPoolExtensionsBlock>("extensions");
+        set => SetArgument("extensions", value);
+    }
 
     /// <summary>
-    /// Block for fixed_scale.
-    /// Nesting mode: list
+    /// FixedScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FixedScale block(s) allowed")]
-    [TerraformArgument("fixed_scale")]
-    public TerraformList<AzurermBatchPoolFixedScaleBlock> FixedScale { get; set; } = new();
+    public AzurermBatchPoolFixedScaleBlock? FixedScale
+    {
+        get => GetArgument<AzurermBatchPoolFixedScaleBlock>("fixed_scale");
+        set => SetArgument("fixed_scale", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermBatchPoolIdentityBlock> Identity { get; set; } = new();
+    public AzurermBatchPoolIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermBatchPoolIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for mount.
-    /// Nesting mode: list
+    /// Mount block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("mount")]
-    public TerraformList<AzurermBatchPoolMountBlock> Mount { get; set; } = new();
+    public AzurermBatchPoolMountBlock? Mount
+    {
+        get => GetArgument<AzurermBatchPoolMountBlock>("mount");
+        set => SetArgument("mount", value);
+    }
 
     /// <summary>
-    /// Block for network_configuration.
-    /// Nesting mode: list
+    /// NetworkConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
-    [TerraformArgument("network_configuration")]
-    public TerraformList<AzurermBatchPoolNetworkConfigurationBlock> NetworkConfiguration { get; set; } = new();
+    public AzurermBatchPoolNetworkConfigurationBlock? NetworkConfiguration
+    {
+        get => GetArgument<AzurermBatchPoolNetworkConfigurationBlock>("network_configuration");
+        set => SetArgument("network_configuration", value);
+    }
 
     /// <summary>
-    /// Block for node_placement.
-    /// Nesting mode: list
+    /// NodePlacement block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("node_placement")]
-    public TerraformList<AzurermBatchPoolNodePlacementBlock> NodePlacement { get; set; } = new();
+    public AzurermBatchPoolNodePlacementBlock? NodePlacement
+    {
+        get => GetArgument<AzurermBatchPoolNodePlacementBlock>("node_placement");
+        set => SetArgument("node_placement", value);
+    }
 
     /// <summary>
-    /// Block for security_profile.
-    /// Nesting mode: list
+    /// SecurityProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
-    [TerraformArgument("security_profile")]
-    public TerraformList<AzurermBatchPoolSecurityProfileBlock> SecurityProfile { get; set; } = new();
+    public AzurermBatchPoolSecurityProfileBlock? SecurityProfile
+    {
+        get => GetArgument<AzurermBatchPoolSecurityProfileBlock>("security_profile");
+        set => SetArgument("security_profile", value);
+    }
 
     /// <summary>
-    /// Block for start_task.
-    /// Nesting mode: list
+    /// StartTask block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StartTask block(s) allowed")]
-    [TerraformArgument("start_task")]
-    public TerraformList<AzurermBatchPoolStartTaskBlock> StartTask { get; set; } = new();
+    public AzurermBatchPoolStartTaskBlock? StartTask
+    {
+        get => GetArgument<AzurermBatchPoolStartTaskBlock>("start_task");
+        set => SetArgument("start_task", value);
+    }
 
     /// <summary>
-    /// Block for storage_image_reference.
-    /// Nesting mode: list
+    /// StorageImageReference block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageImageReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageImageReference block(s) allowed")]
-    [TerraformArgument("storage_image_reference")]
-    public required TerraformList<AzurermBatchPoolStorageImageReferenceBlock> StorageImageReference { get; set; } = new();
+    public required AzurermBatchPoolStorageImageReferenceBlock StorageImageReference
+    {
+        get => GetRequiredArgument<AzurermBatchPoolStorageImageReferenceBlock>("storage_image_reference");
+        set => SetArgument("storage_image_reference", value);
+    }
 
     /// <summary>
-    /// Block for task_scheduling_policy.
-    /// Nesting mode: list
+    /// TaskSchedulingPolicy block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("task_scheduling_policy")]
-    public TerraformList<AzurermBatchPoolTaskSchedulingPolicyBlock> TaskSchedulingPolicy { get; set; } = new();
+    public AzurermBatchPoolTaskSchedulingPolicyBlock? TaskSchedulingPolicy
+    {
+        get => GetArgument<AzurermBatchPoolTaskSchedulingPolicyBlock>("task_scheduling_policy");
+        set => SetArgument("task_scheduling_policy", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBatchPoolTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermBatchPoolTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermBatchPoolTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for user_accounts.
-    /// Nesting mode: list
+    /// UserAccounts block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("user_accounts")]
-    public TerraformList<AzurermBatchPoolUserAccountsBlock> UserAccounts { get; set; } = new();
+    public AzurermBatchPoolUserAccountsBlock? UserAccounts
+    {
+        get => GetArgument<AzurermBatchPoolUserAccountsBlock>("user_accounts");
+        set => SetArgument("user_accounts", value);
+    }
 
     /// <summary>
-    /// Block for windows.
-    /// Nesting mode: list
+    /// Windows block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("windows")]
-    public TerraformList<AzurermBatchPoolWindowsBlock> Windows { get; set; } = new();
+    public AzurermBatchPoolWindowsBlock? Windows
+    {
+        get => GetArgument<AzurermBatchPoolWindowsBlock>("windows");
+        set => SetArgument("windows", value);
+    }
 
 }

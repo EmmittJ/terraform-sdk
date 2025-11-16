@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAutomationAccountDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermAutomationAccountDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_automation_account Terraform data source.
 /// Retrieves information about a azurerm_automation_account.
 /// </summary>
-public class AzurermAutomationAccountDataSource : TerraformDataSource
+public partial class AzurermAutomationAccountDataSource(string name) : TerraformDataSource("azurerm_automation_account", name)
 {
-    public AzurermAutomationAccountDataSource(string name) : base("azurerm_automation_account", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermAutomationAccountDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermAutomationAccountDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -76,64 +60,12 @@ public class AzurermAutomationAccountDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAutomationAccountDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The endpoint attribute.
-    /// </summary>
-    [TerraformArgument("endpoint")]
-    public TerraformValue<string> Endpoint
+    public AzurermAutomationAccountDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
-
-    /// <summary>
-    /// The hybrid_service_url attribute.
-    /// </summary>
-    [TerraformArgument("hybrid_service_url")]
-    public TerraformValue<string> HybridServiceUrl
-    {
-        get => new TerraformReference<string>(this, "hybrid_service_url");
-    }
-
-    /// <summary>
-    /// The identity attribute.
-    /// </summary>
-    [TerraformArgument("identity")]
-    public TerraformList<object> Identity
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "identity").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The primary_key attribute.
-    /// </summary>
-    [TerraformArgument("primary_key")]
-    public TerraformValue<string> PrimaryKey
-    {
-        get => new TerraformReference<string>(this, "primary_key");
-    }
-
-    /// <summary>
-    /// The private_endpoint_connection attribute.
-    /// </summary>
-    [TerraformArgument("private_endpoint_connection")]
-    public TerraformList<object> PrivateEndpointConnection
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "private_endpoint_connection").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The secondary_key attribute.
-    /// </summary>
-    [TerraformArgument("secondary_key")]
-    public TerraformValue<string> SecondaryKey
-    {
-        get => new TerraformReference<string>(this, "secondary_key");
+        get => GetArgument<AzurermAutomationAccountDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

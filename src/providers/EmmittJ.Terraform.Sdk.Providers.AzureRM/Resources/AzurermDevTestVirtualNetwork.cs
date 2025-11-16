@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for subnet in .
@@ -22,11 +13,17 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "subnet";
 
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
 
     /// <summary>
     /// The use_in_virtual_machine_creation attribute.
     /// </summary>
-    [TerraformArgument("use_in_virtual_machine_creation")]
     public TerraformValue<string>? UseInVirtualMachineCreation
     {
         get => new TerraformReference<string>(this, "use_in_virtual_machine_creation");
@@ -36,7 +33,6 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
     /// <summary>
     /// The use_public_ip_address attribute.
     /// </summary>
-    [TerraformArgument("use_public_ip_address")]
     public TerraformValue<string>? UsePublicIpAddress
     {
         get => new TerraformReference<string>(this, "use_public_ip_address");
@@ -59,7 +55,6 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +64,6 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +73,6 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +82,6 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,19 +91,14 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dev_test_virtual_network Terraform resource.
 /// Manages a azurerm_dev_test_virtual_network resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDevTestVirtualNetwork : TerraformResource
+public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResource("azurerm_dev_test_virtual_network", name)
 {
-    public AzurermDevTestVirtualNetwork(string name) : base("azurerm_dev_test_virtual_network", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -121,7 +108,6 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -132,7 +118,6 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     /// The lab_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
-    [TerraformArgument("lab_name")]
     public required TerraformValue<string> LabName
     {
         get => new TerraformReference<string>(this, "lab_name");
@@ -143,7 +128,6 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -154,7 +138,6 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -164,7 +147,6 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -172,27 +154,22 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     }
 
     /// <summary>
-    /// Block for subnet.
-    /// Nesting mode: list
+    /// Subnet block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
-    [TerraformArgument("subnet")]
-    public TerraformList<AzurermDevTestVirtualNetworkSubnetBlock> Subnet { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDevTestVirtualNetworkTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The unique_identifier attribute.
-    /// </summary>
-    [TerraformArgument("unique_identifier")]
-    public TerraformValue<string> UniqueIdentifier
+    public AzurermDevTestVirtualNetworkSubnetBlock? Subnet
     {
-        get => new TerraformReference<string>(this, "unique_identifier");
+        get => GetArgument<AzurermDevTestVirtualNetworkSubnetBlock>("subnet");
+        set => SetArgument("subnet", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermDevTestVirtualNetworkTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDevTestVirtualNetworkTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

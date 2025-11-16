@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermBotConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermBotConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermBotConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermBotConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermBotConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_bot_connection Terraform resource.
 /// Manages a azurerm_bot_connection resource.
 /// </summary>
-public class AzurermBotConnection : TerraformResource
+public partial class AzurermBotConnection(string name) : TerraformResource("azurerm_bot_connection", name)
 {
-    public AzurermBotConnection(string name) : base("azurerm_bot_connection", name)
-    {
-    }
-
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    [TerraformArgument("bot_name")]
     public required TerraformValue<string> BotName
     {
         get => new TerraformReference<string>(this, "bot_name");
@@ -88,7 +71,6 @@ public class AzurermBotConnection : TerraformResource
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    [TerraformArgument("client_id")]
     public required TerraformValue<string> ClientId
     {
         get => new TerraformReference<string>(this, "client_id");
@@ -99,7 +81,6 @@ public class AzurermBotConnection : TerraformResource
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    [TerraformArgument("client_secret")]
     public required TerraformValue<string> ClientSecret
     {
         get => new TerraformReference<string>(this, "client_secret");
@@ -109,7 +90,6 @@ public class AzurermBotConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -120,7 +100,6 @@ public class AzurermBotConnection : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -131,7 +110,6 @@ public class AzurermBotConnection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -141,7 +119,6 @@ public class AzurermBotConnection : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -152,7 +129,6 @@ public class AzurermBotConnection : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -162,7 +138,6 @@ public class AzurermBotConnection : TerraformResource
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    [TerraformArgument("scopes")]
     public TerraformValue<string>? Scopes
     {
         get => new TerraformReference<string>(this, "scopes");
@@ -173,7 +148,6 @@ public class AzurermBotConnection : TerraformResource
     /// The service_provider_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProviderName is required")]
-    [TerraformArgument("service_provider_name")]
     public required TerraformValue<string> ServiceProviderName
     {
         get => new TerraformReference<string>(this, "service_provider_name");
@@ -181,10 +155,12 @@ public class AzurermBotConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBotConnectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermBotConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermBotConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

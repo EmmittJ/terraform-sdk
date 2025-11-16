@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermDnsMxRecordDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermDnsMxRecordDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dns_mx_record Terraform data source.
 /// Retrieves information about a azurerm_dns_mx_record.
 /// </summary>
-public class AzurermDnsMxRecordDataSource : TerraformDataSource
+public partial class AzurermDnsMxRecordDataSource(string name) : TerraformDataSource("azurerm_dns_mx_record", name)
 {
-    public AzurermDnsMxRecordDataSource(string name) : base("azurerm_dns_mx_record", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -56,7 +42,6 @@ public class AzurermDnsMxRecordDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -67,7 +52,6 @@ public class AzurermDnsMxRecordDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -78,7 +62,6 @@ public class AzurermDnsMxRecordDataSource : TerraformDataSource
     /// The zone_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
-    [TerraformArgument("zone_name")]
     public required TerraformValue<string> ZoneName
     {
         get => new TerraformReference<string>(this, "zone_name");
@@ -86,46 +69,12 @@ public class AzurermDnsMxRecordDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDnsMxRecordDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The fqdn attribute.
-    /// </summary>
-    [TerraformArgument("fqdn")]
-    public TerraformValue<string> Fqdn
+    public AzurermDnsMxRecordDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
-
-    /// <summary>
-    /// The record attribute.
-    /// </summary>
-    [TerraformArgument("record")]
-    public TerraformSet<object> Record
-    {
-        get => TerraformSet<object>.Lazy(ctx => new TerraformReference<TerraformSet<object>>(this, "record").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The ttl attribute.
-    /// </summary>
-    [TerraformArgument("ttl")]
-    public TerraformValue<double> Ttl
-    {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<AzurermDnsMxRecordDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

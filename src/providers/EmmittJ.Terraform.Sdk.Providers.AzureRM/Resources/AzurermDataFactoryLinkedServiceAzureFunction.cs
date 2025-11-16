@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for key_vault_key in .
@@ -26,7 +17,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock : Terr
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformArgument("linked_service_name")]
     public required TerraformValue<string> LinkedServiceName
     {
         get => new TerraformReference<string>(this, "linked_service_name");
@@ -37,7 +27,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock : Terr
     /// The secret_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
-    [TerraformArgument("secret_name")]
     public required TerraformValue<string> SecretName
     {
         get => new TerraformReference<string>(this, "secret_name");
@@ -60,7 +49,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,19 +85,14 @@ public class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_linked_service_azure_function Terraform resource.
 /// Manages a azurerm_data_factory_linked_service_azure_function resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
+public partial class AzurermDataFactoryLinkedServiceAzureFunction(string name) : TerraformResource("azurerm_data_factory_linked_service_azure_function", name)
 {
-    public AzurermDataFactoryLinkedServiceAzureFunction(string name) : base("azurerm_data_factory_linked_service_azure_function", name)
-    {
-    }
-
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -122,7 +102,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -133,7 +112,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -143,7 +121,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -153,7 +130,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -163,7 +139,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    [TerraformArgument("integration_runtime_name")]
     public TerraformValue<string>? IntegrationRuntimeName
     {
         get => new TerraformReference<string>(this, "integration_runtime_name");
@@ -173,7 +148,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// <summary>
     /// The key attribute.
     /// </summary>
-    [TerraformArgument("key")]
     public TerraformValue<string>? Key
     {
         get => new TerraformReference<string>(this, "key");
@@ -184,7 +158,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -194,7 +167,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -205,7 +177,6 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformArgument("url")]
     public required TerraformValue<string> Url
     {
         get => new TerraformReference<string>(this, "url");
@@ -213,18 +184,22 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     }
 
     /// <summary>
-    /// Block for key_vault_key.
-    /// Nesting mode: list
+    /// KeyVaultKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultKey block(s) allowed")]
-    [TerraformArgument("key_vault_key")]
-    public TerraformList<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock> KeyVaultKey { get; set; } = new();
+    public AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock? KeyVaultKey
+    {
+        get => GetArgument<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock>("key_vault_key");
+        set => SetArgument("key_vault_key", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

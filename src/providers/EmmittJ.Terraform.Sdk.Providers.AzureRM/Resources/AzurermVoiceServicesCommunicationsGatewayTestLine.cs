@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock : Te
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock : Te
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock : Te
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock : Te
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock : Te
 }
 
 /// <summary>
+/// Represents a azurerm_voice_services_communications_gateway_test_line Terraform resource.
 /// Manages a azurerm_voice_services_communications_gateway_test_line resource.
 /// </summary>
-public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResource
+public partial class AzurermVoiceServicesCommunicationsGatewayTestLine(string name) : TerraformResource("azurerm_voice_services_communications_gateway_test_line", name)
 {
-    public AzurermVoiceServicesCommunicationsGatewayTestLine(string name) : base("azurerm_voice_services_communications_gateway_test_line", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -98,7 +80,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -109,7 +90,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     /// The phone_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
-    [TerraformArgument("phone_number")]
     public required TerraformValue<string> PhoneNumber
     {
         get => new TerraformReference<string>(this, "phone_number");
@@ -120,7 +100,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     /// The purpose attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Purpose is required")]
-    [TerraformArgument("purpose")]
     public required TerraformValue<string> Purpose
     {
         get => new TerraformReference<string>(this, "purpose");
@@ -130,7 +109,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -141,7 +119,6 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     /// The voice_services_communications_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceServicesCommunicationsGatewayId is required")]
-    [TerraformArgument("voice_services_communications_gateway_id")]
     public required TerraformValue<string> VoiceServicesCommunicationsGatewayId
     {
         get => new TerraformReference<string>(this, "voice_services_communications_gateway_id");
@@ -149,10 +126,12 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

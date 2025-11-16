@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_netapp_volume_quota_rule Terraform data source.
 /// Retrieves information about a azurerm_netapp_volume_quota_rule.
 /// </summary>
-public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
+public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : TerraformDataSource("azurerm_netapp_volume_quota_rule", name)
 {
-    public AzurermNetappVolumeQuotaRuleDataSource(string name) : base("azurerm_netapp_volume_quota_rule", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     /// The volume_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
-    [TerraformArgument("volume_id")]
     public required TerraformValue<string> VolumeId
     {
         get => new TerraformReference<string>(this, "volume_id");
@@ -76,46 +60,12 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
+    public AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The quota_size_in_kib attribute.
-    /// </summary>
-    [TerraformArgument("quota_size_in_kib")]
-    public TerraformValue<double> QuotaSizeInKib
-    {
-        get => new TerraformReference<double>(this, "quota_size_in_kib");
-    }
-
-    /// <summary>
-    /// The quota_target attribute.
-    /// </summary>
-    [TerraformArgument("quota_target")]
-    public TerraformValue<string> QuotaTarget
-    {
-        get => new TerraformReference<string>(this, "quota_target");
-    }
-
-    /// <summary>
-    /// The quota_type attribute.
-    /// </summary>
-    [TerraformArgument("quota_type")]
-    public TerraformValue<string> QuotaType
-    {
-        get => new TerraformReference<string>(this, "quota_type");
+        get => GetArgument<AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

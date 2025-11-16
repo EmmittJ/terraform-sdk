@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for hub_profile in .
@@ -27,14 +18,27 @@ public class AzurermKubernetesFleetManagerHubProfileBlock : TerraformBlock
     /// The dns_prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsPrefix is required")]
-    [TerraformArgument("dns_prefix")]
     public required TerraformValue<string> DnsPrefix
     {
         get => new TerraformReference<string>(this, "dns_prefix");
         set => SetArgument("dns_prefix", value);
     }
 
+    /// <summary>
+    /// The fqdn attribute.
+    /// </summary>
+    public TerraformValue<string> Fqdn
+    {
+        get => new TerraformReference<string>(this, "fqdn");
+    }
 
+    /// <summary>
+    /// The kubernetes_version attribute.
+    /// </summary>
+    public TerraformValue<string> KubernetesVersion
+    {
+        get => new TerraformReference<string>(this, "kubernetes_version");
+    }
 
 }
 
@@ -52,7 +56,6 @@ public class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -62,7 +65,6 @@ public class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -72,7 +74,6 @@ public class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -82,7 +83,6 @@ public class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -92,19 +92,14 @@ public class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_kubernetes_fleet_manager Terraform resource.
 /// Manages a azurerm_kubernetes_fleet_manager resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermKubernetesFleetManager : TerraformResource
+public partial class AzurermKubernetesFleetManager(string name) : TerraformResource("azurerm_kubernetes_fleet_manager", name)
 {
-    public AzurermKubernetesFleetManager(string name) : base("azurerm_kubernetes_fleet_manager", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -115,7 +110,6 @@ public class AzurermKubernetesFleetManager : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -126,7 +120,6 @@ public class AzurermKubernetesFleetManager : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -137,7 +130,6 @@ public class AzurermKubernetesFleetManager : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -147,7 +139,6 @@ public class AzurermKubernetesFleetManager : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -155,19 +146,23 @@ public class AzurermKubernetesFleetManager : TerraformResource
     }
 
     /// <summary>
-    /// Block for hub_profile.
-    /// Nesting mode: list
+    /// HubProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HubProfile block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    [TerraformArgument("hub_profile")]
-    public TerraformList<AzurermKubernetesFleetManagerHubProfileBlock> HubProfile { get; set; } = new();
+    public AzurermKubernetesFleetManagerHubProfileBlock? HubProfile
+    {
+        get => GetArgument<AzurermKubernetesFleetManagerHubProfileBlock>("hub_profile");
+        set => SetArgument("hub_profile", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKubernetesFleetManagerTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermKubernetesFleetManagerTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermKubernetesFleetManagerTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

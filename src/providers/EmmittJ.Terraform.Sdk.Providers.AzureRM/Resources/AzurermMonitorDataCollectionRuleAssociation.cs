@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock : Terrafor
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock : Terrafor
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock : Terrafor
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock : Terrafor
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock : Terrafor
 }
 
 /// <summary>
+/// Represents a azurerm_monitor_data_collection_rule_association Terraform resource.
 /// Manages a azurerm_monitor_data_collection_rule_association resource.
 /// </summary>
-public class AzurermMonitorDataCollectionRuleAssociation : TerraformResource
+public partial class AzurermMonitorDataCollectionRuleAssociation(string name) : TerraformResource("azurerm_monitor_data_collection_rule_association", name)
 {
-    public AzurermMonitorDataCollectionRuleAssociation(string name) : base("azurerm_monitor_data_collection_rule_association", name)
-    {
-    }
-
     /// <summary>
     /// The data_collection_endpoint_id attribute.
     /// </summary>
-    [TerraformArgument("data_collection_endpoint_id")]
     public TerraformValue<string>? DataCollectionEndpointId
     {
         get => new TerraformReference<string>(this, "data_collection_endpoint_id");
@@ -86,7 +69,6 @@ public class AzurermMonitorDataCollectionRuleAssociation : TerraformResource
     /// <summary>
     /// The data_collection_rule_id attribute.
     /// </summary>
-    [TerraformArgument("data_collection_rule_id")]
     public TerraformValue<string>? DataCollectionRuleId
     {
         get => new TerraformReference<string>(this, "data_collection_rule_id");
@@ -96,7 +78,6 @@ public class AzurermMonitorDataCollectionRuleAssociation : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -106,7 +87,6 @@ public class AzurermMonitorDataCollectionRuleAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -116,7 +96,6 @@ public class AzurermMonitorDataCollectionRuleAssociation : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -127,7 +106,6 @@ public class AzurermMonitorDataCollectionRuleAssociation : TerraformResource
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    [TerraformArgument("target_resource_id")]
     public required TerraformValue<string> TargetResourceId
     {
         get => new TerraformReference<string>(this, "target_resource_id");
@@ -135,10 +113,12 @@ public class AzurermMonitorDataCollectionRuleAssociation : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

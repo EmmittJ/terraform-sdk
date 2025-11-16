@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermApiManagementGatewayDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_gateway Terraform data source.
 /// Retrieves information about a azurerm_api_management_gateway.
 /// </summary>
-public class AzurermApiManagementGatewayDataSource : TerraformDataSource
+public partial class AzurermApiManagementGatewayDataSource(string name) : TerraformDataSource("azurerm_api_management_gateway", name)
 {
-    public AzurermApiManagementGatewayDataSource(string name) : base("azurerm_api_management_gateway", name)
-    {
-    }
-
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
-    [TerraformArgument("api_management_id")]
     public required TerraformValue<string> ApiManagementId
     {
         get => new TerraformReference<string>(this, "api_management_id");
@@ -57,7 +43,6 @@ public class AzurermApiManagementGatewayDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -68,7 +53,6 @@ public class AzurermApiManagementGatewayDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -76,28 +60,12 @@ public class AzurermApiManagementGatewayDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementGatewayDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The description attribute.
-    /// </summary>
-    [TerraformArgument("description")]
-    public TerraformValue<string> Description
+    public AzurermApiManagementGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "description");
-    }
-
-    /// <summary>
-    /// The location_data attribute.
-    /// </summary>
-    [TerraformArgument("location_data")]
-    public TerraformList<object> LocationData
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "location_data").ResolveNodes(ctx));
+        get => GetArgument<AzurermApiManagementGatewayDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

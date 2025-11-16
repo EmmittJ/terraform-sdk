@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identity in .
@@ -25,20 +16,32 @@ public class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -61,7 +64,6 @@ public class AzurermDashboardGrafanaDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -71,19 +73,14 @@ public class AzurermDashboardGrafanaDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_dashboard_grafana Terraform data source.
 /// Retrieves information about a azurerm_dashboard_grafana.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDashboardGrafanaDataSource : TerraformDataSource
+public partial class AzurermDashboardGrafanaDataSource(string name) : TerraformDataSource("azurerm_dashboard_grafana", name)
 {
-    public AzurermDashboardGrafanaDataSource(string name) : base("azurerm_dashboard_grafana", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -94,7 +91,6 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -105,7 +101,6 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -113,135 +108,22 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermDashboardGrafanaDataSourceIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDashboardGrafanaDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The api_key_enabled attribute.
-    /// </summary>
-    [TerraformArgument("api_key_enabled")]
-    public TerraformValue<bool> ApiKeyEnabled
+    public AzurermDashboardGrafanaDataSourceIdentityBlock? Identity
     {
-        get => new TerraformReference<bool>(this, "api_key_enabled");
+        get => GetArgument<AzurermDashboardGrafanaDataSourceIdentityBlock>("identity");
+        set => SetArgument("identity", value);
     }
 
     /// <summary>
-    /// The auto_generated_domain_name_label_scope attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("auto_generated_domain_name_label_scope")]
-    public TerraformValue<string> AutoGeneratedDomainNameLabelScope
+    public AzurermDashboardGrafanaDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "auto_generated_domain_name_label_scope");
-    }
-
-    /// <summary>
-    /// The azure_monitor_workspace_integrations attribute.
-    /// </summary>
-    [TerraformArgument("azure_monitor_workspace_integrations")]
-    public TerraformList<object> AzureMonitorWorkspaceIntegrations
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "azure_monitor_workspace_integrations").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The deterministic_outbound_ip_enabled attribute.
-    /// </summary>
-    [TerraformArgument("deterministic_outbound_ip_enabled")]
-    public TerraformValue<bool> DeterministicOutboundIpEnabled
-    {
-        get => new TerraformReference<bool>(this, "deterministic_outbound_ip_enabled");
-    }
-
-    /// <summary>
-    /// The endpoint attribute.
-    /// </summary>
-    [TerraformArgument("endpoint")]
-    public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
-
-    /// <summary>
-    /// The grafana_major_version attribute.
-    /// </summary>
-    [TerraformArgument("grafana_major_version")]
-    public TerraformValue<string> GrafanaMajorVersion
-    {
-        get => new TerraformReference<string>(this, "grafana_major_version");
-    }
-
-    /// <summary>
-    /// The grafana_version attribute.
-    /// </summary>
-    [TerraformArgument("grafana_version")]
-    public TerraformValue<string> GrafanaVersion
-    {
-        get => new TerraformReference<string>(this, "grafana_version");
-    }
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The outbound_ips attribute.
-    /// </summary>
-    [TerraformArgument("outbound_ips")]
-    public TerraformList<string> OutboundIps
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ips").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The public_network_access_enabled attribute.
-    /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
-    public TerraformValue<bool> PublicNetworkAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
-    }
-
-    /// <summary>
-    /// The sku attribute.
-    /// </summary>
-    [TerraformArgument("sku")]
-    public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The zone_redundancy_enabled attribute.
-    /// </summary>
-    [TerraformArgument("zone_redundancy_enabled")]
-    public TerraformValue<bool> ZoneRedundancyEnabled
-    {
-        get => new TerraformReference<bool>(this, "zone_redundancy_enabled");
+        get => GetArgument<AzurermDashboardGrafanaDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

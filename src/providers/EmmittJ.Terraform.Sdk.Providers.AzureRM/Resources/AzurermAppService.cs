@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for auth_settings in .
@@ -25,7 +16,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The additional_login_params attribute.
     /// </summary>
-    [TerraformArgument("additional_login_params")]
     public TerraformMap<string>? AdditionalLoginParams
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_login_params").ResolveNodes(ctx));
@@ -35,7 +25,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The allowed_external_redirect_urls attribute.
     /// </summary>
-    [TerraformArgument("allowed_external_redirect_urls")]
     public TerraformList<string>? AllowedExternalRedirectUrls
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_external_redirect_urls").ResolveNodes(ctx));
@@ -45,7 +34,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The default_provider attribute.
     /// </summary>
-    [TerraformArgument("default_provider")]
     public TerraformValue<string>? DefaultProvider
     {
         get => new TerraformReference<string>(this, "default_provider");
@@ -56,7 +44,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformArgument("enabled")]
     public required TerraformValue<bool> Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -66,7 +53,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The issuer attribute.
     /// </summary>
-    [TerraformArgument("issuer")]
     public TerraformValue<string>? Issuer
     {
         get => new TerraformReference<string>(this, "issuer");
@@ -76,7 +62,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The runtime_version attribute.
     /// </summary>
-    [TerraformArgument("runtime_version")]
     public TerraformValue<string>? RuntimeVersion
     {
         get => new TerraformReference<string>(this, "runtime_version");
@@ -86,7 +71,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The token_refresh_extension_hours attribute.
     /// </summary>
-    [TerraformArgument("token_refresh_extension_hours")]
     public TerraformValue<double>? TokenRefreshExtensionHours
     {
         get => new TerraformReference<double>(this, "token_refresh_extension_hours");
@@ -96,7 +80,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The token_store_enabled attribute.
     /// </summary>
-    [TerraformArgument("token_store_enabled")]
     public TerraformValue<bool>? TokenStoreEnabled
     {
         get => new TerraformReference<bool>(this, "token_store_enabled");
@@ -106,7 +89,6 @@ public class AzurermAppServiceAuthSettingsBlock : TerraformBlock
     /// <summary>
     /// The unauthenticated_client_action attribute.
     /// </summary>
-    [TerraformArgument("unauthenticated_client_action")]
     public TerraformValue<string>? UnauthenticatedClientAction
     {
         get => new TerraformReference<string>(this, "unauthenticated_client_action");
@@ -129,7 +111,6 @@ public class AzurermAppServiceBackupBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -140,7 +121,6 @@ public class AzurermAppServiceBackupBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -151,7 +131,6 @@ public class AzurermAppServiceBackupBlock : TerraformBlock
     /// The storage_account_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountUrl is required")]
-    [TerraformArgument("storage_account_url")]
     public required TerraformValue<string> StorageAccountUrl
     {
         get => new TerraformReference<string>(this, "storage_account_url");
@@ -175,7 +154,6 @@ public class AzurermAppServiceConnectionStringBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -186,7 +164,6 @@ public class AzurermAppServiceConnectionStringBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -197,7 +174,6 @@ public class AzurermAppServiceConnectionStringBlock : TerraformBlock
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformArgument("value")]
     public required TerraformValue<string> Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -220,20 +196,32 @@ public class AzurermAppServiceIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -256,7 +244,6 @@ public class AzurermAppServiceLogsBlock : TerraformBlock
     /// <summary>
     /// The detailed_error_messages_enabled attribute.
     /// </summary>
-    [TerraformArgument("detailed_error_messages_enabled")]
     public TerraformValue<bool>? DetailedErrorMessagesEnabled
     {
         get => new TerraformReference<bool>(this, "detailed_error_messages_enabled");
@@ -266,7 +253,6 @@ public class AzurermAppServiceLogsBlock : TerraformBlock
     /// <summary>
     /// The failed_request_tracing_enabled attribute.
     /// </summary>
-    [TerraformArgument("failed_request_tracing_enabled")]
     public TerraformValue<bool>? FailedRequestTracingEnabled
     {
         get => new TerraformReference<bool>(this, "failed_request_tracing_enabled");
@@ -289,7 +275,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The acr_use_managed_identity_credentials attribute.
     /// </summary>
-    [TerraformArgument("acr_use_managed_identity_credentials")]
     public TerraformValue<bool>? AcrUseManagedIdentityCredentials
     {
         get => new TerraformReference<bool>(this, "acr_use_managed_identity_credentials");
@@ -299,7 +284,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The acr_user_managed_identity_client_id attribute.
     /// </summary>
-    [TerraformArgument("acr_user_managed_identity_client_id")]
     public TerraformValue<string>? AcrUserManagedIdentityClientId
     {
         get => new TerraformReference<string>(this, "acr_user_managed_identity_client_id");
@@ -309,7 +293,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The always_on attribute.
     /// </summary>
-    [TerraformArgument("always_on")]
     public TerraformValue<bool>? AlwaysOn
     {
         get => new TerraformReference<bool>(this, "always_on");
@@ -319,7 +302,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The app_command_line attribute.
     /// </summary>
-    [TerraformArgument("app_command_line")]
     public TerraformValue<string>? AppCommandLine
     {
         get => new TerraformReference<string>(this, "app_command_line");
@@ -329,7 +311,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The auto_swap_slot_name attribute.
     /// </summary>
-    [TerraformArgument("auto_swap_slot_name")]
     public TerraformValue<string>? AutoSwapSlotName
     {
         get => new TerraformReference<string>(this, "auto_swap_slot_name");
@@ -339,7 +320,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The default_documents attribute.
     /// </summary>
-    [TerraformArgument("default_documents")]
     public TerraformList<string>? DefaultDocuments
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "default_documents").ResolveNodes(ctx));
@@ -349,7 +329,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The dotnet_framework_version attribute.
     /// </summary>
-    [TerraformArgument("dotnet_framework_version")]
     public TerraformValue<string>? DotnetFrameworkVersion
     {
         get => new TerraformReference<string>(this, "dotnet_framework_version");
@@ -359,7 +338,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The ftps_state attribute.
     /// </summary>
-    [TerraformArgument("ftps_state")]
     public TerraformValue<string> FtpsState
     {
         get => new TerraformReference<string>(this, "ftps_state");
@@ -369,7 +347,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The health_check_path attribute.
     /// </summary>
-    [TerraformArgument("health_check_path")]
     public TerraformValue<string>? HealthCheckPath
     {
         get => new TerraformReference<string>(this, "health_check_path");
@@ -379,7 +356,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
-    [TerraformArgument("http2_enabled")]
     public TerraformValue<bool>? Http2Enabled
     {
         get => new TerraformReference<bool>(this, "http2_enabled");
@@ -389,17 +365,15 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The ip_restriction attribute.
     /// </summary>
-    [TerraformArgument("ip_restriction")]
-    public TerraformList<object> IpRestriction
+    public TerraformList<TerraformMap<object>> IpRestriction
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "ip_restriction").ResolveNodes(ctx));
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_restriction").ResolveNodes(ctx));
         set => SetArgument("ip_restriction", value);
     }
 
     /// <summary>
     /// The java_container attribute.
     /// </summary>
-    [TerraformArgument("java_container")]
     public TerraformValue<string>? JavaContainer
     {
         get => new TerraformReference<string>(this, "java_container");
@@ -409,7 +383,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The java_container_version attribute.
     /// </summary>
-    [TerraformArgument("java_container_version")]
     public TerraformValue<string>? JavaContainerVersion
     {
         get => new TerraformReference<string>(this, "java_container_version");
@@ -419,7 +392,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The java_version attribute.
     /// </summary>
-    [TerraformArgument("java_version")]
     public TerraformValue<string>? JavaVersion
     {
         get => new TerraformReference<string>(this, "java_version");
@@ -429,7 +401,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The linux_fx_version attribute.
     /// </summary>
-    [TerraformArgument("linux_fx_version")]
     public TerraformValue<string> LinuxFxVersion
     {
         get => new TerraformReference<string>(this, "linux_fx_version");
@@ -439,7 +410,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The local_mysql_enabled attribute.
     /// </summary>
-    [TerraformArgument("local_mysql_enabled")]
     public TerraformValue<bool> LocalMysqlEnabled
     {
         get => new TerraformReference<bool>(this, "local_mysql_enabled");
@@ -449,7 +419,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The managed_pipeline_mode attribute.
     /// </summary>
-    [TerraformArgument("managed_pipeline_mode")]
     public TerraformValue<string> ManagedPipelineMode
     {
         get => new TerraformReference<string>(this, "managed_pipeline_mode");
@@ -459,7 +428,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    [TerraformArgument("min_tls_version")]
     public TerraformValue<string> MinTlsVersion
     {
         get => new TerraformReference<string>(this, "min_tls_version");
@@ -469,7 +437,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
-    [TerraformArgument("number_of_workers")]
     public TerraformValue<double> NumberOfWorkers
     {
         get => new TerraformReference<double>(this, "number_of_workers");
@@ -479,7 +446,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The php_version attribute.
     /// </summary>
-    [TerraformArgument("php_version")]
     public TerraformValue<string>? PhpVersion
     {
         get => new TerraformReference<string>(this, "php_version");
@@ -489,7 +455,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The python_version attribute.
     /// </summary>
-    [TerraformArgument("python_version")]
     public TerraformValue<string>? PythonVersion
     {
         get => new TerraformReference<string>(this, "python_version");
@@ -499,7 +464,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The remote_debugging_enabled attribute.
     /// </summary>
-    [TerraformArgument("remote_debugging_enabled")]
     public TerraformValue<bool>? RemoteDebuggingEnabled
     {
         get => new TerraformReference<bool>(this, "remote_debugging_enabled");
@@ -509,7 +473,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The remote_debugging_version attribute.
     /// </summary>
-    [TerraformArgument("remote_debugging_version")]
     public TerraformValue<string> RemoteDebuggingVersion
     {
         get => new TerraformReference<string>(this, "remote_debugging_version");
@@ -519,17 +482,15 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The scm_ip_restriction attribute.
     /// </summary>
-    [TerraformArgument("scm_ip_restriction")]
-    public TerraformList<object> ScmIpRestriction
+    public TerraformList<TerraformMap<object>> ScmIpRestriction
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "scm_ip_restriction").ResolveNodes(ctx));
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scm_ip_restriction").ResolveNodes(ctx));
         set => SetArgument("scm_ip_restriction", value);
     }
 
     /// <summary>
     /// The scm_type attribute.
     /// </summary>
-    [TerraformArgument("scm_type")]
     public TerraformValue<string> ScmType
     {
         get => new TerraformReference<string>(this, "scm_type");
@@ -539,7 +500,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The scm_use_main_ip_restriction attribute.
     /// </summary>
-    [TerraformArgument("scm_use_main_ip_restriction")]
     public TerraformValue<bool>? ScmUseMainIpRestriction
     {
         get => new TerraformReference<bool>(this, "scm_use_main_ip_restriction");
@@ -549,7 +509,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The use_32_bit_worker_process attribute.
     /// </summary>
-    [TerraformArgument("use_32_bit_worker_process")]
     public TerraformValue<bool>? Use32BitWorkerProcess
     {
         get => new TerraformReference<bool>(this, "use_32_bit_worker_process");
@@ -559,7 +518,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The vnet_route_all_enabled attribute.
     /// </summary>
-    [TerraformArgument("vnet_route_all_enabled")]
     public TerraformValue<bool> VnetRouteAllEnabled
     {
         get => new TerraformReference<bool>(this, "vnet_route_all_enabled");
@@ -569,7 +527,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The websockets_enabled attribute.
     /// </summary>
-    [TerraformArgument("websockets_enabled")]
     public TerraformValue<bool> WebsocketsEnabled
     {
         get => new TerraformReference<bool>(this, "websockets_enabled");
@@ -579,7 +536,6 @@ public class AzurermAppServiceSiteConfigBlock : TerraformBlock
     /// <summary>
     /// The windows_fx_version attribute.
     /// </summary>
-    [TerraformArgument("windows_fx_version")]
     public TerraformValue<string> WindowsFxVersion
     {
         get => new TerraformReference<string>(this, "windows_fx_version");
@@ -602,7 +558,6 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// <summary>
     /// The branch attribute.
     /// </summary>
-    [TerraformArgument("branch")]
     public TerraformValue<string> Branch
     {
         get => new TerraformReference<string>(this, "branch");
@@ -612,7 +567,6 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// <summary>
     /// The manual_integration attribute.
     /// </summary>
-    [TerraformArgument("manual_integration")]
     public TerraformValue<bool> ManualIntegration
     {
         get => new TerraformReference<bool>(this, "manual_integration");
@@ -622,7 +576,6 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// <summary>
     /// The repo_url attribute.
     /// </summary>
-    [TerraformArgument("repo_url")]
     public TerraformValue<string> RepoUrl
     {
         get => new TerraformReference<string>(this, "repo_url");
@@ -632,7 +585,6 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// <summary>
     /// The rollback_enabled attribute.
     /// </summary>
-    [TerraformArgument("rollback_enabled")]
     public TerraformValue<bool> RollbackEnabled
     {
         get => new TerraformReference<bool>(this, "rollback_enabled");
@@ -642,7 +594,6 @@ public class AzurermAppServiceSourceControlBlock : TerraformBlock
     /// <summary>
     /// The use_mercurial attribute.
     /// </summary>
-    [TerraformArgument("use_mercurial")]
     public TerraformValue<bool> UseMercurial
     {
         get => new TerraformReference<bool>(this, "use_mercurial");
@@ -666,7 +617,6 @@ public class AzurermAppServiceStorageAccountBlock : TerraformBlock
     /// The access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKey is required")]
-    [TerraformArgument("access_key")]
     public required TerraformValue<string> AccessKey
     {
         get => new TerraformReference<string>(this, "access_key");
@@ -677,7 +627,6 @@ public class AzurermAppServiceStorageAccountBlock : TerraformBlock
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformArgument("account_name")]
     public required TerraformValue<string> AccountName
     {
         get => new TerraformReference<string>(this, "account_name");
@@ -687,7 +636,6 @@ public class AzurermAppServiceStorageAccountBlock : TerraformBlock
     /// <summary>
     /// The mount_path attribute.
     /// </summary>
-    [TerraformArgument("mount_path")]
     public TerraformValue<string>? MountPath
     {
         get => new TerraformReference<string>(this, "mount_path");
@@ -698,7 +646,6 @@ public class AzurermAppServiceStorageAccountBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -709,7 +656,6 @@ public class AzurermAppServiceStorageAccountBlock : TerraformBlock
     /// The share_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
-    [TerraformArgument("share_name")]
     public required TerraformValue<string> ShareName
     {
         get => new TerraformReference<string>(this, "share_name");
@@ -720,7 +666,6 @@ public class AzurermAppServiceStorageAccountBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -743,7 +688,6 @@ public class AzurermAppServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -753,7 +697,6 @@ public class AzurermAppServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -763,7 +706,6 @@ public class AzurermAppServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -773,7 +715,6 @@ public class AzurermAppServiceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -783,21 +724,16 @@ public class AzurermAppServiceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_app_service Terraform resource.
 /// Manages a azurerm_app_service resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermAppService : TerraformResource
+public partial class AzurermAppService(string name) : TerraformResource("azurerm_app_service", name)
 {
-    public AzurermAppService(string name) : base("azurerm_app_service", name)
-    {
-    }
-
     /// <summary>
     /// The app_service_plan_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServicePlanId is required")]
-    [TerraformArgument("app_service_plan_id")]
     public required TerraformValue<string> AppServicePlanId
     {
         get => new TerraformReference<string>(this, "app_service_plan_id");
@@ -807,7 +743,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    [TerraformArgument("app_settings")]
     public TerraformMap<string> AppSettings
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "app_settings").ResolveNodes(ctx));
@@ -817,7 +752,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The client_affinity_enabled attribute.
     /// </summary>
-    [TerraformArgument("client_affinity_enabled")]
     public TerraformValue<bool>? ClientAffinityEnabled
     {
         get => new TerraformReference<bool>(this, "client_affinity_enabled");
@@ -827,7 +761,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The client_cert_enabled attribute.
     /// </summary>
-    [TerraformArgument("client_cert_enabled")]
     public TerraformValue<bool>? ClientCertEnabled
     {
         get => new TerraformReference<bool>(this, "client_cert_enabled");
@@ -837,7 +770,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The client_cert_mode attribute.
     /// </summary>
-    [TerraformArgument("client_cert_mode")]
     public TerraformValue<string> ClientCertMode
     {
         get => new TerraformReference<string>(this, "client_cert_mode");
@@ -847,7 +779,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformArgument("enabled")]
     public TerraformValue<bool>? Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -857,7 +788,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    [TerraformArgument("https_only")]
     public TerraformValue<bool>? HttpsOnly
     {
         get => new TerraformReference<bool>(this, "https_only");
@@ -867,7 +797,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -877,7 +806,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The key_vault_reference_identity_id attribute.
     /// </summary>
-    [TerraformArgument("key_vault_reference_identity_id")]
     public TerraformValue<string> KeyVaultReferenceIdentityId
     {
         get => new TerraformReference<string>(this, "key_vault_reference_identity_id");
@@ -888,7 +816,6 @@ public class AzurermAppService : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -899,7 +826,6 @@ public class AzurermAppService : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -910,7 +836,6 @@ public class AzurermAppService : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -920,7 +845,6 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -928,135 +852,90 @@ public class AzurermAppService : TerraformResource
     }
 
     /// <summary>
-    /// Block for auth_settings.
-    /// Nesting mode: list
+    /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    [TerraformArgument("auth_settings")]
-    public TerraformList<AzurermAppServiceAuthSettingsBlock> AuthSettings { get; set; } = new();
+    public AzurermAppServiceAuthSettingsBlock? AuthSettings
+    {
+        get => GetArgument<AzurermAppServiceAuthSettingsBlock>("auth_settings");
+        set => SetArgument("auth_settings", value);
+    }
 
     /// <summary>
-    /// Block for backup.
-    /// Nesting mode: list
+    /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    [TerraformArgument("backup")]
-    public TerraformList<AzurermAppServiceBackupBlock> Backup { get; set; } = new();
+    public AzurermAppServiceBackupBlock? Backup
+    {
+        get => GetArgument<AzurermAppServiceBackupBlock>("backup");
+        set => SetArgument("backup", value);
+    }
 
     /// <summary>
-    /// Block for connection_string.
-    /// Nesting mode: set
+    /// ConnectionString block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("connection_string")]
-    public TerraformSet<AzurermAppServiceConnectionStringBlock> ConnectionString { get; set; } = new();
+    public AzurermAppServiceConnectionStringBlock? ConnectionString
+    {
+        get => GetArgument<AzurermAppServiceConnectionStringBlock>("connection_string");
+        set => SetArgument("connection_string", value);
+    }
 
     /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
+    /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermAppServiceIdentityBlock> Identity { get; set; } = new();
+    public AzurermAppServiceIdentityBlock? Identity
+    {
+        get => GetArgument<AzurermAppServiceIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
 
     /// <summary>
-    /// Block for logs.
-    /// Nesting mode: list
+    /// Logs block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
-    [TerraformArgument("logs")]
-    public TerraformList<AzurermAppServiceLogsBlock> Logs { get; set; } = new();
+    public AzurermAppServiceLogsBlock? Logs
+    {
+        get => GetArgument<AzurermAppServiceLogsBlock>("logs");
+        set => SetArgument("logs", value);
+    }
 
     /// <summary>
-    /// Block for site_config.
-    /// Nesting mode: list
+    /// SiteConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    [TerraformArgument("site_config")]
-    public TerraformList<AzurermAppServiceSiteConfigBlock> SiteConfig { get; set; } = new();
+    public AzurermAppServiceSiteConfigBlock? SiteConfig
+    {
+        get => GetArgument<AzurermAppServiceSiteConfigBlock>("site_config");
+        set => SetArgument("site_config", value);
+    }
 
     /// <summary>
-    /// Block for source_control.
-    /// Nesting mode: list
+    /// SourceControl block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControl block(s) allowed")]
-    [TerraformArgument("source_control")]
-    public TerraformList<AzurermAppServiceSourceControlBlock> SourceControl { get; set; } = new();
-
-    /// <summary>
-    /// Block for storage_account.
-    /// Nesting mode: set
-    /// </summary>
-    [TerraformArgument("storage_account")]
-    public TerraformSet<AzurermAppServiceStorageAccountBlock> StorageAccount { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAppServiceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The custom_domain_verification_id attribute.
-    /// </summary>
-    [TerraformArgument("custom_domain_verification_id")]
-    public TerraformValue<string> CustomDomainVerificationId
+    public AzurermAppServiceSourceControlBlock? SourceControl
     {
-        get => new TerraformReference<string>(this, "custom_domain_verification_id");
+        get => GetArgument<AzurermAppServiceSourceControlBlock>("source_control");
+        set => SetArgument("source_control", value);
     }
 
     /// <summary>
-    /// The default_site_hostname attribute.
+    /// StorageAccount block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("default_site_hostname")]
-    public TerraformValue<string> DefaultSiteHostname
+    public AzurermAppServiceStorageAccountBlock? StorageAccount
     {
-        get => new TerraformReference<string>(this, "default_site_hostname");
+        get => GetArgument<AzurermAppServiceStorageAccountBlock>("storage_account");
+        set => SetArgument("storage_account", value);
     }
 
     /// <summary>
-    /// The outbound_ip_address_list attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("outbound_ip_address_list")]
-    public TerraformList<string> OutboundIpAddressList
+    public AzurermAppServiceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip_address_list").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The outbound_ip_addresses attribute.
-    /// </summary>
-    [TerraformArgument("outbound_ip_addresses")]
-    public TerraformValue<string> OutboundIpAddresses
-    {
-        get => new TerraformReference<string>(this, "outbound_ip_addresses");
-    }
-
-    /// <summary>
-    /// The possible_outbound_ip_address_list attribute.
-    /// </summary>
-    [TerraformArgument("possible_outbound_ip_address_list")]
-    public TerraformList<string> PossibleOutboundIpAddressList
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "possible_outbound_ip_address_list").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The possible_outbound_ip_addresses attribute.
-    /// </summary>
-    [TerraformArgument("possible_outbound_ip_addresses")]
-    public TerraformValue<string> PossibleOutboundIpAddresses
-    {
-        get => new TerraformReference<string>(this, "possible_outbound_ip_addresses");
-    }
-
-    /// <summary>
-    /// The site_credential attribute.
-    /// </summary>
-    [TerraformArgument("site_credential")]
-    public TerraformList<object> SiteCredential
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "site_credential").ResolveNodes(ctx));
+        get => GetArgument<AzurermAppServiceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

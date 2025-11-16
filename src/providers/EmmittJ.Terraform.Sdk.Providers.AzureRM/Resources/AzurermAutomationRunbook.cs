@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for draft in .
@@ -22,22 +13,34 @@ public class AzurermAutomationRunbookDraftBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "draft";
 
+    /// <summary>
+    /// The creation_time attribute.
+    /// </summary>
+    public TerraformValue<string> CreationTime
+    {
+        get => new TerraformReference<string>(this, "creation_time");
+    }
 
     /// <summary>
     /// The edit_mode_enabled attribute.
     /// </summary>
-    [TerraformArgument("edit_mode_enabled")]
     public TerraformValue<bool>? EditModeEnabled
     {
         get => new TerraformReference<bool>(this, "edit_mode_enabled");
         set => SetArgument("edit_mode_enabled", value);
     }
 
+    /// <summary>
+    /// The last_modified_time attribute.
+    /// </summary>
+    public TerraformValue<string> LastModifiedTime
+    {
+        get => new TerraformReference<string>(this, "last_modified_time");
+    }
 
     /// <summary>
     /// The output_types attribute.
     /// </summary>
-    [TerraformArgument("output_types")]
     public TerraformList<string>? OutputTypes
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "output_types").ResolveNodes(ctx));
@@ -61,7 +64,6 @@ public class AzurermAutomationRunbookPublishContentLinkBlock : TerraformBlock
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformArgument("uri")]
     public required TerraformValue<string> Uri
     {
         get => new TerraformReference<string>(this, "uri");
@@ -71,7 +73,6 @@ public class AzurermAutomationRunbookPublishContentLinkBlock : TerraformBlock
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformArgument("version")]
     public TerraformValue<string>? Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -94,7 +95,6 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -104,7 +104,6 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -114,7 +113,6 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -124,7 +122,6 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -134,20 +131,15 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_automation_runbook Terraform resource.
 /// Manages a azurerm_automation_runbook resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermAutomationRunbook : TerraformResource
+public partial class AzurermAutomationRunbook(string name) : TerraformResource("azurerm_automation_runbook", name)
 {
-    public AzurermAutomationRunbook(string name) : base("azurerm_automation_runbook", name)
-    {
-    }
-
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
-    [TerraformArgument("automation_account_name")]
     public required TerraformValue<string> AutomationAccountName
     {
         get => new TerraformReference<string>(this, "automation_account_name");
@@ -157,7 +149,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// <summary>
     /// The content attribute.
     /// </summary>
-    [TerraformArgument("content")]
     public TerraformValue<string> Content
     {
         get => new TerraformReference<string>(this, "content");
@@ -167,7 +158,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -177,7 +167,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -187,10 +176,9 @@ public class AzurermAutomationRunbook : TerraformResource
     /// <summary>
     /// The job_schedule attribute.
     /// </summary>
-    [TerraformArgument("job_schedule")]
-    public TerraformSet<object> JobSchedule
+    public TerraformSet<TerraformMap<object>> JobSchedule
     {
-        get => TerraformSet<object>.Lazy(ctx => new TerraformReference<TerraformSet<object>>(this, "job_schedule").ResolveNodes(ctx));
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "job_schedule").ResolveNodes(ctx));
         set => SetArgument("job_schedule", value);
     }
 
@@ -198,7 +186,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -208,7 +195,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// <summary>
     /// The log_activity_trace_level attribute.
     /// </summary>
-    [TerraformArgument("log_activity_trace_level")]
     public TerraformValue<double>? LogActivityTraceLevel
     {
         get => new TerraformReference<double>(this, "log_activity_trace_level");
@@ -219,7 +205,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// The log_progress attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogProgress is required")]
-    [TerraformArgument("log_progress")]
     public required TerraformValue<bool> LogProgress
     {
         get => new TerraformReference<bool>(this, "log_progress");
@@ -230,7 +215,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// The log_verbose attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogVerbose is required")]
-    [TerraformArgument("log_verbose")]
     public required TerraformValue<bool> LogVerbose
     {
         get => new TerraformReference<bool>(this, "log_verbose");
@@ -241,7 +225,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -252,7 +235,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -263,7 +245,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// The runbook_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookType is required")]
-    [TerraformArgument("runbook_type")]
     public required TerraformValue<string> RunbookType
     {
         get => new TerraformReference<string>(this, "runbook_type");
@@ -273,7 +254,6 @@ public class AzurermAutomationRunbook : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -281,26 +261,32 @@ public class AzurermAutomationRunbook : TerraformResource
     }
 
     /// <summary>
-    /// Block for draft.
-    /// Nesting mode: list
+    /// Draft block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Draft block(s) allowed")]
-    [TerraformArgument("draft")]
-    public TerraformList<AzurermAutomationRunbookDraftBlock> Draft { get; set; } = new();
+    public AzurermAutomationRunbookDraftBlock? Draft
+    {
+        get => GetArgument<AzurermAutomationRunbookDraftBlock>("draft");
+        set => SetArgument("draft", value);
+    }
 
     /// <summary>
-    /// Block for publish_content_link.
-    /// Nesting mode: list
+    /// PublishContentLink block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublishContentLink block(s) allowed")]
-    [TerraformArgument("publish_content_link")]
-    public TerraformList<AzurermAutomationRunbookPublishContentLinkBlock> PublishContentLink { get; set; } = new();
+    public AzurermAutomationRunbookPublishContentLinkBlock? PublishContentLink
+    {
+        get => GetArgument<AzurermAutomationRunbookPublishContentLinkBlock>("publish_content_link");
+        set => SetArgument("publish_content_link", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAutomationRunbookTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermAutomationRunbookTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermAutomationRunbookTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for sku in .
@@ -26,7 +17,6 @@ public class AzurermElasticSanSkuBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -36,7 +26,6 @@ public class AzurermElasticSanSkuBlock : TerraformBlock
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    [TerraformArgument("tier")]
     public TerraformValue<string>? Tier
     {
         get => new TerraformReference<string>(this, "tier");
@@ -59,7 +48,6 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +57,6 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +66,6 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +75,6 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,20 +84,15 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_elastic_san Terraform resource.
 /// Manages a azurerm_elastic_san resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermElasticSan : TerraformResource
+public partial class AzurermElasticSan(string name) : TerraformResource("azurerm_elastic_san", name)
 {
-    public AzurermElasticSan(string name) : base("azurerm_elastic_san", name)
-    {
-    }
-
     /// <summary>
     /// The base_size_in_tib attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseSizeInTib is required")]
-    [TerraformArgument("base_size_in_tib")]
     public required TerraformValue<double> BaseSizeInTib
     {
         get => new TerraformReference<double>(this, "base_size_in_tib");
@@ -122,7 +102,6 @@ public class AzurermElasticSan : TerraformResource
     /// <summary>
     /// The extended_size_in_tib attribute.
     /// </summary>
-    [TerraformArgument("extended_size_in_tib")]
     public TerraformValue<double>? ExtendedSizeInTib
     {
         get => new TerraformReference<double>(this, "extended_size_in_tib");
@@ -132,7 +111,6 @@ public class AzurermElasticSan : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -143,7 +121,6 @@ public class AzurermElasticSan : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -154,7 +131,6 @@ public class AzurermElasticSan : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -165,7 +141,6 @@ public class AzurermElasticSan : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -175,7 +150,6 @@ public class AzurermElasticSan : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -185,7 +159,6 @@ public class AzurermElasticSan : TerraformResource
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformArgument("zones")]
     public TerraformSet<string>? Zones
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
@@ -193,65 +166,25 @@ public class AzurermElasticSan : TerraformResource
     }
 
     /// <summary>
-    /// Block for sku.
-    /// Nesting mode: list
+    /// Sku block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    [TerraformArgument("sku")]
-    public required TerraformList<AzurermElasticSanSkuBlock> Sku { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermElasticSanTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The total_iops attribute.
-    /// </summary>
-    [TerraformArgument("total_iops")]
-    public TerraformValue<double> TotalIops
+    public required AzurermElasticSanSkuBlock Sku
     {
-        get => new TerraformReference<double>(this, "total_iops");
+        get => GetRequiredArgument<AzurermElasticSanSkuBlock>("sku");
+        set => SetArgument("sku", value);
     }
 
     /// <summary>
-    /// The total_mbps attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("total_mbps")]
-    public TerraformValue<double> TotalMbps
+    public AzurermElasticSanTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<double>(this, "total_mbps");
-    }
-
-    /// <summary>
-    /// The total_size_in_tib attribute.
-    /// </summary>
-    [TerraformArgument("total_size_in_tib")]
-    public TerraformValue<double> TotalSizeInTib
-    {
-        get => new TerraformReference<double>(this, "total_size_in_tib");
-    }
-
-    /// <summary>
-    /// The total_volume_size_in_gib attribute.
-    /// </summary>
-    [TerraformArgument("total_volume_size_in_gib")]
-    public TerraformValue<double> TotalVolumeSizeInGib
-    {
-        get => new TerraformReference<double>(this, "total_volume_size_in_gib");
-    }
-
-    /// <summary>
-    /// The volume_group_count attribute.
-    /// </summary>
-    [TerraformArgument("volume_group_count")]
-    public TerraformValue<double> VolumeGroupCount
-    {
-        get => new TerraformReference<double>(this, "volume_group_count");
+        get => GetArgument<AzurermElasticSanTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

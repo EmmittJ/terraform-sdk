@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,20 +43,16 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_postgresql_firewall_rule Terraform resource.
 /// Manages a azurerm_postgresql_firewall_rule resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-public class AzurermPostgresqlFirewallRule : TerraformResource
+public partial class AzurermPostgresqlFirewallRule(string name) : TerraformResource("azurerm_postgresql_firewall_rule", name)
 {
-    public AzurermPostgresqlFirewallRule(string name) : base("azurerm_postgresql_firewall_rule", name)
-    {
-    }
-
     /// <summary>
     /// The end_ip_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
-    [TerraformArgument("end_ip_address")]
     public required TerraformValue<string> EndIpAddress
     {
         get => new TerraformReference<string>(this, "end_ip_address");
@@ -78,7 +62,6 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -89,7 +72,6 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -100,7 +82,6 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -111,7 +92,6 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     /// The server_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
-    [TerraformArgument("server_name")]
     public required TerraformValue<string> ServerName
     {
         get => new TerraformReference<string>(this, "server_name");
@@ -122,7 +102,6 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     /// The start_ip_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
-    [TerraformArgument("start_ip_address")]
     public required TerraformValue<string> StartIpAddress
     {
         get => new TerraformReference<string>(this, "start_ip_address");
@@ -130,10 +109,12 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPostgresqlFirewallRuleTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermPostgresqlFirewallRuleTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermPostgresqlFirewallRuleTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

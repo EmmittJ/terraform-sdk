@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for restore in .
@@ -26,7 +17,6 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     /// The point_in_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
-    [TerraformArgument("point_in_time")]
     public required TerraformValue<string> PointInTime
     {
         get => new TerraformReference<string>(this, "point_in_time");
@@ -37,7 +27,6 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     /// The source_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
-    [TerraformArgument("source_database_id")]
     public required TerraformValue<string> SourceDatabaseId
     {
         get => new TerraformReference<string>(this, "source_database_id");
@@ -60,7 +49,6 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,19 +85,14 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_synapse_sql_pool Terraform resource.
 /// Manages a azurerm_synapse_sql_pool resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSynapseSqlPool : TerraformResource
+public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azurerm_synapse_sql_pool", name)
 {
-    public AzurermSynapseSqlPool(string name) : base("azurerm_synapse_sql_pool", name)
-    {
-    }
-
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    [TerraformArgument("collation")]
     public TerraformValue<string> Collation
     {
         get => new TerraformReference<string>(this, "collation");
@@ -122,7 +102,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    [TerraformArgument("create_mode")]
     public TerraformValue<string>? CreateMode
     {
         get => new TerraformReference<string>(this, "create_mode");
@@ -132,7 +111,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// <summary>
     /// The data_encrypted attribute.
     /// </summary>
-    [TerraformArgument("data_encrypted")]
     public TerraformValue<bool>? DataEncrypted
     {
         get => new TerraformReference<bool>(this, "data_encrypted");
@@ -142,7 +120,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// <summary>
     /// The geo_backup_policy_enabled attribute.
     /// </summary>
-    [TerraformArgument("geo_backup_policy_enabled")]
     public TerraformValue<bool>? GeoBackupPolicyEnabled
     {
         get => new TerraformReference<bool>(this, "geo_backup_policy_enabled");
@@ -152,7 +129,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -163,7 +139,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -173,7 +148,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// <summary>
     /// The recovery_database_id attribute.
     /// </summary>
-    [TerraformArgument("recovery_database_id")]
     public TerraformValue<string>? RecoveryDatabaseId
     {
         get => new TerraformReference<string>(this, "recovery_database_id");
@@ -184,7 +158,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformArgument("sku_name")]
     public required TerraformValue<string> SkuName
     {
         get => new TerraformReference<string>(this, "sku_name");
@@ -195,7 +168,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    [TerraformArgument("storage_account_type")]
     public required TerraformValue<string> StorageAccountType
     {
         get => new TerraformReference<string>(this, "storage_account_type");
@@ -206,7 +178,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// The synapse_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
-    [TerraformArgument("synapse_workspace_id")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
         get => new TerraformReference<string>(this, "synapse_workspace_id");
@@ -216,7 +187,6 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -224,18 +194,22 @@ public class AzurermSynapseSqlPool : TerraformResource
     }
 
     /// <summary>
-    /// Block for restore.
-    /// Nesting mode: list
+    /// Restore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restore block(s) allowed")]
-    [TerraformArgument("restore")]
-    public TerraformList<AzurermSynapseSqlPoolRestoreBlock> Restore { get; set; } = new();
+    public AzurermSynapseSqlPoolRestoreBlock? Restore
+    {
+        get => GetArgument<AzurermSynapseSqlPoolRestoreBlock>("restore");
+        set => SetArgument("restore", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSynapseSqlPoolTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSynapseSqlPoolTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSynapseSqlPoolTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

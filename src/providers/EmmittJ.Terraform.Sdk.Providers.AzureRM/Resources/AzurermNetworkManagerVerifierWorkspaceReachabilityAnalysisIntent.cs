@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for ip_traffic in .
@@ -26,7 +17,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     /// The destination_ips attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIps is required")]
-    [TerraformArgument("destination_ips")]
     public TerraformList<string>? DestinationIps
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_ips").ResolveNodes(ctx));
@@ -37,7 +27,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     /// The destination_ports attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
-    [TerraformArgument("destination_ports")]
     public TerraformList<string>? DestinationPorts
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_ports").ResolveNodes(ctx));
@@ -48,7 +37,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     /// The protocols attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
-    [TerraformArgument("protocols")]
     public TerraformList<string>? Protocols
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols").ResolveNodes(ctx));
@@ -59,7 +47,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     /// The source_ips attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIps is required")]
-    [TerraformArgument("source_ips")]
     public TerraformList<string>? SourceIps
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_ips").ResolveNodes(ctx));
@@ -70,7 +57,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     /// The source_ports attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
-    [TerraformArgument("source_ports")]
     public TerraformList<string>? SourcePorts
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_ports").ResolveNodes(ctx));
@@ -93,7 +79,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -103,7 +88,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -113,7 +97,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -123,19 +106,14 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
 }
 
 /// <summary>
+/// Represents a azurerm_network_manager_verifier_workspace_reachability_analysis_intent Terraform resource.
 /// Manages a azurerm_network_manager_verifier_workspace_reachability_analysis_intent resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : TerraformResource
+public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(string name) : TerraformResource("azurerm_network_manager_verifier_workspace_reachability_analysis_intent", name)
 {
-    public AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(string name) : base("azurerm_network_manager_verifier_workspace_reachability_analysis_intent", name)
-    {
-    }
-
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -146,7 +124,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     /// The destination_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
-    [TerraformArgument("destination_resource_id")]
     public required TerraformValue<string> DestinationResourceId
     {
         get => new TerraformReference<string>(this, "destination_resource_id");
@@ -156,7 +133,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -167,7 +143,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -178,7 +153,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     /// The source_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
-    [TerraformArgument("source_resource_id")]
     public required TerraformValue<string> SourceResourceId
     {
         get => new TerraformReference<string>(this, "source_resource_id");
@@ -189,7 +163,6 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     /// The verifier_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifierWorkspaceId is required")]
-    [TerraformArgument("verifier_workspace_id")]
     public required TerraformValue<string> VerifierWorkspaceId
     {
         get => new TerraformReference<string>(this, "verifier_workspace_id");
@@ -197,20 +170,25 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     }
 
     /// <summary>
-    /// Block for ip_traffic.
-    /// Nesting mode: list
+    /// IpTraffic block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpTraffic is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpTraffic block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpTraffic block(s) allowed")]
-    [TerraformArgument("ip_traffic")]
-    public required TerraformList<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock> IpTraffic { get; set; } = new();
+    public required AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock IpTraffic
+    {
+        get => GetRequiredArgument<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>("ip_traffic");
+        set => SetArgument("ip_traffic", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

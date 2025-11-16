@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_subscription_template_deployment Terraform resource.
 /// Manages a azurerm_subscription_template_deployment resource.
 /// </summary>
-public class AzurermSubscriptionTemplateDeployment : TerraformResource
+public partial class AzurermSubscriptionTemplateDeployment(string name) : TerraformResource("azurerm_subscription_template_deployment", name)
 {
-    public AzurermSubscriptionTemplateDeployment(string name) : base("azurerm_subscription_template_deployment", name)
-    {
-    }
-
     /// <summary>
     /// The debug_level attribute.
     /// </summary>
-    [TerraformArgument("debug_level")]
     public TerraformValue<string>? DebugLevel
     {
         get => new TerraformReference<string>(this, "debug_level");
@@ -86,7 +69,6 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -97,7 +79,6 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -108,7 +89,6 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -118,7 +98,6 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
     /// <summary>
     /// The parameters_content attribute.
     /// </summary>
-    [TerraformArgument("parameters_content")]
     public TerraformValue<string> ParametersContent
     {
         get => new TerraformReference<string>(this, "parameters_content");
@@ -128,7 +107,6 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -138,7 +116,6 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
     /// <summary>
     /// The template_content attribute.
     /// </summary>
-    [TerraformArgument("template_content")]
     public TerraformValue<string> TemplateContent
     {
         get => new TerraformReference<string>(this, "template_content");
@@ -148,7 +125,6 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
     /// <summary>
     /// The template_spec_version_id attribute.
     /// </summary>
-    [TerraformArgument("template_spec_version_id")]
     public TerraformValue<string>? TemplateSpecVersionId
     {
         get => new TerraformReference<string>(this, "template_spec_version_id");
@@ -156,19 +132,12 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSubscriptionTemplateDeploymentTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The output_content attribute.
-    /// </summary>
-    [TerraformArgument("output_content")]
-    public TerraformValue<string> OutputContent
+    public AzurermSubscriptionTemplateDeploymentTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "output_content");
+        get => GetArgument<AzurermSubscriptionTemplateDeploymentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

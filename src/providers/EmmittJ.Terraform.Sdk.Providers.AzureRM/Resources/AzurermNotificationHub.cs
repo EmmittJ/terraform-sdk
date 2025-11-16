@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for apns_credential in .
@@ -26,7 +17,6 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     /// The application_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationMode is required")]
-    [TerraformArgument("application_mode")]
     public required TerraformValue<string> ApplicationMode
     {
         get => new TerraformReference<string>(this, "application_mode");
@@ -37,7 +27,6 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     /// The bundle_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
-    [TerraformArgument("bundle_id")]
     public required TerraformValue<string> BundleId
     {
         get => new TerraformReference<string>(this, "bundle_id");
@@ -48,7 +37,6 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     /// The key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
-    [TerraformArgument("key_id")]
     public required TerraformValue<string> KeyId
     {
         get => new TerraformReference<string>(this, "key_id");
@@ -59,7 +47,6 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     /// The team_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
-    [TerraformArgument("team_id")]
     public required TerraformValue<string> TeamId
     {
         get => new TerraformReference<string>(this, "team_id");
@@ -70,7 +57,6 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     /// The token attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
-    [TerraformArgument("token")]
     public required TerraformValue<string> Token
     {
         get => new TerraformReference<string>(this, "token");
@@ -94,7 +80,6 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     /// The subject attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
-    [TerraformArgument("subject")]
     public required TerraformValue<string> Subject
     {
         get => new TerraformReference<string>(this, "subject");
@@ -105,7 +90,6 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     /// The vapid_private_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPrivateKey is required")]
-    [TerraformArgument("vapid_private_key")]
     public required TerraformValue<string> VapidPrivateKey
     {
         get => new TerraformReference<string>(this, "vapid_private_key");
@@ -116,7 +100,6 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     /// The vapid_public_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPublicKey is required")]
-    [TerraformArgument("vapid_public_key")]
     public required TerraformValue<string> VapidPublicKey
     {
         get => new TerraformReference<string>(this, "vapid_public_key");
@@ -140,7 +123,6 @@ public class AzurermNotificationHubGcmCredentialBlock : TerraformBlock
     /// The api_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
-    [TerraformArgument("api_key")]
     public required TerraformValue<string> ApiKey
     {
         get => new TerraformReference<string>(this, "api_key");
@@ -163,7 +145,6 @@ public class AzurermNotificationHubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -173,7 +154,6 @@ public class AzurermNotificationHubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -183,7 +163,6 @@ public class AzurermNotificationHubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -193,7 +172,6 @@ public class AzurermNotificationHubTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -203,19 +181,14 @@ public class AzurermNotificationHubTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_notification_hub Terraform resource.
 /// Manages a azurerm_notification_hub resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNotificationHub : TerraformResource
+public partial class AzurermNotificationHub(string name) : TerraformResource("azurerm_notification_hub", name)
 {
-    public AzurermNotificationHub(string name) : base("azurerm_notification_hub", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -226,7 +199,6 @@ public class AzurermNotificationHub : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -237,7 +209,6 @@ public class AzurermNotificationHub : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -248,7 +219,6 @@ public class AzurermNotificationHub : TerraformResource
     /// The namespace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
-    [TerraformArgument("namespace_name")]
     public required TerraformValue<string> NamespaceName
     {
         get => new TerraformReference<string>(this, "namespace_name");
@@ -259,7 +229,6 @@ public class AzurermNotificationHub : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -269,7 +238,6 @@ public class AzurermNotificationHub : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -277,34 +245,42 @@ public class AzurermNotificationHub : TerraformResource
     }
 
     /// <summary>
-    /// Block for apns_credential.
-    /// Nesting mode: list
+    /// ApnsCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApnsCredential block(s) allowed")]
-    [TerraformArgument("apns_credential")]
-    public TerraformList<AzurermNotificationHubApnsCredentialBlock> ApnsCredential { get; set; } = new();
+    public AzurermNotificationHubApnsCredentialBlock? ApnsCredential
+    {
+        get => GetArgument<AzurermNotificationHubApnsCredentialBlock>("apns_credential");
+        set => SetArgument("apns_credential", value);
+    }
 
     /// <summary>
-    /// Block for browser_credential.
-    /// Nesting mode: list
+    /// BrowserCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BrowserCredential block(s) allowed")]
-    [TerraformArgument("browser_credential")]
-    public TerraformList<AzurermNotificationHubBrowserCredentialBlock> BrowserCredential { get; set; } = new();
+    public AzurermNotificationHubBrowserCredentialBlock? BrowserCredential
+    {
+        get => GetArgument<AzurermNotificationHubBrowserCredentialBlock>("browser_credential");
+        set => SetArgument("browser_credential", value);
+    }
 
     /// <summary>
-    /// Block for gcm_credential.
-    /// Nesting mode: list
+    /// GcmCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcmCredential block(s) allowed")]
-    [TerraformArgument("gcm_credential")]
-    public TerraformList<AzurermNotificationHubGcmCredentialBlock> GcmCredential { get; set; } = new();
+    public AzurermNotificationHubGcmCredentialBlock? GcmCredential
+    {
+        get => GetArgument<AzurermNotificationHubGcmCredentialBlock>("gcm_credential");
+        set => SetArgument("gcm_credential", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNotificationHubTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNotificationHubTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNotificationHubTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

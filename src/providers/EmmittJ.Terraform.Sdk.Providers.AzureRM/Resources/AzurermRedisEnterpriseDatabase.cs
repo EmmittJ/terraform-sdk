@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for module in .
@@ -25,7 +16,6 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
     /// <summary>
     /// The args attribute.
     /// </summary>
-    [TerraformArgument("args")]
     public TerraformValue<string>? Args
     {
         get => new TerraformReference<string>(this, "args");
@@ -36,13 +26,19 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
 
 }
 
@@ -60,7 +56,6 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +65,6 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +74,6 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +83,6 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,20 +92,15 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_redis_enterprise_database Terraform resource.
 /// Manages a azurerm_redis_enterprise_database resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermRedisEnterpriseDatabase : TerraformResource
+public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformResource("azurerm_redis_enterprise_database", name)
 {
-    public AzurermRedisEnterpriseDatabase(string name) : base("azurerm_redis_enterprise_database", name)
-    {
-    }
-
     /// <summary>
     /// The client_protocol attribute.
     /// </summary>
-    [TerraformArgument("client_protocol")]
     public TerraformValue<string>? ClientProtocol
     {
         get => new TerraformReference<string>(this, "client_protocol");
@@ -124,7 +111,6 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    [TerraformArgument("cluster_id")]
     public required TerraformValue<string> ClusterId
     {
         get => new TerraformReference<string>(this, "cluster_id");
@@ -134,7 +120,6 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The clustering_policy attribute.
     /// </summary>
-    [TerraformArgument("clustering_policy")]
     public TerraformValue<string>? ClusteringPolicy
     {
         get => new TerraformReference<string>(this, "clustering_policy");
@@ -144,7 +129,6 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    [TerraformArgument("eviction_policy")]
     public TerraformValue<string>? EvictionPolicy
     {
         get => new TerraformReference<string>(this, "eviction_policy");
@@ -154,7 +138,6 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -164,7 +147,6 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The linked_database_group_nickname attribute.
     /// </summary>
-    [TerraformArgument("linked_database_group_nickname")]
     public TerraformValue<string>? LinkedDatabaseGroupNickname
     {
         get => new TerraformReference<string>(this, "linked_database_group_nickname");
@@ -174,7 +156,6 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
-    [TerraformArgument("linked_database_id")]
     public TerraformSet<string>? LinkedDatabaseId
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "linked_database_id").ResolveNodes(ctx));
@@ -184,7 +165,6 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string>? Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -194,7 +174,6 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformArgument("port")]
     public TerraformValue<double>? Port
     {
         get => new TerraformReference<double>(this, "port");
@@ -202,36 +181,22 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     }
 
     /// <summary>
-    /// Block for module.
-    /// Nesting mode: list
+    /// Module block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 Module block(s) allowed")]
-    [TerraformArgument("module")]
-    public TerraformList<AzurermRedisEnterpriseDatabaseModuleBlock> Module { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermRedisEnterpriseDatabaseTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The primary_access_key attribute.
-    /// </summary>
-    [TerraformArgument("primary_access_key")]
-    public TerraformValue<string> PrimaryAccessKey
+    public AzurermRedisEnterpriseDatabaseModuleBlock? Module
     {
-        get => new TerraformReference<string>(this, "primary_access_key");
+        get => GetArgument<AzurermRedisEnterpriseDatabaseModuleBlock>("module");
+        set => SetArgument("module", value);
     }
 
     /// <summary>
-    /// The secondary_access_key attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("secondary_access_key")]
-    public TerraformValue<string> SecondaryAccessKey
+    public AzurermRedisEnterpriseDatabaseTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "secondary_access_key");
+        get => GetArgument<AzurermRedisEnterpriseDatabaseTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

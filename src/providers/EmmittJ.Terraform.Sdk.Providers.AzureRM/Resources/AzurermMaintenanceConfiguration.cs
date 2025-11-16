@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for install_patches in .
@@ -25,7 +16,6 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlock : TerraformBlock
     /// <summary>
     /// The reboot attribute.
     /// </summary>
-    [TerraformArgument("reboot")]
     public TerraformValue<string>? Reboot
     {
         get => new TerraformReference<string>(this, "reboot");
@@ -48,7 +38,6 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -58,7 +47,6 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -68,7 +56,6 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -78,7 +65,6 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -101,7 +87,6 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    [TerraformArgument("duration")]
     public TerraformValue<string>? Duration
     {
         get => new TerraformReference<string>(this, "duration");
@@ -111,7 +96,6 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// <summary>
     /// The expiration_date_time attribute.
     /// </summary>
-    [TerraformArgument("expiration_date_time")]
     public TerraformValue<string>? ExpirationDateTime
     {
         get => new TerraformReference<string>(this, "expiration_date_time");
@@ -121,7 +105,6 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// <summary>
     /// The recur_every attribute.
     /// </summary>
-    [TerraformArgument("recur_every")]
     public TerraformValue<string>? RecurEvery
     {
         get => new TerraformReference<string>(this, "recur_every");
@@ -132,7 +115,6 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// The start_date_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDateTime is required")]
-    [TerraformArgument("start_date_time")]
     public required TerraformValue<string> StartDateTime
     {
         get => new TerraformReference<string>(this, "start_date_time");
@@ -143,7 +125,6 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// The time_zone attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
-    [TerraformArgument("time_zone")]
     public required TerraformValue<string> TimeZone
     {
         get => new TerraformReference<string>(this, "time_zone");
@@ -153,19 +134,14 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_maintenance_configuration Terraform resource.
 /// Manages a azurerm_maintenance_configuration resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMaintenanceConfiguration : TerraformResource
+public partial class AzurermMaintenanceConfiguration(string name) : TerraformResource("azurerm_maintenance_configuration", name)
 {
-    public AzurermMaintenanceConfiguration(string name) : base("azurerm_maintenance_configuration", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -175,7 +151,6 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// <summary>
     /// The in_guest_user_patch_mode attribute.
     /// </summary>
-    [TerraformArgument("in_guest_user_patch_mode")]
     public TerraformValue<string>? InGuestUserPatchMode
     {
         get => new TerraformReference<string>(this, "in_guest_user_patch_mode");
@@ -186,7 +161,6 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -197,7 +171,6 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -207,7 +180,6 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    [TerraformArgument("properties")]
     public TerraformMap<string>? Properties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
@@ -218,7 +190,6 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -229,7 +200,6 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    [TerraformArgument("scope")]
     public required TerraformValue<string> Scope
     {
         get => new TerraformReference<string>(this, "scope");
@@ -239,7 +209,6 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -249,7 +218,6 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    [TerraformArgument("visibility")]
     public TerraformValue<string>? Visibility
     {
         get => new TerraformReference<string>(this, "visibility");
@@ -257,26 +225,32 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     }
 
     /// <summary>
-    /// Block for install_patches.
-    /// Nesting mode: list
+    /// InstallPatches block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstallPatches block(s) allowed")]
-    [TerraformArgument("install_patches")]
-    public TerraformList<AzurermMaintenanceConfigurationInstallPatchesBlock> InstallPatches { get; set; } = new();
+    public AzurermMaintenanceConfigurationInstallPatchesBlock? InstallPatches
+    {
+        get => GetArgument<AzurermMaintenanceConfigurationInstallPatchesBlock>("install_patches");
+        set => SetArgument("install_patches", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMaintenanceConfigurationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMaintenanceConfigurationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMaintenanceConfigurationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for window.
-    /// Nesting mode: list
+    /// Window block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Window block(s) allowed")]
-    [TerraformArgument("window")]
-    public TerraformList<AzurermMaintenanceConfigurationWindowBlock> Window { get; set; } = new();
+    public AzurermMaintenanceConfigurationWindowBlock? Window
+    {
+        get => GetArgument<AzurermMaintenanceConfigurationWindowBlock>("window");
+        set => SetArgument("window", value);
+    }
 
 }

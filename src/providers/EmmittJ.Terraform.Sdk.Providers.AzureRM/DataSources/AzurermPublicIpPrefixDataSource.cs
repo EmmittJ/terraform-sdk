@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPublicIpPrefixDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermPublicIpPrefixDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_public_ip_prefix Terraform data source.
 /// Retrieves information about a azurerm_public_ip_prefix.
 /// </summary>
-public class AzurermPublicIpPrefixDataSource : TerraformDataSource
+public partial class AzurermPublicIpPrefixDataSource(string name) : TerraformDataSource("azurerm_public_ip_prefix", name)
 {
-    public AzurermPublicIpPrefixDataSource(string name) : base("azurerm_public_ip_prefix", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermPublicIpPrefixDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermPublicIpPrefixDataSource : TerraformDataSource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -76,73 +60,12 @@ public class AzurermPublicIpPrefixDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPublicIpPrefixDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The ip_prefix attribute.
-    /// </summary>
-    [TerraformArgument("ip_prefix")]
-    public TerraformValue<string> IpPrefix
+    public AzurermPublicIpPrefixDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "ip_prefix");
-    }
-
-    /// <summary>
-    /// The location attribute.
-    /// </summary>
-    [TerraformArgument("location")]
-    public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
-
-    /// <summary>
-    /// The prefix_length attribute.
-    /// </summary>
-    [TerraformArgument("prefix_length")]
-    public TerraformValue<double> PrefixLength
-    {
-        get => new TerraformReference<double>(this, "prefix_length");
-    }
-
-    /// <summary>
-    /// The sku attribute.
-    /// </summary>
-    [TerraformArgument("sku")]
-    public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
-
-    /// <summary>
-    /// The sku_tier attribute.
-    /// </summary>
-    [TerraformArgument("sku_tier")]
-    public TerraformValue<string> SkuTier
-    {
-        get => new TerraformReference<string>(this, "sku_tier");
-    }
-
-    /// <summary>
-    /// The tags attribute.
-    /// </summary>
-    [TerraformArgument("tags")]
-    public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The zones attribute.
-    /// </summary>
-    [TerraformArgument("zones")]
-    public TerraformList<string> Zones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<AzurermPublicIpPrefixDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

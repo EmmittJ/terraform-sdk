@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_express_route_circuit_connection Terraform resource.
 /// Manages a azurerm_express_route_circuit_connection resource.
 /// </summary>
-public class AzurermExpressRouteCircuitConnection : TerraformResource
+public partial class AzurermExpressRouteCircuitConnection(string name) : TerraformResource("azurerm_express_route_circuit_connection", name)
 {
-    public AzurermExpressRouteCircuitConnection(string name) : base("azurerm_express_route_circuit_connection", name)
-    {
-    }
-
     /// <summary>
     /// The address_prefix_ipv4 attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixIpv4 is required")]
-    [TerraformArgument("address_prefix_ipv4")]
     public required TerraformValue<string> AddressPrefixIpv4
     {
         get => new TerraformReference<string>(this, "address_prefix_ipv4");
@@ -87,7 +70,6 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     /// <summary>
     /// The address_prefix_ipv6 attribute.
     /// </summary>
-    [TerraformArgument("address_prefix_ipv6")]
     public TerraformValue<string>? AddressPrefixIpv6
     {
         get => new TerraformReference<string>(this, "address_prefix_ipv6");
@@ -97,7 +79,6 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    [TerraformArgument("authorization_key")]
     public TerraformValue<string>? AuthorizationKey
     {
         get => new TerraformReference<string>(this, "authorization_key");
@@ -107,7 +88,6 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -118,7 +98,6 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -129,7 +108,6 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     /// The peer_peering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerPeeringId is required")]
-    [TerraformArgument("peer_peering_id")]
     public required TerraformValue<string> PeerPeeringId
     {
         get => new TerraformReference<string>(this, "peer_peering_id");
@@ -140,7 +118,6 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     /// The peering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
-    [TerraformArgument("peering_id")]
     public required TerraformValue<string> PeeringId
     {
         get => new TerraformReference<string>(this, "peering_id");
@@ -148,10 +125,12 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermExpressRouteCircuitConnectionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermExpressRouteCircuitConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermExpressRouteCircuitConnectionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for permission_scope in .
@@ -26,7 +17,6 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
     /// The resource_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
-    [TerraformArgument("resource_name")]
     public required TerraformValue<string> ResourceName
     {
         get => new TerraformReference<string>(this, "resource_name");
@@ -37,7 +27,6 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
     /// The service attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformArgument("service")]
     public required TerraformValue<string> Service
     {
         get => new TerraformReference<string>(this, "service");
@@ -60,7 +49,6 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -71,7 +59,6 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformArgument("key")]
     public required TerraformValue<string> Key
     {
         get => new TerraformReference<string>(this, "key");
@@ -94,7 +81,6 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -104,7 +90,6 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -114,7 +99,6 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -124,7 +108,6 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -134,18 +117,14 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_account_local_user Terraform resource.
 /// Manages a azurerm_storage_account_local_user resource.
 /// </summary>
-public class AzurermStorageAccountLocalUser : TerraformResource
+public partial class AzurermStorageAccountLocalUser(string name) : TerraformResource("azurerm_storage_account_local_user", name)
 {
-    public AzurermStorageAccountLocalUser(string name) : base("azurerm_storage_account_local_user", name)
-    {
-    }
-
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
-    [TerraformArgument("home_directory")]
     public TerraformValue<string>? HomeDirectory
     {
         get => new TerraformReference<string>(this, "home_directory");
@@ -155,7 +134,6 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -166,7 +144,6 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -176,7 +153,6 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// <summary>
     /// The ssh_key_enabled attribute.
     /// </summary>
-    [TerraformArgument("ssh_key_enabled")]
     public TerraformValue<bool>? SshKeyEnabled
     {
         get => new TerraformReference<bool>(this, "ssh_key_enabled");
@@ -186,7 +162,6 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// <summary>
     /// The ssh_password_enabled attribute.
     /// </summary>
-    [TerraformArgument("ssh_password_enabled")]
     public TerraformValue<bool>? SshPasswordEnabled
     {
         get => new TerraformReference<bool>(this, "ssh_password_enabled");
@@ -197,7 +172,6 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformArgument("storage_account_id")]
     public required TerraformValue<string> StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -205,42 +179,30 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     }
 
     /// <summary>
-    /// Block for permission_scope.
-    /// Nesting mode: list
+    /// PermissionScope block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("permission_scope")]
-    public TerraformList<AzurermStorageAccountLocalUserPermissionScopeBlock> PermissionScope { get; set; } = new();
-
-    /// <summary>
-    /// Block for ssh_authorized_key.
-    /// Nesting mode: list
-    /// </summary>
-    [TerraformArgument("ssh_authorized_key")]
-    public TerraformList<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock> SshAuthorizedKey { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageAccountLocalUserTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The password attribute.
-    /// </summary>
-    [TerraformArgument("password")]
-    public TerraformValue<string> Password
+    public AzurermStorageAccountLocalUserPermissionScopeBlock? PermissionScope
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<AzurermStorageAccountLocalUserPermissionScopeBlock>("permission_scope");
+        set => SetArgument("permission_scope", value);
     }
 
     /// <summary>
-    /// The sid attribute.
+    /// SshAuthorizedKey block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("sid")]
-    public TerraformValue<string> Sid
+    public AzurermStorageAccountLocalUserSshAuthorizedKeyBlock? SshAuthorizedKey
     {
-        get => new TerraformReference<string>(this, "sid");
+        get => GetArgument<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>("ssh_authorized_key");
+        set => SetArgument("ssh_authorized_key", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermStorageAccountLocalUserTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStorageAccountLocalUserTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

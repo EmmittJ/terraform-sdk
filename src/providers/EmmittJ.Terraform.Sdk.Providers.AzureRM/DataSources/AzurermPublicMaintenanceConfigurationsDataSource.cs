@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock : Ter
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock : Ter
 }
 
 /// <summary>
+/// Represents a azurerm_public_maintenance_configurations Terraform data source.
 /// Retrieves information about a azurerm_public_maintenance_configurations.
 /// </summary>
-public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSource
+public partial class AzurermPublicMaintenanceConfigurationsDataSource(string name) : TerraformDataSource("azurerm_public_maintenance_configurations", name)
 {
-    public AzurermPublicMaintenanceConfigurationsDataSource(string name) : base("azurerm_public_maintenance_configurations", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -56,7 +42,6 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformArgument("location")]
     public TerraformValue<string>? Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -66,7 +51,6 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
     /// <summary>
     /// The recur_every attribute.
     /// </summary>
-    [TerraformArgument("recur_every")]
     public TerraformValue<string>? RecurEvery
     {
         get => new TerraformReference<string>(this, "recur_every");
@@ -76,7 +60,6 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    [TerraformArgument("scope")]
     public TerraformValue<string>? Scope
     {
         get => new TerraformReference<string>(this, "scope");
@@ -84,19 +67,12 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The configs attribute.
-    /// </summary>
-    [TerraformArgument("configs")]
-    public TerraformList<object> Configs
+    public AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "configs").ResolveNodes(ctx));
+        get => GetArgument<AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

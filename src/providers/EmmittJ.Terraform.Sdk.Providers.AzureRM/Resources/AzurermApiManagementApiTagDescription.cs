@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_api_tag_description Terraform resource.
 /// Manages a azurerm_api_management_api_tag_description resource.
 /// </summary>
-public class AzurermApiManagementApiTagDescription : TerraformResource
+public partial class AzurermApiManagementApiTagDescription(string name) : TerraformResource("azurerm_api_management_api_tag_description", name)
 {
-    public AzurermApiManagementApiTagDescription(string name) : base("azurerm_api_management_api_tag_description", name)
-    {
-    }
-
     /// <summary>
     /// The api_tag_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiTagId is required")]
-    [TerraformArgument("api_tag_id")]
     public required TerraformValue<string> ApiTagId
     {
         get => new TerraformReference<string>(this, "api_tag_id");
@@ -87,7 +70,6 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -97,7 +79,6 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
     /// <summary>
     /// The external_documentation_description attribute.
     /// </summary>
-    [TerraformArgument("external_documentation_description")]
     public TerraformValue<string>? ExternalDocumentationDescription
     {
         get => new TerraformReference<string>(this, "external_documentation_description");
@@ -107,7 +88,6 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
     /// <summary>
     /// The external_documentation_url attribute.
     /// </summary>
-    [TerraformArgument("external_documentation_url")]
     public TerraformValue<string>? ExternalDocumentationUrl
     {
         get => new TerraformReference<string>(this, "external_documentation_url");
@@ -117,7 +97,6 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -125,10 +104,12 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementApiTagDescriptionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApiManagementApiTagDescriptionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementApiTagDescriptionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

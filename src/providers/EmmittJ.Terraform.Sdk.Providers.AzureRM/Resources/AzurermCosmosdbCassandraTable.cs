@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for autoscale_settings in .
@@ -25,7 +16,6 @@ public class AzurermCosmosdbCassandraTableAutoscaleSettingsBlock : TerraformBloc
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    [TerraformArgument("max_throughput")]
     public TerraformValue<double> MaxThroughput
     {
         get => new TerraformReference<double>(this, "max_throughput");
@@ -61,7 +51,6 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -71,7 +60,6 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -81,7 +69,6 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -91,7 +78,6 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -101,19 +87,14 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_cosmosdb_cassandra_table Terraform resource.
 /// Manages a azurerm_cosmosdb_cassandra_table resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCosmosdbCassandraTable : TerraformResource
+public partial class AzurermCosmosdbCassandraTable(string name) : TerraformResource("azurerm_cosmosdb_cassandra_table", name)
 {
-    public AzurermCosmosdbCassandraTable(string name) : base("azurerm_cosmosdb_cassandra_table", name)
-    {
-    }
-
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    [TerraformArgument("analytical_storage_ttl")]
     public TerraformValue<double>? AnalyticalStorageTtl
     {
         get => new TerraformReference<double>(this, "analytical_storage_ttl");
@@ -124,7 +105,6 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     /// The cassandra_keyspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraKeyspaceId is required")]
-    [TerraformArgument("cassandra_keyspace_id")]
     public required TerraformValue<string> CassandraKeyspaceId
     {
         get => new TerraformReference<string>(this, "cassandra_keyspace_id");
@@ -134,7 +114,6 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    [TerraformArgument("default_ttl")]
     public TerraformValue<double>? DefaultTtl
     {
         get => new TerraformReference<double>(this, "default_ttl");
@@ -144,7 +123,6 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -155,7 +133,6 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -165,7 +142,6 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    [TerraformArgument("throughput")]
     public TerraformValue<double> Throughput
     {
         get => new TerraformReference<double>(this, "throughput");
@@ -173,28 +149,35 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     }
 
     /// <summary>
-    /// Block for autoscale_settings.
-    /// Nesting mode: list
+    /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    [TerraformArgument("autoscale_settings")]
-    public TerraformList<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock> AutoscaleSettings { get; set; } = new();
+    public AzurermCosmosdbCassandraTableAutoscaleSettingsBlock? AutoscaleSettings
+    {
+        get => GetArgument<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock>("autoscale_settings");
+        set => SetArgument("autoscale_settings", value);
+    }
 
     /// <summary>
-    /// Block for schema.
-    /// Nesting mode: list
+    /// Schema block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schema block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schema block(s) allowed")]
-    [TerraformArgument("schema")]
-    public required TerraformList<AzurermCosmosdbCassandraTableSchemaBlock> Schema { get; set; } = new();
+    public required AzurermCosmosdbCassandraTableSchemaBlock Schema
+    {
+        get => GetRequiredArgument<AzurermCosmosdbCassandraTableSchemaBlock>("schema");
+        set => SetArgument("schema", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCosmosdbCassandraTableTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCosmosdbCassandraTableTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCosmosdbCassandraTableTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

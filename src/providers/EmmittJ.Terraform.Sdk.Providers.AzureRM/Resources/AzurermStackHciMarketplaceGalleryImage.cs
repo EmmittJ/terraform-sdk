@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for identifier in .
@@ -26,7 +17,6 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBl
     /// The offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
-    [TerraformArgument("offer")]
     public required TerraformValue<string> Offer
     {
         get => new TerraformReference<string>(this, "offer");
@@ -37,7 +27,6 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBl
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformArgument("publisher")]
     public required TerraformValue<string> Publisher
     {
         get => new TerraformReference<string>(this, "publisher");
@@ -48,7 +37,6 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBl
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformArgument("sku")]
     public required TerraformValue<string> Sku
     {
         get => new TerraformReference<string>(this, "sku");
@@ -71,7 +59,6 @@ public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -81,7 +68,6 @@ public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -91,7 +77,6 @@ public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -101,7 +86,6 @@ public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBloc
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -111,20 +95,15 @@ public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_stack_hci_marketplace_gallery_image Terraform resource.
 /// Manages a azurerm_stack_hci_marketplace_gallery_image resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
+public partial class AzurermStackHciMarketplaceGalleryImage(string name) : TerraformResource("azurerm_stack_hci_marketplace_gallery_image", name)
 {
-    public AzurermStackHciMarketplaceGalleryImage(string name) : base("azurerm_stack_hci_marketplace_gallery_image", name)
-    {
-    }
-
     /// <summary>
     /// The custom_location_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
-    [TerraformArgument("custom_location_id")]
     public required TerraformValue<string> CustomLocationId
     {
         get => new TerraformReference<string>(this, "custom_location_id");
@@ -135,7 +114,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// The hyperv_generation attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervGeneration is required")]
-    [TerraformArgument("hyperv_generation")]
     public required TerraformValue<string> HypervGeneration
     {
         get => new TerraformReference<string>(this, "hyperv_generation");
@@ -145,7 +123,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -156,7 +133,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -167,7 +143,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -178,7 +153,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// The os_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
-    [TerraformArgument("os_type")]
     public required TerraformValue<string> OsType
     {
         get => new TerraformReference<string>(this, "os_type");
@@ -189,7 +163,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -199,7 +172,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// <summary>
     /// The storage_path_id attribute.
     /// </summary>
-    [TerraformArgument("storage_path_id")]
     public TerraformValue<string>? StoragePathId
     {
         get => new TerraformReference<string>(this, "storage_path_id");
@@ -209,7 +181,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -220,7 +191,6 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformArgument("version")]
     public required TerraformValue<string> Version
     {
         get => new TerraformReference<string>(this, "version");
@@ -228,20 +198,25 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     }
 
     /// <summary>
-    /// Block for identifier.
-    /// Nesting mode: list
+    /// Identifier block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
-    [TerraformArgument("identifier")]
-    public required TerraformList<AzurermStackHciMarketplaceGalleryImageIdentifierBlock> Identifier { get; set; } = new();
+    public required AzurermStackHciMarketplaceGalleryImageIdentifierBlock Identifier
+    {
+        get => GetRequiredArgument<AzurermStackHciMarketplaceGalleryImageIdentifierBlock>("identifier");
+        set => SetArgument("identifier", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStackHciMarketplaceGalleryImageTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermStackHciMarketplaceGalleryImageTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStackHciMarketplaceGalleryImageTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

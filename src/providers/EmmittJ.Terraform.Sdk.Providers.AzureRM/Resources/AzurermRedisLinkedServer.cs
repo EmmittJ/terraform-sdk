@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_redis_linked_server Terraform resource.
 /// Manages a azurerm_redis_linked_server resource.
 /// </summary>
-public class AzurermRedisLinkedServer : TerraformResource
+public partial class AzurermRedisLinkedServer(string name) : TerraformResource("azurerm_redis_linked_server", name)
 {
-    public AzurermRedisLinkedServer(string name) : base("azurerm_redis_linked_server", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// The linked_redis_cache_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheId is required")]
-    [TerraformArgument("linked_redis_cache_id")]
     public required TerraformValue<string> LinkedRedisCacheId
     {
         get => new TerraformReference<string>(this, "linked_redis_cache_id");
@@ -88,7 +71,6 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// The linked_redis_cache_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheLocation is required")]
-    [TerraformArgument("linked_redis_cache_location")]
     public required TerraformValue<string> LinkedRedisCacheLocation
     {
         get => new TerraformReference<string>(this, "linked_redis_cache_location");
@@ -99,7 +81,6 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -110,7 +91,6 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// The server_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerRole is required")]
-    [TerraformArgument("server_role")]
     public required TerraformValue<string> ServerRole
     {
         get => new TerraformReference<string>(this, "server_role");
@@ -121,7 +101,6 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// The target_redis_cache_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRedisCacheName is required")]
-    [TerraformArgument("target_redis_cache_name")]
     public required TerraformValue<string> TargetRedisCacheName
     {
         get => new TerraformReference<string>(this, "target_redis_cache_name");
@@ -129,28 +108,12 @@ public class AzurermRedisLinkedServer : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermRedisLinkedServerTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The geo_replicated_primary_host_name attribute.
-    /// </summary>
-    [TerraformArgument("geo_replicated_primary_host_name")]
-    public TerraformValue<string> GeoReplicatedPrimaryHostName
+    public AzurermRedisLinkedServerTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "geo_replicated_primary_host_name");
-    }
-
-    /// <summary>
-    /// The name attribute.
-    /// </summary>
-    [TerraformArgument("name")]
-    public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<AzurermRedisLinkedServerTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

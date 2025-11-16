@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for basic_auth in .
@@ -26,7 +17,6 @@ public class AzurermStaticWebAppBasicAuthBlock : TerraformBlock
     /// The environments attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environments is required")]
-    [TerraformArgument("environments")]
     public required TerraformValue<string> Environments
     {
         get => new TerraformReference<string>(this, "environments");
@@ -37,7 +27,6 @@ public class AzurermStaticWebAppBasicAuthBlock : TerraformBlock
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    [TerraformArgument("password")]
     public required TerraformValue<string> Password
     {
         get => new TerraformReference<string>(this, "password");
@@ -60,20 +49,32 @@ public class AzurermStaticWebAppIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -96,7 +97,6 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -106,7 +106,6 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -116,7 +115,6 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -126,7 +124,6 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -136,19 +133,14 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_static_web_app Terraform resource.
 /// Manages a azurerm_static_web_app resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStaticWebApp : TerraformResource
+public partial class AzurermStaticWebApp(string name) : TerraformResource("azurerm_static_web_app", name)
 {
-    public AzurermStaticWebApp(string name) : base("azurerm_static_web_app", name)
-    {
-    }
-
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    [TerraformArgument("app_settings")]
     public TerraformMap<string>? AppSettings
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "app_settings").ResolveNodes(ctx));
@@ -158,7 +150,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The configuration_file_changes_enabled attribute.
     /// </summary>
-    [TerraformArgument("configuration_file_changes_enabled")]
     public TerraformValue<bool>? ConfigurationFileChangesEnabled
     {
         get => new TerraformReference<bool>(this, "configuration_file_changes_enabled");
@@ -168,7 +159,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -179,7 +169,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -190,7 +179,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -200,7 +188,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The preview_environments_enabled attribute.
     /// </summary>
-    [TerraformArgument("preview_environments_enabled")]
     public TerraformValue<bool>? PreviewEnvironmentsEnabled
     {
         get => new TerraformReference<bool>(this, "preview_environments_enabled");
@@ -210,7 +197,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_network_access_enabled")]
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
         get => new TerraformReference<bool>(this, "public_network_access_enabled");
@@ -220,7 +206,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The repository_branch attribute.
     /// </summary>
-    [TerraformArgument("repository_branch")]
     public TerraformValue<string>? RepositoryBranch
     {
         get => new TerraformReference<string>(this, "repository_branch");
@@ -230,7 +215,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The repository_token attribute.
     /// </summary>
-    [TerraformArgument("repository_token")]
     public TerraformValue<string>? RepositoryToken
     {
         get => new TerraformReference<string>(this, "repository_token");
@@ -240,7 +224,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
-    [TerraformArgument("repository_url")]
     public TerraformValue<string>? RepositoryUrl
     {
         get => new TerraformReference<string>(this, "repository_url");
@@ -251,7 +234,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -261,7 +243,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The sku_size attribute.
     /// </summary>
-    [TerraformArgument("sku_size")]
     public TerraformValue<string>? SkuSize
     {
         get => new TerraformReference<string>(this, "sku_size");
@@ -271,7 +252,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    [TerraformArgument("sku_tier")]
     public TerraformValue<string>? SkuTier
     {
         get => new TerraformReference<string>(this, "sku_tier");
@@ -281,7 +261,6 @@ public class AzurermStaticWebApp : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -289,44 +268,32 @@ public class AzurermStaticWebApp : TerraformResource
     }
 
     /// <summary>
-    /// Block for basic_auth.
-    /// Nesting mode: list
+    /// BasicAuth block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAuth block(s) allowed")]
-    [TerraformArgument("basic_auth")]
-    public TerraformList<AzurermStaticWebAppBasicAuthBlock> BasicAuth { get; set; } = new();
-
-    /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermStaticWebAppIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStaticWebAppTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The api_key attribute.
-    /// </summary>
-    [TerraformArgument("api_key")]
-    public TerraformValue<string> ApiKey
+    public AzurermStaticWebAppBasicAuthBlock? BasicAuth
     {
-        get => new TerraformReference<string>(this, "api_key");
+        get => GetArgument<AzurermStaticWebAppBasicAuthBlock>("basic_auth");
+        set => SetArgument("basic_auth", value);
     }
 
     /// <summary>
-    /// The default_host_name attribute.
+    /// Identity block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("default_host_name")]
-    public TerraformValue<string> DefaultHostName
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public AzurermStaticWebAppIdentityBlock? Identity
     {
-        get => new TerraformReference<string>(this, "default_host_name");
+        get => GetArgument<AzurermStaticWebAppIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermStaticWebAppTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermStaticWebAppTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

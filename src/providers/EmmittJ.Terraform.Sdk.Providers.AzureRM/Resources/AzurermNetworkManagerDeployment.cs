@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_network_manager_deployment Terraform resource.
 /// Manages a azurerm_network_manager_deployment resource.
 /// </summary>
-public class AzurermNetworkManagerDeployment : TerraformResource
+public partial class AzurermNetworkManagerDeployment(string name) : TerraformResource("azurerm_network_manager_deployment", name)
 {
-    public AzurermNetworkManagerDeployment(string name) : base("azurerm_network_manager_deployment", name)
-    {
-    }
-
     /// <summary>
     /// The configuration_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationIds is required")]
-    [TerraformArgument("configuration_ids")]
     public TerraformList<string>? ConfigurationIds
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "configuration_ids").ResolveNodes(ctx));
@@ -87,7 +70,6 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -109,7 +90,6 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     /// The network_manager_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
-    [TerraformArgument("network_manager_id")]
     public required TerraformValue<string> NetworkManagerId
     {
         get => new TerraformReference<string>(this, "network_manager_id");
@@ -120,7 +100,6 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     /// The scope_access attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeAccess is required")]
-    [TerraformArgument("scope_access")]
     public required TerraformValue<string> ScopeAccess
     {
         get => new TerraformReference<string>(this, "scope_access");
@@ -130,7 +109,6 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    [TerraformArgument("triggers")]
     public TerraformMap<string>? Triggers
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
@@ -138,10 +116,12 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkManagerDeploymentTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermNetworkManagerDeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermNetworkManagerDeploymentTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

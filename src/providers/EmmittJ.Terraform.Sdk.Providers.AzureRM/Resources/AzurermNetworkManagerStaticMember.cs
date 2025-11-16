@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,18 +43,14 @@ public class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_network_manager_static_member Terraform resource.
 /// Manages a azurerm_network_manager_static_member resource.
 /// </summary>
-public class AzurermNetworkManagerStaticMember : TerraformResource
+public partial class AzurermNetworkManagerStaticMember(string name) : TerraformResource("azurerm_network_manager_static_member", name)
 {
-    public AzurermNetworkManagerStaticMember(string name) : base("azurerm_network_manager_static_member", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -77,7 +61,6 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -88,7 +71,6 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     /// The network_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
-    [TerraformArgument("network_group_id")]
     public required TerraformValue<string> NetworkGroupId
     {
         get => new TerraformReference<string>(this, "network_group_id");
@@ -99,7 +81,6 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     /// The target_virtual_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVirtualNetworkId is required")]
-    [TerraformArgument("target_virtual_network_id")]
     public required TerraformValue<string> TargetVirtualNetworkId
     {
         get => new TerraformReference<string>(this, "target_virtual_network_id");
@@ -107,19 +88,12 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermNetworkManagerStaticMemberTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The region attribute.
-    /// </summary>
-    [TerraformArgument("region")]
-    public TerraformValue<string> Region
+    public AzurermNetworkManagerStaticMemberTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<AzurermNetworkManagerStaticMemberTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

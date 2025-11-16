@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermStorageTableEntityDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermStorageTableEntityDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_storage_table_entity Terraform data source.
 /// Retrieves information about a azurerm_storage_table_entity.
 /// </summary>
-public class AzurermStorageTableEntityDataSource : TerraformDataSource
+public partial class AzurermStorageTableEntityDataSource(string name) : TerraformDataSource("azurerm_storage_table_entity", name)
 {
-    public AzurermStorageTableEntityDataSource(string name) : base("azurerm_storage_table_entity", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     /// The partition_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
-    [TerraformArgument("partition_key")]
     public required TerraformValue<string> PartitionKey
     {
         get => new TerraformReference<string>(this, "partition_key");
@@ -68,7 +53,6 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     /// The row_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
-    [TerraformArgument("row_key")]
     public required TerraformValue<string> RowKey
     {
         get => new TerraformReference<string>(this, "row_key");
@@ -79,7 +63,6 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     /// The storage_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
-    [TerraformArgument("storage_table_id")]
     public required TerraformValue<string> StorageTableId
     {
         get => new TerraformReference<string>(this, "storage_table_id");
@@ -87,19 +70,12 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermStorageTableEntityDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The entity attribute.
-    /// </summary>
-    [TerraformArgument("entity")]
-    public TerraformMap<string> Entity
+    public AzurermStorageTableEntityDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "entity").ResolveNodes(ctx));
+        get => GetArgument<AzurermStorageTableEntityDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

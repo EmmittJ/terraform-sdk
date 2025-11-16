@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermBlueprintDefinitionDataSourceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermBlueprintDefinitionDataSourceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_blueprint_definition Terraform data source.
 /// Retrieves information about a azurerm_blueprint_definition.
 /// </summary>
-public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
+public partial class AzurermBlueprintDefinitionDataSource(string name) : TerraformDataSource("azurerm_blueprint_definition", name)
 {
-    public AzurermBlueprintDefinitionDataSource(string name) : base("azurerm_blueprint_definition", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     /// The scope_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
-    [TerraformArgument("scope_id")]
     public required TerraformValue<string> ScopeId
     {
         get => new TerraformReference<string>(this, "scope_id");
@@ -76,64 +60,12 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermBlueprintDefinitionDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The description attribute.
-    /// </summary>
-    [TerraformArgument("description")]
-    public TerraformValue<string> Description
+    public AzurermBlueprintDefinitionDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "description");
-    }
-
-    /// <summary>
-    /// The display_name attribute.
-    /// </summary>
-    [TerraformArgument("display_name")]
-    public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
-
-    /// <summary>
-    /// The last_modified attribute.
-    /// </summary>
-    [TerraformArgument("last_modified")]
-    public TerraformValue<string> LastModified
-    {
-        get => new TerraformReference<string>(this, "last_modified");
-    }
-
-    /// <summary>
-    /// The target_scope attribute.
-    /// </summary>
-    [TerraformArgument("target_scope")]
-    public TerraformValue<string> TargetScope
-    {
-        get => new TerraformReference<string>(this, "target_scope");
-    }
-
-    /// <summary>
-    /// The time_created attribute.
-    /// </summary>
-    [TerraformArgument("time_created")]
-    public TerraformValue<string> TimeCreated
-    {
-        get => new TerraformReference<string>(this, "time_created");
-    }
-
-    /// <summary>
-    /// The versions attribute.
-    /// </summary>
-    [TerraformArgument("versions")]
-    public TerraformList<string> Versions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "versions").ResolveNodes(ctx));
+        get => GetArgument<AzurermBlueprintDefinitionDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

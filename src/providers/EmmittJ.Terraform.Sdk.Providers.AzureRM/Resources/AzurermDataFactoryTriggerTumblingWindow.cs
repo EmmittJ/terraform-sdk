@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for pipeline in .
@@ -26,7 +17,6 @@ public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlo
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -36,7 +26,6 @@ public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlo
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -59,9 +48,8 @@ public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
     /// <summary>
     /// The count attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
-    [TerraformArgument("count")]
-    public required TerraformValue<double> Count
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
     {
         get => new TerraformReference<double>(this, "count");
         set => SetArgument("count", value);
@@ -70,7 +58,6 @@ public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    [TerraformArgument("interval")]
     public TerraformValue<double>? Interval
     {
         get => new TerraformReference<double>(this, "interval");
@@ -93,7 +80,6 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -103,7 +89,6 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -113,7 +98,6 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -123,7 +107,6 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -146,7 +129,6 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
     /// <summary>
     /// The offset attribute.
     /// </summary>
-    [TerraformArgument("offset")]
     public TerraformValue<string>? Offset
     {
         get => new TerraformReference<string>(this, "offset");
@@ -156,7 +138,6 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
     /// <summary>
     /// The size attribute.
     /// </summary>
-    [TerraformArgument("size")]
     public TerraformValue<string>? Size
     {
         get => new TerraformReference<string>(this, "size");
@@ -166,7 +147,6 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
     /// <summary>
     /// The trigger_name attribute.
     /// </summary>
-    [TerraformArgument("trigger_name")]
     public TerraformValue<string>? TriggerName
     {
         get => new TerraformReference<string>(this, "trigger_name");
@@ -176,19 +156,14 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_trigger_tumbling_window Terraform resource.
 /// Manages a azurerm_data_factory_trigger_tumbling_window resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
+public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : TerraformResource("azurerm_data_factory_trigger_tumbling_window", name)
 {
-    public AzurermDataFactoryTriggerTumblingWindow(string name) : base("azurerm_data_factory_trigger_tumbling_window", name)
-    {
-    }
-
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    [TerraformArgument("activated")]
     public TerraformValue<bool>? Activated
     {
         get => new TerraformReference<bool>(this, "activated");
@@ -198,7 +173,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -208,7 +182,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -219,7 +192,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -229,7 +201,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// <summary>
     /// The delay attribute.
     /// </summary>
-    [TerraformArgument("delay")]
     public TerraformValue<string>? Delay
     {
         get => new TerraformReference<string>(this, "delay");
@@ -239,7 +210,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -249,7 +219,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    [TerraformArgument("end_time")]
     public TerraformValue<string>? EndTime
     {
         get => new TerraformReference<string>(this, "end_time");
@@ -260,7 +229,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    [TerraformArgument("frequency")]
     public required TerraformValue<string> Frequency
     {
         get => new TerraformReference<string>(this, "frequency");
@@ -270,7 +238,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -281,7 +248,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// The interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
-    [TerraformArgument("interval")]
     public required TerraformValue<double> Interval
     {
         get => new TerraformReference<double>(this, "interval");
@@ -291,7 +257,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    [TerraformArgument("max_concurrency")]
     public TerraformValue<double>? MaxConcurrency
     {
         get => new TerraformReference<double>(this, "max_concurrency");
@@ -302,7 +267,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -313,7 +277,6 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// The start_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
-    [TerraformArgument("start_time")]
     public required TerraformValue<string> StartTime
     {
         get => new TerraformReference<string>(this, "start_time");
@@ -321,35 +284,44 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     }
 
     /// <summary>
-    /// Block for pipeline.
-    /// Nesting mode: list
+    /// Pipeline block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Pipeline block(s) allowed")]
-    [TerraformArgument("pipeline")]
-    public required TerraformList<AzurermDataFactoryTriggerTumblingWindowPipelineBlock> Pipeline { get; set; } = new();
+    public required AzurermDataFactoryTriggerTumblingWindowPipelineBlock Pipeline
+    {
+        get => GetRequiredArgument<AzurermDataFactoryTriggerTumblingWindowPipelineBlock>("pipeline");
+        set => SetArgument("pipeline", value);
+    }
 
     /// <summary>
-    /// Block for retry.
-    /// Nesting mode: list
+    /// Retry block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Retry block(s) allowed")]
-    [TerraformArgument("retry")]
-    public TerraformList<AzurermDataFactoryTriggerTumblingWindowRetryBlock> Retry { get; set; } = new();
+    public AzurermDataFactoryTriggerTumblingWindowRetryBlock? Retry
+    {
+        get => GetArgument<AzurermDataFactoryTriggerTumblingWindowRetryBlock>("retry");
+        set => SetArgument("retry", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for trigger_dependency.
-    /// Nesting mode: set
+    /// TriggerDependency block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("trigger_dependency")]
-    public TerraformSet<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock> TriggerDependency { get; set; } = new();
+    public AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock? TriggerDependency
+    {
+        get => GetArgument<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock>("trigger_dependency");
+        set => SetArgument("trigger_dependency", value);
+    }
 
 }

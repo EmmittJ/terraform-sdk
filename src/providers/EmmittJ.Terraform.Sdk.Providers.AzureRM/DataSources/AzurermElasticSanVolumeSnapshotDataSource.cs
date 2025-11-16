@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : TerraformB
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : TerraformB
 }
 
 /// <summary>
+/// Represents a azurerm_elastic_san_volume_snapshot Terraform data source.
 /// Retrieves information about a azurerm_elastic_san_volume_snapshot.
 /// </summary>
-public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
+public partial class AzurermElasticSanVolumeSnapshotDataSource(string name) : TerraformDataSource("azurerm_elastic_san_volume_snapshot", name)
 {
-    public AzurermElasticSanVolumeSnapshotDataSource(string name) : base("azurerm_elastic_san_volume_snapshot", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     /// The volume_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
-    [TerraformArgument("volume_group_id")]
     public required TerraformValue<string> VolumeGroupId
     {
         get => new TerraformReference<string>(this, "volume_group_id");
@@ -76,37 +60,12 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The source_id attribute.
-    /// </summary>
-    [TerraformArgument("source_id")]
-    public TerraformValue<string> SourceId
+    public AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "source_id");
-    }
-
-    /// <summary>
-    /// The source_volume_size_in_gib attribute.
-    /// </summary>
-    [TerraformArgument("source_volume_size_in_gib")]
-    public TerraformValue<double> SourceVolumeSizeInGib
-    {
-        get => new TerraformReference<double>(this, "source_volume_size_in_gib");
-    }
-
-    /// <summary>
-    /// The volume_name attribute.
-    /// </summary>
-    [TerraformArgument("volume_name")]
-    public TerraformValue<string> VolumeName
-    {
-        get => new TerraformReference<string>(this, "volume_name");
+        get => GetArgument<AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

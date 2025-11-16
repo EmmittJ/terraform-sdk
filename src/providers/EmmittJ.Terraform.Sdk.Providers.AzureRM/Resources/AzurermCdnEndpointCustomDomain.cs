@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for cdn_managed_https in .
@@ -26,7 +17,6 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     /// The certificate_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateType is required")]
-    [TerraformArgument("certificate_type")]
     public required TerraformValue<string> CertificateType
     {
         get => new TerraformReference<string>(this, "certificate_type");
@@ -37,7 +27,6 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     /// The protocol_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
-    [TerraformArgument("protocol_type")]
     public required TerraformValue<string> ProtocolType
     {
         get => new TerraformReference<string>(this, "protocol_type");
@@ -47,7 +36,6 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     /// <summary>
     /// The tls_version attribute.
     /// </summary>
-    [TerraformArgument("tls_version")]
     public TerraformValue<string>? TlsVersion
     {
         get => new TerraformReference<string>(this, "tls_version");
@@ -70,7 +58,6 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -80,7 +67,6 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -90,7 +76,6 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -100,7 +85,6 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -124,7 +108,6 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
     /// The key_vault_secret_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
-    [TerraformArgument("key_vault_secret_id")]
     public required TerraformValue<string> KeyVaultSecretId
     {
         get => new TerraformReference<string>(this, "key_vault_secret_id");
@@ -134,7 +117,6 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
     /// <summary>
     /// The tls_version attribute.
     /// </summary>
-    [TerraformArgument("tls_version")]
     public TerraformValue<string>? TlsVersion
     {
         get => new TerraformReference<string>(this, "tls_version");
@@ -144,20 +126,15 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
 }
 
 /// <summary>
+/// Represents a azurerm_cdn_endpoint_custom_domain Terraform resource.
 /// Manages a azurerm_cdn_endpoint_custom_domain resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCdnEndpointCustomDomain : TerraformResource
+public partial class AzurermCdnEndpointCustomDomain(string name) : TerraformResource("azurerm_cdn_endpoint_custom_domain", name)
 {
-    public AzurermCdnEndpointCustomDomain(string name) : base("azurerm_cdn_endpoint_custom_domain", name)
-    {
-    }
-
     /// <summary>
     /// The cdn_endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnEndpointId is required")]
-    [TerraformArgument("cdn_endpoint_id")]
     public required TerraformValue<string> CdnEndpointId
     {
         get => new TerraformReference<string>(this, "cdn_endpoint_id");
@@ -168,7 +145,6 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformArgument("host_name")]
     public required TerraformValue<string> HostName
     {
         get => new TerraformReference<string>(this, "host_name");
@@ -178,7 +154,6 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -189,7 +164,6 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -197,26 +171,32 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     }
 
     /// <summary>
-    /// Block for cdn_managed_https.
-    /// Nesting mode: list
+    /// CdnManagedHttps block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnManagedHttps block(s) allowed")]
-    [TerraformArgument("cdn_managed_https")]
-    public TerraformList<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock> CdnManagedHttps { get; set; } = new();
+    public AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock? CdnManagedHttps
+    {
+        get => GetArgument<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>("cdn_managed_https");
+        set => SetArgument("cdn_managed_https", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCdnEndpointCustomDomainTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCdnEndpointCustomDomainTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCdnEndpointCustomDomainTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for user_managed_https.
-    /// Nesting mode: list
+    /// UserManagedHttps block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserManagedHttps block(s) allowed")]
-    [TerraformArgument("user_managed_https")]
-    public TerraformList<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock> UserManagedHttps { get; set; } = new();
+    public AzurermCdnEndpointCustomDomainUserManagedHttpsBlock? UserManagedHttps
+    {
+        get => GetArgument<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>("user_managed_https");
+        set => SetArgument("user_managed_https", value);
+    }
 
 }

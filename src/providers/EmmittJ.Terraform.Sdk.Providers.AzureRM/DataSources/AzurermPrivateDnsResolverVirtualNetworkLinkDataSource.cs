@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock 
 }
 
 /// <summary>
+/// Represents a azurerm_private_dns_resolver_virtual_network_link Terraform data source.
 /// Retrieves information about a azurerm_private_dns_resolver_virtual_network_link.
 /// </summary>
-public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource : TerraformDataSource
+public partial class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource(string name) : TerraformDataSource("azurerm_private_dns_resolver_virtual_network_link", name)
 {
-    public AzurermPrivateDnsResolverVirtualNetworkLinkDataSource(string name) : base("azurerm_private_dns_resolver_virtual_network_link", name)
-    {
-    }
-
     /// <summary>
     /// The dns_forwarding_ruleset_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
-    [TerraformArgument("dns_forwarding_ruleset_id")]
     public required TerraformValue<string> DnsForwardingRulesetId
     {
         get => new TerraformReference<string>(this, "dns_forwarding_ruleset_id");
@@ -57,7 +43,6 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -68,7 +53,6 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource : TerraformDa
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -76,28 +60,12 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource : TerraformDa
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The metadata attribute.
-    /// </summary>
-    [TerraformArgument("metadata")]
-    public TerraformMap<string> Metadata
+    public AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock? Timeouts
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The virtual_network_id attribute.
-    /// </summary>
-    [TerraformArgument("virtual_network_id")]
-    public TerraformValue<string> VirtualNetworkId
-    {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for azure_active_directory_administrator in .
@@ -25,7 +16,6 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     /// <summary>
     /// The azuread_authentication_only_enabled attribute.
     /// </summary>
-    [TerraformArgument("azuread_authentication_only_enabled")]
     public TerraformValue<bool>? AzureadAuthenticationOnlyEnabled
     {
         get => new TerraformReference<bool>(this, "azuread_authentication_only_enabled");
@@ -36,7 +26,6 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     /// The login_username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
-    [TerraformArgument("login_username")]
     public required TerraformValue<string> LoginUsername
     {
         get => new TerraformReference<string>(this, "login_username");
@@ -47,7 +36,6 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     /// The object_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
-    [TerraformArgument("object_id")]
     public required TerraformValue<string> ObjectId
     {
         get => new TerraformReference<string>(this, "object_id");
@@ -58,7 +46,6 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     /// The principal_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
-    [TerraformArgument("principal_type")]
     public required TerraformValue<string> PrincipalType
     {
         get => new TerraformReference<string>(this, "principal_type");
@@ -68,7 +55,6 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformArgument("tenant_id")]
     public TerraformValue<string>? TenantId
     {
         get => new TerraformReference<string>(this, "tenant_id");
@@ -91,20 +77,32 @@ public class AzurermMssqlManagedInstanceIdentityBlock : TerraformBlock
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformArgument("identity_ids")]
     public TerraformSet<string>? IdentityIds
     {
         get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
         set => SetArgument("identity_ids", value);
     }
 
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+    }
 
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+    }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformArgument("type")]
     public required TerraformValue<string> Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -127,7 +125,6 @@ public class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -137,7 +134,6 @@ public class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -147,7 +143,6 @@ public class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -157,7 +152,6 @@ public class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -167,19 +161,14 @@ public class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mssql_managed_instance Terraform resource.
 /// Manages a azurerm_mssql_managed_instance resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMssqlManagedInstance : TerraformResource
+public partial class AzurermMssqlManagedInstance(string name) : TerraformResource("azurerm_mssql_managed_instance", name)
 {
-    public AzurermMssqlManagedInstance(string name) : base("azurerm_mssql_managed_instance", name)
-    {
-    }
-
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    [TerraformArgument("administrator_login")]
     public TerraformValue<string> AdministratorLogin
     {
         get => new TerraformReference<string>(this, "administrator_login");
@@ -189,7 +178,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The administrator_login_password attribute.
     /// </summary>
-    [TerraformArgument("administrator_login_password")]
     public TerraformValue<string>? AdministratorLoginPassword
     {
         get => new TerraformReference<string>(this, "administrator_login_password");
@@ -199,7 +187,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    [TerraformArgument("collation")]
     public TerraformValue<string>? Collation
     {
         get => new TerraformReference<string>(this, "collation");
@@ -209,7 +196,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The database_format attribute.
     /// </summary>
-    [TerraformArgument("database_format")]
     public TerraformValue<string>? DatabaseFormat
     {
         get => new TerraformReference<string>(this, "database_format");
@@ -219,7 +205,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The dns_zone_partner_id attribute.
     /// </summary>
-    [TerraformArgument("dns_zone_partner_id")]
     public TerraformValue<string>? DnsZonePartnerId
     {
         get => new TerraformReference<string>(this, "dns_zone_partner_id");
@@ -229,7 +214,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The hybrid_secondary_usage attribute.
     /// </summary>
-    [TerraformArgument("hybrid_secondary_usage")]
     public TerraformValue<string>? HybridSecondaryUsage
     {
         get => new TerraformReference<string>(this, "hybrid_secondary_usage");
@@ -239,7 +223,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -250,7 +233,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// The license_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
-    [TerraformArgument("license_type")]
     public required TerraformValue<string> LicenseType
     {
         get => new TerraformReference<string>(this, "license_type");
@@ -261,7 +243,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -271,7 +252,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
-    [TerraformArgument("maintenance_configuration_name")]
     public TerraformValue<string>? MaintenanceConfigurationName
     {
         get => new TerraformReference<string>(this, "maintenance_configuration_name");
@@ -281,7 +261,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    [TerraformArgument("minimum_tls_version")]
     public TerraformValue<string>? MinimumTlsVersion
     {
         get => new TerraformReference<string>(this, "minimum_tls_version");
@@ -292,7 +271,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -302,7 +280,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The proxy_override attribute.
     /// </summary>
-    [TerraformArgument("proxy_override")]
     public TerraformValue<string>? ProxyOverride
     {
         get => new TerraformReference<string>(this, "proxy_override");
@@ -312,7 +289,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The public_data_endpoint_enabled attribute.
     /// </summary>
-    [TerraformArgument("public_data_endpoint_enabled")]
     public TerraformValue<bool>? PublicDataEndpointEnabled
     {
         get => new TerraformReference<bool>(this, "public_data_endpoint_enabled");
@@ -323,7 +299,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -333,7 +308,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The service_principal_type attribute.
     /// </summary>
-    [TerraformArgument("service_principal_type")]
     public TerraformValue<string>? ServicePrincipalType
     {
         get => new TerraformReference<string>(this, "service_principal_type");
@@ -344,7 +318,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformArgument("sku_name")]
     public required TerraformValue<string> SkuName
     {
         get => new TerraformReference<string>(this, "sku_name");
@@ -354,7 +327,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
-    [TerraformArgument("storage_account_type")]
     public TerraformValue<string>? StorageAccountType
     {
         get => new TerraformReference<string>(this, "storage_account_type");
@@ -365,7 +337,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// The storage_size_in_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSizeInGb is required")]
-    [TerraformArgument("storage_size_in_gb")]
     public required TerraformValue<double> StorageSizeInGb
     {
         get => new TerraformReference<double>(this, "storage_size_in_gb");
@@ -376,7 +347,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformArgument("subnet_id")]
     public required TerraformValue<string> SubnetId
     {
         get => new TerraformReference<string>(this, "subnet_id");
@@ -386,7 +356,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -396,7 +365,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The timezone_id attribute.
     /// </summary>
-    [TerraformArgument("timezone_id")]
     public TerraformValue<string>? TimezoneId
     {
         get => new TerraformReference<string>(this, "timezone_id");
@@ -407,7 +375,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// The vcores attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vcores is required")]
-    [TerraformArgument("vcores")]
     public required TerraformValue<double> Vcores
     {
         get => new TerraformReference<double>(this, "vcores");
@@ -417,7 +384,6 @@ public class AzurermMssqlManagedInstance : TerraformResource
     /// <summary>
     /// The zone_redundant_enabled attribute.
     /// </summary>
-    [TerraformArgument("zone_redundant_enabled")]
     public TerraformValue<bool>? ZoneRedundantEnabled
     {
         get => new TerraformReference<bool>(this, "zone_redundant_enabled");
@@ -425,44 +391,32 @@ public class AzurermMssqlManagedInstance : TerraformResource
     }
 
     /// <summary>
-    /// Block for azure_active_directory_administrator.
-    /// Nesting mode: list
+    /// AzureActiveDirectoryAdministrator block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectoryAdministrator block(s) allowed")]
-    [TerraformArgument("azure_active_directory_administrator")]
-    public TerraformList<AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock> AzureActiveDirectoryAdministrator { get; set; } = new();
-
-    /// <summary>
-    /// Block for identity.
-    /// Nesting mode: list
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformArgument("identity")]
-    public TerraformList<AzurermMssqlManagedInstanceIdentityBlock> Identity { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMssqlManagedInstanceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The dns_zone attribute.
-    /// </summary>
-    [TerraformArgument("dns_zone")]
-    public TerraformValue<string> DnsZone
+    public AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock? AzureActiveDirectoryAdministrator
     {
-        get => new TerraformReference<string>(this, "dns_zone");
+        get => GetArgument<AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock>("azure_active_directory_administrator");
+        set => SetArgument("azure_active_directory_administrator", value);
     }
 
     /// <summary>
-    /// The fqdn attribute.
+    /// Identity block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("fqdn")]
-    public TerraformValue<string> Fqdn
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public AzurermMssqlManagedInstanceIdentityBlock? Identity
     {
-        get => new TerraformReference<string>(this, "fqdn");
+        get => GetArgument<AzurermMssqlManagedInstanceIdentityBlock>("identity");
+        set => SetArgument("identity", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzurermMssqlManagedInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMssqlManagedInstanceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

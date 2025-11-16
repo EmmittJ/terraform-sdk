@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,19 +25,15 @@ public class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_encrypted_value Terraform data source.
 /// Retrieves information about a azurerm_key_vault_encrypted_value.
 /// </summary>
-public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
+public partial class AzurermKeyVaultEncryptedValueDataSource(string name) : TerraformDataSource("azurerm_key_vault_encrypted_value", name)
 {
-    public AzurermKeyVaultEncryptedValueDataSource(string name) : base("azurerm_key_vault_encrypted_value", name)
-    {
-    }
-
     /// <summary>
     /// The algorithm attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
-    [TerraformArgument("algorithm")]
     public required TerraformValue<string> Algorithm
     {
         get => new TerraformReference<string>(this, "algorithm");
@@ -57,7 +43,6 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     /// <summary>
     /// The encrypted_data attribute.
     /// </summary>
-    [TerraformArgument("encrypted_data")]
     public TerraformValue<string>? EncryptedData
     {
         get => new TerraformReference<string>(this, "encrypted_data");
@@ -67,7 +52,6 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -78,7 +62,6 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    [TerraformArgument("key_vault_key_id")]
     public required TerraformValue<string> KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
@@ -88,7 +71,6 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     /// <summary>
     /// The plain_text_value attribute.
     /// </summary>
-    [TerraformArgument("plain_text_value")]
     public TerraformValue<string>? PlainTextValue
     {
         get => new TerraformReference<string>(this, "plain_text_value");
@@ -96,19 +78,12 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The decoded_plain_text_value attribute.
-    /// </summary>
-    [TerraformArgument("decoded_plain_text_value")]
-    public TerraformValue<string> DecodedPlainTextValue
+    public AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "decoded_plain_text_value");
+        get => GetArgument<AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

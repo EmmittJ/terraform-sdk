@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for feature in .
@@ -26,7 +17,6 @@ public class AzurermResourceProviderRegistrationFeatureBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -37,7 +27,6 @@ public class AzurermResourceProviderRegistrationFeatureBlock : TerraformBlock
     /// The registered attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Registered is required")]
-    [TerraformArgument("registered")]
     public required TerraformValue<bool> Registered
     {
         get => new TerraformReference<bool>(this, "registered");
@@ -60,7 +49,6 @@ public class AzurermResourceProviderRegistrationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -70,7 +58,6 @@ public class AzurermResourceProviderRegistrationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -80,7 +67,6 @@ public class AzurermResourceProviderRegistrationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -90,7 +76,6 @@ public class AzurermResourceProviderRegistrationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -100,18 +85,14 @@ public class AzurermResourceProviderRegistrationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_resource_provider_registration Terraform resource.
 /// Manages a azurerm_resource_provider_registration resource.
 /// </summary>
-public class AzurermResourceProviderRegistration : TerraformResource
+public partial class AzurermResourceProviderRegistration(string name) : TerraformResource("azurerm_resource_provider_registration", name)
 {
-    public AzurermResourceProviderRegistration(string name) : base("azurerm_resource_provider_registration", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -122,7 +103,6 @@ public class AzurermResourceProviderRegistration : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -130,17 +110,21 @@ public class AzurermResourceProviderRegistration : TerraformResource
     }
 
     /// <summary>
-    /// Block for feature.
-    /// Nesting mode: set
+    /// Feature block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("feature")]
-    public TerraformSet<AzurermResourceProviderRegistrationFeatureBlock> Feature { get; set; } = new();
+    public AzurermResourceProviderRegistrationFeatureBlock? Feature
+    {
+        get => GetArgument<AzurermResourceProviderRegistrationFeatureBlock>("feature");
+        set => SetArgument("feature", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermResourceProviderRegistrationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermResourceProviderRegistrationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermResourceProviderRegistrationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

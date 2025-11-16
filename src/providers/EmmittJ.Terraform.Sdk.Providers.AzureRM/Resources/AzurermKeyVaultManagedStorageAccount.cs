@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_key_vault_managed_storage_account Terraform resource.
 /// Manages a azurerm_key_vault_managed_storage_account resource.
 /// </summary>
-public class AzurermKeyVaultManagedStorageAccount : TerraformResource
+public partial class AzurermKeyVaultManagedStorageAccount(string name) : TerraformResource("azurerm_key_vault_managed_storage_account", name)
 {
-    public AzurermKeyVaultManagedStorageAccount(string name) : base("azurerm_key_vault_managed_storage_account", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -87,7 +70,6 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformArgument("key_vault_id")]
     public required TerraformValue<string> KeyVaultId
     {
         get => new TerraformReference<string>(this, "key_vault_id");
@@ -98,7 +80,6 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -108,7 +89,6 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// <summary>
     /// The regenerate_key_automatically attribute.
     /// </summary>
-    [TerraformArgument("regenerate_key_automatically")]
     public TerraformValue<bool>? RegenerateKeyAutomatically
     {
         get => new TerraformReference<bool>(this, "regenerate_key_automatically");
@@ -118,7 +98,6 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// <summary>
     /// The regeneration_period attribute.
     /// </summary>
-    [TerraformArgument("regeneration_period")]
     public TerraformValue<string>? RegenerationPeriod
     {
         get => new TerraformReference<string>(this, "regeneration_period");
@@ -129,7 +108,6 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformArgument("storage_account_id")]
     public required TerraformValue<string> StorageAccountId
     {
         get => new TerraformReference<string>(this, "storage_account_id");
@@ -140,7 +118,6 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// The storage_account_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
-    [TerraformArgument("storage_account_key")]
     public required TerraformValue<string> StorageAccountKey
     {
         get => new TerraformReference<string>(this, "storage_account_key");
@@ -150,7 +127,6 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -158,10 +134,12 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermKeyVaultManagedStorageAccountTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermKeyVaultManagedStorageAccountTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermKeyVaultManagedStorageAccountTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

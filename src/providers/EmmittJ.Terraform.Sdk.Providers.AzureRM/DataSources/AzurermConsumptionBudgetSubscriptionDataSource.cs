@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock : Terra
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -35,18 +25,14 @@ public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock : Terra
 }
 
 /// <summary>
+/// Represents a azurerm_consumption_budget_subscription Terraform data source.
 /// Retrieves information about a azurerm_consumption_budget_subscription.
 /// </summary>
-public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSource
+public partial class AzurermConsumptionBudgetSubscriptionDataSource(string name) : TerraformDataSource("azurerm_consumption_budget_subscription", name)
 {
-    public AzurermConsumptionBudgetSubscriptionDataSource(string name) : base("azurerm_consumption_budget_subscription", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -57,7 +43,6 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -68,7 +53,6 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    [TerraformArgument("subscription_id")]
     public required TerraformValue<string> SubscriptionId
     {
         get => new TerraformReference<string>(this, "subscription_id");
@@ -76,55 +60,12 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The amount attribute.
-    /// </summary>
-    [TerraformArgument("amount")]
-    public TerraformValue<double> Amount
+    public AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<double>(this, "amount");
-    }
-
-    /// <summary>
-    /// The filter attribute.
-    /// </summary>
-    [TerraformArgument("filter")]
-    public TerraformList<object> Filter
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "filter").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The notification attribute.
-    /// </summary>
-    [TerraformArgument("notification")]
-    public TerraformList<object> Notification
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "notification").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The time_grain attribute.
-    /// </summary>
-    [TerraformArgument("time_grain")]
-    public TerraformValue<string> TimeGrain
-    {
-        get => new TerraformReference<string>(this, "time_grain");
-    }
-
-    /// <summary>
-    /// The time_period attribute.
-    /// </summary>
-    [TerraformArgument("time_period")]
-    public TerraformList<object> TimePeriod
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "time_period").ResolveNodes(ctx));
+        get => GetArgument<AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

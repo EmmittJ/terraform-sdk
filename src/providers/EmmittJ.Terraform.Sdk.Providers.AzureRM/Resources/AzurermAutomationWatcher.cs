@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_automation_watcher Terraform resource.
 /// Manages a azurerm_automation_watcher resource.
 /// </summary>
-public class AzurermAutomationWatcher : TerraformResource
+public partial class AzurermAutomationWatcher(string name) : TerraformResource("azurerm_automation_watcher", name)
 {
-    public AzurermAutomationWatcher(string name) : base("azurerm_automation_watcher", name)
-    {
-    }
-
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    [TerraformArgument("automation_account_id")]
     public required TerraformValue<string> AutomationAccountId
     {
         get => new TerraformReference<string>(this, "automation_account_id");
@@ -87,7 +70,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -97,7 +79,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformArgument("etag")]
     public TerraformValue<string>? Etag
     {
         get => new TerraformReference<string>(this, "etag");
@@ -108,7 +89,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// The execution_frequency_in_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionFrequencyInSeconds is required")]
-    [TerraformArgument("execution_frequency_in_seconds")]
     public required TerraformValue<double> ExecutionFrequencyInSeconds
     {
         get => new TerraformReference<double>(this, "execution_frequency_in_seconds");
@@ -118,7 +98,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -129,7 +108,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -140,7 +118,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -151,7 +128,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// The script_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptName is required")]
-    [TerraformArgument("script_name")]
     public required TerraformValue<string> ScriptName
     {
         get => new TerraformReference<string>(this, "script_name");
@@ -161,7 +137,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// <summary>
     /// The script_parameters attribute.
     /// </summary>
-    [TerraformArgument("script_parameters")]
     public TerraformMap<string>? ScriptParameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_parameters").ResolveNodes(ctx));
@@ -172,7 +147,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// The script_run_on attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptRunOn is required")]
-    [TerraformArgument("script_run_on")]
     public required TerraformValue<string> ScriptRunOn
     {
         get => new TerraformReference<string>(this, "script_run_on");
@@ -182,7 +156,6 @@ public class AzurermAutomationWatcher : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -190,19 +163,12 @@ public class AzurermAutomationWatcher : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermAutomationWatcherTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The status attribute.
-    /// </summary>
-    [TerraformArgument("status")]
-    public TerraformValue<string> Status
+    public AzurermAutomationWatcherTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<AzurermAutomationWatcherTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for location_data in .
@@ -25,7 +16,6 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
     /// <summary>
     /// The city attribute.
     /// </summary>
-    [TerraformArgument("city")]
     public TerraformValue<string>? City
     {
         get => new TerraformReference<string>(this, "city");
@@ -35,7 +25,6 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
     /// <summary>
     /// The district attribute.
     /// </summary>
-    [TerraformArgument("district")]
     public TerraformValue<string>? District
     {
         get => new TerraformReference<string>(this, "district");
@@ -46,7 +35,6 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -56,7 +44,6 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformArgument("region")]
     public TerraformValue<string>? Region
     {
         get => new TerraformReference<string>(this, "region");
@@ -79,7 +66,6 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -89,7 +75,6 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -99,7 +84,6 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -109,7 +93,6 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -119,20 +102,15 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_api_management_gateway Terraform resource.
 /// Manages a azurerm_api_management_gateway resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApiManagementGateway : TerraformResource
+public partial class AzurermApiManagementGateway(string name) : TerraformResource("azurerm_api_management_gateway", name)
 {
-    public AzurermApiManagementGateway(string name) : base("azurerm_api_management_gateway", name)
-    {
-    }
-
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
-    [TerraformArgument("api_management_id")]
     public required TerraformValue<string> ApiManagementId
     {
         get => new TerraformReference<string>(this, "api_management_id");
@@ -142,7 +120,6 @@ public class AzurermApiManagementGateway : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -152,7 +129,6 @@ public class AzurermApiManagementGateway : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -163,7 +139,6 @@ public class AzurermApiManagementGateway : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -171,20 +146,25 @@ public class AzurermApiManagementGateway : TerraformResource
     }
 
     /// <summary>
-    /// Block for location_data.
-    /// Nesting mode: list
+    /// LocationData block (nesting mode: list).
+    /// This block is required.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationData is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocationData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocationData block(s) allowed")]
-    [TerraformArgument("location_data")]
-    public required TerraformList<AzurermApiManagementGatewayLocationDataBlock> LocationData { get; set; } = new();
+    public required AzurermApiManagementGatewayLocationDataBlock LocationData
+    {
+        get => GetRequiredArgument<AzurermApiManagementGatewayLocationDataBlock>("location_data");
+        set => SetArgument("location_data", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermApiManagementGatewayTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermApiManagementGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermApiManagementGatewayTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

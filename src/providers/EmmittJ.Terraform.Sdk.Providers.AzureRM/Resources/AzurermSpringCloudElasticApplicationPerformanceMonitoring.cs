@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBl
 }
 
 /// <summary>
+/// Represents a azurerm_spring_cloud_elastic_application_performance_monitoring Terraform resource.
 /// Manages a azurerm_spring_cloud_elastic_application_performance_monitoring resource.
 /// </summary>
-public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : TerraformResource
+public partial class AzurermSpringCloudElasticApplicationPerformanceMonitoring(string name) : TerraformResource("azurerm_spring_cloud_elastic_application_performance_monitoring", name)
 {
-    public AzurermSpringCloudElasticApplicationPerformanceMonitoring(string name) : base("azurerm_spring_cloud_elastic_application_performance_monitoring", name)
-    {
-    }
-
     /// <summary>
     /// The application_packages attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationPackages is required")]
-    [TerraformArgument("application_packages")]
     public TerraformList<string>? ApplicationPackages
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "application_packages").ResolveNodes(ctx));
@@ -87,7 +70,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    [TerraformArgument("globally_enabled")]
     public TerraformValue<bool>? GloballyEnabled
     {
         get => new TerraformReference<bool>(this, "globally_enabled");
@@ -97,7 +79,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -108,7 +89,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -119,7 +99,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// The server_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerUrl is required")]
-    [TerraformArgument("server_url")]
     public required TerraformValue<string> ServerUrl
     {
         get => new TerraformReference<string>(this, "server_url");
@@ -130,7 +109,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformArgument("service_name")]
     public required TerraformValue<string> ServiceName
     {
         get => new TerraformReference<string>(this, "service_name");
@@ -141,7 +119,6 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    [TerraformArgument("spring_cloud_service_id")]
     public required TerraformValue<string> SpringCloudServiceId
     {
         get => new TerraformReference<string>(this, "spring_cloud_service_id");
@@ -149,10 +126,12 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

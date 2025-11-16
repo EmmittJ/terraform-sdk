@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermLogicAppTriggerCustomTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermLogicAppTriggerCustomTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermLogicAppTriggerCustomTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermLogicAppTriggerCustomTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermLogicAppTriggerCustomTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_logic_app_trigger_custom Terraform resource.
 /// Manages a azurerm_logic_app_trigger_custom resource.
 /// </summary>
-public class AzurermLogicAppTriggerCustom : TerraformResource
+public partial class AzurermLogicAppTriggerCustom(string name) : TerraformResource("azurerm_logic_app_trigger_custom", name)
 {
-    public AzurermLogicAppTriggerCustom(string name) : base("azurerm_logic_app_trigger_custom", name)
-    {
-    }
-
     /// <summary>
     /// The body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
-    [TerraformArgument("body")]
     public required TerraformValue<string> Body
     {
         get => new TerraformReference<string>(this, "body");
@@ -87,7 +70,6 @@ public class AzurermLogicAppTriggerCustom : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermLogicAppTriggerCustom : TerraformResource
     /// The logic_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
-    [TerraformArgument("logic_app_id")]
     public required TerraformValue<string> LogicAppId
     {
         get => new TerraformReference<string>(this, "logic_app_id");
@@ -109,7 +90,6 @@ public class AzurermLogicAppTriggerCustom : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -117,19 +97,12 @@ public class AzurermLogicAppTriggerCustom : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermLogicAppTriggerCustomTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The callback_url attribute.
-    /// </summary>
-    [TerraformArgument("callback_url")]
-    public TerraformValue<string> CallbackUrl
+    public AzurermLogicAppTriggerCustomTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<string>(this, "callback_url");
+        get => GetArgument<AzurermLogicAppTriggerCustomTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

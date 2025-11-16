@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for action in .
@@ -26,7 +17,6 @@ public class AzurermCustomProviderActionBlock : TerraformBlock
     /// The endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
-    [TerraformArgument("endpoint")]
     public required TerraformValue<string> Endpoint
     {
         get => new TerraformReference<string>(this, "endpoint");
@@ -37,7 +27,6 @@ public class AzurermCustomProviderActionBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -50,7 +39,7 @@ public class AzurermCustomProviderActionBlock : TerraformBlock
 /// Block type for resource_type in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermCustomProviderResourceTypeBlock : TerraformBlock
+public class AzurermCustomProviderResourceTypeAttributeBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the block type.
@@ -61,7 +50,6 @@ public class AzurermCustomProviderResourceTypeBlock : TerraformBlock
     /// The endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
-    [TerraformArgument("endpoint")]
     public required TerraformValue<string> Endpoint
     {
         get => new TerraformReference<string>(this, "endpoint");
@@ -72,7 +60,6 @@ public class AzurermCustomProviderResourceTypeBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -82,7 +69,6 @@ public class AzurermCustomProviderResourceTypeBlock : TerraformBlock
     /// <summary>
     /// The routing_type attribute.
     /// </summary>
-    [TerraformArgument("routing_type")]
     public TerraformValue<string>? RoutingType
     {
         get => new TerraformReference<string>(this, "routing_type");
@@ -105,7 +91,6 @@ public class AzurermCustomProviderTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -115,7 +100,6 @@ public class AzurermCustomProviderTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -125,7 +109,6 @@ public class AzurermCustomProviderTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -135,7 +118,6 @@ public class AzurermCustomProviderTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -159,7 +141,6 @@ public class AzurermCustomProviderValidationBlock : TerraformBlock
     /// The specification attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Specification is required")]
-    [TerraformArgument("specification")]
     public required TerraformValue<string> Specification
     {
         get => new TerraformReference<string>(this, "specification");
@@ -169,18 +150,14 @@ public class AzurermCustomProviderValidationBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_custom_provider Terraform resource.
 /// Manages a azurerm_custom_provider resource.
 /// </summary>
-public class AzurermCustomProvider : TerraformResource
+public partial class AzurermCustomProvider(string name) : TerraformResource("azurerm_custom_provider", name)
 {
-    public AzurermCustomProvider(string name) : base("azurerm_custom_provider", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -191,7 +168,6 @@ public class AzurermCustomProvider : TerraformResource
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformArgument("location")]
     public required TerraformValue<string> Location
     {
         get => new TerraformReference<string>(this, "location");
@@ -202,7 +178,6 @@ public class AzurermCustomProvider : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -213,7 +188,6 @@ public class AzurermCustomProvider : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -223,7 +197,6 @@ public class AzurermCustomProvider : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformArgument("tags")]
     public TerraformMap<string>? Tags
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
@@ -231,31 +204,39 @@ public class AzurermCustomProvider : TerraformResource
     }
 
     /// <summary>
-    /// Block for action.
-    /// Nesting mode: set
+    /// Action block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("action")]
-    public TerraformSet<AzurermCustomProviderActionBlock> Action { get; set; } = new();
+    public AzurermCustomProviderActionBlock? Action
+    {
+        get => GetArgument<AzurermCustomProviderActionBlock>("action");
+        set => SetArgument("action", value);
+    }
 
     /// <summary>
-    /// Block for resource_type.
-    /// Nesting mode: set
+    /// ResourceTypeAttribute block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("resource_type")]
-    public new TerraformSet<AzurermCustomProviderResourceTypeBlock> ResourceType { get; set; } = new();
+    public AzurermCustomProviderResourceTypeAttributeBlock? ResourceTypeAttribute
+    {
+        get => GetArgument<AzurermCustomProviderResourceTypeAttributeBlock>("resource_type");
+        set => SetArgument("resource_type", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermCustomProviderTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermCustomProviderTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermCustomProviderTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
     /// <summary>
-    /// Block for validation.
-    /// Nesting mode: set
+    /// Validation block (nesting mode: set).
     /// </summary>
-    [TerraformArgument("validation")]
-    public TerraformSet<AzurermCustomProviderValidationBlock> Validation { get; set; } = new();
+    public AzurermCustomProviderValidationBlock? Validation
+    {
+        get => GetArgument<AzurermCustomProviderValidationBlock>("validation");
+        set => SetArgument("validation", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,19 +52,15 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_iotcentral_organization Terraform resource.
 /// Manages a azurerm_iotcentral_organization resource.
 /// </summary>
-public class AzurermIotcentralOrganization : TerraformResource
+public partial class AzurermIotcentralOrganization(string name) : TerraformResource("azurerm_iotcentral_organization", name)
 {
-    public AzurermIotcentralOrganization(string name) : base("azurerm_iotcentral_organization", name)
-    {
-    }
-
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformArgument("display_name")]
     public required TerraformValue<string> DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -87,7 +70,6 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -98,7 +80,6 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// The iotcentral_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
-    [TerraformArgument("iotcentral_application_id")]
     public required TerraformValue<string> IotcentralApplicationId
     {
         get => new TerraformReference<string>(this, "iotcentral_application_id");
@@ -109,7 +90,6 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// The organization_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
-    [TerraformArgument("organization_id")]
     public required TerraformValue<string> OrganizationId
     {
         get => new TerraformReference<string>(this, "organization_id");
@@ -119,7 +99,6 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// <summary>
     /// The parent_organization_id attribute.
     /// </summary>
-    [TerraformArgument("parent_organization_id")]
     public TerraformValue<string>? ParentOrganizationId
     {
         get => new TerraformReference<string>(this, "parent_organization_id");
@@ -127,10 +106,12 @@ public class AzurermIotcentralOrganization : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermIotcentralOrganizationTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermIotcentralOrganizationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermIotcentralOrganizationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

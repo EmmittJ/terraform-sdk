@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock : Terrafo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock : Terrafo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock : Terrafo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock : Terrafo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock : Terrafo
 }
 
 /// <summary>
+/// Represents a azurerm_servicebus_namespace_customer_managed_key Terraform resource.
 /// Manages a azurerm_servicebus_namespace_customer_managed_key resource.
 /// </summary>
-public class AzurermServicebusNamespaceCustomerManagedKey : TerraformResource
+public partial class AzurermServicebusNamespaceCustomerManagedKey(string name) : TerraformResource("azurerm_servicebus_namespace_customer_managed_key", name)
 {
-    public AzurermServicebusNamespaceCustomerManagedKey(string name) : base("azurerm_servicebus_namespace_customer_managed_key", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -86,7 +69,6 @@ public class AzurermServicebusNamespaceCustomerManagedKey : TerraformResource
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    [TerraformArgument("infrastructure_encryption_enabled")]
     public TerraformValue<bool>? InfrastructureEncryptionEnabled
     {
         get => new TerraformReference<bool>(this, "infrastructure_encryption_enabled");
@@ -97,7 +79,6 @@ public class AzurermServicebusNamespaceCustomerManagedKey : TerraformResource
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    [TerraformArgument("key_vault_key_id")]
     public required TerraformValue<string> KeyVaultKeyId
     {
         get => new TerraformReference<string>(this, "key_vault_key_id");
@@ -108,7 +89,6 @@ public class AzurermServicebusNamespaceCustomerManagedKey : TerraformResource
     /// The namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
-    [TerraformArgument("namespace_id")]
     public required TerraformValue<string> NamespaceId
     {
         get => new TerraformReference<string>(this, "namespace_id");
@@ -116,10 +96,12 @@ public class AzurermServicebusNamespaceCustomerManagedKey : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

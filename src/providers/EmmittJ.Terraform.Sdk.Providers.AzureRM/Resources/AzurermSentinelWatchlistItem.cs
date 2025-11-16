@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,7 +43,6 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -65,18 +52,14 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_sentinel_watchlist_item Terraform resource.
 /// Manages a azurerm_sentinel_watchlist_item resource.
 /// </summary>
-public class AzurermSentinelWatchlistItem : TerraformResource
+public partial class AzurermSentinelWatchlistItem(string name) : TerraformResource("azurerm_sentinel_watchlist_item", name)
 {
-    public AzurermSentinelWatchlistItem(string name) : base("azurerm_sentinel_watchlist_item", name)
-    {
-    }
-
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -86,7 +69,6 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformArgument("name")]
     public TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -97,7 +79,6 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     /// The properties attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
-    [TerraformArgument("properties")]
     public required TerraformMap<string> Properties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
@@ -108,7 +89,6 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     /// The watchlist_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WatchlistId is required")]
-    [TerraformArgument("watchlist_id")]
     public required TerraformValue<string> WatchlistId
     {
         get => new TerraformReference<string>(this, "watchlist_id");
@@ -116,10 +96,12 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSentinelWatchlistItemTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermSentinelWatchlistItemTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermSentinelWatchlistItemTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

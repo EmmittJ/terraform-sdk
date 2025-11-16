@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for multi_select_observation in .
@@ -22,25 +13,37 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     /// </summary>
     public override string BlockType => "multi_select_observation";
 
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// The supported_values attribute.
+    /// </summary>
+    public TerraformList<string> SupportedValues
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_values").ResolveNodes(ctx));
+    }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformArgument("values")]
-    public TerraformList<string>? Values
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
         set => SetArgument("values", value);
@@ -59,11 +62,17 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
     /// </summary>
     public override string BlockType => "prioritized_exclude_observation";
 
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
 
     /// <summary>
     /// The exclude attribute.
     /// </summary>
-    [TerraformArgument("exclude")]
     public TerraformValue<string>? Exclude
     {
         get => new TerraformReference<string>(this, "exclude");
@@ -74,7 +83,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -84,7 +92,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
     /// <summary>
     /// The prioritize attribute.
     /// </summary>
-    [TerraformArgument("prioritize")]
     public TerraformValue<string>? Prioritize
     {
         get => new TerraformReference<string>(this, "prioritize");
@@ -104,24 +111,36 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     /// </summary>
     public override string BlockType => "single_select_observation";
 
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// The supported_values attribute.
+    /// </summary>
+    public TerraformList<string> SupportedValues
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_values").ResolveNodes(ctx));
+    }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformArgument("value")]
     public required TerraformValue<string> Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -141,14 +160,34 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
     /// </summary>
     public override string BlockType => "threshold_observation";
 
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
 
+    /// <summary>
+    /// The max attribute.
+    /// </summary>
+    public TerraformValue<string> Max
+    {
+        get => new TerraformReference<string>(this, "max");
+    }
 
+    /// <summary>
+    /// The min attribute.
+    /// </summary>
+    public TerraformValue<string> Min
+    {
+        get => new TerraformReference<string>(this, "min");
+    }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -159,7 +198,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformArgument("value")]
     public required TerraformValue<string> Value
     {
         get => new TerraformReference<string>(this, "value");
@@ -182,7 +220,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -192,7 +229,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -202,7 +238,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -212,7 +247,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -222,19 +256,15 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
 }
 
 /// <summary>
+/// Represents a azurerm_sentinel_alert_rule_anomaly_duplicate Terraform resource.
 /// Manages a azurerm_sentinel_alert_rule_anomaly_duplicate resource.
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
+public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : TerraformResource("azurerm_sentinel_alert_rule_anomaly_duplicate", name)
 {
-    public AzurermSentinelAlertRuleAnomalyDuplicate(string name) : base("azurerm_sentinel_alert_rule_anomaly_duplicate", name)
-    {
-    }
-
     /// <summary>
     /// The built_in_rule_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuiltInRuleId is required")]
-    [TerraformArgument("built_in_rule_id")]
     public required TerraformValue<string> BuiltInRuleId
     {
         get => new TerraformReference<string>(this, "built_in_rule_id");
@@ -245,7 +275,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformArgument("display_name")]
     public required TerraformValue<string> DisplayName
     {
         get => new TerraformReference<string>(this, "display_name");
@@ -256,7 +285,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformArgument("enabled")]
     public required TerraformValue<bool> Enabled
     {
         get => new TerraformReference<bool>(this, "enabled");
@@ -266,7 +294,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -277,7 +304,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    [TerraformArgument("log_analytics_workspace_id")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
         get => new TerraformReference<string>(this, "log_analytics_workspace_id");
@@ -288,7 +314,6 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    [TerraformArgument("mode")]
     public required TerraformValue<string> Mode
     {
         get => new TerraformReference<string>(this, "mode");
@@ -296,128 +321,48 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     }
 
     /// <summary>
-    /// Block for multi_select_observation.
-    /// Nesting mode: list
+    /// MultiSelectObservation block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("multi_select_observation")]
-    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock> MultiSelectObservation { get; set; } = new();
-
-    /// <summary>
-    /// Block for prioritized_exclude_observation.
-    /// Nesting mode: list
-    /// </summary>
-    [TerraformArgument("prioritized_exclude_observation")]
-    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock> PrioritizedExcludeObservation { get; set; } = new();
-
-    /// <summary>
-    /// Block for single_select_observation.
-    /// Nesting mode: list
-    /// </summary>
-    [TerraformArgument("single_select_observation")]
-    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock> SingleSelectObservation { get; set; } = new();
-
-    /// <summary>
-    /// Block for threshold_observation.
-    /// Nesting mode: list
-    /// </summary>
-    [TerraformArgument("threshold_observation")]
-    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock> ThresholdObservation { get; set; } = new();
-
-    /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
-    /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock Timeouts { get; set; } = new();
-
-    /// <summary>
-    /// The anomaly_settings_version attribute.
-    /// </summary>
-    [TerraformArgument("anomaly_settings_version")]
-    public TerraformValue<double> AnomalySettingsVersion
+    public AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock? MultiSelectObservation
     {
-        get => new TerraformReference<double>(this, "anomaly_settings_version");
+        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>("multi_select_observation");
+        set => SetArgument("multi_select_observation", value);
     }
 
     /// <summary>
-    /// The anomaly_version attribute.
+    /// PrioritizedExcludeObservation block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("anomaly_version")]
-    public TerraformValue<string> AnomalyVersion
+    public AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock? PrioritizedExcludeObservation
     {
-        get => new TerraformReference<string>(this, "anomaly_version");
+        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock>("prioritized_exclude_observation");
+        set => SetArgument("prioritized_exclude_observation", value);
     }
 
     /// <summary>
-    /// The description attribute.
+    /// SingleSelectObservation block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("description")]
-    public TerraformValue<string> Description
+    public AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock? SingleSelectObservation
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock>("single_select_observation");
+        set => SetArgument("single_select_observation", value);
     }
 
     /// <summary>
-    /// The frequency attribute.
+    /// ThresholdObservation block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("frequency")]
-    public TerraformValue<string> Frequency
+    public AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock? ThresholdObservation
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock>("threshold_observation");
+        set => SetArgument("threshold_observation", value);
     }
 
     /// <summary>
-    /// The is_default_settings attribute.
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("is_default_settings")]
-    public TerraformValue<bool> IsDefaultSettings
+    public AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock? Timeouts
     {
-        get => new TerraformReference<bool>(this, "is_default_settings");
-    }
-
-    /// <summary>
-    /// The name attribute.
-    /// </summary>
-    [TerraformArgument("name")]
-    public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
-
-    /// <summary>
-    /// The required_data_connector attribute.
-    /// </summary>
-    [TerraformArgument("required_data_connector")]
-    public TerraformList<object> RequiredDataConnector
-    {
-        get => TerraformList<object>.Lazy(ctx => new TerraformReference<TerraformList<object>>(this, "required_data_connector").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The settings_definition_id attribute.
-    /// </summary>
-    [TerraformArgument("settings_definition_id")]
-    public TerraformValue<string> SettingsDefinitionId
-    {
-        get => new TerraformReference<string>(this, "settings_definition_id");
-    }
-
-    /// <summary>
-    /// The tactics attribute.
-    /// </summary>
-    [TerraformArgument("tactics")]
-    public TerraformList<string> Tactics
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tactics").ResolveNodes(ctx));
-    }
-
-    /// <summary>
-    /// The techniques attribute.
-    /// </summary>
-    [TerraformArgument("techniques")]
-    public TerraformList<string> Techniques
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "techniques").ResolveNodes(ctx));
+        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
     }
 
 }

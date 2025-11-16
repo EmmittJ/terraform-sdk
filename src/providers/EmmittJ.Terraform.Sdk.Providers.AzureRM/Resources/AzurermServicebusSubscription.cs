@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for client_scoped_subscription in .
@@ -25,18 +16,23 @@ public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : Terraf
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformArgument("client_id")]
     public TerraformValue<string>? ClientId
     {
         get => new TerraformReference<string>(this, "client_id");
         set => SetArgument("client_id", value);
     }
 
+    /// <summary>
+    /// The is_client_scoped_subscription_durable attribute.
+    /// </summary>
+    public TerraformValue<bool> IsClientScopedSubscriptionDurable
+    {
+        get => new TerraformReference<bool>(this, "is_client_scoped_subscription_durable");
+    }
 
     /// <summary>
     /// The is_client_scoped_subscription_shareable attribute.
     /// </summary>
-    [TerraformArgument("is_client_scoped_subscription_shareable")]
     public TerraformValue<bool>? IsClientScopedSubscriptionShareable
     {
         get => new TerraformReference<bool>(this, "is_client_scoped_subscription_shareable");
@@ -59,7 +55,6 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -69,7 +64,6 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -79,7 +73,6 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -89,7 +82,6 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -99,19 +91,14 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_servicebus_subscription Terraform resource.
 /// Manages a azurerm_servicebus_subscription resource.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermServicebusSubscription : TerraformResource
+public partial class AzurermServicebusSubscription(string name) : TerraformResource("azurerm_servicebus_subscription", name)
 {
-    public AzurermServicebusSubscription(string name) : base("azurerm_servicebus_subscription", name)
-    {
-    }
-
     /// <summary>
     /// The auto_delete_on_idle attribute.
     /// </summary>
-    [TerraformArgument("auto_delete_on_idle")]
     public TerraformValue<string>? AutoDeleteOnIdle
     {
         get => new TerraformReference<string>(this, "auto_delete_on_idle");
@@ -121,7 +108,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The batched_operations_enabled attribute.
     /// </summary>
-    [TerraformArgument("batched_operations_enabled")]
     public TerraformValue<bool>? BatchedOperationsEnabled
     {
         get => new TerraformReference<bool>(this, "batched_operations_enabled");
@@ -131,7 +117,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The client_scoped_subscription_enabled attribute.
     /// </summary>
-    [TerraformArgument("client_scoped_subscription_enabled")]
     public TerraformValue<bool>? ClientScopedSubscriptionEnabled
     {
         get => new TerraformReference<bool>(this, "client_scoped_subscription_enabled");
@@ -141,7 +126,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The dead_lettering_on_filter_evaluation_error attribute.
     /// </summary>
-    [TerraformArgument("dead_lettering_on_filter_evaluation_error")]
     public TerraformValue<bool>? DeadLetteringOnFilterEvaluationError
     {
         get => new TerraformReference<bool>(this, "dead_lettering_on_filter_evaluation_error");
@@ -151,7 +135,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The dead_lettering_on_message_expiration attribute.
     /// </summary>
-    [TerraformArgument("dead_lettering_on_message_expiration")]
     public TerraformValue<bool>? DeadLetteringOnMessageExpiration
     {
         get => new TerraformReference<bool>(this, "dead_lettering_on_message_expiration");
@@ -161,7 +144,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
-    [TerraformArgument("default_message_ttl")]
     public TerraformValue<string>? DefaultMessageTtl
     {
         get => new TerraformReference<string>(this, "default_message_ttl");
@@ -171,7 +153,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The forward_dead_lettered_messages_to attribute.
     /// </summary>
-    [TerraformArgument("forward_dead_lettered_messages_to")]
     public TerraformValue<string>? ForwardDeadLetteredMessagesTo
     {
         get => new TerraformReference<string>(this, "forward_dead_lettered_messages_to");
@@ -181,7 +162,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The forward_to attribute.
     /// </summary>
-    [TerraformArgument("forward_to")]
     public TerraformValue<string>? ForwardTo
     {
         get => new TerraformReference<string>(this, "forward_to");
@@ -191,7 +171,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -201,7 +180,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
-    [TerraformArgument("lock_duration")]
     public TerraformValue<string>? LockDuration
     {
         get => new TerraformReference<string>(this, "lock_duration");
@@ -212,7 +190,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// The max_delivery_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryCount is required")]
-    [TerraformArgument("max_delivery_count")]
     public required TerraformValue<double> MaxDeliveryCount
     {
         get => new TerraformReference<double>(this, "max_delivery_count");
@@ -223,7 +200,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -233,7 +209,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The requires_session attribute.
     /// </summary>
-    [TerraformArgument("requires_session")]
     public TerraformValue<bool>? RequiresSession
     {
         get => new TerraformReference<bool>(this, "requires_session");
@@ -243,7 +218,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformArgument("status")]
     public TerraformValue<string>? Status
     {
         get => new TerraformReference<string>(this, "status");
@@ -254,7 +228,6 @@ public class AzurermServicebusSubscription : TerraformResource
     /// The topic_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
-    [TerraformArgument("topic_id")]
     public required TerraformValue<string> TopicId
     {
         get => new TerraformReference<string>(this, "topic_id");
@@ -262,18 +235,22 @@ public class AzurermServicebusSubscription : TerraformResource
     }
 
     /// <summary>
-    /// Block for client_scoped_subscription.
-    /// Nesting mode: list
+    /// ClientScopedSubscription block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientScopedSubscription block(s) allowed")]
-    [TerraformArgument("client_scoped_subscription")]
-    public TerraformList<AzurermServicebusSubscriptionClientScopedSubscriptionBlock> ClientScopedSubscription { get; set; } = new();
+    public AzurermServicebusSubscriptionClientScopedSubscriptionBlock? ClientScopedSubscription
+    {
+        get => GetArgument<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>("client_scoped_subscription");
+        set => SetArgument("client_scoped_subscription", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermServicebusSubscriptionTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermServicebusSubscriptionTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermServicebusSubscriptionTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for schema_column in .
@@ -25,7 +16,6 @@ public class AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock : Terrafor
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -36,7 +26,6 @@ public class AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock : Terrafor
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -46,7 +35,6 @@ public class AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock : Terrafor
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformArgument("type")]
     public TerraformValue<string>? Type
     {
         get => new TerraformReference<string>(this, "type");
@@ -69,7 +57,6 @@ public class AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -79,7 +66,6 @@ public class AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -89,7 +75,6 @@ public class AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -99,7 +84,6 @@ public class AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock : TerraformBlo
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformArgument("update")]
     public TerraformValue<string>? Update
     {
         get => new TerraformReference<string>(this, "update");
@@ -109,18 +93,14 @@ public class AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock : TerraformBlo
 }
 
 /// <summary>
+/// Represents a azurerm_data_factory_dataset_sql_server_table Terraform resource.
 /// Manages a azurerm_data_factory_dataset_sql_server_table resource.
 /// </summary>
-public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
+public partial class AzurermDataFactoryDatasetSqlServerTable(string name) : TerraformResource("azurerm_data_factory_dataset_sql_server_table", name)
 {
-    public AzurermDataFactoryDatasetSqlServerTable(string name) : base("azurerm_data_factory_dataset_sql_server_table", name)
-    {
-    }
-
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformArgument("additional_properties")]
     public TerraformMap<string>? AdditionalProperties
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
@@ -130,7 +110,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformArgument("annotations")]
     public TerraformList<string>? Annotations
     {
         get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
@@ -141,7 +120,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformArgument("data_factory_id")]
     public required TerraformValue<string> DataFactoryId
     {
         get => new TerraformReference<string>(this, "data_factory_id");
@@ -151,7 +129,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformArgument("description")]
     public TerraformValue<string>? Description
     {
         get => new TerraformReference<string>(this, "description");
@@ -161,7 +138,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    [TerraformArgument("folder")]
     public TerraformValue<string>? Folder
     {
         get => new TerraformReference<string>(this, "folder");
@@ -171,7 +147,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -182,7 +157,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformArgument("linked_service_name")]
     public required TerraformValue<string> LinkedServiceName
     {
         get => new TerraformReference<string>(this, "linked_service_name");
@@ -193,7 +167,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -203,7 +176,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformArgument("parameters")]
     public TerraformMap<string>? Parameters
     {
         get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
@@ -213,7 +185,6 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    [TerraformArgument("table_name")]
     public TerraformValue<string>? TableName
     {
         get => new TerraformReference<string>(this, "table_name");
@@ -221,17 +192,21 @@ public class AzurermDataFactoryDatasetSqlServerTable : TerraformResource
     }
 
     /// <summary>
-    /// Block for schema_column.
-    /// Nesting mode: list
+    /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    [TerraformArgument("schema_column")]
-    public TerraformList<AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock> SchemaColumn { get; set; } = new();
+    public AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock? SchemaColumn
+    {
+        get => GetArgument<AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock>("schema_column");
+        set => SetArgument("schema_column", value);
+    }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }

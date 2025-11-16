@@ -1,15 +1,6 @@
 using EmmittJ.Terraform.Sdk;
 
-namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
-
-// Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
-// This is the key to natural Terraform syntax
-// When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
-// The value that was SET is only used during serialization
-
-// Providers: Getter returns stored value
-// Providers are not referenced in HCL
-// Use required getter if property is required or non-nullable
+namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
 /// Block type for timeouts in .
@@ -25,7 +16,6 @@ public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformArgument("create")]
     public TerraformValue<string>? Create
     {
         get => new TerraformReference<string>(this, "create");
@@ -35,7 +25,6 @@ public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformArgument("delete")]
     public TerraformValue<string>? Delete
     {
         get => new TerraformReference<string>(this, "delete");
@@ -45,7 +34,6 @@ public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformArgument("read")]
     public TerraformValue<string>? Read
     {
         get => new TerraformReference<string>(this, "read");
@@ -55,19 +43,15 @@ public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents a azurerm_mysql_flexible_database Terraform resource.
 /// Manages a azurerm_mysql_flexible_database resource.
 /// </summary>
-public class AzurermMysqlFlexibleDatabase : TerraformResource
+public partial class AzurermMysqlFlexibleDatabase(string name) : TerraformResource("azurerm_mysql_flexible_database", name)
 {
-    public AzurermMysqlFlexibleDatabase(string name) : base("azurerm_mysql_flexible_database", name)
-    {
-    }
-
     /// <summary>
     /// The charset attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Charset is required")]
-    [TerraformArgument("charset")]
     public required TerraformValue<string> Charset
     {
         get => new TerraformReference<string>(this, "charset");
@@ -78,7 +62,6 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     /// The collation attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collation is required")]
-    [TerraformArgument("collation")]
     public required TerraformValue<string> Collation
     {
         get => new TerraformReference<string>(this, "collation");
@@ -88,7 +71,6 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformArgument("id")]
     public TerraformValue<string> Id
     {
         get => new TerraformReference<string>(this, "id");
@@ -99,7 +81,6 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformArgument("name")]
     public required TerraformValue<string> Name
     {
         get => new TerraformReference<string>(this, "name");
@@ -110,7 +91,6 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformArgument("resource_group_name")]
     public required TerraformValue<string> ResourceGroupName
     {
         get => new TerraformReference<string>(this, "resource_group_name");
@@ -121,7 +101,6 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     /// The server_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
-    [TerraformArgument("server_name")]
     public required TerraformValue<string> ServerName
     {
         get => new TerraformReference<string>(this, "server_name");
@@ -129,10 +108,12 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     }
 
     /// <summary>
-    /// Block for timeouts.
-    /// Nesting mode: single
+    /// Timeouts block (nesting mode: single).
     /// </summary>
-    [TerraformArgument("timeouts")]
-    public AzurermMysqlFlexibleDatabaseTimeoutsBlock Timeouts { get; set; } = new();
+    public AzurermMysqlFlexibleDatabaseTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzurermMysqlFlexibleDatabaseTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
 
 }
