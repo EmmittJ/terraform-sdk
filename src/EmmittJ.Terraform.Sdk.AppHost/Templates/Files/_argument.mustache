@@ -8,7 +8,6 @@
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-    [TerraformArgument("{{TerraformName}}")]
 {{#IsRequiredArgument}}
 {{#UseRequiredKeyword}}
     public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{PropertyWrapper}}} {{Name}}

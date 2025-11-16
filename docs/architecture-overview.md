@@ -322,10 +322,9 @@ partial class TerraformResource : ITerraformHasCount
 // Generates property accessors for provider-specific resources
 public partial class AwsVpc : TerraformResource
 {
-    [TerraformArgument("cidr_block")]
     public TerraformValue<string>? CidrBlock
     {
-        get => GetArgument<TerraformValue<string>>("cidr_block");
+        get => new TerraformReference<string>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 }

@@ -22,6 +22,8 @@ var api = builder.AddProject<Projects.Api>("api")
     .PublishAsTerraform((stack, resource) =>
     {
         // Customize Terraform infrastructure
+        // stack - the TerraformStack to add resources to
+        // resource - the IResource being published
     });
 ```
 
@@ -49,8 +51,13 @@ var api = builder.AddProject<Projects.Api>("api")
 ### Extension Methods
 
 - `AddTerraformEnvironment()` - Adds a Terraform environment to the Aspire app
-- `PublishAsTerraform()` - Marks a resource for Terraform deployment
-- `WithBackend()` - Configures Terraform backend for state storage
+- `PublishAsTerraform()` - Marks a resource for Terraform deployment with customization callback
+- `WithBackend()` - Configures Terraform backend for state storage (e.g., "local", "s3", "azurerm")
+- `WithVersion()` - Sets the Terraform version constraint (e.g., ">= 1.9.0")
+- `WithWorkspace()` - Sets the Terraform workspace name
+- `WithOutputPath()` - Configures output path for generated Terraform files
+- `WithAutoOperations()` - Configures automatic terraform init/plan/apply during publish
+- `WithTerraformConfiguration()` - Configures Terraform generation settings for a specific resource
 
 ### Best Practices
 

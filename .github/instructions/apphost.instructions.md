@@ -40,7 +40,6 @@ Templates are in `Templates/Files/` directory:
 - ✅ Use `{{{PropertyWrapper}}}` (triple braces) to avoid HTML escaping generic types
 - ✅ Handle `IsRequired`, `IsOptional`, `IsComputed` flags correctly
 - ✅ Generate XML documentation from schema descriptions
-- ✅ Add `[TerraformArgument("{{TerraformName}}")]` attributes
 - ❌ Don't assume all properties are settable - computed attributes are read-only
 
 ## Extending Provider Support

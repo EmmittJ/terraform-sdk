@@ -14,8 +14,8 @@
 
 ### 🛠️ Technology Stack
 
-- **.NET 10.0** (specified in `global.json`) - preview features enabled
-- **C# 14** with preview features
+- **.NET 10.0 SDK** with C# 14 preview features (specified in `global.json`)
+- **Target frameworks**: .NET 10.0
 - **Source Generators** for compile-time code generation
 - **Verify** and **xUnit** for testing with Verify.Xunit for snapshot testing
 - **Aspire** for code generation orchestration

@@ -35,17 +35,19 @@ Once you have a playground project, you can experiment with various scenarios:
 var builder = DistributedApplication.CreateBuilder(args);
 
 var terraform = builder.AddTerraformEnvironment("aws")
-    .WithBackend("s3", config =>
+    .WithBackend("s3", backend =>
     {
-        config["bucket"] = "my-terraform-state";
-        config["region"] = "us-west-2";
+        backend["bucket"] = "my-terraform-state";
+        backend["region"] = "us-west-2";
     })
-    .WithVersion("1.9.0");
+    .WithVersion(">= 1.9.0");
 
 var api = builder.AddProject<Projects.Api>("api")
-    .WithTerraformCustomization((stack, resource) =>
+    .PublishAsTerraform((stack, resource) =>
     {
         // Add AWS infrastructure here
+        // stack - the TerraformStack to add resources to
+        // resource - the IResource being published
     });
 
 builder.Build().Run();
@@ -56,12 +58,12 @@ builder.Build().Run();
 ```csharp
 // AWS Production
 var aws = builder.AddTerraformEnvironment("aws-prod")
-    .WithBackend("s3", config => { /* ... */ })
+    .WithBackend("s3", backend => { /* ... */ })
     .WithOutputPath("aws-infra");
 
 // Azure Staging
 var azure = builder.AddTerraformEnvironment("azure-staging")
-    .WithBackend("azurerm", config => { /* ... */ })
+    .WithBackend("azurerm", backend => { /* ... */ })
     .WithOutputPath("azure-infra");
 ```
 

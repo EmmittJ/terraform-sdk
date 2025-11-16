@@ -280,6 +280,8 @@ var api = builder.AddProject<Projects.ApiService>("api")
     .PublishAsTerraform((stack, resource) =>
     {
         // Customize infrastructure for API deployment
+        // stack - the TerraformStack to add resources to
+        // resource - the IResource being published
         var container = new TerraformResource("azurerm_container_app", "api")
         {
             ["name"] = resource.Name,
@@ -367,8 +369,8 @@ dotnet verify accept -y
 
 ## 🛠️ Technology Stack
 
-- **.NET 10.0** with preview features enabled
-- **C# 14** with preview features
+- **.NET 10.0 SDK** with C# 14 preview features
+- **Target frameworks**: .NET 10.0
 - **Source Generators** for compile-time code generation
 - **Verify** and **xUnit** for testing with snapshot testing
 - **Aspire** for code generation orchestration

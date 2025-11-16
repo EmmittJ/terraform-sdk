@@ -38,7 +38,7 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// Called by source-generated property setters to store argument values.
     /// Uses the base TerraformMap&lt;object&gt; indexer to store values in the _elements dictionary.
     /// </summary>
-    /// <param name="terraformName">The Terraform argument name (from [TerraformArgument("name")] attribute).</param>
+    /// <param name="terraformName">The Terraform argument name.</param>
     /// <param name="value">The value to store (TerraformValue&lt;T&gt;, TerraformList&lt;T&gt;, nested blocks, etc.).</param>
     public void SetArgument(string terraformName, object? value)
     {
