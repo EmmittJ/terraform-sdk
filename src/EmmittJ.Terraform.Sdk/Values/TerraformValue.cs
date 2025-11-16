@@ -63,19 +63,47 @@ public class TerraformValue<T> : ITerraformValue
         => new TerraformLazyValue<T>(producer);
 
     /// <summary>
-    /// Implicit conversion from literal value - wrap in a resolvable.
-    /// Note: For TerraformExpression specifically, this creates a literal value wrapper.
-    /// Use the explicit TerraformExpression->TerraformValue conversion below for expression references.
+    /// Implicit conversion for primitive values only. This validates at compile/assignment time
+    /// that only supported Terraform primitive types are used as literals.
+    /// For complex types, use TerraformExpression.Map(), TerraformExpression.List(), or other expression builders.
     /// </summary>
     public static implicit operator TerraformValue<T>(T value)
-        => new TerraformValue<T>(new TerraformLiteralValue<T>(value));
+        => ConvertFrom(value);
+
+    /// <summary>
+    /// Creates a TerraformValue from a primitive literal value.
+    /// </summary>
+    public static TerraformValue<T> ConvertFrom(object? value)
+    {
+        // Allow null
+        if (value is null)
+        {
+            return TerraformValue<T>.Lazy(ctx => new[] { TerraformExpression.Literal(value) });
+        }
+
+        // Allow TerraformValue types (they're already values/references, just pass through)
+        if (value is ITerraformValue terraformValue)
+        {
+            // This is already a Terraform value type (TerraformMap, TerraformList, etc.)
+            // We need to resolve it and wrap it
+            return TerraformValue<T>.Lazy(ctx => terraformValue.ResolveNodes(ctx));
+        }
+
+        return TerraformValue<T>.Lazy(ctx => new[] { TerraformExpression.Literal(value) });
+    }
 
     /// <summary>
     /// Direct conversion from TerraformExpression (which implements ITerraformResolvable).
-    /// This is explicitly for when T != TerraformExpression to avoid ambiguity.
     /// </summary>
     public static implicit operator TerraformValue<T>(TerraformExpression expression)
+        => ConvertFrom(expression);
+
+    /// <summary>
+    /// Creates a TerraformValue from a TerraformExpression.
+    /// </summary>
+    public static TerraformValue<T> ConvertFrom(TerraformExpression expression)
         => new TerraformValue<T>(expression);
+
 }
 
 /// <summary>

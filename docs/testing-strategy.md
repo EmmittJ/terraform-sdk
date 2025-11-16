@@ -215,22 +215,21 @@ public class TerraformExpressionTests
 [UsesVerify]
 public class TerraformResourceTests
 {
-    private static ITerraformContext CreateContext() => TerraformContext.Temporary();
-
     [Fact]
     public Task TerraformResource_WithComplexProperties_GeneratesValidHCL()
     {
-        var resource = new TerraformResource("aws_instance", "example");
-        resource["ami"] = "ami-12345678";
-        resource["instance_type"] = "t2.micro";
-        resource["tags"] = new Dictionary<string, string>
+        var resource = new TerraformResource("aws_instance", "example")
         {
-            ["Name"] = "Example",
-            ["Environment"] = "Dev"
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro",
+            ["tags"] = new TerraformMap<object>
+            {
+                ["Name"] = "Example",
+                ["Environment"] = "Dev"
+            }
         };
 
-        var context = CreateContext();
-        var hcl = resource.ToHcl(context);
+        var hcl = resource.ToHcl();
 
         return Verify(hcl);
     }
@@ -268,24 +267,26 @@ public class TerraformResourceTests
 [UsesVerify]
 public class TerraformStackTests
 {
-    private static ITerraformContext CreateContext() => TerraformContext.Temporary();
-
     [Fact]
     public Task TerraformStack_WithMultipleResources_GeneratesValidHCL()
     {
-        var stack = new TerraformStack();
+        var stack = new TerraformStack { Name = "example" };
 
-        var vpc = new TerraformResource("aws_vpc", "main");
-        vpc["cidr_block"] = "10.0.0.0/16";
+        var vpc = new TerraformResource("aws_vpc", "main")
+        {
+            ["cidr_block"] = "10.0.0.0/16"
+        };
+
+        var subnet = new TerraformResource("aws_subnet", "public")
+        {
+            ["vpc_id"] = vpc["id"],
+            ["cidr_block"] = "10.0.1.0/24"
+        };
+
         stack.Add(vpc);
-
-        var subnet = new TerraformResource("aws_subnet", "public");
-        subnet["vpc_id"] = vpc["id"];
-        subnet["cidr_block"] = "10.0.1.0/24";
         stack.Add(subnet);
 
-        var context = CreateContext();
-        var hcl = stack.ToHcl(context);
+        var hcl = stack.ToHcl();
 
         return Verify(hcl);
     }
@@ -492,6 +493,7 @@ public class MyTests
 5. **Review Changes**: Carefully review snapshot diffs during updates
 6. **Use [UsesVerify]**: Apply attribute to test classes that use snapshot testing
 7. **Return Task**: Snapshot test methods should return `Task` from `Verify()` call
+8. **Object Initializer Syntax**: Always use C# object initializer syntax for resource properties to improve readability and maintainability
 
 ## 🚨 Error Message Testing & Improvements
 

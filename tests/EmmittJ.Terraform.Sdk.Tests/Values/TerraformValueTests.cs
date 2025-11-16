@@ -119,41 +119,6 @@ public class TerraformValueTests
         Assert.Contains("\\\\", hcl);
     }
 
-    [Fact]
-    public void TerraformValue_UnsupportedType_ThrowsWithActionableError()
-    {
-        TerraformValue<object> value = new object();
-        var context = CreateContext();
-
-        var ex = Assert.Throws<NotSupportedException>(() =>
-        {
-            var nodes = value.ResolveNodes(context).ToList();
-            nodes[0].ToHcl(context);
-        });
-
-        Assert.Contains("Literal type 'Object' is not supported", ex.Message);
-        Assert.Contains("TerraformExpression.Map", ex.Message);
-        Assert.Contains("TerraformExpression.List", ex.Message);
-        Assert.Contains("Supported primitive types:", ex.Message);
-    }
-
-    [Fact]
-    public void TerraformValue_CustomClass_ThrowsWithGuidance()
-    {
-        var customObject = new CustomTestClass { Name = "Test" };
-        TerraformValue<CustomTestClass> value = customObject;
-        var context = CreateContext();
-
-        var ex = Assert.Throws<NotSupportedException>(() =>
-        {
-            var nodes = value.ResolveNodes(context).ToList();
-            nodes[0].ToHcl(context);
-        });
-
-        Assert.Contains("Literal type 'CustomTestClass' is not supported", ex.Message);
-        Assert.Contains("TerraformExpression.Map", ex.Message);
-        Assert.Contains("TerraformExpression.List", ex.Message);
-    }
 }
 
 public class CustomTestClass

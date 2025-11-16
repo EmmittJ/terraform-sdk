@@ -98,13 +98,7 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
             return;
         }
 
-        _elements[key] = value switch
-        {
-            TerraformValue<T> tfValueT => tfValueT,
-            ITerraformResolvable resolvable => new TerraformValue<T>(resolvable),
-            T t => new TerraformLiteralValue<T>(t),
-            _ => throw new ArgumentException($"Invalid value type for TerraformMap<{typeof(T).Name}>: {value.GetType().Name}", nameof(value)),
-        };
+        _elements[key] = TerraformValue<T>.ConvertFrom(value);
     }
 
     /// <summary>

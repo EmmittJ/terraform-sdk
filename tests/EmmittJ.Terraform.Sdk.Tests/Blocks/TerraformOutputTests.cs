@@ -32,8 +32,10 @@ public class TerraformOutputTests
         var stack = new TerraformStack { Name = "test" };
         var context = new TerraformContext(stack);
 
-        var instance = new TerraformResource("aws_instance", "example");
-        instance["ami"] = "ami-12345678";
+        var instance = new TerraformResource("aws_instance", "example")
+        {
+            ["ami"] = "ami-12345678"
+        };
         stack.Add(instance);
 
         var output = new TerraformOutput("instance_id")

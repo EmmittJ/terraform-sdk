@@ -26,9 +26,11 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "single" };
 
-        var instance = new TerraformResource("aws_instance", "web");
-        instance["ami"] = "ami-12345678";
-        instance["instance_type"] = "t2.micro";
+        var instance = new TerraformResource("aws_instance", "web")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro"
+        };
 
         stack.Add(instance);
 
@@ -42,15 +44,21 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "multiple" };
 
-        var vpc = new TerraformResource("aws_vpc", "main");
-        vpc["cidr_block"] = "10.0.0.0/16";
+        var vpc = new TerraformResource("aws_vpc", "main")
+        {
+            ["cidr_block"] = "10.0.0.0/16"
+        };
 
-        var subnet = new TerraformResource("aws_subnet", "public");
-        subnet["cidr_block"] = "10.0.1.0/24";
+        var subnet = new TerraformResource("aws_subnet", "public")
+        {
+            ["cidr_block"] = "10.0.1.0/24"
+        };
 
-        var instance = new TerraformResource("aws_instance", "web");
-        instance["ami"] = "ami-12345678";
-        instance["instance_type"] = "t2.micro";
+        var instance = new TerraformResource("aws_instance", "web")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro"
+        };
 
         stack.Add(vpc);
         stack.Add(subnet);
@@ -66,19 +74,25 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "references" };
 
-        var vpc = new TerraformResource("aws_vpc", "main");
-        vpc["cidr_block"] = "10.0.0.0/16";
-        vpc["enable_dns_hostnames"] = true;
+        var vpc = new TerraformResource("aws_vpc", "main")
+        {
+            ["cidr_block"] = "10.0.0.0/16",
+            ["enable_dns_hostnames"] = true
+        };
 
-        var subnet = new TerraformResource("aws_subnet", "public");
-        subnet["vpc_id"] = vpc["id"];
-        subnet["cidr_block"] = "10.0.1.0/24";
-        subnet["availability_zone"] = "us-west-2a";
+        var subnet = new TerraformResource("aws_subnet", "public")
+        {
+            ["vpc_id"] = vpc["id"],
+            ["cidr_block"] = "10.0.1.0/24",
+            ["availability_zone"] = "us-west-2a"
+        };
 
-        var instance = new TerraformResource("aws_instance", "web");
-        instance["ami"] = "ami-12345678";
-        instance["instance_type"] = "t2.micro";
-        instance["subnet_id"] = subnet["id"];
+        var instance = new TerraformResource("aws_instance", "web")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro",
+            ["subnet_id"] = subnet["id"]
+        };
 
         stack.Add(vpc);
         stack.Add(subnet);
@@ -108,12 +122,14 @@ public class TerraformStackTests
             Description = "EC2 instance type"
         };
 
-        var instance = new TerraformResource("aws_instance", "web");
-        instance["ami"] = "ami-12345678";
-        instance["instance_type"] = TerraformExpression.Raw("var.instance_type");
-        instance["tags"] = new TerraformMap<object>
+        var instance = new TerraformResource("aws_instance", "web")
         {
-            ["Name"] = "Web Server"
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = TerraformExpression.Raw("var.instance_type"),
+            ["tags"] = new TerraformMap<object>
+            {
+                ["Name"] = "Web Server"
+            }
         };
 
         var instanceId = new TerraformOutput("instance_id")
@@ -145,63 +161,80 @@ public class TerraformStackTests
         var stack = new TerraformStack { Name = "complex" };
 
         // VPC
-        var vpc = new TerraformResource("aws_vpc", "main");
-        vpc["cidr_block"] = "10.0.0.0/16";
-        vpc["enable_dns_hostnames"] = true;
-        vpc["tags"] = new Dictionary<string, string>
+        var vpc = new TerraformResource("aws_vpc", "main")
         {
-            ["Name"] = "Main VPC"
+            ["cidr_block"] = "10.0.0.0/16",
+            ["enable_dns_hostnames"] = true,
+            ["tags"] = new TerraformMap<object>
+            {
+                ["Name"] = "Main VPC"
+            }
         };
 
         // Internet Gateway
-        var igw = new TerraformResource("aws_internet_gateway", "main");
-        igw["vpc_id"] = vpc["id"];
+        var igw = new TerraformResource("aws_internet_gateway", "main")
+        {
+            ["vpc_id"] = vpc["id"]
+        };
 
         // Public Subnet
-        var publicSubnet = new TerraformResource("aws_subnet", "public");
-        publicSubnet["vpc_id"] = vpc["id"];
-        publicSubnet["cidr_block"] = "10.0.1.0/24";
-        publicSubnet["availability_zone"] = "us-west-2a";
-        publicSubnet["map_public_ip_on_launch"] = true;
+        var publicSubnet = new TerraformResource("aws_subnet", "public")
+        {
+            ["vpc_id"] = vpc["id"],
+            ["cidr_block"] = "10.0.1.0/24",
+            ["availability_zone"] = "us-west-2a",
+            ["map_public_ip_on_launch"] = true,
+        };
 
         // Route Table
-        var routeTable = new TerraformResource("aws_route_table", "public");
-        routeTable["vpc_id"] = vpc["id"];
+        var routeTable = new TerraformResource("aws_route_table", "public")
+        {
+            ["vpc_id"] = vpc["id"]
+        };
 
         // Route
-        var route = new TerraformResource("aws_route", "internet_access");
-        route["route_table_id"] = routeTable["id"];
-        route["destination_cidr_block"] = "0.0.0.0/0";
-        route["gateway_id"] = igw["id"];
+        var route = new TerraformResource("aws_route", "internet_access")
+        {
+            ["route_table_id"] = routeTable["id"],
+            ["destination_cidr_block"] = "0.0.0.0/0",
+            ["gateway_id"] = igw["id"]
+        };
 
         // Security Group
-        var securityGroup = new TerraformResource("aws_security_group", "web");
-        securityGroup["name"] = "web-sg";
-        securityGroup["vpc_id"] = vpc["id"];
-        securityGroup["ingress"] = new TerraformList<TerraformMap<object>>(new[]
+        var securityGroup = new TerraformResource("aws_security_group", "web")
         {
-            new TerraformMap<object>
+            ["name"] = "web-sg",
+            ["vpc_id"] = vpc["id"],
+            ["ingress"] = new TerraformList<TerraformMap<object>>(new[]
             {
-                ["from_port"] = 80,
-                ["to_port"] = 80,
-                ["protocol"] = "tcp",
-                ["cidr_blocks"] = new TerraformList<string>(new[] { "0.0.0.0/0" })
-            },
-            new TerraformMap<object>
-            {
-                ["from_port"] = 443,
-                ["to_port"] = 443,
-                ["protocol"] = "tcp",
-                ["cidr_blocks"] = new TerraformList<string>(new[] { "0.0.0.0/0" })
-            }
-        });
+                new TerraformMap<object>
+                {
+                    ["from_port"] = 80,
+                    ["to_port"] = 80,
+                    ["protocol"] = "tcp",
+                    ["cidr_blocks"] = new TerraformList<string>(new[] { "0.0.0.0/0" })
+                },
+                new TerraformMap<object>
+                {
+                    ["from_port"] = 443,
+                    ["to_port"] = 443,
+                    ["protocol"] = "tcp",
+                    ["cidr_blocks"] = new TerraformList<string>(new[] { "0.0.0.0/0" })
+                }
+            })
+        };
 
         // EC2 Instance
-        var instance = new TerraformResource("aws_instance", "web");
-        instance["ami"] = "ami-12345678";
-        instance["instance_type"] = "t2.micro";
-        instance["subnet_id"] = publicSubnet["id"];
-        instance["vpc_security_group_ids"] = new[] { securityGroup["id"] };
+        var instance = new TerraformResource("aws_instance", "web")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro",
+            ["subnet_id"] = publicSubnet["id"],
+            ["vpc_security_group_ids"] = new TerraformList<object>
+            {
+                securityGroup["id"]
+            }
+        };
 
         stack.Add(vpc);
         stack.Add(igw);
@@ -221,11 +254,13 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "meta" };
 
-        var instance = new TerraformResource("aws_instance", "web");
-        instance["ami"] = "ami-12345678";
-        instance["instance_type"] = "t2.micro";
-        instance.Count = 3;
-        instance.Provider = "aws.us_west_2";
+        var instance = new TerraformResource("aws_instance", "web")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro",
+            Count = 3,
+            Provider = "aws.us_west_2"
+        };
 
         stack.Add(instance);
 
@@ -239,14 +274,18 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "provider" };
 
-        var provider = new TerraformProvider("aws");
-        provider["region"] = "us-west-2";
-        provider["access_key"] = TerraformExpression.Raw("var.aws_access_key");
-        provider["secret_key"] = TerraformExpression.Raw("var.aws_secret_key");
+        var provider = new TerraformProvider("aws")
+        {
+            ["region"] = "us-west-2",
+            ["access_key"] = TerraformExpression.Raw("var.aws_access_key"),
+            ["secret_key"] = TerraformExpression.Raw("var.aws_secret_key")
+        };
 
-        var instance = new TerraformResource("aws_instance", "web");
-        instance["ami"] = "ami-12345678";
-        instance["instance_type"] = "t2.micro";
+        var instance = new TerraformResource("aws_instance", "web")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro"
+        };
 
         stack.Add(provider);
         stack.Add(instance);

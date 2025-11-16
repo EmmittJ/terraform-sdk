@@ -26,9 +26,11 @@ public class TerraformResourceTests
     [Fact]
     public Task TerraformResource_WithStringProperty()
     {
-        var resource = new TerraformResource("aws_instance", "example");
-        resource["ami"] = "ami-12345678";
-        resource["instance_type"] = "t2.micro";
+        var resource = new TerraformResource("aws_instance", "example")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro"
+        };
 
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
@@ -39,9 +41,11 @@ public class TerraformResourceTests
     [Fact]
     public Task TerraformResource_WithNumberProperty()
     {
-        var resource = new TerraformResource("aws_instance", "example");
-        resource["count"] = 3;
-        resource["volume_size"] = 100;
+        var resource = new TerraformResource("aws_instance", "example")
+        {
+            ["count"] = 3,
+            ["volume_size"] = 100
+        };
 
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
@@ -52,9 +56,11 @@ public class TerraformResourceTests
     [Fact]
     public Task TerraformResource_WithBooleanProperty()
     {
-        var resource = new TerraformResource("aws_instance", "example");
-        resource["monitoring"] = true;
-        resource["ebs_optimized"] = false;
+        var resource = new TerraformResource("aws_instance", "example")
+        {
+            ["monitoring"] = true,
+            ["ebs_optimized"] = false
+        };
 
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
@@ -65,12 +71,15 @@ public class TerraformResourceTests
     [Fact]
     public Task TerraformResource_WithListProperty()
     {
-        var resource = new TerraformResource("aws_security_group", "example");
         var ingressMap = new TerraformMapExpression();
         ingressMap.Add("from_port", TerraformExpression.Literal(80));
         ingressMap.Add("to_port", TerraformExpression.Literal(80));
         ingressMap.Add("protocol", TerraformExpression.Literal("tcp"));
-        resource["ingress"] = TerraformExpression.List(ingressMap);
+
+        var resource = new TerraformResource("aws_security_group", "example")
+        {
+            ["ingress"] = TerraformExpression.List(ingressMap)
+        };
 
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
@@ -81,12 +90,15 @@ public class TerraformResourceTests
     [Fact]
     public Task TerraformResource_WithMapProperty()
     {
-        var resource = new TerraformResource("aws_instance", "example");
         var tagsMap = new TerraformMapExpression();
         tagsMap.Add("Name", TerraformExpression.Literal("Example Instance"));
         tagsMap.Add("Environment", TerraformExpression.Literal("Development"));
         tagsMap.Add("ManagedBy", TerraformExpression.Literal("Terraform"));
-        resource["tags"] = tagsMap;
+
+        var resource = new TerraformResource("aws_instance", "example")
+        {
+            ["tags"] = tagsMap
+        };
 
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
@@ -97,11 +109,6 @@ public class TerraformResourceTests
     [Fact]
     public Task TerraformResource_WithComplexNestedStructure()
     {
-        var resource = new TerraformResource("aws_launch_template", "example");
-        resource["name"] = "example-template";
-        resource["image_id"] = "ami-12345678";
-        resource["instance_type"] = "t2.micro";
-
         var ebsMap = new TerraformMapExpression();
         ebsMap.Add("volume_size", TerraformExpression.Literal(20));
         ebsMap.Add("volume_type", TerraformExpression.Literal("gp3"));
@@ -111,7 +118,13 @@ public class TerraformResourceTests
         deviceMap.Add("device_name", TerraformExpression.Literal("/dev/sda1"));
         deviceMap.Add("ebs", ebsMap);
 
-        resource["block_device_mappings"] = TerraformExpression.List(deviceMap);
+        var resource = new TerraformResource("aws_launch_template", "example")
+        {
+            ["name"] = "example-template",
+            ["image_id"] = "ami-12345678",
+            ["instance_type"] = "t2.micro",
+            ["block_device_mappings"] = TerraformExpression.List(deviceMap)
+        };
 
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
@@ -149,11 +162,13 @@ public class TerraformResourceTests
     [Fact]
     public Task TerraformResource_WithMetaArguments()
     {
-        var resource = new TerraformResource("aws_instance", "example");
-        resource["ami"] = "ami-12345678";
-        resource["instance_type"] = "t2.micro";
-        resource.Count = 3;
-        resource.DependsOn = new[] { "aws_vpc.main", "aws_subnet.public" };
+        var resource = new TerraformResource("aws_instance", "example")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro",
+            Count = 3,
+            DependsOn = new[] { "aws_vpc.main", "aws_subnet.public" }
+        };
 
         var context = TerraformTestHelpers.CreateContext();
         var hcl = TerraformTestHelpers.RenderBlock(resource, context);
