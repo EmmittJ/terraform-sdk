@@ -46,10 +46,7 @@ public static class TerraformValueResolver
             // Already an expression
             TerraformExpression expr => expr,
 
-            // TerraformValue<T> - use interface instead of reflection
-            ITerraformValue terraformValue => ResolveTerraformValue(terraformValue, context),
-
-            // Generic resolvable to expression
+            // TerraformValue<T> and other resolvables
             ITerraformResolvable resolvable => ResolveResolvableValue(resolvable, context),
 
             // Dictionary types (must check before IEnumerable since Dictionary implements it)
@@ -73,20 +70,24 @@ public static class TerraformValueResolver
         {
             return expr;
         }
-        throw new InvalidOperationException($"Resolvable resolved to {nodes.Count} nodes instead of single expression");
+        throw new InvalidOperationException(
+            $"Resolvable of type '{resolvable.GetType().Name}' resolved to {nodes.Count} nodes instead of a single expression. " +
+            $"This indicates a malformed resolvable that should produce exactly one expression node.");
     }
 
     /// <summary>
     /// Resolves a TerraformValue&lt;T&gt; using its ResolveNodes method via interface.
     /// </summary>
-    private static TerraformExpression ResolveTerraformValue(ITerraformValue terraformValue, ITerraformContext context)
+    private static TerraformExpression ResolveToExpression<T>(TerraformValue<T> terraformValue, ITerraformContext context)
     {
         var nodes = terraformValue.ResolveNodes(context).ToList();
         if (nodes.Count == 1 && nodes[0] is TerraformExpression expr)
         {
             return expr;
         }
-        throw new InvalidOperationException($"TerraformValue resolved to {nodes.Count} nodes instead of single expression");
+        throw new InvalidOperationException(
+            $"TerraformValue<TValue> resolved to {nodes.Count} nodes instead of a single expression. " +
+            $"Expected exactly one expression node from resolution.");
     }
 
     private static TerraformExpression ResolveEnumerable(IEnumerable enumerable, ITerraformContext context)
@@ -104,7 +105,9 @@ public static class TerraformValueResolver
         var map = new TerraformMapExpression();
         foreach (DictionaryEntry entry in dictionary)
         {
-            var key = entry.Key.ToString() ?? throw new InvalidOperationException($"Dictionary key cannot be null");
+            var key = entry.Key.ToString() ?? throw new InvalidOperationException(
+                $"Dictionary key of type '{entry.Key.GetType().Name}' returned null from ToString(). " +
+                $"All dictionary keys must have a valid string representation for HCL map keys.");
             map[key] = ResolveValue(entry.Value, context);
         }
         return map;

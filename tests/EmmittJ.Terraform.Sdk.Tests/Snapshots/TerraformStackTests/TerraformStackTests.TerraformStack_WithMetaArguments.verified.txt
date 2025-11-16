@@ -1,0 +1,7 @@
+﻿resource "aws_instance" "web" {
+  count = 3
+  provider = "aws.us_west_2"
+  
+  ami = "ami-12345678"
+  instance_type = "t2.micro"
+}

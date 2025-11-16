@@ -1,0 +1,4 @@
+﻿resource "aws_instance" "example" {
+  ebs_optimized = false
+  monitoring = true
+}

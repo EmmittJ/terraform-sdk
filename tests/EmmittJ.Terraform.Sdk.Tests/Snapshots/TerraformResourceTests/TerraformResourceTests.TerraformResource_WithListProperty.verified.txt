@@ -1,0 +1,7 @@
+﻿resource "aws_security_group" "example" {
+  ingress = [{
+    from_port = 80
+    protocol = "tcp"
+    to_port = 80
+  }]
+}

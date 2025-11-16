@@ -1,0 +1,6 @@
+﻿{
+  nested = {
+    inner_key = "inner_value"
+  }
+  outer_key = "outer_value"
+}

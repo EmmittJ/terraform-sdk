@@ -1,0 +1,13 @@
+﻿resource "aws_launch_template" "example" {
+  block_device_mappings = [{
+    device_name = "/dev/sda1"
+    ebs = {
+      encrypted = true
+      volume_size = 20
+      volume_type = "gp3"
+    }
+  }]
+  image_id = "ami-12345678"
+  instance_type = "t2.micro"
+  name = "example-template"
+}

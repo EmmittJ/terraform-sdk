@@ -35,6 +35,19 @@ public abstract class TerraformBlock : TerraformMap<object>
     }
 
     /// <summary>
+    /// Indexer for block property access.
+    /// Getter returns a reference to the property for resource/block attribute references.
+    /// Setter stores the value using the base TerraformMap indexer.
+    /// </summary>
+    /// <param name="key">The property name.</param>
+    /// <returns>A reference to the property that resolves to the correct HCL identifier.</returns>
+    public new TerraformValue<object> this[string key]
+    {
+        get => new TerraformReference<object>(this, key);
+        set => base[key] = value;
+    }
+
+    /// <summary>
     /// Called by source-generated property setters to store argument values.
     /// Uses the base TerraformMap&lt;object&gt; indexer to store values in the _elements dictionary.
     /// </summary>
@@ -111,7 +124,9 @@ public abstract class TerraformBlock : TerraformMap<object>
     protected T GetRequiredArgument<T>(string terraformName)
     {
         return GetArgument<T>(terraformName)
-            ?? throw new InvalidOperationException($"Required property '{terraformName}' has not been set.");
+            ?? throw new InvalidOperationException(
+                $"Required property '{terraformName}' has not been set on {GetType().Name}. " +
+                $"Set this property using block[\"{terraformName}\"] = value before calling ToHcl().");
     }
 
     /// <summary>
@@ -142,11 +157,9 @@ public abstract class TerraformBlock : TerraformMap<object>
             // Check if the resolvable inside is a nested block
             else if (terraformValue.Resolvable is TerraformBlock nestedBlock)
             {
-                var blockNode = new TerraformBlockNode(
-                    nestedBlock.BlockType,
-                    nestedBlock.ResolveNodes(context)
-                );
-                nodes.Add(blockNode);
+                // Nested blocks resolve themselves to complete BlockNode(s)
+                // Don't wrap them again - just add the resolved nodes directly
+                nodes.AddRange(nestedBlock.ResolveNodes(context));
             }
             // Otherwise it's an argument value - resolve to expression
             else

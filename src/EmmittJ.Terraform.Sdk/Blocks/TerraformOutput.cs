@@ -123,7 +123,10 @@ public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     {
         if (GetArgument<TerraformValue<object>?>("value") == null)
         {
-            throw new InvalidOperationException($"Output '{Name}' must have a value set before it can be synthesized. Use the Value property to set the output value.");
+            throw new InvalidOperationException(
+                $"Output '{Name}' must have a value set before it can be rendered to HCL. " +
+                $"Set the value using: outputBlock.Value = yourValue; " +
+                $"The value can be a literal, resource reference, or any TerraformExpression.");
         }
 
         var children = base.ResolveNodes(context).ToList();

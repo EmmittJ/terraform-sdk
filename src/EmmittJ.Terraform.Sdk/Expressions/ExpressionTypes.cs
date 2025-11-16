@@ -59,7 +59,11 @@ internal class LiteralExpression<T>(T value) : TerraformExpression
             string s => $"\"{EscapeString(s)}\"",
             int or long or short or byte => _value.ToString()!,
             float or double or decimal => _value.ToString()!,
-            _ => throw new NotSupportedException($"Literal type {typeof(T).Name} is not supported")
+            _ => throw new NotSupportedException(
+                $"Literal type '{typeof(T).Name}' is not supported for HCL generation. " +
+                $"Supported primitive types: string, int, long, short, byte, bool, float, double, decimal. " +
+                $"For complex types, use TerraformExpression.Map() for objects or TerraformExpression.List() for collections. " +
+                $"Value was: {(_value?.ToString() ?? "null")}")
         };
     }
 
@@ -143,7 +147,9 @@ internal class BinaryExpression(TerraformExpression left, BinaryOperator op, Ter
             BinaryOperator.GreaterThanOrEqual => ">=",
             BinaryOperator.And => "&&",
             BinaryOperator.Or => "||",
-            _ => throw new NotSupportedException($"Operator {_operator} not supported")
+            _ => throw new NotSupportedException(
+                $"Operator '{_operator}' is not supported for HCL generation. " +
+                $"Supported operators: +, -, *, /, %, ==, !=, <, <=, >, >=, &&, ||, !")
         };
 
         return $"{_left.ToHcl(context)} {opString} {_right.ToHcl(context)}";

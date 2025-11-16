@@ -75,7 +75,9 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
         var forEachNodes = ForEach.ResolveNodes(context).ToList();
         if (forEachNodes.Count != 1 || forEachNodes[0] is not TerraformExpression forEachExpr)
         {
-            throw new InvalidOperationException("ForEach must resolve to a single expression.");
+            throw new InvalidOperationException(
+                $"Dynamic block '{BlockType}' ForEach expression resolved to {forEachNodes.Count} nodes instead of a single expression. " +
+                $"ForEach must resolve to a single list, set, or map expression.");
         }
 
         // Resolve content to a map expression

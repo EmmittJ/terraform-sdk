@@ -1,0 +1,5 @@
+﻿output "database_password" {
+  description = "Database password"
+  sensitive = true
+  value = "super-secret-password"
+}

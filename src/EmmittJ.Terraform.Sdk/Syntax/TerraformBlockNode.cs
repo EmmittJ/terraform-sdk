@@ -77,7 +77,9 @@ public sealed class TerraformBlockNode : TerraformSyntaxNode
         foreach (var label in Labels)
         {
             sb.Append(' ');
+            sb.Append('"');
             sb.Append(label);
+            sb.Append('"');
         }
         sb.AppendLine(" {");
 

@@ -1,0 +1,1 @@
+﻿Literal type 'DateTime' is not supported for HCL generation. Supported primitive types: string, int, long, short, byte, bool, float, double, decimal. For complex types, use TerraformExpression.Map() for objects or TerraformExpression.List() for collections. Value was: 1/15/2025 10:30:45 AM

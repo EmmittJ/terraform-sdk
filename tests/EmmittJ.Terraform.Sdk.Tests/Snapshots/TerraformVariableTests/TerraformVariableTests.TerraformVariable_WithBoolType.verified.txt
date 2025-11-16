@@ -1,0 +1,5 @@
+﻿variable "enable_monitoring" {
+  default = true
+  description = "Enable CloudWatch monitoring"
+  type = "bool"
+}

@@ -1,0 +1,5 @@
+﻿{
+  count = 3
+  replicas = 2
+  size = 100
+}

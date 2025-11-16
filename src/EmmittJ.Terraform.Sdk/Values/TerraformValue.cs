@@ -51,7 +51,9 @@ public class TerraformValue<T> : ITerraformValue
         {
             throw new InvalidOperationException(
                 $"Cannot resolve {GetType().Name} - no resolvable value was provided. " +
-                "This may indicate a bug in the Terraform SDK.");
+                $"This typically occurs when a TerraformValue is created using the protected parameterless constructor " +
+                $"without initializing the underlying resolvable. " +
+                $"Ensure values are created using implicit conversions or factory methods.");
         }
         return _resolvable.ResolveNodes(context);
     }

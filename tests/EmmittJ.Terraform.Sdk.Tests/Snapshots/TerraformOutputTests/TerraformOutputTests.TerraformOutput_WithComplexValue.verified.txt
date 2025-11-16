@@ -1,0 +1,7 @@
+﻿output "instance_details" {
+  value = {
+    id = "i-1234567890abcdef0"
+    state = "running"
+    type = "t2.micro"
+  }
+}

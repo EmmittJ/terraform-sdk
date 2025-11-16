@@ -1,0 +1,5 @@
+﻿output "vpc_id" {
+  depends_on = ["aws_vpc.main", "aws_subnet.public"]
+  
+  value = "vpc-12345"
+}
