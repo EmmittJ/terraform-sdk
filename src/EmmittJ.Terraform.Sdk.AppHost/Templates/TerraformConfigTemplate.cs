@@ -1,13 +1,16 @@
-using Stubble.Core;
-using Stubble.Core.Builders;
-
 namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 public class TerraformConfigTemplate(TerraformCodeGenOptions options)
 {
-    private static readonly StubbleVisitorRenderer Renderer = new StubbleBuilder().Build();
-    private static readonly Dictionary<string, string> _templateCache = new();
+    private static readonly Dictionary<string, BaseTemplate> _templateCache = new();
     private readonly string _templatesDirectory = options.TemplatesDirectory;
+
+    /// <summary>
+    /// Simple template wrapper for TerraformConfigTemplate's per-provider templates.
+    /// </summary>
+    private class SimpleTemplate(string templatePath) : BaseTemplate(templatePath, usePartials: false)
+    {
+    }
 
     public string Generate(string providerName, string version)
     {
@@ -22,10 +25,10 @@ public class TerraformConfigTemplate(TerraformCodeGenOptions options)
                 $"Expected template at: {templatePath}");
         }
 
-        if (!_templateCache.TryGetValue(templateFileName, out var template))
+        if (!_templateCache.TryGetValue(templateFileName, out var templateInstance))
         {
-            template = File.ReadAllText(templatePath);
-            _templateCache[templateFileName] = template;
+            templateInstance = new SimpleTemplate(templatePath);
+            _templateCache[templateFileName] = templateInstance;
         }
 
         var data = new
@@ -34,6 +37,6 @@ public class TerraformConfigTemplate(TerraformCodeGenOptions options)
             Version = version
         };
 
-        return Renderer.Render(template, data);
+        return templateInstance.Render(data);
     }
 }

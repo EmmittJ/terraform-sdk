@@ -1,51 +1,13 @@
-using Stubble.Core;
-using Stubble.Core.Builders;
 using EmmittJ.Terraform.Sdk.AppHost.Models;
 
 namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 public class ProviderTemplate(TerraformCodeGenOptions options)
+    : BaseTemplate(Path.Combine(options.TemplatesDirectory, "provider.mustache"), usePartials: true)
 {
-    private static StubbleVisitorRenderer? _renderer;
-    private static Dictionary<string, string>? _partials;
-    private static string? _templateCache;
-    private readonly string _templatePath = Path.Combine(options.TemplatesDirectory, "provider.mustache");
-
-    private StubbleVisitorRenderer GetRenderer()
-    {
-        if (_renderer == null)
-        {
-            var templateDirectory = Path.GetDirectoryName(_templatePath) ?? throw new InvalidOperationException("Template path has no directory");
-
-            // Load all partial templates
-            _partials = new Dictionary<string, string>();
-            foreach (var partialFile in Directory.GetFiles(templateDirectory, "_*.mustache"))
-            {
-                var partialName = Path.GetFileNameWithoutExtension(partialFile);
-                _partials[partialName] = File.ReadAllText(partialFile);
-            }
-
-            _renderer = new StubbleBuilder()
-                .Configure(settings =>
-                {
-                    settings.SetPartialTemplateLoader(new Stubble.Core.Loaders.DictionaryLoader(_partials));
-                })
-                .Build();
-        }
-        return _renderer;
-    }
-
-    private string LoadTemplate()
-    {
-        _templateCache ??= File.ReadAllText(_templatePath);
-        return _templateCache;
-    }
 
     public string Generate(ProviderConfig providerConfig)
     {
-        var template = LoadTemplate();
-        var renderer = GetRenderer();
-
         var data = new
         {
             Namespace = providerConfig.Namespace,
@@ -58,7 +20,7 @@ public class ProviderTemplate(TerraformCodeGenOptions options)
             Arguments = providerConfig.Arguments.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList()
         };
 
-        return renderer.Render(template, data);
+        return Render(data);
     }
 
     private static string GetProviderClassName(string namespaceName)

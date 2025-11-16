@@ -1,25 +1,13 @@
-using Stubble.Core;
-using Stubble.Core.Builders;
 using EmmittJ.Terraform.Sdk.AppHost.Models;
 
 namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 public class ProviderFunctionsTemplate(TerraformCodeGenOptions options)
+    : BaseTemplate(Path.Combine(options.TemplatesDirectory, "provider_functions.mustache"), usePartials: false)
 {
-    private static readonly StubbleVisitorRenderer Renderer = new StubbleBuilder().Build();
-    private static string? _templateCache;
-    private readonly string _templatePath = Path.Combine(options.TemplatesDirectory, "provider_functions.mustache");
-
-    private string LoadTemplate()
-    {
-        _templateCache ??= File.ReadAllText(_templatePath);
-        return _templateCache;
-    }
 
     public string Generate(List<ProviderFunctionModel> functions, string providerName, string providerDisplayName, string providerClassName)
     {
-        var template = LoadTemplate();
-
         var data = new
         {
             ProviderName = providerName,
@@ -51,6 +39,6 @@ public class ProviderFunctionsTemplate(TerraformCodeGenOptions options)
             }).ToList()
         };
 
-        return Renderer.Render(template, data);
+        return Render(data);
     }
 }
